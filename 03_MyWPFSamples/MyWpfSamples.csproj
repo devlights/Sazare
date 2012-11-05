@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!-- vim:set ts=4 sw=4 et ws is nowrap ft=xml: -->
+<!--
+
+    サンプルプロジェクト用ビルドファイル
+
+    共通ターゲットファイルは、以下の場所にある。
+        ${.net frameworkインストールフォルダ}の下
+
+    vimから利用する場合は、以下のようにして実行する。
+        :!msbuild /t:Build,Run /p:TargetClass=クラス名
+
+    作成されたEXEファイルは以下のようにして実行する事が出来る。
+        $ MyWpfSamples.exe Gsf.Samples.Wpf.対象クラス名
+
+ -->
+<!-- 利用するツールバージョンは4.0のものを利用するよう設定. -->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>Gsf.Samples.Wpf</RootNamespace>
+    <AssemblyName>MyWpfSamples</AssemblyName>
+    <MinFrameworkVersionRequired>4.0</MinFrameworkVersionRequired>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <OutputPath>bin\</OutputPath>
+    <DebugSymbols>True</DebugSymbols>
+    <DebugType>Full</DebugType>
+    <Optimize>False</Optimize>
+    <CheckForOverflowUnderflow>True</CheckForOverflowUnderflow>
+    <DefineConstants>DEBUG;TRACE;GSF</DefineConstants>
+  </PropertyGroup>
+  
+  <!-- 
+      実行するエントリポイントクラスの指定 
+
+      TargetClassプロパティは、コマンドラインより渡される。
+      指定されていない場合は、既定のダミークラスを使用する。
+  -->
+  <PropertyGroup>
+      <TargetClass>Dummy</TargetClass>
+  </PropertyGroup>
+
+  <!--
+      Runターゲット内にて使用されているプロパティの設定.
+  -->
+  <PropertyGroup>
+      <!-- 実行時の引数 -->
+      <StartArguments>$(TargetClass)</StartArguments>
+      <!-- アプリケーション内での作業ディレクトリ -->
+      <StartWorkingDirectory></StartWorkingDirectory>
+  </PropertyGroup>
+  
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+    <!-- Microsoft.CSharp.dllは動的オブジェクトを利用する際に必要となる。 -->
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup>
+  
+  <ItemGroup>
+      <Compile Include="MyWpfSamples.cs" /> 
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="Xaml/*.xaml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.Targets" />
+</Project>
