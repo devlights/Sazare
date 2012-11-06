@@ -1,371 +1,372 @@
-﻿// vim:set ts=4 sw=4 et ws is nowrap ft=cs:
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.Specialized;
-using System.ComponentModel;
-using System.Data;
-using System.Data.Common;
-using System.Data.Linq;
-using System.Drawing;
-using System.Diagnostics;
-using System.Globalization;
-using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Messaging;
-using System.Security;
-using System.Text;
-using System.Threading;
-using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Linq;
+﻿// vim:set ts=2 sw=2 et ws is nowrap ft=cs:
 
 namespace Gsf.Samples.WinForms
 {
-    #region 共通インターフェース定義
-    interface IExecutable
-    {
-        void Execute();
-    }
-    #endregion
+  using System;
+  using System.Collections;
+  using System.Collections.Generic;
+  using System.Collections.Specialized;
+  using System.ComponentModel;
+  using System.Data;
+  using System.Data.Common;
+  using System.Data.Linq;
+  using System.Drawing;
+  using System.Diagnostics;
+  using System.Globalization;
+  using System.Linq;
+  using System.Net;
+  using System.Net.NetworkInformation;
+  using System.Reflection;
+  using System.Reflection.Emit;
+  using System.Runtime.InteropServices;
+  using System.Runtime.Remoting;
+  using System.Runtime.Remoting.Messaging;
+  using System.Security;
+  using System.Text;
+  using System.Threading;
+  using System.Windows.Forms;
+  using System.Xml;
+  using System.Xml.Linq;
 
-    #region ダミークラス
-    class Dummy : Form, IExecutable
-    {
-        
-        public Dummy()
-        {
-            Text = "THIS IS DUMMY FORM.";
-        }
-        
-        public void Execute()
-        {
-            Application.EnableVisualStyles();
-            Application.Run(new Dummy());
-        }
-    }
-    #endregion
-    
-    #region 共通拡張クラス
-    public static class StringExtensions
-    {
+  #region 共通インターフェース定義
+  interface IExecutable
+  {
+      void Execute();
+  }
+  #endregion
 
-        public static int ToInt(this string self)
-        {
-            return int.Parse(self);
-        }
-    }
-    #endregion
-    
-    #region 各サンプルの起動を担当するクラス.
-    public class SampleLauncher
-    {
+  #region ダミークラス
+  class Dummy : Form, IExecutable
+  {
+      
+      public Dummy()
+      {
+          Text = "THIS IS DUMMY FORM.";
+      }
+      
+      public void Execute()
+      {
+          Application.EnableVisualStyles();
+          Application.Run(new Dummy());
+      }
+  }
+  #endregion
+  
+  #region 共通拡張クラス
+  public static class StringExtensions
+  {
 
-        static void Main(string[] args)
-        {
-            string className = typeof(Dummy).Name;
-            if (args.Length != 0)
-            {
-                className = args[0];
-            }
+      public static int ToInt(this string self)
+      {
+          return int.Parse(self);
+      }
+  }
+  #endregion
+  
+  #region 各サンプルの起動を担当するクラス.
+  public class SampleLauncher
+  {
 
-            if (!string.IsNullOrEmpty(className))
-            {
-                className = string.Format("{0}.{1}", typeof(SampleLauncher).Namespace, className);
-            }
+      static void Main(string[] args)
+      {
+          string className = typeof(Dummy).Name;
+          if (args.Length != 0)
+          {
+              className = args[0];
+          }
 
-            try
-            {
-                Assembly assembly = Assembly.GetExecutingAssembly();
-                ObjectHandle handle = Activator.CreateInstance(assembly.FullName, className);
-                if (handle != null)
-                {
-                    object clazz = handle.Unwrap();
+          if (!string.IsNullOrEmpty(className))
+          {
+              className = string.Format("{0}.{1}", typeof(SampleLauncher).Namespace, className);
+          }
 
-                    if (clazz != null)
-                    {
-                        (clazz as IExecutable).Execute();
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-            }
-        }
-    }
-    #endregion
-    
-    #region "進行状況ダイアログのサンプル"
-    class ProgressDialogSample : IExecutable
-    {
-        private class Dialog : Form
-        {
-            public Dialog()
-            {
-                InitializeComponent();
-            }
+          try
+          {
+              Assembly assembly = Assembly.GetExecutingAssembly();
+              ObjectHandle handle = Activator.CreateInstance(assembly.FullName, className);
+              if (handle != null)
+              {
+                  object clazz = handle.Unwrap();
 
-            protected void InitializeComponent()
-            {
-                SuspendLayout();
+                  if (clazz != null)
+                  {
+                      (clazz as IExecutable).Execute();
+                  }
+              }
+          }
+          catch (Exception ex)
+          {
+              Console.WriteLine(ex.Message);
+          }
+      }
+  }
+  #endregion
+  
+  #region "進行状況ダイアログのサンプル"
+  class ProgressDialogSample : IExecutable
+  {
+      private class Dialog : Form
+      {
+          public Dialog()
+          {
+              InitializeComponent();
+          }
 
-                Text = "処理中・・・・・";
-                Size = new Size(100, 100);
-                TopMost = true;
-                ControlBox = false;
-                MaximizeBox = false;
-                MinimizeBox = false;
-                ShowIcon = false;
-                ShowInTaskbar = false;
+          protected void InitializeComponent()
+          {
+              SuspendLayout();
 
-                ResumeLayout();
-            }
-        }
+              Text = "処理中・・・・・";
+              Size = new Size(100, 100);
+              TopMost = true;
+              ControlBox = false;
+              MaximizeBox = false;
+              MinimizeBox = false;
+              ShowIcon = false;
+              ShowInTaskbar = false;
 
-        private class ThreadInfo
-        {
-            public Form Owner
-            {
-                get;
-                set;
-            }
+              ResumeLayout();
+          }
+      }
 
-            public Form Dialog
-            {
-                get;
-                set;
-            }
+      private class ThreadInfo
+      {
+          public Form Owner
+          {
+              get;
+              set;
+          }
 
-            public ManualResetEvent WaitHandle
-            {
-                get;
-                set;
-            }
-        }
+          public Form Dialog
+          {
+              get;
+              set;
+          }
 
-        private class ParentForm : Form
-        {
-            public ParentForm()
-            {
-                InitializeComponent();
-            }
+          public ManualResetEvent WaitHandle
+          {
+              get;
+              set;
+          }
+      }
 
-            protected void InitializeComponent()
-            {
-                SuspendLayout();
+      private class ParentForm : Form
+      {
+          public ParentForm()
+          {
+              InitializeComponent();
+          }
 
-                Text = "親フォーム";
-                Size = new Size(500, 500);
+          protected void InitializeComponent()
+          {
+              SuspendLayout();
 
-                Button btnShowDialog = new Button();
-                btnShowDialog.Text = "ダイアログ表示";
-                btnShowDialog.Width = 100;
-                btnShowDialog.Dock = DockStyle.Fill;
-                btnShowDialog.Click += (s, e) =>
-                {
-                    Enabled = false;
+              Text = "親フォーム";
+              Size = new Size(500, 500);
 
-                    ThreadInfo info = new ThreadInfo
-                    {
-                        Owner = this,
-                        WaitHandle = new ManualResetEvent(false)
-                    };
-                    
-                    Thread thread = new Thread((val) =>
-                    {
-                        ThreadInfo tinfo = val as ThreadInfo;
-                        Form owner = tinfo.Owner;
+              Button btnShowDialog = new Button();
+              btnShowDialog.Text = "ダイアログ表示";
+              btnShowDialog.Width = 100;
+              btnShowDialog.Dock = DockStyle.Fill;
+              btnShowDialog.Click += (s, e) =>
+              {
+                  Enabled = false;
 
-                        Dialog dialog = new Dialog();
+                  ThreadInfo info = new ThreadInfo
+                  {
+                      Owner = this,
+                      WaitHandle = new ManualResetEvent(false)
+                  };
+                  
+                  Thread thread = new Thread((val) =>
+                  {
+                      ThreadInfo tinfo = val as ThreadInfo;
+                      Form owner = tinfo.Owner;
 
-                        dialog.StartPosition = FormStartPosition.Manual;
-                        dialog.Left = owner.Left + (owner.Width - dialog.Width) / 2;
-                        dialog.Top = owner.Top + (owner.Height - dialog.Height) / 2;
+                      Dialog dialog = new Dialog();
 
-                        dialog.Activated += (s2, e2) =>
-                        {
-                            tinfo.WaitHandle.Set();
-                        };
+                      dialog.StartPosition = FormStartPosition.Manual;
+                      dialog.Left = owner.Left + (owner.Width - dialog.Width) / 2;
+                      dialog.Top = owner.Top + (owner.Height - dialog.Height) / 2;
 
-                        tinfo.Dialog = dialog;
+                      dialog.Activated += (s2, e2) =>
+                      {
+                          tinfo.WaitHandle.Set();
+                      };
 
-                        dialog.ShowDialog();
-                    });
+                      tinfo.Dialog = dialog;
 
-                    thread.IsBackground = true;
-                    thread.Start(info);
+                      dialog.ShowDialog();
+                  });
 
-                    info.WaitHandle.WaitOne();
+                  thread.IsBackground = true;
+                  thread.Start(info);
 
-                    for (int i = 0; i < 10; i++)
-                    {
-                        string caption = string.Format("{0}%完了", ((i + 1) * 10));
-                        info.Dialog.Invoke(new MethodInvoker(() =>
-                        {
-                            info.Dialog.Text = caption;
-                        }));
+                  info.WaitHandle.WaitOne();
 
-                        Thread.Sleep(1000);
-                    }
+                  for (int i = 0; i < 10; i++)
+                  {
+                      string caption = string.Format("{0}%完了", ((i + 1) * 10));
+                      info.Dialog.Invoke(new MethodInvoker(() =>
+                      {
+                          info.Dialog.Text = caption;
+                      }));
 
-                    info.Dialog.Invoke(new MethodInvoker(info.Dialog.Close));
+                      Thread.Sleep(1000);
+                  }
 
-                    Enabled = true;
-                    Activate();
+                  info.Dialog.Invoke(new MethodInvoker(info.Dialog.Close));
 
-                };
+                  Enabled = true;
+                  Activate();
 
-                Controls.Add(btnShowDialog);
+              };
 
-                ResumeLayout();
-            }
-        }
+              Controls.Add(btnShowDialog);
 
-        [STAThread]
-        public void Execute() {
-        	// アプリケーション起動
-            Application.Run(new ParentForm());
-        }
-    }
-    #endregion
-    
-    #region MDISamples-01
-    public class MDISamples01 : IExecutable
-    {
+              ResumeLayout();
+          }
+      }
 
-        class ParentForm : Form
-        {
-            public ParentForm()
-                : base()
-                {
-                InitializeControl();
-                InitializeEvent();
-            }
+      [STAThread]
+      public void Execute() {
+      	// アプリケーション起動
+          Application.Run(new ParentForm());
+      }
+  }
+  #endregion
+  
+  #region MDISamples-01
+  public class MDISamples01 : IExecutable
+  {
 
-            protected void InitializeControl()
-            {
-                SuspendLayout();
+      class ParentForm : Form
+      {
+          public ParentForm()
+              : base()
+              {
+              InitializeControl();
+              InitializeEvent();
+          }
 
-                Text = "Parent Form.";
-                IsMdiContainer = true;
-                Size = new Size(800, 600);
-                StartPosition = FormStartPosition.CenterScreen;
+          protected void InitializeControl()
+          {
+              SuspendLayout();
 
-                ResumeLayout();
-            }
+              Text = "Parent Form.";
+              IsMdiContainer = true;
+              Size = new Size(800, 600);
+              StartPosition = FormStartPosition.CenterScreen;
 
-            protected void InitializeEvent()
-            {
-                Load += (s, e) =>
-                {
-                    if (MdiChildren == null)
-                    {
-                        return;
-                    }
+              ResumeLayout();
+          }
 
-                    foreach (Form child in MdiChildren)
-                    {
-                        child.Show();
-                    }
+          protected void InitializeEvent()
+          {
+              Load += (s, e) =>
+              {
+                  if (MdiChildren == null)
+                  {
+                      return;
+                  }
 
-                    LayoutMdi(MdiLayout.TileHorizontal);
-                };
-            }
-        }
+                  foreach (Form child in MdiChildren)
+                  {
+                      child.Show();
+                  }
 
-        class ChildForm : Form
-        {
-            public ChildForm()
-                : base()
-                {
-                InitializeControl();
-            }
+                  LayoutMdi(MdiLayout.TileHorizontal);
+              };
+          }
+      }
 
-            protected void InitializeControl()
-            {
-                SuspendLayout();
+      class ChildForm : Form
+      {
+          public ChildForm()
+              : base()
+              {
+              InitializeControl();
+          }
 
-                Size = new Size(200, 100);
+          protected void InitializeControl()
+          {
+              SuspendLayout();
 
-                ResumeLayout();
-            }
-        }
+              Size = new Size(200, 100);
 
-        [STAThread]
-        public void Execute()
-        {
-            ParentForm parent = new ParentForm();
+              ResumeLayout();
+          }
+      }
 
-            for (int i = 0; i < 10; i++)
-            {
-                ChildForm child = new ChildForm
-                {
-                    Text = string.Format("Child-{0}", i.ToString()),
-                    MdiParent = parent
-                };
-            }
+      [STAThread]
+      public void Execute()
+      {
+          ParentForm parent = new ParentForm();
 
-            Application.Run(parent);
-        }
-    }
-    #endregion
-    
-    #region SetWindowsPosSamples
-    public class SetWindowPosSamples : IExecutable
-    {
+          for (int i = 0; i < 10; i++)
+          {
+              ChildForm child = new ChildForm
+              {
+                  Text = string.Format("Child-{0}", i.ToString()),
+                  MdiParent = parent
+              };
+          }
 
-        static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
+          Application.Run(parent);
+      }
+  }
+  #endregion
+  
+  #region SetWindowsPosSamples
+  public class SetWindowPosSamples : IExecutable
+  {
 
-        const uint SWP_NOSIZE = 0x0001;
-        const uint SWP_NOMOVE = 0x0002;
+      static readonly IntPtr HWND_TOPMOST = new IntPtr(-1);
 
-        const uint TOPMOST_FLAGS = (SWP_NOSIZE | SWP_NOMOVE);
+      const uint SWP_NOSIZE = 0x0001;
+      const uint SWP_NOMOVE = 0x0002;
 
-        [DllImport("user32.dll")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint flags);
+      const uint TOPMOST_FLAGS = (SWP_NOSIZE | SWP_NOMOVE);
 
-        public class SampleForm : Form
-        {
-            public SampleForm()
-            {
-                InitializeComponent();
-                InitializeEvents();
-            }
+      [DllImport("user32.dll")]
+      [return: MarshalAs(UnmanagedType.Bool)]
+      public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int x, int y, int cx, int cy, uint flags);
 
-            void InitializeComponent()
-            {
-                SuspendLayout();
+      public class SampleForm : Form
+      {
+          public SampleForm()
+          {
+              InitializeComponent();
+              InitializeEvents();
+          }
 
-                Size = new Size(300, 100);
-                Text = "SetWindowPos Sample";
+          void InitializeComponent()
+          {
+              SuspendLayout();
 
-                ResumeLayout();
-            }
+              Size = new Size(300, 100);
+              Text = "SetWindowPos Sample";
 
-            void InitializeEvents()
-            {
-                Load += (s, e) => 
-                    {
-                        //
-                        // SetWindowPos関数を用いることで、常に最前面にアプリケーションが表示される。
-                        //
-                        SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
-                    };
-            }
-        }
+              ResumeLayout();
+          }
 
-        public void Execute()
-        {
-            Application.EnableVisualStyles();
-            Application.Run(new SampleForm());
-        }
-    }
-    #endregion
+          void InitializeEvents()
+          {
+              Load += (s, e) => 
+                  {
+                      //
+                      // SetWindowPos関数を用いることで、常に最前面にアプリケーションが表示される。
+                      //
+                      SetWindowPos(Handle, HWND_TOPMOST, 0, 0, 0, 0, TOPMOST_FLAGS);
+                  };
+          }
+      }
+
+      public void Execute()
+      {
+          Application.EnableVisualStyles();
+          Application.Run(new SampleForm());
+      }
+  }
+  #endregion
 }

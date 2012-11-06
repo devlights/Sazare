@@ -1,43 +1,4 @@
-﻿// vim:set ts=4 sw=4 et ws is nowrap ft=cs:
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Collections.Specialized;
-using System.Collections.Concurrent;
-using System.Data;
-using System.Data.Common;
-using System.Data.Linq;
-using System.Diagnostics;
-using System.Diagnostics.Contracts;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Globalization;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.NetworkInformation;
-using System.Reflection;
-using System.Reflection.Emit;
-using System.Runtime.CompilerServices;
-using System.Runtime.ConstrainedExecution;
-using System.Runtime.InteropServices;
-using System.Runtime.Remoting;
-using System.Runtime.Remoting.Messaging;
-using System.Runtime.Serialization;
-using System.Runtime.Serialization.Formatters.Binary;
-using System.Security;
-using System.ServiceModel;
-using System.ServiceModel.Syndication;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Markup;
-using System.Xml;
-using System.Xml.Linq;
+﻿// vim:set ts=2 sw=2 et ws is nowrap ft=cs:
 
 //
 // WPFをXAML付きで勉強する際に利用するサンプル.
@@ -45,6 +6,46 @@ using System.Xml.Linq;
 //
 namespace Gsf.Samples.Wpf
 {
+  using System;
+  using System.Collections;
+  using System.Collections.Generic;
+  using System.Collections.ObjectModel;
+  using System.Collections.Specialized;
+  using System.Collections.Concurrent;
+  using System.Data;
+  using System.Data.Common;
+  using System.Data.Linq;
+  using System.Diagnostics;
+  using System.Diagnostics.Contracts;
+  using System.Drawing;
+  using System.Drawing.Imaging;
+  using System.Globalization;
+  using System.IO;
+  using System.Linq;
+  using System.Net;
+  using System.Net.NetworkInformation;
+  using System.Reflection;
+  using System.Reflection.Emit;
+  using System.Runtime.CompilerServices;
+  using System.Runtime.ConstrainedExecution;
+  using System.Runtime.InteropServices;
+  using System.Runtime.Remoting;
+  using System.Runtime.Remoting.Messaging;
+  using System.Runtime.Serialization;
+  using System.Runtime.Serialization.Formatters.Binary;
+  using System.Security;
+  using System.ServiceModel;
+  using System.ServiceModel.Syndication;
+  using System.Text;
+  using System.Text.RegularExpressions;
+  using System.Threading;
+  using System.Threading.Tasks;
+  using System.Windows;
+  using System.Windows.Controls;
+  using System.Windows.Markup;
+  using System.Xml;
+  using System.Xml.Linq;
+
   #region CommonInterfaces
   internal interface IExecutable
   {
