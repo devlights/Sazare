@@ -15681,6 +15681,9 @@ namespace Gsf.Samples
   #endregion
   
   #region MulticoreJITSamples-01
+  /// <summary>
+  /// マルチコアJITのサンプルです.
+  /// </summary>
   public class MulticoreJITSamples01 : IExecutable
   {
     public void Execute()
