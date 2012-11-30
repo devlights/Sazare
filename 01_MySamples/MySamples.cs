@@ -8437,6 +8437,45 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-59
+  public class LinqSamples59 : IExecutable
+  {
+    public void Execute()
+    {
+      foreach (var chunk in Enumerable.Range(1, 10).Chunk(2))
+      {
+        Console.WriteLine("Chunk:");
+        foreach (var item in chunk)
+        {
+          Console.WriteLine("\t--> {0}", item);
+        }
+      }
+      
+      foreach (var chunk in Enumerable.Range(1, 10000).Chunk(1000).Select((x, i) => new { Index = i, Count = x.Count() }))
+      {
+        Console.WriteLine(chunk);
+      }
+    }
+  }
+  
+  public static class LinqSamples59_Extensions
+  {
+    public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> self, int chunkSize)
+    {
+      if (chunkSize <= 0)
+      {
+        throw new ArgumentException("Chunk size must be greater than 0.", "chunkSize");
+      }
+      
+      while (self.Any())
+      {
+        yield return self.Take(chunkSize);
+        self = self.Skip(chunkSize);
+      }
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
