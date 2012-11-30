@@ -8438,10 +8438,16 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-59
+  /// <summary>
+  /// Linqにて、シーケンスをチャンクに分割して処理するサンプルです.
+  /// </summary>
   public class LinqSamples59 : IExecutable
   {
     public void Execute()
     {
+      //
+      // 要素が10のシーケンスを2つずつのチャンクに分割.
+      //
       foreach (var chunk in Enumerable.Range(1, 10).Chunk(2))
       {
         Console.WriteLine("Chunk:");
@@ -8451,6 +8457,10 @@ namespace Gsf.Samples
         }
       }
       
+      //
+      // 要素が10000のシーケンスを1000ずつのチャンクに分割し
+      // それぞれのチャンクごとにインデックスを付与.
+      //
       foreach (var chunk in Enumerable.Range(1, 10000).Chunk(1000).Select((x, i) => new { Index = i, Count = x.Count() }))
       {
         Console.WriteLine(chunk);
@@ -8460,6 +8470,9 @@ namespace Gsf.Samples
   
   public static class LinqSamples59_Extensions
   {
+    /// <summary>
+    /// シーケンスを指定されたサイズのチャンクに分割します.
+    /// </summary>
     public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> self, int chunkSize)
     {
       if (chunkSize <= 0)
