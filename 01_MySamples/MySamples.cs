@@ -8505,7 +8505,7 @@ namespace Gsf.Samples
       //   名前の通り、現在の要素に指定された要素を追加する.
       //   追加される位置は、その要素の末尾となる
       //
-      var root = BuildSampleXml();
+      var root     = BuildSampleXml();
       var newElem1 = new XElement("NewElement", "hehe");
       root.Add(newElem1);
       
