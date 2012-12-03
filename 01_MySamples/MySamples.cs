@@ -8489,6 +8489,93 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-60
+  public class LinqSamples60 : IExecutable
+  {
+    public void Execute()
+    {
+      // Add(object)
+      var root = BuildSampleXml();
+      var newElem1 = new XElement("NewElement", "hehe");
+      root.Add(newElem1);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      // AddAfterSelf(object)
+      root = BuildSampleXml();
+      var newElem4 = new XElement("AfterElement", "AfterSelf");
+      
+      try
+      {
+        root.AddAfterSelf(newElem4);
+        Console.WriteLine(root);
+      }
+      catch (InvalidOperationException invalidEx)
+      {
+        Console.WriteLine("[ERROR] {0}", invalidEx.Message);
+      }
+      finally
+      {
+        Console.WriteLine("=====================================");
+      }
+      
+      root.Elements().First().AddAfterSelf(newElem4);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      // AddBeforeSelf(object)
+      root = BuildSampleXml();
+      var newElem5 = new XElement("BeforeElement", "BeforeSelf");
+      
+      try
+      {
+        root.AddBeforeSelf(newElem5);
+        Console.WriteLine(root);
+      }
+      catch (InvalidOperationException invalidEx)
+      {
+        Console.WriteLine("[ERROR] {0}", invalidEx.Message);
+      }
+      finally
+      {
+        Console.WriteLine("=====================================");
+      }
+      
+      root.Elements().First().AddBeforeSelf(newElem5);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      // AddFirst(object)
+      root = BuildSampleXml();
+      var newElem6 = new XElement("FirstElement", "First");
+      
+      root.AddFirst(newElem6);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      root = BuildSampleXml();
+      root.Elements().First().AddFirst(newElem6);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return new XElement("Root",
+                   new XElement("Child", 
+                     new XAttribute("Id", 100),
+                     new XElement("Value", "hoge")
+                   )
+                 );
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
