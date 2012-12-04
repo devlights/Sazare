@@ -8609,11 +8609,22 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-61
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 要素更新系メソッドのサンプルです.
+  /// </remarks>
   public class LinqSamples61 : IExecutable
   {
     public void Execute()
     {
-      // Value { get; set; }
+      //
+      // Value { get; set; } プロパティ
+      //   対象の要素の値を取得・設定する.
+      //   型がstringとなっているので、文字列に変換して設定する必要がある。
+      //   nullを指定すると例外が発生する。(ArgumentNullException)
+      //
       var root = BuildSampleXml();
       var elem = root.Descendants("Value").First();
       
@@ -8638,7 +8649,13 @@ namespace Gsf.Samples
       
       Console.WriteLine("=====================================");
       
+      //
       // SetValue(object)
+      //   要素の値を設定する。
+      //   型がobjectとなっているので、文字列以外の場合でもそのまま設定可能。
+      //   内部で変換される.
+      //   nullを指定すると例外が発生する。(ArgumentNullException)
+      //
       root = BuildSampleXml();
       elem = root.Descendants("Value").First();
       
@@ -8663,18 +8680,28 @@ namespace Gsf.Samples
       
       Console.WriteLine("=====================================");
       
+      //
       // SetElementValue(XName, object)
+      //   子要素の値を設定する。
+      //     要素が存在しない場合： 新規追加
+      //     要素が存在する場合： 更新
+      //     nullを設定した場合： 削除
+      //   となる。自分自身の値を設定するわけでは無いことに注意。
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       
+      // 要素が存在する場合: 更新
       elem.SetElementValue("Value", "updated");
       Console.WriteLine(root);
       
+      // nullを指定した場合： 削除
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       elem.SetElementValue("Value", null);
       Console.WriteLine(root);
       
+      // 要素が存在しない場合: 新規追加
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       elem.SetElementValue("Value2", "inserted");
