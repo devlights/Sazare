@@ -8608,6 +8608,93 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-61
+  public class LinqSamples61 : IExecutable
+  {
+    public void Execute()
+    {
+      // Value { get; set; }
+      var root = BuildSampleXml();
+      var elem = root.Descendants("Value").First();
+      
+      Console.WriteLine("[before] {0}", elem.Value);
+      elem.Value = "updated";
+      Console.WriteLine("[after] {0}", elem.Value);
+      Console.WriteLine(root);
+      
+      try
+      {
+        elem.Value = null;
+      }
+      catch (ArgumentNullException argNullEx)
+      {
+        Console.WriteLine(argNullEx.Message);
+      }
+      
+      // Valueプロパティはstringを受け付けるので、boolなどの場合は
+      // 明示的に文字列にして設定する必要がある.
+      elem.Value = bool.TrueString.ToLower();
+      Console.WriteLine(root);
+      
+      Console.WriteLine("=====================================");
+      
+      // SetValue(object)
+      root = BuildSampleXml();
+      elem = root.Descendants("Value").First();
+      
+      Console.WriteLine("[before] {0}", elem.Value);
+      elem.SetValue("updated");
+      Console.WriteLine("[after] {0}", elem.Value);
+      Console.WriteLine(root);
+      
+      try
+      {
+        elem.SetValue(null);
+      }
+      catch (ArgumentNullException argNullEx)
+      {
+        Console.WriteLine(argNullEx.Message);
+      }
+      
+      // SetValueメソッドは、object型を受け付けるので
+      // bool型などの場合でもそのまま設定できる。内部で変換される.
+      elem.SetValue(true);
+      Console.WriteLine(root);
+      
+      Console.WriteLine("=====================================");
+      
+      // SetElementValue(XName, object)
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.SetElementValue("Value", "updated");
+      Console.WriteLine(root);
+      
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      elem.SetElementValue("Value", null);
+      Console.WriteLine(root);
+      
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      elem.SetElementValue("Value2", "inserted");
+      Console.WriteLine(root);
+      
+      Console.WriteLine("=====================================");
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return new XElement("Root",
+                   new XElement("Child", 
+                     new XAttribute("Id", 100),
+                     new XElement("Value", "hoge")
+                   )
+                 );
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
