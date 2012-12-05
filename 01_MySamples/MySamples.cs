@@ -8723,11 +8723,20 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-62
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 要素削除系メソッドのサンプルです.
+  /// </remarks>
   public class LinqSamples62 : IExecutable
   {
     public void Execute()
     {
+      //
       // Remove()
+      //   現在の要素をXMLツリーより削除する.
+      //
       var root = BuildSampleXml();
       var elem = root.Descendants("Value").First();
       
@@ -8736,7 +8745,11 @@ namespace Gsf.Samples
       Console.WriteLine(root);
       Console.WriteLine("=====================================");
       
+      //
       // RemoveAll()
+      //   現在の要素から子ノード及び属性を削除する.
+      //   属性まで削除される点に注意。
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       
@@ -8745,7 +8758,11 @@ namespace Gsf.Samples
       Console.WriteLine(root);
       Console.WriteLine("=====================================");
       
+      //
       // RemoveNodes()
+      //   現在の要素から子ノードを削除する
+      //   RemoveAllメソッドと違い、属性は削除されない
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       
@@ -8754,7 +8771,11 @@ namespace Gsf.Samples
       Console.WriteLine(root);
       Console.WriteLine("=====================================");
       
+      //
       // SetElementValue(XName, object)
+      //   本来は、子要素の値を設定するためのメソッドであるが
+      //   要素の値にnullを設定することで削除することが出来る
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       
