@@ -3,16 +3,5 @@
 <Project>
 <Files>
 	<File RelativePath="01_MySamples\MySamples.cs"/>
-	<File RelativePath="04_MyJSSamples\js\mysamples.js"/>
-	<File RelativePath="02_MyWinFormsSamples\MyWinFormsSamples.cs"/>
-	<File RelativePath="03_MyWPFSamples\MyWpfSamples.cs"/>
-	<Filter Name="Xaml">
-		<File RelativePath="03_MyWPFSamples\Xaml\HelloWpf.xaml"/>
-		<File RelativePath="03_MyWPFSamples\Xaml\InterfaceTest.xaml"/>
-		<File RelativePath="03_MyWPFSamples\Xaml\ShowDockPanel.xaml"/>
-		<File RelativePath="03_MyWPFSamples\Xaml\ShowMessageBox.xaml"/>
-		<File RelativePath="03_MyWPFSamples\Xaml\ShowStackPanel.xaml"/>
-		<File RelativePath="03_MyWPFSamples\Xaml\ShowTextBox.xaml"/>
-	</Filter>
 </Files>
 </Project>
