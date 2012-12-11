@@ -8792,6 +8792,79 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-63
+  public class LinqSamples63 : IExecutable
+  {
+    public void Execute()
+    {
+      // ReplaceWith(object)
+      var root = BuildSampleXml();
+      var elem = root.Descendants("Value").First();
+      
+      elem.ReplaceWith(new XElement("Value2", "replaced"));
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      // ReplaceNodes(object)
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.Add
+        (
+          from   x in Enumerable.Range(1, 5)
+          select new XElement("Value", x)
+        );
+      
+      elem.ReplaceNodes
+        (
+          from   e in elem.Elements()
+          where  ToInt(e.Value) >= 3
+          select e
+        );
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      // ReplaceAll(object)
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.Add
+        (
+          from   x in Enumerable.Range(1, 5)
+          select new XElement("Value", x)
+        );
+      
+      elem.ReplaceAll
+        (
+          from   e in elem.Elements()
+          where  ToInt(e.Value) >= 3
+          select e
+        );
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+    }
+    
+    int ToInt(string value)
+    {
+      int tmp;
+      if (!int.TryParse(value, out tmp))
+      {
+        return -1;
+      }
+      
+      return tmp;
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return XElement.Parse("<Root><Child Id=\"100\"><Value>hoge</Value></Child></Root>");
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
