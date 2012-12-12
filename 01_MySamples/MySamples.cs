@@ -9119,6 +9119,47 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-67
+  public class LinqSamples67 : IExecutable
+  {
+    public void Execute()
+    {
+      // XAttribute.Remove
+      var root = BuildSampleXml();
+      var elem = root.Elements("Child").First();
+      
+      var attr = elem.Attribute("Id");
+      attr.Remove();
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      // SetAttributeValue
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.SetAttributeValue("Id", null);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      // RemoveAttributes
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.RemoveAttributes();
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return XElement.Parse("<Root><Child Id=\"100\" Id2=\"200\"><Value Id=\"300\">hoge</Value></Child></Root>");
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
