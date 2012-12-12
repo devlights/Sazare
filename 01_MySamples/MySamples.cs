@@ -9054,6 +9054,38 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-66
+  public class LinqSamples66 : IExecutable
+  {
+    public void Execute()
+    {
+      // XAttribute.Value
+      var root = BuildSampleXml();
+      var elem = root.Elements("Child").First();
+      
+      var attr = elem.Attribute("Id");
+      attr.Value = 500.ToString();
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      // SetAttributeValue
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.SetAttributeValue("Id", 500);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return XElement.Parse("<Root><Child Id=\"100\" Id2=\"200\"><Value Id=\"300\">hoge</Value></Child></Root>");
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
