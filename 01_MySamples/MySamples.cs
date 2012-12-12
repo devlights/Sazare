@@ -9182,11 +9182,22 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-68
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 属性置換系メソッドのサンプルです.
+  /// </remarks>
   public class LinqSamples68 : IExecutable
   {
     public void Execute()
     {
+      // 
       // ReplaceAttributes
+      //   現在の要素に付属している属性を一括で置換する。
+      //   ノードの置換に利用するReplaceNodesメソッドと同じ要領で
+      //   利用できる。（クエリを利用しながら、置換用のシーケンスを作成する)
+      //   
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
       
