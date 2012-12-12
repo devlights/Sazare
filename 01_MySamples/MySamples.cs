@@ -9055,11 +9055,26 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-66
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 属性更新系メソッドのサンプルです.
+  /// </remarks>
   public class LinqSamples66 : IExecutable
   {
     public void Execute()
     {
+      //
       // XAttribute.Value
+      //   XElement.Attribute(XName)を利用すると
+      //   XAttributeオブジェクトが取得できる.
+      //   XAttribute.Valueプロパティに値を設定することで
+      //   属性の値が更新できる.
+      //
+      //   尚、Valueプロパティはstring型のみを受け付ける仕様と
+      //   なっているので注意。
+      //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
       
@@ -9069,7 +9084,11 @@ namespace Gsf.Samples
       Console.WriteLine(root);
       Console.WriteLine("=====================================");
       
+      //
       // SetAttributeValue
+      //   すでに存在する要素を指定して、本メソッドを実行すると
+      //   属性の値が更新される.
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       
