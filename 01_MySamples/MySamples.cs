@@ -9140,6 +9140,11 @@ namespace Gsf.Samples
       var attr = elem.Attribute("Id");
       attr.Remove();
       
+      //
+      // 削除後の属性に値を設定しても、反映されない.
+      //
+      attr.Value = "999";
+      
       Console.WriteLine(root);
       Console.WriteLine("=====================================");
       
