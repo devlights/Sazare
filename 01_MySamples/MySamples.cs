@@ -9120,11 +9120,20 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-67
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 属性削除系メソッドのサンプルです.
+  /// </remarks>
   public class LinqSamples67 : IExecutable
   {
     public void Execute()
     {
+      //
       // XAttribute.Remove
+      //   現在の属性を削除する.
+      //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
       
@@ -9134,7 +9143,11 @@ namespace Gsf.Samples
       Console.WriteLine(root);
       Console.WriteLine("=====================================");
       
+      //
       // SetAttributeValue
+      //   属性の値を設定するメソッドであるが
+      //   値にnullを指定することで、属性を削除することができる.
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       
@@ -9143,7 +9156,10 @@ namespace Gsf.Samples
       Console.WriteLine(root);
       Console.WriteLine("=====================================");
       
+      //
       // RemoveAttributes
+      //   現在の要素に存在する属性を全て削除する.
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       
