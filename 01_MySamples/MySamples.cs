@@ -8989,7 +8989,7 @@ namespace Gsf.Samples
   /// LINQ to XMLのサンプルです.
   /// </summary>
   /// <remarks>
-  /// 属性設定系メソッドのサンプルです.
+  /// 属性追加系メソッドのサンプルです.
   /// </remarks>
   public class LinqSamples65 : IExecutable
   {
