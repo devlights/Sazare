@@ -8984,6 +8984,203 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-65
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 属性追加系メソッドのサンプルです.
+  /// </remarks>
+  public class LinqSamples65 : IExecutable
+  {
+    public void Execute()
+    {
+      //
+      // Add(object)
+      //   Addメソッドは、要素の設定にも属性の設定にも利用できる.
+      //   注意点として、このメソッドは重複した属性を指定した場合に
+      //   InvalidOperationExceptionを発生させる。
+      //
+      var root = BuildSampleXml();
+      var elem = root.Elements("Child").First();
+      
+      elem.Add(new XAttribute("Id3", 400));
+      Console.WriteLine(root);
+      
+      try
+      {
+        //
+        // すでに存在する属性をAddしようとすると
+        // InvalidOperationExceptionが発生する.
+        //
+        elem.Add(new XAttribute("Id2", 500));
+        Console.WriteLine(root);
+      }
+      catch (InvalidOperationException invalidOpEx)
+      {
+        Console.WriteLine("[ERROR] {0}", invalidOpEx.Message);
+      }
+      
+      Console.WriteLine("=====================================");
+      
+      //
+      // SetAttributeValue(XName, object)
+      //   動作的には、要素の値設定に利用する
+      //   SetElementValueメソッドと同じとなる。
+      //     - 存在しない属性名称を指定すると追加される
+      //     - 存在する属性名称を指定すると更新される
+      //     - 値にnullを指定すると属性が削除される
+      //
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.SetAttributeValue("Id3", 400);
+      Console.WriteLine(elem);
+      
+      elem.SetAttributeValue("Id3", 500);
+      Console.WriteLine(elem);
+      
+      elem.SetAttributeValue("Id3", null);
+      Console.WriteLine(elem);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return XElement.Parse("<Root><Child Id=\"100\" Id2=\"200\"><Value Id=\"300\">hoge</Value></Child></Root>");
+    }
+  }
+  #endregion
+  
+  #region LinqSamples-66
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 属性更新系メソッドのサンプルです.
+  /// </remarks>
+  public class LinqSamples66 : IExecutable
+  {
+    public void Execute()
+    {
+      //
+      // XAttribute.Value
+      //   XElement.Attribute(XName)を利用すると
+      //   XAttributeオブジェクトが取得できる.
+      //   XAttribute.Valueプロパティに値を設定することで
+      //   属性の値が更新できる.
+      //
+      //   尚、Valueプロパティはstring型のみを受け付ける仕様と
+      //   なっているので注意。
+      //
+      var root = BuildSampleXml();
+      var elem = root.Elements("Child").First();
+      
+      var attr = elem.Attribute("Id");
+      attr.Value = 500.ToString();
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      //
+      // XAttribute.SetValue
+      //   XAttribute.Valueと違い、こちらはobject型を受け付けるメソッド。
+      //   内部で変換が行われた後、値が設定される.
+      //
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      attr = elem.Attribute("Id");
+      attr.SetValue(500);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      //
+      // SetAttributeValue
+      //   すでに存在する要素を指定して、本メソッドを実行すると
+      //   属性の値が更新される.
+      //
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.SetAttributeValue("Id", 500);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return XElement.Parse("<Root><Child Id=\"100\" Id2=\"200\"><Value Id=\"300\">hoge</Value></Child></Root>");
+    }
+  }
+  #endregion
+  
+  #region LinqSamples-67
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 属性削除系メソッドのサンプルです.
+  /// </remarks>
+  public class LinqSamples67 : IExecutable
+  {
+    public void Execute()
+    {
+      //
+      // XAttribute.Remove
+      //   現在の属性を削除する.
+      //
+      var root = BuildSampleXml();
+      var elem = root.Elements("Child").First();
+      
+      var attr = elem.Attribute("Id");
+      attr.Remove();
+      
+      //
+      // 削除後の属性に値を設定しても、反映されない.
+      //
+      attr.Value = "999";
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      //
+      // SetAttributeValue
+      //   属性の値を設定するメソッドであるが
+      //   値にnullを指定することで、属性を削除することができる.
+      //
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.SetAttributeValue("Id", null);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      //
+      // RemoveAttributes
+      //   現在の要素に存在する属性を全て削除する.
+      //
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      elem.RemoveAttributes();
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return XElement.Parse("<Root><Child Id=\"100\" Id2=\"200\"><Value Id=\"300\">hoge</Value></Child></Root>");
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
