@@ -9181,6 +9181,33 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-68
+  public class LinqSamples68 : IExecutable
+  {
+    public void Execute()
+    {
+      // ReplaceAttributes
+      var root = BuildSampleXml();
+      var elem = root.Elements("Child").First();
+      
+      elem.ReplaceAttributes
+        (
+          from   attr in elem.Attributes()
+          where  attr.Name.ToString().EndsWith("d")
+          select new XAttribute(string.Format("{0}-Update", attr.Name), attr.Value)
+        );
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return XElement.Parse("<Root><Child Id=\"100\" Id2=\"200\"><Value Id=\"300\">hoge</Value></Child></Root>");
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
