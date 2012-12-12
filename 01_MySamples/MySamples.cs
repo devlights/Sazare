@@ -9085,6 +9085,20 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
       
       //
+      // XAttribute.SetValue
+      //   XAttribute.Valueと違い、こちらはobject型を受け付けるメソッド。
+      //   内部で変換が行われた後、値が設定される.
+      //
+      root = BuildSampleXml();
+      elem = root.Elements("Child").First();
+      
+      attr = elem.Attribute("Id");
+      attr.SetValue(500);
+      
+      Console.WriteLine(root);
+      Console.WriteLine("=====================================");
+      
+      //
       // SetAttributeValue
       //   すでに存在する要素を指定して、本メソッドを実行すると
       //   属性の値が更新される.
