@@ -8985,11 +8985,22 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-65
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 属性設定系メソッドのサンプルです.
+  /// </remarks>
   public class LinqSamples65 : IExecutable
   {
     public void Execute()
     {
+      //
       // Add(object)
+      //   Addメソッドは、要素の設定にも属性の設定にも利用できる.
+      //   注意点として、このメソッドは重複した属性を指定した場合に
+      //   InvalidOperationExceptionを発生させる。
+      //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
       
@@ -8998,6 +9009,10 @@ namespace Gsf.Samples
       
       try
       {
+        //
+        // すでに存在する属性をAddしようとすると
+        // InvalidOperationExceptionが発生する.
+        //
         elem.Add(new XAttribute("Id2", 500));
         Console.WriteLine(root);
       }
@@ -9008,7 +9023,14 @@ namespace Gsf.Samples
       
       Console.WriteLine("=====================================");
       
+      //
       // SetAttributeValue(XName, object)
+      //   動作的には、要素の値設定に利用する
+      //   SetElementValueメソッドと同じとなる。
+      //     - 存在しない属性名称を指定すると追加される
+      //     - 存在する属性名称を指定すると更新される
+      //     - 値にnullを指定すると属性が削除される
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       
