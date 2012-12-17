@@ -9219,6 +9219,112 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-69
+  public class LinqSamples69 : IExecutable
+  {
+    public void Execute()
+    {
+      // 名前空間なし
+      var root = BuildSampleXml();
+      var name = root.Name;
+      
+      Console.WriteLine("is XNamespace.None?? == {0}", root.Name.Namespace == XNamespace.None);
+      Console.WriteLine("=====================================");
+      
+      // デフォルト名前空間あり
+      root = BuildSampleXmlWithDefaultNamespace();
+      name = root.Name;
+      
+      Console.WriteLine("XName.LocalName={0}",     name.LocalName);
+      Console.WriteLine("XName.Namespace={0}",     name.Namespace);
+      Console.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
+      Console.WriteLine("=====================================");
+      
+      // デフォルト名前空間と通常の名前空間あり
+      root = BuildSampleXmlWithNamespace();
+      name = root.Name;
+      
+      Console.WriteLine("XName.LocalName={0}",     name.LocalName);
+      Console.WriteLine("XName.Namespace={0}",     name.Namespace);
+      Console.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
+
+      if (root.Descendants("Value").Count() == 0)
+      {
+        Console.WriteLine("[Count=0] Namespaceが違うので、要素が取得できない.");
+      }
+      
+      Console.WriteLine("=====================================");
+      
+      var ns   = (XNamespace) "http://www.tmpurl.org/MyXml2";
+      var elem = root.Descendants(ns + "Value").First();
+      name = elem.Name;
+      
+      Console.WriteLine("XName.LocalName={0}",     name.LocalName);
+      Console.WriteLine("XName.Namespace={0}",     name.Namespace);
+      Console.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
+      Console.WriteLine("=====================================");
+      
+      // 名前空間付きで要素作成 (プレフィックスなし)
+      var defaultNamespace = (XNamespace) "http://www.tmpurl.org/Default";
+      var customNamespace  = (XNamespace) "http://www.tmpurl.org/Custom";
+      
+      var newElement = new XElement(
+                         defaultNamespace + "RootNode",
+                         Enumerable.Range(1, 3).Select(x => new XElement(customNamespace + "ChildNode", x))
+                       );
+      
+      Console.WriteLine(newElement);
+      Console.WriteLine("=====================================");
+      
+      // 名前空間付きで要素作成 (プレフィックスあり)
+      newElement = new XElement(
+                     defaultNamespace + "RootNode",
+                     new XAttribute(XNamespace.Xmlns + "customns", "http://www.tmpurl.org/Custom"),
+                     from   x in Enumerable.Range(1, 3)
+                     select new XElement(customNamespace + "ChildNode", x),
+                     new XElement(defaultNamespace + "ChildNode", 4)
+                   );
+      
+      Console.WriteLine(newElement);
+      Console.WriteLine("=====================================");
+      
+      foreach (var e in newElement.Descendants(customNamespace + "ChildNode"))
+      {
+        Console.WriteLine(e);
+      }
+
+      Console.WriteLine("=====================================");
+      
+      foreach (var e in newElement.Descendants(defaultNamespace + "ChildNode"))
+      {
+        Console.WriteLine(e);
+      }
+      
+      Console.WriteLine("=====================================");
+      
+      foreach (var e in newElement.Descendants("ChildNode"))
+      {
+        Console.WriteLine(e);
+      }
+    }
+    
+    XElement BuildSampleXml()
+    {
+      return XElement.Parse("<Root><Child Id=\"100\" Id2=\"200\"><Value Id=\"300\">hoge</Value></Child></Root>");
+    }
+    
+    XElement BuildSampleXmlWithDefaultNamespace()
+    {
+      return XElement.Parse("<Root xmlns=\"http://www.tmpurl.org/MyXml\"><Child Id=\"100\" Id2=\"200\"><Value Id=\"300\">hoge</Value></Child></Root>");
+    }
+    
+    XElement BuildSampleXmlWithNamespace()
+    {
+      return XElement.Parse("<Root xmlns=\"http://www.tmpurl.org/MyXml\" xmlns:x=\"http://www.tmpurl.org/MyXml2\"><Child Id=\"100\" Id2=\"200\"><x:Value Id=\"300\">hoge</x:Value></Child></Root>");
+    }
+  }
+  #endregion
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
