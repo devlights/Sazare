@@ -9220,18 +9220,37 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-69
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 名前空間 (XNamespace) のサンプルです.
+  /// </remarks>
   public class LinqSamples69 : IExecutable
   {
     public void Execute()
     {
+      //
       // 名前空間なし
+      //   通常そのまま要素を作成すると名前空間無しとなる.
+      //   名前空間無しの場合、XNamespace.Noneが設定されている.
+      //   XName.Namespaceプロパティがnullにならないことは保証されている.
+      //     http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xnamespace.aspx
+      //
       var root = BuildSampleXml();
       var name = root.Name;
       
       Console.WriteLine("is XNamespace.None?? == {0}", root.Name.Namespace == XNamespace.None);
       Console.WriteLine("=====================================");
       
+      //
       // デフォルト名前空間あり
+      //   元のXMLにデフォルト名前空間が設定されている場合
+      //   取得したXElement -> XNameより名前空間が取得できる
+      //
+      //   デフォルト名前空間なので、要素を取得する際に名前空間の付与は
+      //   必要ない。（そのまま取得できる)
+      //
       root = BuildSampleXmlWithDefaultNamespace();
       name = root.Name;
       
@@ -9240,7 +9259,15 @@ namespace Gsf.Samples
       Console.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
       Console.WriteLine("=====================================");
       
-      // デフォルト名前空間と通常の名前空間あり
+      //
+      // デフォルト名前空間とカスタム名前空間あり
+      //   デフォルト名前空間に関しては、上記の通り。
+      //   カスタム名前空間の場合、要素を取得する際に
+      //     XNamespace + "要素名"
+      //   のように、名前空間を付与して取得する必要がある.
+      //   カスタム名前空間内の要素は、XNamespaceを付与しないと
+      //   取得できない.
+      //
       root = BuildSampleXmlWithNamespace();
       name = root.Name;
       
@@ -9264,7 +9291,14 @@ namespace Gsf.Samples
       Console.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
       Console.WriteLine("=====================================");
       
+      //
       // 名前空間付きで要素作成 (プレフィックスなし)
+      //   要素作成の際に、名前空間を付与するには
+      //   予めXNamespaceを作成しておき、それを
+      //      XNamespace + "要素"
+      //   という風に、文字列を結合するような要領で利用する。
+      //   XNamespaceは、暗黙で文字列から生成できる.
+      //
       var defaultNamespace = (XNamespace) "http://www.tmpurl.org/Default";
       var customNamespace  = (XNamespace) "http://www.tmpurl.org/Custom";
       
@@ -9276,7 +9310,19 @@ namespace Gsf.Samples
       Console.WriteLine(newElement);
       Console.WriteLine("=====================================");
       
+      //
       // 名前空間付きで要素作成 (プレフィックスあり)
+      //   <ns:Node>xxx</ns:Node>
+      // のように、要素に名前空間プレフィックスを付与するには
+      // まず、プレフィックスを付与する要素を持つ親要素にて
+      //   new XAttribute(XNamespace.Xmlns + "customs", "http://xxxxx/xxxx")
+      // の属性を付与する。これにより、親要素にて
+      //   <Root xmlns:customs="http://xxxxx/xxxx">
+      // という感じになる。
+      // 後は、プレフィックスを付与する要素にて通常通り
+      //   new XElement(customNamespace + "ChildNode", x)
+      // と定義することにより、自動的に合致するプレフィックスが設定される。
+      // 
       newElement = new XElement(
                      defaultNamespace + "RootNode",
                      new XAttribute(XNamespace.Xmlns + "customns", "http://www.tmpurl.org/Custom"),
@@ -9288,6 +9334,9 @@ namespace Gsf.Samples
       Console.WriteLine(newElement);
       Console.WriteLine("=====================================");
       
+      //
+      // カスタム名前空間に属する要素を表示.
+      //
       foreach (var e in newElement.Descendants(customNamespace + "ChildNode"))
       {
         Console.WriteLine(e);
@@ -9295,6 +9344,9 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
       
+      //
+      // デフォルト名前空間に属する要素を表示.
+      //
       foreach (var e in newElement.Descendants(defaultNamespace + "ChildNode"))
       {
         Console.WriteLine(e);
@@ -9302,6 +9354,9 @@ namespace Gsf.Samples
       
       Console.WriteLine("=====================================");
       
+      //
+      // 名前空間無しの要素を表示.
+      //
       foreach (var e in newElement.Descendants("ChildNode"))
       {
         Console.WriteLine(e);
