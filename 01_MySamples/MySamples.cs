@@ -9381,11 +9381,20 @@ namespace Gsf.Samples
   #endregion
 
   #region LinqSamples-70
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 存在確認プロパティ (HasElements, HasAttributes) のサンプルです.
+  /// </remarks>
   public class LinqSamples70 : IExecutable
   {
     public void Execute()
     {
+      //
       // HasElements
+      //   名前の通り、現在のノードがサブノードを持っているか否かを取得する.
+      //
       var root       = BuildSampleXml();
       var child      = root.Elements("Child").First();
       var grandChild = child.Elements("Value").First();
@@ -9396,7 +9405,10 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
+      //
       // HasAttributes
+      //   名前の通り、現在のノードが属性を持っているか否かを取得する.
+      //
       root       = BuildSampleXml();
       child      = root.Elements("Child").First();
       grandChild = child.Elements("Value").First();
