@@ -15,7 +15,13 @@
 
  -->
 <!-- 利用するツールバージョンは4.0のものを利用するよう設定. -->
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="BuildAndRun">
+
+    <!--
+        デフォルトターゲット.
+    -->
+    <Target Name="BuildAndRun" DependsOnTargets="Build;Run">
+    </Target>
 
     <!--
         共通プロパティの設定.
