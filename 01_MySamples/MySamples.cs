@@ -9484,6 +9484,43 @@ namespace Gsf.Samples
     }
   }
   #endregion
+
+  #region LinqSamples-72
+  public class LinqSamples72 : IExecutable
+  {
+    public void Execute()
+    {
+      // EmptySequence
+      var empty = XElement.EmptySequence;
+
+      Console.WriteLine("Count={0}", empty.Count());    
+
+      // IsEmpty
+      var root = BuildSampleXmlNoNode();
+      Console.WriteLine("IsEmpty={0}", root.IsEmpty);
+
+      root = BuildSampleXml();
+      Console.WriteLine("IsEmpty={0}", root.IsEmpty);
+    }
+
+    XElement BuildSampleXmlNoNode()
+    {
+      return new XElement("Root");
+    }
+
+    XElement BuildSampleXml()
+    {
+      var root = new XElement("Root",
+        new XElement("Child", "value1"),
+        new XElement("Child", "value2"),
+        new XElement("Child", "value3"),
+        new XElement("Child", "value4")
+      );
+
+      return root;
+    }
+  }
+  #endregion
   
   #region QueueSynchronizedSamples-01
   /// <summary>
