@@ -9428,11 +9428,20 @@ namespace Gsf.Samples
   #endregion
 
   #region LinqSamples-71
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// 前後存在確認プロパティ (IsBefore, IsAfter) のサンプルです.
+  /// </remarks>
   public class LinqSamples71 : IExecutable
   {
     public void Execute()
     {
-      // XNode.IsBefore
+      //
+      // XNode.IsBefore(XNode)
+      //   自分自身が引数に指定した要素の前に表示されるか否かを判定する
+      //
       var root  = BuildSampleXml();
       var elem1 = root.Elements("Child").Where(x => x.Value == "value1").First();
       var elem2 = root.Elements("Child").Where(x => x.Value == "value2").First();
@@ -9446,7 +9455,10 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
-      // XNode.IsAfter
+      //
+      // XNode.IsAfter(XNode)
+      //   自分自身が引数に指定した要素の後に表示されるか否かを判定する
+      //
       root  = BuildSampleXml();
       elem1 = root.Elements("Child").Where(x => x.Value == "value1").First();
       elem2 = root.Elements("Child").Where(x => x.Value == "value2").First();
