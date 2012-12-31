@@ -9590,18 +9590,30 @@ namespace Gsf.Samples
   #endregion
 
   #region LinqSamples-74
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// ナビゲーション(FirstNode, LastNodeプロパティ)のサンプルです.
+  /// </remarks>
   public class LinqSamples74 : IExecutable
   {
     public void Execute()
     {
+      //
       // FirstNode
+      //   現在の要素の最初の子要素を取得する
+      //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
 
       Console.WriteLine(root.FirstNode);
       Console.WriteLine(elem.FirstNode);
 
+      //
       // LastNode
+      //   現在の要素の最後の子要素を取得する
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
 
