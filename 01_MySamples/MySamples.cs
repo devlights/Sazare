@@ -9537,6 +9537,58 @@ namespace Gsf.Samples
   }
   #endregion
   
+  #region LinqSamples-73
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// PreviousNode, NextNodeプロパティのサンプルです.
+  /// </remarks>
+  public class LinqSamples73 : IExecutable
+  {
+    public void Execute()
+    {
+      //
+      // PreviousNode
+      //   現在の要素の一つ前の兄弟要素を取得する
+      //   一つ前の要素が存在しない場合は、nullとなる。
+      //
+      var root = BuildSampleXml();
+      var elem = root.Elements("Child").Where(x => x.Value == "value2").First();
+
+      Console.WriteLine("Prev node = {0}", elem.PreviousNode);
+
+      elem = root.Elements("Child").First();
+      Console.WriteLine("Prev node = {0}", elem.PreviousNode == null);
+
+      //
+      // NextNode
+      //   現在の要素の一つ後の兄弟要素を取得する
+      //   一つ後の要素が存在しない場合は、nullとなる
+      //
+      root = BuildSampleXml();
+      elem = root.Elements("Child").Where(x => x.Value == "value3").First();
+
+      Console.WriteLine("Next node = {0}", elem.NextNode);
+
+      elem = root.Elements("Child").Last();
+      Console.WriteLine("Next node = {0}", elem.NextNode == null);
+    }
+
+    XElement BuildSampleXml()
+    {
+      var root = new XElement("Root",
+        new XElement("Child", "value1"),
+        new XElement("Child", "value2"),
+        new XElement("Child", "value3"),
+        new XElement("Child", "value4")
+      );
+
+      return root;
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
