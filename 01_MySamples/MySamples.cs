@@ -9538,11 +9538,21 @@ namespace Gsf.Samples
   #endregion
   
   #region LinqSamples-73
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// PreviousNode, NextNodeプロパティのサンプルです.
+  /// </remarks>
   public class LinqSamples73 : IExecutable
   {
     public void Execute()
     {
+      //
       // PreviousNode
+      //   現在の要素の一つ前の兄弟要素を取得する
+      //   一つ前の要素が存在しない場合は、nullとなる。
+      //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").Where(x => x.Value == "value2").First();
 
@@ -9551,7 +9561,11 @@ namespace Gsf.Samples
       elem = root.Elements("Child").First();
       Console.WriteLine("Prev node = {0}", elem.PreviousNode == null);
 
+      //
       // NextNode
+      //   現在の要素の一つ後の兄弟要素を取得する
+      //   一つ後の要素が存在しない場合は、nullとなる
+      //
       root = BuildSampleXml();
       elem = root.Elements("Child").Where(x => x.Value == "value3").First();
 
