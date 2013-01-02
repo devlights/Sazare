@@ -9636,11 +9636,21 @@ namespace Gsf.Samples
   #endregion
 
   #region LinqSamples-75
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// ナビゲーション(Parentプロパティ)のサンプルです.
+  /// </remarks>
   public class LinqSamples75 : IExecutable
   {
     public void Execute()
     {
+      //
       // Parent
+      //   文字通り、現在の要素の親要素を取得する.
+      //   親要素が存在しない場合、nullとなる.
+      //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
 
@@ -9648,8 +9658,9 @@ namespace Gsf.Samples
       Console.WriteLine("elem.Parent = {0}", elem.Parent);
 
       var newElem = new XElement("GrandChild", "value5");
-      root.Elements("Child").Last().Add(newElem);
+      Console.WriteLine("newElem.Parent = {0}", newElem.Parent == null ? "null" : newElem.Parent.ToString());
 
+      root.Elements("Child").Last().Add(newElem);
       Console.WriteLine("newElem.Parent = {0}", newElem.Parent);
     }
 
