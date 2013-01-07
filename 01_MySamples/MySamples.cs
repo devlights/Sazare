@@ -9678,6 +9678,109 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-76
+  public class LinqSamples76 : IExecutable
+  {
+    public void Execute()
+    {
+      // Descendants
+      var root = BuildSampleXml();
+      var elem = root.Descendants();
+
+      Console.WriteLine("Count={0}", elem.Count());
+      Console.WriteLine("=====================================");
+
+      elem = root.Descendants("Customer");
+      Console.WriteLine("Count={0}", elem.Count());
+      Console.WriteLine("First item:");
+      Console.WriteLine(elem.First());
+      Console.WriteLine("=====================================");
+
+      elem = root.Descendants("Customer").Where(x => x.Attribute("CustomerID").Value == "HUNGC");
+      Console.WriteLine("Count={0}", elem.Count());
+      Console.WriteLine("First item:");
+      Console.WriteLine(elem.First());
+      Console.WriteLine("=====================================");
+
+      elem = from   node in root.Descendants("Customer")
+             let    attr = node.Attribute("CustomerID").Value
+             where  attr.StartsWith("L")
+             from   child in node.Descendants("Region")
+             where  child.Value == "CA"
+             select node;
+
+      Console.WriteLine("Count={0}", elem.Count());
+      Console.WriteLine("First item:");
+      Console.WriteLine(elem.First());
+      Console.WriteLine("=====================================");
+
+      elem = from   node in root.Descendants("Region")
+             where  node.Value == "CA"
+             select node;
+
+      Console.WriteLine("Count={0}", elem.Count());
+      Console.WriteLine("First item:");
+      Console.WriteLine(elem.First());
+      Console.WriteLine("=====================================");
+
+      // Ancestors      
+      root = BuildSampleXml();
+      var startingPoint = root.Descendants("Region").Where(x => x.Value == "CA").First();
+
+      var ancestors = startingPoint.Ancestors();
+
+      Console.WriteLine("Count={0}", ancestors.Count());
+      Console.WriteLine("First item:");
+      Console.WriteLine(ancestors.First());
+      Console.WriteLine("=====================================");
+
+      ancestors = startingPoint.Ancestors("ContactName");
+
+      Console.WriteLine("Count={0}", ancestors.Count());
+      if (ancestors.Any())
+      {
+        Console.WriteLine("First item:");
+        Console.WriteLine(ancestors.First());        
+      }
+
+      Console.WriteLine("=====================================");        
+
+      startingPoint = root.Descendants("FullAddress").First();
+      ancestors     = startingPoint.Ancestors("ContactName");
+
+      Console.WriteLine("Count={0}", ancestors.Count());
+      if (ancestors.Any())
+      {
+        Console.WriteLine("First item:");
+        Console.WriteLine(ancestors.First());
+      }
+
+      Console.WriteLine("=====================================");
+
+      startingPoint = root.Descendants("FullAddress").First();
+      ancestors     = startingPoint.Ancestors("Customer");
+
+      Console.WriteLine("Count={0}", ancestors.Count());
+      if (ancestors.Any())
+      {
+        Console.WriteLine("First item:");
+        Console.WriteLine(ancestors.First());
+      }
+
+      Console.WriteLine("=====================================");
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/bb387025.aspx
+      //
+      return XElement.Load(@"xml/CustomersOrders.xml");
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
