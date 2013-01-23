@@ -9805,17 +9805,33 @@ namespace Gsf.Samples
   #endregion
 
   #region LinqSamples-77
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// ナビゲーション(DescendantsAndSelf, AncestorsAndSelfメソッド)のサンプルです.
+  /// </remarks>
   public class LinqSamples77 : IExecutable
   {
     public void Execute()
     {
+      //
       // DescendantsAndSelf
+      //   自身とその子要素を取得するためのメソッド.
+      //   引数が無い版とXNameを指定する版が存在する。
+      //   引数無し版は、意図した通りの結果を返してくれるが
+      //   XNameを指定する版のメソッドは、子要素を含めてくれない・・・。
+      //   (指定の仕方が間違っているのか？ 使い方が間違っているのか？)
+      //
+      //   恐らく、指定の仕方が間違っているのだと思うが、普段利用しないメソッドなので、これで一旦完了とする.
+      //
       var root               = BuildSampleXml();
       var startingPoint      = root.Descendants("Customer").First();
       var descendantsAndSelf = startingPoint.DescendantsAndSelf();
 
-      // AndSelf付きのメソッドを利用しているので
-      // Customer自身も結果に含まれる.
+      //
+      // AndSelf付きのメソッドを利用しているので、Customer自身も結果に含まれる.
+      //
       foreach (var elem in descendantsAndSelf)
       {
         Console.WriteLine(elem);
@@ -9823,7 +9839,9 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
-      // Customer自身は含まれない.
+      //
+      // AndSelfを付けていないので、Customer自身は含まれない.
+      //
       foreach (var elem in startingPoint.Descendants())
       {
         Console.WriteLine(elem);
@@ -9831,11 +9849,15 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
+      //
       // XName付きのオーバーロードを呼び出すと、予想と違う結果となる
       // Customer要素が含まれない. (??)
       //
       // MSDNの説明には、「この要素とこの要素のすべての子要素」と記載があるが・・・。
       // (MSDNのメソッドページにあるサンプルプログラムの結果も、以下の結果と同じになっている)
+      //
+      //   恐らく、指定の仕方が間違っているのだと思うが、普段利用しないメソッドなので、これで一旦完了とする.
+      //
       root               = BuildSampleXml();
       startingPoint      = root.Descendants("Customer").First();
       descendantsAndSelf = startingPoint.DescendantsAndSelf("FullAddress");
@@ -9847,14 +9869,22 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
+      //
       // AncestorsAndSelf
+      //   自身とその先祖を取得するためのメソッド.
+      //   引数が無い版とXNameを指定する版が存在する。
+      //   引数無し版は、意図した通りの結果を返してくれるが
+      //   XNameを指定する版のメソッドは、先祖を含めてくれない・・・。
+      //   (指定の仕方が間違っているのか？ 使い方が間違っているのか？)
+      //
       root          = BuildSampleXml2();
       startingPoint = root.Descendants("Price").First();
 
       var ancestorsAndSelf = startingPoint.AncestorsAndSelf();
 
-      // AndSelf付きのメソッドを利用しているので
-      // Price自身も結果に含まれる.
+      //
+      // AndSelf付きのメソッドを利用しているので、Price自身も結果に含まれる.
+      //
       foreach (var elem in ancestorsAndSelf)
       {
         Console.WriteLine(elem);
@@ -9862,7 +9892,9 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
+      //
       // Price自身は含まれない
+      //
       foreach (var elem in startingPoint.Ancestors())
       {
         Console.WriteLine(elem);
@@ -9870,11 +9902,13 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
+      //
       // XName付きのオーバーロードを呼び出すと、予想と違う結果となる
       // Price要素が含まれない. (??)
       //
       // MSDNの説明には、「この要素とこの要素の先祖」と記載があるが・・・。
       // (MSDNのメソッドページにあるサンプルプログラムの結果も、以下の結果と同じになっている)
+      //
       root             = BuildSampleXml2();
       startingPoint    = root.Descendants("Price").First();
       ancestorsAndSelf = startingPoint.AncestorsAndSelf("Book");
