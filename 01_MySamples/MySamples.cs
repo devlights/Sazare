@@ -9804,6 +9804,107 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-77
+  public class LinqSamples77 : IExecutable
+  {
+    public void Execute()
+    {
+      // DescendantsAndSelf
+      var root               = BuildSampleXml();
+      var startingPoint      = root.Descendants("Customer").First();
+      var descendantsAndSelf = startingPoint.DescendantsAndSelf();
+
+      // AndSelf付きのメソッドを利用しているので
+      // Customer自身も結果に含まれる.
+      foreach (var elem in descendantsAndSelf)
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+
+      // Customer自身は含まれない.
+      foreach (var elem in startingPoint.Descendants())
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+
+      // XName付きのオーバーロードを呼び出すと、予想と違う結果となる
+      // Customer要素が含まれない. (??)
+      //
+      // MSDNの説明には、「この要素とこの要素のすべての子要素」と記載があるが・・・。
+      // (MSDNのメソッドページにあるサンプルプログラムの結果も、以下の結果と同じになっている)
+      root               = BuildSampleXml();
+      startingPoint      = root.Descendants("Customer").First();
+      descendantsAndSelf = startingPoint.DescendantsAndSelf("FullAddress");
+
+      foreach (var elem in descendantsAndSelf)
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+
+      // AncestorsAndSelf
+      root          = BuildSampleXml2();
+      startingPoint = root.Descendants("Price").First();
+
+      var ancestorsAndSelf = startingPoint.AncestorsAndSelf();
+
+      // AndSelf付きのメソッドを利用しているので
+      // Price自身も結果に含まれる.
+      foreach (var elem in ancestorsAndSelf)
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+
+      // Price自身は含まれない
+      foreach (var elem in startingPoint.Ancestors())
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+
+      // XName付きのオーバーロードを呼び出すと、予想と違う結果となる
+      // Price要素が含まれない. (??)
+      //
+      // MSDNの説明には、「この要素とこの要素の先祖」と記載があるが・・・。
+      // (MSDNのメソッドページにあるサンプルプログラムの結果も、以下の結果と同じになっている)
+      root             = BuildSampleXml2();
+      startingPoint    = root.Descendants("Price").First();
+      ancestorsAndSelf = startingPoint.AncestorsAndSelf("Book");
+
+      foreach (var elem in ancestorsAndSelf)
+      {
+        Console.WriteLine(elem);
+      }
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/bb387025.aspx
+      //
+      return XElement.Load(@"xml/CustomersOrders.xml");
+    }
+
+    XElement BuildSampleXml2()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
+      return XElement.Load(@"xml/Books.xml");
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
