@@ -9939,6 +9939,45 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-78
+  public class LinqSamples78 : IExecutable
+  {
+    public void Execute()
+    {
+      // DescendantNodes
+      //   子孫をXNodeで取得する.
+      //   属性はノードではないため、含まれない.
+      var root          = BuildSampleXml();
+      var startingPoint = root.Descendants("Book").First();
+
+      foreach (var node in startingPoint.DescendantNodes())
+      {
+        Console.WriteLine(node);
+      }
+
+      Console.WriteLine("=====================================");
+
+      // DescendantNodesAndSelf
+      //   基本的な動作はDescendantNodesと同じ。
+      //   AndSelfなので、自分自身もついてくる.
+      root          = BuildSampleXml();
+      startingPoint = root.Descendants("Book").First();
+
+      foreach (var node in startingPoint.DescendantNodesAndSelf())
+      {
+        Console.WriteLine(node);
+      }
+
+      Console.WriteLine("=====================================");
+    }
+
+    XElement BuildSampleXml()
+    {
+      return XElement.Load(@"xml/Books.xml");
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
