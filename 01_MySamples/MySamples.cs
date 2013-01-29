@@ -10098,6 +10098,51 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-80
+  public class LinqSamples80 : IExecutable
+  {
+    public void Execute()
+    {
+      // NodesAfterSelf
+      var root          = BuildSampleXml();
+      var startingPoint = root.Descendants("Book").First();
+
+      foreach (var node in startingPoint.NodesAfterSelf())
+      {
+        Console.WriteLine(node);
+      }
+
+      Console.WriteLine("=====================================");
+
+      root          = BuildSampleXml();
+      startingPoint = root.Descendants("Title").Last();
+
+      foreach (var node in startingPoint.NodesAfterSelf())
+      {
+        Console.WriteLine(node);
+      }
+
+      // NodesBeforeSelf
+      root          = BuildSampleXml();
+      startingPoint = root.Descendants("PublishDate").Last();
+
+      foreach (var node in startingPoint.NodesBeforeSelf())
+      {
+        Console.WriteLine(node);
+      }
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
+      return XElement.Load(@"xml/Books.xml"); 
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
