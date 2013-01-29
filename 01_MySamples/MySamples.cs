@@ -10099,11 +10099,21 @@ namespace Gsf.Samples
   #endregion
 
   #region LinqSamples-80
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// ナビゲーション(NodesAfterSelf, NodesBeforeSelf)のサンプルです.
+  /// </remarks>
   public class LinqSamples80 : IExecutable
   {
     public void Execute()
     {
+      //
       // NodesAfterSelf
+      //   現在の要素の後ろにある兄弟ノードを取得
+      //   ElementsAfterSelfとの違いは、XElementであるかXNodeであるか
+      //
       var root          = BuildSampleXml();
       var startingPoint = root.Descendants("Book").First();
 
@@ -10122,7 +10132,11 @@ namespace Gsf.Samples
         Console.WriteLine(node);
       }
 
+      //
       // NodesBeforeSelf
+      //   現在の要素の前にある兄弟ノードを取得
+      //   ElementsBeforeSelfとの違いは、XElementであるかXNodeであるか
+      //
       root          = BuildSampleXml();
       startingPoint = root.Descendants("PublishDate").Last();
 
