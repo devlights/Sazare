@@ -9989,6 +9989,86 @@ namespace Gsf.Samples
 
     XElement BuildSampleXml()
     {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
+      return XElement.Load(@"xml/Books.xml");
+    }
+  }
+  #endregion
+
+  #region LinqSamples-79
+  public class LinqSamples79 : IExecutable
+  {
+    public void Execute()
+    {
+      // ElementsAfterSelf(), ElementsAfterSelf(XName)
+      var root          = BuildSampleXml();
+      var startingPoint = root.Descendants("Book").First();
+
+      // 最初のBook要素の後ろにある兄弟要素が表示される.
+      foreach (var elem in startingPoint.ElementsAfterSelf())
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+
+      root          = BuildSampleXml();
+      startingPoint = root.Descendants("Title").Last();
+
+      // Titleの後ろにある兄弟要素が表示される
+      foreach (var elem in startingPoint.ElementsAfterSelf())
+      {
+        Console.WriteLine(elem);
+      }
+
+
+      Console.WriteLine("=====================================");
+
+      root          = BuildSampleXml();
+      startingPoint = root.Descendants("Title").Last();
+
+      // 何故か、引数に指定したGenreしか表示されない？？
+      // AncestorsAndSelf(XName)とかと同じ挙動.
+      foreach (var elem in startingPoint.ElementsAfterSelf("Genre"))
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+
+      // ElementsBeforeSelf(), ElementsBeforeSelf(XName)
+      root          = BuildSampleXml();
+      startingPoint = root.Descendants("PublishDate").Last();
+
+      foreach (var elem in startingPoint.ElementsBeforeSelf())
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+
+      root          = BuildSampleXml();
+      startingPoint = root.Descendants("Description").Last();
+
+      // 何故か、引数に指定したPublishDateしか表示されない？？
+      // AncestorsAndSelf(XName)とかと同じ挙動.
+      foreach (var elem in startingPoint.ElementsBeforeSelf("PublishDate"))
+      {
+        Console.WriteLine(elem);
+      }
+
+      Console.WriteLine("=====================================");
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
       return XElement.Load(@"xml/Books.xml");
     }
   }
