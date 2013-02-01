@@ -10317,6 +10317,34 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-83
+  public class LinqSamples83 : IExecutable
+  {
+    public void Execute()
+    {
+      // XElementとXAttributeの値はキャストしたら取得できる
+      var root = BuildSampleXml();
+
+      var title  = (string) root.Descendants("Title").FirstOrDefault()    ?? "Nothing";
+      var attr   = (string) root.Elements("Book").First().Attribute("id") ?? "Nothing";
+      var noElem = (string) root.Descendants("NoElem").FirstOrDefault()   ?? "Nothing";
+
+      Console.WriteLine(title);
+      Console.WriteLine(attr);
+      Console.WriteLine(noElem);
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
+      return XElement.Load(@"xml/Books.xml");      
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
