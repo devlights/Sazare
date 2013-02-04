@@ -10368,6 +10368,75 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-84
+  public class LinqSamples84 : IExecutable
+  {
+    public void Execute()
+    {
+      //
+      // Changing, Changed
+      // XObjectに属するイベント
+      // Changing
+      //   このイベントは、XMLツリーの変更によってのみ発生する。
+      //   XMLツリーの作成では発生しないことに注意。
+      //
+      var root = BuildSampleXml();
+
+      root.Changing += OnNodeChanging;
+
+      var book  = root.Elements("Book").First();
+      var title = book.Elements("Title").First();
+
+      book.Attribute("id").Value = "updated";
+      title.Value = "updated";
+      title.Remove();
+      book.Add(new XElement("newelem", "hogehoge"));
+
+      Console.WriteLine("=====================================");
+
+      //
+      // Changed
+      //   このイベントは、XMLツリーの変更によってのみ発生する。
+      //   XMLツリーの作成では発生しないことに注意。
+      // どちらのイベントもイベント引数として、XObjectChangeEventArgsを受け取る.
+      // XObjectChangeEventArgsは、ObjectChangeというプロパティを持つ.
+      //
+      root = BuildSampleXml();
+
+      root.Changed += OnNodeChanged;
+
+      book  = root.Elements("Book").First();
+      title = book.Elements("Title").First();
+
+      book.Attribute("id").Value = "updated";
+      title.Value = "updated";
+      title.Remove();
+      book.Add(new XElement("newelem", "hogehoge"));
+
+      Console.WriteLine("=====================================");
+    }
+
+    void OnNodeChanging(object sender, XObjectChangeEventArgs e)
+    {
+      Console.WriteLine("Changing: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
+    }
+
+    void OnNodeChanged(object sender, XObjectChangeEventArgs e)
+    {
+      Console.WriteLine("Changed: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange); 
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
+      return XElement.Load(@"xml/Books.xml");
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
