@@ -10317,6 +10317,355 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-83
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// XElementとXAttributeの値取得についてのTipです。
+  /// </remarks>
+  public class LinqSamples83 : IExecutable
+  {
+    public void Execute()
+    {
+      //
+      // XElementとXAttributeの値はキャストしたら取得できる
+      //   http://msdn.microsoft.com/ja-jp/library/vstudio/bb387049.aspx
+      //
+      // 対応しているのは、以下の型の場合.
+      // string
+      // bool,bool?
+      // int,int?
+      // uint,uint?
+      // long,long?
+      // ulong,ulong?
+      // float,float?
+      // double,double?
+      // decimal,decimal?
+      // DateTime,DateTime?
+      // TimeSpan,TimeSpan?
+      // GUID,GUID?
+      //
+      var root = BuildSampleXml();
+
+      var title  = (string) root.Descendants("Title").FirstOrDefault()    ?? "Nothing";
+      var attr   = (string) root.Elements("Book").First().Attribute("id") ?? "Nothing";
+      var noElem = (string) root.Descendants("NoElem").FirstOrDefault()   ?? "Nothing";
+
+      Console.WriteLine(title);
+      Console.WriteLine(attr);
+      Console.WriteLine(noElem);
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
+      return XElement.Load(@"xml/Books.xml");      
+    }
+  }
+  #endregion
+
+  #region LinqSamples-84
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// Changing, Changedイベントについてのサンプルです。
+  /// </remarks>
+  public class LinqSamples84 : IExecutable
+  {
+    public void Execute()
+    {
+      //
+      // Changing, Changedイベントは、どちらもXObjectに属するイベントである.
+      //
+
+      //
+      // Changingイベント
+      //   このイベントは、XMLツリーの変更によってのみ発生する。
+      //   XMLツリーの作成では発生しないことに注意。
+      // イベント引数として、XObjectChangeEventArgsを受け取る.
+      // XObjectChangeEventArgsは、ObjectChangeというプロパティを持つ.      
+      //
+      var root = BuildSampleXml();
+
+      root.Changing += OnNodeChanging;
+
+      var book  = root.Elements("Book").First();
+      var title = book.Elements("Title").First();
+
+      // 属性値を変更
+      //   Changingイベントなので、イベントハンドラ内にて見えるsenderの値は*更新前*の値となる。 (Change)
+      book.Attribute("id").Value = "updated";
+      // 要素の値を変更
+      //   Title要素は内部にXTextを持っているので、まずそれが削除される (Remove)
+      //   その後、更新後の値を持つXTextが設定される. (Add)
+      title.Value = "updated";
+      title.Remove();
+      // 要素を追加
+      //   要素が追加される (Add)
+      book.Add(new XElement("newelem", "hogehoge"));
+
+      Console.WriteLine("=====================================");
+
+      //
+      // Changed
+      //   このイベントは、XMLツリーの変更によってのみ発生する。
+      //   XMLツリーの作成では発生しないことに注意。
+      // イベント引数として、XObjectChangeEventArgsを受け取る.
+      // XObjectChangeEventArgsは、ObjectChangeというプロパティを持つ.
+      //
+      root = BuildSampleXml();
+
+      root.Changed += OnNodeChanged;
+
+      book  = root.Elements("Book").First();
+      title = book.Elements("Title").First();
+
+      // 属性値を変更
+      //   Changedイベントなので、イベントハンドラ内にて見えるsenderの値は*更新後*の値となる。 (Change)
+      book.Attribute("id").Value = "updated";
+      title.Value = "updated";
+      title.Remove();
+      book.Add(new XElement("newelem", "hogehoge"));
+
+      Console.WriteLine("=====================================");
+    }
+
+    // Changingイベントハンドラ
+    void OnNodeChanging(object sender, XObjectChangeEventArgs e)
+    {
+      Console.WriteLine("Changing: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
+    }
+
+    // Changedイベントハンドラ
+    void OnNodeChanged(object sender, XObjectChangeEventArgs e)
+    {
+      Console.WriteLine("Changed: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange); 
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
+      return XElement.Load(@"xml/Books.xml");
+    }
+  }
+  #endregion
+
+  #region LinqSamples-85
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// XStreamingElementのサンプルです。
+  /// </remarks>
+  public class LinqSamples85 : IExecutable
+  {
+    public void Execute()
+    {
+      //
+      // XStreamingElement
+      //   XStreamingElementは、遅延評価を行うクラス。
+      //   主に、巨大なXMLデータを変換する際に利用できる.
+      //
+      //   参考URL:
+      //     http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xstreamingelement.aspx
+      //     http://melma.com/backnumber_120830_4496326/
+      //     http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xnode.readfrom.aspx
+      //     http://msdn.microsoft.com/ja-jp/library/system.xml.xmlreader.movetocontent.aspx
+      //
+      //   実際に利用する際は、ほとんどの場合がXmlReaderとyieldの仕組みを事前に作っておかないといけない。
+      //   XmlReaderで巨大ファイルを逐次読み込みし、それをXStreamingElementで変換処理する。
+      //
+      // 以下の処理では、どの程度メモリを消費しているのかを確認するために
+      // GC.GetTotalMemoryで消費量を表示している.
+      Console.WriteLine("1:{0}", GC.GetTotalMemory(true));
+
+      //
+      // 巨大XMLファイルを作成.
+      //
+      var root = BuildSampleXml(CreateSampleXmlFile());
+
+      Console.WriteLine("2:{0}", GC.GetTotalMemory(true));
+
+      //
+      // 普通にXElementを利用して変換処理.
+      //
+      var result = ConvertXml(root);
+
+      Console.WriteLine("3:{0}", GC.GetTotalMemory(true));
+
+      //
+      // XStreamingElementを利用して変換処理.
+      //
+      var result2 = ConvertXml2(root);
+
+      Console.WriteLine("4:{0}", GC.GetTotalMemory(true));
+
+      //
+      // XStreamingElementで変換したデータを出力.
+      //
+      result2.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted2.xml"));
+
+      Console.WriteLine("5:{0}", GC.GetTotalMemory(true));
+
+      //
+      // ファイルの読み込みに、XmlReader+yieldを利用してXStreamingElementで変換処理.
+      //
+      var result3 = ConvertXml3();
+
+      Console.WriteLine("6:{0}", GC.GetTotalMemory(true));
+
+      //
+      // XStreamingElementで変換したデータを出力.
+      //
+      result3.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted3.xml"));
+
+      Console.WriteLine("7:{0}", GC.GetTotalMemory(true));
+    }
+
+    string CreateSampleXmlFile()
+    {
+      //
+      // 巨大なXMLファイルをデスクトップに作成.
+      //
+      var dirPath  = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+      var filePath = Path.Combine(dirPath, "toobig.xml");
+
+      if (File.Exists(filePath))
+      {
+        File.Delete(filePath);
+      }
+
+      //
+      // <root>
+      //   <data>
+      //     <code>...</code>
+      //     <name>...</name>
+      //   </data>
+      //   .
+      //   .
+      //   .
+      // </root>
+      //
+      // の構造を持つXMLファイルを作成.
+      //
+      var doc = new XDocument
+                (
+                  new XElement
+                  (
+                    "root",
+                    from i in Enumerable.Range(1, 100000)
+                    select new XElement
+                           (
+                             "data",
+                             new XElement("code", string.Format("{0:D5}", i)),
+                             new XElement("name", string.Format("name-{0:D5}", i))
+                           )
+                  )
+                );
+
+      doc.Save(filePath);
+
+      return filePath;
+    }
+
+    XElement BuildSampleXml(string filePath)
+    {
+      return XElement.Load(filePath);
+    }
+
+    XElement ConvertXml(XElement original)
+    {
+      var result = new XElement
+                   (
+                     "newroot",
+                     from elem in original.Elements()
+                     select new XElement
+                     (
+                       "newdata",
+                       new XAttribute("code", elem.Element("code").Value),
+                       new XAttribute("name", elem.Element("name").Value)
+                     )
+                   );
+
+      return result;
+    }
+
+    XStreamingElement ConvertXml2(XElement original)
+    {
+      var result = new XStreamingElement
+                   (
+                     "newroot",
+                     from elem in original.Elements()
+                     select new XElement
+                     (
+                       "newdata",
+                       new XAttribute("code", elem.Element("code").Value),
+                       new XAttribute("name", elem.Element("name").Value)
+                     )
+                   );
+
+      return result;
+    }
+
+    XStreamingElement ConvertXml3()
+    {
+      var filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "toobig.xml");
+
+      var result = new XStreamingElement
+                   (
+                     "newroot",
+                     from elem in StreamTooBigXml(filePath)
+                     select new XElement
+                     (
+                       "newdata",
+                       new XAttribute("code", elem.Element("code").Value),
+                       new XAttribute("name", elem.Element("name").Value)
+                     )
+                   );
+
+      return result; 
+    }
+
+    IEnumerable<XElement> StreamTooBigXml(string filePath)
+    {
+      using (var reader = XmlReader.Create(filePath))
+      {
+        reader.MoveToContent();
+
+        while (reader.Read())
+        {
+          if (reader.NodeType != XmlNodeType.Element)
+          {
+            continue;
+          }
+
+          if (reader.Name != "data")
+          {
+            continue;
+          }
+
+          //
+          // XElement.ReadFromを利用すると簡単にXElementを取得出来る.
+          //
+          var elem = XElement.ReadFrom(reader) as XElement;
+          if (elem != null)
+          {
+            yield return elem;
+          }
+        }
+      }
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
