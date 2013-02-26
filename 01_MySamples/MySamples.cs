@@ -10458,6 +10458,177 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-85
+  public class LinqSamples85 : IExecutable
+  {
+    public void Execute()
+    {
+      // XStreamingElement
+      // XStreamingElementは、遅延評価を行うクラス。
+      // 主に、巨大なXMLデータを変換する際に利用できる.
+      //
+      // 実際に利用する際は、ほとんどの場合がXmlReaderとyieldの
+      // 仕組みを事前に作っておかないといけない。
+      Console.WriteLine("1:{0}", GC.GetTotalMemory(true));
+
+      var root = BuildSampleXml(CreateSampleXmlFile());
+
+      Console.WriteLine("2:{0}", GC.GetTotalMemory(true));
+
+      var result = ConvertXml(root);
+
+      Console.WriteLine("3:{0}", GC.GetTotalMemory(true));
+
+      var result2 = ConvertXml2(root);
+
+      Console.WriteLine("4:{0}", GC.GetTotalMemory(true));
+
+      result2.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted2.xml"));
+
+      Console.WriteLine("5:{0}", GC.GetTotalMemory(true));
+
+      var result3 = ConvertXml3();
+
+      Console.WriteLine("6:{0}", GC.GetTotalMemory(true));
+
+      result3.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted3.xml"));
+
+      Console.WriteLine("7:{0}", GC.GetTotalMemory(true));
+    }
+
+    string CreateSampleXmlFile()
+    {
+      //
+      // 巨大なXMLファイルをデスクトップに作成.
+      //
+      var dirPath  = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+      var filePath = Path.Combine(dirPath, "toobig.xml");
+
+      if (File.Exists(filePath))
+      {
+        File.Delete(filePath);
+      }
+
+      //
+      // <root>
+      //   <data>
+      //     <code>...</code>
+      //     <name>...</name>
+      //   </data>
+      //   .
+      //   .
+      //   .
+      // </root>
+      //
+      // の構造を持つXMLファイルを作成.
+      //
+      var doc = new XDocument
+                (
+                  new XElement
+                  (
+                    "root",
+                    from i in Enumerable.Range(1, 100000)
+                    select new XElement
+                           (
+                             "data",
+                             new XElement("code", string.Format("{0:D5}", i)),
+                             new XElement("name", string.Format("name-{0:D5}", i))
+                           )
+                  )
+                );
+
+      doc.Save(filePath);
+
+      return filePath;
+    }
+
+    XElement BuildSampleXml(string filePath)
+    {
+      return XElement.Load(filePath);
+    }
+
+    XElement ConvertXml(XElement original)
+    {
+      var result = new XElement
+                   (
+                     "newroot",
+                     from elem in original.Elements()
+                     select new XElement
+                     (
+                       "newdata",
+                       new XAttribute("code", elem.Element("code").Value),
+                       new XAttribute("name", elem.Element("name").Value)
+                     )
+                   );
+
+      return result;
+    }
+
+    XStreamingElement ConvertXml2(XElement original)
+    {
+      var result = new XStreamingElement
+                   (
+                     "newroot",
+                     from elem in original.Elements()
+                     select new XElement
+                     (
+                       "newdata",
+                       new XAttribute("code", elem.Element("code").Value),
+                       new XAttribute("name", elem.Element("name").Value)
+                     )
+                   );
+
+      return result;
+    }
+
+    XStreamingElement ConvertXml3()
+    {
+      var filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "toobig.xml");
+
+      var result = new XStreamingElement
+                   (
+                     "newroot",
+                     from elem in StreamTooBigXml(filePath)
+                     select new XElement
+                     (
+                       "newdata",
+                       new XAttribute("code", elem.Element("code").Value),
+                       new XAttribute("name", elem.Element("name").Value)
+                     )
+                   );
+
+      return result; 
+    }
+
+    IEnumerable<XElement> StreamTooBigXml(string filePath)
+    {
+      using (var reader = XmlReader.Create(filePath))
+      {
+        reader.MoveToContent();
+
+        while (reader.Read())
+        {
+          if (reader.NodeType != XmlNodeType.Element)
+          {
+            continue;
+          }
+
+          if (reader.Name != "data")
+          {
+            continue;
+          }
+
+          var elem = XElement.ReadFrom(reader) as XElement;
+          if (elem != null)
+          {
+            yield return elem;
+          }
+        }
+      }
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
