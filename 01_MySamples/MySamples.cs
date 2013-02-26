@@ -10459,38 +10459,72 @@ namespace Gsf.Samples
   #endregion
 
   #region LinqSamples-85
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// XStreamingElementのサンプルです。
+  /// </remarks>
   public class LinqSamples85 : IExecutable
   {
     public void Execute()
     {
-      // XStreamingElement
-      // XStreamingElementは、遅延評価を行うクラス。
-      // 主に、巨大なXMLデータを変換する際に利用できる.
       //
-      // 実際に利用する際は、ほとんどの場合がXmlReaderとyieldの
-      // 仕組みを事前に作っておかないといけない。
+      // XStreamingElement
+      //   XStreamingElementは、遅延評価を行うクラス。
+      //   主に、巨大なXMLデータを変換する際に利用できる.
+      //
+      //   参考URL:
+      //     http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xstreamingelement.aspx
+      //     http://melma.com/backnumber_120830_4496326/
+      //     http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xnode.readfrom.aspx
+      //     http://msdn.microsoft.com/ja-jp/library/system.xml.xmlreader.movetocontent.aspx
+      //
+      //   実際に利用する際は、ほとんどの場合がXmlReaderとyieldの仕組みを事前に作っておかないといけない。
+      //   XmlReaderで巨大ファイルを逐次読み込みし、それをXStreamingElementで変換処理する。
+      //
+      // 以下の処理では、どの程度メモリを消費しているのかを確認するために
+      // GC.GetTotalMemoryで消費量を表示している.
       Console.WriteLine("1:{0}", GC.GetTotalMemory(true));
 
+      //
+      // 巨大XMLファイルを作成.
+      //
       var root = BuildSampleXml(CreateSampleXmlFile());
 
       Console.WriteLine("2:{0}", GC.GetTotalMemory(true));
 
+      //
+      // 普通にXElementを利用して変換処理.
+      //
       var result = ConvertXml(root);
 
       Console.WriteLine("3:{0}", GC.GetTotalMemory(true));
 
+      //
+      // XStreamingElementを利用して変換処理.
+      //
       var result2 = ConvertXml2(root);
 
       Console.WriteLine("4:{0}", GC.GetTotalMemory(true));
 
+      //
+      // XStreamingElementで変換したデータを出力.
+      //
       result2.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted2.xml"));
 
       Console.WriteLine("5:{0}", GC.GetTotalMemory(true));
 
+      //
+      // ファイルの読み込みに、XmlReader+yieldを利用してXStreamingElementで変換処理.
+      //
       var result3 = ConvertXml3();
 
       Console.WriteLine("6:{0}", GC.GetTotalMemory(true));
 
+      //
+      // XStreamingElementで変換したデータを出力.
+      //
       result3.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted3.xml"));
 
       Console.WriteLine("7:{0}", GC.GetTotalMemory(true));
@@ -10618,6 +10652,9 @@ namespace Gsf.Samples
             continue;
           }
 
+          //
+          // XElement.ReadFromを利用すると簡単にXElementを取得出来る.
+          //
           var elem = XElement.ReadFrom(reader) as XElement;
           if (elem != null)
           {
