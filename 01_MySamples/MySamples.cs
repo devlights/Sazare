@@ -10667,11 +10667,19 @@ namespace Gsf.Samples
   #endregion
 
   #region LinqSamples-86
+  /// <summary>
+  /// LINQ to XMLのサンプルです.
+  /// </summary>
+  /// <remarks>
+  /// LINQ to XMLのアノテーション機能についてのサンプルです。
+  /// </remarks>
   public class LinqSamples86 : IExecutable
   {
     public void Execute()
     {
-      // Annotation
+      // LINQ to XMLでは、それぞれのデータに対して
+      // アノテーションを付与することが出来る。
+      //
       //  XObject.AddAnnotation
       //  XObject.Annotation(Type)
       //         .Annotation<T>()
@@ -10679,26 +10687,40 @@ namespace Gsf.Samples
       //         .Annotations<T>()
       //  XObject.RemoveAnnotations(Type)
       //         .RemoveAnnotations<T>()
+      //
       // アノテーションは、LINQ to XMLで処理している間のみ有効なデータ.
       // 永続化されず、ToStringにも表示されない
       // Tagプロパティのような使い方が出来る.
       //
       // コレクションを扱うAnnotationsメソッドのコードは割愛
+      //
       var root = BuildSampleXml();
       var elem = root.Descendants("Price").Last();
 
+      //
+      // アノテーションを追加.
+      //
       elem.AddAnnotation(new Tag("Tag Value"));
 
+      //
+      // アノテーションが付いている要素を列挙してみる.
+      //
       foreach (var item in QueryHasAnnotation(root))
       {
         Console.WriteLine(item);
         Console.WriteLine(item.Annotation<Tag>().Value);
       }
 
+      //
+      // アノテーションを削除
+      //
       elem.RemoveAnnotations<Tag>();
 
       Console.WriteLine(QueryHasAnnotation(root).Count());
 
+      //
+      // アノテーションを付与した状態でToStringしてみる
+      //
       elem.AddAnnotation(new Tag("Tag Value"));
       Console.WriteLine(root);
     }
@@ -10729,7 +10751,7 @@ namespace Gsf.Samples
         Value = value;
       }
 
-      public string Value { get; set; }
+      public string Value { get; private set; }
     }
   }
   #endregion
