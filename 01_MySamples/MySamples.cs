@@ -10666,6 +10666,74 @@ namespace Gsf.Samples
   }
   #endregion
 
+  #region LinqSamples-86
+  public class LinqSamples86 : IExecutable
+  {
+    public void Execute()
+    {
+      // Annotation
+      //  XObject.AddAnnotation
+      //  XObject.Annotation(Type)
+      //         .Annotation<T>()
+      //         .Annotations(Type)
+      //         .Annotations<T>()
+      //  XObject.RemoveAnnotations(Type)
+      //         .RemoveAnnotations<T>()
+      // アノテーションは、LINQ to XMLで処理している間のみ有効なデータ.
+      // 永続化されず、ToStringにも表示されない
+      // Tagプロパティのような使い方が出来る.
+      //
+      // コレクションを扱うAnnotationsメソッドのコードは割愛
+      var root = BuildSampleXml();
+      var elem = root.Descendants("Price").Last();
+
+      elem.AddAnnotation(new Tag("Tag Value"));
+
+      foreach (var item in QueryHasAnnotation(root))
+      {
+        Console.WriteLine(item);
+        Console.WriteLine(item.Annotation<Tag>().Value);
+      }
+
+      elem.RemoveAnnotations<Tag>();
+
+      Console.WriteLine(QueryHasAnnotation(root).Count());
+
+      elem.AddAnnotation(new Tag("Tag Value"));
+      Console.WriteLine(root);
+    }
+
+    IEnumerable<XElement> QueryHasAnnotation(XElement root)
+    {
+      var query = from   el in root.Descendants()
+                  let    an = el.Annotation<Tag>()
+                  where  an != null
+                  select el;
+
+      return query;
+    }
+
+    XElement BuildSampleXml()
+    {
+      //
+      // サンプルXMLファイル
+      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+      //
+      return XElement.Load(@"xml/Books.xml");
+    }
+
+    class Tag
+    {
+      public Tag(string value)
+      {
+        Value = value;
+      }
+
+      public string Value { get; set; }
+    }
+  }
+  #endregion
+
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
