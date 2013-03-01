@@ -16,155 +16,160 @@
  -->
 <!-- 利用するツールバージョンは4.0のものを利用するよう設定. -->
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="BuildAndRun">
-
-    <!--
+  <!--
         デフォルトターゲット.
     -->
-    <Target Name="BuildAndRun" DependsOnTargets="Build;Run">
-    </Target>
-
-    <!--
+  <Target Name="BuildAndRun" DependsOnTargets="Build;Run">
+  </Target>
+  <!--
         共通プロパティの設定.
     -->
-    <PropertyGroup>
-        <!-- アセンブリ名 -->
-        <AssemblyName>MySamples</AssemblyName>
-        <!-- 出力形式 -->
-        <OutputType>exe</OutputType>
-        <!-- ルート名前空間 -->
-        <RootNamespace>Gsf.Samples</RootNamespace>
-        <!-- 最低限要求される.NET Frameworkのバージョン -->
-        <MinFrameworkVersionRequired>4.0</MinFrameworkVersionRequired>
-        <!-- ターゲットとする.NET Frameworkのバージョン -->
-        <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-        <!-- デバッグタイプ -->
-        <DebugType>full</DebugType>
-        <!-- デバッグシンボル -->
-        <DebugSymbols>true</DebugSymbols>
-        <!-- シンボルの定義 -->
-        <DefineConstants>DEBUG;TRACE;GSF</DefineConstants>
-    </PropertyGroup>
-    
-    <PropertyGroup>
-      <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-      <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-      <PlatformTarget>x86</PlatformTarget>
-      <DebugSymbols>true</DebugSymbols>
-      <DebugType>full</DebugType>
-      <Optimize>false</Optimize>
-      <OutputPath>bin\Debug\</OutputPath>
-      <ErrorReport>prompt</ErrorReport>
-      <WarningLevel>4</WarningLevel>
-    </PropertyGroup>
-    <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-      <PlatformTarget>x86</PlatformTarget>
-      <DebugSymbols>false</DebugSymbols>
-      <DebugType>none</DebugType>
-      <Optimize>true</Optimize>
-      <OutputPath>bin\Release\</OutputPath>
-      <ErrorReport>prompt</ErrorReport>
-      <WarningLevel>4</WarningLevel>
-    </PropertyGroup>    
-
-    <!-- 
+  <PropertyGroup>
+    <!-- アセンブリ名 -->
+    <AssemblyName>MySamples</AssemblyName>
+    <!-- 出力形式 -->
+    <OutputType>exe</OutputType>
+    <!-- ルート名前空間 -->
+    <RootNamespace>Gsf.Samples</RootNamespace>
+    <!-- 最低限要求される.NET Frameworkのバージョン -->
+    <MinFrameworkVersionRequired>4.0</MinFrameworkVersionRequired>
+    <!-- ターゲットとする.NET Frameworkのバージョン -->
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <!-- デバッグタイプ -->
+    <DebugType>full</DebugType>
+    <!-- デバッグシンボル -->
+    <DebugSymbols>true</DebugSymbols>
+    <!-- シンボルの定義 -->
+    <DefineConstants>DEBUG;TRACE;GSF</DefineConstants>
+    <ProjectGuid>{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}</ProjectGuid>
+  </PropertyGroup>
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>false</DebugSymbols>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <!-- 
         実行するエントリポイントクラスの指定 
 
         TargetClassプロパティは、コマンドラインより渡される。
         指定されていない場合は、既定のダミークラスを使用する。
     -->
-    <PropertyGroup>
-        <TargetClass>Dummy</TargetClass>
-    </PropertyGroup>
-
-    <!--
+  <PropertyGroup>
+    <TargetClass>Dummy</TargetClass>
+  </PropertyGroup>
+  <!--
         Runターゲット内にて使用されているプロパティの設定.
     -->
-    <PropertyGroup>
-        <!-- 実行時の引数 -->
-        <StartArguments>$(TargetClass)</StartArguments>
-        <!-- アプリケーション内での作業ディレクトリ -->
-        <StartWorkingDirectory></StartWorkingDirectory>
-    </PropertyGroup>
-
-    <!--
+  <PropertyGroup>
+    <!-- 実行時の引数 -->
+    <StartArguments>$(TargetClass)</StartArguments>
+    <!-- アプリケーション内での作業ディレクトリ -->
+    <StartWorkingDirectory>
+    </StartWorkingDirectory>
+  </PropertyGroup>
+  <!--
         コンパイル系のターゲットにて利用されている項目の設定.
     -->
-    <ItemGroup>
-        <!--
+  <ItemGroup>
+    <!--
             参照設定.
         -->
-        <Reference Include="System" />
-        <Reference Include="System.Core" />
-        <Reference Include="System.ComponentModel.Composition" />
-        <Reference Include="System.Data" />
-        <Reference Include="System.Data.DataSetExtensions" />
-        <Reference Include="System.Data.Linq" />
-        <Reference Include="System.Drawing" />
-        <Reference Include="System.IO.Compression" />
-        <Reference Include="System.IO.Compression.FileSystem" />
-        <Reference Include="System.Runtime.Serialization" />
-        <Reference Include="System.ServiceModel" />
-        <Reference Include="System.Transactions" />
-        <Reference Include="System.Windows.Forms" />
-        <Reference Include="System.Xaml" />
-        <Reference Include="System.Xml" />
-        <Reference Include="System.Xml.Linq" />
-        <Reference Include="PresentationCore" />
-        <Reference Include="PresentationFramework" />
-        <Reference Include="WindowsBase" />
-        <!-- Microsoft.CSharp.dllは動的オブジェクトを利用する際に必要となる。 -->
-        <Reference Include="Microsoft.CSharp" />
-        <Reference Include="Microsoft.VisualBasic" />
-    </ItemGroup>
-
-    <ItemGroup>
-        <!--
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Transactions" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="WindowsBase" />
+    <!-- Microsoft.CSharp.dllは動的オブジェクトを利用する際に必要となる。 -->
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.VisualBasic" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--
             コンパイル対象.
         -->
-        <Compile Include="MySamples.cs" /> 
-    </ItemGroup>
-
-    <ItemGroup>
-        <!--
+    <Compile Include="Commons\Constants.cs" />
+    <Compile Include="Commons\Interfaces\IExecutable.cs" />
+    <Compile Include="MySamples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Commons\Extensions\StringExtensions.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <!--
             コンテンツ
         -->
-        <None Include="Persons.txt">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Include="schema.ini">
-            <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Include="*.png">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Include="AnotherAppDomain.exe">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Include="xml/*.xml">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-        <None Include="xml/*.xsd">
-          <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-        </None>
-    </ItemGroup>
-
-    <!--=====================================================================-->
-    <!-- 共通ターゲットファイルの読み込み.                                   -->
-    <!--=====================================================================-->
-    <!--
+    <None Include="Persons.txt">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="schema.ini">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="*.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="AnotherAppDomain.exe">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/*.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/*.xsd">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Collections\" />
+    <Folder Include="Essentials\" />
+    <Folder Include="Linq\" />
+    <Folder Include="Reflection\Emit\" />
+    <Folder Include="TaskParallelLibrary\" />
+    <Folder Include="Threading\" />
+  </ItemGroup>
+  <!--=====================================================================-->
+  <!-- 共通ターゲットファイルの読み込み.                                   -->
+  <!--=====================================================================-->
+  <!--
         以下v4.0用の設定.
     -->
-    <!-- C#用の共通ターゲット定義ファイル.(内部でCommon定義ファイルが読み込まれている.) -->
-    <!-- 同時にTargetFrameworkVersionの値が3.0以上の場合はWinFX用の共通ターゲット定義ファイルも読み込まれる. -->
-    <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-    <!--
+  <!-- C#用の共通ターゲット定義ファイル.(内部でCommon定義ファイルが読み込まれている.) -->
+  <!-- 同時にTargetFrameworkVersionの値が3.0以上の場合はWinFX用の共通ターゲット定義ファイルも読み込まれる. -->
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!--
         以下v2.0用の設定.
     -->
-    <!-- C#用の共通ターゲット定義ファイル.(内部でCommon定義ファイルが読み込まれている.) -->
-    <!--<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />-->
-    <!-- WinFX用の共通ターゲット定義ファイル. -->
-    <!--<Import Project="$(MSBuildBinPath)\Microsoft.WinFX.targets" /> -->
-
+  <!-- C#用の共通ターゲット定義ファイル.(内部でCommon定義ファイルが読み込まれている.) -->
+  <!--<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />-->
+  <!-- WinFX用の共通ターゲット定義ファイル. -->
+  <!--<Import Project="$(MSBuildBinPath)\Microsoft.WinFX.targets" /> -->
 </Project>
