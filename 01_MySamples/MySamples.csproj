@@ -133,7 +133,9 @@
     <Compile Include="Essentials\NumberFormatSamples03.cs" />
     <Compile Include="Essentials\NumberFormatSamples04.cs" />
     <Compile Include="Essentials\StringFormatSamples01.cs" />
+    <Compile Include="AdoNet\ExcelConnectSamples01.cs" />
     <Compile Include="NetWorking\PingSamples01.cs" />
+    <Compile Include="AdoNet\TextConnectSamples01.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples05.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples04.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples03.cs" />
@@ -166,6 +168,7 @@
     <Compile Include="Threading\ThreadPoolSample.cs" />
     <Compile Include="Threading\ThreadStaticAttributeSamples01.cs" />
     <Compile Include="Linq\WhereArrayIteratorSamples01.cs" />
+    <Compile Include="Essentials\YieldSamples01.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--

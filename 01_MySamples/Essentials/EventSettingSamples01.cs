@@ -2,7 +2,7 @@ namespace Gsf.Samples
 {
   using System;
   using System.Collections.Generic;
-  using System.ComponentModel;]
+  using System.ComponentModel;
   using System.Linq;
 
   #region EventSettingSamples-01
