@@ -132,66 +132,6 @@ namespace Gsf.Samples
   }
   #endregion
 
-  #region StringFormatSamples-01
-  /// <sumamry>
-  /// 文字列の書式設定に関してのサンプルです。
-  /// </summary>
-  class StringFormatSamples01 : IExecutable
-  {
-    public void Execute()
-    {
-      //
-      // 書式設定は、以下のようにして設定する.
-      //   {0,-20:C}
-      // 最初の0はインデックスを表す。必須項目。
-      //
-      // 桁数を指定する場合は、カンマを付与し桁数を指定する。
-      // 桁数の値が負の値の場合は、左寄せ。
-      // 桁数の値が正の値の場合は、右寄せとなる。
-      // 桁数の指定はオプション。
-      //
-      // フォーマットを指定する場合は、コロンを付与しフォーマットのタイプを指定する。
-      // Cは通貨を表す。
-      // フォーマットの指定はオプション。
-      //
-      // フォーマットの種類などについては
-      // http://msdn.microsoft.com/ja-jp/library/txafckwd(v=VS.100).aspx
-      // を参照。
-      //
-      string format = "'{0,20:C}'";
-      Console.WriteLine(format, 25000);
-    }
-  }
-  #endregion
-
-  #region EnumToStringSamples-01
-  /// <summary>
-  /// Enumに関するサンプルです。
-  /// </summary>
-  public class EnumToStringSamples01 : IExecutable
-  {
-    private enum MyColor
-    {
-      Red = 1,
-      Blue,
-      White,
-      Black
-    }
-
-    public void Execute()
-    {
-      MyColor blue = MyColor.Blue;
-
-      // 2
-      Console.WriteLine(blue.ToString("D"));
-      // 0x00000002
-      Console.WriteLine("0x{0}", blue.ToString("X"));
-      // Blue
-      Console.WriteLine(blue.ToString("G"));
-    }
-  }
-  #endregion
-
   #region PingSamples-01
   /// <summary>
   /// Pingクラスに関するサンプルです。
