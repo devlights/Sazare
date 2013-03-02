@@ -151,7 +151,8 @@
     <Compile Include="Commons\Extensions\StringExtensions.cs" />
     <Compile Include="Threading\ThreadSample.cs" />
     <Compile Include="Threading\ThreadPoolSample.cs" />
-    <Compile Include="ThreadStaticAttributeSamples01.cs" />
+    <Compile Include="Threading\ThreadStaticAttributeSamples01.cs" />
+    <Compile Include="Linq\WhereArrayIteratorSamples01.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
@@ -178,7 +179,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Collections\" />
-    <Folder Include="Linq\" />
     <Folder Include="TaskParallelLibrary\" />
   </ItemGroup>
   <ItemGroup>
