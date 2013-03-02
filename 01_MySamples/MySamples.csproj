@@ -118,12 +118,40 @@
     <!--
             コンパイル対象.
         -->
+    <Compile Include="AdoNet\DataTableExtensionsSample01.cs" />
+    <Compile Include="AdoNet\DataTableExtensionsSample02.cs" />
+    <Compile Include="Essentials\BitConverterSamples01.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples05.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples04.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples03.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples02.cs" />
+    <Compile Include="Threading\ThreadingNamespaceSamples01.cs" />
+    <Compile Include="Threading\AsyncOperationSamples01.cs" />
+    <Compile Include="Threading\AsyncResultSamples01.cs" />
+    <Compile Include="Essentials\CompileDirectiveSamples01.cs" />
+    <Compile Include="Essentials\ExtensionMethodSample01.cs" />
+    <Compile Include="Essentials\OrderedDictionarySample01.cs" />
+    <Compile Include="Reflection\ReflectionSample02.cs" />
+    <Compile Include="Reflection\ReflectionSample01.cs" />
+    <Compile Include="Reflection\GenericMethodReflectionSample.cs" />
+    <Compile Include="Reflection\HasByRefParameterMethodReflectionSample.cs" />
+    <Compile Include="Reflection\Emit\EmitSample3.cs" />
+    <Compile Include="Reflection\Emit\EmitSample2.cs" />
+    <Compile Include="Reflection\Emit\EmitSample.cs" />
+    <Compile Include="Threading\BackgroundWorkerSample.cs" />
+    <Compile Include="Threading\AsyncDelegateSample.cs" />
+    <Compile Include="Essentials\AnonymousDelegateSample.cs" />
     <Compile Include="Commons\Constants.cs" />
     <Compile Include="Commons\Interfaces\IExecutable.cs" />
+    <Compile Include="Essentials\DelegateSample.cs" />
+    <Compile Include="Essentials\LambdaSample.cs" />
     <Compile Include="MySamples.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Commons\Extensions\StringExtensions.cs" />
+    <Compile Include="Threading\ThreadSample.cs" />
+    <Compile Include="Threading\ThreadPoolSample.cs" />
+    <Compile Include="ThreadStaticAttributeSamples01.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
@@ -150,11 +178,13 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Collections\" />
-    <Folder Include="Essentials\" />
     <Folder Include="Linq\" />
-    <Folder Include="Reflection\Emit\" />
     <Folder Include="TaskParallelLibrary\" />
-    <Folder Include="Threading\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="testdb.mdb">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <!--=====================================================================-->
   <!-- 共通ターゲットファイルの読み込み.                                   -->
