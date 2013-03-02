@@ -120,7 +120,20 @@
         -->
     <Compile Include="AdoNet\DataTableExtensionsSample01.cs" />
     <Compile Include="AdoNet\DataTableExtensionsSample02.cs" />
+    <Compile Include="AdoNet\DataTableSamples01.cs" />
+    <Compile Include="AdoNet\DataTableSamples02.cs" />
+    <Compile Include="AdoNet\DataTableSamples03.cs" />
+    <Compile Include="Essentials\EnumToStringSamples01.cs" />
     <Compile Include="Essentials\BitConverterSamples01.cs" />
+    <Compile Include="Essentials\EventSettingSamples01.cs" />
+    <Compile Include="Essentials\EventSettingSamples02.cs" />
+    <Compile Include="Essentials\MarshalByRefObjectSamples01.cs" />
+    <Compile Include="Essentials\NumberFormatSamples01.cs" />
+    <Compile Include="Essentials\NumberFormatSamples02.cs" />
+    <Compile Include="Essentials\NumberFormatSamples03.cs" />
+    <Compile Include="Essentials\NumberFormatSamples04.cs" />
+    <Compile Include="Essentials\StringFormatSamples01.cs" />
+    <Compile Include="NetWorking\PingSamples01.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples05.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples04.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples03.cs" />
