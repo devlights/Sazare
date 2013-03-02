@@ -9,17 +9,13 @@ namespace Gsf.Samples
   using System;
   using System.Collections;
   using System.Collections.Generic;
-  using System.Collections.Specialized;
   using System.ComponentModel;
   using System.ComponentModel.Composition;
   using System.ComponentModel.Composition.Hosting;
   using System.Data;
   using System.Data.Common;
-  using System.Data.Linq;
   using System.Diagnostics;
-  using System.Diagnostics.Contracts;
   using System.Drawing;
-  using System.Drawing.Imaging;
   using System.Globalization;
   using System.IO;
   using System.IO.Compression;
@@ -27,7 +23,6 @@ namespace Gsf.Samples
   using System.Net;
   using System.Net.NetworkInformation;
   using System.Reflection;
-  using System.Reflection.Emit;
   using System.Runtime;
   using System.Runtime.CompilerServices;
   using System.Runtime.ConstrainedExecution;
@@ -40,43 +35,34 @@ namespace Gsf.Samples
   using System.ServiceModel;
   using System.ServiceModel.Syndication;
   using System.Text;
-  using System.Text.RegularExpressions;
   using System.Threading;
   using System.Threading.Tasks;
   using System.Windows;
   using System.Windows.Controls;
   //using System.Windows.Forms;
-  using System.Windows.Markup;
-  using System.Xaml;
   using System.Xml;
   using System.Xml.Linq;
   using System.Xml.XPath;
-
   //
   // Alias設定.
   //
-  using GDIColor                     = System.Drawing.Color;
-  using GDIImage                     = System.Drawing.Image;
-  using GDISize                      = System.Drawing.Size;
-  using GDIPoint                     = System.Drawing.Point;
-
-  using WinFormsButton               = System.Windows.Forms.Button;
-  using WinFormsControl              = System.Windows.Forms.Control;
-  using WinFormsDockStyle            = System.Windows.Forms.DockStyle;
-  using WinFormsFlowDirection        = System.Windows.Forms.FlowDirection;
-  using WinFormsFlowLayoutPanel      = System.Windows.Forms.FlowLayoutPanel;
-  using WinFormsForm                 = System.Windows.Forms.Form;
-  using WinFormsFormStartPosition    = System.Windows.Forms.FormStartPosition;
-  using WinFormsLabel                = System.Windows.Forms.Label;
-  using WinFormsListBox              = System.Windows.Forms.ListBox;
-  using WinFormsMessageBox           = System.Windows.Forms.MessageBox;
-  using WinFormsProgressBar          = System.Windows.Forms.ProgressBar;
-  using WinFormsProgressBarStyle     = System.Windows.Forms.ProgressBarStyle;
-  using WinFormsTextBox              = System.Windows.Forms.TextBox;
-  using WinFormsApplication          = System.Windows.Forms.Application;
-
+  using GDIImage = System.Drawing.Image;
+  using GDISize = System.Drawing.Size;
+  using WinFormsApplication = System.Windows.Forms.Application;
+  using WinFormsButton = System.Windows.Forms.Button;
+  using WinFormsControl = System.Windows.Forms.Control;
+  using WinFormsDockStyle = System.Windows.Forms.DockStyle;
+  using WinFormsFlowDirection = System.Windows.Forms.FlowDirection;
+  using WinFormsFlowLayoutPanel = System.Windows.Forms.FlowLayoutPanel;
+  using WinFormsForm = System.Windows.Forms.Form;
   using WinFormsFormClosingEventArgs = System.Windows.Forms.FormClosingEventArgs;
-  using WinFormsMethodInvoker        = System.Windows.Forms.MethodInvoker;
+  using WinFormsFormStartPosition = System.Windows.Forms.FormStartPosition;
+  using WinFormsLabel = System.Windows.Forms.Label;
+  using WinFormsListBox = System.Windows.Forms.ListBox;
+  using WinFormsMessageBox = System.Windows.Forms.MessageBox;
+  using WinFormsProgressBar = System.Windows.Forms.ProgressBar;
+  using WinFormsProgressBarStyle = System.Windows.Forms.ProgressBarStyle;
+  using WinFormsTextBox = System.Windows.Forms.TextBox;
 
   #region ダミークラス
   /// <summary>
@@ -142,36 +128,6 @@ namespace Gsf.Samples
       {
         Console.WriteLine(ex.Message);
       }
-    }
-  }
-  #endregion
-
-  #region WhereArrayIteratorSamples-01
-  /// <summary>
-  /// WhereArrayIteratorに関するサンプルです。
-  /// </summary>
-  public class WhereArrayIteratorSamples01 : IExecutable
-  {
-    public void Execute()
-    {
-      //
-      // whereを含んだlinqを作成すると, WhereArrayIteratorとなる。
-      //
-      var subset = from i in new[] { 1, 2, 3, 5, 6, 7 }
-             where i < 7
-             select i;
-
-      Console.WriteLine("{0}", subset.GetType().Name);
-      Console.WriteLine("{0}", subset.GetType().Namespace);
-
-      //
-      // whereを含まないlinqを作成すると、WhereSelectArrayIteratorとなる。
-      //
-      var subset2 = from i in new[] { 1, 2, 3, 5, 6, 7 }
-              select i;
-
-      Console.WriteLine("{0}", subset2.GetType().Name);
-      Console.WriteLine("{0}", subset2.GetType().Namespace);
     }
   }
   #endregion
