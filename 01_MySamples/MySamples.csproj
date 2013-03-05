@@ -226,6 +226,7 @@
     <Compile Include="Commons\Data\Person.cs" />
     <Compile Include="Commons\Data\Persons.cs" />
     <Compile Include="Commons\Extensions\PersonExtension.cs" />
+    <Compile Include="Collections\QueueSynchronizedSamples01.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples05.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples04.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples03.cs" />
@@ -284,7 +285,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Collections\" />
     <Folder Include="TaskParallelLibrary\" />
   </ItemGroup>
   <ItemGroup>
