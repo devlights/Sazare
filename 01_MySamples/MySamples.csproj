@@ -123,6 +123,8 @@
     <Compile Include="AdoNet\DataTableSamples01.cs" />
     <Compile Include="AdoNet\DataTableSamples02.cs" />
     <Compile Include="AdoNet\DataTableSamples03.cs" />
+    <Compile Include="AdoNet\DataTableSortSamples01.cs" />
+    <Compile Include="Essentials\EnumSamples001.cs" />
     <Compile Include="Essentials\EnumToStringSamples01.cs" />
     <Compile Include="Essentials\BitConverterSamples01.cs" />
     <Compile Include="Essentials\EventSettingSamples01.cs" />
@@ -227,6 +229,16 @@
     <Compile Include="Commons\Data\Persons.cs" />
     <Compile Include="Commons\Extensions\PersonExtension.cs" />
     <Compile Include="Collections\QueueSynchronizedSamples01.cs" />
+    <Compile Include="Essentials\SecureStringSamples001.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples01.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples02.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples03.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples04.cs" />
+    <Compile Include="Threading\ServerTimerSamples01.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Essentials\StringInfoSamples001.cs" />
+    <Compile Include="Essentials\StringIsNullOrWhiteSpaceSamples01.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples05.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples04.cs" />
     <Compile Include="Threading\ThreadingNamespaceSamples03.cs" />
@@ -251,15 +263,15 @@
     <Compile Include="Commons\Interfaces\IExecutable.cs" />
     <Compile Include="Essentials\DelegateSample.cs" />
     <Compile Include="Essentials\LambdaSample.cs" />
-    <Compile Include="MySamples.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="MySamples.cs" />
     <Compile Include="Commons\Extensions\StringExtensions.cs" />
     <Compile Include="Threading\ThreadSample.cs" />
     <Compile Include="Threading\ThreadPoolSample.cs" />
     <Compile Include="Threading\ThreadStaticAttributeSamples01.cs" />
     <Compile Include="Linq\WhereArrayIteratorSamples01.cs" />
     <Compile Include="Essentials\YieldSamples01.cs" />
+    <Compile Include="Essentials\TimeConvertSample01.cs" />
+    <Compile Include="Essentials\TimeConvertSample02.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
@@ -284,9 +296,7 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="TaskParallelLibrary\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="testdb.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
