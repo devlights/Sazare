@@ -134,6 +134,12 @@
     <Compile Include="Essentials\NumberFormatSamples04.cs" />
     <Compile Include="Essentials\StringFormatSamples01.cs" />
     <Compile Include="AdoNet\ExcelConnectSamples01.cs" />
+    <Compile Include="Linq\LinqSamples81.cs" />
+    <Compile Include="Linq\LinqSamples82.cs" />
+    <Compile Include="Linq\LinqSamples83.cs" />
+    <Compile Include="Linq\LinqSamples84.cs" />
+    <Compile Include="Linq\LinqSamples85.cs" />
+    <Compile Include="Linq\LinqSamples86.cs" />
     <Compile Include="Linq\LinqSamples61.cs" />
     <Compile Include="Linq\LinqSamples62.cs" />
     <Compile Include="Linq\LinqSamples63.cs" />
