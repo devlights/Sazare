@@ -136,6 +136,10 @@
     <Compile Include="Essentials\NumberFormatSamples04.cs" />
     <Compile Include="Essentials\StringFormatSamples01.cs" />
     <Compile Include="AdoNet\ExcelConnectSamples01.cs" />
+    <Compile Include="Essentials\ExpandoObjectSamples01.cs" />
+    <Compile Include="Essentials\ExpandoObjectSamples02.cs" />
+    <Compile Include="Essentials\ExpandoObjectSamples03.cs" />
+    <Compile Include="Essentials\ExpandoObjectSamples04.cs" />
     <Compile Include="Linq\LinqSamples81.cs" />
     <Compile Include="Linq\LinqSamples82.cs" />
     <Compile Include="Linq\LinqSamples83.cs" />
