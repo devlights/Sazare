@@ -124,6 +124,8 @@
     <Compile Include="AdoNet\DataTableSamples02.cs" />
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
+    <Compile Include="Essentials\ContravarianceSamples01.cs" />
+    <Compile Include="Essentials\CovarianceSamples01.cs" />
     <Compile Include="Essentials\EnumSamples001.cs" />
     <Compile Include="Essentials\EnumToStringSamples01.cs" />
     <Compile Include="Essentials\BitConverterSamples01.cs" />
