@@ -124,6 +124,7 @@
     <Compile Include="AdoNet\DataTableSamples02.cs" />
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
+    <Compile Include="Essentials\ComparerSamples01.cs" />
     <Compile Include="Essentials\ContravarianceSamples01.cs" />
     <Compile Include="Essentials\CovarianceSamples01.cs" />
     <Compile Include="Essentials\EnumSamples001.cs" />
@@ -142,6 +143,7 @@
     <Compile Include="Essentials\ExpandoObjectSamples02.cs" />
     <Compile Include="Essentials\ExpandoObjectSamples03.cs" />
     <Compile Include="Essentials\ExpandoObjectSamples04.cs" />
+    <Compile Include="Essentials\IComparableSamples01.cs" />
     <Compile Include="Linq\LinqSamples81.cs" />
     <Compile Include="Linq\LinqSamples82.cs" />
     <Compile Include="Linq\LinqSamples83.cs" />
@@ -239,6 +241,7 @@
     <Compile Include="Commons\Extensions\PersonExtension.cs" />
     <Compile Include="Collections\QueueSynchronizedSamples01.cs" />
     <Compile Include="Essentials\SecureStringSamples001.cs" />
+    <Compile Include="Essentials\RuntimeEnvironmentSamples01.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples01.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples02.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples03.cs" />
@@ -281,6 +284,7 @@
     <Compile Include="Essentials\YieldSamples01.cs" />
     <Compile Include="Essentials\TimeConvertSample01.cs" />
     <Compile Include="Essentials\TimeConvertSample02.cs" />
+    <Compile Include="Essentials\TupleSamples01.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
