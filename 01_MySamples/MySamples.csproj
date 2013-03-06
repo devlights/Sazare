@@ -124,6 +124,7 @@
     <Compile Include="AdoNet\DataTableSamples02.cs" />
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
+    <Compile Include="Essentials\ConsoleCursorSamples01.cs" />
     <Compile Include="Essentials\ComparerSamples01.cs" />
     <Compile Include="Essentials\ContravarianceSamples01.cs" />
     <Compile Include="Essentials\CovarianceSamples01.cs" />
@@ -285,6 +286,9 @@
     <Compile Include="Essentials\TimeConvertSample01.cs" />
     <Compile Include="Essentials\TimeConvertSample02.cs" />
     <Compile Include="Essentials\TupleSamples01.cs" />
+    <Compile Include="Essentials\TypeSamples01.cs" />
+    <Compile Include="Linq\XDocumentSamples01.cs" />
+    <Compile Include="Linq\XDocumentSamples02.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
