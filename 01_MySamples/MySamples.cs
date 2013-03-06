@@ -7,12 +7,7 @@
 namespace Gsf.Samples
 {
   using System;
-  using System.Collections;
   using System.Collections.Generic;
-  using System.ComponentModel;
-  using System.ComponentModel.Composition;
-  using System.ComponentModel.Composition.Hosting;
-  using System.Data;
   using System.Data.Common;
   using System.Diagnostics;
   using System.Drawing;
@@ -21,7 +16,6 @@ namespace Gsf.Samples
   using System.IO.Compression;
   using System.Linq;
   using System.Net;
-  using System.Net.NetworkInformation;
   using System.Reflection;
   using System.Runtime;
   using System.Runtime.CompilerServices;
@@ -31,7 +25,6 @@ namespace Gsf.Samples
   using System.Runtime.Remoting.Messaging;
   using System.Runtime.Serialization;
   using System.Runtime.Serialization.Formatters.Binary;
-  using System.Security;
   using System.ServiceModel;
   using System.ServiceModel.Syndication;
   using System.Text;
@@ -42,27 +35,19 @@ namespace Gsf.Samples
   //using System.Windows.Forms;
   using System.Xml;
   using System.Xml.Linq;
-  using System.Xml.XPath;
   //
   // Alias設定.
   //
   using GDIImage = System.Drawing.Image;
-  using GDISize = System.Drawing.Size;
   using WinFormsApplication = System.Windows.Forms.Application;
   using WinFormsButton = System.Windows.Forms.Button;
-  using WinFormsControl = System.Windows.Forms.Control;
   using WinFormsDockStyle = System.Windows.Forms.DockStyle;
   using WinFormsFlowDirection = System.Windows.Forms.FlowDirection;
   using WinFormsFlowLayoutPanel = System.Windows.Forms.FlowLayoutPanel;
   using WinFormsForm = System.Windows.Forms.Form;
-  using WinFormsFormClosingEventArgs = System.Windows.Forms.FormClosingEventArgs;
-  using WinFormsFormStartPosition = System.Windows.Forms.FormStartPosition;
   using WinFormsLabel = System.Windows.Forms.Label;
-  using WinFormsListBox = System.Windows.Forms.ListBox;
-  using WinFormsMessageBox = System.Windows.Forms.MessageBox;
   using WinFormsProgressBar = System.Windows.Forms.ProgressBar;
   using WinFormsProgressBarStyle = System.Windows.Forms.ProgressBarStyle;
-  using WinFormsTextBox = System.Windows.Forms.TextBox;
 
   #region ダミークラス
   /// <summary>
