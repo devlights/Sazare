@@ -124,6 +124,7 @@
     <Compile Include="AdoNet\DataTableSamples02.cs" />
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
+    <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
     <Compile Include="Essentials\ConsoleCursorSamples01.cs" />
     <Compile Include="Essentials\ComparerSamples01.cs" />
     <Compile Include="Essentials\ContravarianceSamples01.cs" />
