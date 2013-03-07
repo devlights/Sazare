@@ -125,6 +125,11 @@
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
+    <Compile Include="Threading\BarrierSamples01.cs" />
+    <Compile Include="Threading\BarrierSamples02.cs" />
+    <Compile Include="Threading\CancellationTokenSamples01.cs" />
+    <Compile Include="Threading\SemaphoreSlimSamples01.cs" />
+    <Compile Include="Threading\SemaphoreSlimSamples02.cs" />
     <Compile Include="Threading\CountdownEventSamples04.cs" />
     <Compile Include="Threading\CountdownEventSamples03.cs" />
     <Compile Include="Threading\CountdownEventSamples02.cs" />
