@@ -125,6 +125,11 @@
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
+    <Compile Include="Threading\CountdownEventSamples04.cs" />
+    <Compile Include="Threading\CountdownEventSamples03.cs" />
+    <Compile Include="Threading\CountdownEventSamples02.cs" />
+    <Compile Include="Threading\CountdownEventSamples01.cs" />
+    <Compile Include="Essentials\DefaultValuesSamples01.cs" />
     <Compile Include="Essentials\BCDSamples01.cs" />
     <Compile Include="Essentials\ByteArraySamples01.cs" />
     <Compile Include="Essentials\ByteArraySamples02.cs" />
@@ -246,6 +251,8 @@
     <Compile Include="Essentials\MEFSamples01.cs" />
     <Compile Include="Essentials\MEFSamples02.cs" />
     <Compile Include="Essentials\MEFSamples03.cs" />
+    <Compile Include="Threading\ManualResetEventSlimSamples01.cs" />
+    <Compile Include="Threading\MonitorSamples01.cs" />
     <Compile Include="NetWorking\PingSamples01.cs" />
     <Compile Include="AdoNet\TextConnectSamples01.cs" />
     <Compile Include="Commons\Data\Person.cs" />
@@ -301,6 +308,7 @@
     <Compile Include="Essentials\TypeSamples01.cs" />
     <Compile Include="Linq\XDocumentSamples01.cs" />
     <Compile Include="Linq\XDocumentSamples02.cs" />
+    <Compile Include="Threading\WindowsFormsSynchronizationContextSamples01.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
