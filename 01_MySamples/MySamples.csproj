@@ -254,6 +254,7 @@
     <Compile Include="Collections\QueueSynchronizedSamples01.cs" />
     <Compile Include="Essentials\SecureStringSamples001.cs" />
     <Compile Include="Essentials\RuntimeEnvironmentSamples01.cs" />
+    <Compile Include="Reflection\ReflectionSample03.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples01.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples02.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples03.cs" />
