@@ -125,6 +125,16 @@
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
+    <Compile Include="Essentials\BCDSamples01.cs" />
+    <Compile Include="Essentials\ByteArraySamples01.cs" />
+    <Compile Include="Essentials\ByteArraySamples02.cs" />
+    <Compile Include="Essentials\ByteArraySamples03.cs" />
+    <Compile Include="Essentials\ByteArraySamples04.cs" />
+    <Compile Include="Essentials\ByteArraySamples05.cs" />
+    <Compile Include="Essentials\ByteArraySamples06.cs" />
+    <Compile Include="Essentials\ByteArraySamples07.cs" />
+    <Compile Include="Essentials\ByteArraySamples08.cs" />
+    <Compile Include="Essentials\ByteArraySamples09.cs" />
     <Compile Include="Essentials\ConsoleCursorSamples01.cs" />
     <Compile Include="Essentials\ComparerSamples01.cs" />
     <Compile Include="Essentials\ContravarianceSamples01.cs" />
