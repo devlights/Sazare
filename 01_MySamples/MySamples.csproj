@@ -125,6 +125,8 @@
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
+    <Compile Include="Essentials\LazyInitializerSamples01.cs" />
+    <Compile Include="Essentials\LazySamples01.cs" />
     <Compile Include="Threading\BarrierSamples01.cs" />
     <Compile Include="Threading\BarrierSamples02.cs" />
     <Compile Include="Threading\CancellationTokenSamples01.cs" />
