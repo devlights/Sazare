@@ -321,6 +321,9 @@
     <Compile Include="Linq\XDocumentSamples02.cs" />
     <Compile Include="Threading\WindowsFormsSynchronizationContextSamples01.cs" />
     <Compile Include="Threading\ThreadLocalSamples01.cs" />
+    <Compile Include="Wcf\WcfSamples01.cs" />
+    <Compile Include="Wcf\WcfSamples02.cs" />
+    <Compile Include="Wcf\WcfSamples03.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
