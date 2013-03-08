@@ -127,8 +127,10 @@
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
     <Compile Include="Essentials\LazyInitializerSamples01.cs" />
     <Compile Include="Essentials\LazySamples01.cs" />
+    <Compile Include="IO\GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01.cs" />
     <Compile Include="Linq\PLinqSamples01.cs" />
     <Compile Include="Linq\PLinqSamples02.cs" />
+    <Compile Include="Essentials\NewLineDetectSample01.cs" />
     <Compile Include="Threading\BarrierSamples01.cs" />
     <Compile Include="Threading\BarrierSamples02.cs" />
     <Compile Include="Threading\CancellationTokenSamples01.cs" />
