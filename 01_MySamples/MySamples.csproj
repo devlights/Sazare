@@ -136,6 +136,12 @@
     <Compile Include="Basic\CompareOptionsSamples02.cs" />
     <Compile Include="Basic\IEquatableSamples01.cs" />
     <Compile Include="Basic\EqualityComparerSamples01.cs" />
+    <Compile Include="Advanced\ProgressSamples01.cs" />
+    <Compile Include="Advanced\ProgressSamples02.cs" />
+    <Compile Include="Advanced\ProgressSamples03.cs" />
+    <Compile Include="Advanced\ListForEachDiffSamples01.cs" />
+    <Compile Include="Advanced\DisposableSamples01.cs" />
+    <Compile Include="Advanced\MulticoreJITSamples01.cs" />
     <Compile Include="Threading\CallContextSamples01.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="IO\ImageConverterSamples01.cs" />
@@ -342,6 +348,9 @@
     <Compile Include="Wcf\WcfSamples02.cs" />
     <Compile Include="Wcf\WcfSamples03.cs" />
     <Compile Include="Basic\ZenkakuHankakuCheckSample01.cs" />
+    <Compile Include="IO\ZipFileSamples01.cs" />
+    <Compile Include="IO\ZipFileSamples02.cs" />
+    <Compile Include="IO\ZipFileSamples03.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
