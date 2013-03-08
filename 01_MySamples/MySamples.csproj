@@ -125,12 +125,18 @@
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
+    <Compile Include="Essentials\DateParseSample01.cs" />
     <Compile Include="Essentials\LazyInitializerSamples01.cs" />
     <Compile Include="Essentials\LazySamples01.cs" />
+    <Compile Include="IO\ImageConverterSamples01.cs" />
     <Compile Include="IO\GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01.cs" />
     <Compile Include="Linq\PLinqSamples01.cs" />
     <Compile Include="Linq\PLinqSamples02.cs" />
     <Compile Include="Essentials\NewLineDetectSample01.cs" />
+    <Compile Include="NetWorking\RssSamples01.cs" />
+    <Compile Include="Essentials\RuntimeHelpersSamples01.cs" />
+    <Compile Include="Essentials\RuntimeHelpersSamples02.cs" />
+    <Compile Include="Essentials\RuntimeHelpersSamples03.cs" />
     <Compile Include="Threading\BarrierSamples01.cs" />
     <Compile Include="Threading\BarrierSamples02.cs" />
     <Compile Include="Threading\CancellationTokenSamples01.cs" />
@@ -324,6 +330,7 @@
     <Compile Include="Wcf\WcfSamples01.cs" />
     <Compile Include="Wcf\WcfSamples02.cs" />
     <Compile Include="Wcf\WcfSamples03.cs" />
+    <Compile Include="Essentials\ZenkakuHankakuCheckSample01.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
