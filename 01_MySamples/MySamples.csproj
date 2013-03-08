@@ -134,6 +134,9 @@
     <Compile Include="Basic\LazySamples01.cs" />
     <Compile Include="Basic\CompareOptionsSamples01.cs" />
     <Compile Include="Basic\CompareOptionsSamples02.cs" />
+    <Compile Include="Basic\IEquatableSamples01.cs" />
+    <Compile Include="Basic\EqualityComparerSamples01.cs" />
+    <Compile Include="Threading\CallContextSamples01.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="IO\ImageConverterSamples01.cs" />
     <Compile Include="IO\GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01.cs" />
@@ -144,6 +147,7 @@
     <Compile Include="Advanced\RuntimeHelpersSamples01.cs" />
     <Compile Include="Advanced\RuntimeHelpersSamples02.cs" />
     <Compile Include="Advanced\RuntimeHelpersSamples03.cs" />
+    <Compile Include="Advanced\SerializationSurrogateSamples01.cs" />
     <Compile Include="Threading\BarrierSamples01.cs" />
     <Compile Include="Threading\BarrierSamples02.cs" />
     <Compile Include="Threading\CancellationTokenSamples01.cs" />
