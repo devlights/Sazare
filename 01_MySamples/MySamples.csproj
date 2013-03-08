@@ -127,6 +127,8 @@
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
     <Compile Include="Essentials\LazyInitializerSamples01.cs" />
     <Compile Include="Essentials\LazySamples01.cs" />
+    <Compile Include="Linq\PLinqSamples01.cs" />
+    <Compile Include="Linq\PLinqSamples02.cs" />
     <Compile Include="Threading\BarrierSamples01.cs" />
     <Compile Include="Threading\BarrierSamples02.cs" />
     <Compile Include="Threading\CancellationTokenSamples01.cs" />
@@ -316,6 +318,7 @@
     <Compile Include="Linq\XDocumentSamples01.cs" />
     <Compile Include="Linq\XDocumentSamples02.cs" />
     <Compile Include="Threading\WindowsFormsSynchronizationContextSamples01.cs" />
+    <Compile Include="Threading\ThreadLocalSamples01.cs" />
   </ItemGroup>
   <ItemGroup>
     <!--
