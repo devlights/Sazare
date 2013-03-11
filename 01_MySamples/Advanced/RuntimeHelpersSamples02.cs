@@ -8,11 +8,11 @@ namespace Gsf.Samples
 
   #region RuntimeHelpersSamples-02
   /// <summary>
-  /// RuntimeHelpers�N���X�̃T���v���ł��B
+  /// RuntimeHelpersクラスのサンプルです。
   /// </summary>
   public class RuntimeHelpersSamples02 : IExecutable
   {
-    // �T���v���N���X
+    // サンプルクラス
     static class SampleClass
     {
       static SampleClass()
@@ -21,15 +21,15 @@ namespace Gsf.Samples
       }
 
       //
-      // ���̃��\�b�h�ɑ΂��āACER���ŗ��p�ł���悤�M�����̃R���g���N�g��t�^.
-      // ReliabilityContractAttribute�����Consistency��Cer��
-      // System.Runtime.ConstrainedExecution���O��Ԃɑ��݂���.
+      // このメソッドに対して、CER内で利用できるよう信頼性のコントラクトを付与.
+      // ReliabilityContractAttributeおよびConsistencyやCerは
+      // System.Runtime.ConstrainedExecution名前空間に存在する.
       //
-      // RuntimeHelpers.PrepareConstrainedRegions���\�b�h�ɂ�
-      // ���s�ł���̂́AConsistency.WillNotCorruptState�����MayCorruptInstance�̏ꍇ�̂�.
+      // RuntimeHelpers.PrepareConstrainedRegionsメソッドにて
+      // 実行できるのは、Consistency.WillNotCorruptStateおよびMayCorruptInstanceの場合のみ.
       //
-      // ���A���̑����̓��\�b�h�����ł͂Ȃ��A�N���X��C���^�[�t�F�[�X�ɂ��t�^�ł���B
-      // ���̏ꍇ�A�N���X�S�̂ɑ΂��ĐM�����̃R���g���N�g��t�^�������ƂɂȂ�B
+      // 尚、この属性はメソッドだけではなく、クラスやインターフェースにも付与できる。
+      // その場合、クラス全体に対して信頼性のコントラクトを付与したことになる。
       //
       [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
       internal static void Print()
@@ -41,26 +41,26 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // RuntimeHelpers.PrepareConstrainedRegions���Ăяo���ƁA�R���p�C����
-      // ���̃��\�b�h����catch, finally�u���b�N��CER�i���񂳂ꂽ���s�̈�j�Ƃ��ă}�[�N����B
+      // RuntimeHelpers.PrepareConstrainedRegionsを呼び出すと、コンパイラは
+      // そのメソッド内のcatch, finallyブロックをCER（制約された実行領域）としてマークする。
       //
-      // CER�Ƃ��ă}�[�N���ꂽ�̈悩��A�R�[�h���Ăяo���ꍇ�A���̃R�[�h�ɂ͐M�����̃R���g���N�g���K�v�ƂȂ�B
-      // �R�[�h�ɑ΂��āA�M�����̃R���g���N�g��t�^����ɂ́A�ȉ��̑����𗘗p����B
+      // CERとしてマークされた領域から、コードを呼び出す場合、そのコードには信頼性のコントラクトが必要となる。
+      // コードに対して、信頼性のコントラクトを付与するには、以下の属性を利用する。
       //  [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
       //
-      // CER�Ń}�[�N���ꂽ�̈�ɂāA�R�[�h�ɐM�����̃R���g���N�g���t�^����Ă���ꍇ�ACLR��
-      // try���̖{���������s�����O�ɁAcatch, finally�u���b�N�̃R�[�h�����O�R���p�C������B
+      // CERでマークされた領域にて、コードに信頼性のコントラクトが付与されている場合、CLRは
+      // try内の本処理が実行される前に、catch, finallyブロックのコードを事前コンパイルする。
       //
-      // �Ȃ̂ŁA�Ⴆ��finally�u���b�N���ɂĐÓI�R���X�g���N�^�����N���X�̃��\�b�h���Ăт����Ă�����
-      // ����ƁAtry���̖{�����������finally�u���b�N���̐ÓI�R���X�g���N�^���Ă΂�鎖�ɂȂ�B
-      // (���O�R���p�C�����s����ƁA�A�Z���u���̃��[�h�A�ÓI�R���X�g���N�^�̎��s�Ȃǂ��������邽��)
+      // なので、例えばfinallyブロック内にて静的コンストラクタを持つクラスのメソッドを呼びだしていたり
+      // すると、try内の本処理よりも先にfinallyブロック内の静的コンストラクタが呼ばれる事になる。
+      // (事前コンパイルが行われると、アセンブリのロード、静的コンストラクタの実行などが発生するため)
       //
       RuntimeHelpers.PrepareConstrainedRegions();
 
       try
       {
-        // ���O��RuntimeHelpers.PrepareConstrainedRegions()���Ăяo���Ă���ꍇ
-        // �ȉ��̃��\�b�h���Ăяo�����O�ɁAcatch, finally�u���b�N�����O�R���p�C�������.
+        // 事前にRuntimeHelpers.PrepareConstrainedRegions()を呼び出している場合
+        // 以下のメソッドが呼び出される前に、catch, finallyブロックが事前コンパイルされる.
         Calc();
       }
       finally

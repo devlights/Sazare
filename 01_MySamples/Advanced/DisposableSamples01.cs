@@ -6,10 +6,10 @@ namespace Gsf.Samples
 
   #region DisposableSamples-01
   /// <summary>
-  /// IDisposable‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// IDisposableã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ˆÈ‰º‚Ì‹L–‚ğŒ©‚Äì¬‚µ‚½ƒTƒ“ƒvƒ‹B
+  /// ä»¥ä¸‹ã®è¨˜äº‹ã‚’è¦‹ã¦ä½œæˆã—ãŸã‚µãƒ³ãƒ—ãƒ«ã€‚
   ///   http://www.codeproject.com/Tips/458846/Using-using-Statements-DisposalAccumulator
   /// </remarks>
   public class DisposableSamples01 : IExecutable
@@ -17,7 +17,7 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ’Êíƒpƒ^[ƒ“.
+      // é€šå¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³.
       //
       using (var disposable1 = new Disposable1())
       {
@@ -31,7 +31,7 @@ namespace Gsf.Samples
       }
 
       //
-      // ’Êíƒpƒ^[ƒ“: DisposableManager—˜—p.
+      // é€šå¸¸ãƒ‘ã‚¿ãƒ¼ãƒ³: DisposableManageråˆ©ç”¨.
       //
       using (var manager = new DisposableManager())
       {
@@ -43,7 +43,7 @@ namespace Gsf.Samples
       }
 
       //
-      // ğŒ‚ª‘¶İ‚µAì¬‚³‚ê‚È‚¢ƒIƒuƒWƒFƒNƒg‚ª‘¶İ‚·‚é‰Â”\«‚ª‚ ‚éê‡.
+      // æ¡ä»¶ãŒå­˜åœ¨ã—ã€ä½œæˆã•ã‚Œãªã„ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå­˜åœ¨ã™ã‚‹å¯èƒ½æ€§ãŒã‚ã‚‹å ´åˆ.
       //
       Disposable1 dispose1 = null;
       Disposable2 dispose2 = null;
@@ -71,7 +71,7 @@ namespace Gsf.Samples
 
 
       //
-      // ğŒ‚ ‚è: DisposableManager—˜—p.
+      // æ¡ä»¶ã‚ã‚Š: DisposableManageråˆ©ç”¨.
       //
       dispose1 = null;
       dispose2 = null;

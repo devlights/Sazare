@@ -7,44 +7,44 @@ namespace Gsf.Samples
 
   #region MulticoreJITSamples-01
   /// <summary>
-  /// �}���`�R�AJIT�̃T���v���ł�.
+  /// マルチコアJITのサンプルです.
   /// </summary>
   public class MulticoreJITSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // .NET 4.5���}���`�R�AJIT�����ڂ���Ă���.
-      // �����ʂ�A�}���`�R�A�\���̊��ɂĕ����JIT���s���@�\�ł���B
-      // ����ɂ��A�A�v���P�[�V�����̓����ɐ�s���āA�K�v�ƂȂ郁�\�b�h��JIT��
-      // �s����\���������Ȃ�A���ʓI�ɃA�v���P�[�V�����̃p�t�H�[�}���X���オ��Ƃ̂��ƁB
+      // .NET 4.5よりマルチコアJITが搭載されている.
+      // 文字通り、マルチコア構成の環境にて並列でJITを行う機能である。
+      // これにより、アプリケーションの動きに先行して、必要となるメソッドのJITが
+      // 行われる可能性が高くなり、結果的にアプリケーションのパフォーマンスが上がるとのこと。
       //
-      // �}���`�R�AJIT�́AASP.NET 4.5��Silverlight5�ł�
-      // ����ŗL���ƂȂ��Ă��邪�A�f�X�N�g�b�v�A�v���P�[�V�����ł�
-      // �f�t�H���g�ŗL���ɂȂ��Ă��Ȃ��B
+      // マルチコアJITは、ASP.NET 4.5とSilverlight5では
+      // 既定で有効となっているが、デスクトップアプリケーションでは
+      // デフォルトで有効になっていない。
       //
-      // �L���ɂȂ��Ă��Ȃ����R�́A���̋@�\�𗘗p���邽�߂ɂ�
-      // �v���t�@�C�����O�������K�{�ł���A�v���t�@�C���f�[�^��ۑ�
-      // ���邱�Ƃ������ł��邽�߁B�f�X�N�g�b�v�A�v���P�[�V�����ł�
-      // �t���[�����[�N�����A�v���t�@�C���f�[�^���ǂ��ɕۑ�����ׂ��Ȃ̂���
-      // ���f�ł��Ȃ����߁A�蓮�Ŏ��s����悤�ɂȂ��Ă���B
+      // 有効になっていない理由は、この機能を利用するためには
+      // プロファイリング処理が必須であり、プロファイルデータを保存
+      // することが条件であるため。デスクトップアプリケーションでは
+      // フレームワーク側が、プロファイルデータをどこに保存するべきなのかを
+      // 判断できないため、手動で実行するようになっている。
       //
-      // �Q�lURL:
+      // 参考URL:
       //  http://blogs.msdn.com/b/dotnet/archive/2012/10/18/an-easy-solution-for-improving-app-launch-performance.aspx
       //  http://stackoverflow.com/questions/12965606/why-is-multicore-jit-not-on-by-default-in-net-4-5
       //  http://msdn.microsoft.com/ja-jp/magazine/hh882452.aspx
       //
-      // �}���`�R�AJIT��L���ɂ���ɂ́ASystem.Runtime.ProfileOptimization�N���X��
-      // �ȉ���static���\�b�h���Ăяo�������ł���B
-      //   �ESetProfileRoot
-      //   �EStartProfile
-      // ��L���\�b�h�́A�A�v���P�[�V�����̃G���g���|�C���g�ŌĂяo�������悢�B
+      // マルチコアJITを有効にするには、System.Runtime.ProfileOptimizationクラスの
+      // 以下のstaticメソッドを呼び出すだけである。
+      //   ・SetProfileRoot
+      //   ・StartProfile
+      // 上記メソッドは、アプリケーションのエントリポイントで呼び出す方がよい。
       //
 
       //
-      // �}���`�R�AJIT��L���ɂ���.
-      //  �v���t�@�C���f�[�^�i�[�ꏊ�́A�A�v�����s�t�H���_.
-      //  �v���t�@�C���f�[�^�̃t�@�C�����́AApp.JIT.Profile�Ƃ���B
+      // マルチコアJITを有効にする.
+      //  プロファイルデータ格納場所は、アプリ実行フォルダ.
+      //  プロファイルデータのファイル名は、App.JIT.Profileとする。
       //
       ProfileOptimization.SetProfileRoot(Environment.CurrentDirectory);
       ProfileOptimization.StartProfile("App.JIT.Profile");

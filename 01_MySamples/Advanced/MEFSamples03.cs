@@ -8,17 +8,17 @@ namespace Gsf.Samples
 
   #region MEFSamples-03
   /// <summary>
-  /// MEF�ɂ��ẴT���v���ł��B
+  /// MEFについてのサンプルです。
   /// </summary>
   public class MEFSamples03 : IExecutable
   {
-    // Export�p�̃C���^�[�t�F�[�X
+    // Export用のインターフェース
     public interface IExporter
     {
       string Name { get; }
     }
 
-    // Exporter�p�̃��^�f�[�^�C���^�[�t�F�[�X
+    // Exporter用のメタデータインターフェース
     public interface IExporterMetadata
     {
       string Symbol { get; }
@@ -32,7 +32,7 @@ namespace Gsf.Samples
       {
         get
         {
-          return "���� FIRST EXPORTER ����";
+          return "☆☆ FIRST EXPORTER ☆☆";
         }
       }
     }
@@ -45,7 +45,7 @@ namespace Gsf.Samples
       {
         get
         {
-          return "���� SECOND EXPORTER ����";
+          return "☆☆ SECOND EXPORTER ☆☆";
         }
       }
     }
@@ -58,54 +58,54 @@ namespace Gsf.Samples
       {
         get
         {
-          return "���� THIRD EXPORTER ����";
+          return "☆☆ THIRD EXPORTER ☆☆";
         }
       }
     }
 
-    // Import�p�[�g (������Export���󂯕t���A���A���^�f�[�^�L��j
+    // Importパート (複数のExportを受け付け、且つ、メタデータ有り）
     //
-    // �ʏ�A������Export���󂯕t����ꍇ�͈ȉ��̏����Ő錾����B
+    // 通常、複数のExportを受け付ける場合は以下の書式で宣言する。
     //   IEnumerable<Lazy<T>>
     //
-    // Lazy<T>�𗘗p���鎖�ɂ��A�x�����[�f�B���O���\�ƂȂ�B
-    // (���p���Ȃ�Export�p�[�g���������ɑS�ăC���X�^���X�������̂�h���j
+    // Lazy<T>を利用する事により、遅延ローディングが可能となる。
+    // (利用しないExportパートが合成時に全てインスタンス化されるのを防ぐ）
     //
-    // �܂��A���^�f�[�^�𗘗p����ꍇ�͈ȉ��̂悤�ɂȂ�B
+    // また、メタデータを利用する場合は以下のようになる。
     //   IEnumerable<Lazy<T, TMetaData>>
     //
-    // ���A�����I��null�������l�Ƃ��Ďw�肵�Ă���̂́A���̂܂܂��ƃR���p�C���ɂ���Čx����������邽��
+    // 尚、明示的にnullを初期値として指定しているのは、そのままだとコンパイラによって警告扱いされるため
     [ImportMany(typeof(IExporter))]
     IEnumerable<Lazy<IExporter, IExporterMetadata>> _exporters = null;
 
-    // �R���e�i.
+    // コンテナ.
     CompositionContainer _container;
 
     public void Execute()
     {
       //
-      // �J�^���O�\�z.
-      //  AggregateCatalog�́A������Catalog����ɂ܂Ƃ߂���������B
+      // カタログ構築.
+      //  AggregateCatalogは、複数のCatalogを一つにまとめる役割を持つ。
       //
       var catalog = new AggregateCatalog();
-      // AssemblyCatalog�𗘗p���āA�������g�̃A�Z���u�����J�^���O�ɒǉ�.
+      // AssemblyCatalogを利用して、自分自身のアセンブリをカタログに追加.
       catalog.Catalogs.Add(new AssemblyCatalog(typeof(MEFSamples01).Assembly));
 
       //
-      // �R���e�i���\�z.
+      // コンテナを構築.
       //
       _container = new CompositionContainer(catalog);
       try
       {
-        // �������s.
+        // 合成実行.
         _container.ComposeParts(this);
 
-        // ���s.
+        // 実行.
         foreach (Lazy<IExporter, IExporterMetadata> lazyObj in _exporters)
         {
           //
-          // ���^�f�[�^�𒲂ׁA���v�������݂̂̂����s����.
-          // Lazy<T, TMetadata>.Value���Ă΂Ȃ�����C���X�^���X�͍쐬����Ȃ��B
+          // メタデータを調べ、合致したもののみを実行する.
+          // Lazy<T, TMetadata>.Valueを呼ばない限りインスタンスは作成されない。
           //
           if (lazyObj.Metadata.Symbol == "SECOND")
           {
@@ -116,7 +116,7 @@ namespace Gsf.Samples
       }
       catch (CompositionException ex)
       {
-        // �����Ɏ��s�����ꍇ.
+        // 合成に失敗した場合.
         Console.WriteLine(ex.ToString());
       }
 

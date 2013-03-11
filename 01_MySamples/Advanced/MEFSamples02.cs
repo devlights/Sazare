@@ -8,11 +8,11 @@ namespace Gsf.Samples
 
   #region MEFSamples-02
   /// <summary>
-  /// MEF‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// MEFã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class MEFSamples02 : IExecutable
   {
-    // Export—p‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX
+    // Exportç”¨ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
     public interface IExporter
     {
       string Name { get; }
@@ -25,7 +25,7 @@ namespace Gsf.Samples
       {
         get
         {
-          return "™™ FIRST EXPORTER ™™";
+          return "â˜†â˜† FIRST EXPORTER â˜†â˜†";
         }
       }
     }
@@ -37,7 +37,7 @@ namespace Gsf.Samples
       {
         get
         {
-          return "™™ SECOND EXPORTER ™™";
+          return "â˜†â˜† SECOND EXPORTER â˜†â˜†";
         }
       }
     }
@@ -49,49 +49,49 @@ namespace Gsf.Samples
       {
         get
         {
-          return "™™ THIRD EXPORTER ™™";
+          return "â˜†â˜† THIRD EXPORTER â˜†â˜†";
         }
       }
     }
 
-    // Importƒp[ƒg (•¡”‚ÌExport‚ğó‚¯•t‚¯‚éj
+    // Importãƒ‘ãƒ¼ãƒˆ (è¤‡æ•°ã®Exportã‚’å—ã‘ä»˜ã‘ã‚‹ï¼‰
     //
-    // ’ÊíA•¡”‚ÌExport‚ğó‚¯•t‚¯‚éê‡‚ÍˆÈ‰º‚Ì‘®‚ÅéŒ¾‚·‚éB
+    // é€šå¸¸ã€è¤‡æ•°ã®Exportã‚’å—ã‘ä»˜ã‘ã‚‹å ´åˆã¯ä»¥ä¸‹ã®æ›¸å¼ã§å®£è¨€ã™ã‚‹ã€‚
     //   IEnumerable<Lazy<T>>
     //
-    // Lazy<T>‚ğ—˜—p‚·‚é–‚É‚æ‚èA’x‰„ƒ[ƒfƒBƒ“ƒO‚ª‰Â”\‚Æ‚È‚éB
-    // (—˜—p‚µ‚È‚¢Exportƒp[ƒg‚ª‡¬‚ÉƒCƒ“ƒXƒ^ƒ“ƒX‰»‚³‚ê‚é‚Ì‚ğ–h‚®j
+    // Lazy<T>ã‚’åˆ©ç”¨ã™ã‚‹äº‹ã«ã‚ˆã‚Šã€é…å»¶ãƒ­ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°ãŒå¯èƒ½ã¨ãªã‚‹ã€‚
+    // (åˆ©ç”¨ã—ãªã„Exportãƒ‘ãƒ¼ãƒˆãŒåˆæˆæ™‚ã«ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–ã•ã‚Œã‚‹ã®ã‚’é˜²ãï¼‰
     //
-    // ‚Ü‚½Aƒƒ^ƒf[ƒ^‚ğ—˜—p‚·‚éê‡‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚È‚éB
+    // ã¾ãŸã€ãƒ¡ã‚¿ãƒ‡ãƒ¼ã‚¿ã‚’åˆ©ç”¨ã™ã‚‹å ´åˆã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ãªã‚‹ã€‚
     //   IEnumerable<Lazy<T, TMetaData>>
     //
-    // ®A–¾¦“I‚Énull‚ğ‰Šú’l‚Æ‚µ‚Äw’è‚µ‚Ä‚¢‚é‚Ì‚ÍA‚»‚Ì‚Ü‚Ü‚¾‚ÆƒRƒ“ƒpƒCƒ‰‚É‚æ‚Á‚ÄŒxˆµ‚¢‚³‚ê‚é‚½‚ß
+    // å°šã€æ˜ç¤ºçš„ã«nullã‚’åˆæœŸå€¤ã¨ã—ã¦æŒ‡å®šã—ã¦ã„ã‚‹ã®ã¯ã€ãã®ã¾ã¾ã ã¨ã‚³ãƒ³ãƒ‘ã‚¤ãƒ©ã«ã‚ˆã£ã¦è­¦å‘Šæ‰±ã„ã•ã‚Œã‚‹ãŸã‚
     [ImportMany(typeof(IExporter))]
     IEnumerable<Lazy<IExporter>> _exporters = null;
 
-    // ƒRƒ“ƒeƒi.
+    // ã‚³ãƒ³ãƒ†ãƒŠ.
     CompositionContainer _container;
 
     public void Execute()
     {
       //
-      // ƒJƒ^ƒƒO\’z.
-      //  AggregateCatalog‚ÍA•¡”‚ÌCatalog‚ğˆê‚Â‚É‚Ü‚Æ‚ß‚é–ğŠ„‚ğ‚ÂB
+      // ã‚«ã‚¿ãƒ­ã‚°æ§‹ç¯‰.
+      //  AggregateCatalogã¯ã€è¤‡æ•°ã®Catalogã‚’ä¸€ã¤ã«ã¾ã¨ã‚ã‚‹å½¹å‰²ã‚’æŒã¤ã€‚
       //
       var catalog = new AggregateCatalog();
-      // AssemblyCatalog‚ğ—˜—p‚µ‚ÄA©•ª©g‚ÌƒAƒZƒ“ƒuƒŠ‚ğƒJƒ^ƒƒO‚É’Ç‰Á.
+      // AssemblyCatalogã‚’åˆ©ç”¨ã—ã¦ã€è‡ªåˆ†è‡ªèº«ã®ã‚¢ã‚»ãƒ³ãƒ–ãƒªã‚’ã‚«ã‚¿ãƒ­ã‚°ã«è¿½åŠ .
       catalog.Catalogs.Add(new AssemblyCatalog(typeof(MEFSamples01).Assembly));
 
       //
-      // ƒRƒ“ƒeƒi‚ğ\’z.
+      // ã‚³ãƒ³ãƒ†ãƒŠã‚’æ§‹ç¯‰.
       //
       _container = new CompositionContainer(catalog);
       try
       {
-        // ‡¬Às.
+        // åˆæˆå®Ÿè¡Œ.
         _container.ComposeParts(this);
 
-        // Às.
+        // å®Ÿè¡Œ.
         foreach (Lazy<IExporter> lazyObj in _exporters)
         {
           Console.WriteLine(lazyObj.Value.Name);
@@ -100,7 +100,7 @@ namespace Gsf.Samples
       }
       catch (CompositionException ex)
       {
-        // ‡¬‚É¸”s‚µ‚½ê‡.
+        // åˆæˆã«å¤±æ•—ã—ãŸå ´åˆ.
         Console.WriteLine(ex.ToString());
       }
 

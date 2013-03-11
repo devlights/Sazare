@@ -10,45 +10,45 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // AppDomain‚ğ—˜—p‚µ‚ÄA•Ê‚ÌAppDomain‚Åˆ—‚ğÀs‚·‚é‚½‚ß‚Ì•û–@‚ÍA‚¢‚­‚Â‚©‘¶İ‚·‚éB
+      // AppDomainã‚’åˆ©ç”¨ã—ã¦ã€åˆ¥ã®AppDomainã§å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹ãŸã‚ã®æ–¹æ³•ã¯ã€ã„ãã¤ã‹å­˜åœ¨ã™ã‚‹ã€‚
       //
-      // EAppDomain.ExecuteAssembly‚ğ—˜—p‚·‚éB
-      // EAppDomain.DoCallback‚ğ—˜—p‚·‚éB
-      // EAppDomain.CreateInstanceAndUnwrap‚ğ—˜—p‚µ‚ÄAƒvƒƒLƒV‚ğæ“¾‚µÀs.
+      // ãƒ»AppDomain.ExecuteAssemblyã‚’åˆ©ç”¨ã™ã‚‹ã€‚
+      // ãƒ»AppDomain.DoCallbackã‚’åˆ©ç”¨ã™ã‚‹ã€‚
+      // ãƒ»AppDomain.CreateInstanceAndUnwrapã‚’åˆ©ç”¨ã—ã¦ã€ãƒ—ãƒ­ã‚­ã‚·ã‚’å–å¾—ã—å®Ÿè¡Œ.
       //
       var currentDomain = AppDomain.CurrentDomain;
       var anotherDomain = AppDomain.CreateDomain("AD No.2");
 
       //
-      // AppDomain.ExecuteAssembly‚ğ—˜—p‚µ‚ÄÀs.
+      // AppDomain.ExecuteAssemblyã‚’åˆ©ç”¨ã—ã¦å®Ÿè¡Œ.
       // 
-      // ExecuteAssemblyƒƒ\ƒbƒh‚É‚ÍAƒAƒZƒ“ƒuƒŠ–¼‚ğw’è‚·‚éB
-      // ‚±‚±‚Åw’è‚·‚éƒAƒZƒ“ƒuƒŠ‚ÍÀs‰Â”\‚Å‚ ‚é•K—v‚ª‚ ‚èAƒGƒ“ƒgƒŠƒ|ƒCƒ“ƒg‚ğ‚Á‚Ä‚¢‚é•K—v‚ª‚ ‚éB
+      // ExecuteAssemblyãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯ã€ã‚¢ã‚»ãƒ³ãƒ–ãƒªåã‚’æŒ‡å®šã™ã‚‹ã€‚
+      // ã“ã“ã§æŒ‡å®šã™ã‚‹ã‚¢ã‚»ãƒ³ãƒ–ãƒªã¯å®Ÿè¡Œå¯èƒ½ã§ã‚ã‚‹å¿…è¦ãŒã‚ã‚Šã€ã‚¨ãƒ³ãƒˆãƒªãƒã‚¤ãƒ³ãƒˆã‚’æŒã£ã¦ã„ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
       //
       anotherDomain.ExecuteAssembly(@"AnotherAppDomain.exe");
 
       //
-      // AppDomain.DoCallback‚ğ—˜—p‚·‚é.
+      // AppDomain.DoCallbackã‚’åˆ©ç”¨ã™ã‚‹.
       //
-      // DoCallback‚Íw’è‚³‚ê‚½ƒfƒŠƒQ[ƒg‚ğÀs‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh.
-      // •Ê‚ÌAppDomain‚ÌDoCallback‚ÉƒfƒŠƒQ[ƒg‚ğ“n‚·–‚É‚æ‚è
-      // ˆ—‚ª‚»‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“ƒhƒƒCƒ“‚ÅÀs‚³‚ê‚éB
+      // DoCallbackã¯æŒ‡å®šã•ã‚ŒãŸãƒ‡ãƒªã‚²ãƒ¼ãƒˆã‚’å®Ÿè¡Œã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰.
+      // åˆ¥ã®AppDomainã®DoCallbackã«ãƒ‡ãƒªã‚²ãƒ¼ãƒˆã‚’æ¸¡ã™äº‹ã«ã‚ˆã‚Š
+      // å‡¦ç†ãŒãã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ãƒ‰ãƒ¡ã‚¤ãƒ³ã§å®Ÿè¡Œã•ã‚Œã‚‹ã€‚
       //
-      // “–‘RA’l“n‚µ(Serializable)‚ÆQÆ“n‚µ(MarshalByRefObject)‚É‚æ‚Á‚ÄÀsŒ‹‰Ê‚ªˆÙ‚È‚éê‡‚ª‚ ‚é.
+      // å½“ç„¶ã€å€¤æ¸¡ã—(Serializable)ã¨å‚ç…§æ¸¡ã—(MarshalByRefObject)ã«ã‚ˆã£ã¦å®Ÿè¡ŒçµæœãŒç•°ãªã‚‹å ´åˆãŒã‚ã‚‹.
       //
-      // Staticƒƒ\ƒbƒh
+      // Staticãƒ¡ã‚½ãƒƒãƒ‰
       Console.WriteLine("----------[Static Method]--------");
       currentDomain.DoCallBack(CallbackMethod_S);
       anotherDomain.DoCallBack(CallbackMethod_S);
       Console.WriteLine("---------------------------------");
 
-      // ƒCƒ“ƒXƒ^ƒ“ƒXƒƒ\ƒbƒh.
+      // ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰.
       Console.WriteLine("---------[Instance Method]-------");
       currentDomain.DoCallBack(CallbackMethod);
       anotherDomain.DoCallBack(CallbackMethod);
       Console.WriteLine("---------------------------------");
 
-      // ’l“n‚µ (Serializable)
+      // å€¤æ¸¡ã— (Serializable)
       var byvalObj = new MarshalByVal();
 
       Console.WriteLine("---------[Serializable]----------");
@@ -56,8 +56,8 @@ namespace Gsf.Samples
       anotherDomain.DoCallBack(byvalObj.CallbackMethod);
       Console.WriteLine("---------------------------------");
 
-      // QÆ“n‚µ (MarshalByRefObject)
-      // MarshalByRefObject‚ğŒp³‚µ‚Ä‚¢‚é‚½‚ßAˆÈ‰º‚Ì—á‚Å‚Í•K‚¸ƒfƒtƒHƒ‹ƒgƒhƒƒCƒ“‚ÅÀs‚³‚ê‚é‚±‚Æ‚É‚È‚éB
+      // å‚ç…§æ¸¡ã— (MarshalByRefObject)
+      // MarshalByRefObjectã‚’ç¶™æ‰¿ã—ã¦ã„ã‚‹ãŸã‚ã€ä»¥ä¸‹ã®ä¾‹ã§ã¯å¿…ãšãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ‰ãƒ¡ã‚¤ãƒ³ã§å®Ÿè¡Œã•ã‚Œã‚‹ã“ã¨ã«ãªã‚‹ã€‚
       var byrefObj = new MarshalByRef();
 
       Console.WriteLine("-------[MarshalByRefObject]------");
@@ -66,8 +66,8 @@ namespace Gsf.Samples
       Console.WriteLine("---------------------------------");
 
       //
-      // AppDomain.CreateInstanceAndUnwrap‚ğ—˜—p‚·‚éB
-      // ƒvƒƒLƒV‚ğæ“¾‚µ‚Äˆ—‚ğÀs‚·‚é.
+      // AppDomain.CreateInstanceAndUnwrapã‚’åˆ©ç”¨ã™ã‚‹ã€‚
+      // ãƒ—ãƒ­ã‚­ã‚·ã‚’å–å¾—ã—ã¦å‡¦ç†ã‚’å®Ÿè¡Œã™ã‚‹.
       //
       var asmName = typeof(MarshalByRef).Assembly.FullName;
       var typeName = typeof(MarshalByRef).FullName;

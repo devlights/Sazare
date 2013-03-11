@@ -9,24 +9,24 @@ namespace Gsf.Samples
 
   #region SerializationSurrogateSamples-01
   /// <summary>
-  /// ƒVƒŠƒAƒ‰ƒCƒY‚ÉŠÖ‚·‚éƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã«é–¢ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ƒVƒŠƒAƒ‹‰»ƒTƒƒQ[ƒg‚É‚Â‚¢‚ÄB (ISerializationSurrogate)
+  /// ã‚·ãƒªã‚¢ãƒ«åŒ–ã‚µãƒ­ã‚²ãƒ¼ãƒˆã«ã¤ã„ã¦ã€‚ (ISerializationSurrogate)
   /// </remarks>
   public class SerializationSurrogateSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // •’Ê‚ÌƒVƒŠƒAƒ‰ƒCƒYˆ—.
+      // æ™®é€šã®ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºå‡¦ç†.
       //
       var obj = MakeSerializableObject();
       using (var stream = new MemoryStream())
       {
         var formatter = new BinaryFormatter();
 
-        // ¬Œ÷‚·‚é.
+        // æˆåŠŸã™ã‚‹.
         formatter.Serialize(stream, obj);
 
         stream.Position = 0;
@@ -34,7 +34,7 @@ namespace Gsf.Samples
       }
 
       //
-      // ƒVƒŠƒAƒ‰ƒCƒY•s‰Â (Serializable‘®«‚ğ‚Â‚¯‚Ä‚¢‚È‚¢)
+      // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºä¸å¯ (Serializableå±æ€§ã‚’ã¤ã‘ã¦ã„ãªã„)
       //
       var obj2 = MakeNotSerializableObject();
       using (var stream = new MemoryStream())
@@ -43,8 +43,8 @@ namespace Gsf.Samples
 
         try
         {
-          // ‘ÎÛƒNƒ‰ƒX‚ÉSerializable‘®«‚ª•t—^‚³‚ê‚Ä‚¢‚È‚¢‚Ì‚Å
-          // ˆÈ‰º‚ğÀs‚·‚é‚Æ—áŠO‚ª”­¶‚·‚é.
+          // å¯¾è±¡ã‚¯ãƒ©ã‚¹ã«Serializableå±æ€§ãŒä»˜ä¸ã•ã‚Œã¦ã„ãªã„ã®ã§
+          // ä»¥ä¸‹ã‚’å®Ÿè¡Œã™ã‚‹ã¨ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹.
           formatter.Serialize(stream, obj2);
 
           stream.Position = 0;
@@ -57,7 +57,7 @@ namespace Gsf.Samples
       }
 
       //
-      // ƒVƒŠƒAƒ‹‰»ƒTƒƒQ[ƒg. (SerializationSurrogate)
+      // ã‚·ãƒªã‚¢ãƒ«åŒ–ã‚µãƒ­ã‚²ãƒ¼ãƒˆ. (SerializationSurrogate)
       //
       var obj3 = MakeNotSerializableObject();
       using (var stream = new MemoryStream())
@@ -65,15 +65,15 @@ namespace Gsf.Samples
         var formatter = new BinaryFormatter();
 
         //
-        // ƒVƒŠƒAƒ‹‰»ƒTƒƒQ[ƒg‚ğs‚¤‚½‚ß‚ÉAˆÈ‰º‚Ìè‡‚Åİ’è‚ğs‚¤.
+        // ã‚·ãƒªã‚¢ãƒ«åŒ–ã‚µãƒ­ã‚²ãƒ¼ãƒˆã‚’è¡Œã†ãŸã‚ã«ã€ä»¥ä¸‹ã®æ‰‹é †ã§è¨­å®šã‚’è¡Œã†.
         //
-        // 1.SurrogateSelectorƒIƒuƒWƒFƒNƒg‚ğ—pˆÓ.
-        // 2.©ìSurrogateƒNƒ‰ƒX‚ğ—pˆÓ.
-        // 3.SurrogateSelector.AddSurrogate‚ÅSurrogateƒIƒuƒWƒFƒNƒg‚ğİ’è
-        // 4.SurrogateSelector‚ğFormatter‚Éİ’è.
+        // 1.SurrogateSelectorã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ç”¨æ„.
+        // 2.è‡ªä½œSurrogateã‚¯ãƒ©ã‚¹ã‚’ç”¨æ„.
+        // 3.SurrogateSelector.AddSurrogateã§Surrogateã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’è¨­å®š
+        // 4.SurrogateSelectorã‚’Formatterã«è¨­å®š.
         //
-        // ‚±‚ê‚É‚æ‚èAƒVƒŠƒAƒ‰ƒCƒY•s‰Â‚ÈƒIƒuƒWƒFƒNƒg‚ğFormatter‚É‚ÄƒVƒŠƒAƒ‰ƒCƒY/ƒfƒVƒŠƒAƒ‰ƒCƒY
-        // ‚·‚éÛ‚ÉƒVƒŠƒAƒ‹‰»ƒTƒƒQ[ƒg‚ªs‚í‚ê‚é‚æ‚¤‚É‚È‚éB
+        // ã“ã‚Œã«ã‚ˆã‚Šã€ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºä¸å¯ãªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’Formatterã«ã¦ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚º/ãƒ‡ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚º
+        // ã™ã‚‹éš›ã«ã‚·ãƒªã‚¢ãƒ«åŒ–ã‚µãƒ­ã‚²ãƒ¼ãƒˆãŒè¡Œã‚ã‚Œã‚‹ã‚ˆã†ã«ãªã‚‹ã€‚
         //
         var selector = new SurrogateSelector();
         var surrogate = new CanNotSerializeSurrogate();
@@ -85,8 +85,8 @@ namespace Gsf.Samples
 
         try
         {
-          // ’ÊíAˆÈ‰º‚ğÀs‚·‚é‚Æ—áŠO‚ª”­¶‚·‚é‚ª
-          // ƒVƒŠƒAƒ‹‰»ƒTƒƒQ[ƒg‚ğs‚¤‚Ì‚ÅAƒGƒ‰[‚Æ‚È‚ç‚¸ƒVƒŠƒAƒ‰ƒCƒY‚ª¬Œ÷‚·‚é.
+          // é€šå¸¸ã€ä»¥ä¸‹ã‚’å®Ÿè¡Œã™ã‚‹ã¨ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ãŒ
+          // ã‚·ãƒªã‚¢ãƒ«åŒ–ã‚µãƒ­ã‚²ãƒ¼ãƒˆã‚’è¡Œã†ã®ã§ã€ã‚¨ãƒ©ãƒ¼ã¨ãªã‚‰ãšã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºãŒæˆåŠŸã™ã‚‹.
           formatter.Serialize(stream, obj3);
 
           stream.Position = 0;
@@ -126,7 +126,7 @@ namespace Gsf.Samples
       int Age { get; set; }
     }
 
-    // ƒVƒŠƒAƒ‰ƒCƒY‰Â”\‚ÈƒNƒ‰ƒX
+    // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºå¯èƒ½ãªã‚¯ãƒ©ã‚¹
     [Serializable]
     class CanSerialize : IHasNameAndAge
     {
@@ -151,7 +151,7 @@ namespace Gsf.Samples
       }
     }
 
-    // ƒVƒŠƒAƒ‰ƒCƒY•s‰Â‚ÈƒNƒ‰ƒX
+    // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºä¸å¯ãªã‚¯ãƒ©ã‚¹
     class CanNotSerialize : IHasNameAndAge
     {
       string _name;
@@ -175,33 +175,33 @@ namespace Gsf.Samples
       }
     }
 
-    // CanNotSerializeƒNƒ‰ƒX‚Ì‚½‚ß‚ÌƒTƒƒQ[ƒgƒNƒ‰ƒX.
+    // CanNotSerializeã‚¯ãƒ©ã‚¹ã®ãŸã‚ã®ã‚µãƒ­ã‚²ãƒ¼ãƒˆã‚¯ãƒ©ã‚¹.
     class CanNotSerializeSurrogate : ISerializationSurrogate
     {
-      // ƒVƒŠƒAƒ‰ƒCƒY‚ÉŒÄ‚Ño‚³‚ê‚éƒƒ\ƒbƒh
+      // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºæ™‚ã«å‘¼ã³å‡ºã•ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰
       public void GetObjectData(object obj, SerializationInfo info, StreamingContext context)
       {
         CanNotSerialize targetObj = obj as CanNotSerialize;
 
         //
-        // ƒVƒŠƒAƒ‰ƒCƒY‚·‚é€–Ú‚Æ’l‚ğˆÈ‰º‚Ì‚æ‚¤‚Éinfo‚Éİ’è‚µ‚Ä‚¢‚­.
+        // ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºã™ã‚‹é …ç›®ã¨å€¤ã‚’ä»¥ä¸‹ã®ã‚ˆã†ã«infoã«è¨­å®šã—ã¦ã„ã.
         //
         info.AddValue("Name", targetObj.Name);
         info.AddValue("Age", targetObj.Age);
       }
 
-      // ƒfƒVƒŠƒAƒ‰ƒCƒY‚ÉŒÄ‚Ño‚³‚ê‚éƒƒ\ƒbƒh.
+      // ãƒ‡ã‚·ãƒªã‚¢ãƒ©ã‚¤ã‚ºæ™‚ã«å‘¼ã³å‡ºã•ã‚Œã‚‹ãƒ¡ã‚½ãƒƒãƒ‰.
       public object SetObjectData(object obj, SerializationInfo info, StreamingContext context, ISurrogateSelector selector)
       {
         CanNotSerialize targetObj = obj as CanNotSerialize;
 
         //
-        // info‚©‚ç’l‚ğæ“¾‚µA‘ÎÛ‚Æ‚È‚éƒIƒuƒWƒFƒNƒg‚Éİ’è.
+        // infoã‹ã‚‰å€¤ã‚’å–å¾—ã—ã€å¯¾è±¡ã¨ãªã‚‹ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«è¨­å®š.
         //
         targetObj.Name = info.GetString("Name");
         targetObj.Age = info.GetInt32("Age");
 
-        // Formatter‚Í, ‚±‚Ì–ß‚è’l‚ğ–³‹‚·‚é‚Ì‚Å–ß‚è’l‚Ínull‚Å—Ç‚¢.
+        // Formatterã¯, ã“ã®æˆ»ã‚Šå€¤ã‚’ç„¡è¦–ã™ã‚‹ã®ã§æˆ»ã‚Šå€¤ã¯nullã§è‰¯ã„.
         return null;
       }
     }

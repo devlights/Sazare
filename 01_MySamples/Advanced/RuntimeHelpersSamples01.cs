@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region RuntimeHelpersSamples-01
   /// <summary>
-  /// RuntimeHelpers�N���X�̃T���v���ł��B
+  /// RuntimeHelpersクラスのサンプルです。
   /// </summary>
   public class RuntimeHelpersSamples01 : IExecutable
   {
@@ -24,21 +24,21 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // RuntimeHelpers�N���X��GetHashCode�́A���̃N���X��GetHashCode���\�b�h
-      // �Ƌ����������Ⴄ�B�ȉ��AMSDN(http://msdn.microsoft.com/ja-jp/library/11tbk3h9.aspx)��
-      // ����L�q�����p�B
+      // RuntimeHelpersクラスのGetHashCodeは、他のクラスのGetHashCodeメソッド
+      // と挙動が少し違う。以下、MSDN(http://msdn.microsoft.com/ja-jp/library/11tbk3h9.aspx)に
+      // ある記述を引用。
       //
-      // �EObject.GetHashCode �́A�I�u�W�F�N�g�l���l������V�i���I�ŕ֗��ł��B �������e�� 2 �̕�����́AObject.GetHashCode �œ����l��Ԃ��܂��B
-      // �ERuntimeHelpers.GetHashCode �́A�I�u�W�F�N�g���ʎq���l������V�i���I�ŕ֗��ł��B �������e�� 2 �̕�����́A���e�������ł��قȂ镶����I�u�W�F�N�g�ł��邽�߁ARuntimeHelpers.GetHashCode �ňقȂ�l��Ԃ��܂��B
+      // ・Object.GetHashCode は、オブジェクト値を考慮するシナリオで便利です。 同じ内容の 2 つの文字列は、Object.GetHashCode で同じ値を返します。
+      // ・RuntimeHelpers.GetHashCode は、オブジェクト識別子を考慮するシナリオで便利です。 同じ内容の 2 つの文字列は、内容が同じでも異なる文字列オブジェクトであるため、RuntimeHelpers.GetHashCode で異なる値を返します。
       //
-      // �ȉ��ł́A�T���v���ƂȂ�I�u�W�F�N�g��2�쐬���A�n�b�V���R�[�h���o�͂���悤�ɂ��Ă���B
-      // �T���v���N���X�ł́AGetHashCode���\�b�h���I�[�o�[���C�h���Ă���AId�v���p�e�B�̃n�b�V���R�[�h��
-      // �Ԃ��悤�ɂ��Ă���B
-      //   (����) ���̃N���X��GetHashCode���\�b�h�̎����́A�T���v���̂��߂Ɋȗ������Ă���܂��B
-      //         ���ۂ̎����ŁA���̂悤�ȃn�b�V���R�[�h�̎Z�o�͂��Ă͂����܂���B
+      // 以下では、サンプルとなるオブジェクトを2つ作成し、ハッシュコードを出力するようにしている。
+      // サンプルクラスでは、GetHashCodeメソッドをオーバーライドしており、Idプロパティのハッシュコードを
+      // 返すようにしている。
+      //   (注意) このクラスのGetHashCodeメソッドの実装は、サンプルのために簡略化してあります。
+      //         実際の実装で、このようなハッシュコードの算出はしてはいけません。
       //
-      // �ȉ��̏ꍇ�AObject.GetHashCode���Ăяo���Ă���ꍇ�͓��R�Ȃ��瓯���n�b�V���R�[�h�ƂȂ邪
-      // RuntimeHelpers.GetHashCode���Ăяo���Ă���ꍇ�A�Ⴄ�n�b�V���R�[�h�ƂȂ�.
+      // 以下の場合、Object.GetHashCodeを呼び出している場合は当然ながら同じハッシュコードとなるが
+      // RuntimeHelpers.GetHashCodeを呼び出している場合、違うハッシュコードとなる.
       //
       SampleClass sampleObj1 = new SampleClass { Id = 100 };
       SampleClass sampleObj2 = new SampleClass { Id = 100 };
@@ -47,13 +47,13 @@ namespace Gsf.Samples
       Console.WriteLine("[RuntimeHelper.GetHashCode] sampleObj1 = {0}, sampleObj2 = {1}", RuntimeHelpers.GetHashCode(sampleObj1), RuntimeHelpers.GetHashCode(sampleObj2));
 
       //
-      // ������f�[�^�Ō���.
-      // �ȉ��́A������̃n�b�V���R�[�h���قȂ邩�ۂ�������.
-      // �ϐ�s1, s2���쐬���Ă���A�A�����ĕ�����l���쐬���Ă��闝�R��
-      // CLR�ɂ���āA�����ŕ����񂪃C���^�[��(Intern)����Ȃ��悤�ɂ��邽��.
+      // 文字列データで検証.
+      // 以下は、文字列のハッシュコードが異なるか否かを検証.
+      // 変数s1, s2を作成してから、連結して文字列値を作成している理由は
+      // CLRによって、内部で文字列がインターン(Intern)されないようにするため.
       //
-      // ������Intern����Ă��Ȃ��ꍇ�ARuntimeHelpers.GetHashCode���\�b�h��
-      // �Ⴄ�l��Ԃ��BObject.GetHashCode�͓����n�b�V���R�[�h��Ԃ�.
+      // 文字列がInternされていない場合、RuntimeHelpers.GetHashCodeメソッドは
+      // 違う値を返す。Object.GetHashCodeは同じハッシュコードを返す.
       //
       string s1 = "hello ";
       string s2 = "world";
@@ -64,13 +64,13 @@ namespace Gsf.Samples
       Console.WriteLine("[RuntimeHelper.GetHashCode] test1 = {0}, test2 = {1}", RuntimeHelpers.GetHashCode(test1), RuntimeHelpers.GetHashCode(test2));
 
       //
-      // ������f�[�^�Ō���
-      // �ȉ��́ACLR�ɂ���ĕ����񂪃C���^�[�������l�ɑ΂��ăn�b�V���R�[�h���擾���Ă���.
+      // 文字列データで検証
+      // 以下は、CLRによって文字列がインターンされる値に対してハッシュコードを取得している.
       //
-      // ���̏ꍇ�ARuntimeHelpers.GetHashCode�ł������n�b�V���R�[�h���Ԃ��Ă���.
-      // ���ACLR�ɂ���Ēl���C���^�[�������̂̓��e���������ł���.
-      // �A������ɂ���č쐬���ꂽ������̓C���^�[������Ȃ�.
-      // ������C���^�[������ɂ́AString.Intern���\�b�h�𗘗p����.
+      // この場合、RuntimeHelpers.GetHashCodeでも同じハッシュコードが返ってくる.
+      // 尚、CLRによって値がインターンされるのはリテラルだけである.
+      // 連結操作によって作成された文字列はインターンされない.
+      // 無理矢理インターンするには、String.Internメソッドを利用する.
       //
       string test3 = "hello world";
       string test4 = "hello world";

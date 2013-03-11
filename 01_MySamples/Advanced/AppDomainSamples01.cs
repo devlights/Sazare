@@ -6,47 +6,47 @@ namespace Gsf.Samples
 
   #region AppDomainSamples-01
   /// <summary>
-  /// AppDomain�N���X�̃T���v���ł��B
+  /// AppDomainクラスのサンプルです。
   /// </summary>
   public class AppDomainSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // AppDomain�ɂ́A.NET 4.0���ȉ��̃C�x���g���ǉ�����Ă���B
-      //   �EFirstChanceException�C�x���g
-      // ���̃C�x���g�́A��O�����������ۂɕ����ʂ�ŏ��ɒʒm�����C�x���g�ł���B
-      // ���̃C�x���g�ɒʒm�����^�C�~���O�́Acatch�߂ɂė�O���⑫����������ƂȂ�B
+      // AppDomainには、.NET 4.0より以下のイベントが追加されている。
+      //   ・FirstChanceExceptionイベント
+      // このイベントは、例外が発生した際に文字通り最初に通知されるイベントである。
+      // このイベントに通知されるタイミングは、catch節にて例外が補足されるよりも先となる。
       // 
-      // ���ӓ_�Ƃ���
-      //   �E���̃C�x���g�́A�ʒm�݂̂ƂȂ�B���̃C�x���g���n���h����������Ƃ����ė�O�̔�����
-      //    �����Ŏ~�܂�킯�ł͂Ȃ��B��O�͒ʏ�ʂ�v���O�����R�[�h���catch�ɓ����Ă���B
-      //   �E���̃C�x���g�́A�A�v���P�[�V�����h���C�����ɒ�`�ł���B
-      //   �EFirstChanceException�C�x���g���ł̗�O�́A��΂Ƀn���h�����ŃL���b�`���Ȃ��Ƃ����Ȃ��B
-      //    �������Ȃ��ƁA�ċA�I��FirstChanceException����������B
-      //   �E�C�x���g�����ł���FirstChanceExceptionEventArgs�N���X��
-      //    System.Runtime.ExceptionServices���O��Ԃɑ��݂���B
+      // 注意点として
+      //   ・このイベントは、通知のみとなる。このイベントをハンドルしたからといって例外の発生が
+      //    ここで止まるわけではない。例外は通常通りプログラムコード上のcatchに入ってくる。
+      //   ・このイベントは、アプリケーションドメイン毎に定義できる。
+      //   ・FirstChanceExceptionイベント内での例外は、絶対にハンドラ内でキャッチしないといけない。
+      //    そうしないと、再帰的にFirstChanceExceptionが発生する。
+      //   ・イベント引数であるFirstChanceExceptionEventArgsクラスは
+      //    System.Runtime.ExceptionServices名前空間に存在する。
       //
 
-      // ����AppDomain�ɂāAFirstChanceException�C�x���g���n���h��.
+      // 基底のAppDomainにて、FirstChanceExceptionイベントをハンドル.
       AppDomain.CurrentDomain.FirstChanceException += FirstChanceExHandler;
 
       try
       {
-        // �킴�Ɨ�O����.
+        // わざと例外発生.
         throw new InvalidOperationException("test Ex messsage");
       }
       catch (InvalidOperationException ex)
       {
-        // �{����catch����.
+        // 本来のcatch処理.
         Console.WriteLine("Catch clause: {0}", ex.Message);
       }
 
-      // �C�x���g���A���o�C���h.
+      // イベントをアンバインド.
       AppDomain.CurrentDomain.FirstChanceException -= FirstChanceExHandler;
     }
 
-    // �C�x���g�n���h��.
+    // イベントハンドラ.
     void FirstChanceExHandler(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
     {
       Console.WriteLine("FirstChanceException: {0}", e.Exception.Message);

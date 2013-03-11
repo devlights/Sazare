@@ -8,17 +8,17 @@ namespace Gsf.Samples
 
   #region MEFSamples-01
   /// <summary>
-  /// MEF‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// MEFã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class MEFSamples01 : IExecutable
   {
-    // Export—p‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX
+    // Exportç”¨ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
     public interface IExporter
     {
       string Name { get; }
     }
 
-    // Exportƒp[ƒg
+    // Exportãƒ‘ãƒ¼ãƒˆ
     [Export(typeof(IExporter))]
     public class Exporter : IExporter
     {
@@ -26,44 +26,44 @@ namespace Gsf.Samples
       {
         get
         {
-          return "™™™™™™™ Exporter ™™™™™™™";
+          return "â˜†â˜†â˜†â˜†â˜†â˜†â˜† Exporter â˜†â˜†â˜†â˜†â˜†â˜†â˜†";
         }
       }
     }
 
-    // Importƒp[ƒg
-    // ®A–¾¦“I‚Énull‚ğ‰Šú’l‚Æ‚µ‚Äw’è‚µ‚Ä‚¢‚é‚Ì‚ÍA‚»‚Ì‚Ü‚Ü‚¾‚ÆƒRƒ“ƒpƒCƒ‰‚É‚æ‚Á‚ÄŒxˆµ‚¢‚³‚ê‚é‚½‚ß
+    // Importãƒ‘ãƒ¼ãƒˆ
+    // å°šã€æ˜ç¤ºçš„ã«nullã‚’åˆæœŸå€¤ã¨ã—ã¦æŒ‡å®šã—ã¦ã„ã‚‹ã®ã¯ã€ãã®ã¾ã¾ã ã¨ã‚³ãƒ³ãƒ‘ã‚¤ãƒ©ã«ã‚ˆã£ã¦è­¦å‘Šæ‰±ã„ã•ã‚Œã‚‹ãŸã‚
     [Import(typeof(IExporter))]
     IExporter _exporter = null;
 
-    // ƒRƒ“ƒeƒi
+    // ã‚³ãƒ³ãƒ†ãƒŠ
     CompositionContainer _container;
 
     public void Execute()
     {
       //
-      // ƒJƒ^ƒƒO\’z.
-      //  AggregateCatalog‚ÍA•¡”‚ÌCatalog‚ğˆê‚Â‚É‚Ü‚Æ‚ß‚é–ğŠ„‚ğ‚ÂB
+      // ã‚«ã‚¿ãƒ­ã‚°æ§‹ç¯‰.
+      //  AggregateCatalogã¯ã€è¤‡æ•°ã®Catalogã‚’ä¸€ã¤ã«ã¾ã¨ã‚ã‚‹å½¹å‰²ã‚’æŒã¤ã€‚
       //
       var catalog = new AggregateCatalog();
-      // AssemblyCatalog‚ğ—˜—p‚µ‚ÄA©•ª©g‚ÌƒAƒZƒ“ƒuƒŠ‚ğƒJƒ^ƒƒO‚É’Ç‰Á.
+      // AssemblyCatalogã‚’åˆ©ç”¨ã—ã¦ã€è‡ªåˆ†è‡ªèº«ã®ã‚¢ã‚»ãƒ³ãƒ–ãƒªã‚’ã‚«ã‚¿ãƒ­ã‚°ã«è¿½åŠ .
       catalog.Catalogs.Add(new AssemblyCatalog(typeof(MEFSamples01).Assembly));
 
       //
-      // ƒRƒ“ƒeƒi‚ğ\’z.
+      // ã‚³ãƒ³ãƒ†ãƒŠã‚’æ§‹ç¯‰.
       //
       _container = new CompositionContainer(catalog);
       try
       {
-        // ‡¬Às.
+        // åˆæˆå®Ÿè¡Œ.
         _container.ComposeParts(this);
 
-        // Às.
+        // å®Ÿè¡Œ.
         Console.WriteLine(_exporter.Name);
       }
       catch (CompositionException ex)
       {
-        // ‡¬‚É¸”s‚µ‚½ê‡.
+        // åˆæˆã«å¤±æ•—ã—ãŸå ´åˆ.
         Console.WriteLine(ex.ToString());
       }
 
