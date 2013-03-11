@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region DataTableExtensionsSample-01
   /// <summary>
-  /// System.Data.Extensions‚ÌƒTƒ“ƒvƒ‹1‚Å‚·B
+  /// System.Data.Extensionsã®ã‚µãƒ³ãƒ—ãƒ«1ã§ã™ã€‚
   /// </summary>
   public class DataTableExtensionsSample01 : IExecutable
   {

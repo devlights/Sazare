@@ -4,14 +4,14 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region ƒ_ƒ~[ƒNƒ‰ƒX
+  #region ãƒ€ãƒŸãƒ¼ã‚¯ãƒ©ã‚¹
   /// <summary>
-  /// ƒ_ƒ~[ƒNƒ‰ƒX
+  /// ãƒ€ãƒŸãƒ¼ã‚¯ãƒ©ã‚¹
   /// </summary>
   class Dummy : IExecutable
   {
     /// <summary>
-    /// ˆ—‚ðŽÀs‚µ‚Ü‚·B
+    /// å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
     /// </summary>
     public void Execute()
     {

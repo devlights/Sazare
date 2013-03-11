@@ -8,32 +8,32 @@ namespace Gsf.Samples
 
   #region ExcelConnectSamples-01
   /// <summary>
-  /// ADO.NET��p����Excel�ɐڑ�����T���v���ł��B
+  /// ADO.NETを用いてExcelに接続するサンプルです。
   /// </summary>
   public class ExcelConnectSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // Excel�ɐڑ�����ɂ́AOLEDB�𗘗p����B
-      // �v���o�C�_�[���́A�uSystem.Data.OleDb�v�ƂȂ�B
+      // Excelに接続するには、OLEDBを利用する。
+      // プロバイダー名は、「System.Data.OleDb」となる。
       //
       DbProviderFactory factory = DbProviderFactories.GetFactory("System.Data.OleDb");
       using (DbConnection conn = factory.CreateConnection())
       {
         //
-        // Excel�p�̐ڑ���������\�z.
+        // Excel用の接続文字列を構築.
         //
-        // Provider�́AMicrosoft.ACE.OLEDB.12.0���g�p���鎖�B
-        // �iJET�h���C�o�𗘗p�����xlsx��ǂݍ��ގ����o���Ȃ��B�j
+        // Providerは、Microsoft.ACE.OLEDB.12.0を使用する事。
+        // （JETドライバを利用するとxlsxを読み込む事が出来ない。）
         //
-        // Extended Properties�ɂ́AISAM�̃o�[�W����(Excel 12.0)��HDR���w�肷��B
-        // �i2003�܂ł�xls�̏ꍇ��Excel 8.0��ISAM�o�[�W�������w�肷��B�j
-        // HDR�͐擪�s���w�b�_���Ƃ��Ă݂Ȃ����ۂ����w�肷��B
-        // �擪�s���w�b�_���Ƃ��Ă݂Ȃ��ꍇ��YES���A�����łȂ��ꍇ��NO��ݒ�B
+        // Extended Propertiesには、ISAMのバージョン(Excel 12.0)とHDRを指定する。
+        // （2003までのxlsの場合はExcel 8.0でISAMバージョンを指定する。）
+        // HDRは先頭行をヘッダ情報としてみなすか否かを指定する。
+        // 先頭行をヘッダ情報としてみなす場合はYESを、そうでない場合はNOを設定。
         //
-        // HDR=NO�Ǝw�肵���ꍇ�A�J�������̓V�X�e�����Ŏ����I�Ɋ���U����B
-        // (F1, F2, F3.....�ƂȂ�)
+        // HDR=NOと指定した場合、カラム名はシステム側で自動的に割り振られる。
+        // (F1, F2, F3.....となる)
         //
         DbConnectionStringBuilder builder = factory.CreateConnectionStringBuilder();
 
@@ -47,8 +47,8 @@ namespace Gsf.Samples
         //
         // SELECT.
         //
-        // �ʏ��SQL�̂悤�ɔ��s�ł���B���̍ۃV�[�g�w���
-        // [Sheet1$]�̂悤�ɍs���B�͈͂��w�肷�邱�Ƃ��o����B
+        // 通常のSQLのように発行できる。その際シート指定は
+        // [Sheet1$]のように行う。範囲を指定することも出来る。
         //
         using (DbCommand command = conn.CreateCommand())
         {
@@ -85,14 +85,14 @@ namespace Gsf.Samples
         //
         // INSERT
         //
-        // ����������ʂ�SQL�Ɠ����悤�ɔ��s�ł���B
-        // ���A�g�����U�N�V�����͐ݒ�ł��邪���ʂ͖����B
-        // �i���[���o�b�N���s���Ă��f�[�^�͖߂�Ȃ��B�j
+        // こちらも普通のSQLと同じように発行できる。
+        // 尚、トランザクションは設定できるが効果は無い。
+        // （ロールバックを行ってもデータは戻らない。）
         //
-        // �܂��AINSERT,UPDATE�̓G�N�Z�����J������Ԃł�
-        // �s�������ł���B
+        // また、INSERT,UPDATEはエクセルを開いた状態でも
+        // 行う事ができる。
         //
-        // �f�[�^�̍폜�͍s�������ł��Ȃ��B�i�����j
+        // データの削除は行う事ができない。（制限）
         //
         using (DbCommand command = conn.CreateCommand())
         {
@@ -159,7 +159,7 @@ namespace Gsf.Samples
 
         //
         // DELETE.
-        // �폜�͍s���Ȃ��B
+        // 削除は行えない。
         //
       }
     }

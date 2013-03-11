@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region DataTableSamples-02
   /// <summary>
-  /// DataTableクラスに関するサンプルです。
+  /// DataTable繧ｯ繝ｩ繧ｹ縺ｫ髢｢縺吶ｋ繧ｵ繝ｳ繝励Ν縺ｧ縺吶�
   /// </summary>
   public class DataTableSamples02 : IExecutable
   {
@@ -23,7 +23,7 @@ namespace Gsf.Samples
       }
 
       //
-      // Selectメソッドで行を抽出.
+      // Select繝｡繧ｽ繝�繝峨〒陦後ｒ謚ｽ蜃ｺ.
       //
       DataRow[] selectedRows = table.Select("(Val % 2) = 0", "Val");
       selectedRows.ToList().ForEach((row) =>

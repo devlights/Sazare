@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region DataTableSamples-01
   /// <summary>
-  /// DataTableƒNƒ‰ƒX‚ÉŠÖ‚·‚éƒTƒ“ƒvƒ‹‚Å‚·B
+  /// DataTableã‚¯ãƒ©ã‚¹ã«é–¢ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class DataTableSamples01 : IExecutable
   {
@@ -23,7 +23,7 @@ namespace Gsf.Samples
       }
 
       //
-      // —ñ‚Í[]•t‚«‚Å‚à–³‚µ‚Å‚à\‚í‚È‚¢‚ªA•t‚¯‚Ä‚¨‚¢‚½•û‚ª–³“ï.
+      // åˆ—ã¯[]ä»˜ãã§ã‚‚ç„¡ã—ã§ã‚‚æ§‹ã‚ãªã„ãŒã€ä»˜ã‘ã¦ãŠã„ãŸæ–¹ãŒç„¡é›£.
       // 
       object result = table.Compute("SUM([Val])", "[Val] >= 0.5");
       Console.WriteLine("{0}:{1}", result, result.GetType().FullName);

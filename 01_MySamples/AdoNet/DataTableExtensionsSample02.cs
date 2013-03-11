@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region DataTableExtensionsSample-02
   /// <summary>
-  /// System.Data.Extensions‚ÌƒTƒ“ƒvƒ‹2‚Å‚·B
+  /// System.Data.Extensionsã®ã‚µãƒ³ãƒ—ãƒ«2ã§ã™ã€‚
   /// </summary>
   public class DataTableExtensionsSample02 : IExecutable
   {
@@ -17,15 +17,15 @@ namespace Gsf.Samples
       DataTable table = BuildSampleTable();
 
       //
-      // 1—ñ–Ú‚Ìî•ñ‚ğintŒ^‚Åæ“¾.
-      // 2—ñ–Ú‚Ìî•ñ‚ğstringŒ^‚Åæ“¾.
+      // 1åˆ—ç›®ã®æƒ…å ±ã‚’intå‹ã§å–å¾—.
+      // 2åˆ—ç›®ã®æƒ…å ±ã‚’stringå‹ã§å–å¾—.
       //
       int val1 = table.Rows[0].Field<int>("COL-1");
       string val2 = table.Rows[0].Field<string>("COL-2");
       PrintTable("Before:", table);
 
       //
-      // 1—ñ–Ú‚Ìî•ñ‚ğ•ÏX.
+      // 1åˆ—ç›®ã®æƒ…å ±ã‚’å¤‰æ›´.
       //
       table.Rows[0].SetField<int>("COL-1", 100);
       PrintTable("After:", table);
