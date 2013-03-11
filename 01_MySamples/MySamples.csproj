@@ -142,6 +142,7 @@
     <Compile Include="Advanced\ListForEachDiffSamples01.cs" />
     <Compile Include="Advanced\DisposableSamples01.cs" />
     <Compile Include="Advanced\MulticoreJITSamples01.cs" />
+    <Compile Include="Dummy.cs" />
     <Compile Include="Threading\CallContextSamples01.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="IO\ImageConverterSamples01.cs" />
@@ -329,7 +330,7 @@
     <Compile Include="Commons\Interfaces\IExecutable.cs" />
     <Compile Include="Basic\DelegateSample.cs" />
     <Compile Include="Basic\LambdaSample.cs" />
-    <Compile Include="MySamples.cs" />
+    <Compile Include="SampleLauncher.cs" />
     <Compile Include="Commons\Extensions\StringExtensions.cs" />
     <Compile Include="Threading\ThreadSample.cs" />
     <Compile Include="Threading\ThreadPoolSample.cs" />

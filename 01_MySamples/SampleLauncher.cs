@@ -1,9 +1,4 @@
-// vim:set ts=2 sw=2 et ws is nowrap ft=cs:
-//////////////////////////////////////////////////////////////////////
-//
-// 基本的なクラスライブラリに関するサンプルを集めたファイル.
-//
-//////////////////////////////////////////////////////////////////////
+
 namespace Gsf.Samples
 {
   using System;
@@ -11,22 +6,6 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Reflection;
   using System.Runtime.Remoting;
-
-  #region ダミークラス
-  /// <summary>
-  /// ダミークラス
-  /// </summary>
-  class Dummy : IExecutable
-  {
-    /// <summary>
-    /// 処理を実行します。
-    /// </summary>
-    public void Execute()
-    {
-      Console.WriteLine("THIS IS DUMMY CLASS.");
-    }
-  }
-  #endregion
   
   #region サンプルの起動を担当するクラス
   /// <summary>
