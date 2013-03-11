@@ -4,12 +4,12 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region ExpandoObjectƒNƒ‰ƒX‚ÌƒTƒ“ƒvƒ‹-03
+  #region ExpandoObjectã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«-03
   /// <summary>
-  /// ExpandoObject‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ExpandoObjectã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// .NET 4.0‚©‚ç’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
+  /// .NET 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
   /// </remarks>
   public class ExpandoObjectSamples03 : IExecutable
   {
@@ -17,16 +17,16 @@ namespace Gsf.Samples
     {
       ///////////////////////////////////////////////////////////////////////
       //
-      // ExpandoObject‚ğDictionary‚Æ‚µ‚Äˆµ‚¤. (ƒƒ“ƒo[‚Ì’Ç‰Á/íœ)
-      //   ExpandoObject‚ÍIDictionary<string, object>‚ğÀ‘•‚µ‚Ä‚¢‚é‚Ì‚Å
-      //   Dictionary‚Æ‚µ‚Ä‚à—˜—po—ˆ‚é.
+      // ExpandoObjectã‚’Dictionaryã¨ã—ã¦æ‰±ã†. (ãƒ¡ãƒ³ãƒãƒ¼ã®è¿½åŠ /å‰Šé™¤)
+      //   ExpandoObjectã¯IDictionary<string, object>ã‚’å®Ÿè£…ã—ã¦ã„ã‚‹ã®ã§
+      //   Dictionaryã¨ã—ã¦ã‚‚åˆ©ç”¨å‡ºæ¥ã‚‹.
       //
       dynamic obj = new System.Dynamic.ExpandoObject();
       obj.Name = "gsf_zero1";
       obj.Age = 30;
 
       //
-      // ’è‹`‚³‚ê‚Ä‚¢‚éƒƒ“ƒo[‚ğ—ñ‹“.
+      // å®šç¾©ã•ã‚Œã¦ã„ã‚‹ãƒ¡ãƒ³ãƒãƒ¼ã‚’åˆ—æŒ™.
       //
       IDictionary<string, object> map = obj as IDictionary<string, object>;
       foreach (var pair in map)
@@ -35,19 +35,19 @@ namespace Gsf.Samples
       }
 
       //
-      // Ageƒƒ“ƒo[‚ğíœ.
+      // Ageãƒ¡ãƒ³ãƒãƒ¼ã‚’å‰Šé™¤.
       //
       map.Remove("Age");
 
       //
-      // Šm”F.
+      // ç¢ºèª.
       //
       foreach (var pair in map)
       {
         Console.WriteLine("{0}={1}", pair.Key, pair.Value);
       }
 
-      // ƒGƒ‰[‚Æ‚È‚é.
+      // ã‚¨ãƒ©ãƒ¼ã¨ãªã‚‹.
       //Console.WriteLine(obj.Age);
     }
   }

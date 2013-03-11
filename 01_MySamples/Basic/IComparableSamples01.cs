@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region IComparableSamples-01
   /// <summary>
-  /// IComparable‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// IComparableã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class IComparableSamples01 : IExecutable
   {
@@ -53,11 +53,11 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // IComparableƒCƒ“ƒ^[ƒtƒF[ƒX‚ÍAƒCƒ“ƒXƒ^ƒ“ƒX‚Ì•À‚Ñ‘Ö‚¦‚ğƒTƒ|[ƒg‚·‚é‚½‚ß‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚Å‚ ‚éB
+      // IComparableã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã¯ã€ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã®ä¸¦ã³æ›¿ãˆã‚’ã‚µãƒãƒ¼ãƒˆã™ã‚‹ãŸã‚ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã§ã‚ã‚‹ã€‚
       //
-      // ‚±‚ÌƒCƒ“ƒ^[ƒtƒF[ƒX‚ğÀ‘•‚·‚é‚±‚Æ‚ÅAƒNƒ‰ƒX‚É‘Î‚µ‚Ä‡˜‚Ì”äŠr‹@”\‚ğ•t—^‚·‚é‚±‚Æ‚ªo—ˆ‚éB
-      // iList.Sort‚È‚Ç‚Ìƒ\[ƒgˆ—‚ÉA“Æ©‚Ìƒ\[ƒgƒ‹[ƒ‹‚ğ“K—p‚·‚é‚±‚Æ‚ª‚Å‚«‚é‚æ‚¤‚É‚È‚éBj
-      //  (‚½‚¾‚µADictionary‚âHashTable‚È‚Ç‚É‚Í“K—p‚Å‚«‚È‚¢B‚±‚ê‚ç‚Ìê‡‚ÍAIEqualityComparable‚ğÀ‘•‚·‚éBj
+      // ã“ã®ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã‚’å®Ÿè£…ã™ã‚‹ã“ã¨ã§ã€ã‚¯ãƒ©ã‚¹ã«å¯¾ã—ã¦é †åºã®æ¯”è¼ƒæ©Ÿèƒ½ã‚’ä»˜ä¸ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
+      // ï¼ˆList.Sortãªã©ã®ã‚½ãƒ¼ãƒˆå‡¦ç†æ™‚ã«ã€ç‹¬è‡ªã®ã‚½ãƒ¼ãƒˆãƒ«ãƒ¼ãƒ«ã‚’é©ç”¨ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã‚ˆã†ã«ãªã‚‹ã€‚ï¼‰
+      //  (ãŸã ã—ã€Dictionaryã‚„HashTableãªã©ã«ã¯é©ç”¨ã§ããªã„ã€‚ã“ã‚Œã‚‰ã®å ´åˆã¯ã€IEqualityComparableã‚’å®Ÿè£…ã™ã‚‹ã€‚ï¼‰
       //
       var person1 = new Person { Id = 1, Name = "gsf_zero1" };
       var person2 = new Person { Id = 2, Name = "gsf_zero2" };
@@ -68,7 +68,7 @@ namespace Gsf.Samples
       var random = new Random();
 
       //
-      // ƒIƒuƒWƒFƒNƒg“¯m‚Ì”äŠr.
+      // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆåŒå£«ã®æ¯”è¼ƒ.
       //
       for (int i = 0; i < 15; i++)
       {
@@ -82,16 +82,16 @@ namespace Gsf.Samples
       }
 
       //
-      // ƒŠƒXƒg‚Ìƒ\[ƒg.
+      // ãƒªã‚¹ãƒˆã®ã‚½ãƒ¼ãƒˆ.
       //
       var persons2 = new List<Person> { person3, person2, person4, person1 };
 
-      // ƒ\[ƒg‚¹‚¸A‚»‚Ì‚Ü‚Üo—Í.
-      Console.WriteLine("\n============== ƒ\[ƒg‚¹‚¸‚»‚Ì‚Ü‚Üo—Í. ================");
+      // ã‚½ãƒ¼ãƒˆã›ãšã€ãã®ã¾ã¾å‡ºåŠ›.
+      Console.WriteLine("\n============== ã‚½ãƒ¼ãƒˆã›ãšãã®ã¾ã¾å‡ºåŠ›. ================");
       persons2.ForEach(Console.WriteLine);
 
-      // ƒ\[ƒg‚ğs‚Á‚Ä‚©‚çAo—Í.
-      Console.WriteLine("\n============== ƒ\[ƒg‚µ‚Ä‚©‚ço—Í. ================");
+      // ã‚½ãƒ¼ãƒˆã‚’è¡Œã£ã¦ã‹ã‚‰ã€å‡ºåŠ›.
+      Console.WriteLine("\n============== ã‚½ãƒ¼ãƒˆã—ã¦ã‹ã‚‰å‡ºåŠ›. ================");
       persons2.Sort();
       persons2.ForEach(Console.WriteLine);
     }

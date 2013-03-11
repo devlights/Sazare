@@ -11,8 +11,8 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ParseExactƒƒ\ƒbƒh‚Ìê‡‚ÍA’l‚ª2011, ƒtƒH[ƒ}ƒbƒg‚ªyyyy
-      // ‚Ìê‡‚Å‚à“ú•t•ÏŠ·o—ˆ‚éB
+      // ParseExactãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã¯ã€å€¤ãŒ2011, ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒyyyy
+      // ã®å ´åˆã§ã‚‚æ—¥ä»˜å¤‰æ›å‡ºæ¥ã‚‹ã€‚
       //
       try
       {
@@ -25,16 +25,16 @@ namespace Gsf.Samples
       }
 
       //
-      // TryParseƒƒ\ƒbƒh‚Ìê‡‚ÍAˆÈ‰º‚Ì‚Ç‚¿‚ç‚àFalse‚Æ‚È‚éB
-      // ‹°‚ç‚­AIFormatProvider‚ğİ’è‚µ‚È‚¢‚Æ“®‚©‚È‚¢‚Æv‚í‚ê‚éB
+      // TryParseãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã¯ã€ä»¥ä¸‹ã®ã©ã¡ã‚‰ã‚‚Falseã¨ãªã‚‹ã€‚
+      // æã‚‰ãã€IFormatProviderã‚’è¨­å®šã—ãªã„ã¨å‹•ã‹ãªã„ã¨æ€ã‚ã‚Œã‚‹ã€‚
       //
       DateTime d2;
       Console.WriteLine(DateTime.TryParse("2011", out d2));
       Console.WriteLine(DateTime.TryParse("2011", null, DateTimeStyles.None, out d2));
 
       //
-      // TryParseExactƒƒ\ƒbƒh‚Ìê‡‚ÍA’l‚ª2011AƒtƒH[ƒ}ƒbƒg‚ªyyyy
-      // ‚Ìê‡‚Å‚à“ú•t•ÏŠ·o—ˆ‚éB
+      // TryParseExactãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã¯ã€å€¤ãŒ2011ã€ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆãŒyyyy
+      // ã®å ´åˆã§ã‚‚æ—¥ä»˜å¤‰æ›å‡ºæ¥ã‚‹ã€‚
       //
       DateTime d3;
       Console.WriteLine(DateTime.TryParseExact("2011", "yyyy", null, DateTimeStyles.None, out d3));
@@ -47,7 +47,7 @@ namespace Gsf.Samples
       Console.WriteLine(d98.Ticks);
       Console.WriteLine(d98 == new DateTime(d98.Ticks));
 
-      // •ª•b‚ğw’è‚µ‚Ä‚¢‚È‚¢ê‡‚ÍA00:00:00‚Æ‚È‚é
+      // æ™‚åˆ†ç§’ã‚’æŒ‡å®šã—ã¦ã„ãªã„å ´åˆã¯ã€00:00:00ã¨ãªã‚‹
       var d100 = new DateTime(2011, 11, 12);
       Console.WriteLine("{0}, {1}, {2}", d100.Hour, d100.Minute, d100.Second);
     }

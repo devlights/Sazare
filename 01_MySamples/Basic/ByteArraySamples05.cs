@@ -6,14 +6,14 @@ namespace Gsf.Samples
 
   #region ByteArraySamples-05
   /// <summary>
-  /// �o�C�g�z��ɂ��ẴT���v���ł��B
+  /// バイト配列についてのサンプルです。
   /// </summary>
   public class ByteArraySamples05 : IExecutable
   {
     public void Execute()
     {
       //
-      // �o�C�g��𐔒l��
+      // バイト列を数値に
       //
       byte[] buf = new byte[4];
       new Random().NextBytes(buf);

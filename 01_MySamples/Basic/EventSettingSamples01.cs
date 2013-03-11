@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region EventSettingSamples-01
   /// <summary>
-  /// 手動でイベントを制御する方法に関してのサンプルです。(EventHandlerList)
+  /// 謇句虚縺ｧ繧､繝吶Φ繝医ｒ蛻ｶ蠕｡縺吶ｋ譁ｹ豕輔↓髢｢縺励※縺ｮ繧ｵ繝ｳ繝励Ν縺ｧ縺吶�(EventHandlerList)
   /// </summary>
   public class EventSettingSamples01 : IExecutable
   {

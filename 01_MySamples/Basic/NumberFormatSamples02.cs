@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region NumberFormatSamples-02
   /// <summary>
-  /// 数値フォーマットのサンプルです。
+  /// 謨ｰ蛟､繝輔か繝ｼ繝槭ャ繝医�ｮ繧ｵ繝ｳ繝励Ν縺ｧ縺吶�
   /// </summary>
   public class NumberFormatSamples02 : IExecutable
   {

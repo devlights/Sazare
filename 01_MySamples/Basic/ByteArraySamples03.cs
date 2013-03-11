@@ -6,14 +6,14 @@ namespace Gsf.Samples
 
   #region ByteArraySamples-03
   /// <summary>
-  /// ƒoƒCƒg”z—ñ‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ãƒã‚¤ãƒˆé…åˆ—ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class ByteArraySamples03 : IExecutable
   {
     public void Execute()
     {
       //
-      // ”’l‚ğ16i”‚Å•\¦.
+      // æ•°å€¤ã‚’16é€²æ•°ã§è¡¨ç¤º.
       //
       Console.WriteLine("0x{0:X2}", 12345678);
     }

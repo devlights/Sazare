@@ -5,20 +5,20 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Text;
 
-  #region ‘SŠpƒ`ƒFƒbƒN‚Æ”¼Špƒ`ƒFƒbƒN
+  #region å…¨è§’ãƒã‚§ãƒƒã‚¯ã¨åŠè§’ãƒã‚§ãƒƒã‚¯
   /// <summary>
-  /// ‘SŠpƒ`ƒFƒbƒN‚Æ”¼Špƒ`ƒFƒbƒN‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// å…¨è§’ãƒã‚§ãƒƒã‚¯ã¨åŠè§’ãƒã‚§ãƒƒã‚¯ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ’Pƒ‚È‘SŠpƒ`ƒFƒbƒN‚Æ”¼Špƒ`ƒFƒbƒN‚ğ’è‹`‚µ‚Ä‚¢‚Ü‚·B
+  /// å˜ç´”ãªå…¨è§’ãƒã‚§ãƒƒã‚¯ã¨åŠè§’ãƒã‚§ãƒƒã‚¯ã‚’å®šç¾©ã—ã¦ã„ã¾ã™ã€‚
   /// </remarks>
   public class ZenkakuHankakuCheckSample01 : IExecutable
   {
     public void Execute()
     {
-      string zenkakuOnlyStrings = "‚ ‚¢‚¤‚¦‚¨";
-      string hankakuOnlyStrings = "±²³´µ";
-      string zenkakuAndHankakuStrings = "‚ ‚¢‚¤‚¦‚¨±²³´µ";
+      string zenkakuOnlyStrings = "ã‚ã„ã†ãˆãŠ";
+      string hankakuOnlyStrings = "ï½±ï½²ï½³ï½´ï½µ";
+      string zenkakuAndHankakuStrings = "ã‚ã„ã†ãˆãŠï½±ï½²ï½³ï½´ï½µ";
 
       Console.WriteLine("IsZenkaku:zenkakuOnly:{0}", IsZenkaku(zenkakuOnlyStrings));
       Console.WriteLine("IsZenkaku:hankakuOnlyStrings:{0}", IsZenkaku(hankakuOnlyStrings));
@@ -31,9 +31,9 @@ namespace Gsf.Samples
     bool IsZenkaku(string value)
     {
       //
-      // w’è‚³‚ê‚½•¶š—ñ‚ª‘S‚Ä‘SŠp•¶š‚Å\¬‚³‚ê‚Ä‚¢‚é‚©”Û‚©‚Í
-      // •¶š—ñ‚ğˆê’USJIS‚É•ÏŠ·‚µæ“¾‚µ‚½ƒoƒCƒg”‚ÆŒ³•¶š—ñ‚Ì•¶š”–‚Q‚ª
-      // ¬‚è—§‚Â‚©”Û‚©‚ÅŒˆ’è‚Å‚«‚éB
+      // æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ãŒå…¨ã¦å…¨è§’æ–‡å­—ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹ã‹å¦ã‹ã¯
+      // æ–‡å­—åˆ—ã‚’ä¸€æ—¦SJISã«å¤‰æ›ã—å–å¾—ã—ãŸãƒã‚¤ãƒˆæ•°ã¨å…ƒæ–‡å­—åˆ—ã®æ–‡å­—æ•°ï¼Šï¼’ãŒ
+      // æˆã‚Šç«‹ã¤ã‹å¦ã‹ã§æ±ºå®šã§ãã‚‹ã€‚
       //
       return (Encoding.GetEncoding("sjis").GetByteCount(value) == (value.Length * 2));
     }
@@ -41,9 +41,9 @@ namespace Gsf.Samples
     bool IsHankaku(string value)
     {
       //
-      // w’è‚³‚ê‚½•¶š—ñ‚ª‘S‚Ä”¼Šp•¶š‚Å\¬‚³‚ê‚Ä‚¢‚é‚©”Û‚©‚Í
-      // •¶š—ñ‚ğˆê’USJIS‚É•ÏŠ·‚µæ“¾‚µ‚½ƒoƒCƒg”‚ÆŒ³•¶š—ñ‚Ì•¶š”‚ª
-      // ¬‚è—§‚Â‚©”Û‚©‚ÅŒˆ’è‚Å‚«‚éB
+      // æŒ‡å®šã•ã‚ŒãŸæ–‡å­—åˆ—ãŒå…¨ã¦åŠè§’æ–‡å­—ã§æ§‹æˆã•ã‚Œã¦ã„ã‚‹ã‹å¦ã‹ã¯
+      // æ–‡å­—åˆ—ã‚’ä¸€æ—¦SJISã«å¤‰æ›ã—å–å¾—ã—ãŸãƒã‚¤ãƒˆæ•°ã¨å…ƒæ–‡å­—åˆ—ã®æ–‡å­—æ•°ãŒ
+      // æˆã‚Šç«‹ã¤ã‹å¦ã‹ã§æ±ºå®šã§ãã‚‹ã€‚
       //
       return (Encoding.GetEncoding("sjis").GetByteCount(value) == value.Length);
     }

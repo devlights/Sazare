@@ -6,21 +6,21 @@ namespace Gsf.Samples
 
   #region BitConverterSamples-01
   /// <summary>
-  /// System.BitConverterƒNƒ‰ƒX‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// System.BitConverterã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class BitConverterSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // ƒoƒCƒg—ñ‚©‚ç16i•¶š—ñ‚Ö‚Ì•ÏŠ·.
+      // ãƒã‚¤ãƒˆåˆ—ã‹ã‚‰16é€²æ–‡å­—åˆ—ã¸ã®å¤‰æ›.
       //
       byte[] bytes = new byte[] { 1, 2, 10, 15, (byte)'a', (byte)'b', (byte)'q' };
       Console.WriteLine(BitConverter.ToString(bytes));
 
       //
-      // ”’l‚©‚çƒoƒCƒg—ñ‚Ö‚Ì•ÏŠ·.
-      // (ˆê’U”’l‚ğƒoƒCƒg—ñ‚É•ÏŠ·‚µ‚Ä‚©‚çA16i‚É•ÏŠ·‚µ‚Ä•\¦)
+      // æ•°å€¤ã‹ã‚‰ãƒã‚¤ãƒˆåˆ—ã¸ã®å¤‰æ›.
+      // (ä¸€æ—¦æ•°å€¤ã‚’ãƒã‚¤ãƒˆåˆ—ã«å¤‰æ›ã—ã¦ã‹ã‚‰ã€16é€²ã«å¤‰æ›ã—ã¦è¡¨ç¤º)
       //
       int i = 100;
       Console.WriteLine(BitConverter.ToString(BitConverter.GetBytes(i)));
@@ -29,7 +29,7 @@ namespace Gsf.Samples
       Console.WriteLine(BitConverter.ToString(BitConverter.GetBytes(i2)));
 
       //
-      // ƒoƒCƒg—ñ‚©‚ç”’l‚Ö‚Ì•ÏŠ·.
+      // ãƒã‚¤ãƒˆåˆ—ã‹ã‚‰æ•°å€¤ã¸ã®å¤‰æ›.
       //
       bytes = new byte[] { 1 };
       Console.WriteLine(BitConverter.ToBoolean(bytes, 0));

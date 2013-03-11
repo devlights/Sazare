@@ -4,29 +4,29 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region String::IsNullOrWhiteSpaceƒƒ\ƒbƒh‚ÌƒTƒ“ƒvƒ‹
+  #region String::IsNullOrWhiteSpaceãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚µãƒ³ãƒ—ãƒ«
   /// <summary>
-  /// String.IsNullOrWhiteSpaceƒƒ\ƒbƒh‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// String.IsNullOrWhiteSpaceãƒ¡ã‚½ãƒƒãƒ‰ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// .NET 4.0‚©‚ç’Ç‰Á‚³‚ê‚½ƒƒ\ƒbƒh‚Å‚·B
+  /// .NET 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ã§ã™ã€‚
   /// </remarks>
   public class StringIsNullOrWhiteSpaceSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // String::IsNullOrWhiteSpaceƒƒ\ƒbƒh‚ÍAIsNullOrEmptyƒƒ\ƒbƒh‚Ì“®ì‚É
-      // ‰Á‚¦AX‚É‹ó”’•¶š‚Ì‚İ‚Ìê‡‚àƒ`ƒFƒbƒN‚µ‚Ä‚­‚ê‚éB
+      // String::IsNullOrWhiteSpaceãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€IsNullOrEmptyãƒ¡ã‚½ãƒƒãƒ‰ã®å‹•ä½œã«
+      // åŠ ãˆã€æ›´ã«ç©ºç™½æ–‡å­—ã®ã¿ã®å ´åˆã‚‚ãƒã‚§ãƒƒã‚¯ã—ã¦ãã‚Œã‚‹ã€‚
       //
       string nullStr = null;
       string emptyStr = string.Empty;
       string spaceStr = "    ";
       string normalStr = "hello world";
-      string zenkakuSpaceStr = "@@@";
+      string zenkakuSpaceStr = "ã€€ã€€ã€€";
 
       //
-      // String::IsNullOrEmpty‚Å‚ÌŒ‹‰Ê.
+      // String::IsNullOrEmptyã§ã®çµæœ.
       //
       Console.WriteLine("============= String::IsNullOrEmpty ==============");
       Console.WriteLine("nullStr   = {0}", string.IsNullOrEmpty(nullStr));
@@ -36,8 +36,8 @@ namespace Gsf.Samples
       Console.WriteLine("zenkakuSpaceStr = {0}", string.IsNullOrEmpty(zenkakuSpaceStr));
 
       //
-      // String::IsNullOrWhiteSpace‚Å‚ÌŒ‹‰Ê.
-      //  ‘SŠp‹ó”’‚àƒXƒy[ƒX‚ÆŒ©‚È‚³‚ê‚é“_‚É’ˆÓB
+      // String::IsNullOrWhiteSpaceã§ã®çµæœ.
+      //  å…¨è§’ç©ºç™½ã‚‚ã‚¹ãƒšãƒ¼ã‚¹ã¨è¦‹ãªã•ã‚Œã‚‹ç‚¹ã«æ³¨æ„ã€‚
       //
       Console.WriteLine("============= String::IsNullOrWhiteSpace ==============");
       Console.WriteLine("nullStr   = {0}", string.IsNullOrWhiteSpace(nullStr));

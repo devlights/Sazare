@@ -13,19 +13,19 @@ namespace Gsf.Samples
       Dictionary<int, string> theDictionary = new Dictionary<int, string> { { 1, "hoge" }, { 2, "hehe" } };
 
       //
-      // Generic‚ÈƒIƒuƒWƒFƒNƒg‚ÌŒ^ˆø”‚ÌŒ^‚ğæ“¾‚·‚é‚É‚ÍASystem.TypeƒNƒ‰ƒX‚ÌˆÈ‰º‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚·‚éB
+      // Genericãªã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å‹å¼•æ•°ã®å‹ã‚’å–å¾—ã™ã‚‹ã«ã¯ã€System.Typeã‚¯ãƒ©ã‚¹ã®ä»¥ä¸‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
       //
-      //   EGetGenericArguments()
+      //   ãƒ»GetGenericArguments()
       //
-      // GetGenericArgumentsƒƒ\ƒbƒh‚ÍASystem.Type‚Ì”z—ñ‚ğ•Ô‚·‚Ì‚ÅA‚±‚ê‚ğ—˜—p‚µ‚ÄŒ^ˆø”‚ÌŒ^‚ğ”»•Ê‚·‚éB
+      // GetGenericArgumentsãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€System.Typeã®é…åˆ—ã‚’è¿”ã™ã®ã§ã€ã“ã‚Œã‚’åˆ©ç”¨ã—ã¦å‹å¼•æ•°ã®å‹ã‚’åˆ¤åˆ¥ã™ã‚‹ã€‚
       //
       var genericArgTypes = theList.GetType().GetGenericArguments();
-      Console.WriteLine("=============== List<int>‚Ìê‡ =================");
-      Console.WriteLine("Œ^ˆø”‚Ì”={0}, Œ^ˆø”‚ÌŒ^=({1})", genericArgTypes.Count(), string.Join(",", genericArgTypes.Select(item => item.Name)));
+      Console.WriteLine("=============== List<int>ã®å ´åˆ =================");
+      Console.WriteLine("å‹å¼•æ•°ã®æ•°={0}, å‹å¼•æ•°ã®å‹=({1})", genericArgTypes.Count(), string.Join(",", genericArgTypes.Select(item => item.Name)));
 
       genericArgTypes = theDictionary.GetType().GetGenericArguments();
-      Console.WriteLine("=============== Dictionary<int, string>‚Ìê‡ =================");
-      Console.WriteLine("Œ^ˆø”‚Ì”={0}, Œ^ˆø”‚ÌŒ^=({1})", genericArgTypes.Count(), string.Join(",", genericArgTypes.Select(item => item.Name)));
+      Console.WriteLine("=============== Dictionary<int, string>ã®å ´åˆ =================");
+      Console.WriteLine("å‹å¼•æ•°ã®æ•°={0}, å‹å¼•æ•°ã®å‹=({1})", genericArgTypes.Count(), string.Join(",", genericArgTypes.Select(item => item.Name)));
     }
   }
   #endregion

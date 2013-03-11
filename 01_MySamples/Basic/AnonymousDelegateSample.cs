@@ -4,24 +4,24 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region “½–¼ƒfƒŠƒQ[ƒg‚ÌƒTƒ“ƒvƒ‹ (.net framework 2.0)
+  #region åŒ¿åãƒ‡ãƒªã‚²ãƒ¼ãƒˆã®ã‚µãƒ³ãƒ—ãƒ« (.net framework 2.0)
   /// <summary>
-  /// “½–¼ƒfƒŠƒQ[ƒg(anonymous delegete)‚ÌƒTƒ“ƒvƒ‹i.NET Framework 2.0j
+  /// åŒ¿åãƒ‡ãƒªã‚²ãƒ¼ãƒˆ(anonymous delegete)ã®ã‚µãƒ³ãƒ—ãƒ«ï¼ˆ.NET Framework 2.0ï¼‰
   /// </summary>
   class AnonymousDelegateSample : IExecutable
   {
     /// <summary>
-    /// –{ƒTƒ“ƒvƒ‹‚Å—˜—p‚·‚éƒfƒŠƒQ[ƒg‚Ì’è‹`
+    /// æœ¬ã‚µãƒ³ãƒ—ãƒ«ã§åˆ©ç”¨ã™ã‚‹ãƒ‡ãƒªã‚²ãƒ¼ãƒˆã®å®šç¾©
     /// </summary>
     delegate void SampleDelegate();
 
     /// <summary>
-    /// ˆ—‚ğÀs‚µ‚Ü‚·B
+    /// å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
     /// </summary>
     public void Execute()
     {
       //
-      // “½–¼ƒƒ\ƒbƒh‚ğ\’z‚µ‚ÄÀs.
+      // åŒ¿åãƒ¡ã‚½ãƒƒãƒ‰ã‚’æ§‹ç¯‰ã—ã¦å®Ÿè¡Œ.
       //
       SampleDelegate d = delegate()
       {

@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region DefaultValuesSamples-01
   /// <summary>
-  /// ŠeŒ^‚ÌƒfƒtƒHƒ‹ƒg’l‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// å„å‹ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class DefaultValuesSamples01 : IExecutable
   {
@@ -15,22 +15,22 @@ namespace Gsf.Samples
 
     public void Execute()
     {
-      Console.WriteLine("byte   ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(byte));
-      Console.WriteLine("char   ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(char) == 0x00);
-      Console.WriteLine("short  ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(short));
-      Console.WriteLine("ushort ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(ushort));
-      Console.WriteLine("int  ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(int));
-      Console.WriteLine("uint   ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(uint));
-      Console.WriteLine("long   ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(long));
-      Console.WriteLine("ulong  ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(ulong));
-      Console.WriteLine("float  ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(float));
-      Console.WriteLine("double ‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(double));
-      Console.WriteLine("decimal‚ÌƒfƒtƒHƒ‹ƒg:    {0}", default(decimal));
-      Console.WriteLine("string ‚ÌƒfƒtƒHƒ‹ƒg:    NULL = {0}", default(string) == null);
-      Console.WriteLine("byte[] ‚ÌƒfƒtƒHƒ‹ƒg:    NULL = {0}", default(byte[]) == null);
-      Console.WriteLine("List<string>‚ÌƒfƒtƒHƒ‹ƒg: NULL = {0}", default(List<string>) == null);
-      Console.WriteLine("©‘OƒNƒ‰ƒX‚ÌƒfƒtƒHƒ‹ƒg:   NULL = {0}", default(SampleClass) == null);
-      Console.WriteLine("©‘O\‘¢‘Ì‚ÌƒfƒtƒHƒ‹ƒg:   {0}", default(SampleStruct));
+      Console.WriteLine("byte   ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(byte));
+      Console.WriteLine("char   ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(char) == 0x00);
+      Console.WriteLine("short  ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(short));
+      Console.WriteLine("ushort ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(ushort));
+      Console.WriteLine("int  ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(int));
+      Console.WriteLine("uint   ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(uint));
+      Console.WriteLine("long   ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(long));
+      Console.WriteLine("ulong  ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(ulong));
+      Console.WriteLine("float  ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(float));
+      Console.WriteLine("double ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(double));
+      Console.WriteLine("decimalã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    {0}", default(decimal));
+      Console.WriteLine("string ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    NULL = {0}", default(string) == null);
+      Console.WriteLine("byte[] ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:    NULL = {0}", default(byte[]) == null);
+      Console.WriteLine("List<string>ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ: NULL = {0}", default(List<string>) == null);
+      Console.WriteLine("è‡ªå‰ã‚¯ãƒ©ã‚¹ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:   NULL = {0}", default(SampleClass) == null);
+      Console.WriteLine("è‡ªå‰æ§‹é€ ä½“ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆ:   {0}", default(SampleStruct));
     }
   }
   #endregion

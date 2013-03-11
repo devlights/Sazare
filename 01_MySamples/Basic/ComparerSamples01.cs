@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region ComparerSamples-01
   /// <summary>
-  /// Comparer�ɂ��ẴT���v���ł��B
+  /// Comparerについてのサンプルです。
   /// </summary>
   public class ComparerSamples01 : IExecutable
   {
@@ -29,13 +29,13 @@ namespace Gsf.Samples
     }
 
     //
-    // Comparer<T>�N���X�́A���ۃN���X�ƂȂ��Ă���B
-    // IComparer�C���^�[�t�F�[�X��IComparer<T>�C���^�[�t�F�[�X�̗������������Ă���B
+    // Comparer<T>クラスは、抽象クラスとなっており。
+    // IComparerインターフェースとIComparer<T>インターフェースの両方を実装している。
     //
-    // ���ۂɁA��������K�v������͈̂ȉ��̃��\�b�h�����ł���B
+    // 実際に、実装する必要があるのは以下のメソッドだけである。
     //   int Compare(T x, T y)
     //
-    // IComparer.Compare���\�b�h�ɂ��ẮA���ۃN���X���ɂĖ����I�������s���Ă���B
+    // IComparer.Compareメソッドについては、抽象クラス側にて明示的実装が行われている。
     //
     class PersonIdComparer : Comparer<Person>
     {
@@ -72,17 +72,17 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // IComparer�C���^�[�t�F�[�X�y��IComparer<T>�C���^�[�t�F�[�X�́A�Ƃ��ɏ����̔�r���T�|�[�g���邽�߂�
-      // �C���^�[�t�F�[�X�ł���B
+      // IComparerインターフェース及びIComparer<T>インターフェースは、ともに順序の比較をサポートするための
+      // インターフェースである。
       //
-      // �����ړI�ŗ��p�����C���^�[�t�F�[�X�ɁAIComparable�C���^�[�t�F�[�X�����݂��邪�A�Ⴂ��
-      // IComparable�C���^�[�t�F�[�X���A�ΏۂƂȂ�N���X���g�Ɏ�������K�v������̂ɑ΂���
-      // IComparer�C���^�[�t�F�[�X�́A�ʂɔ�r�����݂̂����������N���X��p�ӂ��邱�Ƃɂ���B
+      // 同じ目的で利用されるインターフェースに、IComparableインターフェースが存在するが、違いは
+      // IComparableインターフェースが、対象となるクラス自身に実装する必要があるのに対して
+      // IComparerインターフェースは、個別に比較処理のみを実装したクラスを用意することにある。
       //
-      // ����ɂ��A�����I�u�W�F�N�g�ɑ΂��āA�����̔�r���@���������邱�Ƃ��o����B
-      // (�\�[�g�������s���ۂɁA��r������S������I�u�W�F�N�g��I�����邱�Ƃ��ł���悤�ɂȂ�B�j
+      // これにより、同じオブジェクトに対して、複数の比較方法を実装することが出来る。
+      // (ソート処理を行う際に、比較処理を担当するオブジェクトを選択することができるようになる。）
       //
-      // List.Sort��SortedList��SortedDictionary��������T�|�[�g����B
+      // List.SortやSortedListやSortedDictionaryがこれをサポートする。
       //
       var person1 = new Person { Id = 1, Name = "gsf_zero1" };
       var person2 = new Person { Id = 2, Name = "gsf_zero2" };
@@ -91,15 +91,15 @@ namespace Gsf.Samples
 
       var persons = new List<Person> { person3, person2, person4, person1 };
 
-      // �\�[�g�����ɂ��̂܂܏o��.
+      // ソートせずにそのまま出力.
       persons.ForEach(Console.WriteLine);
 
-      // Id�Ŕ�r�������s��Comparer���w�肵�ă\�[�g.
+      // Idで比較処理を行うComparerを指定してソート.
       Console.WriteLine(string.Empty);
       persons.Sort(new PersonIdComparer());
       persons.ForEach(Console.WriteLine);
 
-      // NAME�Ŕ�r�������s��Comparer���w�肵�ă\�[�g.
+      // NAMEで比較処理を行うComparerを指定してソート.
       Console.WriteLine(string.Empty);
       persons.Sort(new PersonNameComparer());
       persons.ForEach(Console.WriteLine);

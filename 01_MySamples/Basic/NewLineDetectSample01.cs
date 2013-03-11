@@ -6,33 +6,33 @@ namespace Gsf.Samples
 
   #region NewLineDetectSample-01
   /// <summary>
-  /// •¶š—ñ’†‚Ì‰üsƒR[ƒh‚Ì”‚ğZo‚·‚éƒTƒ“ƒvƒ‹‚Å‚·B
+  /// æ–‡å­—åˆ—ä¸­ã®æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã®æ•°ã‚’ç®—å‡ºã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class NewLineDetectSample01 : IExecutable
   {
     public void Execute()
     {
-      string testStrings = string.Format("‚ t{0}‚¢t{0}‚¤{0}‚¦t{0}‚¨{0}", Environment.NewLine);
+      string testStrings = string.Format("ã‚t{0}ã„t{0}ã†{0}ãˆt{0}ãŠ{0}", Environment.NewLine);
 
-      Console.WriteLine("=== Œ³•¶š—ñ start ===");
+      Console.WriteLine("=== å…ƒæ–‡å­—åˆ— start ===");
       Console.WriteLine(testStrings);
-      Console.WriteLine("=== Œ³•¶š—ñ end  ===");
+      Console.WriteLine("=== å…ƒæ–‡å­—åˆ— end  ===");
 
       //
-      // ‰üsƒR[ƒh‚ğ”»’è‚·‚é‚½‚ß‚ÌA”äŠrŒ³•¶š”z—ñ‚ğ\’z.
+      // æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã‚’åˆ¤å®šã™ã‚‹ãŸã‚ã®ã€æ¯”è¼ƒå…ƒæ–‡å­—é…åˆ—ã‚’æ§‹ç¯‰.
       //
       char[] newLineChars = Environment.NewLine.ToCharArray();
 
       //
-      // ‰üsƒR[ƒh‚ÌƒJƒEƒ“ƒg‚ğZo.
+      // æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã®ã‚«ã‚¦ãƒ³ãƒˆã‚’ç®—å‡º.
       //
       int count = 0;
       char prevChar = char.MaxValue;
       foreach (Char ch in testStrings)
       {
         //
-        // ƒvƒ‰ƒbƒgƒtƒH[ƒ€‚É‚æ‚Á‚Ä‚ÍA‰üsƒR[ƒh‚ª‚Q•¶š‚Ì\¬ (CRLF)‚Æ‚È‚é‚½‚ß
-        // ‘OŒã‚Ì•¶š‚Ìƒpƒ^[ƒ“‚ª—¼•ûˆê’v‚·‚éê‡‚É‰üsƒR[ƒh‚Å‚ ‚é‚Æ‚İ‚È‚·B
+        // ãƒ—ãƒ©ãƒƒãƒˆãƒ•ã‚©ãƒ¼ãƒ ã«ã‚ˆã£ã¦ã¯ã€æ”¹è¡Œã‚³ãƒ¼ãƒ‰ãŒï¼’æ–‡å­—ã®æ§‹æˆ (CRLF)ã¨ãªã‚‹ãŸã‚
+        // å‰å¾Œã®æ–‡å­—ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ãŒä¸¡æ–¹ä¸€è‡´ã™ã‚‹å ´åˆã«æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã§ã‚ã‚‹ã¨ã¿ãªã™ã€‚
         //
         if (newLineChars.Contains(prevChar) && newLineChars.Contains(ch))
         {
@@ -42,7 +42,7 @@ namespace Gsf.Samples
         prevChar = ch;
       }
 
-      Console.WriteLine("‰üsƒR[ƒh‚Ì”: {0}", count);
+      Console.WriteLine("æ”¹è¡Œã‚³ãƒ¼ãƒ‰ã®æ•°: {0}", count);
     }
   }
   #endregion

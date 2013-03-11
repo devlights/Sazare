@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region MarshalByRefObjectSamples-01
   /// <summary>
-  /// MarshalByRefObjectƒNƒ‰ƒX‚ÉŠÖ‚·‚éƒTƒ“ƒvƒ‹‚Å‚·B
+  /// MarshalByRefObjectã‚¯ãƒ©ã‚¹ã«é–¢ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class MarshalByRefObjectSamples01 : IExecutable
   {
@@ -43,7 +43,7 @@ namespace Gsf.Samples
 
       AppDomain newDomain = AppDomain.CreateDomain("new domain");
 
-      /* ** ERROR **  "Gsf.Samples.MarshalByRefObjectSamples01+CanNotMarshalByRef"‚ÍƒVƒŠƒAƒ‹‰»‰Â”\‚Æ‚µ‚Äİ’è‚³‚ê‚Ä‚¢‚Ü‚¹‚ñB
+      /* ** ERROR **  "Gsf.Samples.MarshalByRefObjectSamples01+CanNotMarshalByRef"ã¯ã‚·ãƒªã‚¢ãƒ«åŒ–å¯èƒ½ã¨ã—ã¦è¨­å®šã•ã‚Œã¦ã„ã¾ã›ã‚“ã€‚
       CanNotMarshalByRef obj2 = 
           (CanNotMarshalByRef) newDomain.CreateInstanceAndUnwrap(
               Assembly.GetExecutingAssembly().FullName, 
@@ -62,9 +62,9 @@ namespace Gsf.Samples
       obj3.PrintDomain();
 
       //
-      // Serializable‘®«‚ğ•t‰Á‚µ‚½‚¾‚¯‚Å‚ÍAÀs‚Ís‚¦‚é‚ªA•Ê‚ÌAppDomain“à‚©‚ç‚Ì
-      // Às‚Å‚Í‚È‚­‚ÄAŒÄ‚ÑŒ³‚ÌAppDomain‚Å‚ÌÀs‚Æ‚È‚éB
-      // (‚Â‚Ü‚èAAppDomain‚Ì‹«ŠE‚ğ‰z‚¦‚Ä‚¢‚È‚¢B)
+      // Serializableå±æ€§ã‚’ä»˜åŠ ã—ãŸã ã‘ã§ã¯ã€å®Ÿè¡Œã¯è¡Œãˆã‚‹ãŒã€åˆ¥ã®AppDomainå†…ã‹ã‚‰ã®
+      // å®Ÿè¡Œã§ã¯ãªãã¦ã€å‘¼ã³å…ƒã®AppDomainã§ã®å®Ÿè¡Œã¨ãªã‚‹ã€‚
+      // (ã¤ã¾ã‚Šã€AppDomainã®å¢ƒç•Œã‚’è¶Šãˆã¦ã„ãªã„ã€‚)
       //
       CanSerialize obj4 =
           (CanSerialize)newDomain.CreateInstanceAndUnwrap(

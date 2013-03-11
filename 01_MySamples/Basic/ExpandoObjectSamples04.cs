@@ -5,12 +5,12 @@ namespace Gsf.Samples
   using System.ComponentModel;
   using System.Linq;
 
-  #region ExpandoObjectƒNƒ‰ƒX‚ÌƒTƒ“ƒvƒ‹-04
+  #region ExpandoObjectã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«-04
   /// <summary>
-  /// ExpandoObjectƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ExpandoObjectã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// .NET 4.0‹ó’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
+  /// .NET 4.0ç©ºè¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
   /// </remarks>
   public class ExpandoObjectSamples04 : IExecutable
   {
@@ -18,12 +18,12 @@ namespace Gsf.Samples
     {
       ///////////////////////////////////////////////////////////////////////
       //
-      // ExpandoObject‚ğINotifyPropertyChanged‚Æ‚µ‚Äˆµ‚¤. (ƒvƒƒpƒeƒB‚Ì•ÏX‚ğƒnƒ“ƒhƒ‹)
+      // ExpandoObjectã‚’INotifyPropertyChangedã¨ã—ã¦æ‰±ã†. (ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å¤‰æ›´ã‚’ãƒãƒ³ãƒ‰ãƒ«)
       //
       dynamic obj = new System.Dynamic.ExpandoObject();
 
       //
-      // ƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰İ’è.
+      // ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©è¨­å®š.
       //
       (obj as INotifyPropertyChanged).PropertyChanged += (sender, e) =>
       {
@@ -31,23 +31,23 @@ namespace Gsf.Samples
       };
 
       //
-      // ƒƒ“ƒo[’è‹`.
+      // ãƒ¡ãƒ³ãƒãƒ¼å®šç¾©.
       //
       obj.Name = "gsf_zero1";
       obj.Age = 30;
 
       //
-      // ƒƒ“ƒo[íœ.
+      // ãƒ¡ãƒ³ãƒãƒ¼å‰Šé™¤.
       //
       (obj as IDictionary<string, object>).Remove("Age");
 
       //
-      // ’l•ÏX.
+      // å€¤å¤‰æ›´.
       //
       obj.Name = "gsf_zero2";
 
       //
-      // ÀsŒ‹‰ÊF
+      // å®Ÿè¡Œçµæœï¼š
       //     Property Changed:Name
       //     Property Changed:Age
       //     Property Changed:Age

@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region EnumToStringSamples-01
   /// <summary>
-  /// Enum‚ÉŠÖ‚·‚éƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Enumã«é–¢ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class EnumToStringSamples01 : IExecutable
   {

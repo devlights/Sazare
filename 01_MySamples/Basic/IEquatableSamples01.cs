@@ -6,34 +6,34 @@ namespace Gsf.Samples
 
   #region IEquatableSamples-01
   /// <summary>
-  /// IEquatable<T>�̃T���v���ł��B
+  /// IEquatable<T>のサンプルです。
   /// </summary> -->
   public class IEquatableSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // IEquatable<T>�C���^�[�t�F�[�X�́A2�̃C���X�^���X�����������ۂ��𔻕ʂ��邽�߂�
-      // �^�w���Equals���\�b�h���`���Ă���C���^�[�t�F�[�X�ł���B
+      // IEquatable<T>インターフェースは、2つのインスタンスが等しいか否かを判別するための
+      // 型指定のEqualsメソッドを定義しているインターフェースである。
       //
-      // ���̃C���^�[�t�F�[�X���������邱�ƂŁA�ʏ��object.Equals�ȊO�Ɍ^���w�肳�ꂽ
-      // Equals���\�b�h�������Ƃ��ł���悤�ɂȂ�B
-      // ���̃C���^�[�t�F�[�X�́A���ɍ\���̂��`�����ŏd�v�ł���A�\���̂̏ꍇ�Aobject.Equals��
-      // ��r���s���ƁA�{�b�N�X�����������Ă��܂����߁AIEquatable<T>���������邱�Ƃ������B
-      // (�{�b�N�X�����������Ȃ��Ȃ邽�߁B�j
+      // このインターフェースを実装することで、通常のobject.Equals以外に型が指定された
+      // Equalsメソッドを持つことができるようになる。
+      // このインターフェースは、特に構造体を定義する上で重要であり、構造体の場合、object.Equalsで
+      // 比較を行うと、ボックス化が発生してしまうため、IEquatable<T>を実装することが多い。
+      // (ボックス化が発生しなくなるため。）
       //
-      // �܂��A�����ɂ͕K�{�ł͂Ȃ����AIEquatable<T>����������ꍇ�A�����Ɉȉ��̃��\�b�h���I�[�o�[���C�h����̂����ʂł���B
-      //   �Eobject.Equals
-      //   �Eobject.GetHashCode
-      // object.Equals���I�[�o�[���C�h����̂́AIEquatable���������Ă��Ă��N���X�ɂ���ẮA����𖳎����ċ����I��object.Equals��
-      // ��r���鏈�������݂��邽�߂ł���B
+      // また、厳密には必須ではないが、IEquatable<T>を実装する場合、同時に以下のメソッドもオーバーライドするのが普通である。
+      //   ・object.Equals
+      //   ・object.GetHashCode
+      // object.Equalsをオーバーライドするのは、IEquatableを実装していてもクラスによっては、それを無視して強制的にobject.Equalsで
+      // 比較する処理が存在するためである。
       //
-      // IEquatable<T>�C���^�[�t�F�[�X�́ADictionary<TKey, TValue>, List<T>�Ȃǂ̃W�F�l���b�N�R���N�V�����ɂ�
-      // Contains, IndexOf, LastIndexOf, Remove�Ȃǂ̊e���\�b�h�œ��������e�X�g����ꍇ�ɗ��p�����B
-      // (Array��IndexOf���\�b�h�Ȃǂł����l�ɗ��p�����B)
-      // �����C���^�[�t�F�[�X�ŁA��r�@�\��񋟂�����̂Ƃ��āAIComparable<T>�C���^�[�t�F�[�X������B
+      // IEquatable<T>インターフェースは、Dictionary<TKey, TValue>, List<T>などのジェネリックコレクションにて
+      // Contains, IndexOf, LastIndexOf, Removeなどの各メソッドで等価性をテストする場合に利用される。
+      // (ArrayのIndexOfメソッドなどでも同様に利用される。)
+      // 同じインターフェースで、比較機能を提供するものとして、IComparable<T>インターフェースがある。
       //
-      // object.GetHashCode���I�[�o�[���C�h����̂́A��̗��R�ɂ��object.Equals���I�[�o�[���C�h����邽�߁B
+      // object.GetHashCodeをオーバーライドするのは、上の理由によりobject.Equalsがオーバーライドされるため。
       //
       Data data1 = new Data(1, "Hello World");
       Data data2 = new Data(2, "Hello World2");
@@ -77,10 +77,10 @@ namespace Gsf.Samples
         private set;
       }
 
-      // IEquatable<T>�̎���.
+      // IEquatable<T>の実装.
       public bool Equals(Data other)
       {
-        Console.WriteLine("\t����Call IEquatable.Equals");
+        Console.WriteLine("\t→→Call IEquatable.Equals");
 
         if (other == null)
         {
@@ -93,7 +93,7 @@ namespace Gsf.Samples
       // object.Equals
       public override bool Equals(object other)
       {
-        Console.WriteLine("\t����Call object.Equals");
+        Console.WriteLine("\t→→Call object.Equals");
 
         Data data = other as Data;
         if (data == null)

@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region NumberFormatSamples-04
   /// <summary>
-  /// ”’lƒtƒH[ƒ}ƒbƒg‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// æ•°å€¤ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class NumberFormatSamples04 : IExecutable
   {
@@ -22,8 +22,8 @@ namespace Gsf.Samples
       string sTestValue2 = iTestValue2.ToString();
 
       //
-      // Œ³‚Æ‚È‚éƒf[ƒ^‚ÌŒ^‚ª”’l‚Å‚Í‚È‚¢ê‡A2Œ…‚Å•\¦‚Æw’è‚µ‚Ä‚à
-      // ƒtƒH[ƒ}ƒbƒg‚³‚ê‚È‚¢B(•¶š—ñ‚Ìê‡‚Í‚»‚Ì‚Ü‚Ü"1"‚Æ•\¦‚³‚ê‚éB)
+      // å…ƒã¨ãªã‚‹ãƒ‡ãƒ¼ã‚¿ã®å‹ãŒæ•°å€¤ã§ã¯ãªã„å ´åˆã€2æ¡ã§è¡¨ç¤ºã¨æŒ‡å®šã—ã¦ã‚‚
+      // ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã•ã‚Œãªã„ã€‚(æ–‡å­—åˆ—ã®å ´åˆã¯ãã®ã¾ã¾"1"ã¨è¡¨ç¤ºã•ã‚Œã‚‹ã€‚)
       //
       Console.WriteLine("sTestValue1: {0:D2}", sTestValue1);
       Console.WriteLine("sTestValue2: {0:D2}", sTestValue2);

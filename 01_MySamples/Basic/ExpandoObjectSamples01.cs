@@ -4,12 +4,12 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region ExpandoObjectƒNƒ‰ƒX‚ÌƒTƒ“ƒvƒ‹-01
+  #region ExpandoObjectã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«-01
   /// <summary>
-  /// ExpandoObjectƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ExpandoObjectã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// .NET 4.0‚©‚ç’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
+  /// .NET 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
   /// </remarks>
   public class ExpandoObjectSamples01 : IExecutable
   {
@@ -17,23 +17,23 @@ namespace Gsf.Samples
     {
       //////////////////////////////////////////////////////////////////////
       //
-      // “®“IƒIƒuƒWƒFƒNƒg‚ğì¬.
+      // å‹•çš„ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ.
       //
-      // System.Dynamic–¼‘O‹óŠÔ‚ÍAuSystem.Core.dllv“à‚É‘¶İ‚·‚éB
-      // “®“IƒIƒuƒWƒFƒNƒg‚ğ—˜—p‚·‚é‚É‚ÍAã‹L‚ÌDLL‚Ì‘¼‚ÉˆÈ‰º‚ÌDLL‚àQÆİ’è
-      // ‚·‚é•K—v‚ª‚ ‚éB
+      // System.Dynamicåå‰ç©ºé–“ã¯ã€ã€ŒSystem.Core.dllã€å†…ã«å­˜åœ¨ã™ã‚‹ã€‚
+      // å‹•çš„ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’åˆ©ç”¨ã™ã‚‹ã«ã¯ã€ä¸Šè¨˜ã®DLLã®ä»–ã«ä»¥ä¸‹ã®DLLã‚‚å‚ç…§è¨­å®š
+      // ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
       //
-      // EMicrosoft.CSharp.dll
+      // ãƒ»Microsoft.CSharp.dll
       //
       dynamic obj = new System.Dynamic.ExpandoObject();
 
       //
-      // ƒƒ“ƒo[‚ğ’è‹`.
+      // ãƒ¡ãƒ³ãƒãƒ¼ã‚’å®šç¾©.
       //
-      // ƒvƒƒpƒeƒB.
+      // ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£.
       obj.Value = 10;
 
-      // ƒƒ\ƒbƒh.
+      // ãƒ¡ã‚½ãƒƒãƒ‰.
       var action = new Action<string>((line) =>
       {
         Console.WriteLine(line);
@@ -42,7 +42,7 @@ namespace Gsf.Samples
       obj.WriteLine = action;
 
       //
-      // ŒÄ‚Ño‚µ‚Ä‚İ‚é.
+      // å‘¼ã³å‡ºã—ã¦ã¿ã‚‹.
       //
       obj.WriteLine(obj.Value.ToString());
 

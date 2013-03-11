@@ -8,7 +8,7 @@ namespace Gsf.Samples
 
   #region OrderedDictionarySample-01
   /// <summary>
-  /// OrderedDictionary‚ÌƒTƒ“ƒvƒ‹1‚Å‚·B
+  /// OrderedDictionaryã®ã‚µãƒ³ãƒ—ãƒ«1ã§ã™ã€‚
   /// </summary>
   public class OrderedDictionarySample01 : IExecutable
   {

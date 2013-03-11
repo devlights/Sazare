@@ -6,14 +6,14 @@ namespace Gsf.Samples
 
   #region ByteArraySamples-09
   /// <summary>
-  /// ƒoƒCƒg”z—ñ‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ãƒã‚¤ãƒˆé…åˆ—ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class ByteArraySamples09 : IExecutable
   {
     public void Execute()
     {
       //
-      // —˜—p‚µ‚Ä‚¢‚éƒA[ƒLƒeƒNƒ`ƒƒ‚ÌƒGƒ“ƒfƒBƒAƒ“‚ğ”»’è.
+      // åˆ©ç”¨ã—ã¦ã„ã‚‹ã‚¢ãƒ¼ã‚­ãƒ†ã‚¯ãƒãƒ£ã®ã‚¨ãƒ³ãƒ‡ã‚£ã‚¢ãƒ³ã‚’åˆ¤å®š.
       //
       Console.WriteLine(BitConverter.IsLittleEndian);
     }

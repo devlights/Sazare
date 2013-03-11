@@ -13,32 +13,32 @@ namespace Gsf.Samples
       var d2 = new Data("data2", "data2-value1");
       var d3 = new Data("data3", "data3-value1");
 
-      // d1‚Æ“¯‚¶’l‚ğ‚Â•Ê‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚µ‚Ä‚¨‚­.
+      // d1ã¨åŒã˜å€¤ã‚’æŒã¤åˆ¥ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã—ã¦ãŠã.
       var d1_2 = new Data(d1.Name, d1.Value);
 
       /////////////////////////////////////////////////////////
       //
-      // object.Equals‚Å”äŠr.
+      // object.Equalsã§æ¯”è¼ƒ.
       //
-      Console.WriteLine("===== object.Equals‚Å”äŠr. =====");
+      Console.WriteLine("===== object.Equalsã§æ¯”è¼ƒ. =====");
       Console.WriteLine("d1.Equals(d2) : {0}", d1.Equals(d2));
       Console.WriteLine("d1.Equals(d3) : {0}", d1.Equals(d3));
       Console.WriteLine("d1.Equals(d1_2) : {0}", d1.Equals(d1_2));
 
       /////////////////////////////////////////////////////////
       //
-      // EqualityComparer‚Å”äŠr.
+      // EqualityComparerã§æ¯”è¼ƒ.
       //
       var comparer = new DataEqualityComparer();
 
-      Console.WriteLine("===== EqualityComparer‚Å”äŠr. =====");
+      Console.WriteLine("===== EqualityComparerã§æ¯”è¼ƒ. =====");
       Console.WriteLine("d1.Equals(d2) : {0}", comparer.Equals(d1, d2));
       Console.WriteLine("d1.Equals(d3) : {0}", comparer.Equals(d1, d3));
       Console.WriteLine("d1.Equals(d1_2) : {0}", comparer.Equals(d1, d1_2));
 
       /////////////////////////////////////////////////////////
       //
-      // Dictionary‚Åˆê’v‚·‚é‚©”Û‚©‚ğŠm”F (EqualityComparer–³‚µ)
+      // Dictionaryã§ä¸€è‡´ã™ã‚‹ã‹å¦ã‹ã‚’ç¢ºèª (EqualityComparerç„¡ã—)
       //
       var dict1 = new Dictionary<Data, string>();
 
@@ -46,41 +46,41 @@ namespace Gsf.Samples
       dict1[d2] = d2.Value;
       dict1[d3] = d3.Value;
 
-      // ˆÈ‰º‚ÌƒR[ƒh‚Å‚ÍA‚¿‚á‚ñ‚Æ’l‚ªæ“¾‚Å‚«‚é. (QÆ‚ª“¯‚¶‚½‚ß)
-      Console.WriteLine("===== Dictionary‚Åˆê’v‚·‚é‚©”Û‚©‚ğŠm”F (EqualityComparer–³‚µ). =====");
+      // ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯ã€ã¡ã‚ƒã‚“ã¨å€¤ãŒå–å¾—ã§ãã‚‹. (å‚ç…§ãŒåŒã˜ãŸã‚)
+      Console.WriteLine("===== Dictionaryã§ä¸€è‡´ã™ã‚‹ã‹å¦ã‹ã‚’ç¢ºèª (EqualityComparerç„¡ã—). =====");
       Console.WriteLine("key:d1 ==> {0}", dict1[d1]);
       Console.WriteLine("key:d3 ==> {0}", dict1[d3]);
 
-      // ˆÈ‰º‚ÌƒR[ƒh‚Å‚ÍA‚¿‚á‚ñ‚Ætrue‚ªæ“¾‚Å‚«‚é. (QÆ‚ª“¯‚¶‚½‚ß)
+      // ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯ã€ã¡ã‚ƒã‚“ã¨trueãŒå–å¾—ã§ãã‚‹. (å‚ç…§ãŒåŒã˜ãŸã‚)
       Console.WriteLine("contains-key: d1 ==> {0}", dict1.ContainsKey(d1));
       Console.WriteLine("contains-key: d2 ==> {0}", dict1.ContainsKey(d2));
       Console.WriteLine("contains-key: d3 ==> {0}", dict1.ContainsKey(d3));
 
       //
-      // “¯‚¶’l‚ğ‚ÂA•ÊƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚µAEqualityComparer‚È‚µ‚ÌDictionary‚Å‚µ‚Ä‚İ‚é.
+      // åŒã˜å€¤ã‚’æŒã¤ã€åˆ¥ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã—ã€EqualityComparerãªã—ã®Dictionaryã§è©¦ã—ã¦ã¿ã‚‹.
       //
       var d4 = new Data(d1.Name, d1.Value);
       var d5 = new Data(d2.Name, d2.Value);
       var d6 = new Data(d3.Name, d3.Value);
 
-      // ˆÈ‰º‚ÌƒR[ƒh‚ğÀs‚·‚é‚Æ—áŠO‚ª”­¶‚·‚é. (ƒL[‚Æ‚µ‚Äˆê’v‚µ‚È‚¢‚½‚ß)
+      // ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã¨ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹. (ã‚­ãƒ¼ã¨ã—ã¦ä¸€è‡´ã—ãªã„ãŸã‚)
       try
       {
-        Console.WriteLine("===== “¯‚¶’l‚ğ‚ÂA•ÊƒCƒ“ƒXƒ^ƒ“ƒX‚ğì¬‚µAEqualityComparer‚È‚µ‚ÌDictionary‚Å‚µ‚Ä‚İ‚é. =====");
+        Console.WriteLine("===== åŒã˜å€¤ã‚’æŒã¤ã€åˆ¥ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã‚’ä½œæˆã—ã€EqualityComparerãªã—ã®Dictionaryã§è©¦ã—ã¦ã¿ã‚‹. =====");
         Console.WriteLine("key:d4 ==> {0}", dict1[d4]);
       }
       catch (KeyNotFoundException)
       {
-        Console.WriteLine("ƒL[‚Æ‚µ‚Äd4‚ğw’è‚µ‚Ü‚µ‚½‚ªAˆê’v‚·‚éƒL[‚ªŒ©‚Â‚©‚è‚Ü‚¹‚ñ‚Å‚µ‚½B");
+        Console.WriteLine("ã‚­ãƒ¼ã¨ã—ã¦d4ã‚’æŒ‡å®šã—ã¾ã—ãŸãŒã€ä¸€è‡´ã™ã‚‹ã‚­ãƒ¼ãŒè¦‹ã¤ã‹ã‚Šã¾ã›ã‚“ã§ã—ãŸã€‚");
       }
 
-      // “–‘RAContainsKeyƒƒ\ƒbƒh‚àfalse‚ğ•Ô‚·.
+      // å½“ç„¶ã€ContainsKeyãƒ¡ã‚½ãƒƒãƒ‰ã‚‚falseã‚’è¿”ã™.
       Console.WriteLine("contains-key: d4 ==> {0}", dict1.ContainsKey(d4));
 
 
       /////////////////////////////////////////////////////////
       //
-      // Dictionary‚ğì¬‚·‚éÛ‚ÉAEqualityComparer‚ğw’è‚µ‚Äì¬.
+      // Dictionaryã‚’ä½œæˆã™ã‚‹éš›ã«ã€EqualityComparerã‚’æŒ‡å®šã—ã¦ä½œæˆ.
       //
       var dict2 = new Dictionary<Data, string>(comparer);
 
@@ -88,46 +88,46 @@ namespace Gsf.Samples
       dict2[d2] = d2.Value;
       dict2[d3] = d3.Value;
 
-      // ˆÈ‰º‚ÌƒR[ƒh‚Å‚ÍA‚¿‚á‚ñ‚Æ’l‚ªæ“¾‚Å‚«‚é. (EqualityComparer‚ğw’è‚µ‚Ä‚¢‚é‚½‚ß)
-      Console.WriteLine("===== Dictionary‚ğì¬‚·‚éÛ‚ÉAEqualityComparer‚ğw’è‚µ‚Äì¬. =====");
+      // ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯ã€ã¡ã‚ƒã‚“ã¨å€¤ãŒå–å¾—ã§ãã‚‹. (EqualityComparerã‚’æŒ‡å®šã—ã¦ã„ã‚‹ãŸã‚)
+      Console.WriteLine("===== Dictionaryã‚’ä½œæˆã™ã‚‹éš›ã«ã€EqualityComparerã‚’æŒ‡å®šã—ã¦ä½œæˆ. =====");
       Console.WriteLine("key:d4 ==> {0}", dict2[d4]);
       Console.WriteLine("key:d6 ==> {0}", dict2[d6]);
 
-      // ˆÈ‰º‚ÌƒR[ƒh‚Å‚ÍA‚¿‚á‚ñ‚Ætrue‚ªæ“¾‚Å‚«‚é. (EqualityComparer‚ğw’è‚µ‚Ä‚¢‚é‚½‚ß)
+      // ä»¥ä¸‹ã®ã‚³ãƒ¼ãƒ‰ã§ã¯ã€ã¡ã‚ƒã‚“ã¨trueãŒå–å¾—ã§ãã‚‹. (EqualityComparerã‚’æŒ‡å®šã—ã¦ã„ã‚‹ãŸã‚)
       Console.WriteLine("contains-key: d4 ==> {0}", dict2.ContainsKey(d4));
       Console.WriteLine("contains-key: d5 ==> {0}", dict2.ContainsKey(d5));
       Console.WriteLine("contains-key: d6 ==> {0}", dict2.ContainsKey(d6));
 
       /////////////////////////////////////////////////////////
       //
-      // EqualityComparer<T>‚É‚ÍADefault‚Æ‚¢‚¤Ã“IƒvƒƒpƒeƒB‚ª‘¶İ‚·‚é.
-      // ‚±‚ÌƒvƒƒpƒeƒB‚ÍAT‚Éw’è‚³‚ê‚½Œ^‚ªIEquatable<T>‚ğÀ‘•‚µ‚Ä‚¢‚é‚©‚Ç‚¤‚©‚ğ
-      // ƒ`ƒFƒbƒN‚µAÀ‘•‚µ‚Ä‚¢‚éê‡‚ÍA“à•”‚ÅIEquatable<T>‚ÌÀ‘•‚ğ—˜—p‚·‚é
-      // EqualityComaparer<T>‚ğì¬‚µ‚Ä•Ô‚µ‚Ä‚­‚ê‚é.
+      // EqualityComparer<T>ã«ã¯ã€Defaultã¨ã„ã†é™çš„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ãŒå­˜åœ¨ã™ã‚‹.
+      // ã“ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¯ã€Tã«æŒ‡å®šã•ã‚ŒãŸå‹ãŒIEquatable<T>ã‚’å®Ÿè£…ã—ã¦ã„ã‚‹ã‹ã©ã†ã‹ã‚’
+      // ãƒã‚§ãƒƒã‚¯ã—ã€å®Ÿè£…ã—ã¦ã„ã‚‹å ´åˆã¯ã€å†…éƒ¨ã§IEquatable<T>ã®å®Ÿè£…ã‚’åˆ©ç”¨ã™ã‚‹
+      // EqualityComaparer<T>ã‚’ä½œæˆã—ã¦è¿”ã—ã¦ãã‚Œã‚‹.
       //
-      // T‚Éw’è‚³‚ê‚½Œ^‚ªAIEquatable<T>‚ğÀ‘•‚µ‚Ä‚¢‚È‚¢ê‡
-      // object.Equals, object.GetHashCode‚ğ—˜—p‚·‚éÀ‘•‚ğ•Ô‚·.
+      // Tã«æŒ‡å®šã•ã‚ŒãŸå‹ãŒã€IEquatable<T>ã‚’å®Ÿè£…ã—ã¦ã„ãªã„å ´åˆ
+      // object.Equals, object.GetHashCodeã‚’åˆ©ç”¨ã™ã‚‹å®Ÿè£…ã‚’è¿”ã™.
       //
-      // –{ƒTƒ“ƒvƒ‹‚Å—˜—p‚·‚éƒTƒ“ƒvƒ‹ƒNƒ‰ƒX‚ÍAˆÈ‰º‚Ì‚æ‚¤‚É‚È‚Á‚Ä‚¢‚é.
-      //   DataƒNƒ‰ƒXF IEquatable<T>‚ğÀ‘•‚µ‚Ä‚¢‚È‚¢.
-      //   Data2ƒNƒ‰ƒXF IEquatable<T>‚ğÀ‘•‚µ‚Ä‚¢‚é.
+      // æœ¬ã‚µãƒ³ãƒ—ãƒ«ã§åˆ©ç”¨ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã‚¯ãƒ©ã‚¹ã¯ã€ä»¥ä¸‹ã®ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹.
+      //   Dataã‚¯ãƒ©ã‚¹ï¼š IEquatable<T>ã‚’å®Ÿè£…ã—ã¦ã„ãªã„.
+      //   Data2ã‚¯ãƒ©ã‚¹ï¼š IEquatable<T>ã‚’å®Ÿè£…ã—ã¦ã„ã‚‹.
       //
-      // ã‹L‚ÌƒNƒ‰ƒX‚É‘Î‚µ‚ÄA‚»‚ê‚¼‚êEqualityComparer<T>.Default‚ğŒÄ‚Ño‚·‚ÆˆÈ‰º‚Ì
-      // ƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚ª•Ô‚Á‚Ä‚­‚é.
-      //   DataƒNƒ‰ƒXF  ObjectEqualityComparer`1
-      //   Data2ƒNƒ‰ƒX: GenericEqualityComparer`1
-      // IEquatable<T>‚ğÀ‘•‚µ‚Ä‚¢‚éê‡‚ÍAGenericEqualityComparer‚ª
-      // À‘•‚µ‚Ä‚¢‚È‚¢ê‡‚ÍAObjectEqualityComparer‚Æ‚È‚éB
+      // ä¸Šè¨˜ã®ã‚¯ãƒ©ã‚¹ã«å¯¾ã—ã¦ã€ãã‚Œãã‚ŒEqualityComparer<T>.Defaultã‚’å‘¼ã³å‡ºã™ã¨ä»¥ä¸‹ã®
+      // ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãŒè¿”ã£ã¦ãã‚‹.
+      //   Dataã‚¯ãƒ©ã‚¹ï¼š  ObjectEqualityComparer`1
+      //   Data2ã‚¯ãƒ©ã‚¹: GenericEqualityComparer`1
+      // IEquatable<T>ã‚’å®Ÿè£…ã—ã¦ã„ã‚‹å ´åˆã¯ã€GenericEqualityComparerãŒ
+      // å®Ÿè£…ã—ã¦ã„ãªã„å ´åˆã¯ã€ObjectEqualityComparerã¨ãªã‚‹ã€‚
       //
       var dataEqualityComparer = EqualityComparer<Data>.Default;
       var data2EqualityComparer = EqualityComparer<Data2>.Default;
 
-      // ¶¬‚³‚ê‚½Œ^‚ğ•\¦.
-      Console.WriteLine("===== EqualityComparer<T>.Default‚Ì“®ì. =====");
+      // ç”Ÿæˆã•ã‚ŒãŸå‹ã‚’è¡¨ç¤º.
+      Console.WriteLine("===== EqualityComparer<T>.Defaultã®å‹•ä½œ. =====");
       Console.WriteLine("Data={0}, Data2={1}", dataEqualityComparer.GetType().Name, data2EqualityComparer.GetType().Name);
 
-      // ‚»‚ê‚¼‚êƒTƒ“ƒvƒ‹ƒf[ƒ^‚ğì¬‚µ‚ÄA”äŠr‚µ‚Ä‚İ‚é.
-      // ®A‚Ç‚¿‚ç‚Ìê‡‚à1”Ô–Ú‚Ìƒf[ƒ^‚Æ3”Ô–Ú‚Ìƒf[ƒ^‚ÌƒL[‚ª“¯‚¶‚É‚È‚é‚æ‚¤‚É‚µ‚Ä‚¢‚é.
+      // ãã‚Œãã‚Œã‚µãƒ³ãƒ—ãƒ«ãƒ‡ãƒ¼ã‚¿ã‚’ä½œæˆã—ã¦ã€æ¯”è¼ƒã—ã¦ã¿ã‚‹.
+      // å°šã€ã©ã¡ã‚‰ã®å ´åˆã‚‚1ç•ªç›®ã®ãƒ‡ãƒ¼ã‚¿ã¨3ç•ªç›®ã®ãƒ‡ãƒ¼ã‚¿ã®ã‚­ãƒ¼ãŒåŒã˜ã«ãªã‚‹ã‚ˆã†ã«ã—ã¦ã„ã‚‹.
       var data_1 = new Data("data_1", "value_1");
       var data_2 = new Data("data_2", "value_2");
       var data_3 = new Data("data_1", "value_3");
@@ -136,11 +136,11 @@ namespace Gsf.Samples
       var data2_2 = new Data2("data2_2", "value2_2");
       var data2_3 = new Data2("data2_1", "value2_3");
 
-      // DataƒNƒ‰ƒX‚ÌEqualityComparer‚ğg—p‚µ‚Ä”äŠr.
+      // Dataã‚¯ãƒ©ã‚¹ã®EqualityComparerã‚’ä½¿ç”¨ã—ã¦æ¯”è¼ƒ.
       Console.WriteLine("data_1.Equals(data_2) : {0}", dataEqualityComparer.Equals(data_1, data_2));
       Console.WriteLine("data_1.Equals(data_3) : {0}", dataEqualityComparer.Equals(data_1, data_3));
 
-      // Data2ƒNƒ‰ƒX‚ÌEqualityComparer‚ğg—p‚µ‚Ä”äŠr.
+      // Data2ã‚¯ãƒ©ã‚¹ã®EqualityComparerã‚’ä½¿ç”¨ã—ã¦æ¯”è¼ƒ.
       Console.WriteLine("data2_1.Equals(data2_2) : {0}", data2EqualityComparer.Equals(data2_1, data2_2));
       Console.WriteLine("data2_1.Equals(data2_3) : {0}", data2EqualityComparer.Equals(data2_1, data2_3));
     }

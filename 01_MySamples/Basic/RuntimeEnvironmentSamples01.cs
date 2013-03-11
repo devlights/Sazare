@@ -7,15 +7,15 @@ namespace Gsf.Samples
 
   #region RuntimeEnvironmentSamples-01
   /// <summary>
-  /// RuntimeEnvironmentƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// RuntimeEnvironmentã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class RuntimeEnvironmentSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // System.Runtime.InteropServices.RuntimeEnvironmentƒNƒ‰ƒX‚ğ—˜—p‚·‚é–‚Å
-      // .NET‚Ìƒ‰ƒ“ƒ^ƒCƒ€ƒpƒX‚È‚Ç‚ğæ“¾‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
+      // System.Runtime.InteropServices.RuntimeEnvironmentã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹äº‹ã§
+      // .NETã®ãƒ©ãƒ³ã‚¿ã‚¤ãƒ ãƒ‘ã‚¹ãªã©ã‚’å–å¾—ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
       //
       Console.WriteLine("Runtime PATH:{0}", RuntimeEnvironment.GetRuntimeDirectory());
       Console.WriteLine("System Version:{0}", RuntimeEnvironment.GetSystemVersion());

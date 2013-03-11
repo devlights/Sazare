@@ -12,13 +12,13 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // LazyInitializer‚ÍALazy‚Æ“¯—l‚É’x‰„‰Šú‰»‚ğs‚¤‚½‚ß‚Ì
-      // ƒNƒ‰ƒX‚Å‚ ‚éB‚±‚ÌƒNƒ‰ƒX‚ÍAstaticƒƒ\ƒbƒh‚Ì‚İ‚Å\¬‚³‚ê
-      // Lazy‚Å‚Ì‹Lq‚ğŠÈ•Ö‰»‚·‚é‚½‚ß‚É‘¶İ‚·‚éB
+      // LazyInitializerã¯ã€Lazyã¨åŒæ§˜ã«é…å»¶åˆæœŸåŒ–ã‚’è¡Œã†ãŸã‚ã®
+      // ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€staticãƒ¡ã‚½ãƒƒãƒ‰ã®ã¿ã§æ§‹æˆã•ã‚Œ
+      // Lazyã§ã®è¨˜è¿°ã‚’ç°¡ä¾¿åŒ–ã™ã‚‹ãŸã‚ã«å­˜åœ¨ã™ã‚‹ã€‚
       //
-      // EnsureInitializedƒƒ\ƒbƒh‚Í
-      // LazyƒNƒ‰ƒX‚É‚ÄALazyThreadSafetyMode.PublicationOnly‚ğ
-      // w’è‚µ‚½ê‡‚Æ“¯‚¶“®ì‚Æ‚È‚éB(race-to-initialize)
+      // EnsureInitializedãƒ¡ã‚½ãƒƒãƒ‰ã¯
+      // Lazyã‚¯ãƒ©ã‚¹ã«ã¦ã€LazyThreadSafetyMode.PublicationOnlyã‚’
+      // æŒ‡å®šã—ãŸå ´åˆã¨åŒã˜å‹•ä½œã¨ãªã‚‹ã€‚(race-to-initialize)
       //
       var hasHeavy = new HasHeavyData();
 
@@ -32,11 +32,11 @@ namespace Gsf.Samples
         {
           Console.WriteLine("Created. [{0}]", hasHeavy.Heavy.CreatedThreadId);
         },
-        // ­‚µ‘Ò‹@‚µ‚Ä‚©‚çAì¬Ï‚İ‚Ì’l‚ÉƒAƒNƒZƒX.
+        // å°‘ã—å¾…æ©Ÿã—ã¦ã‹ã‚‰ã€ä½œæˆæ¸ˆã¿ã®å€¤ã«ã‚¢ã‚¯ã‚»ã‚¹.
         () =>
         {
           Thread.Sleep(TimeSpan.FromMilliseconds(2000));
-          Console.WriteLine(">>­‚µ‘Ò‹@‚µ‚Ä‚©‚çAì¬Ï‚İ‚Ì’l‚ÉƒAƒNƒZƒX.");
+          Console.WriteLine(">>å°‘ã—å¾…æ©Ÿã—ã¦ã‹ã‚‰ã€ä½œæˆæ¸ˆã¿ã®å€¤ã«ã‚¢ã‚¯ã‚»ã‚¹.");
           Console.WriteLine(">>Created. [{0}]", hasHeavy.Heavy.CreatedThreadId);
         }
       );
@@ -51,11 +51,11 @@ namespace Gsf.Samples
         get
         {
           //
-          // LazyInitializer‚ğ—˜—p‚µ‚ÄA’x‰„‰Šú‰».
+          // LazyInitializerã‚’åˆ©ç”¨ã—ã¦ã€é…å»¶åˆæœŸåŒ–.
           //
-          Console.WriteLine("[ThreadId {0}] ’l‰Šú‰»ˆ—ŠJn. start", Thread.CurrentThread.ManagedThreadId);
+          Console.WriteLine("[ThreadId {0}] å€¤åˆæœŸåŒ–å‡¦ç†é–‹å§‹. start", Thread.CurrentThread.ManagedThreadId);
           LazyInitializer.EnsureInitialized(ref _heavy, () => new HeavyObject(TimeSpan.FromMilliseconds(100)));
-          Console.WriteLine("[ThreadId {0}] ’l‰Šú‰»ˆ—ŠJn. end", Thread.CurrentThread.ManagedThreadId);
+          Console.WriteLine("[ThreadId {0}] å€¤åˆæœŸåŒ–å‡¦ç†é–‹å§‹. end", Thread.CurrentThread.ManagedThreadId);
 
           return _heavy;
         }
@@ -68,9 +68,9 @@ namespace Gsf.Samples
 
       public HeavyObject(TimeSpan waitSpan)
       {
-        Console.WriteLine(">>>>>> HeavyObject‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^ start. [{0}]", Thread.CurrentThread.ManagedThreadId);
+        Console.WriteLine(">>>>>> HeavyObjectã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ start. [{0}]", Thread.CurrentThread.ManagedThreadId);
         Initialize(waitSpan);
-        Console.WriteLine(">>>>>> HeavyObject‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^ end.   [{0}]", Thread.CurrentThread.ManagedThreadId);
+        Console.WriteLine(">>>>>> HeavyObjectã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ end.   [{0}]", Thread.CurrentThread.ManagedThreadId);
       }
 
       void Initialize(TimeSpan waitSpan)
