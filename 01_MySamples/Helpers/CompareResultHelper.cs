@@ -6,13 +6,13 @@ namespace Gsf.Samples
 
   #region CompareOptionsSamples-01
   /// <summary>
-  /// ”äŠrƒƒ\ƒbƒh‚ÌŒ‹‰Ê’l‚ğ•ÏŠ·‚·‚é‚½‚ß‚Ìƒwƒ‹ƒp[ƒNƒ‰ƒX.
+  /// æ¯”è¼ƒãƒ¡ã‚½ãƒƒãƒ‰ã®çµæœå€¤ã‚’å¤‰æ›ã™ã‚‹ãŸã‚ã®ãƒ˜ãƒ«ãƒ‘ãƒ¼ã‚¯ãƒ©ã‚¹.
   /// </summary>
   public static class CompareResultHelper
   {
-    static readonly string[] CompResults = { "¬‚³‚¢", "“™‚µ‚¢", "‘å‚«‚¢" };
+    static readonly string[] CompResults = { "å°ã•ã„", "ç­‰ã—ã„", "å¤§ãã„" };
 
-    // ”äŠrŒ‹‰Ê‚Ì”’l‚ğ•¶š—ñ‚É•ÏŠ·.
+    // æ¯”è¼ƒçµæœã®æ•°å€¤ã‚’æ–‡å­—åˆ—ã«å¤‰æ›.
     public static string ToStringResult(this int self)
     {
       return CompResults[self + 1];
