@@ -8,18 +8,18 @@ namespace Gsf.Samples
 
   #region ZipFileSamples-03
   /// <summary>
-  /// System.IO.Compression.ZipFileƒNƒ‰ƒX‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// System.IO.Compression.ZipFileã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ZipFileƒNƒ‰ƒX‚ÍA.NET Framework 4.5‚Å’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
-  /// ‚±‚ÌƒNƒ‰ƒX‚ğ—˜—p‚·‚é‚É‚ÍAuSystem.IO.Compression.FileSystem.dllv‚ğ
-  /// QÆİ’è‚É’Ç‰Á‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
-  /// ‚±‚ÌƒNƒ‰ƒX‚ÍAMetroƒAƒvƒŠ‚Å‚Í—˜—p‚Å‚«‚Ü‚¹‚ñB
-  /// MetroƒAƒvƒŠ‚Å‚ÍA‘ã‚í‚è‚ÉZipArchiveƒNƒ‰ƒX‚ğ—˜—p‚µ‚Ü‚·B
+  /// ZipFileã‚¯ãƒ©ã‚¹ã¯ã€.NET Framework 4.5ã§è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  /// ã“ã®ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹ã«ã¯ã€ã€ŒSystem.IO.Compression.FileSystem.dllã€ã‚’
+  /// å‚ç…§è¨­å®šã«è¿½åŠ ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
+  /// ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€Metroã‚¢ãƒ—ãƒªã§ã¯åˆ©ç”¨ã§ãã¾ã›ã‚“ã€‚
+  /// Metroã‚¢ãƒ—ãƒªã§ã¯ã€ä»£ã‚ã‚Šã«ZipArchiveã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã—ã¾ã™ã€‚
   ///
-  /// ®AZipArchiveƒNƒ‰ƒX‚ğ—˜—p‚·‚éê‡
+  /// å°šã€ZipArchiveã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹å ´åˆ
   ///   System.IO.Compression.dll
-  /// ‚ğQÆİ’è‚É’Ç‰Á‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
+  /// ã‚’å‚ç…§è¨­å®šã«è¿½åŠ ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
   /// </remarks>
   public class ZipFileSamples03 : IExecutable
   {
@@ -36,36 +36,36 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ZIPƒtƒ@ƒCƒ‹‚Ìì¬‚¨‚æ‚ÑXV.
-      //   ì¬‚¨‚æ‚ÑXV‚Ìê‡AZipArchiveƒNƒ‰ƒX‚ğ—˜—p‚·‚é.
+      // ZIPãƒ•ã‚¡ã‚¤ãƒ«ã®ä½œæˆãŠã‚ˆã³æ›´æ–°.
+      //   ä½œæˆãŠã‚ˆã³æ›´æ–°ã®å ´åˆã€ZipArchiveã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹.
       // 
-      // EƒGƒ“ƒgƒŠ‚Ì’Ç‰ÁF ZipArchive.CreateEntryFromFile OR ZipArchive.CreateEntry
+      // ãƒ»ã‚¨ãƒ³ãƒˆãƒªã®è¿½åŠ ï¼š ZipArchive.CreateEntryFromFile OR ZipArchive.CreateEntry
       //
-      // CreateEntryFromFile‚ÍAƒƒ\ƒbƒh‚Ì–¼‘O‚ª¦‚·’Ê‚èŒ³ƒtƒ@ƒCƒ‹‚ª‚ ‚éê‡‚É—˜—p‚·‚éB
-      // Œ³‚Æ‚È‚éƒtƒ@ƒCƒ‹‚ª‘¶İ‚·‚éê‡‚Í‚±‚ê‚ªŠy‚Å‚ ‚éB
+      // CreateEntryFromFileã¯ã€ãƒ¡ã‚½ãƒƒãƒ‰ã®åå‰ãŒç¤ºã™é€šã‚Šå…ƒãƒ•ã‚¡ã‚¤ãƒ«ãŒã‚ã‚‹å ´åˆã«åˆ©ç”¨ã™ã‚‹ã€‚
+      // å…ƒã¨ãªã‚‹ãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯ã“ã‚ŒãŒæ¥½ã§ã‚ã‚‹ã€‚
       //
-      // CreateEntry‚ÍAƒGƒ“ƒgƒŠ‚Ì‚İ‚ğV‹Kì¬‚·‚éƒƒ\ƒbƒhBƒf[ƒ^‚Í©‘O‚Å—¬‚µ‚Ş•K—v‚ª‚ ‚éB
+      // CreateEntryã¯ã€ã‚¨ãƒ³ãƒˆãƒªã®ã¿ã‚’æ–°è¦ä½œæˆã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚ãƒ‡ãƒ¼ã‚¿ã¯è‡ªå‰ã§æµã—è¾¼ã‚€å¿…è¦ãŒã‚ã‚‹ã€‚
       //
       Prepare();
 
       //
-      // Zipƒtƒ@ƒCƒ‹‚ğV‹Kì¬.
+      // Zipãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ–°è¦ä½œæˆ.
       //
       using (var archive = ZipFile.Open(_zipFilePath, ZipArchiveMode.Create))
       {
         //
-        // Œ³ƒtƒ@ƒCƒ‹‚ª‘¶İ‚µ‚Ä‚¢‚éê‡‚ÍACreateEntryFromFile‚ğ—˜—p‚·‚é‚Ì‚ªŠy.
+        // å…ƒãƒ•ã‚¡ã‚¤ãƒ«ãŒå­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã¯ã€CreateEntryFromFileã‚’åˆ©ç”¨ã™ã‚‹ã®ãŒæ¥½.
         //
         archive.CreateEntryFromFile("Persons.txt", "Persons.txt");
       }
 
       //
-      // Zipƒtƒ@ƒCƒ‹‚Ì“à—e‚ğXV.
+      // Zipãƒ•ã‚¡ã‚¤ãƒ«ã®å†…å®¹ã‚’æ›´æ–°.
       //
       using (var archive = ZipFile.Open(_zipFilePath, ZipArchiveMode.Update))
       {
         //
-        // Œ³ƒtƒ@ƒCƒ‹‚Í‘¶İ‚·‚é‚ªA¡“x‚ÍCreateEntryƒƒ\ƒbƒh‚ÅV‹KƒGƒ“ƒgƒŠ‚Ì‚İ‚ğì¬‚µƒf[ƒ^‚ÍAè“®‚Å—¬‚µ‚Ş.
+        // å…ƒãƒ•ã‚¡ã‚¤ãƒ«ã¯å­˜åœ¨ã™ã‚‹ãŒã€ä»Šåº¦ã¯CreateEntryãƒ¡ã‚½ãƒƒãƒ‰ã§æ–°è¦ã‚¨ãƒ³ãƒˆãƒªã®ã¿ã‚’ä½œæˆã—ãƒ‡ãƒ¼ã‚¿ã¯ã€æ‰‹å‹•ã§æµã—è¾¼ã‚€.
         //
         using (var reader = new BinaryReader(File.Open("database.png", FileMode.Open)))
         {

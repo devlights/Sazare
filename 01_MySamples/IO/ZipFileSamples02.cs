@@ -9,14 +9,14 @@ namespace Gsf.Samples
 
   #region ZipFileSamples-02
   /// <summary>
-  /// System.IO.Compression.ZipFile�N���X�̃T���v���ł��B
+  /// System.IO.Compression.ZipFileクラスのサンプルです。
   /// </summary>
   /// <remarks>
-  /// ZipFile�N���X�́A.NET Framework 4.5�Œǉ����ꂽ�N���X�ł��B
-  /// ���̃N���X�𗘗p����ɂ́A�uSystem.IO.Compression.FileSystem.dll�v��
-  /// �Q�Ɛݒ�ɒǉ�����K�v������܂��B
-  /// ���̃N���X�́AMetro�A�v���ł͗��p�ł��܂���B
-  /// Metro�A�v���ł́A�����ZipArchive�N���X�𗘗p���܂��B
+  /// ZipFileクラスは、.NET Framework 4.5で追加されたクラスです。
+  /// このクラスを利用するには、「System.IO.Compression.FileSystem.dll」を
+  /// 参照設定に追加する必要があります。
+  /// このクラスは、Metroアプリでは利用できません。
+  /// Metroアプリでは、代わりにZipArchiveクラスを利用します。
   /// </remarks>
   public class ZipFileSamples02 : IExecutable
   {
@@ -33,18 +33,18 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ZipFile�N���X�̈ȉ��̃��\�b�h�𗘗p����ƁA������ZIP�t�@�C�����J�������o����B
-      //   �EOpenRead
-      //   �EOpen(string, ZipArchiveMode)
-      //   �EOpen(string, ZipArchiveMode, Encoding)
-      // �ǂ̃��\�b�h���A�߂�l�Ƃ���ZipArchive�N���X�̃C���X�^���X��Ԃ��B
-      // ���ۂ�ZIP�t�@�C�����̃G���g���擾�́AZipArchive����s��.
-      // ZipArchive�N���X�́AIDisposable���������Ă���̂�using�u���b�N��
-      // ���p����̂��D�܂����B
+      // ZipFileクラスの以下のメソッドを利用すると、既存のZIPファイルを開く事が出来る。
+      //   ・OpenRead
+      //   ・Open(string, ZipArchiveMode)
+      //   ・Open(string, ZipArchiveMode, Encoding)
+      // どのメソッドも、戻り値としてZipArchiveクラスのインスタンスを返す。
+      // 実際にZIPファイル内のエントリ取得は、ZipArchiveから行う.
+      // ZipArchiveクラスは、IDisposableを実装しているのでusingブロックで
+      // 利用するのが好ましい。
       //
-      // ���AZipArchive�N���X�𗘗p����ꍇ�A�Q�Ɛݒ��
+      // 尚、ZipArchiveクラスを利用する場合、参照設定に
       //   System.IO.Compression.dll
-      // ��ǉ�����K�v������B
+      // を追加する必要がある。
       //
       Prepare();
 
@@ -62,19 +62,19 @@ namespace Gsf.Samples
       using (var archive = ZipFile.Open(_zipFilePath, ZipArchiveMode.Read))
       {
         //
-        // ZipArchive.Entries�v���p�e�B����́AReadOnlyCollection<ZipArchiveEntry>���擾�ł���B
-        // 1�G���g���̏��́AZipArchiveEntry����擾�ł���B
+        // ZipArchive.Entriesプロパティからは、ReadOnlyCollection<ZipArchiveEntry>が取得できる。
+        // 1エントリの情報は、ZipArchiveEntryから取得できる。
         //
-        // ZipArchiveEntry�ɂ́AName�Ƃ����v���p�e�B�����݂��A���̃v���p�e�B������ۂ̃t�@�C�������擾�ł���B
-        // �܂��ALength�v���p�e�B��舳�k�O�̃t�@�C���T�C�Y���擾�ł���B���k��̃T�C�Y�́ACompressedLength����擾�ł���B
-        // �G���g���̓��e��ǂݏo���ɂ́AZipArchiveEntry.Open���\�b�h�𗘗p����B
+        // ZipArchiveEntryには、Nameというプロパティが存在し、このプロパティから実際のファイル名を取得できる。
+        // また、Lengthプロパティより圧縮前のファイルサイズが取得できる。圧縮後のサイズは、CompressedLengthから取得できる。
+        // エントリの内容を読み出すには、ZipArchiveEntry.Openメソッドを利用する。
         //
         archive.Entries.ToList().ForEach(PrintEntry);
       }
 
       //
       // Open(string, ZipArchiveMode, Encoding)
-      //   �e�L�X�g�t�@�C���̂݁A���g��ǂݏo���ďo��.
+      //   テキストファイルのみ、中身を読み出して出力.
       //
       using (var archive = ZipFile.Open(_zipFilePath, ZipArchiveMode.Read, Encoding.GetEncoding("sjis")))
       {
@@ -88,8 +88,8 @@ namespace Gsf.Samples
     void Prepare()
     {
       //
-      // �T���v��ZIP�t�@�C�����쐬���Ă���.
-      // (�f�X�N�g�b�v���ZipTest.zip�Ƃ������̂ŏo�͂����)
+      // サンプルZIPファイルを作成しておく.
+      // (デスクトップ上にZipTest.zipという名称で出力される)
       //
       new ZipFileSamples01().Execute();
       _zipFilePath = Path.Combine(DesktopPath, "ZipTest.zip");

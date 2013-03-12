@@ -10,38 +10,38 @@ namespace Gsf.Samples
 
   #region ImageConverterSamples-01
   /// <summary>
-  /// ImageConverterƒNƒ‰ƒX‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ImageConverterã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class ImageConverterSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // ImageƒIƒuƒWƒFƒNƒg‚ğæ“¾.
+      // Imageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—.
       //
       GDIImage image = GDIImage.FromFile("database.png");
 
       //
-      // Image‚ğƒoƒCƒg”z—ñ‚É•ÏŠ·.
-      //   Image‚©‚ç•Ê‚ÌƒIƒuƒWƒFƒNƒg‚É•ÏŠ·‚·‚éê‡‚ÍConvertTo‚ğ—˜—p‚·‚é.
+      // Imageã‚’ãƒã‚¤ãƒˆé…åˆ—ã«å¤‰æ›.
+      //   Imageã‹ã‚‰åˆ¥ã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã™ã‚‹å ´åˆã¯ConvertToã‚’åˆ©ç”¨ã™ã‚‹.
       //
       ImageConverter converter = new ImageConverter();
       byte[] imageBytes = (byte[])converter.ConvertTo(image, typeof(byte[]));
 
       //
-      // ƒoƒCƒg”z—ñ‚ğImage‚É•ÏŠ·.
-      //   ƒoƒCƒg”z—ñ‚©‚çImageƒIƒuƒWƒFƒNƒg‚É•ÏŠ·‚·‚éê‡‚ÍConvertFrom‚ğ—˜—p‚·‚é.
+      // ãƒã‚¤ãƒˆé…åˆ—ã‚’Imageã«å¤‰æ›.
+      //   ãƒã‚¤ãƒˆé…åˆ—ã‹ã‚‰Imageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«å¤‰æ›ã™ã‚‹å ´åˆã¯ConvertFromã‚’åˆ©ç”¨ã™ã‚‹.
       //
       GDIImage image2 = (GDIImage)converter.ConvertFrom(imageBytes);
 
-      // Šm”F.
+      // ç¢ºèª.
       Debug.Assert(image != null);
       Debug.Assert(imageBytes != null && imageBytes.Length > 0);
       Debug.Assert(image2 != null);
 
       //
-      // [•â‘«]
-      // ImageƒIƒuƒWƒFƒNƒg‚ğƒtƒ@ƒCƒ‹‚Æ‚µ‚Ä•Û‘¶‚·‚éê‡‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚·‚é.
+      // [è£œè¶³]
+      // Imageã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒ•ã‚¡ã‚¤ãƒ«ã¨ã—ã¦ä¿å­˜ã™ã‚‹å ´åˆã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ã™ã‚‹.
       //
       //string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
       //string fileName    = @"Sample.png";
