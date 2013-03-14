@@ -8,45 +8,45 @@ namespace Gsf.Samples
 
   #region TaskSamples-03
   /// <summary>
-  /// �^�X�N���񃉃C�u�����ɂ��ẴT���v���ł��B
+  /// タスク並列ライブラリについてのサンプルです。
   /// </summary>
   /// <remarks>
-  /// �^�X�N���񃉃C�u�����́A.NET 4.0����ǉ����ꂽ���C�u�����ł��B
+  /// タスク並列ライブラリは、.NET 4.0から追加されたライブラリです。
   /// </remarks>
   public class TaskSamples03 : IExecutable
   {
     public void Execute()
     {
       //
-      // ����q�^�X�N�̍쐬
+      // 入れ子タスクの作成
       //
-      // �^�X�N�͓���q�ɂ��邱�Ƃ��\�B
+      // タスクは入れ子にすることも可能。
       //
-      // ����q�̃^�X�N�ɂ́A�ȉ���2��ނ����݂���B
-      //   �E�P���ȓ���q�^�X�N�i�f�^�b�`���ꂽ����q�^�X�N�j
-      //   �E�q�^�X�N�i�e�̃^�X�N�ɃA�^�b�`���ꂽ����q�^�X�N�j
+      // 入れ子のタスクには、以下の2種類が存在する。
+      //   ・単純な入れ子タスク（デタッチされた入れ子タスク）
+      //   ・子タスク（親のタスクにアタッチされた入れ子タスク）
       //
-      // �ȉ��̃T���v���ł́A�P���ȓ���q�̃^�X�N���쐬�����s���Ă���B
-      // �P���ȓ���q�̃^�X�N�Ƃ́A����q��Ԃō쐬���ꂽ�^�X�N��
-      // �e�̃^�X�N�Ƃ̊֘A�������Ȃ���Ԃł��邱�Ƃ������B
+      // 以下のサンプルでは、単純な入れ子のタスクを作成し実行している。
+      // 単純な入れ子のタスクとは、入れ子状態で作成されたタスクが
+      // 親のタスクとの関連を持たない状態であることを示す。
       //
-      // �܂�A�e�̃^�X�N�͎q�̃^�X�N�̏I����҂����ɁA���g�̏������I������B
-      // ����q���̃^�X�N�ɂāA�m���ɐe�̃^�X�N�̏I���O�Ɏ����̌��ʂ𓾂�K�v������ꍇ��
-      // Wait��Result��p���āA����������������K�v������B
+      // つまり、親のタスクは子のタスクの終了を待たずに、自身の処理を終了する。
+      // 入れ子側のタスクにて、確実に親のタスクの終了前に自分の結果を得る必要がある場合は
+      // WaitかResultを用いて、処理を完了させる必要がある。
       //
-      // �e�Ƃ̊֘A�������Ȃ�����q�̃^�X�N�́A�u�f�^�b�`���ꂽ����q�̃^�X�N�v�ƌ����B
+      // 親との関連を持たない入れ子のタスクは、「デタッチされた入れ子のタスク」と言う。
       //
-      // �f�^�b�`���ꂽ����q�^�X�N�̍쐬�́A�P���ɐe�^�X�N�̒��ŐV���Ƀ^�X�N�𐶐����邾���ł���B
+      // デタッチされた入れ子タスクの作成は、単純に親タスクの中で新たにタスクを生成するだけである。
       //
 
       //
-      // �P���ȓ���q�̃^�X�N���쐬.
+      // 単純な入れ子のタスクを作成.
       //
-      Console.WriteLine("�O���̃^�X�N�J�n");
+      Console.WriteLine("外側のタスク開始");
       Task t = new Task(ParentTaskProc);
       t.Start();
       t.Wait();
-      Console.WriteLine("�O���̃^�X�N�I��");
+      Console.WriteLine("外側のタスク終了");
 
     }
 
@@ -55,43 +55,43 @@ namespace Gsf.Samples
       PrintTaskId();
 
       //
-      // �����I�ɁATaskCreationOptions���w�肵�Ă��Ȃ��̂�
-      // �ȉ��̓���q�^�X�N�́A�u�f�^�b�`���ꂽ����q�^�X�N�v
-      // �Ƃ��Đ��������B
+      // 明示的に、TaskCreationOptionsを指定していないので
+      // 以下の入れ子タスクは、「デタッチされた入れ子タスク」
+      // として生成される。
       //
       Task detachedTask = new Task(ChildTaskProc, TaskCreationOptions.None);
       detachedTask.Start();
 
       //
-      // �ȉ���Wait���R�����g�A�E�g�����
-      // �o�͂�
-      //     �O���̃^�X�N�J�n
+      // 以下のWaitをコメントアウトすると
+      // 出力が
+      //     外側のタスク開始
       //      Task Id: 1
-      //     �����̃^�X�N�J�n
+      //     内側のタスク開始
       //      Task Id: 2
-      //     �O���̃^�X�N�I��
+      //     外側のタスク終了
       //
-      // �Əo�͂���A�u�����̃^�X�N�I���v�̏o�͂�����Ȃ��܂�
-      // ���C���������I�������肷��B
+      // と出力され、「内側のタスク終了」の出力がされないまま
+      // メイン処理が終了したりする。
       //
-      // ����́A2�̃^�X�N���e�q�֌W�������Ă��Ȃ�����
-      // �ʁX�ŏ������s���Ă��邩��ł���B
+      // これは、2つのタスクが親子関係を持っていないため
+      // 別々で処理が行われているからである。
       //
       detachedTask.Wait();
     }
 
     void ChildTaskProc()
     {
-      Console.WriteLine("�����̃^�X�N�J�n");
+      Console.WriteLine("内側のタスク開始");
       PrintTaskId();
       Thread.Sleep(TimeSpan.FromSeconds(2.0));
-      Console.WriteLine("�����̃^�X�N�I��");
+      Console.WriteLine("内側のタスク終了");
     }
 
     void PrintTaskId()
     {
       //
-      // ���ݎ��s���̃^�X�N��ID��\��.
+      // 現在実行中のタスクのIDを表示.
       //
       Console.WriteLine("\tTask Id: {0}", Task.CurrentId);
     }

@@ -8,66 +8,66 @@ namespace Gsf.Samples
 
   #region TaskSamples-01
   /// <summary>
-  /// �^�X�N���񃉃C�u�����ɂ��ẴT���v���ł��B
+  /// タスク並列ライブラリについてのサンプルです。
   /// </summary>
   /// <remarks>
-  /// �^�X�N���񃉃C�u�����́A4.0����ǉ�����Ă��郉�C�u�����ł��B
+  /// タスク並列ライブラリは、4.0から追加されているライブラリです。
   /// </remarks>
   public class TaskSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // Task�́A�^�X�N���񃉃C�u�����̈ꕔ�Ƃ��Ē񋟂���Ă���
-      // �����ʂ�^�X�N����񏈗����邽�߂ɗ��p�ł���B
+      // Taskは、タスク並列ライブラリの一部として提供されており
+      // 文字通りタスクを並列処理するために利用できる。
       //
-      // .NET 4.0�܂ŁA�񓯊��������s���ꍇThread�N���X��ThreadPool�N���X��
-      // �p�ӂ���Ă������A���p����̂Ɏ኱�̐�含���K�v�ƂȂ���̂ł������B
+      // .NET 4.0まで、非同期処理を行う場合ThreadクラスやThreadPoolクラスが
+      // 用意されていたが、利用するのに若干の専門性が必要となるものであった。
       //
-      // �^�X�N���񃉃C�u�����́A�o���邾���e�Ղɗ��p�ł���悤�f�U�C�����ꂽ
-      // �V�������C�u�����ł���B
+      // タスク並列ライブラリは、出来るだけ容易に利用できるようデザインされた
+      // 新しいライブラリである。
       //
-      // ����Ƀ^�X�N���񃉃C�u�����ł́A�������s�̒��x������Œ������Ă���邱�Ƃɂ����
-      // CPU�������I�ɗ��p����悤�ɂȂ��Ă���B
+      // さらにタスク並列ライブラリでは、同時実行の程度を内部で調整してくれることによって
+      // CPUを効率的に利用するようになっている。
       //
-      // �������A����ł��X���b�h�����Ɋւ����b�m���͓��R�K�v�ƂȂ�B
-      // (���b�N�A�f�b�h���b�N�A������ԂȂǁj
+      // ただし、それでもスレッド処理に関する基礎知識は当然必要となる。
+      // (ロック、デッドロック、競合状態など）
       //
-      // Task�N���X�́ASystem.Threading.Tasks���O��Ԃɑ��݂���B
+      // Taskクラスは、System.Threading.Tasks名前空間に存在する。
       //
-      // �^�X�N�𗘗p����̂Ɉ�ԊȒP�ȕ��@��TaskFactory��StartNew���\�b�h��
-      // ���p���鎖�ł���B
+      // タスクを利用するのに一番簡単な方法はTaskFactoryのStartNewメソッドを
+      // 利用する事である。
       //
-      // �^�X�N�͓����ŃX���b�h�v�[���𗘗p���Ă��邽�߁A�X���b�h�I�u�W�F�N�g��
-      // ���ڍ쐬���ĊJ�n��������y�����ׂŎ��s�ł���B
+      // タスクは内部でスレッドプールを利用しているため、スレッドオブジェクトを
+      // 直接作成して開始するよりも軽い負荷で実行できる。
       //
-      // �^�X�N�ɂ̓L�����Z���@�\���f�t�H���g�ŗp�ӂ���Ă���B(CancellationToken)
-      // �^�X�N�̃L�����Z���@�\�ɂ��ẮA�ʂ̋@��ŋL�q����B
+      // タスクにはキャンセル機能がデフォルトで用意されている。(CancellationToken)
+      // タスクのキャンセル機能については、別の機会で記述する。
       //
-      // �^�X�N�ɂ͏�ԊǗ��@�\���f�t�H���g�ŗp�ӂ���Ă���B
-      // �^�X�N�̏�ԊǗ��@�\�ɂ��ẮA�ʂ̋@��ŋL�q����B
+      // タスクには状態管理機能がデフォルトで用意されている。
+      // タスクの状態管理機能については、別の機会で記述する。
       //
 
-      // �ʃX���b�h�Ń^�X�N�����s����Ă��鎖���m�F����ׂɁA���C���X���b�h�̃X���b�hID��\��
+      // 別スレッドでタスクが実行されている事を確認する為に、メインスレッドのスレッドIDを表示
       Console.WriteLine("Main Thread : {0}", Thread.CurrentThread.ManagedThreadId);
 
       //
-      // Task��V�K�쐬���Ď��s.
-      //   �����ɂ�Action�f���Q�[�g���w�肷��B
+      // Taskを新規作成して実行.
+      //   引数にはActionデリゲートを指定する。
       //
-      // Wait���\�b�h�̓^�X�N�̏I����҂��\�b�h�B
+      // Waitメソッドはタスクの終了を待つメソッド。
       //
       Task.Factory.StartNew(DoAction).Wait();
 
 
       //
-      // Action�̕����Ƀ����_���w�肵����
+      // Actionの部分にラムダを指定した版
       //
       Task.Factory.StartNew(() => Console.WriteLine("Lambda : {0}", Thread.CurrentThread.ManagedThreadId)).Wait();
 
       //
-      // �����̃^�X�N���쐬���Ď��s.
-      //   Task.WaitAll���\�b�h�͈����Ŏw�肳�ꂽ�^�X�N���S�ďI������܂őҋ@���郁�\�b�h
+      // 多数のタスクを作成して実行.
+      //   Task.WaitAllメソッドは引数で指定されたタスクが全て終了するまで待機するメソッド
       //
       Task.WaitAll(
         Enumerable.Range(1, 20).Select(i => Task.Factory.StartNew(DoActionWithSleep)).ToArray()
