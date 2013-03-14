@@ -407,6 +407,7 @@
     </None>
     <None Include="xml\CustomersOrders.xsd">
       <SubType>Designer</SubType>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
   <ItemGroup />
@@ -414,18 +415,42 @@
     <Content Include="testdb.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="xml\Books.xml" />
-    <Content Include="xml\ConsolidatedPurchaseOrders.xml" />
-    <Content Include="xml\CustomersOrders.xml" />
-    <Content Include="xml\CustomersOrdersInNamespace.xml" />
-    <Content Include="xml\Data.xml" />
-    <Content Include="xml\DataInNamespace.xml" />
-    <Content Include="xml\PurchaseOrder.xml" />
-    <Content Include="xml\PurchaseOrderInNamespace.xml" />
-    <Content Include="xml\PurchaseOrders.xml" />
-    <Content Include="xml\PurchaseOrdersInNamespace.xml" />
-    <Content Include="xml\TestConfig.xml" />
-    <Content Include="xml\TestConfigInNamespace.xml" />
+    <Content Include="xml\Books.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\ConsolidatedPurchaseOrders.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\CustomersOrders.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\CustomersOrdersInNamespace.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\Data.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\DataInNamespace.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PurchaseOrder.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PurchaseOrderInNamespace.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PurchaseOrders.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\PurchaseOrdersInNamespace.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\TestConfig.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="xml\TestConfigInNamespace.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <!--=====================================================================-->
   <!-- 共通ターゲットファイルの読み込み.                                   -->
