@@ -6,7 +6,7 @@ namespace Gsf.Samples
   using System.Threading;
 
   //
-  // Aliasİ’è.
+  // Aliasè¨­å®š.
   //
   using WinFormsApplication = System.Windows.Forms.Application;
   using WinFormsDockStyle = System.Windows.Forms.DockStyle;
@@ -14,9 +14,9 @@ namespace Gsf.Samples
   using WinFormsFormClosingEventArgs = System.Windows.Forms.FormClosingEventArgs;
   using WinFormsListBox = System.Windows.Forms.ListBox;
 
-  #region System.Timers.Timer‚ÌƒTƒ“ƒvƒ‹
+  #region System.Timers.Timerã®ã‚µãƒ³ãƒ—ãƒ«
   /// <summary>
-  /// System.Timers.TimerƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// System.Timers.Timerã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class ServerTimerSamples01 : WinFormsForm, IExecutable
   {
@@ -51,24 +51,24 @@ namespace Gsf.Samples
       _timer.Elapsed += OnTimerElapsed;
 
       //
-      // System.Timers.Timer‚ÍƒT[ƒo[ƒ^ƒCƒ}‚Ìˆ×
-      // ThreadPool‚É‚ÄƒCƒxƒ“ƒg‚ª”­¶‚·‚éB
+      // System.Timers.Timerã¯ã‚µãƒ¼ãƒãƒ¼ã‚¿ã‚¤ãƒã®ç‚º
+      // ThreadPoolã«ã¦ã‚¤ãƒ™ãƒ³ãƒˆãŒç™ºç”Ÿã™ã‚‹ã€‚
       //
-      // ElapsedƒCƒxƒ“ƒg“à‚ÅAUIƒRƒ“ƒgƒ[ƒ‹‚ÉƒAƒNƒZƒX‚·‚é•K—v‚ª‚ ‚éê‡
-      // ‚»‚Ì‚Ü‚Ü‚¾‚ÆA•ÊƒXƒŒƒbƒh‚©‚çƒRƒ“ƒgƒ[ƒ‹‚É‘Î‚µ‚ÄƒAƒNƒZƒX‚µ‚Ä‚µ‚Ü‚¤‰Â”\«‚ª‚ ‚é‚Ì‚Å
-      // ƒCƒxƒ“ƒg“à‚É‚ÄAControl.Invoke‚·‚é‚©AˆÈ‰º‚Ì‚æ‚¤‚ÉSynchronizingObject‚ğ
-      // İ’è‚µ‚ÄAƒCƒxƒ“ƒg‚ÌŒÄ‚Ño‚µ‚ğƒ}[ƒVƒƒƒŠƒ“ƒO‚·‚é‚æ‚¤‚É‚·‚éB
+      // Elapsedã‚¤ãƒ™ãƒ³ãƒˆå†…ã§ã€UIã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«ã‚¢ã‚¯ã‚»ã‚¹ã™ã‚‹å¿…è¦ãŒã‚ã‚‹å ´åˆ
+      // ãã®ã¾ã¾ã ã¨ã€åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ã«å¯¾ã—ã¦ã‚¢ã‚¯ã‚»ã‚¹ã—ã¦ã—ã¾ã†å¯èƒ½æ€§ãŒã‚ã‚‹ã®ã§
+      // ã‚¤ãƒ™ãƒ³ãƒˆå†…ã«ã¦ã€Control.Invokeã™ã‚‹ã‹ã€ä»¥ä¸‹ã®ã‚ˆã†ã«SynchronizingObjectã‚’
+      // è¨­å®šã—ã¦ã€ã‚¤ãƒ™ãƒ³ãƒˆã®å‘¼ã³å‡ºã—ã‚’ãƒãƒ¼ã‚·ãƒ£ãƒªãƒ³ã‚°ã™ã‚‹ã‚ˆã†ã«ã™ã‚‹ã€‚
       //
       _timer.SynchronizingObject = this;
 
       //
-      // ŒJ‚è•Ô‚µ‚Ìİ’è.
+      // ç¹°ã‚Šè¿”ã—ã®è¨­å®š.
       //
       _timer.Interval = 1000;
       _timer.AutoReset = true;
 
       //
-      // ƒ^ƒCƒ}‚ğŠJn.
+      // ã‚¿ã‚¤ãƒã‚’é–‹å§‹.
       //
       _timer.Enabled = true;
     }

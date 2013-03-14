@@ -11,8 +11,8 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // •’Ê‚ÉƒXƒŒƒbƒhƒ^ƒCƒ}[‚ğì¬‚µAƒR[ƒ‹ƒoƒbƒN‚ÌŒÄ‚Ño‚µŠÔŠu‚ğ–³Œø‚É
-      // ‚µ‚½ó‘Ô‚Åƒ^ƒCƒ}[‚ğŠJn‚³‚¹‚é.
+      // æ™®é€šã«ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¿ã‚¤ãƒãƒ¼ã‚’ä½œæˆã—ã€ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã®å‘¼ã³å‡ºã—é–“éš”ã‚’ç„¡åŠ¹ã«
+      // ã—ãŸçŠ¶æ…‹ã§ã‚¿ã‚¤ãƒãƒ¼ã‚’é–‹å§‹ã•ã›ã‚‹.
       //
       var timer = new System.Threading.Timer(TimerCallback);
       timer.Change(0, Timeout.Infinite);
@@ -26,12 +26,12 @@ namespace Gsf.Samples
 
       var rnd = new Random();
 
-      // ŠÔ‚Ì‚©‚©‚éˆ—‚ğƒVƒ~ƒ…ƒŒ[ƒg
+      // æ™‚é–“ã®ã‹ã‹ã‚‹å‡¦ç†ã‚’ã‚·ãƒŸãƒ¥ãƒ¬ãƒ¼ãƒˆ
       Thread.Sleep(rnd.Next(1000));
       Console.WriteLine("\tsleep done.");
 
       //
-      // Ä“xChangeƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚ÄAŸ‚ÌƒR[ƒ‹ƒoƒbƒN‚ğİ’è.
+      // å†åº¦Changeãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦ã€æ¬¡ã®ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯ã‚’è¨­å®š.
       //
       var timer = state as System.Threading.Timer;
       timer.Change(rnd.Next(700), Timeout.Infinite);

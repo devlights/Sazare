@@ -11,18 +11,18 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // .NET 4.0���AThread�N���X�Ɉȉ��̃��\�b�h���ǉ����ꂽ�B
-      //   �EYield���\�b�h
+      // .NET 4.0より、Threadクラスに以下のメソッドが追加された。
+      //   ・Yieldメソッド
       //
-      // Yield���\�b�h�́A�ʂ̃X���b�h�Ƀ^�C���X���C�X�������n���ׂ̃��\�b�h�B
-      // ���܂ł́AThread.Sleep�𗘗p�����肵�āA�^�C���X���C�X��؂�ւ���悤
-      // �ɂ��Ă������A����͂��̃��\�b�h�𗘗p���邱�Ƃ����������B
+      // Yieldメソッドは、別のスレッドにタイムスライスを引き渡す為のメソッド。
+      // 今までは、Thread.Sleepを利用したりして、タイムスライスを切り替えるよう
+      // にしていたが、今後はこのメソッドを利用することが推奨される。
       //
-      // �߂�l�́A�^�C���X���C�X�̈����n���������������ۂ����Ԃ��Ă���B
+      // 戻り値は、タイムスライスの引き渡しが成功したか否かが返ってくる。
       //
 
       //
-      // �e�X�g�p�ɃX���b�h���Q�N������.
+      // テスト用にスレッドを２つ起動する.
       //
       Thread t1 = new Thread(ThreadProc);
       Thread t2 = new Thread(ThreadProc);
@@ -40,7 +40,7 @@ namespace Gsf.Samples
       Console.WriteLine("{0} Start", threadName);
 
       //
-      // �^�C���X���C�X��؂�ւ�.
+      // タイムスライスを切り替え.
       //
       Console.WriteLine("{0} Yield Call", threadName);
       bool isSuccess = Thread.Yield();

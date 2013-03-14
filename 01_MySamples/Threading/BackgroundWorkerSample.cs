@@ -6,14 +6,14 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Threading;
 
-  #region BackgroundWorker‚ğ—˜—p‚µ‚½ƒXƒŒƒbƒhˆ—
+  #region BackgroundWorkerã‚’åˆ©ç”¨ã—ãŸã‚¹ãƒ¬ãƒƒãƒ‰å‡¦ç†
   /// <summary>
-  /// BackgroundWorker‚ğ—˜—p‚µ‚½ƒXƒŒƒbƒhˆ—‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// BackgroundWorkerã‚’åˆ©ç”¨ã—ãŸã‚¹ãƒ¬ãƒƒãƒ‰å‡¦ç†ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class BackgroundWorkerSample : IExecutable
   {
     /// <summary>
-    /// ˆ—‚ğÀs‚µ‚Ü‚·B
+    /// å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
     /// </summary>
     public void Execute()
     {
@@ -22,7 +22,7 @@ namespace Gsf.Samples
       BackgroundWorker worker = new BackgroundWorker();
 
       //
-      // ”ñ“¯Šúˆ—‚ÌƒCƒxƒ“ƒg‚ğƒnƒ“ƒhƒ‹.
+      // éåŒæœŸå‡¦ç†ã®ã‚¤ãƒ™ãƒ³ãƒˆã‚’ãƒãƒ³ãƒ‰ãƒ«.
       //
       worker.DoWork += (s, e) =>
       {
@@ -36,7 +36,7 @@ namespace Gsf.Samples
       };
 
       //
-      // ”ñ“¯Šúˆ—‚ªI—¹‚µ‚½Û‚ÌƒCƒxƒ“ƒg‚ğƒnƒ“ƒhƒ‹.
+      // éåŒæœŸå‡¦ç†ãŒçµ‚äº†ã—ãŸéš›ã®ã‚¤ãƒ™ãƒ³ãƒˆã‚’ãƒãƒ³ãƒ‰ãƒ«.
       //
       worker.RunWorkerCompleted += (s, e) =>
       {
@@ -49,12 +49,12 @@ namespace Gsf.Samples
       };
 
       //
-      // ”ñ“¯Šúˆ—‚ğŠJn.
+      // éåŒæœŸå‡¦ç†ã‚’é–‹å§‹.
       //
       worker.RunWorkerAsync();
 
       //
-      // ƒƒCƒ“ƒXƒŒƒbƒh‚Ìˆ—.
+      // ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã®å‡¦ç†.
       //
       for (int i = 0; i < 10; i++)
       {

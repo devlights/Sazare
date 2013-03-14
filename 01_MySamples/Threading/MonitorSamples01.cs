@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region MonitorSample-01
   /// <summary>
-  /// Monitor�N���X�ɂ��ẴT���v���ł��B
+  /// Monitorクラスについてのサンプルです。
   /// </summary>
   public class MonitorSamples01 : IExecutable
   {
@@ -23,8 +23,8 @@ namespace Gsf.Samples
       {
         _go = true;
         //
-        // �u���b�N���Ă���X���b�h�ɑ΂��āA�ʒm�𔭍s.
-        //   Monitor.Pulse�́Alock���ł������s�ł��Ȃ�.
+        // ブロックしているスレッドに対して、通知を発行.
+        //   Monitor.Pulseは、lock内でしか実行できない.
         //
         Monitor.Pulse(_lock);
       }
@@ -39,8 +39,8 @@ namespace Gsf.Samples
         while (!_go)
         {
           //
-          // �ʒm������܂ŁA�X���b�h���u���b�N.
-          //   Monitor.Wait�́Alock���ł������s�ł��Ȃ�.
+          // 通知が来るまで、スレッドをブロック.
+          //   Monitor.Waitは、lock内でしか実行できない.
           //
           Monitor.Wait(_lock);
         }

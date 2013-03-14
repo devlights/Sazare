@@ -8,69 +8,69 @@ namespace Gsf.Samples
 
   #region CallContextSamples-01
   /// <summary>
-  /// ���s�R���e�L�X�g(ExecutionContext)�Ƙ_���Ăяo���R���e�L�X�g(CallContext)�̃T���v���ł��B
+  /// 実行コンテキスト(ExecutionContext)と論理呼び出しコンテキスト(CallContext)のサンプルです。
   /// </summary>
   public class CallContextSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // ���ׂẴX���b�h�ɂ́A���s�R���e�L�X�g (Execution Context) ���֘A�t�����Ă���B
-      // ���s�R���e�L�X�g�ɂ�
-      //    �E���̃X���b�h�̃Z�L�����e�B�ݒ� (���k�X�^�b�N�AThread.Principal, Windows�̔F�؏��)
-      //    �E�z�X�g�ݒ� (HostExecutionContextManager)
-      //    �E�_���Ăяo���R���e�L�X�g�f�[�^ (CallContext)
-      // ���R�t���Ă���B
+      // すべてのスレッドには、実行コンテキスト (Execution Context) が関連付けられている。
+      // 実行コンテキストには
+      //    ・そのスレッドのセキュリティ設定 (圧縮スタック、Thread.Principal, Windowsの認証情報)
+      //    ・ホスト設定 (HostExecutionContextManager)
+      //    ・論理呼び出しコンテキストデータ (CallContext)
+      // が紐付いている。
       // 
-      // ���̒��ł��A�_���Ăяo���R���e�L�X�g (CallContext) �́ALogicalSetData���\�b�h�ALogicalGetData���\�b�h��
-      // ���p���邱�Ƃɂ��A�������s�R���e�L�X�g�����X���b�h�ԂŃf�[�^�����L���邱�Ƃ��ł���B
-      // ����ł́ACLR�͋N�����̃X���b�h�̎��s�R���e�L�X�g�������I�ɓ`�d�����悤�ɂ��Ă����B
+      // その中でも、論理呼び出しコンテキスト (CallContext) は、LogicalSetDataメソッド、LogicalGetDataメソッドを
+      // 利用することにより、同じ実行コンテキストを持つスレッド間でデータを共有することができる。
+      // 既定では、CLRは起動元のスレッドの実行コンテキストが自動的に伝播されるようにしてくれる。
       //
-      // ���s�R���e�L�X�g�̓`�d���@�́AExecutionContext�N���X�𗘗p���邱�Ƃɂ��ύX���邱�Ƃ��ł���B
-      // ExecutionContext.SuppressFlow���\�b�h�ɂ�SerucityCriticalAttribute
-      // ���t�^����Ă���̂ŁA���ɂ���Ă͓��삵�Ȃ��Ȃ�\��������B
-      // (SerucityCriticalAttribute�́A���S�M����v�����鑮��)
+      // 実行コンテキストの伝播方法は、ExecutionContextクラスを利用することにより変更することができる。
+      // ExecutionContext.SuppressFlowメソッドにはSerucityCriticalAttribute
+      // が付与されているので、環境によっては動作しなくなる可能性がある。
+      // (SerucityCriticalAttributeは、完全信頼を要求する属性)
       //
       var numberOfThreads = 5;
 
       using (var cde = new CountdownEvent(numberOfThreads))
       {
         //
-        // ���C���X���b�h��ɂāA�_���Ăяo���R���e�L�X�g�f�[�^��ݒ�.
+        // メインスレッド上にて、論理呼び出しコンテキストデータを設定.
         //
         CallContext.LogicalSetData("Message", "Hello World");
 
         //
-        // ����̐ݒ�̂܂� (�e����ExecutionContext�����̂܂܌p���j �ŁA�ʃX���b�h����.
+        // 既定の設定のまま (親元のExecutionContextをそのまま継承） で、別スレッド生成.
         //
         ThreadPool.QueueUserWorkItem(ShowCallContextLogicalData, new ThreadData("First Thread", cde));
 
         //
-        // ���s�R���e�L�X�g�̓`�d���@��ύX.
-        //   SuppressFlow���\�b�h�́A���s�R���e�L�X�g�t���[��}�����郁�\�b�h.
-        // SuppressFlow���\�b�h�́AAsyncFlowControl��߂�l�Ƃ��ĕԋp����B
-        // �}���������s�R���e�L�X�g�𕜌�����ɂ́AAsyncFlowControl.Undo���Ăяo���B
+        // 実行コンテキストの伝播方法を変更.
+        //   SuppressFlowメソッドは、実行コンテキストフローを抑制するメソッド.
+        // SuppressFlowメソッドは、AsyncFlowControlを戻り値として返却する。
+        // 抑制した実行コンテキストを復元するには、AsyncFlowControl.Undoを呼び出す。
         //
         AsyncFlowControl flowControl = ExecutionContext.SuppressFlow();
 
         //
-        // �}�����ꂽ���s�R���e�X�g�̏�ԂŁA�ʃX���b�h����.
+        // 抑制された実行コンテストの状態で、別スレッド生成.
         //
         ThreadPool.QueueUserWorkItem(ShowCallContextLogicalData, new ThreadData("Second Thread", cde));
 
         //
-        // ���s�R���e�L�X�g�𕜌�.
+        // 実行コンテキストを復元.
         //
         flowControl.Undo();
 
         //
-        // �ēx�A�ʃX���b�h����.
+        // 再度、別スレッド生成.
         //
         ThreadPool.QueueUserWorkItem(ShowCallContextLogicalData, new ThreadData("Third Thread", cde));
 
         //
-        // �ēx�A���s�R���e�L�X�g��}�����A�}������Ă���Ԃɘ_���Ăяo���R���e�L�X�g�f�[�^��ύX��
-        // ���̌�A���s�R���e�L�X�g�𕜌�����.
+        // 再度、実行コンテキストを抑制し、抑制されている間に論理呼び出しコンテキストデータを変更し
+        // その後、実行コンテキストを復元する.
         //
         flowControl = ExecutionContext.SuppressFlow();
         CallContext.LogicalSetData("Message", "Modified....");

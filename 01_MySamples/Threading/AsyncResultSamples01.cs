@@ -8,7 +8,7 @@ namespace Gsf.Samples
 
   #region AsyncResultSamples-01
   /// <summary>
-  /// ”ñ“¯Šúˆ— (IAsyncResult) ‚ÌƒTƒ“ƒvƒ‹‚P‚Å‚·B
+  /// éåŒæœŸå‡¦ç† (IAsyncResult) ã®ã‚µãƒ³ãƒ—ãƒ«ï¼‘ã§ã™ã€‚
   /// </summary>
   public class AsyncResultSamples01 : IExecutable
   {

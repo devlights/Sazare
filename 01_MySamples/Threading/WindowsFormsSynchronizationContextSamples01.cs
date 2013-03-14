@@ -11,12 +11,12 @@ namespace Gsf.Samples
 
   #region WindowsFormsSynchronizationContextSamples-01
   /// <summary>
-  /// WindowsFormsSynchronizationContextƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// WindowsFormsSynchronizationContextã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <!-- <remarks>
-  /// WindowsFormsSynchronizationContext‚ÍASynchronizationContextƒNƒ‰ƒX‚Ì”h¶ƒNƒ‰ƒX‚Å‚·B
-  /// ƒfƒtƒHƒ‹ƒg‚Å‚ÍAWindows Forms‚É‚ÄAÅ‰‚ÌƒtƒH[ƒ€‚ªì¬‚³‚ê‚½Û‚É©“®“I‚Éİ’è‚³‚ê‚Ü‚·B
-  /// (AutoInstallÃ“IƒvƒƒpƒeƒB‚É‚ÄA“®ì‚ğ•ÏX‰Â”\Bj
+  /// WindowsFormsSynchronizationContextã¯ã€SynchronizationContextã‚¯ãƒ©ã‚¹ã®æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  /// ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€Windows Formsã«ã¦ã€æœ€åˆã®ãƒ•ã‚©ãƒ¼ãƒ ãŒä½œæˆã•ã‚ŒãŸéš›ã«è‡ªå‹•çš„ã«è¨­å®šã•ã‚Œã¾ã™ã€‚
+  /// (AutoInstallé™çš„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«ã¦ã€å‹•ä½œã‚’å¤‰æ›´å¯èƒ½ã€‚ï¼‰
   /// </remakrs>
   public class WindowsFormsSynchronizationContextSamples01 : IExecutable
   {
@@ -29,28 +29,28 @@ namespace Gsf.Samples
         Load += (s, e) =>
         {
           //
-          // UIƒXƒŒƒbƒh‚ÌƒXƒŒƒbƒhID‚ğ•\¦.
+          // UIã‚¹ãƒ¬ãƒƒãƒ‰ã®ã‚¹ãƒ¬ãƒƒãƒ‰IDã‚’è¡¨ç¤º.
           //
           PrintMessageAndThreadId("UI Thread");
 
           //
-          // Œ»İ‚Ì“¯ŠúƒRƒ“ƒeƒLƒXƒg‚ğæ“¾.
-          //   Windows Forms‚Ìê‡‚ÍAWinFormsSynchronizationContext‚Æ‚È‚éB
+          // ç¾åœ¨ã®åŒæœŸã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚’å–å¾—.
+          //   Windows Formsã®å ´åˆã¯ã€WinFormsSynchronizationContextã¨ãªã‚‹ã€‚
           //
           SynchronizationContext context = SynchronizationContext.Current;
           ContextTypeName = context.ToString();
 
           //
-          // Send‚ÍA“¯ŠúƒRƒ“ƒeƒLƒXƒg‚É‘Î‚µ‚Ä“¯ŠúƒƒbƒZ[ƒW‚ğ‘—‚éB
-          // Post‚ÍA“¯ŠúƒRƒ“ƒeƒLƒXƒg‚É‘Î‚µ‚Ä”ñ“¯ŠúƒƒbƒZ[ƒW‚ğ‘—‚éB
+          // Sendã¯ã€åŒæœŸã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã«å¯¾ã—ã¦åŒæœŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’é€ã‚‹ã€‚
+          // Postã¯ã€åŒæœŸã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã«å¯¾ã—ã¦éåŒæœŸãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚’é€ã‚‹ã€‚
           //
-          // ‚Â‚Ü‚èASendMessage‚ÆPostMessage‚Æ“¯‚¶.
+          // ã¤ã¾ã‚Šã€SendMessageã¨PostMessageã¨åŒã˜.
           //
           context.Send((obj) => { PrintMessageAndThreadId("Send"); }, null);
           context.Post((obj) => { PrintMessageAndThreadId("Post"); }, null);
 
           //
-          // UIƒXƒŒƒbƒh‚ÆŠÖŒW‚È‚¢•Ê‚ÌƒXƒŒƒbƒh.
+          // UIã‚¹ãƒ¬ãƒƒãƒ‰ã¨é–¢ä¿‚ãªã„åˆ¥ã®ã‚¹ãƒ¬ãƒƒãƒ‰.
           //
           Task.Factory.StartNew(() => { PrintMessageAndThreadId("Task.Factory"); });
 
@@ -61,14 +61,14 @@ namespace Gsf.Samples
         FormClosing += (s, e) =>
         {
           //
-          // Send‚ÆPost‚ğŒÄ‚Ño‚µA‚Ç‚Ìƒ^ƒCƒ~ƒ“ƒO‚Åo—Í‚³‚ê‚é‚©Šm”F.
+          // Sendã¨Postã‚’å‘¼ã³å‡ºã—ã€ã©ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§å‡ºåŠ›ã•ã‚Œã‚‹ã‹ç¢ºèª.
           //
           SynchronizationContext context = SynchronizationContext.Current;
           context.Send((obj) => { PrintMessageAndThreadId("Send--2"); }, null);
           context.Post((obj) => { PrintMessageAndThreadId("Post--2"); }, null);
 
           //
-          // UIƒXƒŒƒbƒh‚ÆŠÖŒW‚È‚¢•Ê‚ÌƒXƒŒƒbƒh.
+          // UIã‚¹ãƒ¬ãƒƒãƒ‰ã¨é–¢ä¿‚ãªã„åˆ¥ã®ã‚¹ãƒ¬ãƒƒãƒ‰.
           //
           Task.Factory.StartNew(() => { PrintMessageAndThreadId("Task.Factory"); });
 
@@ -78,14 +78,14 @@ namespace Gsf.Samples
         FormClosed += (s, e) =>
         {
           //
-          // Send‚ÆPost‚ğŒÄ‚Ño‚µA‚Ç‚Ìƒ^ƒCƒ~ƒ“ƒO‚Åo—Í‚³‚ê‚é‚©Šm”F.
+          // Sendã¨Postã‚’å‘¼ã³å‡ºã—ã€ã©ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§å‡ºåŠ›ã•ã‚Œã‚‹ã‹ç¢ºèª.
           //
           SynchronizationContext context = SynchronizationContext.Current;
           context.Send((obj) => { PrintMessageAndThreadId("Send--3"); }, null);
           context.Post((obj) => { PrintMessageAndThreadId("Post--3"); }, null);
 
           //
-          // UIƒXƒŒƒbƒh‚ÆŠÖŒW‚È‚¢•Ê‚ÌƒXƒŒƒbƒh.
+          // UIã‚¹ãƒ¬ãƒƒãƒ‰ã¨é–¢ä¿‚ãªã„åˆ¥ã®ã‚¹ãƒ¬ãƒƒãƒ‰.
           //
           Task.Factory.StartNew(() => { PrintMessageAndThreadId("Task.Factory"); });
 
@@ -95,7 +95,7 @@ namespace Gsf.Samples
 
       private void PrintMessageAndThreadId(string message)
       {
-        Console.WriteLine("{0,-17}, ƒXƒŒƒbƒhID: {1}", message, Thread.CurrentThread.ManagedThreadId);
+        Console.WriteLine("{0,-17}, ã‚¹ãƒ¬ãƒƒãƒ‰ID: {1}", message, Thread.CurrentThread.ManagedThreadId);
       }
     }
 
@@ -103,39 +103,39 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // SynchronizationContext‚ÍA“¯ŠúƒRƒ“ƒeƒLƒXƒg‚ğ—lX‚È“¯Šúƒ‚ƒfƒ‹‚É”½‰f‚³‚¹‚é‚½‚ß‚Ì
-      // ˆ—‚ğ’ñ‹Ÿ‚·‚éƒNƒ‰ƒX‚Å‚ ‚éB
+      // SynchronizationContextã¯ã€åŒæœŸã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆã‚’æ§˜ã€…ãªåŒæœŸãƒ¢ãƒ‡ãƒ«ã«åæ˜ ã•ã›ã‚‹ãŸã‚ã®
+      // å‡¦ç†ã‚’æä¾›ã™ã‚‹ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚
       //
-      // ”h¶ƒNƒ‰ƒX‚Æ‚µ‚ÄˆÈ‰º‚ÌƒNƒ‰ƒX‚ª‘¶İ‚·‚éB
-      //   EWindowsFormsSynchronizationContext   (WinForms—p)
-      //   EDispatcherSynchronizationContext   (WPF—p)
+      // æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã¨ã—ã¦ä»¥ä¸‹ã®ã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã™ã‚‹ã€‚
+      //   ãƒ»WindowsFormsSynchronizationContext   (WinFormsç”¨)
+      //   ãƒ»DispatcherSynchronizationContext   (WPFç”¨)
       //
-      // Šî–{“I‚ÉAWinForms‚à‚µ‚­‚ÍWPF‚ğ—˜—p‚µ‚Ä‚¢‚éó‘Ô‚Å
-      // UIƒXƒŒƒbƒh‚Æ‚Í•Ê‚ÌƒXƒŒƒbƒh‚©‚çAUI‚ğXV‚·‚éÛ‚É— ‚Å—˜—p‚³‚ê‚Ä‚¢‚éƒNƒ‰ƒX‚Å‚ ‚éB
-      // (BackgroundWorker‚àA‚±‚ÌƒNƒ‰ƒX‚ğ—˜—p‚µ‚ÄUIƒXƒŒƒbƒh‚ÉXV‚ğ‚©‚¯‚Ä‚¢‚éBj
+      // åŸºæœ¬çš„ã«ã€WinFormsã‚‚ã—ãã¯WPFã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹çŠ¶æ…‹ã§
+      // UIã‚¹ãƒ¬ãƒƒãƒ‰ã¨ã¯åˆ¥ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰ã€UIã‚’æ›´æ–°ã™ã‚‹éš›ã«è£ã§åˆ©ç”¨ã•ã‚Œã¦ã„ã‚‹ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚
+      // (BackgroundWorkerã‚‚ã€ã“ã®ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã—ã¦UIã‚¹ãƒ¬ãƒƒãƒ‰ã«æ›´æ–°ã‚’ã‹ã‘ã¦ã„ã‚‹ã€‚ï¼‰
       //
-      // Œ»İ‚ÌƒXƒŒƒbƒh‚ÌSynchronizationContext‚ğæ“¾‚·‚é‚É‚ÍACurrentÃ“IƒvƒƒpƒeƒB‚ğ—˜—p‚·‚éB
-      // “Á’è‚ÌSynchronizationContext‚ğ‹­§“I‚Éİ’è‚·‚é‚É‚ÍASetSynchronizationContextƒƒ\ƒbƒh‚ğ—˜—p‚·‚éB
+      // ç¾åœ¨ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã®SynchronizationContextã‚’å–å¾—ã™ã‚‹ã«ã¯ã€Currenté™çš„ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
+      // ç‰¹å®šã®SynchronizationContextã‚’å¼·åˆ¶çš„ã«è¨­å®šã™ã‚‹ã«ã¯ã€SetSynchronizationContextãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
       //
-      // ƒfƒtƒHƒ‹ƒg‚Å‚ÍA“Æ©‚Éì¬‚µ‚½ƒXƒŒƒbƒh‚Ìê‡
-      // SynchronizationContext.Current‚Ì–ß‚è’l‚Ínull‚Æ‚È‚éB
+      // ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§ã¯ã€ç‹¬è‡ªã«ä½œæˆã—ãŸã‚¹ãƒ¬ãƒƒãƒ‰ã®å ´åˆ
+      // SynchronizationContext.Currentã®æˆ»ã‚Šå€¤ã¯nullã¨ãªã‚‹ã€‚
       //
       Console.WriteLine(
-        "Œ»İ‚ÌƒXƒŒƒbƒh‚Å‚ÌSynchronizationContext‚Ìó‘ÔF{0}",
+        "ç¾åœ¨ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã§ã®SynchronizationContextã®çŠ¶æ…‹ï¼š{0}",
         SynchronizationContext.Current == null
           ? "NULL"
           : SynchronizationContext.Current.ToString()
       );
 
       //
-      // ƒtƒH[ƒ€‚ğ‹N“®‚µA’l‚ğŠm”F.
+      // ãƒ•ã‚©ãƒ¼ãƒ ã‚’èµ·å‹•ã—ã€å€¤ã‚’ç¢ºèª.
       //
       WinFormsApplication.EnableVisualStyles();
 
       SampleForm aForm = new SampleForm();
       WinFormsApplication.Run(aForm);
 
-      Console.WriteLine("WinForms‚Å‚ÌSynchronizationContext‚ÌŒ^–¼F{0}", aForm.ContextTypeName);
+      Console.WriteLine("WinFormsã§ã®SynchronizationContextã®å‹åï¼š{0}", aForm.ContextTypeName);
     }
   }
   #endregion

@@ -8,32 +8,32 @@ namespace Gsf.Samples
 
   #region ManualResetEventSlimSamples-01
   /// <summary>
-  /// ManualResetEventSlim�N���X�ɂ��ẴT���v���ł��B
+  /// ManualResetEventSlimクラスについてのサンプルです。
   /// </summary>
   /// <remarks>
-  /// ManualResetEventSlim�N���X�́A.NET 4.0�Œǉ����ꂽ�N���X�ł��B
-  /// ���X���݂��Ă���ManualResetEvent�N���X�����y�ʂȃN���X�ƂȂ��Ă��܂��B
-  /// �������ẮA�ȉ��̓_���������܂��B
-  ///   �EWait���\�b�h��CancellationToken���󂯕t����I�[�o�[���[�h�����݂���B
-  ///   �E���ɒZ�����Ԃ̑ҋ@�̏ꍇ�A���̃N���X�͑ҋ@�n���h���ł͂Ȃ��r�W�[�X�s���𗘗p���đҋ@����B
+  /// ManualResetEventSlimクラスは、.NET 4.0で追加されたクラスです。
+  /// 元々存在していたManualResetEventクラスよりも軽量なクラスとなっています。
+  /// 特徴しては、以下の点が挙げられます。
+  ///   ・WaitメソッドにCancellationTokenを受け付けるオーバーロードが存在する。
+  ///   ・非常に短い時間の待機の場合、このクラスは待機ハンドルではなくビジースピンを利用して待機する。
   /// </remarks>
   public class ManualResetEventSlimSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // �ʏ�̎g����.
+      // 通常の使い方.
       //
       ManualResetEventSlim mres = new ManualResetEventSlim(false);
 
       ThreadPool.QueueUserWorkItem(DoProc, mres);
 
-      Console.Write("���C���X���b�h�ҋ@���E�E�E");
+      Console.Write("メインスレッド待機中・・・");
       mres.Wait();
-      Console.WriteLine("�I��");
+      Console.WriteLine("終了");
 
       //
-      // Wait���\�b�h��CancellationToken���󂯕t����I�[�o�[���[�h���g�p�B
+      // WaitメソッドにCancellationTokenを受け付けるオーバーロードを使用。
       //
       mres.Reset();
 
@@ -43,26 +43,26 @@ namespace Gsf.Samples
       Task task = Task.Factory.StartNew(DoProc, mres);
 
       //
-      // �L�����Z����Ԃɐݒ�.
+      // キャンセル状態に設定.
       //
       tokenSource.Cancel();
 
-      Console.Write("���C���X���b�h�ҋ@���E�E�E");
+      Console.Write("メインスレッド待機中・・・");
 
       try
       {
         //
-        // CancellationToken���w�肵�āAWait�Ăяo���B
-        // ���̏ꍇ�́A�ȉ��̂ǂ��炩�̏����𖞂��������_��Wait�����������B
-        //  �E�ʂ̏ꏊ�ɂāASet���Ă΂�ăV�O�i����ԂƂȂ�B
-        //  �ECancellationToken���L�����Z�������B
+        // CancellationTokenを指定して、Wait呼び出し。
+        // この場合は、以下のどちらかの条件を満たした時点でWaitが解除される。
+        //  ・別の場所にて、Setが呼ばれてシグナル状態となる。
+        //  ・CancellationTokenがキャンセルされる。
         //
-        // �g�[�N�����L�����Z�����ꂽ�ꍇ�AOperationCanceledException����������̂�
-        // CancellationToken���w�肷��Wait���Ăяo���ꍇ�́Atry-catch���K�{�ƂȂ�B
+        // トークンがキャンセルされた場合、OperationCanceledExceptionが発生するので
+        // CancellationTokenを指定するWaitを呼び出す場合は、try-catchが必須となる。
         //
-        // ����̗�̏ꍇ�́A�\��CancellationToken���L�����Z�����Ă���̂�
-        // �^�X�N�����ŃV�O�i����Ԃɐݒ肳��������ɁA�L�����Z����Ԃɐݒ肳���B
-        // �Ȃ̂ŁA���s���ʂɂ́A�u*** �V�O�i����Ԃɐݒ� ***�v�Ƃ��������͏o�͂���Ȃ��B
+        // 今回の例の場合は、予めCancellationTokenをキャンセルしているので
+        // タスク処理でシグナル状態に設定されるよりも先に、キャンセル状態に設定される。
+        // なので、実行結果には、「*** シグナル状態に設定 ***」という文言は出力されない。
         //
         mres.Wait(token);
       }
@@ -71,13 +71,13 @@ namespace Gsf.Samples
         Console.Write("*** {0} *** ", cancelEx.Message);
       }
 
-      Console.WriteLine("�I��");
+      Console.WriteLine("終了");
     }
 
     void DoProc(object stateObj)
     {
       Thread.Sleep(TimeSpan.FromSeconds(1));
-      Console.Write("*** �V�O�i����Ԃɐݒ� *** ");
+      Console.Write("*** シグナル状態に設定 *** ");
       (stateObj as ManualResetEventSlim).Set();
     }
   }

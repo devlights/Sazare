@@ -8,11 +8,11 @@ namespace Gsf.Samples
 
   #region CountdownEventSamples-02
   /// <summary>
-  /// CountdownEventƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B(2)
+  /// CountdownEventã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚(2)
   /// </summary>
   /// <remarks>
-  /// CountdownEventƒNƒ‰ƒX‚ÍA.NET 4.0‚©‚ç’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
-  /// Java‚ÌCountDownLatchƒNƒ‰ƒX‚Æ“¯‚¶‹@”\‚ğ‚Á‚Ä‚¢‚Ü‚·B
+  /// CountdownEventã‚¯ãƒ©ã‚¹ã¯ã€.NET 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  /// Javaã®CountDownLatchã‚¯ãƒ©ã‚¹ã¨åŒã˜æ©Ÿèƒ½ã‚’æŒã£ã¦ã„ã¾ã™ã€‚
   /// </remarks>
   public class CountdownEventSamples02 : IExecutable
   {
@@ -21,20 +21,20 @@ namespace Gsf.Samples
       const int LEAST_TASK_FINISH_COUNT = 3;
 
       //
-      // •¡”‚ÌƒXƒŒƒbƒh‚©‚çˆê‚Â‚ÌCountdownEvent‚ğƒVƒOƒiƒ‹‚·‚é.
+      // è¤‡æ•°ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã‚‰ä¸€ã¤ã®CountdownEventã‚’ã‚·ã‚°ãƒŠãƒ«ã™ã‚‹.
       //
-      // CountdownEvent‚ª‚æ‚­—˜—p‚³‚ê‚éƒpƒ^[ƒ“‚Æ‚È‚éB
-      // NŒÂ‚Ìˆ—‚ª‹K’è”I—¹‚·‚é‚Ü‚ÅAƒƒCƒ“ƒXƒŒƒbƒh‚Ì‘±s‚ğ‘Ò‹@‚·‚éƒCƒ[ƒW.
+      // CountdownEventãŒã‚ˆãåˆ©ç”¨ã•ã‚Œã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³ã¨ãªã‚‹ã€‚
+      // Nå€‹ã®å‡¦ç†ãŒè¦å®šæ•°çµ‚äº†ã™ã‚‹ã¾ã§ã€ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã®ç¶šè¡Œã‚’å¾…æ©Ÿã™ã‚‹ã‚¤ãƒ¡ãƒ¼ã‚¸.
       //
-      // ˆÈ‰º‚Ìˆ—‚Å‚ÍA5‚Âƒ^ƒXƒN‚ğì¬‚µ‚ÄA3‚ÂI‚í‚Á‚½“_‚Å
-      // ƒƒCƒ“ƒXƒŒƒbƒh‚Íˆ—‚ğ‘±s‚·‚é‚æ‚¤‚É‚·‚é.
+      // ä»¥ä¸‹ã®å‡¦ç†ã§ã¯ã€5ã¤ã‚¿ã‚¹ã‚¯ã‚’ä½œæˆã—ã¦ã€3ã¤çµ‚ã‚ã£ãŸæ™‚ç‚¹ã§
+      // ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã¯å‡¦ç†ã‚’ç¶šè¡Œã™ã‚‹ã‚ˆã†ã«ã™ã‚‹.
       //
-      // NŒÂ‚Ìˆ—‚ª‘S•”I—¹‚·‚é‚Ü‚ÅAƒƒCƒ“ƒXƒŒƒbƒh‚Ì‘±s‚ğ‘Ò‹@‚·‚éê‡‚Í
-      // CountdownEvent‚ÌƒJƒEƒ“ƒg‚ğƒ^ƒXƒN‚Ìˆ—”‚Æ“¯‚¶‚É‚·‚ê‚Î—Ç‚¢B
+      // Nå€‹ã®å‡¦ç†ãŒå…¨éƒ¨çµ‚äº†ã™ã‚‹ã¾ã§ã€ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ã®ç¶šè¡Œã‚’å¾…æ©Ÿã™ã‚‹å ´åˆã¯
+      // CountdownEventã®ã‚«ã‚¦ãƒ³ãƒˆã‚’ã‚¿ã‚¹ã‚¯ã®å‡¦ç†æ•°ã¨åŒã˜ã«ã™ã‚Œã°è‰¯ã„ã€‚
       //
       using (CountdownEvent cde = new CountdownEvent(LEAST_TASK_FINISH_COUNT))
       {
-        // ‰Šú‚Ìó‘Ô‚ğ•\¦.
+        // åˆæœŸã®çŠ¶æ…‹ã‚’è¡¨ç¤º.
         Console.WriteLine("InitialCount={0}", cde.InitialCount);
         Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
         Console.WriteLine("IsSet={0}", cde.IsSet);
@@ -49,21 +49,21 @@ namespace Gsf.Samples
           };
 
         //
-        // 3‚ÂI‚í‚é‚Ü‚Å‘Ò‹@.
+        // 3ã¤çµ‚ã‚ã‚‹ã¾ã§å¾…æ©Ÿ.
         //
         cde.Wait();
-        Console.WriteLine("5‚Â‚Ìƒ^ƒXƒN‚Ì“àA3‚ÂI—¹");
+        Console.WriteLine("5ã¤ã®ã‚¿ã‚¹ã‚¯ã®å†…ã€3ã¤çµ‚äº†");
 
-        Console.WriteLine("ƒƒCƒ“ƒXƒŒƒbƒh ‘±sŠJnEEE");
+        Console.WriteLine("ãƒ¡ã‚¤ãƒ³ã‚¹ãƒ¬ãƒƒãƒ‰ ç¶šè¡Œé–‹å§‹ãƒ»ãƒ»ãƒ»");
         Thread.Sleep(TimeSpan.FromSeconds(1));
 
         //
-        // c‚è‚Ìƒ^ƒXƒN‚ğ‘Ò‹@.
+        // æ®‹ã‚Šã®ã‚¿ã‚¹ã‚¯ã‚’å¾…æ©Ÿ.
         //
         Task.WaitAll(tasks);
-        Console.WriteLine("‘S‚Ä‚Ìƒ^ƒXƒNI—¹");
+        Console.WriteLine("å…¨ã¦ã®ã‚¿ã‚¹ã‚¯çµ‚äº†");
 
-        // Œ»İ‚Ìó‘Ô‚ğ•\¦.
+        // ç¾åœ¨ã®çŠ¶æ…‹ã‚’è¡¨ç¤º.
         Console.WriteLine("InitialCount={0}", cde.InitialCount);
         Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
         Console.WriteLine("IsSet={0}", cde.IsSet);
@@ -72,20 +72,20 @@ namespace Gsf.Samples
 
     void TaskProc(object data)
     {
-      Console.WriteLine("Task ID={0} ŠJn", Task.CurrentId);
+      Console.WriteLine("Task ID={0} é–‹å§‹", Task.CurrentId);
       Thread.Sleep(TimeSpan.FromSeconds(new Random().Next(10)));
 
       //
-      // Šù‚É3‚ÂI—¹‚µ‚Ä‚¢‚é‚©”Û‚©‚ğŠm”F‚µA‚Ü‚¾‚È‚çƒVƒOƒiƒ‹.
+      // æ—¢ã«3ã¤çµ‚äº†ã—ã¦ã„ã‚‹ã‹å¦ã‹ã‚’ç¢ºèªã—ã€ã¾ã ãªã‚‰ã‚·ã‚°ãƒŠãƒ«.
       //
       CountdownEvent cde = data as CountdownEvent;
       if (!cde.IsSet)
       {
         cde.Signal();
-        Console.WriteLine("–––ƒJƒEƒ“ƒg‚ğƒfƒNƒŠƒƒ“ƒg––– Task ID={0} CountdownEvent.CurrentCount={1}", Task.CurrentId, cde.CurrentCount);
+        Console.WriteLine("ï¼Šï¼Šï¼Šã‚«ã‚¦ãƒ³ãƒˆã‚’ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆï¼Šï¼Šï¼Š Task ID={0} CountdownEvent.CurrentCount={1}", Task.CurrentId, cde.CurrentCount);
       }
 
-      Console.WriteLine("Task ID={0} I—¹", Task.CurrentId);
+      Console.WriteLine("Task ID={0} çµ‚äº†", Task.CurrentId);
     }
   }
   #endregion

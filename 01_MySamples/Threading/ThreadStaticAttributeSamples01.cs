@@ -7,19 +7,19 @@ namespace Gsf.Samples
 
   #region ThreadStaticAttributeSamples-01
   /// <summary>
-  /// ThreadStatic‘®«‚ÉŠÖ‚·‚éƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ThreadStaticå±æ€§ã«é–¢ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class ThreadStaticAttributeSamples01 : IExecutable
   {
     private class ThreadState
     {
       /// <summary>
-      /// ŠeƒXƒŒƒbƒh–ˆ‚ÉŒÅ—L‚Ì’l‚ğ‚ÂƒtƒB[ƒ‹ƒh.
+      /// å„ã‚¹ãƒ¬ãƒƒãƒ‰æ¯ã«å›ºæœ‰ã®å€¤ã‚’æŒã¤ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰.
       /// </summary>
       [ThreadStatic]
       static KeyValuePair<string, int> NameAndId;
       /// <summary>
-      /// ŠeƒXƒŒƒbƒh‚Å‹¤—L‚³‚ê‚éƒtƒB[ƒ‹ƒh.
+      /// å„ã‚¹ãƒ¬ãƒƒãƒ‰ã§å…±æœ‰ã•ã‚Œã‚‹ãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰.
       /// </summary>
       static KeyValuePair<string, int> SharedNameAndId;
 
@@ -28,7 +28,7 @@ namespace Gsf.Samples
         Thread thread = Thread.CurrentThread;
 
         //
-        // ThreadStatic‘®«‚ª•t‰Á‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚Æ‹¤—L‚³‚ê‚½ƒtƒB[ƒ‹ƒh‚Ì—¼•û‚É’l‚ğİ’è.
+        // ThreadStaticå±æ€§ãŒä»˜åŠ ã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã¨å…±æœ‰ã•ã‚ŒãŸãƒ•ã‚£ãƒ¼ãƒ«ãƒ‰ã®ä¸¡æ–¹ã«å€¤ã‚’è¨­å®š.
         //
         NameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
         SharedNameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
@@ -36,7 +36,7 @@ namespace Gsf.Samples
         Console.WriteLine("[BEFORE] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
 
         //
-        // ‘¼‚ÌƒXƒŒƒbƒh‚ª“®ì‚Å‚«‚é‚æ‚¤‚É‚·‚é.
+        // ä»–ã®ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå‹•ä½œã§ãã‚‹ã‚ˆã†ã«ã™ã‚‹.
         //
         Thread.Sleep(TimeSpan.FromMilliseconds(200));
 

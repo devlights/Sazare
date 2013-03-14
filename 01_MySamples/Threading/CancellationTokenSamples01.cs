@@ -9,70 +9,70 @@ namespace Gsf.Samples
 
   #region CancellationTokenSamples-01
   /// <summary>
-  /// CancellationToken‚ÆCancellationTokenSource‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// CancellationTokenã¨CancellationTokenSourceã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class CancellationTokenSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // CancellationToken‚ÆCancellationTokenSource‚Í
-      // .NET Framework 4.0‚©‚ç’Ç‰Á‚³‚ê‚½Œ^‚Å‚ ‚éB
+      // CancellationTokenã¨CancellationTokenSourceã¯
+      // .NET Framework 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸå‹ã§ã‚ã‚‹ã€‚
       //
-      // ”ñ“¯Šú‘€ì‚Ü‚½‚Í’·ŠÔ‚Ì“¯Šúˆ—‚È‚Ç‚ÌÛA”Ä—p“I‚ÈƒLƒƒƒ“ƒZƒ‹ˆ—‚ğÀ‘•‚·‚é‚½‚ß‚É—˜—p‚Å‚«‚éB
-      // ‚æ‚­ƒ^ƒXƒN (System.Threading.Tasks.Task)‚Æˆê‚É—˜—p‚³‚ê‚Ä‚¢‚é
-      // —á‚ª‘½‚¢‚ªA•Ê‚Éƒ^ƒXƒN‚Å‚È‚­‚Ä‚à—˜—p‚Å‚«‚éBi’Êí‚ÌThread‚âManualResetEventSlim‚È‚Ç)
+      // éåŒæœŸæ“ä½œã¾ãŸã¯é•·æ™‚é–“ã®åŒæœŸå‡¦ç†ãªã©ã®éš›ã€æ±ç”¨çš„ãªã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’å®Ÿè£…ã™ã‚‹ãŸã‚ã«åˆ©ç”¨ã§ãã‚‹ã€‚
+      // ã‚ˆãã‚¿ã‚¹ã‚¯ (System.Threading.Tasks.Task)ã¨ä¸€ç·’ã«åˆ©ç”¨ã•ã‚Œã¦ã„ã‚‹
+      // ä¾‹ãŒå¤šã„ãŒã€åˆ¥ã«ã‚¿ã‚¹ã‚¯ã§ãªãã¦ã‚‚åˆ©ç”¨ã§ãã‚‹ã€‚ï¼ˆé€šå¸¸ã®Threadã‚„ManualResetEventSlimãªã©)
       //
-      // CancellationTokenSource‚ÆCancellationToken‚Íeq‚Ì‚æ‚¤‚ÈŠÖŒW‚É‚ ‚è
-      //   ECancellationTokenSource‚ÍƒLƒƒƒ“ƒZƒ‹‘€ì‚ğ‚ÂB
-      //   ECancellationToken‚ÍAƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½–‚ğŒŸ’m‚·‚éB
-      // ‚Æ‚È‚Á‚Ä‚¢‚éB
+      // CancellationTokenSourceã¨CancellationTokenã¯è¦ªå­ã®ã‚ˆã†ãªé–¢ä¿‚ã«ã‚ã‚Š
+      //   ãƒ»CancellationTokenSourceã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ“ä½œã‚’æŒã¤ã€‚
+      //   ãƒ»CancellationTokenã¯ã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸäº‹ã‚’æ¤œçŸ¥ã™ã‚‹ã€‚
+      // ã¨ãªã£ã¦ã„ã‚‹ã€‚
       //
-      // CancellationToken‚É‚ÄAƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½‚©”Û‚©‚ğŒŸ’m‚·‚é‚É‚ÍˆÈ‰º‚ÌƒvƒƒpƒeƒB‚Ü‚½‚Íƒƒ\ƒbƒh‚ğ—˜—p‚·‚é.
-      //   EIsCancellationRequested
-      //   EThrowIfCancellationRequested
-      // ã‹L‚Ì“àAThrowIfCancellationRequestedƒƒ\ƒbƒh‚ÍƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ä‚¢‚½ê‡‚É
-      // OperationCanceledException‚ğ”­¶‚³‚¹‚éB
+      // CancellationTokenã«ã¦ã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸã‹å¦ã‹ã‚’æ¤œçŸ¥ã™ã‚‹ã«ã¯ä»¥ä¸‹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¾ãŸã¯ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹.
+      //   ãƒ»IsCancellationRequested
+      //   ãƒ»ThrowIfCancellationRequested
+      // ä¸Šè¨˜ã®å†…ã€ThrowIfCancellationRequestedãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¦ã„ãŸå ´åˆã«
+      // OperationCanceledExceptionã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
       //
-      // ‚»‚Ì‚Ù‚©‚É‚àACancellationToken‚É‚ÍˆÈ‰º‚ÌƒvƒƒpƒeƒB‚Æƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB
-      //   EWaitHandle
-      //   ERegister
-      // WaitHandleƒvƒƒpƒeƒB‚ÍAŠY“–ƒg[ƒNƒ“‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½Û‚É’Ê’m‚³‚ê‚é‘Ò‹@ƒnƒ“ƒhƒ‹‚Å‚ ‚éB
-      // ‚±‚Ì‘Ò‹@ƒnƒ“ƒhƒ‹‚ğ—˜—p‚·‚é‚±‚Æ‚ÅAƒg[ƒNƒ“‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½Œã‚ÉÀs‚³‚ê‚éˆ—‚È‚Ç‚ğ‹Lqo—ˆ‚éB
-      // Registerƒƒ\ƒbƒh‚ÍAƒg[ƒNƒ“‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½Û‚ÉŠÖ˜A‚µ‚ÄƒLƒƒƒ“ƒZƒ‹ˆ—‚È‚Ç‚ğs‚¢‚½‚¢ƒIƒuƒWƒFƒNƒg‚ª‘¶İ‚·‚é
-      // ê‡‚È‚Ç‚É—˜—p‚Å‚«‚éBCancellationToken‚Í‘€ì‚ÌƒLƒƒƒ“ƒZƒ‹‚ğ•\‚·‚à‚Ì‚Å‚ ‚èAƒIƒuƒWƒFƒNƒg‚Ìó‘Ô‚ğƒLƒƒƒ“ƒZƒ‹‚µ‚½‚¢
-      // ê‡‚É‚±‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ä“o˜^‚µ‚Ä‚¨‚­.
+      // ãã®ã»ã‹ã«ã‚‚ã€CancellationTokenã«ã¯ä»¥ä¸‹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¨ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚
+      //   ãƒ»WaitHandle
+      //   ãƒ»Register
+      // WaitHandleãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¯ã€è©²å½“ãƒˆãƒ¼ã‚¯ãƒ³ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸéš›ã«é€šçŸ¥ã•ã‚Œã‚‹å¾…æ©Ÿãƒãƒ³ãƒ‰ãƒ«ã§ã‚ã‚‹ã€‚
+      // ã“ã®å¾…æ©Ÿãƒãƒ³ãƒ‰ãƒ«ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã§ã€ãƒˆãƒ¼ã‚¯ãƒ³ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸå¾Œã«å®Ÿè¡Œã•ã‚Œã‚‹å‡¦ç†ãªã©ã‚’è¨˜è¿°å‡ºæ¥ã‚‹ã€‚
+      // Registerãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ãƒˆãƒ¼ã‚¯ãƒ³ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸéš›ã«é–¢é€£ã—ã¦ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ãªã©ã‚’è¡Œã„ãŸã„ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå­˜åœ¨ã™ã‚‹
+      // å ´åˆãªã©ã«åˆ©ç”¨ã§ãã‚‹ã€‚CancellationTokenã¯æ“ä½œã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚’è¡¨ã™ã‚‚ã®ã§ã‚ã‚Šã€ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®çŠ¶æ…‹ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ãŸã„
+      // å ´åˆã«ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦ç™»éŒ²ã—ã¦ãŠã.
       //
-      // ‚Ü‚½ACancellationTokenSource‚É‚ÍAˆÈ‰º‚Ìstaticƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB
-      //   ECreateLinkedTokenSource
-      // CreateLinkedTokenSourceƒƒ\ƒbƒh‚ÍAˆø”‚É•¡”‚Ìƒg[ƒNƒ“‚ğó‚¯æ‚è
-      // ‚»‚ê‚ç‚Ìƒg[ƒNƒ“‚ğ•R‚Ã‚¯‚½ó‘Ô‚Ìƒg[ƒNƒ“ƒ\[ƒX‚ğì¬‚µ‚Ä‚­‚ê‚éB
-      // ‚±‚ê‚ğ—˜—p‚·‚é‚±‚Æ‚É‚æ‚èA•¡”‚Ìƒg[ƒNƒ“‘S‚Ä‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½Û‚ÉƒLƒƒƒ“ƒZƒ‹ˆµ‚¢‚É‚È‚é
-      // CancellationToken‚ğ¶¬‚·‚é–‚ªo—ˆ‚éB
+      // ã¾ãŸã€CancellationTokenSourceã«ã¯ã€ä»¥ä¸‹ã®staticãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚
+      //   ãƒ»CreateLinkedTokenSource
+      // CreateLinkedTokenSourceãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€å¼•æ•°ã«è¤‡æ•°ã®ãƒˆãƒ¼ã‚¯ãƒ³ã‚’å—ã‘å–ã‚Š
+      // ãã‚Œã‚‰ã®ãƒˆãƒ¼ã‚¯ãƒ³ã‚’ç´ã¥ã‘ãŸçŠ¶æ…‹ã®ãƒˆãƒ¼ã‚¯ãƒ³ã‚½ãƒ¼ã‚¹ã‚’ä½œæˆã—ã¦ãã‚Œã‚‹ã€‚
+      // ã“ã‚Œã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€è¤‡æ•°ã®ãƒˆãƒ¼ã‚¯ãƒ³å…¨ã¦ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸéš›ã«ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ‰±ã„ã«ãªã‚‹
+      // CancellationTokenã‚’ç”Ÿæˆã™ã‚‹äº‹ãŒå‡ºæ¥ã‚‹ã€‚
       // 
-      // ŠÖ˜A‚·‚é‘S‚Ä‚Ìƒg[ƒNƒ“‚ªƒLƒƒƒ“ƒZƒ‹ó‘Ô‚Æ‚È‚Á‚½Û‚És‚¤ƒLƒƒƒ“ƒZƒ‹ˆ—‚ğ‹Lq‚·‚éê‡‚È‚Ç‚É—˜—p‚Å‚«‚éB
+      // é–¢é€£ã™ã‚‹å…¨ã¦ã®ãƒˆãƒ¼ã‚¯ãƒ³ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«çŠ¶æ…‹ã¨ãªã£ãŸéš›ã«è¡Œã†ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’è¨˜è¿°ã™ã‚‹å ´åˆãªã©ã«åˆ©ç”¨ã§ãã‚‹ã€‚
       //
       var cts = new CancellationTokenSource();
 
       ////////////////////////////////////////////////////////////////////
       //
-      // Thread‚ğ—˜—p‚µ‚Ä‚ÌƒLƒƒƒ“ƒZƒ‹ˆ—.
+      // Threadã‚’åˆ©ç”¨ã—ã¦ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†.
       //
       var t = new Thread(() => Work1(cts.Token));
       t.Start();
 
       Thread.Sleep(TimeSpan.FromSeconds(3));
 
-      // ƒLƒƒƒ“ƒZƒ‹Às.
+      // ã‚­ãƒ£ãƒ³ã‚»ãƒ«å®Ÿè¡Œ.
       cts.Cancel();
 
       ////////////////////////////////////////////////////////////////////
       //
-      // ThreadPool‚ğ—˜—p‚µ‚Ä‚ÌƒLƒƒƒ“ƒZƒ‹ˆ—.
+      // ThreadPoolã‚’åˆ©ç”¨ã—ã¦ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†.
       //
-      // CancellationTokenSource‚ÍAˆê“xƒLƒƒƒ“ƒZƒ‹‚·‚é‚Æ
-      // Ä—˜—p‚Å‚«‚È‚¢\‘¢‚Æ‚È‚Á‚Ä‚¢‚éBi‚Â‚Ü‚èAƒLƒƒƒ“ƒZƒ‹Œã‚Éæ“¾‚µ‚½Token‚ğ—˜—p‚µ‚Ä‚à
-      // Å‰‚©‚çƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½–‚É‚È‚Á‚Ä‚¢‚éBj
+      // CancellationTokenSourceã¯ã€ä¸€åº¦ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ã¨
+      // å†åˆ©ç”¨ã§ããªã„æ§‹é€ ã¨ãªã£ã¦ã„ã‚‹ã€‚ï¼ˆã¤ã¾ã‚Šã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«å¾Œã«å–å¾—ã—ãŸTokenã‚’åˆ©ç”¨ã—ã¦ã‚‚
+      // æœ€åˆã‹ã‚‰ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸäº‹ã«ãªã£ã¦ã„ã‚‹ã€‚ï¼‰
       //
       cts = new CancellationTokenSource();
       ThreadPool.QueueUserWorkItem((obj) => Work2(cts.Token), null);
@@ -82,7 +82,7 @@ namespace Gsf.Samples
 
       ////////////////////////////////////////////////////////////////////
       //
-      // ManualResetEventSlim‚ğ—˜—p‚µ‚Ä‚ÌƒLƒƒƒ“ƒZƒ‹ˆ—.
+      // ManualResetEventSlimã‚’åˆ©ç”¨ã—ã¦ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†.
       //
       cts = new CancellationTokenSource();
 
@@ -94,7 +94,7 @@ namespace Gsf.Samples
 
       ////////////////////////////////////////////////////////////////////
       //
-      // CancellationToken.WaitHandle‚ğ—˜—p‚µ‚Ä‚ÌƒLƒƒƒ“ƒZƒ‹‘Ò‚¿.
+      // CancellationToken.WaitHandleã‚’åˆ©ç”¨ã—ã¦ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«å¾…ã¡.
       //
       cts = new CancellationTokenSource();
       using (var countdown = new CountdownEvent(3))
@@ -103,22 +103,22 @@ namespace Gsf.Samples
 
         Parallel.Invoke
         (
-          // 3•bŒã‚ÉƒLƒƒƒ“ƒZƒ‹ˆ—‚ğÀs.
+          // 3ç§’å¾Œã«ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’å®Ÿè¡Œ.
           () =>
           {
             Thread.Sleep(TimeSpan.FromSeconds(3));
             cts.Cancel();
             countdown.Signal();
           },
-          // ƒg[ƒNƒ“‚ÌWaitHandle‚ğ—˜—p‚µ‚ÄƒLƒƒƒ“ƒZƒ‹‘Ò‚¿.
+          // ãƒˆãƒ¼ã‚¯ãƒ³ã®WaitHandleã‚’åˆ©ç”¨ã—ã¦ã‚­ãƒ£ãƒ³ã‚»ãƒ«å¾…ã¡.
           () =>
           {
-            Console.WriteLine(">>> ƒLƒƒƒ“ƒZƒ‹‘Ò‚¿EEE");
+            Console.WriteLine(">>> ã‚­ãƒ£ãƒ³ã‚»ãƒ«å¾…ã¡ãƒ»ãƒ»ãƒ»");
             token.WaitHandle.WaitOne();
-            Console.WriteLine(">>> ‘€ì‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½‚Ì‚ÅAWaitHandle‚©‚ç’Ê’m‚³‚ê‚Ü‚µ‚½B");
+            Console.WriteLine(">>> æ“ä½œãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸã®ã§ã€WaitHandleã‹ã‚‰é€šçŸ¥ã•ã‚Œã¾ã—ãŸã€‚");
             countdown.Signal();
           },
-          // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚é‚Ü‚ÅÀs‚³‚ê‚éˆ—.
+          // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã‚‹ã¾ã§å®Ÿè¡Œã•ã‚Œã‚‹å‡¦ç†.
           () =>
           {
             try
@@ -144,13 +144,13 @@ namespace Gsf.Samples
 
       ////////////////////////////////////////////////////////////////////
       //
-      // CancellationToken.Register‚ğ—˜—p‚µ‚½ŠÖ˜AƒIƒuƒWƒFƒNƒg‚ÌƒLƒƒƒ“ƒZƒ‹‘€ì.
-      // CancellationToken.Registerƒƒ\ƒbƒh‚É‚ÍAƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½Û‚ÉÀs‚³‚ê‚é
-      // ƒAƒNƒVƒ‡ƒ“‚ğİ’è‚·‚é‚±‚Æ‚ªo—ˆ‚éB‚±‚ê‚ğ—˜—p‚·‚é‚±‚Æ‚ÅAƒg[ƒNƒ“‚ÌƒLƒƒƒ“ƒZƒ‹‚É
-      // ŠÖ˜A‚µ‚ÄƒLƒƒƒ“ƒZƒ‹ˆ—‚âƒLƒƒƒ“ƒZƒ‹‚É‚Ì‚İÀs‚·‚éˆ—‚ğ‹Lq‚·‚é‚±‚Æ‚ªo—ˆ‚éB
+      // CancellationToken.Registerã‚’åˆ©ç”¨ã—ãŸé–¢é€£ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ“ä½œ.
+      // CancellationToken.Registerãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯ã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸéš›ã«å®Ÿè¡Œã•ã‚Œã‚‹
+      // ã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã‚’è¨­å®šã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚ã“ã‚Œã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã§ã€ãƒˆãƒ¼ã‚¯ãƒ³ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ™‚ã«
+      // é–¢é€£ã—ã¦ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚„ã‚­ãƒ£ãƒ³ã‚»ãƒ«æ™‚ã«ã®ã¿å®Ÿè¡Œã™ã‚‹å‡¦ç†ã‚’è¨˜è¿°ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
       //
-      // ˆÈ‰º‚Å‚ÍAWebClient‚ğ—˜—p‚µ‚Ä”ñ“¯Šúˆ—‚ğs‚Á‚Ä‚¢‚éÅ’†‚Éƒg[ƒNƒ“‚ğƒLƒƒƒ“ƒZƒ‹‚µ
-      // ‚³‚ç‚ÉAWebClient‚àƒLƒƒƒ“ƒZƒ‹‚·‚é‚æ‚¤‚É‚µ‚Ä‚¢‚éBiáŠ±‹­ˆø‚¾‚ªEEEEwj
+      // ä»¥ä¸‹ã§ã¯ã€WebClientã‚’åˆ©ç”¨ã—ã¦éåŒæœŸå‡¦ç†ã‚’è¡Œã£ã¦ã„ã‚‹æœ€ä¸­ã«ãƒˆãƒ¼ã‚¯ãƒ³ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—
+      // ã•ã‚‰ã«ã€WebClientã‚‚ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ã‚ˆã†ã«ã—ã¦ã„ã‚‹ã€‚ï¼ˆè‹¥å¹²å¼·å¼•ã ãŒãƒ»ãƒ»ãƒ»ãƒ»wï¼‰
       //
       cts = new CancellationTokenSource();
 
@@ -159,12 +159,12 @@ namespace Gsf.Samples
 
       client.DownloadStringCompleted += (s, e) =>
       {
-        Console.WriteLine(">>> ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½H == {0}", e.Cancelled);
+        Console.WriteLine(">>> ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸï¼Ÿ == {0}", e.Cancelled);
       };
 
       token2.Register(() =>
         {
-          Console.WriteLine(">>> ‘€ì‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½‚Ì‚ÅAWebClient‘¤‚àƒLƒƒƒ“ƒZƒ‹‚µ‚Ü‚·B");
+          Console.WriteLine(">>> æ“ä½œãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸã®ã§ã€WebClientå´ã‚‚ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã™ã€‚");
           client.CancelAsync();
         }
       );
@@ -177,12 +177,12 @@ namespace Gsf.Samples
 
       ////////////////////////////////////////////////////////////////////
       //
-      // CancellationTokenSource‚É‚ÍA•¡”‚Ìƒg[ƒNƒ“‚ğ“¯Šú‚³‚¹‚é‚½‚ß‚Ì
-      // CreateLinkedTokenSourceƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB
-      // ‚±‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚·‚é‚±‚Æ‚É‚æ‚èA•¡”‚Ìƒg[ƒNƒ“‚ÌƒLƒƒƒ“ƒZƒ‹‚ğˆ—‚·‚é‚±‚Æ‚ªo—ˆ‚éB
+      // CancellationTokenSourceã«ã¯ã€è¤‡æ•°ã®ãƒˆãƒ¼ã‚¯ãƒ³ã‚’åŒæœŸã•ã›ã‚‹ãŸã‚ã®
+      // CreateLinkedTokenSourceãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚
+      // ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€è¤‡æ•°ã®ãƒˆãƒ¼ã‚¯ãƒ³ã®ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚’å‡¦ç†ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
       // 
-      // ®ACreateLinkedTokenSource‚Åì¬‚µ‚½ƒŠƒ“ƒNƒg[ƒNƒ“ƒ\[ƒX‚Í
-      // Dispose‚µ‚È‚¢‚Æ‚¢‚¯‚È‚¢–‚É’ˆÓB
+      // å°šã€CreateLinkedTokenSourceã§ä½œæˆã—ãŸãƒªãƒ³ã‚¯ãƒˆãƒ¼ã‚¯ãƒ³ã‚½ãƒ¼ã‚¹ã¯
+      // Disposeã—ãªã„ã¨ã„ã‘ãªã„äº‹ã«æ³¨æ„ã€‚
       //
       var cts2 = new CancellationTokenSource();
       var cts3 = new CancellationTokenSource();
@@ -198,7 +198,7 @@ namespace Gsf.Samples
         {
           Parallel.Invoke
           (
-            // 1•bŒã‚Écts2‚ğƒLƒƒƒ“ƒZƒ‹
+            // 1ç§’å¾Œã«cts2ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«
             () =>
             {
               Thread.Sleep(TimeSpan.FromSeconds(1));
@@ -207,7 +207,7 @@ namespace Gsf.Samples
 
               countdown.Signal();
             },
-            // 2•bŒã‚Écts3‚ğƒLƒƒƒ“ƒZƒ‹.
+            // 2ç§’å¾Œã«cts3ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«.
             () =>
             {
               Thread.Sleep(TimeSpan.FromSeconds(2));
@@ -221,10 +221,10 @@ namespace Gsf.Samples
           countdown.Wait();
         }
 
-        // Šeƒg[ƒNƒ“‚Ìó‘Ô‚ğƒ`ƒFƒbƒN.
+        // å„ãƒˆãƒ¼ã‚¯ãƒ³ã®çŠ¶æ…‹ã‚’ãƒã‚§ãƒƒã‚¯.
         Console.WriteLine(">>>> cts2Token.IsCancellationRequested == {0}", cts2Token.IsCancellationRequested);
         Console.WriteLine(">>>> cts3Token.IsCancellationRequested == {0}", cts3Token.IsCancellationRequested);
-        // ƒŠƒ“ƒNƒg[ƒNƒ“‚È‚Ì‚ÅA•R‚Ã‚­ƒg[ƒNƒ“‘S‚Ä‚ªƒLƒƒƒ“ƒZƒ‹‚É‚È‚é‚Æ©“®“I‚ÉƒLƒƒƒ“ƒZƒ‹ó‘Ô‚Æ‚È‚éB
+        // ãƒªãƒ³ã‚¯ãƒˆãƒ¼ã‚¯ãƒ³ãªã®ã§ã€ç´ã¥ããƒˆãƒ¼ã‚¯ãƒ³å…¨ã¦ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã«ãªã‚‹ã¨è‡ªå‹•çš„ã«ã‚­ãƒ£ãƒ³ã‚»ãƒ«çŠ¶æ…‹ã¨ãªã‚‹ã€‚
         Console.WriteLine(">>>> linkedCtsToken.IsCancellationRequested == {0}", linkedCtsToken.IsCancellationRequested);
       }
 
@@ -234,16 +234,16 @@ namespace Gsf.Samples
     void Work1(CancellationToken cancelToken)
     {
       //
-      // ƒLƒƒƒ“ƒZƒ‹ˆ—‚ğÀ‘•‚·‚éê‡Atry-catch‚ğ—pˆÓ‚µ‚Ä
-      // OperationCanceledException‚ğó‚¯æ‚é‚æ‚¤‚É‚µ‚Ä‚¨‚­.
+      // ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’å®Ÿè£…ã™ã‚‹å ´åˆã€try-catchã‚’ç”¨æ„ã—ã¦
+      // OperationCanceledExceptionã‚’å—ã‘å–ã‚‹ã‚ˆã†ã«ã—ã¦ãŠã.
       //
       try
       {
         while (true)
         {
           //
-          // ‚à‚µAŠO•”‚ÅƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ä‚¢‚½ê‡
-          // ‚±‚Ìƒƒ\ƒbƒh‚ÍOperationCanceledException‚ğ”­¶‚³‚¹‚éB
+          // ã‚‚ã—ã€å¤–éƒ¨ã§ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¦ã„ãŸå ´åˆ
+          // ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯OperationCanceledExceptionã‚’ç™ºç”Ÿã•ã›ã‚‹ã€‚
           //
           cancelToken.ThrowIfCancellationRequested();
 
@@ -254,7 +254,7 @@ namespace Gsf.Samples
       catch (OperationCanceledException ex)
       {
         //
-        // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½.
+        // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸ.
         //
         Console.WriteLine(">>> {0}", ex.Message);
       }
@@ -263,15 +263,15 @@ namespace Gsf.Samples
     void Work2(CancellationToken cancelToken)
     {
       //
-      // IsCancellationRequestedƒvƒƒpƒeƒB‚ğ—˜—p‚µ‚Ä
-      // ƒLƒƒƒ“ƒZƒ‹‚ğŒŸ’m‚·‚é.
+      // IsCancellationRequestedãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’åˆ©ç”¨ã—ã¦
+      // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚’æ¤œçŸ¥ã™ã‚‹.
       //
       while (true)
       {
         if (cancelToken.IsCancellationRequested)
         {
-          // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½.
-          Console.WriteLine(">>> ‘€ì‚ÍƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½B");
+          // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸ.
+          Console.WriteLine(">>> æ“ä½œã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸã€‚");
           break;
         }
 
@@ -290,7 +290,7 @@ namespace Gsf.Samples
       }
       catch (OperationCanceledException ex)
       {
-        // ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½.
+        // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸ.
         Console.WriteLine(">>> {0}", ex.Message);
       }
     }

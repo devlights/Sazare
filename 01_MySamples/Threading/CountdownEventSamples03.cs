@@ -8,22 +8,22 @@ namespace Gsf.Samples
 
   #region CountdownEventSamples-03
   /// <summary>
-  /// CountdownEventƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B(3)
+  /// CountdownEventã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚(3)
   /// </summary>
   /// <remarks>
-  /// CountdownEventƒNƒ‰ƒX‚ÍA.NET 4.0‚©‚ç’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
-  /// Java‚ÌCountDownLatchƒNƒ‰ƒX‚Æ“¯‚¶‹@”\‚ğ‚Á‚Ä‚¢‚Ü‚·B
+  /// CountdownEventã‚¯ãƒ©ã‚¹ã¯ã€.NET 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  /// Javaã®CountDownLatchã‚¯ãƒ©ã‚¹ã¨åŒã˜æ©Ÿèƒ½ã‚’æŒã£ã¦ã„ã¾ã™ã€‚
   /// </remarks>
   public class CountdownEventSamples03 : IExecutable
   {
     public void Execute()
     {
       //
-      // CountdownEvent‚É‚ÍACancellationToken‚ğó‚¯•t‚¯‚éWaitƒƒ\ƒbƒh‚ª‘¶İ‚·‚é.
-      // g‚¢•û‚ÍAManualResetEventSlimƒNƒ‰ƒX‚Ìê‡‚Æ“¯‚¶B
+      // CountdownEventã«ã¯ã€CancellationTokenã‚’å—ã‘ä»˜ã‘ã‚‹Waitãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹.
+      // ä½¿ã„æ–¹ã¯ã€ManualResetEventSlimã‚¯ãƒ©ã‚¹ã®å ´åˆã¨åŒã˜ã€‚
       // 
-      // QlƒŠƒ\[ƒX:
-      //   .NET ƒNƒ‰ƒXƒ‰ƒCƒuƒ‰ƒŠ’T–K-042 (System.Threading.ManualResetEventSlim)
+      // å‚è€ƒãƒªã‚½ãƒ¼ã‚¹:
+      //   .NET ã‚¯ãƒ©ã‚¹ãƒ©ã‚¤ãƒ–ãƒ©ãƒªæ¢è¨ª-042 (System.Threading.ManualResetEventSlim)
       //   http://d.hatena.ne.jp/gsf_zero1/20110323/p1
       //
       CancellationTokenSource tokenSource = new CancellationTokenSource();
@@ -31,7 +31,7 @@ namespace Gsf.Samples
 
       using (CountdownEvent cde = new CountdownEvent(1))
       {
-        // ‰Šú‚Ìó‘Ô‚ğ•\¦.
+        // åˆæœŸã®çŠ¶æ…‹ã‚’è¡¨ç¤º.
         Console.WriteLine("InitialCount={0}", cde.InitialCount);
         Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
         Console.WriteLine("IsSet={0}", cde.IsSet);
@@ -45,7 +45,7 @@ namespace Gsf.Samples
         }, token);
 
         //
-        // ˆ—‚ğƒLƒƒƒ“ƒZƒ‹.
+        // å‡¦ç†ã‚’ã‚­ãƒ£ãƒ³ã‚»ãƒ«.
         //
         tokenSource.Cancel();
 
@@ -57,7 +57,7 @@ namespace Gsf.Samples
         {
           if (token == cancelEx.CancellationToken)
           {
-            Console.WriteLine("–––CountdownEvent.Wait()‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½–––");
+            Console.WriteLine("ï¼Šï¼Šï¼ŠCountdownEvent.Wait()ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸï¼Šï¼Šï¼Š");
           }
         }
 
@@ -75,7 +75,7 @@ namespace Gsf.Samples
 
               if (token == cancelEx.CancellationToken)
               {
-                Console.WriteLine("–––ƒ^ƒXƒN‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½–––");
+                Console.WriteLine("ï¼Šï¼Šï¼Šã‚¿ã‚¹ã‚¯ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸï¼Šï¼Šï¼Š");
                 return true;
               }
             }
@@ -84,7 +84,7 @@ namespace Gsf.Samples
           });
         }
 
-        // Œ»İ‚Ìó‘Ô‚ğ•\¦.
+        // ç¾åœ¨ã®çŠ¶æ…‹ã‚’è¡¨ç¤º.
         Console.WriteLine("InitialCount={0}", cde.InitialCount);
         Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
         Console.WriteLine("IsSet={0}", cde.IsSet);

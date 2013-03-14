@@ -15,7 +15,7 @@ namespace Gsf.Samples
 
   #region AsyncOperationSamples-01
   /// <summary>
-  /// AsyncOperation‚ÌƒTƒ“ƒvƒ‹1‚Å‚·B
+  /// AsyncOperationã®ã‚µãƒ³ãƒ—ãƒ«1ã§ã™ã€‚
   /// </summary>
   public class AsyncOperationSamples01 : IExecutable
   {
@@ -45,66 +45,66 @@ namespace Gsf.Samples
 
           WinFormsButton btn = s as WinFormsButton;
 
-          // ‚±‚ÌêŠ‚ÅAsyncOpration‚ğì¬‚·‚é‚ÆWindowsFormsSynchronizationContextƒIƒuƒWƒFƒNƒg‚É‚È‚éB
-          // (Œ»İ‚ÌƒXƒŒƒbƒh‚ÌƒRƒ“ƒeƒLƒXƒg‚ªWindows Forms‚Ì‚½‚ß)
-          // (WindowsFormsSynchronizationContext.AutoInstall‚Ì’l‚ªƒfƒtƒHƒ‹ƒg‚Åtrue‚É‚È‚Á‚Ä‚¢‚é‚Ì‚ÅAÅ‰‚ÌƒRƒ“ƒgƒ[ƒ‹‚ª
-          //  new‚³‚ê‚½‚ÉƒƒbƒZ[ƒWƒXƒŒƒbƒh (‚±‚±‚Å‚ÍMain Thread)‚ÉWindowsFormsSynchronizationContext‚ª“Ç‚İ‚Ü‚ê‚é)
+          // ã“ã®å ´æ‰€ã§AsyncOprationã‚’ä½œæˆã™ã‚‹ã¨WindowsFormsSynchronizationContextã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãªã‚‹ã€‚
+          // (ç¾åœ¨ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã®ã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãŒWindows Formsã®ãŸã‚)
+          // (WindowsFormsSynchronizationContext.AutoInstallã®å€¤ãŒãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§trueã«ãªã£ã¦ã„ã‚‹ã®ã§ã€æœ€åˆã®ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒ
+          //  newã•ã‚ŒãŸæ™‚ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¹ãƒ¬ãƒƒãƒ‰ (ã“ã“ã§ã¯Main Thread)ã«WindowsFormsSynchronizationContextãŒèª­ã¿è¾¼ã¾ã‚Œã‚‹)
           //
-          // SynchonizationContext‚ÍSystem.Threading–¼‘O‹óŠÔ‚É‘¶İ‚µAˆÈ‰º‚Ì”h¶ƒNƒ‰ƒX‚ğ‚ÂB
-          //    ËSystem.Windows.Forms.WindowsFormsSynchronizationContext   (WindowsForms—p)
-          //    ËSystem.Windows.Threading.DispatcherSynchronizationContext (WPF—p)
-          // ‚»‚ê‚»‚ê‚Ì”h¶ƒNƒ‰ƒX‚ÍAŠî–{‹@”\‚É‰Á‚¦AŠe©“Æ©‚Ì“®ì‚ÆƒvƒƒpƒeƒB‚ğ‚Á‚Ä‚¢‚éB
+          // SynchonizationContextã¯System.Threadingåå‰ç©ºé–“ã«å­˜åœ¨ã—ã€ä»¥ä¸‹ã®æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã‚’æŒã¤ã€‚
+          //    â‡’System.Windows.Forms.WindowsFormsSynchronizationContext   (WindowsFormsç”¨)
+          //    â‡’System.Windows.Threading.DispatcherSynchronizationContext (WPFç”¨)
+          // ãã‚Œãã‚Œã®æ´¾ç”Ÿã‚¯ãƒ©ã‚¹ã¯ã€åŸºæœ¬æ©Ÿèƒ½ã«åŠ ãˆã€å„è‡ªç‹¬è‡ªã®å‹•ä½œã¨ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æŒã£ã¦ã„ã‚‹ã€‚
           WinFormsMessageBox.Show("Click Handler Begin SyncContext : " + SynchronizationContext.Current.ToString());
 
-          // AsyncOperationManager‚ÍCreateOperationƒƒ\ƒbƒh‚ªŒÄ‚Î‚ê‚½Û‚ÉŒ»İ‚ÌSynchronizationContext‚ğƒRƒs[‚µ‚Ä
-          // AsyncOperation‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É“n‚µ‚Ä‚¢‚é–Í—lB‚È‚Ì‚ÅAAsyncOperation‚ÌPost,Send‚ª³Šm‚ÉƒƒbƒZ[ƒWƒXƒŒƒbƒh‚É
-          // “¯Šú‚Å‚«‚é‚©‚Ç‚¤‚©‚ÍA‚±‚ÌAsyncOperationƒIƒuƒWƒFƒNƒg‚ğì¬‚µ‚½“_‚Å‚ÌƒXƒŒƒbƒh‚ÉSynchronizationContext‚ª‚ ‚é‚©‚Ç‚¤‚©‚É‚æ‚éB
-          // iV‹K‚ÅƒXƒŒƒbƒh‚ğì¬‚µ‚½ê‡‚ÍSynchronizationContext‚Ínull‚Æ‚È‚Á‚Ä‚¢‚éBj
+          // AsyncOperationManagerã¯CreateOperationãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã°ã‚ŒãŸéš›ã«ç¾åœ¨ã®SynchronizationContextã‚’ã‚³ãƒ”ãƒ¼ã—ã¦
+          // AsyncOperationã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«æ¸¡ã—ã¦ã„ã‚‹æ¨¡æ§˜ã€‚ãªã®ã§ã€AsyncOperationã®Post,SendãŒæ­£ç¢ºã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¹ãƒ¬ãƒƒãƒ‰ã«
+          // åŒæœŸã§ãã‚‹ã‹ã©ã†ã‹ã¯ã€ã“ã®AsyncOperationã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆã—ãŸæ™‚ç‚¹ã§ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã«SynchronizationContextãŒã‚ã‚‹ã‹ã©ã†ã‹ã«ã‚ˆã‚‹ã€‚
+          // ï¼ˆæ–°è¦ã§ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ä½œæˆã—ãŸå ´åˆã¯SynchronizationContextã¯nullã¨ãªã£ã¦ã„ã‚‹ã€‚ï¼‰
           //
-          // ®ASynchronizationContext‚ğ’¼Ú—p‚¢‚ÄAPost, Send‚ğs‚Á‚Ä‚à‚æ‚¢B
-          // Œ»İ‚ÌƒXƒŒƒbƒh‚ÌSynchronizationContext‚ğæ“¾‚·‚é‚É‚ÍASynchronizationContext.Current‚Åæ“¾‚Å‚«‚éB
-          // ‘¶İ‚µ‚È‚¢ê‡‚ÍAˆÈ‰º‚Ì‚æ‚¤‚É‚µ‚Äİ’è‚Å‚«‚éB
+          // å°šã€SynchronizationContextã‚’ç›´æ¥ç”¨ã„ã¦ã€Post, Sendã‚’è¡Œã£ã¦ã‚‚ã‚ˆã„ã€‚
+          // ç¾åœ¨ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã®SynchronizationContextã‚’å–å¾—ã™ã‚‹ã«ã¯ã€SynchronizationContext.Currentã§å–å¾—ã§ãã‚‹ã€‚
+          // å­˜åœ¨ã—ãªã„å ´åˆã¯ã€ä»¥ä¸‹ã®ã‚ˆã†ã«ã—ã¦è¨­å®šã§ãã‚‹ã€‚
           //
           // SynchronizationContext.SetSynchronizationContext(new SynchronizationContext());
 
-          // ‚±‚ÌêŠ‚ÅAsyncOperation‚ğì¬‚µ‚½ê‡A‚±‚ÌƒXƒŒƒbƒh(Main Thread)ã‚Å‚ÍŠù‚ÉWindowsFormsSynchronizationContext‚ªì¬‚³‚ê‚Ä‚¢‚é
-          // ‚Ì‚ÅA‚»‚ê‚ªAsyncOperation‚É“n‚éB
-          // AsyncOperation‚Í©g‚ÌPost, PostOperationCompleted‚ªŒÄ‚Î‚ê‚½Û‚É“à•”‚Å•Û‚µ‚Ä‚¢‚éSynchronizationContext‚Éˆ—‚ğˆÏ÷‚µ‚Ü‚·B
-          // i‚È‚Ì‚ÅA³í‚ÉƒƒbƒZ[ƒWƒXƒŒƒbƒh‚É‚ÄƒfƒŠƒQ[ƒg‚ªˆ—‚³‚ê‚é–‚É‚È‚éBj
+          // ã“ã®å ´æ‰€ã§AsyncOperationã‚’ä½œæˆã—ãŸå ´åˆã€ã“ã®ã‚¹ãƒ¬ãƒƒãƒ‰(Main Thread)ä¸Šã§ã¯æ—¢ã«WindowsFormsSynchronizationContextãŒä½œæˆã•ã‚Œã¦ã„ã‚‹
+          // ã®ã§ã€ãã‚ŒãŒAsyncOperationã«æ¸¡ã‚‹ã€‚
+          // AsyncOperationã¯è‡ªèº«ã®Post, PostOperationCompletedãŒå‘¼ã°ã‚ŒãŸéš›ã«å†…éƒ¨ã§ä¿æŒã—ã¦ã„ã‚‹SynchronizationContextã«å‡¦ç†ã‚’å§”è­²ã—ã¾ã™ã€‚
+          // ï¼ˆãªã®ã§ã€æ­£å¸¸ã«ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¹ãƒ¬ãƒƒãƒ‰ã«ã¦ãƒ‡ãƒªã‚²ãƒ¼ãƒˆãŒå‡¦ç†ã•ã‚Œã‚‹äº‹ã«ãªã‚‹ã€‚ï¼‰
           AsyncOperation asyncOp = AsyncOperationManager.CreateOperation(btn);
 
-          // •ÊƒXƒŒƒbƒh‘¤‚É‚à“¯‚¶SynchronizationContext‚ğ—˜—p‚³‚¹‚éê‡‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚µ‚Ä
-          // ƒRƒs[‚ğì¬‚µA•Û‚µ‚Ä‚¨‚«A‘ÎÛ‚ÌƒXƒŒƒbƒh‚Éİ’è‚·‚éB
+          // åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰å´ã«ã‚‚åŒã˜SynchronizationContextã‚’åˆ©ç”¨ã•ã›ã‚‹å ´åˆã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ã—ã¦
+          // ã‚³ãƒ”ãƒ¼ã‚’ä½œæˆã—ã€ä¿æŒã—ã¦ãŠãã€å¯¾è±¡ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã«è¨­å®šã™ã‚‹ã€‚
           //SynchronizationContext syncContext = SynchronizationContext.Current.CreateCopy();
 
           Thread t = new Thread(() =>
           {
             WinFormsMessageBox.Show("New Thread : " + string.Format("{0}-{1}", Thread.CurrentThread.Name, Thread.CurrentThread.ManagedThreadId));
 
-            // V‹K‚Å•Ê‚ÌƒXƒŒƒbƒh‚ğì¬‚µ‚½ê‡‚ÍÅ‰SynchronizationContext‚Ínull‚Æ‚È‚Á‚Ä‚¢‚éB
-            // V‚½‚ÉŠ„‚è“–‚Ä‚éê‡‚ÍˆÈ‰º‚Ì‚æ‚¤‚É‚·‚éB
+            // æ–°è¦ã§åˆ¥ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’ä½œæˆã—ãŸå ´åˆã¯æœ€åˆSynchronizationContextã¯nullã¨ãªã£ã¦ã„ã‚‹ã€‚
+            // æ–°ãŸã«å‰²ã‚Šå½“ã¦ã‚‹å ´åˆã¯ä»¥ä¸‹ã®ã‚ˆã†ã«ã™ã‚‹ã€‚
             //SynchronizationContext.SetSynchronizationContext(syncContext);
 
-            // ‚±‚ÌêŠ‚ÅAsyncOpration‚ğì¬‚·‚é‚ÆSynchronizationContextƒIƒuƒWƒFƒNƒg‚É‚È‚éB
-            // (AsyncOperationManager‚ÍAŒ»İ‚ÌƒXƒŒƒbƒh‚É‚ÄSynchronizationContext‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍV‚½‚ÉSynchronizationContext‚ğ
-            //  ¶¬‚µAİ’è‚µ‚Ä‚©‚çAsyncOperation‚ğ¶¬‚·‚éBŒ³XSynchronizationContext‚ªAsyncOperation‚ğ¶¬‚·‚éÛ‚É‘¶İ‚µ‚Ä‚¢‚éê‡‚Í
-            //  ‚»‚ê‚ğAsyncOperation‚É“n‚µ‚Ä¶¬‚·‚éBj
+            // ã“ã®å ´æ‰€ã§AsyncOprationã‚’ä½œæˆã™ã‚‹ã¨SynchronizationContextã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«ãªã‚‹ã€‚
+            // (AsyncOperationManagerã¯ã€ç¾åœ¨ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã«ã¦SynchronizationContextãŒå­˜åœ¨ã—ãªã„å ´åˆã¯æ–°ãŸã«SynchronizationContextã‚’
+            //  ç”Ÿæˆã—ã€è¨­å®šã—ã¦ã‹ã‚‰AsyncOperationã‚’ç”Ÿæˆã™ã‚‹ã€‚å…ƒã€…SynchronizationContextãŒAsyncOperationã‚’ç”Ÿæˆã™ã‚‹éš›ã«å­˜åœ¨ã—ã¦ã„ã‚‹å ´åˆã¯
+            //  ãã‚Œã‚’AsyncOperationã«æ¸¡ã—ã¦ç”Ÿæˆã™ã‚‹ã€‚ï¼‰
             WinFormsMessageBox.Show("New Thread SyncContext Is Null?? (1) : " + (SynchronizationContext.Current == null).ToString());
             //AsyncOperation asyncOp = AsyncOperationManager.CreateOperation(btn);
             WinFormsMessageBox.Show("New Thread SyncContext Is Null?? (2) : " + (SynchronizationContext.Current == null).ToString());
 
-            // ‚±‚±‚Å•\¦‚³‚ê‚éSynchronizationContext‚Í, AsyncOperation‚ª‚Ç‚ÌƒXƒŒƒbƒh‚Åì¬‚³‚ê‚½‚©‚É‚æ‚Á‚Ä
-            // o—Í‚³‚ê‚é’l‚ª•Ï‚í‚éB
+            // ã“ã“ã§è¡¨ç¤ºã•ã‚Œã‚‹SynchronizationContextã¯, AsyncOperationãŒã©ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã§ä½œæˆã•ã‚ŒãŸã‹ã«ã‚ˆã£ã¦
+            // å‡ºåŠ›ã•ã‚Œã‚‹å€¤ãŒå¤‰ã‚ã‚‹ã€‚
             //
-            // ¡ƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰‘¤‚ÅAsyncOperation‚ª¶¬‚³‚ê‚½ê‡FWindowsFormsSynchronizationContext
-            // ¡•ÊƒXƒŒƒbƒh‘¤‚ÅAsyncOperation‚ª¶¬‚³‚ê‚½ê‡F    SynchronizationContext
+            // â– ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©å´ã§AsyncOperationãŒç”Ÿæˆã•ã‚ŒãŸå ´åˆï¼šWindowsFormsSynchronizationContext
+            // â– åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰å´ã§AsyncOperationãŒç”Ÿæˆã•ã‚ŒãŸå ´åˆï¼š    SynchronizationContext
             WinFormsMessageBox.Show(asyncOp.SynchronizationContext.ToString());
 
-            // Post‹y‚ÑPostOperationCompletedƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µ‚ÍAÀÛ‚É‚ÍAsyncOperation‚ª“à•”‚Å•Û‚µ‚Ä‚¢‚éSynchronizationContext.Post‚ğ
-            // ŒÄ‚Ño‚µ‚Ä‚¢‚é‚Ì‚ÅA‘ÎÛ‚Æ‚È‚éSynchronizationContext‚É‚æ‚Á‚Ä“¯Šú‚³‚ê‚éƒXƒŒƒbƒh‚ªˆÙ‚È‚éB
+            // PoståŠã³PostOperationCompletedãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—ã¯ã€å®Ÿéš›ã«ã¯AsyncOperationãŒå†…éƒ¨ã§ä¿æŒã—ã¦ã„ã‚‹SynchronizationContext.Postã‚’
+            // å‘¼ã³å‡ºã—ã¦ã„ã‚‹ã®ã§ã€å¯¾è±¡ã¨ãªã‚‹SynchronizationContextã«ã‚ˆã£ã¦åŒæœŸã•ã‚Œã‚‹ã‚¹ãƒ¬ãƒƒãƒ‰ãŒç•°ãªã‚‹ã€‚
             //
-            // ¡ƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰‘¤‚ÅAsyncOperation‚ª¶¬‚³‚ê‚½ê‡FƒƒbƒZ[ƒWƒXƒŒƒbƒh‘¤‚É“¯Šú (Main Thread)
-            // ¡•ÊƒXƒŒƒbƒh‘¤‚ÅAsyncOperation‚ª¶¬‚³‚ê‚½ê‡F    V‚½‚ÉƒXƒŒƒbƒh‚ªì¬‚³‚ê‚»‚Ì’†‚Åˆ— (Thread Pool)
+            // â– ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©å´ã§AsyncOperationãŒç”Ÿæˆã•ã‚ŒãŸå ´åˆï¼šãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã‚¹ãƒ¬ãƒƒãƒ‰å´ã«åŒæœŸ (Main Thread)
+            // â– åˆ¥ã‚¹ãƒ¬ãƒƒãƒ‰å´ã§AsyncOperationãŒç”Ÿæˆã•ã‚ŒãŸå ´åˆï¼š    æ–°ãŸã«ã‚¹ãƒ¬ãƒƒãƒ‰ãŒä½œæˆã•ã‚Œãã®ä¸­ã§å‡¦ç† (Thread Pool)
             asyncOp.Post((state) =>
             {
               Thread curThread = Thread.CurrentThread;
@@ -137,9 +137,9 @@ namespace Gsf.Samples
     [STAThread]
     public void Execute()
     {
-      // ˆÈ‰º‚ÌƒRƒƒ“ƒg‚ğŠO‚·–‚ÅƒRƒ“ƒgƒ[ƒ‹‚ªÅ‰‚Énew‚³‚ê‚½Û‚É
-      // WindowsFormsSynchronizationContext‚ª“Ç‚İ‚Ü‚ê‚È‚¢‚æ‚¤‚Éo—ˆ‚Ü‚·B
-      // false‚É‚·‚é‚ÆAƒfƒtƒHƒ‹ƒg‚ÅSynchronizationContext‚ª“Ç‚İ‚Ü‚ê‚Ü‚·B
+      // ä»¥ä¸‹ã®ã‚³ãƒ¡ãƒ³ãƒˆã‚’å¤–ã™äº‹ã§ã‚³ãƒ³ãƒˆãƒ­ãƒ¼ãƒ«ãŒæœ€åˆã«newã•ã‚ŒãŸéš›ã«
+      // WindowsFormsSynchronizationContextãŒèª­ã¿è¾¼ã¾ã‚Œãªã„ã‚ˆã†ã«å‡ºæ¥ã¾ã™ã€‚
+      // falseã«ã™ã‚‹ã¨ã€ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã§SynchronizationContextãŒèª­ã¿è¾¼ã¾ã‚Œã¾ã™ã€‚
       //WindowsFormsSynchronizationContext.AutoInstall = false;
 
       WinFormsApplication.EnableVisualStyles();

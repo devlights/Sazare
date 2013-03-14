@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region ThreadLocalSamples-01
   /// <summary>
-  /// ThreadLocal<T>�N���X�̃T���v���ł��B
+  /// ThreadLocal<T>クラスのサンプルです。
   /// </summary>
   public class ThreadLocalSamples01 : IExecutable
   {
@@ -27,25 +27,25 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ThreadLocal<T>�́A.NET 4.0����ǉ����ꂽ�^�ł���B
-      // ThreadStatic�����Ɠ��l�ɁA�X���b�h���[�J���X�g���[�W(TLS)��\�����邽�߂̌^�ł���B
+      // ThreadLocal<T>は、.NET 4.0から追加された型である。
+      // ThreadStatic属性と同様に、スレッドローカルストレージ(TLS)を表現するための型である。
       //
-      // �]����葶�݂��Ă���ThreadStatic�����ɂ́A�ȉ��̓_���s���Ȃ������B
-      //   �E�C���X�^���X�t�B�[���h�ɂ͑Ή����Ă��Ȃ��B�istatic�t�B�[���h�̂�)
-      //    (�C���X�^���X�t�B�[���h�ɂ�������t�^���邱�Ƃ��o���邪�A�����Ɠ��삵�Ȃ��j
-      //   �E�t�B�[���h�̒l�͏�ɁA���̌^�̃f�t�H���g�l�ŏ����������B�����l��ݒ肵�Ă����������B
+      // 従来より存在していたThreadStatic属性には、以下の点が行えなかった。
+      //   ・インスタンスフィールドには対応していない。（staticフィールドのみ)
+      //    (インスタンスフィールドにも属性を付与することが出来るが、ちゃんと動作しない）
+      //   ・フィールドの値は常に、その型のデフォルト値で初期化される。初期値を設定しても無視される。
       //
-      // ThreadLocal<T>�́A��L�̓_���������Ă���B�܂�
-      //   �E�C���X�^���X�t�B�[���h�ɑΉ����Ă���B
-      //   �E�t�B�[���h�̒l�������l�ŏ������o����B
+      // ThreadLocal<T>は、上記の点を解決している。つまり
+      //   ・インスタンスフィールドに対応している。
+      //   ・フィールドの値を初期値で初期化出来る。
       //
-      // ���p���@�́ASystem.Lazy�Ǝ��Ă���A�R���X�g���N�^�ɏ������̂��߂̃f���Q�[�g��n���B
+      // 利用方法は、System.Lazyと似ており、コンストラクタに初期化のためのデリゲートを渡す。
       //
 
       //
-      // static�t�B�[���h��ThreadState�����̊m�F
-      // ThreadStatic�����ł́A�����l��錾���ɐݒ肵�Ă��Ă���������A�����I�Ƀf�t�H���g�l���K�p�����̂�
-      // �o�͂����l�́A�S��0�ƂȂ�B
+      // staticフィールドのThreadState属性の確認
+      // ThreadStatic属性では、初期値を宣言時に設定していても無視され、強制的にデフォルト値が適用されるので
+      // 出力される値は、全て0となる。
       //
       int numberOfParallels = 10;
       using (var countdown = new CountdownEvent(numberOfParallels))
@@ -60,8 +60,8 @@ namespace Gsf.Samples
       }
 
       //
-      // static�t�B�[���h��ThreadLocal<T>�̊m�F
-      // ThreadLocal<T>�́A�����l��ݒ�ł���̂ŁA�o�͂����l��2�ƂȂ�B
+      // staticフィールドのThreadLocal<T>の確認
+      // ThreadLocal<T>は、初期値を設定できるので、出力される値は2となる。
       //
       using (var countdown = new CountdownEvent(numberOfParallels))
       {
@@ -74,9 +74,9 @@ namespace Gsf.Samples
       }
 
       //
-      // �C���X�^���X�t�B�[���h��ThreadStatic�����̊m�F
-      // ThreadStatic�����́A�C���X�^���X�t�B�[���h�ɑ΂��Ă͌��ʂ������B
-      // �Ȃ̂ŁA�o�͂����l��2,3,4,5,6...�ƃC���N�������g����Ă���.
+      // インスタンスフィールドのThreadStatic属性の確認
+      // ThreadStatic属性は、インスタンスフィールドに対しては効果が無い。
+      // なので、出力される値は2,3,4,5,6...とインクリメントされていく.
       //
       using (var countdown = new CountdownEvent(numberOfParallels))
       {
@@ -90,9 +90,9 @@ namespace Gsf.Samples
       }
 
       //
-      // �C���X�^���X�t�B�[���h��ThreadLocal<T>�̊m�F
-      // ThreadLocal<T>�́A�C���X�^���X�t�B�[���h�ɑ΂��Ă����Ȃ����p�ł���B
-      // �Ȃ̂ŁA�o�͂����l��4�ƂȂ�B
+      // インスタンスフィールドのThreadLocal<T>の確認
+      // ThreadLocal<T>は、インスタンスフィールドに対しても問題なく利用できる。
+      // なので、出力される値は4となる。
       //
       using (var countdown = new CountdownEvent(numberOfParallels))
       {
