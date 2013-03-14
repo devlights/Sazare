@@ -369,11 +369,44 @@
     <None Include="AnotherAppDomain.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="xml/*.xml">
+    <None Include="xml/Books.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="xml/*.xsd">
+    <None Include="xml/ConsolidatedPurchaseOrders.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/CustomersOrders.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/CustomersOrdersInNamespace.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/Data.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/DataInNamespace.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/PurchaseOrder.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/PurchaseOrderInNamespace.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/PurchaseOrders.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/PurchaseOrdersInNamespace.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/TestConfig.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml/TestConfigInNamespace.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="xml\CustomersOrders.xsd">
+      <SubType>Designer</SubType>
     </None>
   </ItemGroup>
   <ItemGroup />
@@ -381,6 +414,18 @@
     <Content Include="testdb.mdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="xml\Books.xml" />
+    <Content Include="xml\ConsolidatedPurchaseOrders.xml" />
+    <Content Include="xml\CustomersOrders.xml" />
+    <Content Include="xml\CustomersOrdersInNamespace.xml" />
+    <Content Include="xml\Data.xml" />
+    <Content Include="xml\DataInNamespace.xml" />
+    <Content Include="xml\PurchaseOrder.xml" />
+    <Content Include="xml\PurchaseOrderInNamespace.xml" />
+    <Content Include="xml\PurchaseOrders.xml" />
+    <Content Include="xml\PurchaseOrdersInNamespace.xml" />
+    <Content Include="xml\TestConfig.xml" />
+    <Content Include="xml\TestConfigInNamespace.xml" />
   </ItemGroup>
   <!--=====================================================================-->
   <!-- 共通ターゲットファイルの読み込み.                                   -->

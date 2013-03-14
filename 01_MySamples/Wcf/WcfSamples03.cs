@@ -8,30 +8,30 @@ namespace Gsf.Samples
 
   #region WcfSamples-03
   /// <summary>
-  /// WCF‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// WCFã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ˆø”‚Æ–ß‚è’l‚ÉƒJƒXƒ^ƒ€ƒIƒuƒWƒFƒNƒg‚ğw’è‚·‚éƒT[ƒrƒXƒƒ\ƒbƒh‚ğ’è‹`‚µ‚Ä‚¢‚Ü‚·B
+  /// å¼•æ•°ã¨æˆ»ã‚Šå€¤ã«ã‚«ã‚¹ã‚¿ãƒ ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’æŒ‡å®šã™ã‚‹ã‚µãƒ¼ãƒ“ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®šç¾©ã—ã¦ã„ã¾ã™ã€‚
   /// </remarks>
   public class WcfSamples03 : IExecutable
   {
     #region Constants
     /// <summary>
-    /// ƒT[ƒrƒX‚ÌURL
+    /// ã‚µãƒ¼ãƒ“ã‚¹ã®URL
     /// </summary>
     const string SERVICE_URL = "http://localhost:54321/ReturnCustomDataService";
     /// <summary>
-    /// ƒGƒ“ƒhƒ|ƒCƒ“ƒg–¼
+    /// ã‚¨ãƒ³ãƒ‰ãƒã‚¤ãƒ³ãƒˆå
     /// </summary>
     const string ENDPOINT_ADDR = "";
     /// <summary>
-    /// ƒoƒCƒ“ƒfƒBƒ“ƒO
+    /// ãƒã‚¤ãƒ³ãƒ‡ã‚£ãƒ³ã‚°
     /// </summary>
     readonly BasicHttpBinding BINDING = new BasicHttpBinding();
     #endregion
 
     /// <summary>
-    /// ƒT[ƒrƒXƒCƒ“ƒ^[ƒtƒF[ƒX
+    /// ã‚µãƒ¼ãƒ“ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
     /// </summary>
     [ServiceContract]
     public interface IReturnCustomDataService
@@ -41,7 +41,7 @@ namespace Gsf.Samples
     }
 
     /// <summary>
-    /// ƒT[ƒrƒXÀ‘•ƒNƒ‰ƒX
+    /// ã‚µãƒ¼ãƒ“ã‚¹å®Ÿè£…ã‚¯ãƒ©ã‚¹
     /// </summary>
     public class ReturnCustomDataService : IReturnCustomDataService
     {
@@ -52,7 +52,7 @@ namespace Gsf.Samples
     }
 
     /// <summary>
-    /// ƒT[ƒrƒXƒƒ\ƒbƒh‚Ìˆø”ƒNƒ‰ƒX
+    /// ã‚µãƒ¼ãƒ“ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã®å¼•æ•°ã‚¯ãƒ©ã‚¹
     /// </summary>
     [DataContract]
     public class Data
@@ -78,7 +78,7 @@ namespace Gsf.Samples
     }
 
     /// <summary>
-    /// ƒT[ƒrƒXƒƒ\ƒbƒh‚Ì–ß‚è’lƒNƒ‰ƒX
+    /// ã‚µãƒ¼ãƒ“ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã®æˆ»ã‚Šå€¤ã‚¯ãƒ©ã‚¹
     /// </summary>
     [DataContract]
     public class ReturnData
@@ -108,26 +108,26 @@ namespace Gsf.Samples
       using (ServiceHost host = CreateService())
       {
         //
-        // ƒT[ƒrƒX‚ğŠJn.
+        // ã‚µãƒ¼ãƒ“ã‚¹ã‚’é–‹å§‹.
         //
         host.Open();
 
         //
-        // ƒNƒ‰ƒCƒAƒ“ƒg‘¤‚ğ\’z.
+        // ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆå´ã‚’æ§‹ç¯‰.
         //
         using (ChannelFactory<IReturnCustomDataService> factory = CreateChannelFactory())
         {
           //
-          // ƒNƒ‰ƒCƒAƒ“ƒgƒvƒƒLƒVƒIƒuƒWƒFƒNƒg‚ğæ“¾.
+          // ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆãƒ—ãƒ­ã‚­ã‚·ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—.
           //
           IReturnCustomDataService proxy = factory.CreateChannel();
 
           //
-          // ƒT[ƒrƒXƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µAŒ‹‰Ê‚ğæ“¾.
+          // ã‚µãƒ¼ãƒ“ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã€çµæœã‚’å–å¾—.
           //
           Data data = new Data { X = 300, Y = 200 };
-          Console.WriteLine("ƒT[ƒrƒX‚ÌŒÄ‚Ño‚µ‘O= {0}", data);
-          Console.WriteLine("ƒT[ƒrƒX‚ÌŒÄ‚Ño‚µŒ‹‰Ê= {0}", proxy.Execute(data));
+          Console.WriteLine("ã‚µãƒ¼ãƒ“ã‚¹ã®å‘¼ã³å‡ºã—å‰= {0}", data);
+          Console.WriteLine("ã‚µãƒ¼ãƒ“ã‚¹ã®å‘¼ã³å‡ºã—çµæœ= {0}", proxy.Execute(data));
         }
       }
     }
@@ -135,12 +135,12 @@ namespace Gsf.Samples
     private ServiceHost CreateService()
     {
       //
-      // ƒzƒXƒg‚ğ‰Šú‰»
+      // ãƒ›ã‚¹ãƒˆã‚’åˆæœŸåŒ–
       //
       ServiceHost host = new ServiceHost(typeof(ReturnCustomDataService), new Uri(SERVICE_URL));
 
       //
-      // ƒGƒ“ƒhƒ|ƒCƒ“ƒg‚ğ’Ç‰Á.
+      // ã‚¨ãƒ³ãƒ‰ãƒã‚¤ãƒ³ãƒˆã‚’è¿½åŠ .
       //
       host.AddServiceEndpoint(typeof(IReturnCustomDataService), BINDING, ENDPOINT_ADDR);
 
@@ -150,7 +150,7 @@ namespace Gsf.Samples
     private ChannelFactory<IReturnCustomDataService> CreateChannelFactory()
     {
       //
-      // ƒNƒ‰ƒCƒAƒ“ƒg‘¤‚©‚çƒT[ƒrƒX‚ÉÚ‘±‚·‚é‚½‚ß‚ÉChannelFactory‚ğ\’z.
+      // ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆå´ã‹ã‚‰ã‚µãƒ¼ãƒ“ã‚¹ã«æ¥ç¶šã™ã‚‹ãŸã‚ã«ChannelFactoryã‚’æ§‹ç¯‰.
       //
       ChannelFactory<IReturnCustomDataService> factory =
         new ChannelFactory<IReturnCustomDataService>(BINDING, new EndpointAddress(SERVICE_URL));
