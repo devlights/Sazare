@@ -6,12 +6,12 @@ namespace Gsf.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
-  #region Emit‚ÌƒTƒ“ƒvƒ‹‚Q
+  #region Emitã®ã‚µãƒ³ãƒ—ãƒ«ï¼’
   /// <summary>
-  /// Emit‚ÌƒTƒ“ƒvƒ‹‚Q‚Å‚·B
+  /// Emitã®ã‚µãƒ³ãƒ—ãƒ«ï¼’ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ƒvƒƒpƒeƒB‚ğ‚ÂƒNƒ‰ƒX‚ğ“®“I¶¬‚µ‚Ü‚·B
+  /// ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã‚’å‹•çš„ç”Ÿæˆã—ã¾ã™ã€‚
   /// </remarks>
   public class EmitSample2 : IExecutable
   {
@@ -19,10 +19,10 @@ namespace Gsf.Samples
     {
       //////////////////////////////////////////////////////////////////
       //
-      // ƒvƒƒpƒeƒB•t‚«‚ÌŒ^‚ğì¬.
+      // ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ä»˜ãã®å‹ã‚’ä½œæˆ.
       //
       //
-      // 0.‚±‚ê‚©‚çì¬‚·‚éŒ^‚ğŠi”[‚·‚éƒAƒZƒ“ƒuƒŠ–¼ì¬.
+      // 0.ã“ã‚Œã‹ã‚‰ä½œæˆã™ã‚‹å‹ã‚’æ ¼ç´ã™ã‚‹ã‚¢ã‚»ãƒ³ãƒ–ãƒªåä½œæˆ.
       //
       AssemblyName asmName = new AssemblyName
       {
@@ -30,48 +30,48 @@ namespace Gsf.Samples
       };
 
       //
-      // 1.AssemlbyBuilder‚Ì¶¬
+      // 1.AssemlbyBuilderã®ç”Ÿæˆ
       //
       AppDomain domain = AppDomain.CurrentDomain;
       AssemblyBuilder asmBuilder = domain.DefineDynamicAssembly(asmName, AssemblyBuilderAccess.RunAndSave);
       //
-      // 2.ModuleBuilder‚Ì¶¬.
+      // 2.ModuleBuilderã®ç”Ÿæˆ.
       //
       ModuleBuilder modBuilder = asmBuilder.DefineDynamicModule(asmName.Name, string.Format("{0}.dll", asmName.Name));
       //
-      // 3.TypeBuilder‚Ì¶¬.
+      // 3.TypeBuilderã®ç”Ÿæˆ.
       //
       TypeBuilder typeBuilder = modBuilder.DefineType("WithPropClass", TypeAttributes.Public, typeof(object), Type.EmptyTypes);
       //
-      // 4.FieldBuilder‚Ì¶¬.
+      // 4.FieldBuilderã®ç”Ÿæˆ.
       //
       FieldBuilder fieldBuilder = typeBuilder.DefineField("_message", typeof(string), FieldAttributes.Private);
       //
-      // 5.PropertyBuilder‚Ì¶¬.
+      // 5.PropertyBuilderã®ç”Ÿæˆ.
       //
       PropertyBuilder propBuilder = typeBuilder.DefineProperty("Message", System.Reflection.PropertyAttributes.HasDefault, typeof(string), Type.EmptyTypes);
       //
-      // 6.ƒvƒƒpƒeƒB‚ÍÀÛ‚É‚ÍGetter/Setterƒƒ\ƒbƒh‚ÌŒÄ‚Ño‚µ‚Æ‚È‚éˆ×A‚»‚ê‚ç‚Ìƒƒ\ƒbƒh‚ğì¬‚·‚é•K—v‚ª‚ ‚éB
-      //   ‚»‚ê‚ç‚Ìƒƒ\ƒbƒh‚É•t‰Á‚·‚éƒƒ\ƒbƒh‘®«‚ğ’è‹`.
+      // 6.ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¯å®Ÿéš›ã«ã¯Getter/Setterãƒ¡ã‚½ãƒƒãƒ‰ã®å‘¼ã³å‡ºã—ã¨ãªã‚‹ç‚ºã€ãã‚Œã‚‰ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½œæˆã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
+      //   ãã‚Œã‚‰ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«ä»˜åŠ ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰å±æ€§ã‚’å®šç¾©.
       //
       MethodAttributes propAttr = (MethodAttributes.Public | MethodAttributes.SpecialName | MethodAttributes.HideBySig);
       //
-      // 7.Getƒƒ\ƒbƒh‚Ì¶¬.
+      // 7.Getãƒ¡ã‚½ãƒƒãƒ‰ã®ç”Ÿæˆ.
       //
       MethodBuilder getterMethodBuilder = typeBuilder.DefineMethod("get_Message", propAttr, typeof(string), Type.EmptyTypes);
       //
-      // 8.ILGenerator‚ğ¶¬‚µAGetter—p‚ÌILƒR[ƒh‚ğİ’è.
+      // 8.ILGeneratorã‚’ç”Ÿæˆã—ã€Getterç”¨ã®ILã‚³ãƒ¼ãƒ‰ã‚’è¨­å®š.
       //
       ILGenerator il = getterMethodBuilder.GetILGenerator();
       il.Emit(OpCodes.Ldarg_0);
       il.Emit(OpCodes.Ldfld, fieldBuilder);
       il.Emit(OpCodes.Ret);
       //
-      // 9.Setƒƒ\ƒbƒh‚ğ¶¬
+      // 9.Setãƒ¡ã‚½ãƒƒãƒ‰ã‚’ç”Ÿæˆ
       //
       MethodBuilder setterMethodBuilder = typeBuilder.DefineMethod("set_Message", propAttr, null, new Type[] { typeof(string) });
       //
-      // 10.ILGenerator‚ğ¶¬‚µASetter—p‚ÌILƒR[ƒh‚ğİ’è.
+      // 10.ILGeneratorã‚’ç”Ÿæˆã—ã€Setterç”¨ã®ILã‚³ãƒ¼ãƒ‰ã‚’è¨­å®š.
       //
       il = setterMethodBuilder.GetILGenerator();
       il.Emit(OpCodes.Ldarg_0);
@@ -79,26 +79,26 @@ namespace Gsf.Samples
       il.Emit(OpCodes.Stfld, fieldBuilder);
       il.Emit(OpCodes.Ret);
       //
-      // 11.PropertyBuilder‚ÉGetter/Setter‚ğ•R•t‚¯‚é.
+      // 11.PropertyBuilderã«Getter/Setterã‚’ç´ä»˜ã‘ã‚‹.
       //
       propBuilder.SetGetMethod(getterMethodBuilder);
       propBuilder.SetSetMethod(setterMethodBuilder);
       //
-      // 12.ì¬‚µ‚½Œ^‚ğæ“¾.
+      // 12.ä½œæˆã—ãŸå‹ã‚’å–å¾—.
       //
       Type type = typeBuilder.CreateType();
       //
-      // 13.Œ^‚ğ‹ïŒ»‰».
+      // 13.å‹ã‚’å…·ç¾åŒ–.
       //
       object withPropObj = Activator.CreateInstance(type);
       //
-      // 14.Às.
+      // 14.å®Ÿè¡Œ.
       //
       PropertyInfo propInfo = type.GetProperty("Message");
       propInfo.SetValue(withPropObj, "HelloWorld", null);
       Console.WriteLine(propInfo.GetValue(withPropObj, null));
       //
-      // 15.(option) ì¬‚µ‚½ƒAƒZƒ“ƒuƒŠ‚ğ•Û‘¶.
+      // 15.(option) ä½œæˆã—ãŸã‚¢ã‚»ãƒ³ãƒ–ãƒªã‚’ä¿å­˜.
       //
       asmBuilder.Save(string.Format("{0}.dll", asmName.Name));
     }

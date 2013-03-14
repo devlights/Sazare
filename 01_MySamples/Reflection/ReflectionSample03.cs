@@ -8,10 +8,10 @@ namespace Gsf.Samples
 
   #region ReflectionSample-03
   /// <summary>
-  /// ���t���N�V�����̃T���v���ł��B
+  /// リフレクションのサンプルです。
   /// </summary>
   /// <remarks>
-  /// ���t���N�V�������s���̃p�t�H�[�}���X���A�b�v��������@�ɂ��ċL�q���Ă��܂��B
+  /// リフレクション実行時のパフォーマンスをアップさせる方法について記述しています。
   /// </remarks>
   public class ReflectionSample03 : IExecutable
   {
@@ -20,20 +20,20 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ���t���N�V�����𗘗p���ď��������s����ꍇ
-      // ���̂܂�MethodInfo��Invoke���Ă�ł��ǂ���
-      // ���x���ĂԕK�v������ꍇ�A�ȉ��̂悤�Ɉ�Udelegate��
-      // ���Ă�����s��������A�p�t�H�[�}���X���ǂ��B
+      // リフレクションを利用して処理を実行する場合
+      // そのままMethodInfoのInvokeを呼んでも良いが
+      // 何度も呼ぶ必要がある場合、以下のように一旦delegateに
+      // してから実行する方が、パフォーマンスが良い。
       //
-      // MethodInfo.Invoke�𒼐ڌĂԃp�^�[���ł́A���񃌃C�g�o�C���f�B���O
-      // ���������Ă��邪�Adelegate�ɂ��Ă���Ăԃp�^�[���ł�
-      // delegate���\�z���Ă���ŏ��̈��̂݃��C�g�o�C���f�B���O����邩��ł���B
+      // MethodInfo.Invokeを直接呼ぶパターンでは、毎回レイトバインディング
+      // が発生しているが、delegateにしてから呼ぶパターンでは
+      // delegateを構築している最初の一回のみレイトバインディングされるからである。
       //
-      // ���A���R��ԑ����͖̂{���̃��\�b�h�𒼐ڌĂԃp�^�[���B
+      // 尚、当然一番速いのは本来のメソッドを直接呼ぶパターン。
       //
 
       //
-      // MethodInfo.Invoke�𗘗p����p�^�[��.
+      // MethodInfo.Invokeを利用するパターン.
       //
       MethodInfo mi = typeof(string).GetMethod("Trim", new Type[0]);
 
@@ -44,10 +44,10 @@ namespace Gsf.Samples
       }
       watch.Stop();
 
-      Console.WriteLine("MethodInfo.Invoke�𒼐ڌĂ�: {0}", watch.Elapsed);
+      Console.WriteLine("MethodInfo.Invokeを直接呼ぶ: {0}", watch.Elapsed);
 
       //
-      // Delegate���\�z���ČĂԃp�^�[��.
+      // Delegateを構築して呼ぶパターン.
       //
       StringToString s2s = (StringToString)Delegate.CreateDelegate(typeof(StringToString), mi);
       watch.Reset();
@@ -58,10 +58,10 @@ namespace Gsf.Samples
       }
       watch.Stop();
 
-      Console.WriteLine("Delegate���\�z���ď���: {0}", watch.Elapsed);
+      Console.WriteLine("Delegateを構築して処理: {0}", watch.Elapsed);
 
       //
-      // �{���̃��\�b�h�𒼐ڌĂԃp�^�[��.
+      // 本来のメソッドを直接呼ぶパターン.
       //
       watch.Reset();
       watch.Start();
@@ -71,7 +71,7 @@ namespace Gsf.Samples
       }
       watch.Stop();
 
-      Console.WriteLine("string.Trim�𒼐ڌĂ�: {0}", watch.Elapsed);
+      Console.WriteLine("string.Trimを直接呼ぶ: {0}", watch.Elapsed);
     }
   }
   #endregion

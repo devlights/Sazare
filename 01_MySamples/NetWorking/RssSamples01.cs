@@ -13,11 +13,11 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // RSS���쐬�ɂ͈ȉ��̎菇�ō\�z����.
+      // RSSを作成には以下の手順で構築する.
       //
-      // (1) SyndicationItem���쐬���A���X�g�ɒǉ�
-      // (2) SyndicationFeed���쐬���A(1)�ō쐬�������X�g��ǉ�
-      // (3) XmlWriter���\�z���A�o��.
+      // (1) SyndicationItemを作成し、リストに追加
+      // (2) SyndicationFeedを作成し、(1)で作成したリストを追加
+      // (3) XmlWriterを構築し、出力.
       //
       List<SyndicationItem> items = new List<SyndicationItem>();
 

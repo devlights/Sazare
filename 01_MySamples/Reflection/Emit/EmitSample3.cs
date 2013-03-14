@@ -6,12 +6,12 @@ namespace Gsf.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
-  #region Emit‚ÌƒTƒ“ƒvƒ‹3
+  #region Emitã®ã‚µãƒ³ãƒ—ãƒ«3
   /// <summary>
-  /// Emit‚ÌƒTƒ“ƒvƒ‹‚R‚Å‚·B
+  /// Emitã®ã‚µãƒ³ãƒ—ãƒ«ï¼“ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ƒJƒXƒ^ƒ€‘®«‚ğ‚ÂƒNƒ‰ƒX‚ğ“®“I¶¬‚µ‚Ü‚·B
+  /// ã‚«ã‚¹ã‚¿ãƒ å±æ€§ã‚’æŒã¤ã‚¯ãƒ©ã‚¹ã‚’å‹•çš„ç”Ÿæˆã—ã¾ã™ã€‚
   /// </remarks>
   public class EmitSample3 : IExecutable
   {
@@ -51,9 +51,9 @@ namespace Gsf.Samples
       TypeBuilder typeBuilder = modBuilder.DefineType("AttrTest", TypeAttributes.Public, typeof(object), Type.EmptyTypes);
 
       //
-      // Œ^‚É‘Î‚µ‚ÄƒJƒXƒ^ƒ€‘®«‚ğ•t‰Á‚·‚éB
-      // •¡”‚Ì‘®«‚ğ•t‚¯‚éê‡‚ÍAAddAttributeƒƒ\ƒbƒh“à‚Ì‚æ‚¤‚ÉSetCustomAttributeƒƒ\ƒbƒh‚ğ
-      // •¡”ŒÄ‚Ñ‚Ü‚·B
+      // å‹ã«å¯¾ã—ã¦ã‚«ã‚¹ã‚¿ãƒ å±æ€§ã‚’ä»˜åŠ ã™ã‚‹ã€‚
+      // è¤‡æ•°ã®å±æ€§ã‚’ä»˜ã‘ã‚‹å ´åˆã¯ã€AddAttributeãƒ¡ã‚½ãƒƒãƒ‰å†…ã®ã‚ˆã†ã«SetCustomAttributeãƒ¡ã‚½ãƒƒãƒ‰ã‚’
+      // è¤‡æ•°å‘¼ã³ã¾ã™ã€‚
       //
       AddAttribute(typeBuilder, typeof(IsDynamicTypeAttribute), Type.EmptyTypes, new object[] { });
       AddAttribute(typeBuilder, typeof(CreatorAttribute), new Type[] { typeof(string) }, new object[] { "gsf.zero1" });

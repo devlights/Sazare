@@ -8,14 +8,14 @@ namespace Gsf.Samples
 
   #region PingSamples-01
   /// <summary>
-  /// Pingクラスに関するサンプルです。
+  /// Ping繧ｯ繝ｩ繧ｹ縺ｫ髢｢縺吶ｋ繧ｵ繝ｳ繝励Ν縺ｧ縺吶�
   /// </summary>
   public class PingSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // 同期での送信.
+      // 蜷梧悄縺ｧ縺ｮ騾∽ｿ｡.
       // 
       string hostName = "localhost";
       int timeOut = 3000;
@@ -33,7 +33,7 @@ namespace Gsf.Samples
       }
 
       //
-      // 非同期での送信.
+      // 髱槫酔譛溘〒縺ｮ騾∽ｿ｡.
       //
       hostName = "www.google.com";
       object userToken = null;
