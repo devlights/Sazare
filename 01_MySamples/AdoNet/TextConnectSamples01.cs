@@ -50,7 +50,7 @@ namespace Gsf.Samples
         //
         using (DbCommand command = conn.CreateCommand())
         {
-          command.CommandText = "SELECT * FROM [Persons.txt]";
+          command.CommandText = "SELECT * FROM [resources\\Persons.txt]";
 
           DataTable table = new DataTable();
           using (DbDataReader reader = command.ExecuteReader())
@@ -73,7 +73,7 @@ namespace Gsf.Samples
         {
           string query = string.Empty;
 
-          query += " INSERT INTO [Persons.txt] ";
+          query += " INSERT INTO [resources\\Persons.txt] ";
           query += "   (ID, NAME, AGE) ";
           query += "   VALUES ";
           query += "   (7, 'gsf_zero7', 37) ";
@@ -83,7 +83,7 @@ namespace Gsf.Samples
 
           using (DbCommand command2 = conn.CreateCommand())
           {
-            command2.CommandText = "SELECT * FROM [Persons.txt]";
+            command2.CommandText = "SELECT * FROM [resources\\Persons.txt]";
 
             DataTable table = new DataTable();
             using (DbDataReader reader = command2.ExecuteReader())

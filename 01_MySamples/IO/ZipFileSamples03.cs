@@ -56,7 +56,7 @@ namespace Gsf.Samples
         //
         // 元ファイルが存在している場合は、CreateEntryFromFileを利用するのが楽.
         //
-        archive.CreateEntryFromFile("Persons.txt", "Persons.txt");
+        archive.CreateEntryFromFile("resources/Persons.txt", "Persons.txt");
       }
 
       //
@@ -67,7 +67,7 @@ namespace Gsf.Samples
         //
         // 元ファイルは存在するが、今度はCreateEntryメソッドで新規エントリのみを作成しデータは、手動で流し込む.
         //
-        using (var reader = new BinaryReader(File.Open("database.png", FileMode.Open)))
+        using (var reader = new BinaryReader(File.Open("resources/database.png", FileMode.Open)))
         {
           var newEntry = archive.CreateEntry("database.png");
           using (var writer = new BinaryWriter(newEntry.Open()))

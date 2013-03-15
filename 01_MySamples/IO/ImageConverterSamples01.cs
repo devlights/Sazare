@@ -19,7 +19,7 @@ namespace Gsf.Samples
       //
       // Imageオブジェクトを取得.
       //
-      GDIImage image = GDIImage.FromFile("database.png");
+      GDIImage image = GDIImage.FromFile("resources/database.png");
 
       //
       // Imageをバイト配列に変換.

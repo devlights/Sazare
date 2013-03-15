@@ -25,7 +25,7 @@ namespace Gsf.Samples
       // ExecuteAssemblyメソッドには、アセンブリ名を指定する。
       // ここで指定するアセンブリは実行可能である必要があり、エントリポイントを持っている必要がある。
       //
-      anotherDomain.ExecuteAssembly(@"AnotherAppDomain.exe");
+      anotherDomain.ExecuteAssembly(@"resources/AnotherAppDomain.exe");
 
       //
       // AppDomain.DoCallbackを利用する.

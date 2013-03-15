@@ -353,27 +353,25 @@
     <Compile Include="IO\ZipFileSamples02.cs" />
     <Compile Include="IO\ZipFileSamples03.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <!--
             コンテンツ
     -->
-    <None Include="Persons.txt">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="schema.ini">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="*.png">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-    <None Include="AnotherAppDomain.exe">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="testdb.mdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    <Content Include="resources\Persons.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\schema.ini">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\database.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\AnotherAppDomain.exe">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="resources\testdb.mdb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="xml\Books.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -416,11 +414,12 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
+  
   <!--=====================================================================-->
   <!-- 共通ターゲットファイルの読み込み.                                   -->
   <!--=====================================================================-->
   <!--
-        以下v4.0用の設定.
+        以下v4.0以上用の設定.
     -->
   <!-- C#用の共通ターゲット定義ファイル.(内部でCommon定義ファイルが読み込まれている.) -->
   <!-- 同時にTargetFrameworkVersionの値が3.0以上の場合はWinFX用の共通ターゲット定義ファイルも読み込まれる. -->
