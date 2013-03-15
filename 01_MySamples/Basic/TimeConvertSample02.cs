@@ -4,49 +4,49 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region ‚ÉŠÖ‚·‚éˆ—(10i”Œ`®‚©‚çXXŠÔXX•ªŒ`®‚É•ÏŠ·)
+  #region æ™‚åˆ»ã«é–¢ã™ã‚‹å‡¦ç†(10é€²æ•°å½¢å¼ã‹ã‚‰XXæ™‚é–“XXåˆ†å½¢å¼ã«å¤‰æ›)
   /// <summary>
-  /// ‚ÉŠÖ‚·‚éˆ—(10i”Œ`®‚©‚çXXŠÔXX•ªŒ`®‚É•ÏŠ·)‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// æ™‚åˆ»ã«é–¢ã™ã‚‹å‡¦ç†(10é€²æ•°å½¢å¼ã‹ã‚‰XXæ™‚é–“XXåˆ†å½¢å¼ã«å¤‰æ›)ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class TimeConvertSample02 : IExecutable
   {
     public void Execute()
     {
-      // Œ³‚Ì’l. 7.67ŠÔ‚Æ‚·‚é.
+      // å…ƒã®å€¤. 7.67æ™‚é–“ã¨ã™ã‚‹.
       decimal original = 111.12M;
 
       //
-      // ŠÔ‚Ì•”•ª‚ÍŠù‚ÉŠm’èÏ‚İ‚È‚Ì‚ÅA‚»‚Ì‚Ü‚Ü—˜—p.
+      // æ™‚é–“ã®éƒ¨åˆ†ã¯æ—¢ã«ç¢ºå®šæ¸ˆã¿ãªã®ã§ã€ãã®ã¾ã¾åˆ©ç”¨.
       //
       int hour = decimal.ToInt32(original);
 
       //
-      // ŠÔ•”•ª‚Ì•ª”‚ğZo.
+      // æ™‚é–“éƒ¨åˆ†ã®åˆ†æ•°ã‚’ç®—å‡º.
       //
       int hourMinutes = (hour * 60);
 
       //
-      // Œ³‚Ì’l‚Ì•ª”‚ğZo.
+      // å…ƒã®å€¤ã®åˆ†æ•°ã‚’ç®—å‡º.
       //
       decimal originalMinutes = (original * 60);
 
       //
-      // ‹‚ß‚½Œ³‚Ì’l‚Ì•ª”‚ğlÌŒÜ“ü.
+      // æ±‚ã‚ãŸå…ƒã®å€¤ã®åˆ†æ•°ã‚’å››æ¨äº”å…¥.
       //
       int roundedOriginalMinutes = decimal.ToInt32(Math.Round(originalMinutes, 0, MidpointRounding.AwayFromZero));
 
       //
-      // Œ³‚Ì’l‚Ì•ª”‚©‚çŠÔ•”•ª‚Ì•ª”‚ğˆø‚­.
-      // ‚±‚ê‚ªŒ‹‰Ê‚Ì•ª”‚Æ‚È‚éB
+      // å…ƒã®å€¤ã®åˆ†æ•°ã‹ã‚‰æ™‚é–“éƒ¨åˆ†ã®åˆ†æ•°ã‚’å¼•ã.
+      // ã“ã‚ŒãŒçµæœã®åˆ†æ•°ã¨ãªã‚‹ã€‚
       //
       int minutes = (roundedOriginalMinutes - hourMinutes);
 
       //
-      // Œ‹‰Ê‚ğ\’z.
+      // çµæœã‚’æ§‹ç¯‰.
       //
       decimal result = decimal.Parse(string.Format("{0}.{1}", hour, minutes));
 
-      Console.WriteLine("Œ‹‰Ê={0}, {1}ŠÔ{2}•ª", result, hour, minutes);
+      Console.WriteLine("çµæœ={0}, {1}æ™‚é–“{2}åˆ†", result, hour, minutes);
     }
   }
   #endregion

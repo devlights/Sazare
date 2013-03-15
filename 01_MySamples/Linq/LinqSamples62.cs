@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-62
   /// <summary>
-  /// LINQ to XML�̃T���v���ł�.
+  /// LINQ to XMLのサンプルです.
   /// </summary>
   /// <remarks>
-  /// �v�f�폜�n���\�b�h�̃T���v���ł�.
+  /// 要素削除系メソッドのサンプルです.
   /// </remarks>
   public class LinqSamples62 : IExecutable
   {
@@ -18,7 +18,7 @@ namespace Gsf.Samples
     {
       //
       // Remove()
-      //   ���݂̗v�f��XML�c���[���폜����.
+      //   現在の要素をXMLツリーより削除する.
       //
       var root = BuildSampleXml();
       var elem = root.Descendants("Value").First();
@@ -30,8 +30,8 @@ namespace Gsf.Samples
 
       //
       // RemoveAll()
-      //   ���݂̗v�f����q�m�[�h�y�ё������폜����.
-      //   �����܂ō폜�����_�ɒ��ӁB
+      //   現在の要素から子ノード及び属性を削除する.
+      //   属性まで削除される点に注意。
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
@@ -43,8 +43,8 @@ namespace Gsf.Samples
 
       //
       // RemoveNodes()
-      //   ���݂̗v�f����q�m�[�h���폜����
-      //   RemoveAll���\�b�h�ƈႢ�A�����͍폜����Ȃ�
+      //   現在の要素から子ノードを削除する
+      //   RemoveAllメソッドと違い、属性は削除されない
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
@@ -56,8 +56,8 @@ namespace Gsf.Samples
 
       //
       // SetElementValue(XName, object)
-      //   �{���́A�q�v�f�̒l��ݒ肷�邽�߂̃��\�b�h�ł��邪
-      //   �v�f�̒l��null��ݒ肷�邱�Ƃō폜���邱�Ƃ��o����
+      //   本来は、子要素の値を設定するためのメソッドであるが
+      //   要素の値にnullを設定することで削除することが出来る
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();

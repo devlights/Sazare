@@ -7,26 +7,26 @@ namespace Gsf.Samples
 
   #region LinqSamples-58
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// —v‘f‚ÌƒNƒ[ƒ“‚ÆƒAƒ^ƒbƒ`‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// è¦ç´ ã®ã‚¯ãƒ­ãƒ¼ãƒ³ã¨ã‚¢ã‚¿ãƒƒãƒã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples58 : IExecutable
   {
     public void Execute()
     {
       //
-      // e—v‘f‚ğ‚½‚È‚¢—v‘f‚ğì¬‚µA“Á’è‚ÌXMLƒcƒŠ[‚Ì’†‚É‘g‚İ‚Ş. (ƒAƒ^ƒbƒ`)
+      // è¦ªè¦ç´ ã‚’æŒãŸãªã„è¦ç´ ã‚’ä½œæˆã—ã€ç‰¹å®šã®XMLãƒ„ãƒªãƒ¼ã®ä¸­ã«çµ„ã¿è¾¼ã‚€. (ã‚¢ã‚¿ãƒƒãƒ)
       //
       var noParent = new XElement("NoParent", true);
       var tree1 = new XElement("Parent", noParent);
 
       var noParent2 = tree1.Element("NoParent");
-      Console.WriteLine("QÆ‚ª“¯‚¶H = {0}", noParent == noParent2);
+      Console.WriteLine("å‚ç…§ãŒåŒã˜ï¼Ÿ = {0}", noParent == noParent2);
       Console.WriteLine(tree1);
 
-      // ’l‚ğ•ÏX‚µ‚ÄŠm”F.
+      // å€¤ã‚’å¤‰æ›´ã—ã¦ç¢ºèª.
       noParent.SetValue(false);
       Console.WriteLine(noParent.Value);
       Console.WriteLine(tree1.Element("NoParent").Value);
@@ -34,15 +34,15 @@ namespace Gsf.Samples
       Console.WriteLine("==========================================");
 
       //
-      // e—v‘f‚ğ‚Â—v‘f‚ğì¬‚µA“Á’è‚ÌXMLƒcƒŠ[‚Ì’†‚É‘g‚İ‚Ş. (ƒNƒ[ƒ“)
+      // è¦ªè¦ç´ ã‚’æŒã¤è¦ç´ ã‚’ä½œæˆã—ã€ç‰¹å®šã®XMLãƒ„ãƒªãƒ¼ã®ä¸­ã«çµ„ã¿è¾¼ã‚€. (ã‚¯ãƒ­ãƒ¼ãƒ³)
       //
       var origTree = new XElement("Parent", new XElement("WithParent", true));
       var tree2 = new XElement("Parent", origTree.Element("WithParent"));
 
-      Console.WriteLine("QÆ‚ª“¯‚¶H = {0}", origTree.Element("WithParent") == tree2.Element("WithParent"));
+      Console.WriteLine("å‚ç…§ãŒåŒã˜ï¼Ÿ = {0}", origTree.Element("WithParent") == tree2.Element("WithParent"));
       Console.WriteLine(tree2);
 
-      // ’l‚ğ•ÏX‚µ‚ÄŠm”F
+      // å€¤ã‚’å¤‰æ›´ã—ã¦ç¢ºèª
       origTree.Element("WithParent").SetValue(false);
       Console.WriteLine(origTree.Element("WithParent").Value);
       Console.WriteLine(tree2.Element("WithParent").Value);

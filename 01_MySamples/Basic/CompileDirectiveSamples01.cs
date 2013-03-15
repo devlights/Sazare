@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region CompileDirectiveSamples-01
   /// <summary>
-  /// ƒRƒ“ƒpƒCƒ‹ƒfƒBƒŒƒNƒeƒBƒu‚ÌƒTƒ“ƒvƒ‹1‚Å‚·B
+  /// ã‚³ãƒ³ãƒ‘ã‚¤ãƒ«ãƒ‡ã‚£ãƒ¬ã‚¯ãƒ†ã‚£ãƒ–ã®ã‚µãƒ³ãƒ—ãƒ«1ã§ã™ã€‚
   /// </summary>
   public class CompileDirectiveSamples01 : IExecutable
   {

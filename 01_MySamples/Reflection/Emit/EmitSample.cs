@@ -6,12 +6,12 @@ namespace Gsf.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
-  #region Emit‚ÌƒTƒ“ƒvƒ‹
+  #region Emitã®ã‚µãƒ³ãƒ—ãƒ«
   /// <summary>
-  /// Emit‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Emitã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// HelloWorld‚ğo—Í‚·‚éƒNƒ‰ƒX‚ğ“®“I¶¬‚µ‚Ü‚·B
+  /// HelloWorldã‚’å‡ºåŠ›ã™ã‚‹ã‚¯ãƒ©ã‚¹ã‚’å‹•çš„ç”Ÿæˆã—ã¾ã™ã€‚
   /// </remarks>
   public class EmitSample : IExecutable
   {
@@ -23,7 +23,7 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // 0.‚±‚ê‚©‚çì¬‚·‚éŒ^‚ğŠi”[‚·‚éƒAƒZƒ“ƒuƒŠ–¼ì¬.
+      // 0.ã“ã‚Œã‹ã‚‰ä½œæˆã™ã‚‹å‹ã‚’æ ¼ç´ã™ã‚‹ã‚¢ã‚»ãƒ³ãƒ–ãƒªåä½œæˆ.
       //
       AssemblyName asmName = new AssemblyName
       {
@@ -31,41 +31,41 @@ namespace Gsf.Samples
       };
 
       //
-      // 1.AssemlbyBuilder‚Ì¶¬
+      // 1.AssemlbyBuilderã®ç”Ÿæˆ
       //
       AppDomain domain = AppDomain.CurrentDomain;
       AssemblyBuilder asmBuilder = domain.DefineDynamicAssembly(asmName, AssemblyBuilderAccess.Run);
       //
-      // 2.ModuleBuilder‚Ì¶¬.
+      // 2.ModuleBuilderã®ç”Ÿæˆ.
       //
       ModuleBuilder modBuilder = asmBuilder.DefineDynamicModule("HelloWorld");
       //
-      // 3.TypeBuilder‚Ì¶¬.
+      // 3.TypeBuilderã®ç”Ÿæˆ.
       //
       TypeBuilder typeBuilder = modBuilder.DefineType("SayHelloImpl", TypeAttributes.Public, typeof(object), new Type[] { typeof(ISayHello) });
       //
-      // 4.MethodBuilder‚Ì¶¬
+      // 4.MethodBuilderã®ç”Ÿæˆ
       //
       MethodAttributes methodAttr = (MethodAttributes.Public | MethodAttributes.Virtual);
       MethodBuilder methodBuilder = typeBuilder.DefineMethod("SayHello", methodAttr, typeof(void), new Type[] { });
       typeBuilder.DefineMethodOverride(methodBuilder, typeof(ISayHello).GetMethod("SayHello"));
       //
-      // 5.ILGenerator‚ğ¶¬‚µAILƒR[ƒh‚ğİ’è.
+      // 5.ILGeneratorã‚’ç”Ÿæˆã—ã€ILã‚³ãƒ¼ãƒ‰ã‚’è¨­å®š.
       //
       ILGenerator il = methodBuilder.GetILGenerator();
       il.Emit(OpCodes.Ldstr, "Hello World");
       il.Emit(OpCodes.Call, typeof(Console).GetMethod("WriteLine", new Type[] { typeof(string) }));
       il.Emit(OpCodes.Ret);
       //
-      // 6.ì¬‚µ‚½Œ^‚ğæ“¾.
+      // 6.ä½œæˆã—ãŸå‹ã‚’å–å¾—.
       //
       Type type = typeBuilder.CreateType();
       //
-      // 7.Œ^‚ğ‹ïŒ»‰».
+      // 7.å‹ã‚’å…·ç¾åŒ–.
       //
       ISayHello hello = (ISayHello)Activator.CreateInstance(type);
       //
-      // 8.Às.
+      // 8.å®Ÿè¡Œ.
       //
       hello.SayHello();
     }

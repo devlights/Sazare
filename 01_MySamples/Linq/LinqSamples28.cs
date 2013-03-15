@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-28
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples28 : IExecutable
   {
@@ -46,8 +46,8 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ˆø”‚È‚µ‚ÌDistinctŠg’£ƒƒ\ƒbƒh‚ğ—˜—p.
-      // ‚±‚Ìê‡AŠù’è‚ÌIEqualityComparer<T>‚ğ—p‚¢‚Ä”äŠr‚ªs‚í‚ê‚éB
+      // å¼•æ•°ãªã—ã®Distinctæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨.
+      // ã“ã®å ´åˆã€æ—¢å®šã®IEqualityComparer<T>ã‚’ç”¨ã„ã¦æ¯”è¼ƒãŒè¡Œã‚ã‚Œã‚‹ã€‚
       // 
       var numbers = new int[]
                 {
@@ -58,8 +58,8 @@ namespace Gsf.Samples
       Console.WriteLine(JoinElements(numbers.Distinct()));
 
       //
-      // ˆø”‚ÉIEqualityComparer<T>‚ğw’è‚µ‚ÄADistinctŠg’£ƒƒ\ƒbƒh‚ğ—˜—pB
-      // ‚±‚Ìê‡Aˆø”‚Éw’è‚µ‚½Comparer‚ğ—p‚¢‚Ä”äŠr‚ªs‚í‚ê‚éB
+      // å¼•æ•°ã«IEqualityComparer<T>ã‚’æŒ‡å®šã—ã¦ã€Distinctæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã€‚
+      // ã“ã®å ´åˆã€å¼•æ•°ã«æŒ‡å®šã—ãŸComparerã‚’ç”¨ã„ã¦æ¯”è¼ƒãŒè¡Œã‚ã‚Œã‚‹ã€‚
       //
       var people = new Person[]
                 { 

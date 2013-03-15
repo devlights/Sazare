@@ -6,43 +6,43 @@ namespace Gsf.Samples
 
   #region Reflection-01
   /// <summary>
-  /// ƒŠƒtƒŒƒNƒVƒ‡ƒ“‚ÌƒTƒ“ƒvƒ‹1‚Å‚·B
+  /// ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®ã‚µãƒ³ãƒ—ãƒ«1ã§ã™ã€‚
   /// </summary>
   public class ReflectionSample01 : IExecutable
   {
     public void Execute()
     {
       //
-      // TypeƒIƒuƒWƒFƒNƒg‚Ìæ“¾.
+      // Typeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®å–å¾—.
       //
-      // 1.typeof‚ğg—p.
+      // 1.typeofã‚’ä½¿ç”¨.
       Type type1 = typeof(string);
 
       //
-      // 2.Œ^–¼‚©‚çæ“¾.
+      // 2.å‹åã‹ã‚‰å–å¾—.
       //
       string typeName = "System.String";
       Type type2 = Type.GetType(typeName);
 
       //
-      // 3.ƒWƒFƒlƒŠƒbƒNŒ^‚ğtypeof‚Åæ“¾.
+      // 3.ã‚¸ã‚§ãƒãƒªãƒƒã‚¯å‹ã‚’typeofã§å–å¾—.
       //
       Type type3 = typeof(List<string>);
 
       //
-      // 4.ƒWƒFƒlƒŠƒbƒNŒ^‚ğŒ^–¼‚©‚çæ“¾.
+      // 4.ã‚¸ã‚§ãƒãƒªãƒƒã‚¯å‹ã‚’å‹åã‹ã‚‰å–å¾—.
       //
       typeName = "System.Collections.Generic.List`1[System.String]";
       Type type4 = Type.GetType(typeName);
 
       //
-      // 5.Œ^ˆø”‚ª1‚ÂˆÈã‚Ìê‡.
+      // 5.å‹å¼•æ•°ãŒ1ã¤ä»¥ä¸Šã®å ´åˆ.
       //
       typeName = "System.Collections.Generic.Dictionary`2[System.String, System.Int32]";
       Type type5 = Type.GetType(typeName);
 
       //
-      // 6.ƒWƒFƒlƒŠƒbƒNŒ^‚ğŒ^ˆø”–³‚µ‚ÅTypeƒIƒuƒWƒFƒNƒg‚Æ‚µ‚Äæ“¾‚µAŒã‚©‚çŒ^ˆø”‚ğ—^‚¦‚éê‡.
+      // 6.ã‚¸ã‚§ãƒãƒªãƒƒã‚¯å‹ã‚’å‹å¼•æ•°ç„¡ã—ã§Typeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¨ã—ã¦å–å¾—ã—ã€å¾Œã‹ã‚‰å‹å¼•æ•°ã‚’ä¸ãˆã‚‹å ´åˆ.
       //
       typeName = "System.Collections.Generic.List`1";
       Type type6 = Type.GetType(typeName);

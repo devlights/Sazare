@@ -6,38 +6,38 @@ namespace Gsf.Samples
 
   #region CovarianceSamples-01
   /// <summary>
-  /// ���ϐ��ɂ��ẴT���v���ł��B
+  /// 共変性についてのサンプルです。
   /// </summary>
   /// <remarks>
-  /// ���ϐ���4.0����ǉ����ꂽ�@�\�ł��B
+  /// 共変性は4.0から追加された機能です。
   /// </remarks>
   public class CovarianceSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // Covariance(���ϐ�)�́A�ȒP�Ɍ����ƁA�q�̃I�u�W�F�N�g��e�̌^�Ƃ��Ĉ������B
+      // Covariance(共変性)は、簡単に言うと、子のオブジェクトを親の型として扱う事。
       //
-      // ��F
+      // 例：
       //   string str = "gsf_zero1";
       //   object obj = str;
       //
-      // C# 4.0�ł́A���̊T�O���W�F�l���b�N�C���^�[�t�F�[�X�ɑ΂��ēK�p�ł���悤�ɂȂ����B
-      // ���ϐ���\������ɂ́A�^�������`����ۂɁA�uout�v�L�[���[�h��ݒ肷��B
+      // C# 4.0では、この概念をジェネリックインターフェースに対して適用できるようになった。
+      // 共変性を表明するには、型引数を定義する際に、「out」キーワードを設定する。
       //
-      // .NET 4.0�ł́AIEnumerable<T>�͈ȉ��̂悤�ɒ�`����Ă���B
+      // .NET 4.0では、IEnumerable<T>は以下のように定義されている。
       //   public interface IEnumerable<out T> : IEnumerable { ... }
       //
-      // �uout�v�L�[���[�h�́A���̌^�������u�o�͕����v�ɂ������p���Ȃ����Ƃ�\�����Ă���B
-      // �܂�A�uout�v�L�[���[�h���t�^������T��߂�l�Ȃǂ̏o�͒l�ɂ������p�ł��Ȃ��Ȃ�B
-      // (out���w�肵�Ă����ԂŁA���͕����A�܂胁�\�b�h�̈����Ȃǂ�T��ݒ肵�悤�Ƃ����
-      //  �R���p�C���G���[����������B�j
+      // 「out」キーワードは、この型引数を「出力方向」にしか利用しないことを表明している。
+      // つまり、「out」キーワードが付与されるとTを戻り値などの出力値にしか利用できなくなる。
+      // (outを指定している状態で、入力方向、つまりメソッドの引数などにTを設定しようとすると
+      //  コンパイルエラーが発生する。）
       //
-      // �o�͕����ɂ������p���Ȃ��̂ŁA�q�̌^�i�܂苷�`�̌^�j��e�̌^�i�܂�L�`�̌^�j��
-      // �ݒ肵�Ă��A���Ȃ��B
-      //  �u�����̌^��string�ł��邪�A���ۂɒl�����o���ۂɂ͐e�̌^�Ŏ󂯎��̂Ŗ��Ȃ��v
+      // 出力方向にしか利用しないので、子の型（つまり狭義の型）を親の型（つまり広義の型）に
+      // 設定しても、問題ない。
+      //  「内部の型はstringであるが、実際に値を取り出す際には親の型で受け取るので問題ない」
       //
-      // Contravariance(���ϐ�)�́A���̋t���s�����̂ƂȂ�B
+      // Contravariance(反変性)は、この逆を行うものとなる。
       //
       IEnumerable<string> strings = new[] { "gsf_zero1", "gsf_zero2" };
       IEnumerable<object> objects = strings;

@@ -8,7 +8,7 @@ namespace Gsf.Samples
 
   #region Reflection-02
   /// <summary>
-  /// ƒŠƒtƒŒƒNƒVƒ‡ƒ“‚ÌƒTƒ“ƒvƒ‹2‚Å‚·B
+  /// ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã®ã‚µãƒ³ãƒ—ãƒ«2ã§ã™ã€‚
   /// </summary>
   public class ReflectionSample02 : IExecutable
   {
@@ -17,14 +17,14 @@ namespace Gsf.Samples
       Type type = typeof(List<string>);
 
       //
-      // Activator‚ğ—˜—p‚µ‚ÄƒCƒ“ƒXƒ^ƒ“ƒX‰».iType‚Ì‚İ‚Ìw’èj
+      // Activatorã‚’åˆ©ç”¨ã—ã¦ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–.ï¼ˆTypeã®ã¿ã®æŒ‡å®šï¼‰
       //
       object obj = Activator.CreateInstance(type);
       Console.WriteLine(obj.GetType());
 
       //
-      // Activator‚ğ—˜—p‚µ‚ÄƒCƒ“ƒXƒ^ƒ“ƒX‰».(Assembly–¼‚ÆŒ^–¼)
-      // ‚±‚Ìê‡A–ß‚è’l‚ÍSystem.Runtime.Remoting.ObjectHandle‚É‚È‚è‚Ü‚·B
+      // Activatorã‚’åˆ©ç”¨ã—ã¦ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–.(Assemblyåã¨å‹å)
+      // ã“ã®å ´åˆã€æˆ»ã‚Šå€¤ã¯System.Runtime.Remoting.ObjectHandleã«ãªã‚Šã¾ã™ã€‚
       //
       ObjectHandle objHandle = Activator.CreateInstance(Assembly.GetAssembly(type).FullName, type.FullName);
       obj = objHandle.Unwrap();
@@ -32,9 +32,9 @@ namespace Gsf.Samples
       Console.WriteLine(obj.GetType());
 
       //
-      // Assembly‚ğ—˜—p‚µ‚ÄƒCƒ“ƒXƒ^ƒ“ƒX‰».
-      // ˆÈ‰º‚ªg‚¦‚é‚Ì‚ÍA‘ÎÛ‚Æ‚È‚éƒNƒ‰ƒX‚ªŠù‚É“Ç‚İ‚İÏ‚İ‚ÌƒAƒZƒ“ƒuƒŠ‚Ìê‡‚Å‚·B
-      // ‚Ü‚¾“Ç‚İ‚Ü‚ê‚Ä‚¢‚È‚¢ƒAƒZƒ“ƒuƒŠ‚ÉŠÜ‚Ü‚ê‚éƒNƒ‰ƒX‚Ìê‡‚Íæ‚ÉLoad‚µ‚Ä‚©‚çg‚¢‚Ü‚·B
+      // Assemblyã‚’åˆ©ç”¨ã—ã¦ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹åŒ–.
+      // ä»¥ä¸‹ãŒä½¿ãˆã‚‹ã®ã¯ã€å¯¾è±¡ã¨ãªã‚‹ã‚¯ãƒ©ã‚¹ãŒæ—¢ã«èª­ã¿è¾¼ã¿æ¸ˆã¿ã®ã‚¢ã‚»ãƒ³ãƒ–ãƒªã®å ´åˆã§ã™ã€‚
+      // ã¾ã èª­ã¿è¾¼ã¾ã‚Œã¦ã„ãªã„ã‚¢ã‚»ãƒ³ãƒ–ãƒªã«å«ã¾ã‚Œã‚‹ã‚¯ãƒ©ã‚¹ã®å ´åˆã¯å…ˆã«Loadã—ã¦ã‹ã‚‰ä½¿ã„ã¾ã™ã€‚
       //
       obj = Assembly.GetAssembly(type).CreateInstance(type.FullName);
       Console.WriteLine(obj.GetType());

@@ -7,33 +7,33 @@ namespace Gsf.Samples
 
   #region CompareOptionsSamples-02
   /// <summary>
-  /// CompareOptions�񋓌^�̃T���v���ł��B
+  /// CompareOptions列挙型のサンプルです。
   /// </summary>
   public class CompareOptionsSamples02 : IExecutable
   {
     public void Execute()
     {
       //
-      // string.Compare���\�b�h�ɂ́ACultureInfo��CompareOptions��
-      // �����ɂƂ�I�[�o�[���[�h����`����Ă���B(���ɂ��I�[�o�[���[�h���\�b�h�����݂��܂��B)
+      // string.Compareメソッドには、CultureInfoとCompareOptionsを
+      // 引数にとるオーバーロードが定義されている。(他にもオーバーロードメソッドが存在します。)
       //
-      // ���̃I�[�o�[���[�h�𗘗p����ہACompareOptions.IgnoreKanaType���w�肷���
-      // �u�Ђ炪�ȁv�Ɓu�J�^�J�i�v�̈Ⴂ�𖳎����āA�������r���s�������o����B
+      // このオーバーロードを利用する際、CompareOptions.IgnoreKanaTypeを指定すると
+      // 「ひらがな」と「カタカナ」の違いを無視して、文字列比較を行う事が出来る。
       //
-      // ����ɁACompareOptions�ɂ́AIgnoreWidth�Ƃ����l�����݂�
-      // ������w�肷��ƁA�S�p�Ɣ��p�̈Ⴂ�𖳎����āA�������r���s�������o����B
+      // さらに、CompareOptionsには、IgnoreWidthという値も存在し
+      // これを指定すると、全角と半角の違いを無視して、文字列比較を行う事が出来る。
       //
-      string ja1 = "�n���[���[���h";
-      string ja2 = "�۰ܰ���";
-      string ja3 = "�͂�[��[���";
+      string ja1 = "ハローワールド";
+      string ja2 = "ﾊﾛｰﾜｰﾙﾄﾞ";
+      string ja3 = "はろーわーるど";
 
       CultureInfo ci = new CultureInfo("ja-JP");
 
-      // �S�p���p�̈Ⴂ�𖳎����āA�u�n���[���[���h�v�Ɓu�۰ܰ��ށv���r
+      // 全角半角の違いを無視して、「ハローワールド」と「ﾊﾛｰﾜｰﾙﾄﾞ」を比較
       Console.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreWidth).ToStringResult());
-      // �S�p���p�̈Ⴂ�𖳎����āA�u�͂�[��[��ǁv�Ɓu�۰ܰ��ށv���r
+      // 全角半角の違いを無視して、「はろーわーるど」と「ﾊﾛｰﾜｰﾙﾄﾞ」を比較
       Console.WriteLine("{0}", string.Compare(ja3, ja2, ci, CompareOptions.IgnoreWidth).ToStringResult());
-      // �S�p���p�̈Ⴂ�𖳎����A���A�Ђ炪�ȂƃJ�^�J�i�̈Ⴂ�𖳎����āA�u�͂�[��[��ǁv�Ɓu�۰ܰ��ށv���r
+      // 全角半角の違いを無視し、且つ、ひらがなとカタカナの違いを無視して、「はろーわーるど」と「ﾊﾛｰﾜｰﾙﾄﾞ」を比較
       Console.WriteLine("{0}", string.Compare(ja3, ja2, ci, (CompareOptions.IgnoreWidth | CompareOptions.IgnoreKanaType)).ToStringResult());
     }
   }

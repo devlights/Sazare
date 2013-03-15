@@ -6,36 +6,36 @@ namespace Gsf.Samples
   using System.Linq;
 
   /// <summary>
-  /// CompareOptions—ñ‹“Œ^‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// CompareOptionsåˆ—æŒ™å‹ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class CompareOptionsSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // string.Compareƒƒ\ƒbƒh‚É‚ÍACultureInfo‚ÆCompareOptions‚ğ
-      // ˆø”‚É‚Æ‚éƒI[ƒo[ƒ[ƒh‚ª’è‹`‚³‚ê‚Ä‚¢‚éB(‘¼‚É‚àƒI[ƒo[ƒ[ƒhƒƒ\ƒbƒh‚ª‘¶İ‚µ‚Ü‚·B)
+      // string.Compareãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯ã€CultureInfoã¨CompareOptionsã‚’
+      // å¼•æ•°ã«ã¨ã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹ã€‚(ä»–ã«ã‚‚ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ã¾ã™ã€‚)
       //
-      // ‚±‚ÌƒI[ƒo[ƒ[ƒh‚ğ—˜—p‚·‚éÛACompareOptions.IgnoreKanaType‚ğw’è‚·‚é‚Æ
-      // u‚Ğ‚ç‚ª‚Èv‚ÆuƒJƒ^ƒJƒiv‚Ìˆá‚¢‚ğ–³‹‚µ‚ÄA•¶š—ñ”äŠr‚ğs‚¤–‚ªo—ˆ‚éB
+      // ã“ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹éš›ã€CompareOptions.IgnoreKanaTypeã‚’æŒ‡å®šã™ã‚‹ã¨
+      // ã€Œã²ã‚‰ãŒãªã€ã¨ã€Œã‚«ã‚¿ã‚«ãƒŠã€ã®é•ã„ã‚’ç„¡è¦–ã—ã¦ã€æ–‡å­—åˆ—æ¯”è¼ƒã‚’è¡Œã†äº‹ãŒå‡ºæ¥ã‚‹ã€‚
       //
-      string ja1 = "‚Í‚ë[‚í[‚é‚Ç";
-      string ja2 = "ƒnƒ[ƒ[ƒ‹ƒh";
+      string ja1 = "ã¯ã‚ãƒ¼ã‚ãƒ¼ã‚‹ã©";
+      string ja2 = "ãƒãƒ­ãƒ¼ãƒ¯ãƒ¼ãƒ«ãƒ‰";
 
       CultureInfo ci = new CultureInfo("ja-JP");
 
-      // •W€‚Ì”äŠr•û–@‚Å”äŠr
+      // æ¨™æº–ã®æ¯”è¼ƒæ–¹æ³•ã§æ¯”è¼ƒ
       Console.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.None).ToStringResult());
-      // ‘å•¶š¬•¶š‚ğ–³‹‚µ‚Ä”äŠr.
+      // å¤§æ–‡å­—å°æ–‡å­—ã‚’ç„¡è¦–ã—ã¦æ¯”è¼ƒ.
       Console.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreCase).ToStringResult());
-      // ‚Ğ‚ç‚ª‚È‚ÆƒJƒ^ƒJƒi‚Ìˆá‚¢‚ğ–³‹‚µ‚Ä”äŠr
-      // ‚Â‚Ü‚èAu‚Í‚ë[‚í[‚é‚Çv‚Æuƒnƒ[ƒ[ƒ‹ƒhv‚ğ“¯‚¶•¶š—ñ‚Æ‚µ‚Ä”äŠr
+      // ã²ã‚‰ãŒãªã¨ã‚«ã‚¿ã‚«ãƒŠã®é•ã„ã‚’ç„¡è¦–ã—ã¦æ¯”è¼ƒ
+      // ã¤ã¾ã‚Šã€ã€Œã¯ã‚ãƒ¼ã‚ãƒ¼ã‚‹ã©ã€ã¨ã€Œãƒãƒ­ãƒ¼ãƒ¯ãƒ¼ãƒ«ãƒ‰ã€ã‚’åŒã˜æ–‡å­—åˆ—ã¨ã—ã¦æ¯”è¼ƒ
       Console.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreKanaType).ToStringResult());
 
       //
-      // string.Compareƒƒ\ƒbƒh‚ÍA“à•”‚ÅCutureInfo‚©‚çA‚»‚ÌƒJƒ‹ƒ`ƒƒ[‚É•R‚Ã‚­
-      // CompareInfo‚ğæ‚èo‚µ‚ÄA”äŠrˆ—‚ğs‚Á‚Ä‚¢‚é‚Ì‚ÅA©‘O‚Å’¼ÚCompareInfo‚ğ
-      // —pˆÓ‚µ‚ÄACompareƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Ä‚à“¯‚¶Œ‹‰Ê‚Æ‚È‚éB
+      // string.Compareãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€å†…éƒ¨ã§CutureInfoã‹ã‚‰ã€ãã®ã‚«ãƒ«ãƒãƒ£ãƒ¼ã«ç´ã¥ã
+      // CompareInfoã‚’å–ã‚Šå‡ºã—ã¦ã€æ¯”è¼ƒå‡¦ç†ã‚’è¡Œã£ã¦ã„ã‚‹ã®ã§ã€è‡ªå‰ã§ç›´æ¥CompareInfoã‚’
+      // ç”¨æ„ã—ã¦ã€Compareãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦ã‚‚åŒã˜çµæœã¨ãªã‚‹ã€‚
       //
       CompareInfo compInfo = CompareInfo.GetCompareInfo("ja-JP");
       Console.WriteLine("{0}", compInfo.Compare(ja1, ja2, CompareOptions.IgnoreKanaType).ToStringResult());

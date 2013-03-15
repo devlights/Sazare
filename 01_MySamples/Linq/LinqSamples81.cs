@@ -7,23 +7,23 @@ namespace Gsf.Samples
 
   #region LinqSamples-81
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ƒhƒLƒ…ƒƒ“ƒg‡‚É•À‚Ñ‘Ö‚¦(InDocumentOrder)‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆé †ã«ä¸¦ã³æ›¿ãˆ(InDocumentOrder)ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples81 : IExecutable
   {
     public void Execute()
     {
       //
-      // InDocumentOrder<T> where T : XNode (Šg’£ƒƒ\ƒbƒh)
-      //   Œ³‚ÌƒV[ƒPƒ“ƒX‚ğƒhƒLƒ…ƒƒ“ƒg“à‚Ì‡˜‚É]‚¤‚æ‚¤•À‚Ñ‘Ö‚¦‚é.
+      // InDocumentOrder<T> where T : XNode (æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰)
+      //   å…ƒã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆå†…ã®é †åºã«å¾“ã†ã‚ˆã†ä¸¦ã³æ›¿ãˆã‚‹.
       //
       var root = BuildSampleXml();
       var reversed = root.Elements().Reverse();
 
-      // Reverse‚µ‚Ä‚¢‚é‚Ì‚Å‹t‡‚Å•\¦‚³‚ê‚é
+      // Reverseã—ã¦ã„ã‚‹ã®ã§é€†é †ã§è¡¨ç¤ºã•ã‚Œã‚‹
       foreach (var elem in reversed)
       {
         Console.WriteLine(elem);
@@ -31,7 +31,7 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
-      // InDocumentOrder‚ğs‚¤‚±‚Æ‚É‚æ‚èA—v‘f‚ª³‚µ‚¢‡˜‚É•À‚Ñ‘Ö‚¦‚ç‚ê‚é
+      // InDocumentOrderã‚’è¡Œã†ã“ã¨ã«ã‚ˆã‚Šã€è¦ç´ ãŒæ­£ã—ã„é †åºã«ä¸¦ã³æ›¿ãˆã‚‰ã‚Œã‚‹
       foreach (var elem in reversed.InDocumentOrder())
       {
         Console.WriteLine(elem);
@@ -39,10 +39,10 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
-      // “Á’è‚Ì—v‘f‚ğƒsƒbƒNƒAƒbƒv‚µ‚ÄAƒV[ƒPƒ“ƒXì¬B‚í‚´‚Æ‡˜‚ğ•Ï‚¦‚Ä‚¢‚é.
+      // ç‰¹å®šã®è¦ç´ ã‚’ãƒ”ãƒƒã‚¯ã‚¢ãƒƒãƒ—ã—ã¦ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ä½œæˆã€‚ã‚ã–ã¨é †åºã‚’å¤‰ãˆã¦ã„ã‚‹.
       XElement[] elemList = { root.Descendants("Title").Last(), root.Descendants("Title").First() };
 
-      // ‚»‚Ì‚Ü‚Ü•\¦‚·‚é‚Æ“–‘R‡˜‚Í•Ï‚í‚Á‚½‚Ü‚Ü
+      // ãã®ã¾ã¾è¡¨ç¤ºã™ã‚‹ã¨å½“ç„¶é †åºã¯å¤‰ã‚ã£ãŸã¾ã¾
       foreach (var elem in elemList)
       {
         Console.WriteLine(elem);
@@ -50,7 +50,7 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
-      // InDocumentOrder‚ğ•t‚¯‚é‚±‚Æ‚É‚æ‚èAƒhƒLƒ…ƒƒ“ƒg“à‚Ì³‚µ‚¢‡˜‚É•À‚Ñ‘Ö‚¦‚ç‚ê‚é
+      // InDocumentOrderã‚’ä»˜ã‘ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€ãƒ‰ã‚­ãƒ¥ãƒ¡ãƒ³ãƒˆå†…ã®æ­£ã—ã„é †åºã«ä¸¦ã³æ›¿ãˆã‚‰ã‚Œã‚‹
       foreach (var elem in elemList.InDocumentOrder())
       {
         Console.WriteLine(elem);
@@ -60,7 +60,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

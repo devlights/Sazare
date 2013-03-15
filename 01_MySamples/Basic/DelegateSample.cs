@@ -5,14 +5,14 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Windows.Forms;
 
-  #region ƒfƒŠƒQ[ƒg‚ÌƒTƒ“ƒvƒ‹ (.net framework 1.1)
+  #region ãƒ‡ãƒªã‚²ãƒ¼ãƒˆã®ã‚µãƒ³ãƒ—ãƒ« (.net framework 1.1)
   /// <summary>
-  /// ƒfƒŠƒQ[ƒg‚ÌƒTƒ“ƒvƒ‹i.NET Framework 1.1j
+  /// ãƒ‡ãƒªã‚²ãƒ¼ãƒˆã®ã‚µãƒ³ãƒ—ãƒ«ï¼ˆ.NET Framework 1.1ï¼‰
   /// </summary>
   class DelegateSample : IExecutable
   {
     /// <summary>
-    /// ˆ—‚ğÀs‚µ‚Ü‚·B
+    /// å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
     /// </summary>
     public void Execute()
     {
@@ -21,7 +21,7 @@ namespace Gsf.Samples
     }
 
     /// <summary>
-    /// ƒfƒŠƒQ[ƒgƒƒ\ƒbƒh.
+    /// ãƒ‡ãƒªã‚²ãƒ¼ãƒˆãƒ¡ã‚½ãƒƒãƒ‰.
     /// </summary>
     private void DelegateMethod()
     {

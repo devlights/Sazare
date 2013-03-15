@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-42
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples42 : IExecutable
   {
@@ -36,15 +36,15 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // Containsƒƒ\ƒbƒh‚ÍAw’è‚³‚ê‚½—v‘f‚ªƒV[ƒPƒ“ƒX“à‚É‘¶İ‚·‚é‚©”Û‚©‚ğ•Ô‚·B
+      // Containsãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æŒ‡å®šã•ã‚ŒãŸè¦ç´ ãŒã‚·ãƒ¼ã‚±ãƒ³ã‚¹å†…ã«å­˜åœ¨ã™ã‚‹ã‹å¦ã‹ã‚’è¿”ã™ã€‚
       //
-      // IEqualityComparer<T>‚ğw’è‚·‚éƒI[ƒo[ƒ[ƒh‚à‘¶İ‚·‚éB
+      // IEqualityComparer<T>ã‚’æŒ‡å®šã™ã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã‚‚å­˜åœ¨ã™ã‚‹ã€‚
       //
       var names = new string[] { "csharp", "visualbasic", "java", "python", "ruby", "php" };
-      Console.WriteLine("—v‘f[python]‚Í‘¶İ‚·‚é? = {0}", names.Contains("python"));
+      Console.WriteLine("è¦ç´ [python]ã¯å­˜åœ¨ã™ã‚‹? = {0}", names.Contains("python"));
 
       //
-      // IEqualityComparer<T>‚ğw’è‚·‚éƒo[ƒWƒ‡ƒ“.
+      // IEqualityComparer<T>ã‚’æŒ‡å®šã™ã‚‹ãƒãƒ¼ã‚¸ãƒ§ãƒ³.
       //
       var languages = new Language[] 
                 { 
@@ -57,7 +57,7 @@ namespace Gsf.Samples
                 };
 
       Console.WriteLine(
-          "—v‘f[python]‚Í‘¶İ‚·‚é? = {0}",
+          "è¦ç´ [python]ã¯å­˜åœ¨ã™ã‚‹? = {0}",
           languages.Contains(Language.Create("python"), new LanguageNameComparer())
       );
     }

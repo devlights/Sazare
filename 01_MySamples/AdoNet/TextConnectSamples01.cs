@@ -8,31 +8,31 @@ namespace Gsf.Samples
 
   #region TextConnectSamples-01
   /// <summary>
-  /// ADO.NET�𗘗p���ăe�L�X�g�t�@�C���ɐڑ�����T���v���ł��B
+  /// ADO.NETを利用してテキストファイルに接続するサンプルです。
   /// </summary>
   /// <remarks>
-  /// CSV�t�@�C���ɐڑ����A�e�N�G�����𔭍s���܂��B
+  /// CSVファイルに接続し、各クエリ文を発行します。
   /// </remarks>
   public class TextConnectSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // OleDb�v���o�C�_�𗘗p���ăe�L�X�g�t�@�C��(CSV)�ɐڑ�����.
+      // OleDbプロバイダを利用してテキストファイル(CSV)に接続する.
       //
       DbProviderFactory factory = DbProviderFactories.GetFactory("System.Data.OleDb");
       using (DbConnection conn = factory.CreateConnection())
       {
         //
-        // �e�L�X�g�t�@�C���ɐڑ�����ׂ̐ڑ���������\�z.
+        // テキストファイルに接続する為の接続文字列を構築.
         //
-        // ��{�I��Excel�ɐڑ�����ꍇ�Ƃقړ����v�̂ƂȂ�B
-        // Extended Properties����ISAM�h���C�o��Excel 12.0����text�ɂȂ�B
-        // �܂��A�t�H�[�}�b�g�������w�肷��K�v������B
+        // 基本的にExcelに接続する場合とほぼ同じ要領となる。
+        // Extended Properties内のISAMドライバがExcel 12.0からtextになる。
+        // また、フォーマット方式を指定する必要がある。
         //
-        // Data Source�Ɏw�肷��̂́A�Y���t�@�C�������݂���f�B���N�g�����w�肷��B
-        // ���A�Y���t�@�C���̍\���ɂ��Ă͕ʓrschema.ini�t�@�C���𓯂��f�B���N�g����
-        // �p�ӂ���K�v������B
+        // Data Sourceに指定するのは、該当ファイルが存在するディレクトリを指定する。
+        // 尚、該当ファイルの構造については別途schema.iniファイルを同じディレクトリに
+        // 用意する必要がある。
         //
         DbConnectionStringBuilder builder = factory.CreateConnectionStringBuilder();
 
@@ -45,8 +45,8 @@ namespace Gsf.Samples
 
         //
         // SELECT.
-        // FROM��̒��ɓǂݍ��ޑΏۂ̃t�@�C�������w�肷��B
-        // �f�[�^���擾�����ۂ�schema.ini�t�@�C�����Q�Ƃ���A���`���s����B
+        // FROM句の中に読み込む対象のファイル名を指定する。
+        // データが取得される際にschema.iniファイルが参照され、列定義が行われる。
         //
         using (DbCommand command = conn.CreateCommand())
         {
@@ -66,8 +66,8 @@ namespace Gsf.Samples
 
         //
         // INSERT.
-        // Access�̏ꍇ�Ɠ������e�L�X�g�t�@�C���͒ǉ��E�Q�Ƃ����o���Ȃ��B
-        // �i�܂�A�X�V�E�폜�͏o���Ȃ��j
+        // Accessの場合と同じくテキストファイルは追加・参照しか出来ない。
+        // （つまり、更新・削除は出来ない）
         //
         using (DbCommand command = conn.CreateCommand())
         {
@@ -100,12 +100,12 @@ namespace Gsf.Samples
 
         //
         // UPDATE
-        // ���� ISAM �ł́A�����N �e�[�u�����̃f�[�^���X�V���邱�Ƃ͂ł��܂���B
+        // この ISAM では、リンク テーブル内のデータを更新することはできません。
         //
 
         //
         // DELETE.
-        // ���� ISAM �ł́A�����N �e�[�u�����̃f�[�^���폜���邱�Ƃ͂ł��܂���B
+        // この ISAM では、リンク テーブル内のデータを削除することはできません。
         //
       }
     }

@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-76
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ƒiƒrƒQ[ƒVƒ‡ƒ“(Descendants, Ancestorsƒƒ\ƒbƒh)‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³(Descendants, Ancestorsãƒ¡ã‚½ãƒƒãƒ‰)ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples76 : IExecutable
   {
@@ -18,9 +18,9 @@ namespace Gsf.Samples
     {
       //
       // Descendants(XName)
-      //   Œ»İ‚Ì—v‘f‚ğ‹N“_‚Æ‚µ‚Äq‘·—v‘f‚ğæ“¾‚·‚é.
-      //   q‘·‚Ì”ÍˆÍ‚ÍA’¼‰º‚¾‚¯‚Å‚È‚­AƒlƒXƒg‚µ‚½q‘·ŠK‘w‚Ìƒf[ƒ^‚à
-      //   æ“¾‚Å‚«‚é. Linq To XML‚Å‚æ‚­—˜—p‚·‚éƒƒ\ƒbƒh‚Ìˆê‚Â.
+      //   ç¾åœ¨ã®è¦ç´ ã‚’èµ·ç‚¹ã¨ã—ã¦å­å­«è¦ç´ ã‚’å–å¾—ã™ã‚‹.
+      //   å­å­«ã®ç¯„å›²ã¯ã€ç›´ä¸‹ã ã‘ã§ãªãã€ãƒã‚¹ãƒˆã—ãŸå­å­«éšå±¤ã®ãƒ‡ãƒ¼ã‚¿ã‚‚
+      //   å–å¾—ã§ãã‚‹. Linq To XMLã§ã‚ˆãåˆ©ç”¨ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã®ä¸€ã¤.
       //
       var root = BuildSampleXml();
       var elem = root.Descendants();
@@ -28,21 +28,21 @@ namespace Gsf.Samples
       Console.WriteLine("Count={0}", elem.Count());
       Console.WriteLine("=====================================");
 
-      // "Customer"‚Æ‚¢‚¤–¼‘O‚Ìq‘·—v‘f‚ğæ“¾
+      // "Customer"ã¨ã„ã†åå‰ã®å­å­«è¦ç´ ã‚’å–å¾—
       elem = root.Descendants("Customer");
       Console.WriteLine("Count={0}", elem.Count());
       Console.WriteLine("First item:");
       Console.WriteLine(elem.First());
       Console.WriteLine("=====================================");
 
-      // ‘®«•t‚«‚Åi‚è‚İ
+      // å±æ€§ä»˜ãã§çµã‚Šè¾¼ã¿
       elem = root.Descendants("Customer").Where(x => x.Attribute("CustomerID").Value == "HUNGC");
       Console.WriteLine("Count={0}", elem.Count());
       Console.WriteLine("First item:");
       Console.WriteLine(elem.First());
       Console.WriteLine("=====================================");
 
-      // ƒNƒGƒŠ®‚Å—˜—p
+      // ã‚¯ã‚¨ãƒªå¼ã§åˆ©ç”¨
       elem = from node in root.Descendants("Customer")
              let attr = node.Attribute("CustomerID").Value
              where attr.StartsWith("L")
@@ -55,7 +55,7 @@ namespace Gsf.Samples
       Console.WriteLine(elem.First());
       Console.WriteLine("=====================================");
 
-      // ’¼Ú2ŠK‘w‰º‚Ì—v‘f–¼‚ğw’è
+      // ç›´æ¥2éšå±¤ä¸‹ã®è¦ç´ åã‚’æŒ‡å®š
       elem = from node in root.Descendants("Region")
              where node.Value == "CA"
              select node;
@@ -67,9 +67,9 @@ namespace Gsf.Samples
 
       //
       // Ancestors(XName)      
-      //   Œ»İ‚Ì—v‘f‚Ìæ‘c—v‘f‚ğæ“¾‚·‚é.
-      //   ŒZ’í—v‘f‚Íæ“¾‚Å‚«‚È‚¢iŒ”‚ª0Œ‚Æ‚È‚é)
-      //   ‚ ‚­‚Ü‚Å©•ª‚Ìæ‘c‚Æ‚È‚é—v‘f‚ğw’è‚·‚é.
+      //   ç¾åœ¨ã®è¦ç´ ã®å…ˆç¥–è¦ç´ ã‚’å–å¾—ã™ã‚‹.
+      //   å…„å¼Ÿè¦ç´ ã¯å–å¾—ã§ããªã„ï¼ˆä»¶æ•°ãŒ0ä»¶ã¨ãªã‚‹)
+      //   ã‚ãã¾ã§è‡ªåˆ†ã®å…ˆç¥–ã¨ãªã‚‹è¦ç´ ã‚’æŒ‡å®šã™ã‚‹.
       //
       root = BuildSampleXml();
       var startingPoint = root.Descendants("Region").Where(x => x.Value == "CA").First();
@@ -81,7 +81,7 @@ namespace Gsf.Samples
       Console.WriteLine(ancestors.First());
       Console.WriteLine("=====================================");
 
-      // ContactName‚ÍAŒ»İ‚Ì—v‘f(Region)‚Ìæ‘c(FullAddress)‚Å‚Í‚È‚¢‚½‚ßw’è‚µ‚Ä‚àæ“¾‚Å‚«‚È‚¢
+      // ContactNameã¯ã€ç¾åœ¨ã®è¦ç´ (Region)ã®å…ˆç¥–(FullAddress)ã§ã¯ãªã„ãŸã‚æŒ‡å®šã—ã¦ã‚‚å–å¾—ã§ããªã„
       ancestors = startingPoint.Ancestors("ContactName");
 
       Console.WriteLine("Count={0}", ancestors.Count());
@@ -93,7 +93,7 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
-      // FullAddress—v‘f‚ÌŒZ’í—v‘f‚Æ‚È‚éContactName‚Íæ“¾‚Å‚«‚È‚¢
+      // FullAddressè¦ç´ ã®å…„å¼Ÿè¦ç´ ã¨ãªã‚‹ContactNameã¯å–å¾—ã§ããªã„
       startingPoint = root.Descendants("FullAddress").First();
       ancestors = startingPoint.Ancestors("ContactName");
 
@@ -106,7 +106,7 @@ namespace Gsf.Samples
 
       Console.WriteLine("=====================================");
 
-      // FullAddress—v‘f‚Ìæ‘c‚Å‚ ‚éCustomer—v‘f‚Íæ“¾‚Å‚«‚é.
+      // FullAddressè¦ç´ ã®å…ˆç¥–ã§ã‚ã‚‹Customerè¦ç´ ã¯å–å¾—ã§ãã‚‹.
       startingPoint = root.Descendants("FullAddress").First();
       ancestors = startingPoint.Ancestors("Customer");
 
@@ -123,7 +123,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/bb387025.aspx
       //
       return XElement.Load(@"xml/CustomersOrders.xml");

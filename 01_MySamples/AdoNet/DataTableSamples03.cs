@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region DataTableSamples-03
   /// <summary>
-  /// DataTable�N���X�Ɋւ���T���v���ł��B
+  /// DataTableクラスに関するサンプルです。
   /// </summary>
   public class DataTableSamples03 : IExecutable
   {
@@ -26,15 +26,15 @@ namespace Gsf.Samples
       Console.WriteLine("[TableA]RowCount = {0}", tableA.Rows.Count);
 
       //
-      // tableA�̃X�L�[�}��tableB�ɃR�s�[.
-      // (�f�[�^�̓R�s�[���Ȃ��B)
+      // tableAのスキーマをtableBにコピー.
+      // (データはコピーしない。)
       //
       DataTable tableB = tableA.Clone();
       Console.WriteLine("[TableB]ColumnCount = {0}", tableB.Columns.Count);
       Console.WriteLine("[TableB]RowCount = {0}", tableB.Rows.Count);
 
       //
-      // tableA�̃X�L�[�}�ƃf�[�^��tableC�ɃR�s�[.
+      // tableAのスキーマとデータをtableCにコピー.
       //
       DataTable tableC = tableA.Copy();
       Console.WriteLine("[TableC]ColumnCount = {0}", tableC.Columns.Count);

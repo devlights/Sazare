@@ -9,18 +9,18 @@ namespace Gsf.Samples
 
   #region BarrierSamples-02
   /// <summary>
-  /// BarrierƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Barrierã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// BarrierƒNƒ‰ƒX‚ÍA.NET 4.0‚©‚ç’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
+  /// Barrierã‚¯ãƒ©ã‚¹ã¯ã€.NET 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
   /// </remarks>
   public class BarrierSamples02 : IExecutable
   {
-    // ŒvZ’l‚ğ•Û‚·‚é•Ï”
+    // è¨ˆç®—å€¤ã‚’ä¿æŒã™ã‚‹å¤‰æ•°
     long _count;
-    // ƒLƒƒƒ“ƒZƒ‹ƒg[ƒNƒ“ƒ\[ƒX.
+    // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒˆãƒ¼ã‚¯ãƒ³ã‚½ãƒ¼ã‚¹.
     CancellationTokenSource _tokenSource;
-    // ƒLƒƒƒ“ƒZƒ‹ƒg[ƒNƒ“.
+    // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒˆãƒ¼ã‚¯ãƒ³.
     CancellationToken _token;
 
     public void Execute()
@@ -29,9 +29,9 @@ namespace Gsf.Samples
       _token = _tokenSource.Token;
 
       //
-      // 5‚Â‚Ìˆ—‚ğA“Á’è‚ÌƒtƒF[ƒY–ˆ‚É“¯Šú‚³‚¹‚È‚ª‚çÀs.
-      // ‚³‚ç‚ÉAƒtƒF[ƒY’PˆÊ‚Å“r’†Œ‹‰Ê‚ğo—Í‚·‚é‚æ‚¤‚É‚·‚é‚ª
-      // 5•bŒo‰ß‚µ‚½“_‚ÅƒLƒƒƒ“ƒZƒ‹‚ğs‚¤B
+      // 5ã¤ã®å‡¦ç†ã‚’ã€ç‰¹å®šã®ãƒ•ã‚§ãƒ¼ã‚ºæ¯ã«åŒæœŸã•ã›ãªãŒã‚‰å®Ÿè¡Œ.
+      // ã•ã‚‰ã«ã€ãƒ•ã‚§ãƒ¼ã‚ºå˜ä½ã§é€”ä¸­çµæœã‚’å‡ºåŠ›ã™ã‚‹ã‚ˆã†ã«ã™ã‚‹ãŒ
+      // 5ç§’çµŒéã—ãŸæ™‚ç‚¹ã§ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚’è¡Œã†ã€‚
       //
       using (Barrier barrier = new Barrier(5, PostPhaseProc))
       {
@@ -47,10 +47,10 @@ namespace Gsf.Samples
             () =>
             {
               //
-              // 5•bŠÔ‘Ò‹@‚µ‚½Œã‚ÉƒLƒƒƒ“ƒZƒ‹‚ğs‚¤.
+              // 5ç§’é–“å¾…æ©Ÿã—ãŸå¾Œã«ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã‚’è¡Œã†.
               //
               Thread.Sleep(TimeSpan.FromSeconds(5));
-              Console.WriteLine("¡¡¡¡@ƒLƒƒƒ“ƒZƒ‹@¡¡¡¡");
+              Console.WriteLine("â– â– â– â– ã€€ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã€€â– â– â– â– ");
               _tokenSource.Cancel();
             }
           );
@@ -63,32 +63,32 @@ namespace Gsf.Samples
 
       _tokenSource.Dispose();
 
-      Console.WriteLine("ÅI’lF{0}", _count);
+      Console.WriteLine("æœ€çµ‚å€¤ï¼š{0}", _count);
     }
 
     //
-    // Še•À—ñˆ——p‚ÌƒAƒNƒVƒ‡ƒ“.
+    // å„ä¸¦åˆ—å‡¦ç†ç”¨ã®ã‚¢ã‚¯ã‚·ãƒ§ãƒ³.
     //
     void ParallelProc(Barrier barrier, int randomMaxValue, int randomSeed, int modValue)
     {
       //
-      // ‘æˆêƒtƒF[ƒY.
+      // ç¬¬ä¸€ãƒ•ã‚§ãƒ¼ã‚º.
       //
       Calculate(barrier, randomMaxValue, randomSeed, modValue, 100);
 
       //
-      // ‘æ“ñƒtƒF[ƒY.
+      // ç¬¬äºŒãƒ•ã‚§ãƒ¼ã‚º.
       //
       Calculate(barrier, randomMaxValue, randomSeed, modValue, 5000);
 
       //
-      // ‘æOƒtƒF[ƒY.
+      // ç¬¬ä¸‰ãƒ•ã‚§ãƒ¼ã‚º.
       //
       Calculate(barrier, randomMaxValue, randomSeed, modValue, 10000);
     }
 
     //
-    // ŒvZˆ—.
+    // è¨ˆç®—å‡¦ç†.
     //
     void Calculate(Barrier barrier, int randomMaxValue, int randomSeed, int modValue, int loopCountMaxValue)
     {
@@ -96,18 +96,18 @@ namespace Gsf.Samples
       Stopwatch watch = Stopwatch.StartNew();
 
       int loopCount = rnd.Next(loopCountMaxValue);
-      Console.WriteLine("[Phase{0}] ƒ‹[ƒvƒJƒEƒ“ƒgF{1}, TASK:{2}", barrier.CurrentPhaseNumber, loopCount, Task.CurrentId);
+      Console.WriteLine("[Phase{0}] ãƒ«ãƒ¼ãƒ—ã‚«ã‚¦ãƒ³ãƒˆï¼š{1}, TASK:{2}", barrier.CurrentPhaseNumber, loopCount, Task.CurrentId);
 
       for (int i = 0; i < loopCount; i++)
       {
         //
-        // ƒLƒƒƒ“ƒZƒ‹ó‘Ô‚ğƒ`ƒFƒbƒN.
-        // •Ê‚ÌêŠ‚É‚ÄƒLƒƒƒ“ƒZƒ‹‚ªs‚í‚ê‚Ä‚¢‚éê‡‚Í
-        // OperationCanceledException‚ª”­¶‚·‚é.
+        // ã‚­ãƒ£ãƒ³ã‚»ãƒ«çŠ¶æ…‹ã‚’ãƒã‚§ãƒƒã‚¯.
+        // åˆ¥ã®å ´æ‰€ã«ã¦ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãŒè¡Œã‚ã‚Œã¦ã„ã‚‹å ´åˆã¯
+        // OperationCanceledExceptionãŒç™ºç”Ÿã™ã‚‹.
         //
         _token.ThrowIfCancellationRequested();
 
-        // “K“x‚ÉŠÔ‚ª‚©‚©‚é‚æ‚¤‚É’²®.
+        // é©åº¦ã«æ™‚é–“ãŒã‹ã‹ã‚‹ã‚ˆã†ã«èª¿æ•´.
         if (rnd.Next(10000) % modValue == 0)
         {
           Thread.Sleep(TimeSpan.FromMilliseconds(10));
@@ -122,15 +122,15 @@ namespace Gsf.Samples
       try
       {
         //
-        // ƒVƒOƒiƒ‹‚ğ”­s‚µA’‡ŠÔ‚ÌƒXƒŒƒbƒh‚ª‘µ‚¤‚Ì‚ğ‘Ò‚Â.
+        // ã‚·ã‚°ãƒŠãƒ«ã‚’ç™ºè¡Œã—ã€ä»²é–“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ãŒæƒã†ã®ã‚’å¾…ã¤.
         //
         barrier.SignalAndWait(_token);
       }
       catch (BarrierPostPhaseException postPhaseEx)
       {
         //
-        // Post PhaseƒAƒNƒVƒ‡ƒ“‚É‚ÄƒGƒ‰[‚ª”­¶‚µ‚½ê‡‚Í‚±‚±‚É—ˆ‚é.
-        // (–{—ˆ‚Å‚ ‚ê‚ÎAƒLƒƒƒ“ƒZƒ‹‚·‚é‚È‚Ç‚ÌƒGƒ‰[ˆ—‚ª•K—v)
+        // Post Phaseã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã«ã¦ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿã—ãŸå ´åˆã¯ã“ã“ã«æ¥ã‚‹.
+        // (æœ¬æ¥ã§ã‚ã‚Œã°ã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã™ã‚‹ãªã©ã®ã‚¨ãƒ©ãƒ¼å‡¦ç†ãŒå¿…è¦)
         //
         Console.WriteLine("*** {0} ***", postPhaseEx.Message);
         throw;
@@ -138,48 +138,48 @@ namespace Gsf.Samples
       catch (OperationCanceledException cancelEx)
       {
         //
-        // •Ê‚ÌêŠ‚É‚ÄƒLƒƒƒ“ƒZƒ‹‚ªs‚í‚ê‚½.
+        // åˆ¥ã®å ´æ‰€ã«ã¦ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãŒè¡Œã‚ã‚ŒãŸ.
         //
-        // Šù‚Éˆ—‚ªŠ®—¹‚µ‚ÄSignalAndWait‚ğŒÄ‚ÑA’‡ŠÔ‚ÌƒXƒŒƒbƒh‚ğ
-        // ‘Ò‚Á‚Ä‚¢‚éó‘Ô‚ÅƒLƒƒƒ“ƒZƒ‹‚ª”­¶‚µ‚½ê‡‚Í
-        //    u‘€ì‚ªæ‚èÁ‚³‚ê‚Ü‚µ‚½Bv‚Æ‚È‚éB
+        // æ—¢ã«å‡¦ç†ãŒå®Œäº†ã—ã¦SignalAndWaitã‚’å‘¼ã³ã€ä»²é–“ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’
+        // å¾…ã£ã¦ã„ã‚‹çŠ¶æ…‹ã§ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãŒç™ºç”Ÿã—ãŸå ´åˆã¯
+        //    ã€Œæ“ä½œãŒå–ã‚Šæ¶ˆã•ã‚Œã¾ã—ãŸã€‚ã€ã¨ãªã‚‹ã€‚
         //
-        // SignalAndWait‚ğŒÄ‚Ô‘O‚ÉAŠù‚ÉƒLƒƒƒ“ƒZƒ‹ó‘Ô‚Æ‚È‚Á‚Ä‚¢‚éó‘Ô‚Å
-        // SignalAndWait‚ğŒÄ‚Ô‚Æ
-        //    u‘€ì‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½Bv‚Æ‚È‚éB
+        // SignalAndWaitã‚’å‘¼ã¶å‰ã«ã€æ—¢ã«ã‚­ãƒ£ãƒ³ã‚»ãƒ«çŠ¶æ…‹ã¨ãªã£ã¦ã„ã‚‹çŠ¶æ…‹ã§
+        // SignalAndWaitã‚’å‘¼ã¶ã¨
+        //    ã€Œæ“ä½œãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸã€‚ã€ã¨ãªã‚‹ã€‚
         //
-        Console.WriteLine("ƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½ -- MESSAGE:{0}, TASK:{1}", cancelEx.Message, Task.CurrentId);
+        Console.WriteLine("ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸ -- MESSAGE:{0}, TASK:{1}", cancelEx.Message, Task.CurrentId);
         throw;
       }
     }
 
     //
-    // Barrier‚É‚ÄAŠeƒtƒF[ƒY–ˆ‚ªŠ®—¹‚µ‚½Û‚ÉŒÄ‚Î‚ê‚éƒR[ƒ‹ƒoƒbƒN.
-    // (BarrierƒNƒ‰ƒX‚ÌƒRƒ“ƒXƒgƒ‰ƒNƒ^‚É‚Äİ’è‚·‚é)
+    // Barrierã«ã¦ã€å„ãƒ•ã‚§ãƒ¼ã‚ºæ¯ãŒå®Œäº†ã—ãŸéš›ã«å‘¼ã°ã‚Œã‚‹ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯.
+    // (Barrierã‚¯ãƒ©ã‚¹ã®ã‚³ãƒ³ã‚¹ãƒˆãƒ©ã‚¯ã‚¿ã«ã¦è¨­å®šã™ã‚‹)
     //
     void PostPhaseProc(Barrier barrier)
     {
       //
-      // Post PhaseƒAƒNƒVƒ‡ƒ“‚ÍA“¯Às‚µ‚Ä‚¢‚éˆ—‚ª‘S‚ÄSignalAndWait‚ğ
-      // ŒÄ‚Î‚È‚¯‚ê‚Î”­¶‚µ‚È‚¢B
+      // Post Phaseã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã¯ã€åŒæ™‚å®Ÿè¡Œã—ã¦ã„ã‚‹å‡¦ç†ãŒå…¨ã¦SignalAndWaitã‚’
+      // å‘¼ã°ãªã‘ã‚Œã°ç™ºç”Ÿã—ãªã„ã€‚
       //
-      // ‚Â‚Ü‚èA‚±‚Ìˆ—‚ª‘–‚Á‚Ä‚¢‚éŠÔA‘¼‚Ì“¯Àsˆ—‚Í‘S‚ÄƒuƒƒbƒN‚³‚ê‚Ä‚¢‚éó‘Ô‚Æ‚È‚éB
+      // ã¤ã¾ã‚Šã€ã“ã®å‡¦ç†ãŒèµ°ã£ã¦ã„ã‚‹é–“ã€ä»–ã®åŒæ™‚å®Ÿè¡Œå‡¦ç†ã¯å…¨ã¦ãƒ–ãƒ­ãƒƒã‚¯ã•ã‚Œã¦ã„ã‚‹çŠ¶æ…‹ã¨ãªã‚‹ã€‚
       //
       long current = Interlocked.Read(ref _count);
 
-      Console.WriteLine("Œ»İ‚ÌƒtƒF[ƒYF{0}, Q‰Á—v‘f”F{1}", barrier.CurrentPhaseNumber, barrier.ParticipantCount);
-      Console.WriteLine("tŒ»İ’lF{0}", current);
+      Console.WriteLine("ç¾åœ¨ã®ãƒ•ã‚§ãƒ¼ã‚ºï¼š{0}, å‚åŠ è¦ç´ æ•°ï¼š{1}", barrier.CurrentPhaseNumber, barrier.ParticipantCount);
+      Console.WriteLine("tç¾åœ¨å€¤ï¼š{0}", current);
 
       //
-      // ˆÈ‰º‚ÌƒRƒƒ“ƒg‚ğŠO‚·‚ÆAŸ‚ÌPost PhaseƒAƒNƒVƒ‡ƒ“‚É‚Ä
-      // ‘S‚Ä‚ÌSignalAndWait‚ğŒÄ‚Ño‚µ‚Ä‚¢‚éAˆ—‚É‚ÄBarrierPostPhaseException‚ª
-      // ”­¶‚·‚éB
+      // ä»¥ä¸‹ã®ã‚³ãƒ¡ãƒ³ãƒˆã‚’å¤–ã™ã¨ã€æ¬¡ã®Post Phaseã‚¢ã‚¯ã‚·ãƒ§ãƒ³ã«ã¦
+      // å…¨ã¦ã®SignalAndWaitã‚’å‘¼ã³å‡ºã—ã¦ã„ã‚‹ã€å‡¦ç†ã«ã¦BarrierPostPhaseExceptionãŒ
+      // ç™ºç”Ÿã™ã‚‹ã€‚
       //
       //throw new InvalidOperationException("dummy");
     }
 
     //
-    // AggregateException.Handleƒƒ\ƒbƒh‚Éİ’è‚³‚ê‚éƒR[ƒ‹ƒoƒbƒN.
+    // AggregateException.Handleãƒ¡ã‚½ãƒƒãƒ‰ã«è¨­å®šã•ã‚Œã‚‹ã‚³ãƒ¼ãƒ«ãƒãƒƒã‚¯.
     //
     bool HandleAggregateException(Exception ex)
     {
@@ -188,7 +188,7 @@ namespace Gsf.Samples
         OperationCanceledException cancelEx = ex as OperationCanceledException;
         if (_token == cancelEx.CancellationToken)
         {
-          Console.WriteLine("–––Barrier“à‚Ìˆ—‚ªƒLƒƒƒ“ƒZƒ‹‚³‚ê‚½ MESSAGE={0} –––", cancelEx.Message);
+          Console.WriteLine("ï¼Šï¼Šï¼ŠBarrierå†…ã®å‡¦ç†ãŒã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚ŒãŸ MESSAGE={0} ï¼Šï¼Šï¼Š", cancelEx.Message);
           return true;
         }
       }

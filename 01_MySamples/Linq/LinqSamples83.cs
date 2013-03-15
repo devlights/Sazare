@@ -7,20 +7,20 @@ namespace Gsf.Samples
 
   #region LinqSamples-83
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// XElement‚ÆXAttribute‚Ì’læ“¾‚É‚Â‚¢‚Ä‚ÌTip‚Å‚·B
+  /// XElementã¨XAttributeã®å€¤å–å¾—ã«ã¤ã„ã¦ã®Tipã§ã™ã€‚
   /// </remarks>
   public class LinqSamples83 : IExecutable
   {
     public void Execute()
     {
       //
-      // XElement‚ÆXAttribute‚Ì’l‚ÍƒLƒƒƒXƒg‚µ‚½‚çæ“¾‚Å‚«‚é
+      // XElementã¨XAttributeã®å€¤ã¯ã‚­ãƒ£ã‚¹ãƒˆã—ãŸã‚‰å–å¾—ã§ãã‚‹
       //   http://msdn.microsoft.com/ja-jp/library/vstudio/bb387049.aspx
       //
-      // ‘Î‰‚µ‚Ä‚¢‚é‚Ì‚ÍAˆÈ‰º‚ÌŒ^‚Ìê‡.
+      // å¯¾å¿œã—ã¦ã„ã‚‹ã®ã¯ã€ä»¥ä¸‹ã®å‹ã®å ´åˆ.
       // string
       // bool,bool?
       // int,int?
@@ -48,7 +48,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

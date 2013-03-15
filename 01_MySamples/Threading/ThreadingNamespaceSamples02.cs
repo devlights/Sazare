@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region ThreadingNamespaceSamples-02
   /// <summary>
-  /// System.Threading���O��Ԃɑ��݂���N���X�̃T���v���ł��B
+  /// System.Threading名前空間に存在するクラスのサンプルです。
   /// </summary>
   public class ThreadingNamespaceSamples02 : IExecutable
   {
@@ -16,9 +16,9 @@ namespace Gsf.Samples
     {
       ////////////////////////////////////////////////////////////
       //
-      // �����f�[�^�X���b�g.
-      //    �f�[�^�X���b�g�͂ǂꂩ�̃X���b�h�ōŏ��ɍ쐬������
-      //    �S�ẴX���b�h�ɑ΂��ăX���b�g�����蓖�Ă���B
+      // 無名データスロット.
+      //    データスロットはどれかのスレッドで最初に作成したら
+      //    全てのスレッドに対してスロットが割り当てられる。
       //
       LocalDataStoreSlot slot = Thread.AllocateDataSlot();
 
@@ -43,12 +43,12 @@ namespace Gsf.Samples
 
       ////////////////////////////////////////////////////////////
       //
-      // ���O�t���f�[�^�X���b�g.
-      //    ���O�������鎖�ȊO�́A�����̃X���b�g�Ɠ����ł��B
-      //    ���O�t���f�[�^�X���b�g�́A�ŏ��ɂ��̖��O���Ă΂ꂽ
-      //    �ۂɍ쐬����܂��B
-      //    FreeNamedDataSlot���\�b�h���ĂԂƌ��݂̃X���b�g�ݒ�
-      //    ���������܂��B
+      // 名前付きデータスロット.
+      //    名前がつけられる事以外は、無名のスロットと同じです。
+      //    名前付きデータスロットは、最初にその名前が呼ばれた
+      //    際に作成されます。
+      //    FreeNamedDataSlotメソッドを呼ぶと現在のスロット設定
+      //    が解放されます。
       //
       threads.Clear();
       for (int i = 0; i < 10; i++)
@@ -68,7 +68,7 @@ namespace Gsf.Samples
       });
 
       //
-      // ���p�����f�[�^�X���b�g�����.
+      // 利用したデータスロットを解放.
       //
       Thread.FreeNamedDataSlot("SampleSlot");
 
@@ -79,22 +79,22 @@ namespace Gsf.Samples
       LocalDataStoreSlot slot = stateObj as LocalDataStoreSlot;
 
       //
-      // �X���b�g�Ƀf�[�^��ݒ�
+      // スロットにデータを設定
       //
       Thread.SetData(slot, string.Format("ManagedThreadId={0}", Thread.CurrentThread.ManagedThreadId));
 
       //
-      // �ݒ肵�����e���m�F.
+      // 設定した内容を確認.
       //
       Console.WriteLine("[BEFORE] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(slot));
 
       //
-      // �ʂ̃X���b�h�ɏ������s���ĖႤ�ׂɈ�USleep����B
+      // 別のスレッドに処理を行って貰う為に一旦Sleepする。
       //
       Thread.Sleep(TimeSpan.FromSeconds(1));
 
       //
-      // �ēx�m�F.
+      // 再度確認.
       //
       Console.WriteLine("[AFTER ] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(slot));
     }
@@ -102,22 +102,22 @@ namespace Gsf.Samples
     void DoNamedDataSlotProcess(object stateObj)
     {
       //
-      // �X���b�g�Ƀf�[�^��ݒ�
+      // スロットにデータを設定
       //
       Thread.SetData(Thread.GetNamedDataSlot("SampleSlot"), string.Format("ManagedThreadId={0}", Thread.CurrentThread.ManagedThreadId));
 
       //
-      // �ݒ肵�����e���m�F.
+      // 設定した内容を確認.
       //
       Console.WriteLine("[BEFORE] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(Thread.GetNamedDataSlot("SampleSlot")));
 
       //
-      // �ʂ̃X���b�h�ɏ������s���ĖႤ�ׂɈ�USleep����B
+      // 別のスレッドに処理を行って貰う為に一旦Sleepする。
       //
       Thread.Sleep(TimeSpan.FromSeconds(1));
 
       //
-      // �ēx�m�F.
+      // 再度確認.
       //
       Console.WriteLine("[AFTER ] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(Thread.GetNamedDataSlot("SampleSlot")));
     }

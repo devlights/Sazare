@@ -8,7 +8,7 @@ namespace Gsf.Samples
 
   #region QueueSynchronizedSamples-01
   /// <summary>
-  /// Queue�̓��������ɂ��ẴT���v���ł��B
+  /// Queueの同期処理についてのサンプルです。
   /// </summary>
   public class QueueSynchronizedSamples01 : IExecutable
   {
@@ -33,14 +33,14 @@ namespace Gsf.Samples
     void EnumerateCollection()
     {
       //
-      // ���b�N�����ɗ񋓏������s���B
+      // ロックせずに列挙処理を行う。
       //
-      // Collection��Synchronized���\�b�h�ō쐬�����I�u�W�F�N�g��
-      // �P�ꑀ��ɑ΂��ẮA�����ł��邪�����A�N�V�����̓K�[�h�ł��Ȃ��B
-      // �i�C�e���[�V�����A�i�r�Q�[�V�����A�v�b�g�E�C�t�E�A�u�Z���g�Ȃǁj
+      // CollectionのSynchronizedメソッドで作成したオブジェクトは
+      // 単一操作に対しては、同期できるが複合アクションはガードできない。
+      // （イテレーション、ナビゲーション、プット・イフ・アブセントなど）
       //
-      // �ʂ̃X���b�h�ɂāA�R���N�V�����𑀍삵�Ă���ꍇ
-      // ��O����������\��������B
+      // 別のスレッドにて、コレクションを操作している場合
+      // 例外が発生する可能性がある。
       //
       /*
       foreach(int i in queue)
@@ -51,10 +51,10 @@ namespace Gsf.Samples
       */
 
       //
-      // ���̕��@�F
+      // 第一の方法：
       //
-      // ���[�v���Ă���ԁA�R���N�V���������b�N����.
-      // �L���ł��邪�A�񋓏������s���Ă���Ԃ����ƃ��b�N���ꂽ�܂܂ƂȂ�B
+      // ループしている間、コレクションをロックする.
+      // 有効であるが、列挙処理を行っている間ずっとロックされたままとなる。
       // 
       /*
       lock(queue.SyncRoot)
@@ -68,12 +68,12 @@ namespace Gsf.Samples
       */
 
       //
-      // ���̕��@�F
+      // 第二の方法：
       //
-      // ��U���b�N���l�����A�R���N�V�����̃N���[�����쐬����B
-      // �N���[���쐬��A���b�N��������A���̌�N���[���ɑ΂��ė񋓏������s���B
+      // 一旦ロックを獲得し、コレクションのクローンを作成する。
+      // クローン作成後、ロックを解放し、その後クローンに対して列挙処理を行う。
       //
-      // ������R���N�V�������̂��傫���ꍇ�͎��Ԃƕ��ׂ������邪�A����̓g���[�h�I�t�ƂȂ�B
+      // これもコレクション自体が大きい場合は時間と負荷がかかるが、それはトレードオフとなる。
       //
       Queue cloneQueue = null;
       lock (queue.SyncRoot)
@@ -89,7 +89,7 @@ namespace Gsf.Samples
       {
         Console.WriteLine(i);
 
-        // �킴�ƃ^�C���X���C�X��؂�ւ�
+        // わざとタイムスライスを切り替え
         Thread.Sleep(0);
       }
     }
@@ -107,7 +107,7 @@ namespace Gsf.Samples
         Console.WriteLine("\t==> Dequeue");
         queue.Dequeue();
 
-        // �킴�ƃ^�C���X���C�X��؂�ւ�
+        // わざとタイムスライスを切り替え
         Thread.Sleep(0);
       }
 

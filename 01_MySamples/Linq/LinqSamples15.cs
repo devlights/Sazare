@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-15
   /// <summary>
-  /// Linq�̃T���v���ł��B
+  /// Linqのサンプルです。
   /// </summary>
   public class LinqSamples15 : IExecutable
   {
@@ -33,36 +33,36 @@ namespace Gsf.Samples
                   select aPerson;
 
       //
-      // Team�̒l���L�[�Ƃ��āA�O���[�s���O����.
-      // ����ɂ��A�e�L�[���ɍ��v����Person�I�u�W�F�N�g���R�t�����\���ɕϊ������B
+      // Teamの値をキーとして、グルーピング処理.
+      // これにより、各キー毎に合致するPersonオブジェクトが紐付いた構造に変換される。
       //
-      // ���ۂ̃I�u�W�F�N�g�̌^��
+      // 実際のオブジェクトの型は
       //   Lookup<Grouping<string, Person>>
-      // �ƂȂ��Ă���B
+      // となっている。
       //
-      // ���ALookup�I�u�W�F�N�g���O������V�K�ō\�z���邱�Ƃ͂ł��Ȃ��B
+      // 尚、Lookupオブジェクトを外部から新規で構築することはできない。
       //
-      // �ȉ��ł́AkeySelector���w�肵�Ă���B
+      // 以下では、keySelectorを指定している。
       ILookup<string, Person> lookup = query.ToLookup(aPerson => aPerson.Team);
 
       //
-      // ILookup�ɒ�`����Ă���v���p�e�B�ɃA�N�Z�X.
-      //   �ʏ�ALookup�I�u�W�F�N�g�̓��[�v���o�R���ăf�[�^���擾���邪�A�L�[���w�肵�āA�A�N�Z�X���邱�Ƃ��ł���B
+      // ILookupに定義されているプロパティにアクセス.
+      //   通常、Lookupオブジェクトはループを経由してデータを取得するが、キーを指定して、アクセスすることもできる。
       //
-      Console.WriteLine("�J�E���g={0}", lookup.Count);
+      Console.WriteLine("カウント={0}", lookup.Count);
       foreach (Person teamAPerson in lookup["TeamA"])
       {
         Console.WriteLine(teamAPerson);
       }
 
       //
-      // ILookup<TKey, TElement>�́AIEnumerable<IGrouping<TKey, TElement>>���p�����Ă���̂�
-      // ���[�v�����邱�ƂŁAIGrouping<TKey, TElement>���擾���邱�Ƃ��ł���B
+      // ILookup<TKey, TElement>は、IEnumerable<IGrouping<TKey, TElement>>を継承しているので
+      // ループさせることで、IGrouping<TKey, TElement>を取得することができる。
       //
-      // ����IGrouping<TKey, TElement>����Α��̃}�b�s���O���������Ă���B
-      // ���AIGrouping<TKey, TElement>�́A�N�G�����ɂ�group by���s�����ۂɂ��擾�ł���B
+      // このIGrouping<TKey, TElement>が一対多のマッピングを実現している。
+      // 尚、IGrouping<TKey, TElement>は、クエリ式にてgroup byを行った際にも取得できる。
       //
-      Console.WriteLine("=========== ToLookup�ɑ΂���keySelector���w�肵���� =============");
+      Console.WriteLine("=========== ToLookupに対してkeySelectorを指定した版 =============");
       foreach (IGrouping<string, Person> grouping in lookup)
       {
         Console.WriteLine("KEY={0}", grouping.Key);
@@ -73,11 +73,11 @@ namespace Gsf.Samples
       }
 
       //
-      // keySelector��elementSelector���w�肵�Ă݂�B
+      // keySelectorとelementSelectorを指定してみる。
       //
       var lookup2 = query.ToLookup(aPerson => aPerson.Team, aPerson => string.Format("{0}_{1}", aPerson.Id, aPerson.Name));
 
-      Console.WriteLine("=========== ToLookup�ɑ΂���keySelector��elementSelector���w�肵���� =============");
+      Console.WriteLine("=========== ToLookupに対してkeySelectorとelementSelectorを指定した版 =============");
       foreach (var grouping in lookup2)
       {
         Console.WriteLine("KEY={0}", grouping.Key);

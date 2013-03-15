@@ -6,17 +6,17 @@ namespace Gsf.Samples
 
   #region LinqSamples-44
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples44 : IExecutable
   {
     public void Execute()
     {
       //
-      // SkipŠg’£ƒƒ\ƒbƒh‚ÍAƒV[ƒPƒ“ƒX‚Ìæ“ª‚©‚çw’è‚³‚ê‚½Œ”•ª‚ğƒXƒLƒbƒv‚·‚éƒƒ\ƒbƒhB
+      // Skipæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®å…ˆé ­ã‹ã‚‰æŒ‡å®šã•ã‚ŒãŸä»¶æ•°åˆ†ã‚’ã‚¹ã‚­ãƒƒãƒ—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
-      //   EƒV[ƒPƒ“ƒX‚Ì—v‘f”‚æ‚è‘½‚¢”‚ğw’è‚µ‚½ê‡A‹ó‚ÌƒV[ƒPƒ“ƒX‚ª•Ô‚é.
-      //   E0ˆÈ‰º‚Ì’l‚ğw’è‚µ‚½ê‡AƒV[ƒPƒ“ƒX‚Ì‘S‚Ä‚Ì—v‘f‚ª•Ô‚é.
+      //   ãƒ»ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®è¦ç´ æ•°ã‚ˆã‚Šå¤šã„æ•°ã‚’æŒ‡å®šã—ãŸå ´åˆã€ç©ºã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ãŒè¿”ã‚‹.
+      //   ãƒ»0ä»¥ä¸‹ã®å€¤ã‚’æŒ‡å®šã—ãŸå ´åˆã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®å…¨ã¦ã®è¦ç´ ãŒè¿”ã‚‹.
       //
       var names = new string[] { "gsf_zero1", "gsf_zero2", "gsf_zero3", "gsf_zero4", "gsf_zero5" };
 
@@ -27,7 +27,7 @@ namespace Gsf.Samples
         Console.WriteLine(item);
       }
 
-      Console.WriteLine("ƒV[ƒPƒ“ƒX‚Ì—v‘f”ˆÈã‚Ì”‚ğw’è: COUNT={0}", names.Skip(20).Count());
+      Console.WriteLine("ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®è¦ç´ æ•°ä»¥ä¸Šã®æ•°ã‚’æŒ‡å®š: COUNT={0}", names.Skip(20).Count());
 
       foreach (var item in names.Skip(-1))
       {
@@ -35,8 +35,8 @@ namespace Gsf.Samples
       }
 
       //
-      // SkipWhileŠg’£ƒƒ\ƒbƒh‚ÍAw’è‚³‚ê‚½ğŒ‚ª–‚½‚³‚ê‚éŠÔƒV[ƒPƒ“ƒX‚©‚ç—v‘f‚ğ’Šo‚µ
-      // •Ô‚·ƒƒ\ƒbƒhB
+      // SkipWhileæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æŒ‡å®šã•ã‚ŒãŸæ¡ä»¶ãŒæº€ãŸã•ã‚Œã‚‹é–“ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‹ã‚‰è¦ç´ ã‚’æŠ½å‡ºã—
+      // è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
       Console.WriteLine("================ SkipWhile ======================");
       var greaterThan4 = names.SkipWhile(name => int.Parse(name.Last().ToString()) <= 3);

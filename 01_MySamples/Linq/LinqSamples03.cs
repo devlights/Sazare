@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-03
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples03 : IExecutable
   {
@@ -71,9 +71,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero1"
               ,Address=new AddressInfo{
                        PostCode="999-8888"
-                      ,Prefecture="“Œ‹“s"
-                      ,Municipality="‚Ç‚±‚©‚P"
-                      ,HouseNumber="”Ô’n‚P"
+                      ,Prefecture="æ±äº¬éƒ½"
+                      ,Municipality="ã©ã“ã‹ï¼‘"
+                      ,HouseNumber="ç•ªåœ°ï¼‘"
                       ,Tel=new []{"090-xxxx-xxxx"}
                       ,Frends=new string[]{}
               }
@@ -83,9 +83,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero2"
               ,Address=new AddressInfo{
                        PostCode="888-7777"
-                      ,Prefecture="‹“s•{"
-                      ,Municipality="‚Ç‚±‚©‚Q"
-                      ,HouseNumber="”Ô’n‚Q"
+                      ,Prefecture="äº¬éƒ½åºœ"
+                      ,Municipality="ã©ã“ã‹ï¼’"
+                      ,HouseNumber="ç•ªåœ°ï¼’"
                       ,Tel=new []{"080-xxxx-xxxx"}
                       ,Frends=new []{"00001"}
               }
@@ -95,9 +95,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero3"
               ,Address=new AddressInfo{
                        PostCode="777-6666"
-                      ,Prefecture="–kŠC“¹"
-                      ,Municipality="‚Ç‚±‚©‚R"
-                      ,HouseNumber="”Ô’n‚R"
+                      ,Prefecture="åŒ—æµ·é“"
+                      ,Municipality="ã©ã“ã‹ï¼“"
+                      ,HouseNumber="ç•ªåœ°ï¼“"
                       ,Tel=new []{"070-xxxx-xxxx"}
                       ,Frends=new []{"00001", "00002"}
               }
@@ -107,9 +107,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero4"
               ,Address=new AddressInfo{
                        PostCode="777-6666"
-                      ,Prefecture="–kŠC“¹"
-                      ,Municipality="‚Ç‚±‚©‚S"
-                      ,HouseNumber="”Ô’n‚S"
+                      ,Prefecture="åŒ—æµ·é“"
+                      ,Municipality="ã©ã“ã‹ï¼”"
+                      ,HouseNumber="ç•ªåœ°ï¼”"
                       ,Tel=new []{"060-xxxx-xxxx", "111-111-1111", "222-222-2222"}
                       ,Frends=new []{"00001", "00003"}
               }
@@ -122,7 +122,7 @@ namespace Gsf.Samples
       IEnumerable<Person> persons = CreateSampleData();
 
       //
-      // ’Šo‚µ‚½ƒIƒuƒWƒFƒNƒg‚ğ‚»‚Ì‚Ü‚Ü•Ô‚·
+      // æŠ½å‡ºã—ãŸã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ãã®ã¾ã¾è¿”ã™
       //
       var query1 = from person in persons
                    select person;
@@ -133,7 +133,7 @@ namespace Gsf.Samples
       }
 
       //
-      // ’ŠoŒ‹‰Ê‚©‚çV‚½‚ÈŒ^‚ğì¬‚·‚é
+      // æŠ½å‡ºçµæœã‹ã‚‰æ–°ãŸãªå‹ã‚’ä½œæˆã™ã‚‹
       // 
       var query2 = from person in persons
                    select new

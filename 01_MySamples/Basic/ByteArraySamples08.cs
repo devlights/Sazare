@@ -6,14 +6,14 @@ namespace Gsf.Samples
 
   #region ByteArraySamples-08
   /// <summary>
-  /// �o�C�g�z��ɂ��ẴT���v���ł��B
+  /// バイト配列についてのサンプルです。
   /// </summary>
   public class ByteArraySamples08 : IExecutable
   {
     public void Execute()
     {
       //
-      // ���l�����낢��Ȋ�ɕϊ�.
+      // 数値をいろいろな基数に変換.
       //
       int i = 123;
 

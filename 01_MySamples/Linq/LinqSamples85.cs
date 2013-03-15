@@ -9,10 +9,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-85
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// XStreamingElement‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// XStreamingElementã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </remarks>
   public class LinqSamples85 : IExecutable
   {
@@ -20,59 +20,59 @@ namespace Gsf.Samples
     {
       //
       // XStreamingElement
-      //   XStreamingElement‚ÍA’x‰„•]‰¿‚ğs‚¤ƒNƒ‰ƒXB
-      //   å‚ÉA‹‘å‚ÈXMLƒf[ƒ^‚ğ•ÏŠ·‚·‚éÛ‚É—˜—p‚Å‚«‚é.
+      //   XStreamingElementã¯ã€é…å»¶è©•ä¾¡ã‚’è¡Œã†ã‚¯ãƒ©ã‚¹ã€‚
+      //   ä¸»ã«ã€å·¨å¤§ãªXMLãƒ‡ãƒ¼ã‚¿ã‚’å¤‰æ›ã™ã‚‹éš›ã«åˆ©ç”¨ã§ãã‚‹.
       //
-      //   QlURL:
+      //   å‚è€ƒURL:
       //     http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xstreamingelement.aspx
       //     http://melma.com/backnumber_120830_4496326/
       //     http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xnode.readfrom.aspx
       //     http://msdn.microsoft.com/ja-jp/library/system.xml.xmlreader.movetocontent.aspx
       //
-      //   ÀÛ‚É—˜—p‚·‚éÛ‚ÍA‚Ù‚Æ‚ñ‚Ç‚Ìê‡‚ªXmlReader‚Æyield‚Ìd‘g‚İ‚ğ–‘O‚Éì‚Á‚Ä‚¨‚©‚È‚¢‚Æ‚¢‚¯‚È‚¢B
-      //   XmlReader‚Å‹‘åƒtƒ@ƒCƒ‹‚ğ’€Ÿ“Ç‚İ‚İ‚µA‚»‚ê‚ğXStreamingElement‚Å•ÏŠ·ˆ—‚·‚éB
+      //   å®Ÿéš›ã«åˆ©ç”¨ã™ã‚‹éš›ã¯ã€ã»ã¨ã‚“ã©ã®å ´åˆãŒXmlReaderã¨yieldã®ä»•çµ„ã¿ã‚’äº‹å‰ã«ä½œã£ã¦ãŠã‹ãªã„ã¨ã„ã‘ãªã„ã€‚
+      //   XmlReaderã§å·¨å¤§ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é€æ¬¡èª­ã¿è¾¼ã¿ã—ã€ãã‚Œã‚’XStreamingElementã§å¤‰æ›å‡¦ç†ã™ã‚‹ã€‚
       //
-      // ˆÈ‰º‚Ìˆ—‚Å‚ÍA‚Ç‚Ì’ö“xƒƒ‚ƒŠ‚ğÁ”ï‚µ‚Ä‚¢‚é‚Ì‚©‚ğŠm”F‚·‚é‚½‚ß‚É
-      // GC.GetTotalMemory‚ÅÁ”ï—Ê‚ğ•\¦‚µ‚Ä‚¢‚é.
+      // ä»¥ä¸‹ã®å‡¦ç†ã§ã¯ã€ã©ã®ç¨‹åº¦ãƒ¡ãƒ¢ãƒªã‚’æ¶ˆè²»ã—ã¦ã„ã‚‹ã®ã‹ã‚’ç¢ºèªã™ã‚‹ãŸã‚ã«
+      // GC.GetTotalMemoryã§æ¶ˆè²»é‡ã‚’è¡¨ç¤ºã—ã¦ã„ã‚‹.
       Console.WriteLine("1:{0}", GC.GetTotalMemory(true));
 
       //
-      // ‹‘åXMLƒtƒ@ƒCƒ‹‚ğì¬.
+      // å·¨å¤§XMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆ.
       //
       var root = BuildSampleXml(CreateSampleXmlFile());
 
       Console.WriteLine("2:{0}", GC.GetTotalMemory(true));
 
       //
-      // •’Ê‚ÉXElement‚ğ—˜—p‚µ‚Ä•ÏŠ·ˆ—.
+      // æ™®é€šã«XElementã‚’åˆ©ç”¨ã—ã¦å¤‰æ›å‡¦ç†.
       //
       var result = ConvertXml(root);
 
       Console.WriteLine("3:{0}", GC.GetTotalMemory(true));
 
       //
-      // XStreamingElement‚ğ—˜—p‚µ‚Ä•ÏŠ·ˆ—.
+      // XStreamingElementã‚’åˆ©ç”¨ã—ã¦å¤‰æ›å‡¦ç†.
       //
       var result2 = ConvertXml2(root);
 
       Console.WriteLine("4:{0}", GC.GetTotalMemory(true));
 
       //
-      // XStreamingElement‚Å•ÏŠ·‚µ‚½ƒf[ƒ^‚ğo—Í.
+      // XStreamingElementã§å¤‰æ›ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’å‡ºåŠ›.
       //
       result2.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted2.xml"));
 
       Console.WriteLine("5:{0}", GC.GetTotalMemory(true));
 
       //
-      // ƒtƒ@ƒCƒ‹‚Ì“Ç‚İ‚İ‚ÉAXmlReader+yield‚ğ—˜—p‚µ‚ÄXStreamingElement‚Å•ÏŠ·ˆ—.
+      // ãƒ•ã‚¡ã‚¤ãƒ«ã®èª­ã¿è¾¼ã¿ã«ã€XmlReader+yieldã‚’åˆ©ç”¨ã—ã¦XStreamingElementã§å¤‰æ›å‡¦ç†.
       //
       var result3 = ConvertXml3();
 
       Console.WriteLine("6:{0}", GC.GetTotalMemory(true));
 
       //
-      // XStreamingElement‚Å•ÏŠ·‚µ‚½ƒf[ƒ^‚ğo—Í.
+      // XStreamingElementã§å¤‰æ›ã—ãŸãƒ‡ãƒ¼ã‚¿ã‚’å‡ºåŠ›.
       //
       result3.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted3.xml"));
 
@@ -82,7 +82,7 @@ namespace Gsf.Samples
     string CreateSampleXmlFile()
     {
       //
-      // ‹‘å‚ÈXMLƒtƒ@ƒCƒ‹‚ğƒfƒXƒNƒgƒbƒv‚Éì¬.
+      // å·¨å¤§ãªXMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’ãƒ‡ã‚¹ã‚¯ãƒˆãƒƒãƒ—ã«ä½œæˆ.
       //
       var dirPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
       var filePath = Path.Combine(dirPath, "toobig.xml");
@@ -103,7 +103,7 @@ namespace Gsf.Samples
       //   .
       // </root>
       //
-      // ‚Ì\‘¢‚ğ‚ÂXMLƒtƒ@ƒCƒ‹‚ğì¬.
+      // ã®æ§‹é€ ã‚’æŒã¤XMLãƒ•ã‚¡ã‚¤ãƒ«ã‚’ä½œæˆ.
       //
       var doc = new XDocument
                 (
@@ -202,7 +202,7 @@ namespace Gsf.Samples
           }
 
           //
-          // XElement.ReadFrom‚ğ—˜—p‚·‚é‚ÆŠÈ’P‚ÉXElement‚ğæ“¾o—ˆ‚é.
+          // XElement.ReadFromã‚’åˆ©ç”¨ã™ã‚‹ã¨ç°¡å˜ã«XElementã‚’å–å¾—å‡ºæ¥ã‚‹.
           //
           var elem = XElement.ReadFrom(reader) as XElement;
           if (elem != null)

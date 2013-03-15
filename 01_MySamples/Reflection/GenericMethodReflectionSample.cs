@@ -5,9 +5,9 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Reflection;
 
-  #region Generic�ȃ��\�b�h�����t���N�V�����Ŏ擾
+  #region Genericなメソッドをリフレクションで取得
   /// <summary>
-  /// �W�F�l���b�N���\�b�h�����t���N�V�����Ŏ擾����T���v���ł��B
+  /// ジェネリックメソッドをリフレクションで取得するサンプルです。
   /// </summary>
   public class GenericMethodReflectionSample : IExecutable
   {
@@ -17,17 +17,17 @@ namespace Gsf.Samples
       BindingFlags flags = (BindingFlags.NonPublic | BindingFlags.Instance);
 
       //
-      // �W�F�l���b�N���\�b�h��������Ȃ��ꍇ�͈ȉ��̂悤�ɂ��Ď擾�ł���B
+      // ジェネリックメソッドが一つしかない場合は以下のようにして取得できる。
       // 
-      // �W�F�l���b�N��`����Ă����Ԃ̃��\�b�h�����擾.
+      // ジェネリック定義されている状態のメソッド情報を取得.
       // MethodInfo mi = type.GetMethod("SetPropertyValue", flags);
-      // �^������ݒ肵�āA�����\�b�h�����擾
+      // 型引数を設定して、実メソッド情報を取得
       // MethodInfo genericMi = mi.MakeGenericMethod(new Type[]{ typeof(DateTime) });
       //
-      // �������A�������\�b�h�̃I�[�o�[���[�h���������݂���ꍇ�͈�UGetMethods�ɂ�
-      // ���[�v�����A�Y�����郁�\�b�h���������Ƃ��K�v�ƂȂ�B
+      // しかし、同名メソッドのオーバーロードが複数存在する場合は一旦GetMethodsにて
+      // ループさせ、該当するメソッドを見つける作業が必要となる。
       //
-      // [�Q��URL]
+      // [参照URL]
       // http://www.codeproject.com/KB/dotnet/InvokeGenericMethods.aspx
       //
       string methodName = "SetPropertyValue";

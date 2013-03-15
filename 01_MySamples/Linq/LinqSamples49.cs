@@ -8,25 +8,25 @@ namespace Gsf.Samples
 
   #region LinqSamples-49
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples49 : IExecutable
   {
     public void Execute()
     {
       //
-      // Directory.EnumerateFilesƒƒ\ƒbƒh‚ÍA]—ˆ‚Ü‚Å‚Ì
-      // Directory.GetFilesƒƒ\ƒbƒh‚Æ“¯‚¶“®ì‚·‚éƒƒ\ƒbƒh‚Å‚ ‚éB
+      // Directory.EnumerateFilesãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€å¾“æ¥ã¾ã§ã®
+      // Directory.GetFilesãƒ¡ã‚½ãƒƒãƒ‰ã¨åŒã˜å‹•ä½œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ã€‚
       //
-      // ˆá‚¢‚ÍA–ß‚è’l‚ªIEnumerable<string>‚Æ‚È‚Á‚Ä‚¨‚è
-      // ’x‰„•]‰¿‚³‚ê‚éB
+      // é•ã„ã¯ã€æˆ»ã‚Šå€¤ãŒIEnumerable<string>ã¨ãªã£ã¦ãŠã‚Š
+      // é…å»¶è©•ä¾¡ã•ã‚Œã‚‹ã€‚
       //
-      // GetFilesƒƒ\ƒbƒh‚Ìê‡‚ÍA‘SƒŠƒXƒg‚ğ\’z‚µ‚Ä‚©‚ç
-      // –ß‚è’l‚ª•Ô‹p‚³‚ê‚é‚Ì‚ÅAƒRƒŒƒNƒVƒ‡ƒ“‚ª\’z‚³‚ê‚é‚Ü‚Å
-      // ‘Ò‹@‚·‚é•K—v‚ª‚ ‚é‚ªAEnumerateFilesƒƒ\ƒbƒh‚Ìê‡‚Í
-      // ƒRƒŒƒNƒVƒ‡ƒ“‘S‘Ì‚ª•Ô‚³‚ê‚é‘O‚ÉA—ñ‹“‰Â”\‚Å‚ ‚éB
+      // GetFilesãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã¯ã€å…¨ãƒªã‚¹ãƒˆã‚’æ§‹ç¯‰ã—ã¦ã‹ã‚‰
+      // æˆ»ã‚Šå€¤ãŒè¿”å´ã•ã‚Œã‚‹ã®ã§ã€ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ãŒæ§‹ç¯‰ã•ã‚Œã‚‹ã¾ã§
+      // å¾…æ©Ÿã™ã‚‹å¿…è¦ãŒã‚ã‚‹ãŒã€EnumerateFilesãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã¯
+      // ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å…¨ä½“ãŒè¿”ã•ã‚Œã‚‹å‰ã«ã€åˆ—æŒ™å¯èƒ½ã§ã‚ã‚‹ã€‚
       //
-      // EnumerateDirectoriesƒƒ\ƒbƒh‹y‚ÑEnumerateFileSystemEntriesƒƒ\ƒbƒh‚àã‹L‚Æ“¯—lB
+      // EnumerateDirectoriesãƒ¡ã‚½ãƒƒãƒ‰åŠã³EnumerateFileSystemEntriesãƒ¡ã‚½ãƒƒãƒ‰ã‚‚ä¸Šè¨˜ã¨åŒæ§˜ã€‚
       //
       var path = @"c:\windows";
       var filter = @"*.exe";

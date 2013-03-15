@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-71
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ‘OŒã‘¶İŠm”FƒvƒƒpƒeƒB (IsBefore, IsAfter) ‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// å‰å¾Œå­˜åœ¨ç¢ºèªãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ (IsBefore, IsAfter) ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples71 : IExecutable
   {
@@ -18,7 +18,7 @@ namespace Gsf.Samples
     {
       //
       // XNode.IsBefore(XNode)
-      //   ©•ª©g‚ªˆø”‚Éw’è‚µ‚½—v‘f‚Ì‘O‚É•\¦‚³‚ê‚é‚©”Û‚©‚ğ”»’è‚·‚é
+      //   è‡ªåˆ†è‡ªèº«ãŒå¼•æ•°ã«æŒ‡å®šã—ãŸè¦ç´ ã®å‰ã«è¡¨ç¤ºã•ã‚Œã‚‹ã‹å¦ã‹ã‚’åˆ¤å®šã™ã‚‹
       //
       var root = BuildSampleXml();
       var elem1 = root.Elements("Child").Where(x => x.Value == "value1").First();
@@ -35,7 +35,7 @@ namespace Gsf.Samples
 
       //
       // XNode.IsAfter(XNode)
-      //   ©•ª©g‚ªˆø”‚Éw’è‚µ‚½—v‘f‚ÌŒã‚É•\¦‚³‚ê‚é‚©”Û‚©‚ğ”»’è‚·‚é
+      //   è‡ªåˆ†è‡ªèº«ãŒå¼•æ•°ã«æŒ‡å®šã—ãŸè¦ç´ ã®å¾Œã«è¡¨ç¤ºã•ã‚Œã‚‹ã‹å¦ã‹ã‚’åˆ¤å®šã™ã‚‹
       //
       root = BuildSampleXml();
       elem1 = root.Elements("Child").Where(x => x.Value == "value1").First();

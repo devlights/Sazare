@@ -7,7 +7,7 @@ namespace Gsf.Samples
   using System.Linq;
 
   //
-  // Aliasİ’è.
+  // Aliasè¨­å®š.
   //
   using GDISize = System.Drawing.Size;
   using WinFormsApplication = System.Windows.Forms.Application;
@@ -23,10 +23,10 @@ namespace Gsf.Samples
 
   #region StringInfoSamples-001
   /// <summary>
-  /// StringInfo‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// StringInfoã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ƒTƒƒQ[ƒgƒyƒA‚É‚Â‚¢‚Ä‹Lq‚µ‚Ä‚¢‚Ü‚·B
+  /// ã‚µãƒ­ã‚²ãƒ¼ãƒˆãƒšã‚¢ã«ã¤ã„ã¦è¨˜è¿°ã—ã¦ã„ã¾ã™ã€‚
   /// </remarks>
   public class StringInfoSamples001 : IExecutable
   {
@@ -43,40 +43,40 @@ namespace Gsf.Samples
 
         Size = new GDISize(350, 100);
         StartPosition = WinFormsFormStartPosition.CenterScreen;
-        Text = "ƒTƒƒQ[ƒgƒyƒA‚ÌŠm”FƒTƒ“ƒvƒ‹";
+        Text = "ã‚µãƒ­ã‚²ãƒ¼ãƒˆãƒšã‚¢ã®ç¢ºèªã‚µãƒ³ãƒ—ãƒ«";
 
 
         WinFormsTextBox t = new WinFormsTextBox();
-        t.Text = "\uD867\uDE3D"; // ‹›‚Ö‚ñ‚É‰Ô‚Æ‚¢‚¤•¶šB‹›‚ÌƒzƒbƒP‚Ì•¶š‚ğw’èB
+        t.Text = "\uD867\uDE3D"; // é­šã¸ã‚“ã«èŠ±ã¨ã„ã†æ–‡å­—ã€‚é­šã®ãƒ›ãƒƒã‚±ã®æ–‡å­—ã‚’æŒ‡å®šã€‚
 
         WinFormsButton b = new WinFormsButton { Text = "Exec" };
         b.Click += (s, e) =>
         {
 
           string str = t.Text;
-          WinFormsMessageBox.Show(string.Format("•¶šF{0}, ’·‚³F{1}", str, str.Length), "String‚Å‚Ì•\¦");
+          WinFormsMessageBox.Show(string.Format("æ–‡å­—ï¼š{0}, é•·ã•ï¼š{1}", str, str.Length), "Stringã§ã®è¡¨ç¤º");
 
           //
-          // ƒTƒƒQ[ƒgƒyƒA‚Ì•¶š—ñ
+          // ã‚µãƒ­ã‚²ãƒ¼ãƒˆãƒšã‚¢ã®æ–‡å­—åˆ—
           //
-          // ƒTƒƒQ[ƒgƒyƒA‚Ì•¶š—ñ‚Í‚P•¶š‚Å
-          // ‚SƒoƒCƒg‚Æ‚È‚Á‚Ä‚¢‚éB
+          // ã‚µãƒ­ã‚²ãƒ¼ãƒˆãƒšã‚¢ã®æ–‡å­—åˆ—ã¯ï¼‘æ–‡å­—ã§
+          // ï¼”ãƒã‚¤ãƒˆã¨ãªã£ã¦ã„ã‚‹ã€‚
           //
-          // ƒTƒƒQ[ƒgƒyƒA‚Ì•¶š—ñ‚É‘Î‚µ‚Ä
-          // String.LengthƒvƒƒpƒeƒB‚Å’·‚³‚ğæ“¾‚·‚é‚Æ
-          // ‚P•¶š‚È‚Ì‚É‚Q‚Æ•Ô‚Á‚Ä‚­‚éB
+          // ã‚µãƒ­ã‚²ãƒ¼ãƒˆãƒšã‚¢ã®æ–‡å­—åˆ—ã«å¯¾ã—ã¦
+          // String.Lengthãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã§é•·ã•ã‚’å–å¾—ã™ã‚‹ã¨
+          // ï¼‘æ–‡å­—ãªã®ã«ï¼’ã¨è¿”ã£ã¦ãã‚‹ã€‚
           //
-          // ‚±‚ê‚ğ‚P•¶š‚Æ‚µ‚Ä”F¯‚·‚é‚É‚ÍˆÈ‰º‚ÌƒNƒ‰ƒX‚ğ—˜—p‚·‚éB
+          // ã“ã‚Œã‚’ï¼‘æ–‡å­—ã¨ã—ã¦èªè­˜ã™ã‚‹ã«ã¯ä»¥ä¸‹ã®ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
           //
           // System.Globalization.StringInfo
           //
-          // ‚±‚ÌƒNƒ‰ƒX‚ÌˆÈ‰º‚ÌƒvƒƒpƒeƒB‚ğ—˜—p‚·‚é‚±‚Æ‚Å
-          // ‚P•¶š‚Æ”F¯‚·‚é‚±‚Æ‚ªo—ˆ‚éB
+          // ã“ã®ã‚¯ãƒ©ã‚¹ã®ä»¥ä¸‹ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã§
+          // ï¼‘æ–‡å­—ã¨èªè­˜ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
           //
-          // LengthInTextElementsƒvƒƒpƒeƒB
+          // LengthInTextElementsãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
           //
           StringInfo si = new StringInfo(str);
-          WinFormsMessageBox.Show(string.Format("•¶šF{0}, ’·‚³F{1}", si.String, si.LengthInTextElements), "StringInfo‚Å‚Ì•\¦");
+          WinFormsMessageBox.Show(string.Format("æ–‡å­—ï¼š{0}, é•·ã•ï¼š{1}", si.String, si.LengthInTextElements), "StringInfoã§ã®è¡¨ç¤º");
         };
 
         WinFormsFlowLayoutPanel contentPane = new WinFormsFlowLayoutPanel { FlowDirection = WinFormsFlowDirection.TopDown, WrapContents = true };

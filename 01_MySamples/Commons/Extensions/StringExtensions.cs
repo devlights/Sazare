@@ -4,17 +4,17 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region ‹¤’ÊŠg’£ƒNƒ‰ƒX
+  #region å…±é€šæ‹¡å¼µã‚¯ãƒ©ã‚¹
   /// <summary>
-  /// ‹¤’Ê‚Å—˜—p‚µ‚Ä‚¢‚éStringŠg’£ƒNƒ‰ƒX‚Å‚·B
+  /// å…±é€šã§åˆ©ç”¨ã—ã¦ã„ã‚‹Stringæ‹¡å¼µã‚¯ãƒ©ã‚¹ã§ã™ã€‚
   /// </summary>
   public static class StringExtensions
   {
     /// <summary>
-    /// ”’l‚É•ÏŠ·‚µ‚Ü‚·B
+    /// æ•°å€¤ã«å¤‰æ›ã—ã¾ã™ã€‚
     /// </summary>
-    /// <param name="self">Ž©•ªŽ©g</param>
-    /// <return>Ž©•ªŽ©g‚ð”’l‚É•ÏŠ·‚µ‚½’l.</return>
+    /// <param name="self">è‡ªåˆ†è‡ªèº«</param>
+    /// <return>è‡ªåˆ†è‡ªèº«ã‚’æ•°å€¤ã«å¤‰æ›ã—ãŸå€¤.</return>
     public static int ToInt(this string self)
     {
       int i;

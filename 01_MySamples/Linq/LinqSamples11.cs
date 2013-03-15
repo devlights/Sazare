@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-11
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples11 : IExecutable
   {
@@ -96,7 +96,7 @@ namespace Gsf.Samples
       }
     }
 
-    // ƒƒ“ƒo[
+    // ãƒ¡ãƒ³ãƒãƒ¼
     IEnumerable<Person> persons =
                 new[]{
                      new Person
@@ -136,7 +136,7 @@ namespace Gsf.Samples
                     }
                   };
 
-    // ƒ`[ƒ€
+    // ãƒãƒ¼ãƒ 
     IEnumerable<Team> teams =
                 new[]{
                      new Team
@@ -153,7 +153,7 @@ namespace Gsf.Samples
                      }
                   };
 
-    // ƒvƒƒWƒFƒNƒg
+    // ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ
     IEnumerable<Project> projects =
                 new[]{
                      new Project
@@ -197,17 +197,17 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ƒOƒ‹[ƒv‰»Œ‹‡‚ÌƒTƒ“ƒvƒ‹
+      // ã‚°ãƒ«ãƒ¼ãƒ—åŒ–çµåˆã®ã‚µãƒ³ãƒ—ãƒ«
       //
-      // ƒOƒ‹[ƒv‰»Œ‹‡‚µ‚½‚à‚Ì‚ÉDefaultIfEmptyƒƒ\ƒbƒh‚ğ“K—p‚µ‚½‚à‚Ì‚ª
-      // Linq‚Å‚Ì¶ŠO•”Œ‹‡‚Æ‚È‚éB
+      // ã‚°ãƒ«ãƒ¼ãƒ—åŒ–çµåˆã—ãŸã‚‚ã®ã«DefaultIfEmptyãƒ¡ã‚½ãƒƒãƒ‰ã‚’é©ç”¨ã—ãŸã‚‚ã®ãŒ
+      // Linqã§ã®å·¦å¤–éƒ¨çµåˆã¨ãªã‚‹ã€‚
       //
 
       //
-      // ŠO•”Œ‹‡‚µ‚Ä‚¢‚È‚¢”Å.
+      // å¤–éƒ¨çµåˆã—ã¦ã„ãªã„ç‰ˆ.
       //
-      // ˆÈ‰º‚ÌƒNƒGƒŠ‚Ìê‡Agsf_zero5‚ª•\¦‚³‚ê‚È‚¢B
-      // (ÅŒã‚Ìfrom personProject in personProjects‚Ì•”•ª‚ÅœŠO‚³‚ê‚éBj
+      // ä»¥ä¸‹ã®ã‚¯ã‚¨ãƒªã®å ´åˆã€gsf_zero5ãŒè¡¨ç¤ºã•ã‚Œãªã„ã€‚
+      // (æœ€å¾Œã®from personProject in personProjectsã®éƒ¨åˆ†ã§é™¤å¤–ã•ã‚Œã‚‹ã€‚ï¼‰
       var query = from person in persons
                   join prj in
                     (
@@ -228,7 +228,7 @@ namespace Gsf.Samples
       query.ToList().ForEach(Console.WriteLine);
 
       //
-      // ŠO•”Œ‹‡”Å
+      // å¤–éƒ¨çµåˆç‰ˆ
       //
       var query2 = from person in persons
                    join prj in
@@ -237,15 +237,15 @@ namespace Gsf.Samples
                        from member in project.Members
                        select new { Id = project.Id, Name = project.Name, Member = member }
                        ) on person.Id equals prj.Member into personProjects
-                   // ŠO•”Œ‹‡‚·‚é‚½‚ß‚ÉDefaultIfEmpty‚ğg—p.
+                   // å¤–éƒ¨çµåˆã™ã‚‹ãŸã‚ã«DefaultIfEmptyã‚’ä½¿ç”¨.
                    from personProject in personProjects.DefaultIfEmpty()
                    select new
                    {
                      Id = person.Id
                      ,
                      Name = person.Name
-                       // Œ‹‡‘ÎÛ‚ª‘¶İ‚µ‚È‚©‚Á‚½ê‡A‚»‚ÌŒ^‚Ìdefault(T)‚Ì’l‚Æ‚È‚Á‚Ä‚Ì‚Å
-                       // –]‚İ‚ÌŒ`‚É•ÏŠ·‚·‚é.
+                       // çµåˆå¯¾è±¡ãŒå­˜åœ¨ã—ãªã‹ã£ãŸå ´åˆã€ãã®å‹ã®default(T)ã®å€¤ã¨ãªã£ã¦ã®ã§
+                       // æœ›ã¿ã®å½¢ã«å¤‰æ›ã™ã‚‹.
                      ,
                      Project = (personProject == null) ? "''" : personProject.Name
                    };

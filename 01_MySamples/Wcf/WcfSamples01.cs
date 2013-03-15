@@ -7,43 +7,43 @@ namespace Gsf.Samples
 
   #region WcfSample-01
   /// <summary>
-  /// WCF‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// WCFã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// Å‚àŠî–{“I‚ÈƒT[ƒrƒX‚ÆƒNƒ‰ƒCƒAƒ“ƒg‚Ì‰“š‚ğs‚¤ƒTƒ“ƒvƒ‹‚Å‚·B
+  /// æœ€ã‚‚åŸºæœ¬çš„ãªã‚µãƒ¼ãƒ“ã‚¹ã¨ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆã®å¿œç­”ã‚’è¡Œã†ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </remarks>
   public class WcfSamples01 : IExecutable
   {
     #region Constants
     /// <summary>
-    /// ƒT[ƒrƒX‚ÌURL
+    /// ã‚µãƒ¼ãƒ“ã‚¹ã®URL
     /// </summary>
     const string SERVICE_URL = "http://localhost:54321/HelloWorldService";
     /// <summary>
-    /// ƒGƒ“ƒhƒ|ƒCƒ“ƒg–¼
+    /// ã‚¨ãƒ³ãƒ‰ãƒã‚¤ãƒ³ãƒˆå
     /// </summary>
     const string ENDPOINT_ADDR = "";
     /// <summary>
-    /// ƒoƒCƒ“ƒfƒBƒ“ƒO
+    /// ãƒã‚¤ãƒ³ãƒ‡ã‚£ãƒ³ã‚°
     /// </summary>
     readonly BasicHttpBinding BINDING = new BasicHttpBinding();
     #endregion
 
     /// <summary>
-    /// ƒT[ƒrƒXƒCƒ“ƒ^[ƒtƒF[ƒX
+    /// ã‚µãƒ¼ãƒ“ã‚¹ã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹
     /// </summary>
     [ServiceContract]
     public interface IHelloWorldService
     {
       /// <summary>
-      /// ƒT[ƒrƒXƒƒ\ƒbƒh
+      /// ã‚µãƒ¼ãƒ“ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰
       /// </summary>
       [OperationContract]
       string SayHello();
     }
 
     /// <summary>
-    /// ƒT[ƒrƒX‚ÌÀ‘•
+    /// ã‚µãƒ¼ãƒ“ã‚¹ã®å®Ÿè£…
     /// </summary>
     public class HelloWorldService : IHelloWorldService
     {
@@ -58,24 +58,24 @@ namespace Gsf.Samples
       using (ServiceHost host = CreateService())
       {
         //
-        // ƒT[ƒrƒX‚ğŠJn.
+        // ã‚µãƒ¼ãƒ“ã‚¹ã‚’é–‹å§‹.
         //
         host.Open();
 
         //
-        // ƒNƒ‰ƒCƒAƒ“ƒg‘¤‚ğ\’z.
+        // ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆå´ã‚’æ§‹ç¯‰.
         //
         using (ChannelFactory<IHelloWorldService> factory = CreateChannelFactory())
         {
           //
-          // ƒNƒ‰ƒCƒAƒ“ƒgƒvƒƒLƒVƒIƒuƒWƒFƒNƒg‚ğæ“¾.
+          // ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆãƒ—ãƒ­ã‚­ã‚·ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’å–å¾—.
           //
           IHelloWorldService proxy = factory.CreateChannel();
 
           //
-          // ƒT[ƒrƒXƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µAŒ‹‰Ê‚ğæ“¾.
+          // ã‚µãƒ¼ãƒ“ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã€çµæœã‚’å–å¾—.
           //
-          Console.WriteLine("ƒT[ƒrƒX‚ÌŒÄ‚Ño‚µŒ‹‰Ê= {0}", proxy.SayHello());
+          Console.WriteLine("ã‚µãƒ¼ãƒ“ã‚¹ã®å‘¼ã³å‡ºã—çµæœ= {0}", proxy.SayHello());
         }
       }
     }
@@ -83,12 +83,12 @@ namespace Gsf.Samples
     private ServiceHost CreateService()
     {
       //
-      // ƒzƒXƒg‚ğ‰Šú‰»
+      // ãƒ›ã‚¹ãƒˆã‚’åˆæœŸåŒ–
       //
       ServiceHost host = new ServiceHost(typeof(HelloWorldService), new Uri(SERVICE_URL));
 
       //
-      // ƒGƒ“ƒhƒ|ƒCƒ“ƒg‚ğ’Ç‰Á.
+      // ã‚¨ãƒ³ãƒ‰ãƒã‚¤ãƒ³ãƒˆã‚’è¿½åŠ .
       //
       host.AddServiceEndpoint(typeof(IHelloWorldService), BINDING, ENDPOINT_ADDR);
 
@@ -98,7 +98,7 @@ namespace Gsf.Samples
     private ChannelFactory<IHelloWorldService> CreateChannelFactory()
     {
       //
-      // ƒNƒ‰ƒCƒAƒ“ƒg‘¤‚©‚çƒT[ƒrƒX‚ÉÚ‘±‚·‚é‚½‚ß‚ÉChannelFactory‚ğ\’z.
+      // ã‚¯ãƒ©ã‚¤ã‚¢ãƒ³ãƒˆå´ã‹ã‚‰ã‚µãƒ¼ãƒ“ã‚¹ã«æ¥ç¶šã™ã‚‹ãŸã‚ã«ChannelFactoryã‚’æ§‹ç¯‰.
       //
       ChannelFactory<IHelloWorldService> factory =
         new ChannelFactory<IHelloWorldService>(BINDING, new EndpointAddress(SERVICE_URL));

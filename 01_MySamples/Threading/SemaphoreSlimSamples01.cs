@@ -7,82 +7,82 @@ namespace Gsf.Samples
 
   #region SemaphoreSlimSamples-01
   /// <summary>
-  /// SemaphoreSlim�N���X�ɂ��ẴT���v���ł��B
+  /// SemaphoreSlimクラスについてのサンプルです。
   /// </summary>
   /// <remarks>
-  /// SemaphoreSlim�N���X�́A.NET 4.0����ǉ����ꂽ�N���X�ł��B
-  /// �]�����瑶�݂��Ă���Semaphore�N���X�̌y�ʔłƂȂ�܂��B
+  /// SemaphoreSlimクラスは、.NET 4.0から追加されたクラスです。
+  /// 従来から存在していたSemaphoreクラスの軽量版となります。
   /// </remarks>
   public class SemaphoreSlimSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // SemaphoreSlim�N���X�́ASemaphore�N���X�̌y�ʔłƂ���
-      // .NET 4.0����ǉ����ꂽ�N���X�ł���B
+      // SemaphoreSlimクラスは、Semaphoreクラスの軽量版として
+      // .NET 4.0から追加されたクラスである。
       //
-      // Semaphore�́A���\�[�X�ɓ����ɃA�N�Z�X�o����X���b�h�̐��𐧌����邽�߂ɗ��p�����B
+      // Semaphoreは、リソースに同時にアクセス出来るスレッドの数を制限するために利用される。
       //
-      // �@�\�I�ɂ́ASemaphore�N���X�Ƒ卷�Ȃ����ȉ��̋@�\���ǉ�����Ă���B
-      //   �L�����Z���g�[�N�����󂯕t����Wait���\�b�h�̃I�[�o�[���[�h�����݂���B
-      // �L�����Z���g�[�N�����󂯕t����Wait���\�b�h�Ɋւ��ẮACountdownEvent�N���X��Barrier�N���X
-      // �Ɨ��p���@�͓����ł���B
+      // 機能的には、Semaphoreクラスと大差ないが以下の機能が追加されている。
+      //   キャンセルトークンを受け付けるWaitメソッドのオーバーロードが存在する。
+      // キャンセルトークンを受け付けるWaitメソッドに関しては、CountdownEventクラスやBarrierクラス
+      // と利用方法は同じである。
       //
-      // ���A���X��Semaphore�N���X�ł́AWaitOne���\�b�h���������̂�
-      // SemaphoreSlim�N���X�ł́AWait���\�b�h�Ƃ������O�ɕς���Ă���B
+      // 尚、元々のSemaphoreクラスでは、WaitOneメソッドだったものが
+      // SemaphoreSlimクラスでは、Waitメソッドという名前に変わっている。
       //
 
       //
-      // Wait���\�b�h�̗��p.
+      // Waitメソッドの利用.
       // 
-      // Wait���\�b�h�́A���邱�Ƃ��o�����ꍇ��True��Ԃ��B
-      // ���ɏ���܂ŃX���b�h�������Ă���ꍇ��False���ԋp�����B
-      // (�܂�u���b�N�����B)
+      // Waitメソッドは、入ることが出来た場合はTrueを返す。
+      // 既に上限までスレッドが入っている場合はFalseが返却される。
+      // (つまりブロックされる。)
       //
-      // ����������Wait���\�b�h�́A���邱�Ƃ��o����܂Ńu���b�N����郁�\�b�h�ƂȂ�B
-      // ���ʂ�bool�Ŏ󂯎��ꍇ�́AInt32�������ɂƂ�Wait���\�b�h�𗘗p����B
-      // 0���w�肷��Ƒ����ʂ��Ԃ��Ă���B-1���w�肷��Ɩ������ɑ҂B
-      // (����������Wait���\�b�h�Ɠ����B)
+      // 引数無しのWaitメソッドは、入ることが出来るまでブロックされるメソッドとなる。
+      // 結果をboolで受け取る場合は、Int32を引数にとるWaitメソッドを利用する。
+      // 0を指定すると即結果が返ってくる。-1を指定すると無制限に待つ。
+      // (引数無しのWaitメソッドと同じ。)
       //
-      // SemaphoreSlim�ł́AAvailableWaitHandle�v���p�e�B���WaitHandle���擾���邱�Ƃ��o����B
-      // �������A����WaitHandle�́ASemaphoreSlim�{�̂Ƃ͘A�g���Ă���킯�ł͖����B
-      // �Ȃ̂ŁA����WaitHandle�o�R��WaitOne�����s���Ă��ASemaphoreSlim���̃J�E���g�͕ω����Ȃ��̂Œ��ӁB
+      // SemaphoreSlimでは、AvailableWaitHandleプロパティよりWaitHandleを取得することが出来る。
+      // ただし、このWaitHandleは、SemaphoreSlim本体とは連携しているわけでは無い。
+      // なので、このWaitHandle経由でWaitOneを実行しても、SemaphoreSlim側のカウントは変化しないので注意。
       //
       using (SemaphoreSlim semaphore = new SemaphoreSlim(2))
       {
-        // ����Semaphore�ɓ��邱�Ƃ��\�ȃX���b�h����\��
+        // 現在Semaphoreに入ることが可能なスレッド数を表示
         Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
 
-        // 1��
-        Console.WriteLine("1�ڂ�Wait={0}", semaphore.Wait(0));
-        // 2��
-        Console.WriteLine("2�ڂ�Wait={0}", semaphore.Wait(0));
+        // 1つ目
+        Console.WriteLine("1つ目のWait={0}", semaphore.Wait(0));
+        // 2つ目
+        Console.WriteLine("2つ目のWait={0}", semaphore.Wait(0));
 
-        // ����Semaphore�ɓ��邱�Ƃ��\�ȃX���b�h����\��
+        // 現在Semaphoreに入ることが可能なスレッド数を表示
         Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
 
-        // 3��
-        // ����Release���Ă��鐔��0�Ȃ̂ŁA���邱�Ƃ��o���Ȃ��B
-        // (False���ԋp�����)
-        Console.WriteLine("3�ڂ�Wait={0}", semaphore.Wait(0));
+        // 3つ目
+        // 現在Releaseしている数は0なので、入ることが出来ない。
+        // (Falseが返却される)
+        Console.WriteLine("3つ目のWait={0}", semaphore.Wait(0));
 
-        // �P�����[�X���āA�g���󂯂�.
+        // １つリリースして、枠を空ける.
         semaphore.Release();
 
-        // ����Semaphore�ɓ��邱�Ƃ��\�ȃX���b�h����\��
+        // 現在Semaphoreに入ることが可能なスレッド数を表示
         Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
 
-        // �ēx�A3��
-        // ���x�́A�g���󂢂Ă���̂œ��邱�Ƃ��o����B
-        Console.WriteLine("3�ڂ�Wait={0}", semaphore.Wait(0));
+        // 再度、3つ目
+        // 今度は、枠が空いているので入ることが出来る。
+        Console.WriteLine("3つ目のWait={0}", semaphore.Wait(0));
 
-        // ����Semaphore�ɓ��邱�Ƃ��\�ȃX���b�h����\��
+        // 現在Semaphoreに入ることが可能なスレッド数を表示
         Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
 
         semaphore.Release();
         semaphore.Release();
 
-        // ����Semaphore�ɓ��邱�Ƃ��\�ȃX���b�h����\��
+        // 現在Semaphoreに入ることが可能なスレッド数を表示
         Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
       }
     }

@@ -5,23 +5,23 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Threading;
 
-  #region �X���b�h�𒼐ڍ쐬
+  #region スレッドを直接作成
   /// <summary>
-  /// �X���b�h�𒼐ڍ쐬����T���v��.
+  /// スレッドを直接作成するサンプル.
   /// </summary>
   public class ThreadSample : IExecutable
   {
     /// <summary>
-    /// ���b�N�I�u�W�F�N�g
+    /// ロックオブジェクト
     /// </summary>
     object _lockObject = new object();
     /// <summary>
-    /// ����
+    /// 件数
     /// </summary>
     int _count = 0;
 
     /// <summary>
-    /// �X���b�h�����s����ۂ̈����Ƃ��ė��p�����N���X�ł��B
+    /// スレッドを実行する際の引数として利用されるクラスです。
     /// </summary>
     class ThreadParameter
     {
@@ -39,12 +39,12 @@ namespace Gsf.Samples
     }
 
     /// <summary>
-    /// ���������s���܂��B
+    /// 処理を実行します。
     /// </summary>
     public void Execute()
     {
       //
-      // ThreadStart�f���Q�[�g��p�����ꍇ.
+      // ThreadStartデリゲートを用いた場合.
       //
       ThreadStart ts = () =>
       {
@@ -67,14 +67,14 @@ namespace Gsf.Samples
         t.Start();
 
         //
-        // �m���ɃX���b�h�̑��鏇���𑵂���ɂ͈ȉ��̂悤�ɂ���B
-        // (�����Ƃ���������ƃX���b�h�̈Ӗ����Ȃ����E�E)
+        // 確実にスレッドの走る順序を揃えるには以下のようにする。
+        // (もっともこれをやるとスレッドの意味がないが・・)
         //
         //t.Join();
       }
 
       //
-      // ParameterizedThreadStart��p�����ꍇ.
+      // ParameterizedThreadStartを用いた場合.
       //
       ParameterizedThreadStart pts = (data) =>
       {
@@ -95,8 +95,8 @@ namespace Gsf.Samples
         });
 
         //
-        // �m���ɃX���b�h�̑��鏇���𑵂���ɂ͈ȉ��̂悤�ɂ���B
-        // (�����Ƃ���������ƃX���b�h�̈Ӗ����Ȃ����E�E)
+        // 確実にスレッドの走る順序を揃えるには以下のようにする。
+        // (もっともこれをやるとスレッドの意味がないが・・)
         //
         //t.Join();
       }

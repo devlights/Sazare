@@ -7,25 +7,25 @@ namespace Gsf.Samples
 
   #region LinqSamples-57
   /// <summary>
-  /// LINQ to XML�̃T���v���ł��B
+  /// LINQ to XMLのサンプルです。
   /// </summary>
   /// <remarks>
-  /// LINQ to XML�ɂăN�G�����g�p���đΏۂ̗v�f���擾����T���v���ł��B
+  /// LINQ to XMLにてクエリを使用して対象の要素を取得するサンプルです。
   /// </remarks>
   public class LinqSamples57 : IExecutable
   {
     public void Execute()
     {
       //
-      // LINQ to XML�ł́A�N�G���𗘗p���ē���̗v�f�⑮���Ȃǂ��擾����B
-      // �擾���@�͂��낢�날�邪�A�����Elements���\�b�h��Element���\�b�h��p���ėv�f�̎擾���s���Ă���.
+      // LINQ to XMLでは、クエリを利用して特定の要素や属性などを取得する。
+      // 取得方法はいろいろあるが、今回はElementsメソッドとElementメソッドを用いて要素の取得を行っている.
       //
       //
-      // Books.xml�́A���[�g�v�f��Cataglog�œ����ɕ�����Book�v�f�������Ă���.
-      // �eBook�v�f�́A���Author�v�f�������Ă���.
+      // Books.xmlは、ルート要素がCataglogで内部に複数のBook要素を持っている.
+      // 各Book要素は、一つのAuthor要素を持っている.
       //
-      // Elements���\�b�h�́A�����Ɏw�肳�ꂽ�v�f���ɍ��v����v�f�̏W����Ԃ�.
-      // Element���\�b�h�́A�����Ɏw�肳�ꂽ�v�f���ɍ��v����ŏ��̗v�f��Ԃ�.
+      // Elementsメソッドは、引数に指定された要素名に合致する要素の集合を返す.
+      // Elementメソッドは、引数に指定された要素名に合致する最初の要素を返す.
       //
       var root = XElement.Load(@"xml/Books.xml");
       var query = from book in root.Elements("Book")

@@ -6,83 +6,83 @@ namespace Gsf.Samples
 
   #region LinqSamples-46
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples46 : IExecutable
   {
     public void Execute()
     {
       //
-      // FirstOrDefaultŠg’£ƒƒ\ƒbƒh‚ÍAFirstŠg’£ƒƒ\ƒbƒh‚Æ“¯‚¶“®ì‚ğ‚·‚éB
-      // ˆá‚¢‚ÍAƒV[ƒPƒ“ƒX‚É—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡‚É‹K’è’l‚ğ•Ô‚·“_‚Å‚ ‚éB
+      // FirstOrDefaultæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€Firstæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¨åŒã˜å‹•ä½œã‚’ã™ã‚‹ã€‚
+      // é•ã„ã¯ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆã«è¦å®šå€¤ã‚’è¿”ã™ç‚¹ã§ã‚ã‚‹ã€‚
       //
       var emptySequence = Enumerable.Empty<string>();
       var languages = new string[] { "csharp", "visualbasic", "java", "python", "ruby", "php", "c++" };
 
       try
       {
-        // FirstŠg’£ƒƒ\ƒbƒh‚Í—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡—áŠO‚ª”­¶‚·‚é.
+        // Firstæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹.
         emptySequence.First();
       }
       catch
       {
-        Console.WriteLine("FirstŠg’£ƒƒ\ƒbƒh‚Å—áŠO”­¶");
+        Console.WriteLine("Firstæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã§ä¾‹å¤–ç™ºç”Ÿ");
       }
 
-      Console.WriteLine("FirstOrDefault‚Ìê‡: {0}", emptySequence.FirstOrDefault() ?? "null");
-      Console.WriteLine("FirstOrDefault‚Ìê‡(predicate): {0}", languages.FirstOrDefault(item => item.EndsWith("z")) ?? "null");
+      Console.WriteLine("FirstOrDefaultã®å ´åˆ: {0}", emptySequence.FirstOrDefault() ?? "null");
+      Console.WriteLine("FirstOrDefaultã®å ´åˆ(predicate): {0}", languages.FirstOrDefault(item => item.EndsWith("z")) ?? "null");
 
       //
-      // LastOrDefaultŠg’£ƒƒ\ƒbƒh‚ÍALastŠg’£ƒƒ\ƒbƒh‚Æ“¯‚¶“®ì‚ğ‚·‚éB
-      // ˆá‚¢‚ÍAƒV[ƒPƒ“ƒX‚É—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡‚É‹K’è’l‚ğ•Ô‚·“_‚Å‚ ‚éB
+      // LastOrDefaultæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€Lastæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¨åŒã˜å‹•ä½œã‚’ã™ã‚‹ã€‚
+      // é•ã„ã¯ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆã«è¦å®šå€¤ã‚’è¿”ã™ç‚¹ã§ã‚ã‚‹ã€‚
       //
       try
       {
-        // LastŠg’£ƒƒ\ƒbƒh‚Í—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡—áŠO‚ª”­¶‚·‚é.
+        // Lastæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹.
         emptySequence.Last();
       }
       catch
       {
-        Console.WriteLine("LastŠg’£ƒƒ\ƒbƒh‚Å—áŠO”­¶");
+        Console.WriteLine("Lastæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã§ä¾‹å¤–ç™ºç”Ÿ");
       }
 
-      Console.WriteLine("LastOrDefault‚Ìê‡: {0}", emptySequence.LastOrDefault() ?? "null");
-      Console.WriteLine("LastOrDefault‚Ìê‡(predicate): {0}", languages.LastOrDefault(item => item.EndsWith("z")) ?? "null");
+      Console.WriteLine("LastOrDefaultã®å ´åˆ: {0}", emptySequence.LastOrDefault() ?? "null");
+      Console.WriteLine("LastOrDefaultã®å ´åˆ(predicate): {0}", languages.LastOrDefault(item => item.EndsWith("z")) ?? "null");
 
       //
-      // SingleOrDefaultŠg’£ƒƒ\ƒbƒh‚ÍASingleŠg’£ƒƒ\ƒbƒh‚Æ“¯‚¶“®ì‚ğ‚·‚éB
-      // ˆá‚¢‚ÍAƒV[ƒPƒ“ƒX‚É—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡‚É‹K’è’l‚ğ•Ô‚·“_‚Å‚ ‚éB
+      // SingleOrDefaultæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€Singleæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¨åŒã˜å‹•ä½œã‚’ã™ã‚‹ã€‚
+      // é•ã„ã¯ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆã«è¦å®šå€¤ã‚’è¿”ã™ç‚¹ã§ã‚ã‚‹ã€‚
       //
       try
       {
-        // LastŠg’£ƒƒ\ƒbƒh‚Í—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡—áŠO‚ª”­¶‚·‚é.
+        // Lastæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹.
         emptySequence.Single();
       }
       catch
       {
-        Console.WriteLine("SingleŠg’£ƒƒ\ƒbƒh‚Å—áŠO”­¶");
+        Console.WriteLine("Singleæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã§ä¾‹å¤–ç™ºç”Ÿ");
       }
 
-      Console.WriteLine("SingleOrDefault‚Ìê‡: {0}", emptySequence.SingleOrDefault() ?? "null");
-      Console.WriteLine("SingleOrDefault‚Ìê‡(predicate): {0}", languages.SingleOrDefault(item => item.EndsWith("z")) ?? "null");
+      Console.WriteLine("SingleOrDefaultã®å ´åˆ: {0}", emptySequence.SingleOrDefault() ?? "null");
+      Console.WriteLine("SingleOrDefaultã®å ´åˆ(predicate): {0}", languages.SingleOrDefault(item => item.EndsWith("z")) ?? "null");
 
       //
-      // DefaultIfEmptyŠg’£ƒƒ\ƒbƒh‚ÍAƒV[ƒPƒ“ƒX‚ª‹ó‚Ìê‡‚É‹K’è’l‚ğ•Ô‚·ƒƒ\ƒbƒhB
+      // DefaultIfEmptyæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ãŒç©ºã®å ´åˆã«è¦å®šå€¤ã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
-      // ƒV[ƒPƒ“ƒX‚É—v‘f‚ª‘¶İ‚·‚éê‡‚ÍA‚»‚Ì‚Ü‚Ü‚Ìó‘Ô‚Å•Ô‚·B
-      // LINQ‚É‚ÄŠO•”Œ‹‡‚ğs‚¤Û‚É•K{‚Æ‚È‚éƒƒ\ƒbƒhB
+      // ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«è¦ç´ ãŒå­˜åœ¨ã™ã‚‹å ´åˆã¯ã€ãã®ã¾ã¾ã®çŠ¶æ…‹ã§è¿”ã™ã€‚
+      // LINQã«ã¦å¤–éƒ¨çµåˆã‚’è¡Œã†éš›ã«å¿…é ˆã¨ãªã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
       Console.WriteLine("================ DefaultIfEmpty ====================");
 
       var emptyIntegers = Enumerable.Empty<int>();
       foreach (var item in emptyIntegers.DefaultIfEmpty())
       {
-        Console.WriteLine("Šî–{Œ^‚Ìê‡: {0}", item);
+        Console.WriteLine("åŸºæœ¬å‹ã®å ´åˆ: {0}", item);
       }
 
       foreach (var item in emptySequence.DefaultIfEmpty())
       {
-        Console.WriteLine("QÆŒ^‚Ìê‡: {0}", item ?? "null");
+        Console.WriteLine("å‚ç…§å‹ã®å ´åˆ: {0}", item ?? "null");
       }
 
       foreach (var item in languages.DefaultIfEmpty())
@@ -90,7 +90,7 @@ namespace Gsf.Samples
         Console.WriteLine(item ?? "null");
       }
 
-      foreach (var item in emptySequence.DefaultIfEmpty("ƒfƒtƒHƒ‹ƒg’l"))
+      foreach (var item in emptySequence.DefaultIfEmpty("ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆå€¤"))
       {
         Console.WriteLine(item ?? "null");
       }

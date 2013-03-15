@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-12
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples12 : IExecutable
   {
@@ -31,39 +31,39 @@ namespace Gsf.Samples
                   where (aPerson.Id % 2) == 0
                   select aPerson;
 
-      Console.WriteLine("============ ƒNƒGƒŠ‚ğ•\¦ ============");
+      Console.WriteLine("============ ã‚¯ã‚¨ãƒªã‚’è¡¨ç¤º ============");
       foreach (var aPerson in query)
       {
         Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
       //
-      // ToArray‚ğ—˜—p‚µ‚ÄA–¾¦“I‚É”z—ñ‚É•ÏŠ·.
-      // (‚±‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÅƒNƒGƒŠ‚ª•]‰¿‚³‚êAŒ‹‰Ê‚ª\’z‚³‚ê‚éB)
+      // ToArrayã‚’åˆ©ç”¨ã—ã¦ã€æ˜ç¤ºçš„ã«é…åˆ—ã«å¤‰æ›.
+      // (ã“ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ã‚¯ã‚¨ãƒªãŒè©•ä¾¡ã•ã‚Œã€çµæœãŒæ§‹ç¯‰ã•ã‚Œã‚‹ã€‚)
       //
       Person[] filteredPersons = query.ToArray();
 
-      Console.WriteLine("============ ToArray‚Åì¬‚µ‚½ƒŠƒXƒg‚ğ•\¦ ============");
+      Console.WriteLine("============ ToArrayã§ä½œæˆã—ãŸãƒªã‚¹ãƒˆã‚’è¡¨ç¤º ============");
       foreach (var aPerson in filteredPersons)
       {
         Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
       //
-      // Œ³‚ÌƒŠƒXƒg‚ğ•ÏX.
+      // å…ƒã®ãƒªã‚¹ãƒˆã‚’å¤‰æ›´.
       //
       persons.Add(new Person { Id = 6, Name = "gsf_zero6" });
 
       //
-      // ‚à‚¤ˆê“xAŠeŒ‹‰Ê‚ğ•\¦.
+      // ã‚‚ã†ä¸€åº¦ã€å„çµæœã‚’è¡¨ç¤º.
       //
-      Console.WriteLine("============ ƒNƒGƒŠ‚ğ•\¦i2‰ñ–Új ============");
+      Console.WriteLine("============ ã‚¯ã‚¨ãƒªã‚’è¡¨ç¤ºï¼ˆ2å›ç›®ï¼‰ ============");
       foreach (var aPerson in query)
       {
         Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
-      Console.WriteLine("============ ToArray‚Åì¬‚µ‚½ƒŠƒXƒg‚ğ•\¦ i2‰ñ–Új============");
+      Console.WriteLine("============ ToArrayã§ä½œæˆã—ãŸãƒªã‚¹ãƒˆã‚’è¡¨ç¤º ï¼ˆ2å›ç›®ï¼‰============");
       foreach (var aPerson in filteredPersons)
       {
         Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);

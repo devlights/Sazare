@@ -8,11 +8,11 @@ namespace Gsf.Samples
 
   #region RuntimeHelpersSamples-03
   /// <summary>
-  /// RuntimeHelpersƒNƒ‰ƒX‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// RuntimeHelpersã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class RuntimeHelpersSamples03 : IExecutable
   {
-    // ƒTƒ“ƒvƒ‹ƒNƒ‰ƒX
+    // ã‚µãƒ³ãƒ—ãƒ«ã‚¯ãƒ©ã‚¹
     static class SampleClass
     {
       static SampleClass()
@@ -21,9 +21,9 @@ namespace Gsf.Samples
       }
 
       //
-      // ‚±‚Ìƒƒ\ƒbƒh‚É‘Î‚µ‚ÄACER“à‚Å—˜—p‚Å‚«‚é‚æ‚¤M—Š«‚ÌƒRƒ“ƒgƒ‰ƒNƒg‚ğ•t—^.
-      // ReliabilityContractAttribute‚¨‚æ‚ÑConsistency‚âCer‚Í
-      // System.Runtime.ConstrainedExecution–¼‘O‹óŠÔ‚É‘¶İ‚·‚é.
+      // ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã«å¯¾ã—ã¦ã€CERå†…ã§åˆ©ç”¨ã§ãã‚‹ã‚ˆã†ä¿¡é ¼æ€§ã®ã‚³ãƒ³ãƒˆãƒ©ã‚¯ãƒˆã‚’ä»˜ä¸.
+      // ReliabilityContractAttributeãŠã‚ˆã³Consistencyã‚„Cerã¯
+      // System.Runtime.ConstrainedExecutionåå‰ç©ºé–“ã«å­˜åœ¨ã™ã‚‹.
       //
       [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
       internal static void Print()
@@ -35,20 +35,20 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ExecuteCodeWithGuaranteedCleanupƒƒ\ƒbƒh‚Í, PrepareConstrainedRegionsƒƒ\ƒbƒh‚Æ
-      // “¯—l‚ÉAƒR[ƒh‚ğCERi§–ñ‚³‚ê‚½ÀsŠÂ‹«j‚ÅÀs‚·‚éƒƒ\ƒbƒh‚Å‚ ‚éB
+      // ExecuteCodeWithGuaranteedCleanupãƒ¡ã‚½ãƒƒãƒ‰ã¯, PrepareConstrainedRegionsãƒ¡ã‚½ãƒƒãƒ‰ã¨
+      // åŒæ§˜ã«ã€ã‚³ãƒ¼ãƒ‰ã‚’CERï¼ˆåˆ¶ç´„ã•ã‚ŒãŸå®Ÿè¡Œç’°å¢ƒï¼‰ã§å®Ÿè¡Œã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ã€‚
       //
-      // PrepareConstrainedRegionsƒƒ\ƒbƒh‚ªŒÄ‚Ño‚³‚ê‚½ƒƒ\ƒbƒh‚Ìcatch, finallyƒuƒƒbƒN‚ğ
-      // CER‚Æ‚µ‚Äƒ}[ƒN‚·‚é‚Ì‚É‘Î‚µ‚ÄAExecuteCodeWithGuaranteedCleanupƒƒ\ƒbƒh‚Í
-      // –¾¦“I‚ÉÀsƒR[ƒh•”•ª‚ÆƒNƒŠ[ƒ“ƒAƒbƒv•”•ª (ƒoƒbƒNƒAƒEƒgƒR[ƒh)‚ğˆø”‚Å“n‚·d—l‚Æ‚È‚Á‚Ä‚¢‚éB
+      // PrepareConstrainedRegionsãƒ¡ã‚½ãƒƒãƒ‰ãŒå‘¼ã³å‡ºã•ã‚ŒãŸãƒ¡ã‚½ãƒƒãƒ‰ã®catch, finallyãƒ–ãƒ­ãƒƒã‚¯ã‚’
+      // CERã¨ã—ã¦ãƒãƒ¼ã‚¯ã™ã‚‹ã®ã«å¯¾ã—ã¦ã€ExecuteCodeWithGuaranteedCleanupãƒ¡ã‚½ãƒƒãƒ‰ã¯
+      // æ˜ç¤ºçš„ã«å®Ÿè¡Œã‚³ãƒ¼ãƒ‰éƒ¨åˆ†ã¨ã‚¯ãƒªãƒ¼ãƒ³ã‚¢ãƒƒãƒ—éƒ¨åˆ† (ãƒãƒƒã‚¯ã‚¢ã‚¦ãƒˆã‚³ãƒ¼ãƒ‰)ã‚’å¼•æ•°ã§æ¸¡ã™ä»•æ§˜ã¨ãªã£ã¦ã„ã‚‹ã€‚
       //
-      // ExecuteCodeWithGuaranteedCleanupƒƒ\ƒbƒh‚Í
-      // TryCodeƒfƒŠƒQ[ƒg‚ÆCleanupCodeƒfƒŠƒQ[ƒgA‹y‚ÑAuserData‚ğó‚¯æ‚é.
+      // ExecuteCodeWithGuaranteedCleanupãƒ¡ã‚½ãƒƒãƒ‰ã¯
+      // TryCodeãƒ‡ãƒªã‚²ãƒ¼ãƒˆã¨CleanupCodeãƒ‡ãƒªã‚²ãƒ¼ãƒˆã€åŠã³ã€userDataã‚’å—ã‘å–ã‚‹.
       //
       // public delegate void TryCode(object userData)
       // public delegate void CleanupCode(object userData, bool exceptionThrown)
       //
-      // ‘O‰ñ‚ÌƒTƒ“ƒvƒ‹‚Æ“¯‚¶“®ì‚ğs‚¤.
+      // å‰å›ã®ã‚µãƒ³ãƒ—ãƒ«ã¨åŒã˜å‹•ä½œã‚’è¡Œã†.
       RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(Calc, Cleanup, null);
     }
 

@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-27
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples27 : IExecutable
   {
@@ -34,13 +34,13 @@ namespace Gsf.Samples
       var people = new List<Person> { p1, p2, p3 };
 
       //
-      // ƒOƒ‹[ƒvŒ‹‡‚·‚é.
+      // ã‚°ãƒ«ãƒ¼ãƒ—çµåˆã™ã‚‹.
       // 
-      // JoinŠg’£ƒƒ\ƒbƒh‚Æ‘®“I‚É‚Í‚Ù‚Æ‚ñ‚Ç“¯‚¶‚Å‚ ‚é‚ªAˆÈ‰º‚Ì“_‚ªˆÙ‚È‚éB
-      //  EresultSelector‚Ì‘®‚ªA(TOuter, IEnumerable<TInner>)‚Æ‚È‚Á‚Ä‚¢‚éB
-      // ‚±‚ê‚É‚æ‚èAŒ‹‰Ê‚ğJOIN‚µ‚½Œ‹‰Ê‚ğƒOƒ‹[ƒsƒ“ƒO‚µ‚½ó‘Ô‚Å•Û‚·‚é‚±‚Æ‚ªo—ˆ‚éBiŠK‘w\‘¢‚ğ\’zo—ˆ‚éBj
+      // Joinæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¨æ›¸å¼çš„ã«ã¯ã»ã¨ã‚“ã©åŒã˜ã§ã‚ã‚‹ãŒã€ä»¥ä¸‹ã®ç‚¹ãŒç•°ãªã‚‹ã€‚
+      //  ãƒ»resultSelectorã®æ›¸å¼ãŒã€(TOuter, IEnumerable<TInner>)ã¨ãªã£ã¦ã„ã‚‹ã€‚
+      // ã“ã‚Œã«ã‚ˆã‚Šã€çµæœã‚’JOINã—ãŸçµæœã‚’ã‚°ãƒ«ãƒ¼ãƒ”ãƒ³ã‚°ã—ãŸçŠ¶æ…‹ã§ä¿æŒã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚ï¼ˆéšå±¤æ§‹é€ ã‚’æ§‹ç¯‰å‡ºæ¥ã‚‹ã€‚ï¼‰
       //
-      // ˆÈ‰º‚ÌƒNƒGƒŠ®‚Æ“¯‚¶–‚Æ‚È‚éB
+      // ä»¥ä¸‹ã®ã‚¯ã‚¨ãƒªå¼ã¨åŒã˜äº‹ã¨ãªã‚‹ã€‚
       //  from team   in teams
       //  join person in people on team equals person.Team into personCollection
       //  select new { Team = team, Persons = personCollection }
@@ -48,9 +48,9 @@ namespace Gsf.Samples
       var query = teams.GroupJoin         // TOuter
             (
               people,           // TInner
-              team => team,       // TOuter‚ÌƒL[
-              person => person.Team,    // TInner‚ÌƒL[
-              (team, personCollection) => // Œ‹‰Ê (TOuter, IEnumerable<TInner>)
+              team => team,       // TOuterã®ã‚­ãƒ¼
+              person => person.Team,    // TInnerã®ã‚­ãƒ¼
+              (team, personCollection) => // çµæœ (TOuter, IEnumerable<TInner>)
                 new { Team = team, Persons = personCollection }
             );
 

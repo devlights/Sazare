@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-77
   /// <summary>
-  /// LINQ to XML�̃T���v���ł�.
+  /// LINQ to XMLのサンプルです.
   /// </summary>
   /// <remarks>
-  /// �i�r�Q�[�V����(DescendantsAndSelf, AncestorsAndSelf���\�b�h)�̃T���v���ł�.
+  /// ナビゲーション(DescendantsAndSelf, AncestorsAndSelfメソッド)のサンプルです.
   /// </remarks>
   public class LinqSamples77 : IExecutable
   {
@@ -18,20 +18,20 @@ namespace Gsf.Samples
     {
       //
       // DescendantsAndSelf
-      //   ���g�Ƃ��̎q�v�f���擾���邽�߂̃��\�b�h.
-      //   �����������ł�XName���w�肷��ł����݂���B
-      //   ���������ł́A�Ӑ}�����ʂ�̌��ʂ�Ԃ��Ă���邪
-      //   XName���w�肷��ł̃��\�b�h�́A�q�v�f���܂߂Ă���Ȃ��E�E�E�B
-      //   (�w��̎d�����Ԉ���Ă���̂��H �g�������Ԉ���Ă���̂��H)
+      //   自身とその子要素を取得するためのメソッド.
+      //   引数が無い版とXNameを指定する版が存在する。
+      //   引数無し版は、意図した通りの結果を返してくれるが
+      //   XNameを指定する版のメソッドは、子要素を含めてくれない・・・。
+      //   (指定の仕方が間違っているのか？ 使い方が間違っているのか？)
       //
-      //   ���炭�A�w��̎d�����Ԉ���Ă���̂��Ǝv�����A���i���p���Ȃ����\�b�h�Ȃ̂ŁA����ň�U�����Ƃ���.
+      //   恐らく、指定の仕方が間違っているのだと思うが、普段利用しないメソッドなので、これで一旦完了とする.
       //
       var root = BuildSampleXml();
       var startingPoint = root.Descendants("Customer").First();
       var descendantsAndSelf = startingPoint.DescendantsAndSelf();
 
       //
-      // AndSelf�t���̃��\�b�h�𗘗p���Ă���̂ŁACustomer���g�����ʂɊ܂܂��.
+      // AndSelf付きのメソッドを利用しているので、Customer自身も結果に含まれる.
       //
       foreach (var elem in descendantsAndSelf)
       {
@@ -41,7 +41,7 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // AndSelf��t���Ă��Ȃ��̂ŁACustomer���g�͊܂܂�Ȃ�.
+      // AndSelfを付けていないので、Customer自身は含まれない.
       //
       foreach (var elem in startingPoint.Descendants())
       {
@@ -51,13 +51,13 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // XName�t���̃I�[�o�[���[�h���Ăяo���ƁA�\�z�ƈႤ���ʂƂȂ�
-      // Customer�v�f���܂܂�Ȃ�. (??)
+      // XName付きのオーバーロードを呼び出すと、予想と違う結果となる
+      // Customer要素が含まれない. (??)
       //
-      // MSDN�̐����ɂ́A�u���̗v�f�Ƃ��̗v�f�̂��ׂĂ̎q�v�f�v�ƋL�ڂ����邪�E�E�E�B
-      // (MSDN�̃��\�b�h�y�[�W�ɂ���T���v���v���O�����̌��ʂ��A�ȉ��̌��ʂƓ����ɂȂ��Ă���)
+      // MSDNの説明には、「この要素とこの要素のすべての子要素」と記載があるが・・・。
+      // (MSDNのメソッドページにあるサンプルプログラムの結果も、以下の結果と同じになっている)
       //
-      //   ���炭�A�w��̎d�����Ԉ���Ă���̂��Ǝv�����A���i���p���Ȃ����\�b�h�Ȃ̂ŁA����ň�U�����Ƃ���.
+      //   恐らく、指定の仕方が間違っているのだと思うが、普段利用しないメソッドなので、これで一旦完了とする.
       //
       root = BuildSampleXml();
       startingPoint = root.Descendants("Customer").First();
@@ -72,11 +72,11 @@ namespace Gsf.Samples
 
       //
       // AncestorsAndSelf
-      //   ���g�Ƃ��̐�c���擾���邽�߂̃��\�b�h.
-      //   �����������ł�XName���w�肷��ł����݂���B
-      //   ���������ł́A�Ӑ}�����ʂ�̌��ʂ�Ԃ��Ă���邪
-      //   XName���w�肷��ł̃��\�b�h�́A��c���܂߂Ă���Ȃ��E�E�E�B
-      //   (�w��̎d�����Ԉ���Ă���̂��H �g�������Ԉ���Ă���̂��H)
+      //   自身とその先祖を取得するためのメソッド.
+      //   引数が無い版とXNameを指定する版が存在する。
+      //   引数無し版は、意図した通りの結果を返してくれるが
+      //   XNameを指定する版のメソッドは、先祖を含めてくれない・・・。
+      //   (指定の仕方が間違っているのか？ 使い方が間違っているのか？)
       //
       root = BuildSampleXml2();
       startingPoint = root.Descendants("Price").First();
@@ -84,7 +84,7 @@ namespace Gsf.Samples
       var ancestorsAndSelf = startingPoint.AncestorsAndSelf();
 
       //
-      // AndSelf�t���̃��\�b�h�𗘗p���Ă���̂ŁAPrice���g�����ʂɊ܂܂��.
+      // AndSelf付きのメソッドを利用しているので、Price自身も結果に含まれる.
       //
       foreach (var elem in ancestorsAndSelf)
       {
@@ -94,7 +94,7 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // Price���g�͊܂܂�Ȃ�
+      // Price自身は含まれない
       //
       foreach (var elem in startingPoint.Ancestors())
       {
@@ -104,11 +104,11 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // XName�t���̃I�[�o�[���[�h���Ăяo���ƁA�\�z�ƈႤ���ʂƂȂ�
-      // Price�v�f���܂܂�Ȃ�. (??)
+      // XName付きのオーバーロードを呼び出すと、予想と違う結果となる
+      // Price要素が含まれない. (??)
       //
-      // MSDN�̐����ɂ́A�u���̗v�f�Ƃ��̗v�f�̐�c�v�ƋL�ڂ����邪�E�E�E�B
-      // (MSDN�̃��\�b�h�y�[�W�ɂ���T���v���v���O�����̌��ʂ��A�ȉ��̌��ʂƓ����ɂȂ��Ă���)
+      // MSDNの説明には、「この要素とこの要素の先祖」と記載があるが・・・。
+      // (MSDNのメソッドページにあるサンプルプログラムの結果も、以下の結果と同じになっている)
       //
       root = BuildSampleXml2();
       startingPoint = root.Descendants("Price").First();
@@ -123,7 +123,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // �T���v��XML�t�@�C��
+      // サンプルXMLファイル
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/bb387025.aspx
       //
       return XElement.Load(@"xml/CustomersOrders.xml");
@@ -132,7 +132,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml2()
     {
       //
-      // �T���v��XML�t�@�C��
+      // サンプルXMLファイル
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

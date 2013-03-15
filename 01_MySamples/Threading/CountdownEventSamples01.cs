@@ -8,26 +8,26 @@ namespace Gsf.Samples
 
   #region CountDownEventSamples-01
   /// <summary>
-  /// CountdownEventƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B(1)
+  /// CountdownEventã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚(1)
   /// </summary>
   /// <remarks>
-  /// CountdownEventƒNƒ‰ƒX‚ÍA.NET 4.0‚©‚ç’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
-  /// Java‚ÌCountDownLatchƒNƒ‰ƒX‚Æ“¯‚¶‹@”\‚ğ‚Á‚Ä‚¢‚Ü‚·B
+  /// CountdownEventã‚¯ãƒ©ã‚¹ã¯ã€.NET 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  /// Javaã®CountDownLatchã‚¯ãƒ©ã‚¹ã¨åŒã˜æ©Ÿèƒ½ã‚’æŒã£ã¦ã„ã¾ã™ã€‚
   /// </remarks>
   public class CountdownEventSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // ‰ŠúƒJƒEƒ“ƒg‚ª1‚ÌCountdownEventƒIƒuƒWƒFƒNƒg‚ğì¬.
+      // åˆæœŸã‚«ã‚¦ãƒ³ãƒˆãŒ1ã®CountdownEventã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’ä½œæˆ.
       //
-      // ‚±‚Ìê‡A‚Ç‚±‚©‚Ìˆ—‚É‚ÄƒJƒEƒ“ƒg‚ğˆê‚ÂŒ¸‚ç‚·•K—v‚ª‚ ‚éB
-      // ƒJƒEƒ“ƒg‚ªc‚Á‚Ä‚¢‚éó‘Ô‚ÅWait‚ğ‚µ‚Ä‚¢‚é‚ÆA‚¢‚Â‚Ü‚Å‚½‚Á‚Ä‚àWait‚ğ
-      // ”²‚¯‚é‚±‚Æ‚ªo—ˆ‚È‚¢B
+      // ã“ã®å ´åˆã€ã©ã“ã‹ã®å‡¦ç†ã«ã¦ã‚«ã‚¦ãƒ³ãƒˆã‚’ä¸€ã¤æ¸›ã‚‰ã™å¿…è¦ãŒã‚ã‚‹ã€‚
+      // ã‚«ã‚¦ãƒ³ãƒˆãŒæ®‹ã£ã¦ã„ã‚‹çŠ¶æ…‹ã§Waitã‚’ã—ã¦ã„ã‚‹ã¨ã€ã„ã¤ã¾ã§ãŸã£ã¦ã‚‚Waitã‚’
+      // æŠœã‘ã‚‹ã“ã¨ãŒå‡ºæ¥ãªã„ã€‚
       //
       using (CountdownEvent cde = new CountdownEvent(1))
       {
-        // ‰Šú‚Ìó‘Ô‚ğ•\¦.
+        // åˆæœŸã®çŠ¶æ…‹ã‚’è¡¨ç¤º.
         Console.WriteLine("InitialCount={0}", cde.InitialCount);
         Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
         Console.WriteLine("IsSet={0}", cde.IsSet);
@@ -37,17 +37,17 @@ namespace Gsf.Samples
           Thread.Sleep(TimeSpan.FromSeconds(1));
 
           //
-          // ƒJƒEƒ“ƒg‚ğƒfƒNƒŠƒƒ“ƒg.
+          // ã‚«ã‚¦ãƒ³ãƒˆã‚’ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆ.
           //
-          // Signalƒƒ\ƒbƒh‚ğˆø”‚È‚µ‚ÅŒÄ‚Ô‚ÆA‚P‚ÂƒJƒEƒ“ƒg‚ğŒ¸‚ç‚·‚±‚Æ‚ªo—ˆ‚éB
-          // (w’è‚µ‚½”•ªAƒJƒEƒ“ƒg‚ğƒfƒNƒŠƒƒ“ƒg‚·‚éƒI[ƒo[ƒ[ƒh‚à‘¶İ‚·‚éB)
+          // Signalãƒ¡ã‚½ãƒƒãƒ‰ã‚’å¼•æ•°ãªã—ã§å‘¼ã¶ã¨ã€ï¼‘ã¤ã‚«ã‚¦ãƒ³ãƒˆã‚’æ¸›ã‚‰ã™ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
+          // (æŒ‡å®šã—ãŸæ•°åˆ†ã€ã‚«ã‚¦ãƒ³ãƒˆã‚’ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã™ã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã‚‚å­˜åœ¨ã™ã‚‹ã€‚)
           //
-          // CountdownEvent.CurrentCount‚ª0‚Ìó‘Ô‚ÅA‚³‚ç‚ÉSignalƒƒ\ƒbƒh‚ğŒÄ‚Ño‚·‚Æ
-          // InvalidOperationException (ƒCƒxƒ“ƒg‚ÌƒJƒEƒ“ƒg‚ğ 0 ‚æ‚è¬‚³‚¢’l‚ÉƒfƒNƒŠƒƒ“ƒg‚µ‚æ‚¤‚Æ‚µ‚Ü‚µ‚½B)‚ª
-          // ”­¶‚·‚éB
+          // CountdownEvent.CurrentCountãŒ0ã®çŠ¶æ…‹ã§ã€ã•ã‚‰ã«Signalãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã™ã¨
+          // InvalidOperationException (ã‚¤ãƒ™ãƒ³ãƒˆã®ã‚«ã‚¦ãƒ³ãƒˆã‚’ 0 ã‚ˆã‚Šå°ã•ã„å€¤ã«ãƒ‡ã‚¯ãƒªãƒ¡ãƒ³ãƒˆã—ã‚ˆã†ã¨ã—ã¾ã—ãŸã€‚)ãŒ
+          // ç™ºç”Ÿã™ã‚‹ã€‚
           //
           cde.Signal();
-          cde.Signal(); // ‚±‚Ìƒ^ƒCƒ~ƒ“ƒO‚Å—áŠO‚ª”­¶‚·‚é.
+          cde.Signal(); // ã“ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹.
         });
 
         try
@@ -63,11 +63,11 @@ namespace Gsf.Samples
         }
 
         //
-        // ƒJƒEƒ“ƒg‚ª0‚É‚È‚é‚Ü‚Å‘Ò‹@.
+        // ã‚«ã‚¦ãƒ³ãƒˆãŒ0ã«ãªã‚‹ã¾ã§å¾…æ©Ÿ.
         //
         cde.Wait();
 
-        // Œ»İ‚Ìó‘Ô‚ğ•\¦.
+        // ç¾åœ¨ã®çŠ¶æ…‹ã‚’è¡¨ç¤º.
         Console.WriteLine("InitialCount={0}", cde.InitialCount);
         Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
         Console.WriteLine("IsSet={0}", cde.IsSet);

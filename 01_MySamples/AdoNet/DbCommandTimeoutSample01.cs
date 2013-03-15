@@ -8,7 +8,7 @@ namespace Gsf.Samples
 
   #region DbCommandTimeoutSample-01
   /// <summary>
-  /// DbCommand‚Ìƒ^ƒCƒ€ƒAƒEƒg‹@”\‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// DbCommandã®ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆæ©Ÿèƒ½ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class DbCommandTimeoutSample01 : IExecutable
   {
@@ -22,7 +22,7 @@ namespace Gsf.Samples
 
         using (var command = conn.CreateCommand())
         {
-          command.CommandText = @"SELECT a.*, b.* FROM MST_ZIP a FULL OUTER JOIN MST_ZIP b ON a.[publicCode] = b.[publicCode] WHERE a.[cmp] LIKE '%‚ %' AND b.[cmpK] LIKE '%±%'";
+          command.CommandText = @"SELECT a.*, b.* FROM MST_ZIP a FULL OUTER JOIN MST_ZIP b ON a.[publicCode] = b.[publicCode] WHERE a.[cmp] LIKE '%ã‚%' AND b.[cmpK] LIKE '%ï½±%'";
           command.CommandTimeout = 1;
 
           try

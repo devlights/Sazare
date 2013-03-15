@@ -8,51 +8,51 @@ namespace Gsf.Samples
 
   #region CountdownEventSamples-04
   /// <summary>
-  /// CountdownEvent�N���X�ɂ��ẴT���v���ł��B
+  /// CountdownEventクラスについてのサンプルです。
   /// </summary>
   /// <remarks>
-  /// CountdownEvent�N���X�́A.NET 4.0����ǉ����ꂽ�N���X�ł��B
+  /// CountdownEventクラスは、.NET 4.0から追加されたクラスです。
   /// </remarks>
   public class CountdownEventSamples04 : IExecutable
   {
     public void Execute()
     {
       //
-      // CountdownEvent�N���X�ɂ́A�ȉ��̃��\�b�h�����݂���B
-      //   �EAddCount���\�b�h
-      //   �EReset���\�b�h
-      // AddCount���\�b�h�́ACountdownEvent�̓����J�E���g���C���N�������g����B
-      // Reset���\�b�h�́A���݂̓����J�E���g�����Z�b�g����B
+      // CountdownEventクラスには、以下のメソッドが存在する。
+      //   ・AddCountメソッド
+      //   ・Resetメソッド
+      // AddCountメソッドは、CountdownEventの内部カウントをインクリメントする。
+      // Resetメソッドは、現在の内部カウントをリセットする。
       //
-      // �ǂ���̃��\�b�h���AInt32�������Ɏ��I�[�o�[���[�h���p�ӂ���Ă���
-      // �w�肵������ݒ肷�邱�Ƃ��o����B
+      // どちらのメソッドも、Int32を引数に取るオーバーロードが用意されており
+      // 指定した数を設定することも出来る。
       //
-      // ���AAddCount���\�b�h�𗘗p����ۂ̒��ӓ_�Ƃ���
-      //   ���ɓ����J�E���g��0�̏�Ԃ�AddCount�����s����Ɨ�O����������B
-      // �܂�A����IsSet��True�i�V�O�i����ԁj��AddCount����ƃG���[�ƂȂ�B
+      // 尚、AddCountメソッドを利用する際の注意点として
+      //   既に内部カウントが0の状態でAddCountを実行すると例外が発生する。
+      // つまり、既にIsSetがTrue（シグナル状態）でAddCountするとエラーとなる。
       //
 
       //
-      // �����J�E���g��0�̏�ԂŁAAddCount���Ă݂�.
+      // 内部カウントが0の状態で、AddCountしてみる.
       //
       using (CountdownEvent cde = new CountdownEvent(0))
       {
-        // �����̏�Ԃ�\��.
+        // 初期の状態を表示.
         PrintCurrentCountdownEvent(cde);
 
         try
         {
           //
-          // ���ɃV�O�i����Ԃ̏ꍇ�ɁA�����AddCount���悤�Ƃ���Ɨ�O����������.
+          // 既にシグナル状態の場合に、さらにAddCountしようとすると例外が発生する.
           //
           cde.AddCount();
         }
         catch (InvalidOperationException invalidEx)
         {
-          Console.WriteLine("������ {0} ������", invalidEx.Message);
+          Console.WriteLine("＊＊＊ {0} ＊＊＊", invalidEx.Message);
         }
 
-        // ���݂̏�Ԃ�\��.
+        // 現在の状態を表示.
         PrintCurrentCountdownEvent(cde);
       }
 
@@ -60,14 +60,14 @@ namespace Gsf.Samples
 
       using (CountdownEvent cde = new CountdownEvent(1))
       {
-        // �����̏�Ԃ�\��.
+        // 初期の状態を表示.
         PrintCurrentCountdownEvent(cde);
 
         //
-        // 10�̕ʏ��������s����.
-        // ���ꂼ��̓��������ɂă����_����SLEEP���āA�I���^�C�~���O���o���o���ɐݒ�.
+        // 10個の別処理を実行する.
+        // それぞれの内部処理にてランダムでSLEEPして、終了タイミングをバラバラに設定.
         //
-        Console.WriteLine("�ʏ����J�n�E�E�E");
+        Console.WriteLine("別処理開始・・・");
 
         for (int i = 0; i < 10; i++)
         {
@@ -76,44 +76,44 @@ namespace Gsf.Samples
 
         do
         {
-          // ���݂̏�Ԃ�\��.
+          // 現在の状態を表示.
           PrintCurrentCountdownEvent(cde, "t");
 
           Thread.Sleep(TimeSpan.FromSeconds(2));
         }
         while (cde.CurrentCount != 1);
 
-        Console.WriteLine("�E�E�E�ʏ����I��");
+        Console.WriteLine("・・・別処理終了");
 
         //
-        // �ҋ@.
+        // 待機.
         //
-        Console.WriteLine("���C���X���b�h�ɂčŌ�̃J�E���g���f�N�������g");
+        Console.WriteLine("メインスレッドにて最後のカウントをデクリメント");
         cde.Signal();
         cde.Wait();
 
-        // ���݂̏�Ԃ�\��.
+        // 現在の状態を表示.
         PrintCurrentCountdownEvent(cde);
 
         Console.WriteLine("");
 
         //
-        // �����J�E���g�����Z�b�g.
+        // 内部カウントをリセット.
         //
-        Console.WriteLine("�����J�E���g�����Z�b�g");
+        Console.WriteLine("内部カウントをリセット");
         cde.Reset();
 
-        // ���݂̏�Ԃ�\��.
+        // 現在の状態を表示.
         PrintCurrentCountdownEvent(cde);
 
         //
-        // �ҋ@.
+        // 待機.
         //
-        Console.WriteLine("���C���X���b�h�ɂčŌ�̃J�E���g���f�N�������g");
+        Console.WriteLine("メインスレッドにて最後のカウントをデクリメント");
         cde.Signal();
         cde.Wait();
 
-        // ���݂̏�Ԃ�\��.
+        // 現在の状態を表示.
         PrintCurrentCountdownEvent(cde);
       }
     }
@@ -128,7 +128,7 @@ namespace Gsf.Samples
     void TaskProc(object data)
     {
       //
-      // �����J�n�Ƌ��ɁACountdownEvent�̓����J�E���g���C���N�������g.
+      // 処理開始と共に、CountdownEventの内部カウントをインクリメント.
       //
       CountdownEvent cde = data as CountdownEvent;
       cde.AddCount();
@@ -136,7 +136,7 @@ namespace Gsf.Samples
       Thread.Sleep(TimeSpan.FromSeconds(new Random().Next(10)));
 
       //
-      // �����J�E���g���f�N�������g.
+      // 内部カウントをデクリメント.
       //
       cde.Signal();
     }

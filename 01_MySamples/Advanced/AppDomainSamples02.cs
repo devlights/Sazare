@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region AppDomainSamples-02
   /// <summary>
-  /// AppDomain�N���X�̃T���v���ł��B
+  /// AppDomainクラスのサンプルです。
   /// </summary>
   public class AppDomainSamples02 : MarshalByRefObject, IExecutable
   {
@@ -16,30 +16,30 @@ namespace Gsf.Samples
       AppDomain anotherDomain = AppDomain.CreateDomain("AnotherAppDomain");
 
       //
-      // DomainUnload�C�x���g�̃n���h��.
+      // DomainUnloadイベントのハンドル.
       //
-      // ����̃A�v���P�[�V�����h���C���ł́AUnload�͓o�^�ł��邪���s����邱�Ƃ�
-      // �����̂ŁA�ݒ肷��Ӗ����Ȃ�.
+      // 既定のアプリケーションドメインでは、Unloadは登録できるが発行されることは
+      // 無いので、設定する意味がない.
       //defaultDomain.DomainUnload += AppDomain_Unload;
       anotherDomain.DomainUnload += AppDomain_Unload;
 
       //
-      // ProcessExit�C�x���g�̃n���h��.
+      // ProcessExitイベントのハンドル.
       //
       defaultDomain.ProcessExit += AppDomain_ProcessExit;
       anotherDomain.ProcessExit += AppDomain_ProcessExit;
 
       //
-      // ����̃A�v���P�[�V�����h���C�����A�����[�h���悤�Ƃ���ƃG���[�ƂȂ�.
-      // ** appdomain ���A�����[�h���ɃG���[���������܂����B (HRESULT ����̗�O: 0x80131015) **
+      // 既定のアプリケーションドメインをアンロードしようとするとエラーとなる.
+      // ** appdomain をアンロード中にエラーが発生しました。 (HRESULT からの例外: 0x80131015) **
       //AppDomain.Unload(defaultDomain);
 
       //
-      // AppDomain.Unload���Ăяo���ƁADomainUnload�C�x���g����������.
-      // AppDomain.Unload���Ăяo�����Ƀv���Z�X���I�������悤�Ƃ����
-      // ProcessExit�C�x���g����������B�����̃C�x���g�������ɔ������邱�Ƃ͖���.
+      // AppDomain.Unloadを呼び出すと、DomainUnloadイベントが発生する.
+      // AppDomain.Unloadを呼び出さずにプロセスが終了させようとすると
+      // ProcessExitイベントが発生する。両方のイベントが同時に発生することは無い.
       //
-      // �ȉ����R�����g�A�E�g����ƁAProcessExit�C�x���g����������.
+      // 以下をコメントアウトすると、ProcessExitイベントが発生する.
       //
       //AppDomain.Unload(anotherDomain);
     }
@@ -53,17 +53,17 @@ namespace Gsf.Samples
     void AppDomain_ProcessExit(object sender, EventArgs e)
     {
       //
-      // ProcessExit�C�x���g�ɂ́A�^�C���A�E�g�����݂���B�i�����2�b�j
-      // �ȉ��AMSDN�̋L�q.
+      // ProcessExitイベントには、タイムアウトが存在する。（既定は2秒）
+      // 以下、MSDNの記述.
       // (http://msdn.microsoft.com/ja-jp/library/system.appdomain.processexit.aspx)
       //
-      // �u�v���Z�X �V���b�g�_�E�����ɂ�����S�t�@�C�i���C�U�[�̍��v���s���Ԃ������Ă���悤�ɁAProcessExit ��
-      // ���ׂẴC�x���g �n���h���[�ɑ΂��Ċ��蓖�Ă��鍇�v���s���Ԃ������Ă��܂��B ����l�� 2 �b�ł��B�v
+      // 「プロセス シャットダウン時における全ファイナライザーの合計実行時間が限られているように、ProcessExit の
+      // すべてのイベント ハンドラーに対して割り当てられる合計実行時間も限られています。 既定値は 2 秒です。」
       //
-      // �ȉ��̃R�����g���O���Ď��s����ƁA�^�C���A�E�g���Ԃ��߂���̂�
-      // �C�x���g���n���h�����Ă��Ă��A�㑱�̏����͎��s����Ȃ��B
+      // 以下のコメントを外して実行すると、タイムアウト時間を過ぎるので
+      // イベントをハンドルしていても、後続の処理は実行されない。
       //
-      // �킴�ƃ^�C���A�E�g���Ԃ��߂���悤�ɑҋ@.
+      // わざとタイムアウト時間が過ぎるように待機.
       //Console.WriteLine("AppDomain.ProcessExit Thread.Sleep()");
       //Thread.Sleep(TimeSpan.FromSeconds(3));
 

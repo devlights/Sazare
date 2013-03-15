@@ -4,7 +4,7 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region LinqSamples-18 AND LinqSamples-19 AND Šg’£ƒƒ\ƒbƒh‰ğŒˆ
+  #region LinqSamples-18 AND LinqSamples-19 AND æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰è§£æ±º
 
   public static class PersonExtension
   {

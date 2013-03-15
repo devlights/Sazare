@@ -7,20 +7,20 @@ namespace Gsf.Samples
 
   #region LinqSamples-69
   /// <summary>
-  /// LINQ to XML�̃T���v���ł�.
+  /// LINQ to XMLのサンプルです.
   /// </summary>
   /// <remarks>
-  /// ���O��� (XNamespace) �̃T���v���ł�.
+  /// 名前空間 (XNamespace) のサンプルです.
   /// </remarks>
   public class LinqSamples69 : IExecutable
   {
     public void Execute()
     {
       //
-      // ���O��ԂȂ�
-      //   �ʏ킻�̂܂ܗv�f���쐬����Ɩ��O��Ԗ����ƂȂ�.
-      //   ���O��Ԗ����̏ꍇ�AXNamespace.None���ݒ肳��Ă���.
-      //   XName.Namespace�v���p�e�B��null�ɂȂ�Ȃ����Ƃ͕ۏ؂���Ă���.
+      // 名前空間なし
+      //   通常そのまま要素を作成すると名前空間無しとなる.
+      //   名前空間無しの場合、XNamespace.Noneが設定されている.
+      //   XName.Namespaceプロパティがnullにならないことは保証されている.
       //     http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xnamespace.aspx
       //
       var root = BuildSampleXml();
@@ -30,12 +30,12 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // �f�t�H���g���O��Ԃ���
-      //   ����XML�Ƀf�t�H���g���O��Ԃ��ݒ肳��Ă���ꍇ
-      //   �擾����XElement -> XName��薼�O��Ԃ��擾�ł���
+      // デフォルト名前空間あり
+      //   元のXMLにデフォルト名前空間が設定されている場合
+      //   取得したXElement -> XNameより名前空間が取得できる
       //
-      //   �f�t�H���g���O��ԂȂ̂ŁA�v�f���擾����ۂɖ��O��Ԃ̕t�^��
-      //   �K�v�Ȃ��B�i���̂܂܎擾�ł���)
+      //   デフォルト名前空間なので、要素を取得する際に名前空間の付与は
+      //   必要ない。（そのまま取得できる)
       //
       root = BuildSampleXmlWithDefaultNamespace();
       name = root.Name;
@@ -46,13 +46,13 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // �f�t�H���g���O��ԂƃJ�X�^�����O��Ԃ���
-      //   �f�t�H���g���O��ԂɊւ��ẮA��L�̒ʂ�B
-      //   �J�X�^�����O��Ԃ̏ꍇ�A�v�f���擾����ۂ�
-      //     XNamespace + "�v�f��"
-      //   �̂悤�ɁA���O��Ԃ�t�^���Ď擾����K�v������.
-      //   �J�X�^�����O��ԓ��̗v�f�́AXNamespace��t�^���Ȃ���
-      //   �擾�ł��Ȃ�.
+      // デフォルト名前空間とカスタム名前空間あり
+      //   デフォルト名前空間に関しては、上記の通り。
+      //   カスタム名前空間の場合、要素を取得する際に
+      //     XNamespace + "要素名"
+      //   のように、名前空間を付与して取得する必要がある.
+      //   カスタム名前空間内の要素は、XNamespaceを付与しないと
+      //   取得できない.
       //
       root = BuildSampleXmlWithNamespace();
       name = root.Name;
@@ -63,7 +63,7 @@ namespace Gsf.Samples
 
       if (root.Descendants("Value").Count() == 0)
       {
-        Console.WriteLine("[Count=0] Namespace���Ⴄ�̂ŁA�v�f���擾�ł��Ȃ�.");
+        Console.WriteLine("[Count=0] Namespaceが違うので、要素が取得できない.");
       }
 
       Console.WriteLine("=====================================");
@@ -78,12 +78,12 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // ���O��ԕt���ŗv�f�쐬 (�v���t�B�b�N�X�Ȃ�)
-      //   �v�f�쐬�̍ۂɁA���O��Ԃ�t�^����ɂ�
-      //   �\��XNamespace���쐬���Ă����A�����
-      //      XNamespace + "�v�f"
-      //   �Ƃ������ɁA���������������悤�ȗv�̂ŗ��p����B
-      //   XNamespace�́A�Öقŕ����񂩂琶���ł���.
+      // 名前空間付きで要素作成 (プレフィックスなし)
+      //   要素作成の際に、名前空間を付与するには
+      //   予めXNamespaceを作成しておき、それを
+      //      XNamespace + "要素"
+      //   という風に、文字列を結合するような要領で利用する。
+      //   XNamespaceは、暗黙で文字列から生成できる.
       //
       var defaultNamespace = (XNamespace)"http://www.tmpurl.org/Default";
       var customNamespace = (XNamespace)"http://www.tmpurl.org/Custom";
@@ -97,17 +97,17 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // ���O��ԕt���ŗv�f�쐬 (�v���t�B�b�N�X����)
+      // 名前空間付きで要素作成 (プレフィックスあり)
       //   <ns:Node>xxx</ns:Node>
-      // �̂悤�ɁA�v�f�ɖ��O��ԃv���t�B�b�N�X��t�^����ɂ�
-      // �܂��A�v���t�B�b�N�X��t�^����v�f�����e�v�f�ɂ�
+      // のように、要素に名前空間プレフィックスを付与するには
+      // まず、プレフィックスを付与する要素を持つ親要素にて
       //   new XAttribute(XNamespace.Xmlns + "customs", "http://xxxxx/xxxx")
-      // �̑�����t�^����B����ɂ��A�e�v�f�ɂ�
+      // の属性を付与する。これにより、親要素にて
       //   <Root xmlns:customs="http://xxxxx/xxxx">
-      // �Ƃ��������ɂȂ�B
-      // ��́A�v���t�B�b�N�X��t�^����v�f�ɂĒʏ�ʂ�
+      // という感じになる。
+      // 後は、プレフィックスを付与する要素にて通常通り
       //   new XElement(customNamespace + "ChildNode", x)
-      // �ƒ�`���邱�Ƃɂ��A�����I�ɍ��v����v���t�B�b�N�X���ݒ肳���B
+      // と定義することにより、自動的に合致するプレフィックスが設定される。
       // 
       newElement = new XElement(
                      defaultNamespace + "RootNode",
@@ -121,7 +121,7 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // �J�X�^�����O��Ԃɑ�����v�f��\��.
+      // カスタム名前空間に属する要素を表示.
       //
       foreach (var e in newElement.Descendants(customNamespace + "ChildNode"))
       {
@@ -131,7 +131,7 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // �f�t�H���g���O��Ԃɑ�����v�f��\��.
+      // デフォルト名前空間に属する要素を表示.
       //
       foreach (var e in newElement.Descendants(defaultNamespace + "ChildNode"))
       {
@@ -141,7 +141,7 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
 
       //
-      // ���O��Ԗ����̗v�f��\��.
+      // 名前空間無しの要素を表示.
       //
       foreach (var e in newElement.Descendants("ChildNode"))
       {

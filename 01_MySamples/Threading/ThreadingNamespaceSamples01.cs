@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region ThreadingNamespaceSamples-01
   /// <summary>
-  /// System.Threading���O��Ԃɑ��݂���N���X�̃T���v���ł��B
+  /// System.Threading名前空間に存在するクラスのサンプルです。
   /// </summary>
   public class ThreadingNamespaceSamples01 : IExecutable
   {
@@ -52,17 +52,17 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // Thread�N���X (1)
-      //    ��{�I�ȃ��\�b�h�Ȃǂɂ���.
+      // Threadクラス (1)
+      //    基本的なメソッドなどについて.
       //
 
       //////////////////////////////////////////////////////////////////////////////
       //
-      // ThreadStart�f���Q�[�g��p�������@.
-      //    ThreadStart�f���Q�[�g�͈������߂�l�������Ă��܂���B
-      //    ���̃f���Q�[�g�𗘗p�����p�^�[���Ŋe�X���b�h�ɂăf�[�^��
-      //    ��������ꍇ�́A�f���Q�[�g���\�b�h��������ԃN���X���쐬���܂��B
-      //    ��Ō��ʂ��󂯎��K�v������ꍇ�����l�ł��B
+      // ThreadStartデリゲートを用いた方法.
+      //    ThreadStartデリゲートは引数も戻り値も持っていません。
+      //    このデリゲートを利用したパターンで各スレッドにてデータを
+      //    持たせる場合は、デリゲートメソッドを内包した状態クラスを作成します。
+      //    後で結果を受け取る必要がある場合も同様です。
       //
       List<ThreadStartDelegateState> states = new List<ThreadStartDelegateState>();
       for (int i = 0; i < 5; i++)
@@ -70,46 +70,46 @@ namespace Gsf.Samples
         ThreadStartDelegateState state = new ThreadStartDelegateState();
         Thread thread = new Thread(state.ThreadStartHandlerMethod);
 
-        state.ArgumentData = string.Format("{0}�Ԗڂ̃X���b�h", i);
+        state.ArgumentData = string.Format("{0}番目のスレッド", i);
         state.TargetThread = thread;
 
         states.Add(state);
 
         //
-        // �V�K�ō쐬����Thread�̓f�t�H���g�Ńt�H�A�O���E���h�X���b�h�ƂȂ��Ă���B
-        // �iThreadPool�X���b�h�̏ꍇ�̓f�t�H���g�Ńo�b�N�O���E���h�X���b�h�ƂȂ��Ă���B)
+        // 新規で作成したThreadはデフォルトでフォアグラウンドスレッドとなっている。
+        // （ThreadPoolスレッドの場合はデフォルトでバックグラウンドスレッドとなっている。)
         //
         thread.IsBackground = true;
 
         // 
-        // �ʃX���b�h�������J�n����B
-        // Start���\�b�h�͑����ɐ�����Ăь��ɖ߂��B
+        // 別スレッド処理を開始する。
+        // Startメソッドは即座に制御を呼び元に戻す。
         //
         thread.Start();
       }
 
       //
-      // �S�X���b�h���I����Ă��猋�ʂ��m�F�������̂ŁA�҂����킹.
-      // (�ȉ��̈�s���R�����g�A�E�g���Ď��s����ƁA�����m����ReturnData�v���p�e�B�̒l��
-      //  �ݒ肳��Ă��Ȃ���ԂŌ��ʂ��o�͂����͂��ł��B(���ʂ��Z�b�g�����O�Ƀ��C��������
-      //  ���ʊm�F�����ւƐi�ނ���))
+      // 全スレッドが終わってから結果を確認したいので、待ち合わせ.
+      // (以下の一行をコメントアウトして実行すると、高い確率でReturnDataプロパティの値が
+      //  設定されていない状態で結果が出力されるはずです。(結果がセットされる前にメイン処理が
+      //  結果確認処理へと進むため))
       //
       states.ForEach(state =>
       {
         state.TargetThread.Join();
       });
 
-      // ���ʊm�F.
+      // 結果確認.
       states.ForEach(Console.WriteLine);
 
       //////////////////////////////////////////////////////////////////////////////
       //
-      // ParameterizedThreadStart�f���Q�[�g��p�������@.
-      //    ParameterizedThreadStart�f���Q�[�g�͈�������^���鎖���o���܂��B
-      //    ���̃f���Q�[�g�𗘗p�����p�^�[���Ŋe�X���b�h�ɂăf�[�^��
-      //    ��������ꍇ�́AThread.Start���\�b�h�ɂĈ����������n���܂��B
-      //    ��Ō��ʂ��󂯎��K�v������ꍇ�́AThreadStart�f���Q�[�g�Ɠ�����
-      //    ��ԃN���X���쐬���A�߂�l��ݒ肷��K�v������܂��B
+      // ParameterizedThreadStartデリゲートを用いた方法.
+      //    ParameterizedThreadStartデリゲートは引数を一つ与える事が出来ます。
+      //    このデリゲートを利用したパターンで各スレッドにてデータを
+      //    持たせる場合は、Thread.Startメソッドにて引数を引き渡します。
+      //    後で結果を受け取る必要がある場合は、ThreadStartデリゲートと同じく
+      //    状態クラスを作成し、戻り値を設定する必要があります。
       //
       states.Clear();
       for (int i = 0; i < 5; i++)
@@ -121,7 +121,7 @@ namespace Gsf.Samples
         states.Add(state);
 
         thread.IsBackground = true;
-        thread.Start(string.Format("{0}�Ԗڂ̃X���b�h", i));
+        thread.Start(string.Format("{0}番目のスレッド", i));
       }
 
       states.ForEach(state =>

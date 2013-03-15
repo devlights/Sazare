@@ -14,11 +14,11 @@ namespace Gsf.Samples
 
       Stopwatch watch = Stopwatch.StartNew();
 
-      // ���ʂ�LINQ
+      // 普通のLINQ
       // var query1 = from x in numbers
-      // ����LINQ�i�P�j�iExecutionMode��t�^���Ă��Ȃ��̂ŁA����Ŏ��s���邩�ۂ���TPL�����肷��j
+      // 並列LINQ（１）（ExecutionModeを付与していないので、並列で実行するか否かはTPLが決定する）
       // var query1 = from x in numbers.AsParallel()
-      // ����LINQ�i�Q�j�iExecutionMode��t�^���Ă���̂ŁA�����I�ɕ���Ŏ��s����悤�w���j
+      // 並列LINQ（２）（ExecutionModeを付与しているので、強制的に並列で実行するよう指示）
       var query1 = from x in numbers.AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism)
                    select Math.Pow(x, 2);
 

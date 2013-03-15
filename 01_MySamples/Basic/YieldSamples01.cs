@@ -6,12 +6,12 @@ namespace Gsf.Samples
 
   #region YieldSamples-01
   /// <summary>
-  /// yieldƒL[ƒ[ƒh‚ÉŠÖ‚·‚éƒTƒ“ƒvƒ‹‚Å‚·B
+  /// yieldã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã«é–¢ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class YieldSamples01 : IExecutable
   {
     //
-    // Å‚àƒx[ƒVƒbƒN‚È—ñ‹“‰Â”\ƒNƒ‰ƒX.
+    // æœ€ã‚‚ãƒ™ãƒ¼ã‚·ãƒƒã‚¯ãªåˆ—æŒ™å¯èƒ½ã‚¯ãƒ©ã‚¹.
     //
     class SampleCollection1
     {
@@ -34,7 +34,7 @@ namespace Gsf.Samples
     }
 
     //
-    // Yield‚ğ—˜—p‚µ‚½ƒpƒ^[ƒ“‚P (IEnumerator<T>‚ğg—p)
+    // Yieldã‚’åˆ©ç”¨ã—ãŸãƒ‘ã‚¿ãƒ¼ãƒ³ï¼‘ (IEnumerator<T>ã‚’ä½¿ç”¨)
     //
     class SampleCollection2
     {
@@ -47,7 +47,7 @@ namespace Gsf.Samples
     }
 
     //
-    // Yield‚ğ—˜—p‚µ‚½ƒpƒ^[ƒ“‚Q (IEnumerable<T>‚ğg—p)
+    // Yieldã‚’åˆ©ç”¨ã—ãŸãƒ‘ã‚¿ãƒ¼ãƒ³ï¼’ (IEnumerable<T>ã‚’ä½¿ç”¨)
     //
     class SampleCollection3
     {
@@ -63,7 +63,7 @@ namespace Gsf.Samples
     }
 
     //
-    // Yield‚ğ—˜—p‚µ‚½ƒpƒ^[ƒ“‚R (•¡”‚ÌIEnumerable<T>‚ğg—p)
+    // Yieldã‚’åˆ©ç”¨ã—ãŸãƒ‘ã‚¿ãƒ¼ãƒ³ï¼“ (è¤‡æ•°ã®IEnumerable<T>ã‚’ä½¿ç”¨)
     //
     class SampleCollection4
     {
@@ -103,7 +103,7 @@ namespace Gsf.Samples
     }
 
     //
-    // yield break‚ğ—˜—p‚µ‚½ƒpƒ^[ƒ“
+    // yield breakã‚’åˆ©ç”¨ã—ãŸãƒ‘ã‚¿ãƒ¼ãƒ³
     //
     class SampleCollection5
     {
@@ -117,14 +117,14 @@ namespace Gsf.Samples
 
           yield break;
 
-          // warning CS0162: “’B‚Å‚«‚È‚¢ƒR[ƒh‚ªŒŸo‚³‚ê‚Ü‚µ‚½B
+          // warning CS0162: åˆ°é”ã§ããªã„ã‚³ãƒ¼ãƒ‰ãŒæ¤œå‡ºã•ã‚Œã¾ã—ãŸã€‚
           //yield return "Value4";
         }
       }
     }
 
     //
-    // ŠÈˆÕƒpƒCƒvƒ‰ƒCƒ“—p‚ÌŠeƒƒ\ƒbƒh.
+    // ç°¡æ˜“ãƒ‘ã‚¤ãƒ—ãƒ©ã‚¤ãƒ³ç”¨ã®å„ãƒ¡ã‚½ãƒƒãƒ‰.
     //
     IEnumerable<string> Range(int count, string prefix)
     {
@@ -166,7 +166,7 @@ namespace Gsf.Samples
     }
 
     //
-    // ˆ—Šm”F—pÀsƒƒ\ƒbƒh
+    // å‡¦ç†ç¢ºèªç”¨å®Ÿè¡Œãƒ¡ã‚½ãƒƒãƒ‰
     //
     public void Execute()
     {

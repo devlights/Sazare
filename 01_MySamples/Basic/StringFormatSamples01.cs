@@ -6,29 +6,29 @@ namespace Gsf.Samples
 
   #region StringFormatSamples-01
   /// <sumamry>
-  /// ������̏����ݒ�Ɋւ��ẴT���v���ł��B
+  /// 文字列の書式設定に関してのサンプルです。
   /// </summary>
   class StringFormatSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // �����ݒ�́A�ȉ��̂悤�ɂ��Đݒ肷��.
+      // 書式設定は、以下のようにして設定する.
       //   {0,-20:C}
-      // �ŏ���0�̓C���f�b�N�X��\���B�K�{���ځB
+      // 最初の0はインデックスを表す。必須項目。
       //
-      // �������w�肷��ꍇ�́A�J���}��t�^���������w�肷��B
-      // �����̒l�����̒l�̏ꍇ�́A���񂹁B
-      // �����̒l�����̒l�̏ꍇ�́A�E�񂹂ƂȂ�B
-      // �����̎w��̓I�v�V�����B
+      // 桁数を指定する場合は、カンマを付与し桁数を指定する。
+      // 桁数の値が負の値の場合は、左寄せ。
+      // 桁数の値が正の値の場合は、右寄せとなる。
+      // 桁数の指定はオプション。
       //
-      // �t�H�[�}�b�g���w�肷��ꍇ�́A�R������t�^���t�H�[�}�b�g�̃^�C�v���w�肷��B
-      // C�͒ʉ݂�\���B
-      // �t�H�[�}�b�g�̎w��̓I�v�V�����B
+      // フォーマットを指定する場合は、コロンを付与しフォーマットのタイプを指定する。
+      // Cは通貨を表す。
+      // フォーマットの指定はオプション。
       //
-      // �t�H�[�}�b�g�̎�ނȂǂɂ��Ă�
+      // フォーマットの種類などについては
       // http://msdn.microsoft.com/ja-jp/library/txafckwd(v=VS.100).aspx
-      // ���Q�ƁB
+      // を参照。
       //
       string format = "'{0,20:C}'";
       Console.WriteLine(format, 25000);

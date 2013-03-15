@@ -4,14 +4,14 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region 定数定義
+  #region 螳壽焚螳夂ｾｩ
   /// <summary>
-  /// 定数定義クラス
+  /// 螳壽焚螳夂ｾｩ繧ｯ繝ｩ繧ｹ
   /// </summary>
   public class Constants
   {
     /// <summary>
-    /// 行生成数.
+    /// 陦檎函謌先焚.
     /// </summary>
     public const int GENERATE_ROW_COUNT = 30000;
   }

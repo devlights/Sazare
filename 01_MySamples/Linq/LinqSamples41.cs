@@ -6,22 +6,22 @@ namespace Gsf.Samples
 
   #region LinqSamples-41
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples41 : IExecutable
   {
     public void Execute()
     {
       //
-      // Emptyƒƒ\ƒbƒh‚ÍA•¶š’Ê‚è‹ó‚ÌƒV[ƒPƒ“ƒX‚ğì¬‚·‚éƒƒ\ƒbƒh‚Å‚ ‚éB
-      // Union‚·‚éÛ‚âAAggregate‚·‚éÛ‚Ì’†ŠÔ’l‚Æ‚µ‚Ä—˜—p‚³‚ê‚é‚±‚Æ‚ª‘½‚¢B
+      // Emptyãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æ–‡å­—é€šã‚Šç©ºã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ã€‚
+      // Unionã™ã‚‹éš›ã‚„ã€Aggregateã™ã‚‹éš›ã®ä¸­é–“å€¤ã¨ã—ã¦åˆ©ç”¨ã•ã‚Œã‚‹ã“ã¨ãŒå¤šã„ã€‚
       //
       Console.WriteLine("COUNT = {0}", Enumerable.Empty<string>().Count());
 
       //
-      // w’è‚³‚ê‚½ƒV[ƒPƒ“ƒX‚©‚ç‡Œv’l‚ª100‚ğ’´‚¦‚Ä‚¢‚éƒV[ƒPƒ“ƒX‚Ì‚İ‚ğ’Šo.
-      // Aggregate‚Ìseed’l‚Æ‚µ‚ÄA‹ó‚ÌƒV[ƒPƒ“ƒX‚ğ“n‚·‚½‚ß‚ÉEnumerable.Empty‚ğ
-      // g—p‚µ‚Ä‚¢‚éB
+      // æŒ‡å®šã•ã‚ŒãŸã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‹ã‚‰åˆè¨ˆå€¤ãŒ100ã‚’è¶…ãˆã¦ã„ã‚‹ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®ã¿ã‚’æŠ½å‡º.
+      // Aggregateã®seedå€¤ã¨ã—ã¦ã€ç©ºã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’æ¸¡ã™ãŸã‚ã«Enumerable.Emptyã‚’
+      // ä½¿ç”¨ã—ã¦ã„ã‚‹ã€‚
       //
       var sequences = new List<IEnumerable<int>> 
                 { 

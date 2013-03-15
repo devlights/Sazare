@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-70
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ‘¶İŠm”FƒvƒƒpƒeƒB (HasElements, HasAttributes) ‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// å­˜åœ¨ç¢ºèªãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ (HasElements, HasAttributes) ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples70 : IExecutable
   {
@@ -18,7 +18,7 @@ namespace Gsf.Samples
     {
       //
       // HasElements
-      //   –¼‘O‚Ì’Ê‚èAŒ»İ‚Ìƒm[ƒh‚ªƒTƒuƒm[ƒh‚ğ‚Á‚Ä‚¢‚é‚©”Û‚©‚ğæ“¾‚·‚é.
+      //   åå‰ã®é€šã‚Šã€ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ãŒã‚µãƒ–ãƒãƒ¼ãƒ‰ã‚’æŒã£ã¦ã„ã‚‹ã‹å¦ã‹ã‚’å–å¾—ã™ã‚‹.
       //
       var root = BuildSampleXml();
       var child = root.Elements("Child").First();
@@ -32,7 +32,7 @@ namespace Gsf.Samples
 
       //
       // HasAttributes
-      //   –¼‘O‚Ì’Ê‚èAŒ»İ‚Ìƒm[ƒh‚ª‘®«‚ğ‚Á‚Ä‚¢‚é‚©”Û‚©‚ğæ“¾‚·‚é.
+      //   åå‰ã®é€šã‚Šã€ç¾åœ¨ã®ãƒãƒ¼ãƒ‰ãŒå±æ€§ã‚’æŒã£ã¦ã„ã‚‹ã‹å¦ã‹ã‚’å–å¾—ã™ã‚‹.
       //
       root = BuildSampleXml();
       child = root.Elements("Child").First();

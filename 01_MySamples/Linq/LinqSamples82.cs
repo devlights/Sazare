@@ -9,13 +9,13 @@ namespace Gsf.Samples
 
   #region LinqSamples-82
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// XPath(System.Xml.XPath.Extensions)‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
-  /// LINQ to XML‚ÆXPath‚Ì”äŠr‚É‚Â‚¢‚Ä‚Í
+  /// XPath(System.Xml.XPath.Extensions)ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
+  /// LINQ to XMLã¨XPathã®æ¯”è¼ƒã«ã¤ã„ã¦ã¯
   ///   http://msdn.microsoft.com/ja-jp/library/vstudio/bb675178.aspx
-  /// ‚ÉÚ×‚É‹LÚ‚³‚ê‚Ä‚¢‚é.
+  /// ã«è©³ç´°ã«è¨˜è¼‰ã•ã‚Œã¦ã„ã‚‹.
   /// </remarks>
   public class LinqSamples82 : IExecutable
   {
@@ -23,22 +23,22 @@ namespace Gsf.Samples
     {
       //
       // XPathSelectElements
-      //   XPath®‚ğ•]‰¿‚µ‚ÄAXElement‚ğæ“¾‚·‚é
+      //   XPathå¼ã‚’è©•ä¾¡ã—ã¦ã€XElementã‚’å–å¾—ã™ã‚‹
       //
-      // LINQ to XML‚É‚ÍAXPath—p‚ÌŠg’£ƒƒ\ƒbƒh‚ª’è‹`‚³‚ê‚½ƒNƒ‰ƒX‚ª‘¶İ‚·‚é‚½‚ß
-      // ‚»‚ê‚ğ—˜—p‚·‚éBˆÈ‰º‚ÌƒNƒ‰ƒX‚Å‚ ‚é.
+      // LINQ to XMLã«ã¯ã€XPathç”¨ã®æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ãŒå®šç¾©ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã™ã‚‹ãŸã‚
+      // ãã‚Œã‚’åˆ©ç”¨ã™ã‚‹ã€‚ä»¥ä¸‹ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹.
       //   System.Xml.XPath.Extensions
-      // ®A—˜—p‚·‚é‚É‚ÍSystem.Xml.XPath‚ğusing‚µ‚Ä‚¨‚­•K—v‚ª‚ ‚é.
+      // å°šã€åˆ©ç”¨ã™ã‚‹ã«ã¯System.Xml.XPathã‚’usingã—ã¦ãŠãå¿…è¦ãŒã‚ã‚‹.
       //
       var root = BuildSampleXml();
 
-      // XPathw’è
+      // XPathæŒ‡å®š
       foreach (var elem in root.XPathSelectElements("Book/Title"))
       {
         Console.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
       }
 
-      // XPathw’è
+      // XPathæŒ‡å®š
       foreach (var elem in root.XPathSelectElements("//Title"))
       {
         Console.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
@@ -62,18 +62,18 @@ namespace Gsf.Samples
 
       //
       // XPathEvaluate
-      //   XPath®‚ğ•]‰¿‚µ‚ÄAŒ‹‰Ê‚ğæ“¾‚·‚é
+      //   XPathå¼ã‚’è©•ä¾¡ã—ã¦ã€çµæœã‚’å–å¾—ã™ã‚‹
       //
-      // LINQ to XML‚É‚ÍAXPath—p‚ÌŠg’£ƒƒ\ƒbƒh‚ª’è‹`‚³‚ê‚½ƒNƒ‰ƒX‚ª‘¶İ‚·‚é‚½‚ß
-      // ‚»‚ê‚ğ—˜—p‚·‚éBˆÈ‰º‚ÌƒNƒ‰ƒX‚Å‚ ‚é.
+      // LINQ to XMLã«ã¯ã€XPathç”¨ã®æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ãŒå®šç¾©ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã™ã‚‹ãŸã‚
+      // ãã‚Œã‚’åˆ©ç”¨ã™ã‚‹ã€‚ä»¥ä¸‹ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹.
       //   System.Xml.XPath.Extensions
-      // ®A—˜—p‚·‚é‚É‚ÍSystem.Xml.XPath‚ğusing‚µ‚Ä‚¨‚­•K—v‚ª‚ ‚é.
+      // å°šã€åˆ©ç”¨ã™ã‚‹ã«ã¯System.Xml.XPathã‚’usingã—ã¦ãŠãå¿…è¦ãŒã‚ã‚‹.
       //
-      // XPathEvaluateƒƒ\ƒbƒh‚ÍA–ß‚è’l‚ªobject‚É‚È‚é‚±‚Æ‚É’ˆÓB
+      // XPathEvaluateãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æˆ»ã‚Šå€¤ãŒobjectã«ãªã‚‹ã“ã¨ã«æ³¨æ„ã€‚
       //
       root = BuildSampleXml();
 
-      // XPathw’è
+      // XPathæŒ‡å®š
       foreach (var elem in (IEnumerable)root.XPathEvaluate("Book[@id=\"bk102\"]/PublishDate"))
       {
         Console.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
@@ -95,7 +95,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

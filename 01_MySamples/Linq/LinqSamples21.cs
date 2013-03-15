@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-21
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples21 : IExecutable
   {
@@ -25,48 +25,48 @@ namespace Gsf.Samples
               };
 
       //
-      // SelectManyŠg’£ƒƒ\ƒbƒh‚ÍAƒRƒŒƒNƒVƒ‡ƒ“‚ğ•½’R‰»‚·‚éÛ‚É—˜—p‚Å‚«‚éB
-      // —á‚¦‚ÎAã‹L‚Åì¬‚µ‚½teams•Ï”‚ÍˆÈ‰º‚Ì‚æ‚¤‚È\‘¢‚É‚È‚Á‚Ä‚¢‚éB
+      // SelectManyæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚’å¹³å¦åŒ–ã™ã‚‹éš›ã«åˆ©ç”¨ã§ãã‚‹ã€‚
+      // ä¾‹ãˆã°ã€ä¸Šè¨˜ã§ä½œæˆã—ãŸteamså¤‰æ•°ã¯ä»¥ä¸‹ã®ã‚ˆã†ãªæ§‹é€ ã«ãªã£ã¦ã„ã‚‹ã€‚
       //
-      //   teams -- [0]:TeamƒIƒuƒWƒFƒNƒg
-      //            „¤Members:IEnumerable<string>
-      //        [1]:TeamƒIƒuƒWƒFƒNƒg
-      //            „¤Members:IEnumerable<string>
+      //   teams -- [0]:Teamã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+      //            â””Members:IEnumerable<string>
+      //        [1]:Teamã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
+      //            â””Members:IEnumerable<string>
       //
-      // ŠeTeamƒIƒuƒWƒFƒNƒg‚ÍAMembersƒvƒƒpƒeƒB‚ğ‚Á‚Ä‚¢‚é‚Ì‚Å
-      // SelectMany‚Å‚Í‚È‚­ASelectŠg’£ƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ä
+      // å„Teamã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã¯ã€Membersãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æŒã£ã¦ã„ã‚‹ã®ã§
+      // SelectManyã§ã¯ãªãã€Selectæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦
       //  teams.Select(team => team.Members)
-      // ‚Æ‚·‚é‚ÆAŒ‹‰Ê‚ÍAIEnumerable<IEnumerable<string>>‚Æ‚È‚éB
+      // ã¨ã™ã‚‹ã¨ã€çµæœã¯ã€IEnumerable<IEnumerable<string>>ã¨ãªã‚‹ã€‚
       //
-      // ‚±‚Ì‚æ‚¤‚Èó‘Ô‚ÅASelectManyŠg’£ƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ä
+      // ã“ã®ã‚ˆã†ãªçŠ¶æ…‹ã§ã€SelectManyæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦
       //  teams.SelectMany(team => team.Members)
-      // ‚Æ‚·‚é‚ÆAŒ‹‰Ê‚ÍAIEnumerable<string>‚Æ‚È‚éB
-      // ‚Â‚Ü‚èASelectManyŠg’£ƒƒ\ƒbƒh‚ÍAŠeSelector‚ª•Ô‚·ƒV[ƒPƒ“ƒX‚ğÅI“I‚É
-      // •½’R‰»‚µ‚Ä‚©‚çŒ‹‰Ê‚ğ•Ô‚µ‚Ä‚­‚ê‚éB
+      // ã¨ã™ã‚‹ã¨ã€çµæœã¯ã€IEnumerable<string>ã¨ãªã‚‹ã€‚
+      // ã¤ã¾ã‚Šã€SelectManyæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€å„SelectorãŒè¿”ã™ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’æœ€çµ‚çš„ã«
+      // å¹³å¦åŒ–ã—ã¦ã‹ã‚‰çµæœã‚’è¿”ã—ã¦ãã‚Œã‚‹ã€‚
       //
-      // ®ASelectManyŠg’£ƒƒ\ƒbƒh‚ÍAƒNƒGƒŠ®‚É‚Ä2’iˆÈã‚Ìfrom‹å‚ğ—˜—p‚µ‚Ä‚¢‚éê‡
-      // ˆÃ–Ù“I‚É—˜—p‚³‚ê‚Ä‚¢‚éBã‹L‚Ìteams.SelectMany(team => team.Members)‚Í
-      // ˆÈ‰º‚ÌƒNƒGƒŠ®‚Æ“¯‚¶‚Å‚ ‚éB
+      // å°šã€SelectManyæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ã‚¯ã‚¨ãƒªå¼ã«ã¦2æ®µä»¥ä¸Šã®fromå¥ã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹å ´åˆ
+      // æš—é»™çš„ã«åˆ©ç”¨ã•ã‚Œã¦ã„ã‚‹ã€‚ä¸Šè¨˜ã®teams.SelectMany(team => team.Members)ã¯
+      // ä»¥ä¸‹ã®ã‚¯ã‚¨ãƒªå¼ã¨åŒã˜ã§ã‚ã‚‹ã€‚
       //
       //   from   team   in teams
       //   from   member in team.Members
       //   select member
       //
-      // Às‚É‚ÍAÅŒã‚Ìselect‚Ì•”•ª‚ªSelectMany‚É’uŠ·‚³‚ê‚éB
+      // å®Ÿè¡Œæ™‚ã«ã¯ã€æœ€å¾Œã®selectã®éƒ¨åˆ†ãŒSelectManyã«ç½®æ›ã•ã‚Œã‚‹ã€‚
       //
-      Console.WriteLine("===== Func<TSource, IEnumerable<TResult>>‚ÌƒTƒ“ƒvƒ‹ =====");
+      Console.WriteLine("===== Func<TSource, IEnumerable<TResult>>ã®ã‚µãƒ³ãƒ—ãƒ« =====");
       foreach (var member in teams.SelectMany(team => team.Members))
       {
         Console.WriteLine(member);
       }
 
-      Console.WriteLine("===== Func<TSource, int, IEnumerable<TResult>>‚ÌƒTƒ“ƒvƒ‹ =====");
+      Console.WriteLine("===== Func<TSource, int, IEnumerable<TResult>>ã®ã‚µãƒ³ãƒ—ãƒ« =====");
       foreach (var member in teams.SelectMany((team, index) => (index % 2 == 0) ? team.Members : new List<string>()))
       {
         Console.WriteLine(member);
       }
 
-      Console.WriteLine("===== collectionSelector‚ÆresultSelector‚ğ—˜—p‚µ‚Ä‚¢‚éƒTƒ“ƒvƒ‹ (1) =====");
+      Console.WriteLine("===== collectionSelectorã¨resultSelectorã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹ã‚µãƒ³ãƒ—ãƒ« (1) =====");
       var query = teams.SelectMany
             (
               team => team.Members,                     // collectionSelector
@@ -78,7 +78,7 @@ namespace Gsf.Samples
         Console.WriteLine(item);
       }
 
-      Console.WriteLine("===== collectionSelector‚ÆresultSelector‚ğ—˜—p‚µ‚Ä‚¢‚éƒTƒ“ƒvƒ‹ (2) =====");
+      Console.WriteLine("===== collectionSelectorã¨resultSelectorã‚’åˆ©ç”¨ã—ã¦ã„ã‚‹ã‚µãƒ³ãƒ—ãƒ« (2) =====");
       var query2 = teams.SelectMany
              (
                (team, index) => (index % 2 != 0) ? team.Members : new List<string>(),  // collectionSelector

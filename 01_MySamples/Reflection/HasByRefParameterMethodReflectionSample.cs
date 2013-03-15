@@ -5,9 +5,9 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Reflection;
 
-  #region ByRef‚Ìˆø”‚ğ‚à‚Âƒƒ\ƒbƒh‚ğƒŠƒtƒNƒŒƒNƒVƒ‡ƒ“‚Åæ“¾
+  #region ByRefã®å¼•æ•°ã‚’ã‚‚ã¤ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ãƒªãƒ•ã‚¯ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã§å–å¾—
   /// <summary>
-  /// ByRef‚Ìˆø”‚ğ‚Âƒƒ\ƒbƒh‚ğƒŠƒtƒŒƒNƒVƒ‡ƒ“‚Åæ“¾‚·‚éƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ByRefã®å¼•æ•°ã‚’æŒã¤ãƒ¡ã‚½ãƒƒãƒ‰ã‚’ãƒªãƒ•ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã§å–å¾—ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class HasByRefParameterMethodReflectionSample : IExecutable
   {

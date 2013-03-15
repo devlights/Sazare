@@ -8,61 +8,61 @@ namespace Gsf.Samples
 
   #region SecureStringSamples-001
   /// <summary>
-  /// SecureString‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// SecureStringã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class SecureStringSamples001 : IExecutable
   {
     public void Execute()
     {
       //
-      // SecureString‚ÌƒTƒ“ƒvƒ‹.
+      // SecureStringã®ã‚µãƒ³ãƒ—ãƒ«.
       //
-      // System.Security.SecureStringƒNƒ‰ƒX‚ÍA’Êí‚Ì•¶š—ñ‚Æ‚Í
-      // ˆá‚¢AƒpƒXƒ[ƒh‚È‚Ç‚Ì‹@–§î•ñ‚ğˆµ‚Á‚½‚è‚·‚éÛ‚É—˜—p‚³‚ê‚éB
+      // System.Security.SecureStringã‚¯ãƒ©ã‚¹ã¯ã€é€šå¸¸ã®æ–‡å­—åˆ—ã¨ã¯
+      // é•ã„ã€ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ãªã©ã®æ©Ÿå¯†æƒ…å ±ã‚’æ‰±ã£ãŸã‚Šã™ã‚‹éš›ã«åˆ©ç”¨ã•ã‚Œã‚‹ã€‚
       //
-      // ‚æ‚­—˜—p‚³‚ê‚éProcessƒNƒ‰ƒX‚ÌStartƒƒ\ƒbƒh‚Å‚ÍƒpƒXƒ[ƒh‚ğ“n‚·Û‚Í
-      // SecureString‚ğ“n‚·•K—v‚ª‚ ‚éB
+      // ã‚ˆãåˆ©ç”¨ã•ã‚Œã‚‹Processã‚¯ãƒ©ã‚¹ã®Startãƒ¡ã‚½ãƒƒãƒ‰ã§ã¯ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰ã‚’æ¸¡ã™éš›ã¯
+      // SecureStringã‚’æ¸¡ã™å¿…è¦ãŒã‚ã‚‹ã€‚
       //
-      // ‚±‚ÌƒNƒ‰ƒX‚ÌƒCƒ“ƒXƒ^ƒ“ƒX‚Éİ’è‚³‚ê‚½“à—e‚Í©“®“I‚ÉˆÃ†‰»‚³‚ê
-      // MakeReadOnlyƒƒ\ƒbƒh‚ğ—˜—p‚µ‚ÄA“Ç‚İæ‚èê—p‚Æ‚·‚é‚Æ•ÏX‚Å‚«‚È‚­‚È‚éB
+      // ã“ã®ã‚¯ãƒ©ã‚¹ã®ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ã«è¨­å®šã•ã‚ŒãŸå†…å®¹ã¯è‡ªå‹•çš„ã«æš—å·åŒ–ã•ã‚Œ
+      // MakeReadOnlyãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦ã€èª­ã¿å–ã‚Šå°‚ç”¨ã¨ã™ã‚‹ã¨å¤‰æ›´ã§ããªããªã‚‹ã€‚
       //
-      // SecureString‚Éƒf[ƒ^‚ğİ’è‚·‚éÛ‚ÍAAppendCharƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ä
-      // 1•¶š‚¸‚Âƒf[ƒ^‚ğİ’è‚µ‚Ä‚¢‚­•K—v‚ª‚ ‚éB
+      // SecureStringã«ãƒ‡ãƒ¼ã‚¿ã‚’è¨­å®šã™ã‚‹éš›ã¯ã€AppendCharãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦
+      // 1æ–‡å­—ãšã¤ãƒ‡ãƒ¼ã‚¿ã‚’è¨­å®šã—ã¦ã„ãå¿…è¦ãŒã‚ã‚‹ã€‚
       //
-      // SecureString‚É‚ÍA’l‚ğ”äŠr‚Ü‚½‚Í•ÏŠ·‚·‚éˆ×‚Ìƒƒ\ƒbƒh‚ª‘¶İ‚µ‚È‚¢B
-      // ‘€ì‚ğs‚¤ˆ×‚É‚ÍASystem.Runtime.InteropServices.Marshal‚ÌCoTaskMemUnicodeƒƒ\ƒbƒh‚Æ
-      // Copyƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ächar[]‚É•ÏŠ·‚·‚é•K—v‚ª‚ ‚éB
+      // SecureStringã«ã¯ã€å€¤ã‚’æ¯”è¼ƒã¾ãŸã¯å¤‰æ›ã™ã‚‹ç‚ºã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã—ãªã„ã€‚
+      // æ“ä½œã‚’è¡Œã†ç‚ºã«ã¯ã€System.Runtime.InteropServices.Marshalã®CoTaskMemUnicodeãƒ¡ã‚½ãƒƒãƒ‰ã¨
+      // Copyãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦char[]ã«å¤‰æ›ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
       //
 
       //
-      // SecureString‚ğ\’z.
+      // SecureStringã‚’æ§‹ç¯‰.
       //
-      // ÀÛ‚Íƒ†[ƒU‚©‚ç‚ÌƒpƒXƒ[ƒh“ü—Í‚ğŒ³‚ÉSecureString‚ğ\’z‚µ‚½‚è‚·‚é.
+      // å®Ÿéš›ã¯ãƒ¦ãƒ¼ã‚¶ã‹ã‚‰ã®ãƒ‘ã‚¹ãƒ¯ãƒ¼ãƒ‰å…¥åŠ›ã‚’å…ƒã«SecureStringã‚’æ§‹ç¯‰ã—ãŸã‚Šã™ã‚‹.
       //
       SecureString secureStr = MakeSecureString();
 
       //
-      // ToString()ƒƒ\ƒbƒh‚ğŒÄ‚Ño‚µ‚Ä‚àSecureString‚Ì’†g‚ğ
-      // Œ©‚é‚±‚Æ‚Í‚Å‚«‚È‚¢B
+      // ToString()ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å‘¼ã³å‡ºã—ã¦ã‚‚SecureStringã®ä¸­èº«ã‚’
+      // è¦‹ã‚‹ã“ã¨ã¯ã§ããªã„ã€‚
       //
       Console.WriteLine(secureStr);
 
       //
-      // IsReadOnlyƒƒ\ƒbƒh‚ÅŒ»İ“Ç‚İæ‚èê—p‚Æ‚µ‚Äƒ}[ƒN‚³‚ê‚Ä‚¢‚é‚©”Û‚©‚ª
-      // ”»•Ê‚Å‚«‚éB“Ç‚İæ‚èê—p‚Å‚È‚¢ê‡A•ÏX‚Í‰Â”\B
+      // IsReadOnlyãƒ¡ã‚½ãƒƒãƒ‰ã§ç¾åœ¨èª­ã¿å–ã‚Šå°‚ç”¨ã¨ã—ã¦ãƒãƒ¼ã‚¯ã•ã‚Œã¦ã„ã‚‹ã‹å¦ã‹ãŒ
+      // åˆ¤åˆ¥ã§ãã‚‹ã€‚èª­ã¿å–ã‚Šå°‚ç”¨ã§ãªã„å ´åˆã€å¤‰æ›´ã¯å¯èƒ½ã€‚
       //
-      // “Ç‚İæ‚èê—p‚É‚·‚é‚É‚ÍMakeReadOnlyƒƒ\ƒbƒh‚ğg—p‚·‚éB
+      // èª­ã¿å–ã‚Šå°‚ç”¨ã«ã™ã‚‹ã«ã¯MakeReadOnlyãƒ¡ã‚½ãƒƒãƒ‰ã‚’ä½¿ç”¨ã™ã‚‹ã€‚
       //
       Console.WriteLine("IsReadOnly:{0}", secureStr.IsReadOnly());
       secureStr.MakeReadOnly();
       Console.WriteLine("IsReadOnly:{0}", secureStr.IsReadOnly());
 
       //
-      // SecureString‚Ì’†g‚ğ•œŒ³‚·‚é‚É‚ÍAˆÈ‰º‚Ìƒƒ\ƒbƒh‚ğ—˜—p‚·‚éB
+      // SecureStringã®ä¸­èº«ã‚’å¾©å…ƒã™ã‚‹ã«ã¯ã€ä»¥ä¸‹ã®ãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
       //
-      // ¡Marshal.SecureStringToCoTaskMemUnicodeƒƒ\ƒbƒh
-      // ¡Marshal.Copyƒƒ\ƒbƒh
-      // ¡Marshal.ZeroFreeCoTaskMemUnicodeƒƒ\ƒbƒh
+      // â– Marshal.SecureStringToCoTaskMemUnicodeãƒ¡ã‚½ãƒƒãƒ‰
+      // â– Marshal.Copyãƒ¡ã‚½ãƒƒãƒ‰
+      // â– Marshal.ZeroFreeCoTaskMemUnicodeãƒ¡ã‚½ãƒƒãƒ‰
       //
       RestoreSecureString(secureStr);
     }
@@ -86,12 +86,12 @@ namespace Gsf.Samples
       try
       {
         //
-        // ƒRƒs[æ‚Ìƒoƒbƒtƒ@‚ğì¬.
+        // ã‚³ãƒ”ãƒ¼å…ˆã®ãƒãƒƒãƒ•ã‚¡ã‚’ä½œæˆ.
         //
         char[] buffer = new char[secureStr.Length];
 
         //
-        // •œŒ³ˆ—.
+        // å¾©å…ƒå‡¦ç†.
         //
         pointer = Marshal.SecureStringToCoTaskMemUnicode(secureStr);
         Marshal.Copy(pointer, buffer, 0, buffer.Length);
@@ -103,7 +103,7 @@ namespace Gsf.Samples
         if (pointer != IntPtr.Zero)
         {
           //
-          // ‰ğ•ú.
+          // è§£æ”¾.
           //
           Marshal.ZeroFreeCoTaskMemUnicode(pointer);
         }

@@ -8,39 +8,39 @@ namespace Gsf.Samples
 
   #region ZipFileSamples-01
   /// <summary>
-  /// System.IO.Compression.ZipFileƒNƒ‰ƒX‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// System.IO.Compression.ZipFileã‚¯ãƒ©ã‚¹ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ZipFileƒNƒ‰ƒX‚ÍA.NET Framework 4.5‚Å’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
-  /// ‚±‚ÌƒNƒ‰ƒX‚ğ—˜—p‚·‚é‚É‚ÍAuSystem.IO.Compression.FileSystem.dllv‚ğ
-  /// QÆİ’è‚É’Ç‰Á‚·‚é•K—v‚ª‚ ‚è‚Ü‚·B
-  /// ‚±‚ÌƒNƒ‰ƒX‚ÍAMetroƒAƒvƒŠ‚Å‚Í—˜—p‚Å‚«‚Ü‚¹‚ñB
-  /// MetroƒAƒvƒŠ‚Å‚ÍA‘ã‚í‚è‚ÉZipArchiveƒNƒ‰ƒX‚ğ—˜—p‚µ‚Ü‚·B
+  /// ZipFileã‚¯ãƒ©ã‚¹ã¯ã€.NET Framework 4.5ã§è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  /// ã“ã®ã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã™ã‚‹ã«ã¯ã€ã€ŒSystem.IO.Compression.FileSystem.dllã€ã‚’
+  /// å‚ç…§è¨­å®šã«è¿½åŠ ã™ã‚‹å¿…è¦ãŒã‚ã‚Šã¾ã™ã€‚
+  /// ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€Metroã‚¢ãƒ—ãƒªã§ã¯åˆ©ç”¨ã§ãã¾ã›ã‚“ã€‚
+  /// Metroã‚¢ãƒ—ãƒªã§ã¯ã€ä»£ã‚ã‚Šã«ZipArchiveã‚¯ãƒ©ã‚¹ã‚’åˆ©ç”¨ã—ã¾ã™ã€‚
   /// </remarks>
   public class ZipFileSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // ZipFileƒNƒ‰ƒX‚ÍAZIPŒ`®‚Ìƒtƒ@ƒCƒ‹‚ğˆµ‚¤‚½‚ß‚ÌƒNƒ‰ƒX‚Å‚ ‚éB
-      // “¯‚¶–‚ªo—ˆ‚éƒNƒ‰ƒX‚Æ‚µ‚ÄAZipArchiveƒNƒ‰ƒX‚ª‘¶İ‚·‚é‚ª
-      // ‚±‚¿‚ç‚ÍA‚«‚ß×‚©‚¢ˆ—‚ªs‚¦‚éƒNƒ‰ƒX‚Æ‚È‚Á‚Ä‚¨‚è
-      // ZipFileƒNƒ‰ƒX‚ÍAƒ†[ƒeƒBƒŠƒeƒBƒNƒ‰ƒX‚Ìˆµ‚¢‚É‹ß‚¢B
+      // ZipFileã‚¯ãƒ©ã‚¹ã¯ã€ZIPå½¢å¼ã®ãƒ•ã‚¡ã‚¤ãƒ«ã‚’æ‰±ã†ãŸã‚ã®ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚
+      // åŒã˜äº‹ãŒå‡ºæ¥ã‚‹ã‚¯ãƒ©ã‚¹ã¨ã—ã¦ã€ZipArchiveã‚¯ãƒ©ã‚¹ãŒå­˜åœ¨ã™ã‚‹ãŒ
+      // ã“ã¡ã‚‰ã¯ã€ãã‚ç´°ã‹ã„å‡¦ç†ãŒè¡Œãˆã‚‹ã‚¯ãƒ©ã‚¹ã¨ãªã£ã¦ãŠã‚Š
+      // ZipFileã‚¯ãƒ©ã‚¹ã¯ã€ãƒ¦ãƒ¼ãƒ†ã‚£ãƒªãƒ†ã‚£ã‚¯ãƒ©ã‚¹ã®æ‰±ã„ã«è¿‘ã„ã€‚
       //
-      // ZipFileƒNƒ‰ƒX‚É’è‹`‚³‚ê‚Ä‚¢‚éƒƒ\ƒbƒh‚ÍA‘S‚Ästaticƒƒ\ƒbƒh‚Æ‚È‚Á‚Ä‚¢‚éB
+      // ZipFileã‚¯ãƒ©ã‚¹ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€å…¨ã¦staticãƒ¡ã‚½ãƒƒãƒ‰ã¨ãªã£ã¦ã„ã‚‹ã€‚
       //
-      // ŠÈ’P‚Éˆ³kE‰ğ“€‚·‚é‚½‚ß‚Ìƒƒ\ƒbƒh‚Æ‚µ‚Ä
-      //   ECreateFromDirectory(string, string)
-      //   EExtractToDirectory(string, string)
-      // ‚ª—pˆÓ‚³‚ê‚Ä‚¢‚éB
+      // ç°¡å˜ã«åœ§ç¸®ãƒ»è§£å‡ã™ã‚‹ãŸã‚ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¨ã—ã¦
+      //   ãƒ»CreateFromDirectory(string, string)
+      //   ãƒ»ExtractToDirectory(string, string)
+      // ãŒç”¨æ„ã•ã‚Œã¦ã„ã‚‹ã€‚
       //
-      // ®A‚±‚ÌƒNƒ‰ƒX‚ÍMetroƒXƒ^ƒCƒ‹ƒAƒvƒŠ (V‚µ‚¢–¼‘O‚ÍWindows 8ƒXƒ^ƒCƒ‹UIH)
-      // ‚Å‚Í—˜—p‚Å‚«‚È‚¢ƒNƒ‰ƒX‚Å‚ ‚éBMetro‚Å‚ÍAZipArchive‚ğ—˜—p‚·‚é‚±‚Æ‚É‚È‚éB
+      // å°šã€ã“ã®ã‚¯ãƒ©ã‚¹ã¯Metroã‚¹ã‚¿ã‚¤ãƒ«ã‚¢ãƒ—ãƒª (æ–°ã—ã„åå‰ã¯Windows 8ã‚¹ã‚¿ã‚¤ãƒ«UIï¼Ÿ)
+      // ã§ã¯åˆ©ç”¨ã§ããªã„ã‚¯ãƒ©ã‚¹ã§ã‚ã‚‹ã€‚Metroã§ã¯ã€ZipArchiveã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã«ãªã‚‹ã€‚
       // (http://msdn.microsoft.com/en-us/library/system.io.compression.zipfile)
       //
 
       //
-      // ˆ³k.
+      // åœ§ç¸®.
       //
       string srcDirectory = Environment.CurrentDirectory;
       string dstDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
@@ -54,7 +54,7 @@ namespace Gsf.Samples
       ZipFile.CreateFromDirectory(srcDirectory, dstFilePath);
 
       //
-      // ‰ğ“€.
+      // è§£å‡.
       //
       string extractDirectory = Path.Combine(dstDirectory, "ZipTest");
       if (Directory.Exists(extractDirectory))

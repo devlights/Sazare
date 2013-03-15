@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-24
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples24 : IExecutable
   {
@@ -35,10 +35,10 @@ namespace Gsf.Samples
                             };
 
       //
-      // ReverseŠg’£ƒƒ\ƒbƒh‚ÍA•¶š’Ê‚èƒ\[ƒXƒV[ƒPƒ“ƒX‚ğ‹t‡‚É•ÏŠ·‚·‚éƒƒ\ƒbƒh‚Å‚ ‚éB
-      // ‚±‚Ìƒƒ\ƒbƒh‚ÍA‚»‚Ì‚Ü‚Üƒ\[ƒXƒV[ƒPƒ“ƒX‚ğ‹t‡‚É•ÏŠ·‚·‚é‚¾‚¯‚Å‚ ‚éB
+      // Reverseæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æ–‡å­—é€šã‚Šã‚½ãƒ¼ã‚¹ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’é€†é †ã«å¤‰æ›ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ã€‚
+      // ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ãã®ã¾ã¾ã‚½ãƒ¼ã‚¹ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’é€†é †ã«å¤‰æ›ã™ã‚‹ã ã‘ã§ã‚ã‚‹ã€‚
       //
-      // ®A–{ƒƒ\ƒbƒh‚ÍA‘¼‚ÌLINQ‰‰Zq‚Æ“¯—l‚É’x‰„Às‚³‚ê‚éB
+      // å°šã€æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ä»–ã®LINQæ¼”ç®—å­ã¨åŒæ§˜ã«é…å»¶å®Ÿè¡Œã•ã‚Œã‚‹ã€‚
       //
       var reverseNumbers = numbers.Reverse();
       var reversePersons = persons.Reverse();

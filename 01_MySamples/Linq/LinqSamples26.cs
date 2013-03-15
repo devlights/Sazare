@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-26
   /// <summary>
-  /// Linq�̃T���v���ł��B
+  /// Linqのサンプルです。
   /// </summary>
   public class LinqSamples26 : IExecutable
   {
@@ -34,9 +34,9 @@ namespace Gsf.Samples
       var people = new List<Person> { p1, p2, p3 };
 
       //
-      // ��������.
+      // 結合する.
       //
-      // �ȉ��̃N�G�����Ɠ������ƂȂ�B
+      // 以下のクエリ式と同じ事となる。
       //
       //   from   team   in teams
       //   join   person in people on team equals person.Team
@@ -46,9 +46,9 @@ namespace Gsf.Samples
           teams.Join         // TOuter
           (
             people,        // TInner
-            team => team,    // TOuter�̃L�[
-            person => person.Team, // TInner�̃L�[
-            (team, person) =>    // ����
+            team => team,    // TOuterのキー
+            person => person.Team, // TInnerのキー
+            (team, person) =>    // 結果
               new { TeamName = team.Name, PersonName = person.Name }
           );
 

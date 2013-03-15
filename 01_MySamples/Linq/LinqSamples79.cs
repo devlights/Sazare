@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-79
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ƒiƒrƒQ[ƒVƒ‡ƒ“(ElementsAfterSelf, ElementsBeforeSelf)‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³(ElementsAfterSelf, ElementsBeforeSelf)ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples79 : IExecutable
   {
@@ -18,18 +18,18 @@ namespace Gsf.Samples
     {
       //
       // ElementsAfterSelf(), ElementsAfterSelf(XName)
-      //   Œ»İ‚Ì—v‘f‚ÌŒã‚ë‚É‚ ‚éŒZ’í—v‘f‚ğæ“¾‚·‚é.
-      //   ©•ª©g‚ÍŠÜ‚Ü‚È‚¢.
+      //   ç¾åœ¨ã®è¦ç´ ã®å¾Œã‚ã«ã‚ã‚‹å…„å¼Ÿè¦ç´ ã‚’å–å¾—ã™ã‚‹.
+      //   è‡ªåˆ†è‡ªèº«ã¯å«ã¾ãªã„.
       //
-      //   ˆø”–³‚µ”Å‚Ìƒƒ\ƒbƒh‚Ì•û‚ÍA—\‘z’Ê‚è‚Ì“®‚«‚ğ‚·‚é‚ª
-      //   XName‚ğó‚¯æ‚éƒI[ƒo[ƒ[ƒh‚Ì•û‚ÍAAncestorsAndSelf(XName)‚Æ
-      //   “¯‚¶•Ï‚È‹““®‚ğ‚·‚éB (MSDN‚Éæ‚Á‚Ä‚¢‚éƒTƒ“ƒvƒ‹‚Å‚àAŒZ’í—v‘f‚ª•\¦‚³‚ê‚Ä‚¢‚È‚¢)
-      //   “ä,,,B
+      //   å¼•æ•°ç„¡ã—ç‰ˆã®ãƒ¡ã‚½ãƒƒãƒ‰ã®æ–¹ã¯ã€äºˆæƒ³é€šã‚Šã®å‹•ãã‚’ã™ã‚‹ãŒ
+      //   XNameã‚’å—ã‘å–ã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã®æ–¹ã¯ã€AncestorsAndSelf(XName)ã¨
+      //   åŒã˜å¤‰ãªæŒ™å‹•ã‚’ã™ã‚‹ã€‚ (MSDNã«ä¹—ã£ã¦ã„ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã‚‚ã€å…„å¼Ÿè¦ç´ ãŒè¡¨ç¤ºã•ã‚Œã¦ã„ãªã„)
+      //   è¬,,,ã€‚
       //
       var root = BuildSampleXml();
       var startingPoint = root.Descendants("Book").First();
 
-      // Å‰‚ÌBook—v‘f‚ÌŒã‚ë‚É‚ ‚éŒZ’í—v‘f‚ª•\¦‚³‚ê‚é.
+      // æœ€åˆã®Bookè¦ç´ ã®å¾Œã‚ã«ã‚ã‚‹å…„å¼Ÿè¦ç´ ãŒè¡¨ç¤ºã•ã‚Œã‚‹.
       foreach (var elem in startingPoint.ElementsAfterSelf())
       {
         Console.WriteLine(elem);
@@ -40,7 +40,7 @@ namespace Gsf.Samples
       root = BuildSampleXml();
       startingPoint = root.Descendants("Title").Last();
 
-      // Title‚ÌŒã‚ë‚É‚ ‚éŒZ’í—v‘f‚ª•\¦‚³‚ê‚é
+      // Titleã®å¾Œã‚ã«ã‚ã‚‹å…„å¼Ÿè¦ç´ ãŒè¡¨ç¤ºã•ã‚Œã‚‹
       foreach (var elem in startingPoint.ElementsAfterSelf())
       {
         Console.WriteLine(elem);
@@ -52,8 +52,8 @@ namespace Gsf.Samples
       root = BuildSampleXml();
       startingPoint = root.Descendants("Title").Last();
 
-      // ‰½ŒÌ‚©Aˆø”‚Éw’è‚µ‚½Genre‚µ‚©•\¦‚³‚ê‚È‚¢HH
-      // AncestorsAndSelf(XName)‚Æ‚©‚Æ“¯‚¶‹““®.
+      // ä½•æ•…ã‹ã€å¼•æ•°ã«æŒ‡å®šã—ãŸGenreã—ã‹è¡¨ç¤ºã•ã‚Œãªã„ï¼Ÿï¼Ÿ
+      // AncestorsAndSelf(XName)ã¨ã‹ã¨åŒã˜æŒ™å‹•.
       foreach (var elem in startingPoint.ElementsAfterSelf("Genre"))
       {
         Console.WriteLine(elem);
@@ -63,13 +63,13 @@ namespace Gsf.Samples
 
       //
       // ElementsBeforeSelf(), ElementsBeforeSelf(XName)
-      //   Œ»İ‚Ì—v‘f‚Ì‘O‚É‚ ‚éŒZ’í—v‘f‚ğæ“¾‚·‚é.
-      //   ©•ª©g‚ÍŠÜ‚Ü‚È‚¢.
+      //   ç¾åœ¨ã®è¦ç´ ã®å‰ã«ã‚ã‚‹å…„å¼Ÿè¦ç´ ã‚’å–å¾—ã™ã‚‹.
+      //   è‡ªåˆ†è‡ªèº«ã¯å«ã¾ãªã„.
       //
-      //   ˆø”–³‚µ”Å‚Ìƒƒ\ƒbƒh‚Ì•û‚ÍA—\‘z’Ê‚è‚Ì“®‚«‚ğ‚·‚é‚ª
-      //   XName‚ğó‚¯æ‚éƒI[ƒo[ƒ[ƒh‚Ì•û‚ÍAAncestorsAndSelf(XName)‚Æ
-      //   “¯‚¶•Ï‚È‹““®‚ğ‚·‚éB (MSDN‚Éæ‚Á‚Ä‚¢‚éƒTƒ“ƒvƒ‹‚Å‚àAŒZ’í—v‘f‚ª•\¦‚³‚ê‚Ä‚¢‚È‚¢)
-      //   “ä,,,B
+      //   å¼•æ•°ç„¡ã—ç‰ˆã®ãƒ¡ã‚½ãƒƒãƒ‰ã®æ–¹ã¯ã€äºˆæƒ³é€šã‚Šã®å‹•ãã‚’ã™ã‚‹ãŒ
+      //   XNameã‚’å—ã‘å–ã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã®æ–¹ã¯ã€AncestorsAndSelf(XName)ã¨
+      //   åŒã˜å¤‰ãªæŒ™å‹•ã‚’ã™ã‚‹ã€‚ (MSDNã«ä¹—ã£ã¦ã„ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã‚‚ã€å…„å¼Ÿè¦ç´ ãŒè¡¨ç¤ºã•ã‚Œã¦ã„ãªã„)
+      //   è¬,,,ã€‚
       //
       root = BuildSampleXml();
       startingPoint = root.Descendants("PublishDate").Last();
@@ -84,8 +84,8 @@ namespace Gsf.Samples
       root = BuildSampleXml();
       startingPoint = root.Descendants("Description").Last();
 
-      // ‰½ŒÌ‚©Aˆø”‚Éw’è‚µ‚½PublishDate‚µ‚©•\¦‚³‚ê‚È‚¢HH
-      // AncestorsAndSelf(XName)‚Æ‚©‚Æ“¯‚¶‹““®.
+      // ä½•æ•…ã‹ã€å¼•æ•°ã«æŒ‡å®šã—ãŸPublishDateã—ã‹è¡¨ç¤ºã•ã‚Œãªã„ï¼Ÿï¼Ÿ
+      // AncestorsAndSelf(XName)ã¨ã‹ã¨åŒã˜æŒ™å‹•.
       foreach (var elem in startingPoint.ElementsBeforeSelf("PublishDate"))
       {
         Console.WriteLine(elem);
@@ -97,7 +97,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

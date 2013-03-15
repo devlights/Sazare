@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region DataTableSortSamples-01
   /// <summary>
-  /// DataTable‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// DataTableã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class DataTableSortSamples01 : IExecutable
   {

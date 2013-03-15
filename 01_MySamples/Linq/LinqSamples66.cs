@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-66
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ‘®«XVŒnƒƒ\ƒbƒh‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// å±æ€§æ›´æ–°ç³»ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples66 : IExecutable
   {
@@ -18,13 +18,13 @@ namespace Gsf.Samples
     {
       //
       // XAttribute.Value
-      //   XElement.Attribute(XName)‚ğ—˜—p‚·‚é‚Æ
-      //   XAttributeƒIƒuƒWƒFƒNƒg‚ªæ“¾‚Å‚«‚é.
-      //   XAttribute.ValueƒvƒƒpƒeƒB‚É’l‚ğİ’è‚·‚é‚±‚Æ‚Å
-      //   ‘®«‚Ì’l‚ªXV‚Å‚«‚é.
+      //   XElement.Attribute(XName)ã‚’åˆ©ç”¨ã™ã‚‹ã¨
+      //   XAttributeã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆãŒå–å¾—ã§ãã‚‹.
+      //   XAttribute.Valueãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«å€¤ã‚’è¨­å®šã™ã‚‹ã“ã¨ã§
+      //   å±æ€§ã®å€¤ãŒæ›´æ–°ã§ãã‚‹.
       //
-      //   ®AValueƒvƒƒpƒeƒB‚ÍstringŒ^‚Ì‚İ‚ğó‚¯•t‚¯‚éd—l‚Æ
-      //   ‚È‚Á‚Ä‚¢‚é‚Ì‚Å’ˆÓB
+      //   å°šã€Valueãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¯stringå‹ã®ã¿ã‚’å—ã‘ä»˜ã‘ã‚‹ä»•æ§˜ã¨
+      //   ãªã£ã¦ã„ã‚‹ã®ã§æ³¨æ„ã€‚
       //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
@@ -37,8 +37,8 @@ namespace Gsf.Samples
 
       //
       // XAttribute.SetValue
-      //   XAttribute.Value‚Æˆá‚¢A‚±‚¿‚ç‚ÍobjectŒ^‚ğó‚¯•t‚¯‚éƒƒ\ƒbƒhB
-      //   “à•”‚Å•ÏŠ·‚ªs‚í‚ê‚½ŒãA’l‚ªİ’è‚³‚ê‚é.
+      //   XAttribute.Valueã¨é•ã„ã€ã“ã¡ã‚‰ã¯objectå‹ã‚’å—ã‘ä»˜ã‘ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
+      //   å†…éƒ¨ã§å¤‰æ›ãŒè¡Œã‚ã‚ŒãŸå¾Œã€å€¤ãŒè¨­å®šã•ã‚Œã‚‹.
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
@@ -51,8 +51,8 @@ namespace Gsf.Samples
 
       //
       // SetAttributeValue
-      //   ‚·‚Å‚É‘¶İ‚·‚é—v‘f‚ğw’è‚µ‚ÄA–{ƒƒ\ƒbƒh‚ğÀs‚·‚é‚Æ
-      //   ‘®«‚Ì’l‚ªXV‚³‚ê‚é.
+      //   ã™ã§ã«å­˜åœ¨ã™ã‚‹è¦ç´ ã‚’æŒ‡å®šã—ã¦ã€æœ¬ãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®Ÿè¡Œã™ã‚‹ã¨
+      //   å±æ€§ã®å€¤ãŒæ›´æ–°ã•ã‚Œã‚‹.
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();

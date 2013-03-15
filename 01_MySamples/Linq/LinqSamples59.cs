@@ -5,14 +5,14 @@ namespace Gsf.Samples
   using System.Linq;
 
   /// <summary>
-  /// Linq‚É‚ÄAƒV[ƒPƒ“ƒX‚ğƒ`ƒƒƒ“ƒN‚É•ªŠ„‚µ‚Äˆ—‚·‚éƒTƒ“ƒvƒ‹‚Å‚·.
+  /// Linqã«ã¦ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’ãƒãƒ£ãƒ³ã‚¯ã«åˆ†å‰²ã—ã¦å‡¦ç†ã™ã‚‹ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   public class LinqSamples59 : IExecutable
   {
     public void Execute()
     {
       //
-      // —v‘f‚ª10‚ÌƒV[ƒPƒ“ƒX‚ğ2‚Â‚¸‚Â‚Ìƒ`ƒƒƒ“ƒN‚É•ªŠ„.
+      // è¦ç´ ãŒ10ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’2ã¤ãšã¤ã®ãƒãƒ£ãƒ³ã‚¯ã«åˆ†å‰².
       //
       foreach (var chunk in Enumerable.Range(1, 10).Chunk(2))
       {
@@ -24,8 +24,8 @@ namespace Gsf.Samples
       }
 
       //
-      // —v‘f‚ª10000‚ÌƒV[ƒPƒ“ƒX‚ğ1000‚¸‚Â‚Ìƒ`ƒƒƒ“ƒN‚É•ªŠ„‚µ
-      // ‚»‚ê‚¼‚ê‚Ìƒ`ƒƒƒ“ƒN‚²‚Æ‚ÉƒCƒ“ƒfƒbƒNƒX‚ğ•t—^.
+      // è¦ç´ ãŒ10000ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’1000ãšã¤ã®ãƒãƒ£ãƒ³ã‚¯ã«åˆ†å‰²ã—
+      // ãã‚Œãã‚Œã®ãƒãƒ£ãƒ³ã‚¯ã”ã¨ã«ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’ä»˜ä¸.
       //
       foreach (var chunk in Enumerable.Range(1, 10000).Chunk(1000).Select((x, i) => new { Index = i, Count = x.Count() }))
       {

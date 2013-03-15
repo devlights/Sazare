@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-32
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples32 : IExecutable
   {
@@ -31,33 +31,33 @@ namespace Gsf.Samples
                };
 
       //
-      // CountŠg’£ƒƒ\ƒbƒh‚ÍAƒV[ƒPƒ“ƒX‚Ì—v‘f”‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚Å‚ ‚éB
+      // Countæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®è¦ç´ æ•°ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ã€‚
       //
-      // CountŠg’£ƒƒ\ƒbƒh‚É‚ÍApredicate‚ğw’è‚Å‚«‚éƒI[ƒo[ƒ[ƒh‚ª‘¶İ‚µ
-      // ‚»‚ê‚ğ—˜—p‚·‚é‚ÆA“Á’è‚ÌğŒ‚Éˆê’v‚·‚éƒf[ƒ^‚Ì‚İ‚ÌŒ”‚ğ‹‚ß‚é–‚ªo—ˆ‚éB
+      // Countæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯ã€predicateã‚’æŒ‡å®šã§ãã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ãŒå­˜åœ¨ã—
+      // ãã‚Œã‚’åˆ©ç”¨ã™ã‚‹ã¨ã€ç‰¹å®šã®æ¡ä»¶ã«ä¸€è‡´ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã®ã¿ã®ä»¶æ•°ã‚’æ±‚ã‚ã‚‹äº‹ãŒå‡ºæ¥ã‚‹ã€‚
       //
-      // ®A”ñí‚É‘½‚­‚ÌŒ”‚ğ•Ô‚·‰Â”\«‚ª‚ ‚éê‡‚ÍACount‚Ì‘ã‚í‚è‚ÉLongCountŠg’£ƒƒ\ƒbƒh‚ğ
-      // g—p‚·‚éBg‚¢•û‚ÍACountŠg’£ƒƒ\ƒbƒh‚Æ“¯‚¶B
+      // å°šã€éå¸¸ã«å¤šãã®ä»¶æ•°ã‚’è¿”ã™å¯èƒ½æ€§ãŒã‚ã‚‹å ´åˆã¯ã€Countã®ä»£ã‚ã‚Šã«LongCountæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’
+      // ä½¿ç”¨ã™ã‚‹ã€‚ä½¿ã„æ–¹ã¯ã€Countæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¨åŒã˜ã€‚
 
 
 
       //
-      // predicate–³‚µ‚ÅÀs. 
+      // predicateç„¡ã—ã§å®Ÿè¡Œ. 
       //
       Console.WriteLine("COUNT = {0}", people.Count());
 
       //
-      // predicate—L‚è‚ÅÀs.
+      // predicateæœ‰ã‚Šã§å®Ÿè¡Œ.
       //
       Console.WriteLine("COUNT = {0}", people.Count(person => int.Parse(person.Name.Last().ToString()) % 2 == 0));
 
       //
-      // predicate–³‚µ‚ÅÀs.iLongCount)
+      // predicateç„¡ã—ã§å®Ÿè¡Œ.ï¼ˆLongCount)
       //
       Console.WriteLine("COUNT = {0}", people.LongCount());
 
       //
-      // predicate—L‚è‚ÅÀs.iLongCount)
+      // predicateæœ‰ã‚Šã§å®Ÿè¡Œ.ï¼ˆLongCount)
       //
       Console.WriteLine("COUNT = {0}", people.LongCount(person => int.Parse(person.Name.Last().ToString()) % 2 == 0));
     }

@@ -7,20 +7,20 @@ namespace Gsf.Samples
 
   #region LinqSamples-61
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// —v‘fXVŒnƒƒ\ƒbƒh‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// è¦ç´ æ›´æ–°ç³»ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples61 : IExecutable
   {
     public void Execute()
     {
       //
-      // Value { get; set; } ƒvƒƒpƒeƒB
-      //   ‘ÎÛ‚Ì—v‘f‚Ì’l‚ğæ“¾Eİ’è‚·‚é.
-      //   Œ^‚ªstring‚Æ‚È‚Á‚Ä‚¢‚é‚Ì‚ÅA•¶š—ñ‚É•ÏŠ·‚µ‚Äİ’è‚·‚é•K—v‚ª‚ ‚éB
-      //   null‚ğw’è‚·‚é‚Æ—áŠO‚ª”­¶‚·‚éB(ArgumentNullException)
+      // Value { get; set; } ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+      //   å¯¾è±¡ã®è¦ç´ ã®å€¤ã‚’å–å¾—ãƒ»è¨­å®šã™ã‚‹.
+      //   å‹ãŒstringã¨ãªã£ã¦ã„ã‚‹ã®ã§ã€æ–‡å­—åˆ—ã«å¤‰æ›ã—ã¦è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
+      //   nullã‚’æŒ‡å®šã™ã‚‹ã¨ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚(ArgumentNullException)
       //
       var root = BuildSampleXml();
       var elem = root.Descendants("Value").First();
@@ -39,8 +39,8 @@ namespace Gsf.Samples
         Console.WriteLine(argNullEx.Message);
       }
 
-      // ValueƒvƒƒpƒeƒB‚Ístring‚ğó‚¯•t‚¯‚é‚Ì‚ÅAbool‚È‚Ç‚Ìê‡‚Í
-      // –¾¦“I‚É•¶š—ñ‚É‚µ‚Äİ’è‚·‚é•K—v‚ª‚ ‚é.
+      // Valueãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã¯stringã‚’å—ã‘ä»˜ã‘ã‚‹ã®ã§ã€boolãªã©ã®å ´åˆã¯
+      // æ˜ç¤ºçš„ã«æ–‡å­—åˆ—ã«ã—ã¦è¨­å®šã™ã‚‹å¿…è¦ãŒã‚ã‚‹.
       elem.Value = bool.TrueString.ToLower();
       Console.WriteLine(root);
 
@@ -48,10 +48,10 @@ namespace Gsf.Samples
 
       //
       // SetValue(object)
-      //   —v‘f‚Ì’l‚ğİ’è‚·‚éB
-      //   Œ^‚ªobject‚Æ‚È‚Á‚Ä‚¢‚é‚Ì‚ÅA•¶š—ñˆÈŠO‚Ìê‡‚Å‚à‚»‚Ì‚Ü‚Üİ’è‰Â”\B
-      //   “à•”‚Å•ÏŠ·‚³‚ê‚é.
-      //   null‚ğw’è‚·‚é‚Æ—áŠO‚ª”­¶‚·‚éB(ArgumentNullException)
+      //   è¦ç´ ã®å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
+      //   å‹ãŒobjectã¨ãªã£ã¦ã„ã‚‹ã®ã§ã€æ–‡å­—åˆ—ä»¥å¤–ã®å ´åˆã§ã‚‚ãã®ã¾ã¾è¨­å®šå¯èƒ½ã€‚
+      //   å†…éƒ¨ã§å¤‰æ›ã•ã‚Œã‚‹.
+      //   nullã‚’æŒ‡å®šã™ã‚‹ã¨ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚(ArgumentNullException)
       //
       root = BuildSampleXml();
       elem = root.Descendants("Value").First();
@@ -70,8 +70,8 @@ namespace Gsf.Samples
         Console.WriteLine(argNullEx.Message);
       }
 
-      // SetValueƒƒ\ƒbƒh‚ÍAobjectŒ^‚ğó‚¯•t‚¯‚é‚Ì‚Å
-      // boolŒ^‚È‚Ç‚Ìê‡‚Å‚à‚»‚Ì‚Ü‚Üİ’è‚Å‚«‚éB“à•”‚Å•ÏŠ·‚³‚ê‚é.
+      // SetValueãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€objectå‹ã‚’å—ã‘ä»˜ã‘ã‚‹ã®ã§
+      // boolå‹ãªã©ã®å ´åˆã§ã‚‚ãã®ã¾ã¾è¨­å®šã§ãã‚‹ã€‚å†…éƒ¨ã§å¤‰æ›ã•ã‚Œã‚‹.
       elem.SetValue(true);
       Console.WriteLine(root);
 
@@ -79,26 +79,26 @@ namespace Gsf.Samples
 
       //
       // SetElementValue(XName, object)
-      //   q—v‘f‚Ì’l‚ğİ’è‚·‚éB
-      //     —v‘f‚ª‘¶İ‚µ‚È‚¢ê‡F V‹K’Ç‰Á
-      //     —v‘f‚ª‘¶İ‚·‚éê‡F XV
-      //     null‚ğİ’è‚µ‚½ê‡F íœ
-      //   ‚Æ‚È‚éB©•ª©g‚Ì’l‚ğİ’è‚·‚é‚í‚¯‚Å‚Í–³‚¢‚±‚Æ‚É’ˆÓB
+      //   å­è¦ç´ ã®å€¤ã‚’è¨­å®šã™ã‚‹ã€‚
+      //     è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆï¼š æ–°è¦è¿½åŠ 
+      //     è¦ç´ ãŒå­˜åœ¨ã™ã‚‹å ´åˆï¼š æ›´æ–°
+      //     nullã‚’è¨­å®šã—ãŸå ´åˆï¼š å‰Šé™¤
+      //   ã¨ãªã‚‹ã€‚è‡ªåˆ†è‡ªèº«ã®å€¤ã‚’è¨­å®šã™ã‚‹ã‚ã‘ã§ã¯ç„¡ã„ã“ã¨ã«æ³¨æ„ã€‚
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
 
-      // —v‘f‚ª‘¶İ‚·‚éê‡: XV
+      // è¦ç´ ãŒå­˜åœ¨ã™ã‚‹å ´åˆ: æ›´æ–°
       elem.SetElementValue("Value", "updated");
       Console.WriteLine(root);
 
-      // null‚ğw’è‚µ‚½ê‡F íœ
+      // nullã‚’æŒ‡å®šã—ãŸå ´åˆï¼š å‰Šé™¤
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       elem.SetElementValue("Value", null);
       Console.WriteLine(root);
 
-      // —v‘f‚ª‘¶İ‚µ‚È‚¢ê‡: V‹K’Ç‰Á
+      // è¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆ: æ–°è¦è¿½åŠ 
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       elem.SetElementValue("Value2", "inserted");

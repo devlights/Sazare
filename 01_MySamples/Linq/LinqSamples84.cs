@@ -7,25 +7,25 @@ namespace Gsf.Samples
 
   #region LinqSamples-84
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// Changing, ChangedƒCƒxƒ“ƒg‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Changing, Changedã‚¤ãƒ™ãƒ³ãƒˆã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </remarks>
   public class LinqSamples84 : IExecutable
   {
     public void Execute()
     {
       //
-      // Changing, ChangedƒCƒxƒ“ƒg‚ÍA‚Ç‚¿‚ç‚àXObject‚É‘®‚·‚éƒCƒxƒ“ƒg‚Å‚ ‚é.
+      // Changing, Changedã‚¤ãƒ™ãƒ³ãƒˆã¯ã€ã©ã¡ã‚‰ã‚‚XObjectã«å±ã™ã‚‹ã‚¤ãƒ™ãƒ³ãƒˆã§ã‚ã‚‹.
       //
 
       //
-      // ChangingƒCƒxƒ“ƒg
-      //   ‚±‚ÌƒCƒxƒ“ƒg‚ÍAXMLƒcƒŠ[‚Ì•ÏX‚É‚æ‚Á‚Ä‚Ì‚İ”­¶‚·‚éB
-      //   XMLƒcƒŠ[‚Ìì¬‚Å‚Í”­¶‚µ‚È‚¢‚±‚Æ‚É’ˆÓB
-      // ƒCƒxƒ“ƒgˆø”‚Æ‚µ‚ÄAXObjectChangeEventArgs‚ğó‚¯æ‚é.
-      // XObjectChangeEventArgs‚ÍAObjectChange‚Æ‚¢‚¤ƒvƒƒpƒeƒB‚ğ‚Â.      
+      // Changingã‚¤ãƒ™ãƒ³ãƒˆ
+      //   ã“ã®ã‚¤ãƒ™ãƒ³ãƒˆã¯ã€XMLãƒ„ãƒªãƒ¼ã®å¤‰æ›´ã«ã‚ˆã£ã¦ã®ã¿ç™ºç”Ÿã™ã‚‹ã€‚
+      //   XMLãƒ„ãƒªãƒ¼ã®ä½œæˆã§ã¯ç™ºç”Ÿã—ãªã„ã“ã¨ã«æ³¨æ„ã€‚
+      // ã‚¤ãƒ™ãƒ³ãƒˆå¼•æ•°ã¨ã—ã¦ã€XObjectChangeEventArgsã‚’å—ã‘å–ã‚‹.
+      // XObjectChangeEventArgsã¯ã€ObjectChangeã¨ã„ã†ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æŒã¤.      
       //
       var root = BuildSampleXml();
 
@@ -34,26 +34,26 @@ namespace Gsf.Samples
       var book = root.Elements("Book").First();
       var title = book.Elements("Title").First();
 
-      // ‘®«’l‚ğ•ÏX
-      //   ChangingƒCƒxƒ“ƒg‚È‚Ì‚ÅAƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰“à‚É‚ÄŒ©‚¦‚ésender‚Ì’l‚Í*XV‘O*‚Ì’l‚Æ‚È‚éB (Change)
+      // å±æ€§å€¤ã‚’å¤‰æ›´
+      //   Changingã‚¤ãƒ™ãƒ³ãƒˆãªã®ã§ã€ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©å†…ã«ã¦è¦‹ãˆã‚‹senderã®å€¤ã¯*æ›´æ–°å‰*ã®å€¤ã¨ãªã‚‹ã€‚ (Change)
       book.Attribute("id").Value = "updated";
-      // —v‘f‚Ì’l‚ğ•ÏX
-      //   Title—v‘f‚Í“à•”‚ÉXText‚ğ‚Á‚Ä‚¢‚é‚Ì‚ÅA‚Ü‚¸‚»‚ê‚ªíœ‚³‚ê‚é (Remove)
-      //   ‚»‚ÌŒãAXVŒã‚Ì’l‚ğ‚ÂXText‚ªİ’è‚³‚ê‚é. (Add)
+      // è¦ç´ ã®å€¤ã‚’å¤‰æ›´
+      //   Titleè¦ç´ ã¯å†…éƒ¨ã«XTextã‚’æŒã£ã¦ã„ã‚‹ã®ã§ã€ã¾ãšãã‚ŒãŒå‰Šé™¤ã•ã‚Œã‚‹ (Remove)
+      //   ãã®å¾Œã€æ›´æ–°å¾Œã®å€¤ã‚’æŒã¤XTextãŒè¨­å®šã•ã‚Œã‚‹. (Add)
       title.Value = "updated";
       title.Remove();
-      // —v‘f‚ğ’Ç‰Á
-      //   —v‘f‚ª’Ç‰Á‚³‚ê‚é (Add)
+      // è¦ç´ ã‚’è¿½åŠ 
+      //   è¦ç´ ãŒè¿½åŠ ã•ã‚Œã‚‹ (Add)
       book.Add(new XElement("newelem", "hogehoge"));
 
       Console.WriteLine("=====================================");
 
       //
       // Changed
-      //   ‚±‚ÌƒCƒxƒ“ƒg‚ÍAXMLƒcƒŠ[‚Ì•ÏX‚É‚æ‚Á‚Ä‚Ì‚İ”­¶‚·‚éB
-      //   XMLƒcƒŠ[‚Ìì¬‚Å‚Í”­¶‚µ‚È‚¢‚±‚Æ‚É’ˆÓB
-      // ƒCƒxƒ“ƒgˆø”‚Æ‚µ‚ÄAXObjectChangeEventArgs‚ğó‚¯æ‚é.
-      // XObjectChangeEventArgs‚ÍAObjectChange‚Æ‚¢‚¤ƒvƒƒpƒeƒB‚ğ‚Â.
+      //   ã“ã®ã‚¤ãƒ™ãƒ³ãƒˆã¯ã€XMLãƒ„ãƒªãƒ¼ã®å¤‰æ›´ã«ã‚ˆã£ã¦ã®ã¿ç™ºç”Ÿã™ã‚‹ã€‚
+      //   XMLãƒ„ãƒªãƒ¼ã®ä½œæˆã§ã¯ç™ºç”Ÿã—ãªã„ã“ã¨ã«æ³¨æ„ã€‚
+      // ã‚¤ãƒ™ãƒ³ãƒˆå¼•æ•°ã¨ã—ã¦ã€XObjectChangeEventArgsã‚’å—ã‘å–ã‚‹.
+      // XObjectChangeEventArgsã¯ã€ObjectChangeã¨ã„ã†ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã‚’æŒã¤.
       //
       root = BuildSampleXml();
 
@@ -62,8 +62,8 @@ namespace Gsf.Samples
       book = root.Elements("Book").First();
       title = book.Elements("Title").First();
 
-      // ‘®«’l‚ğ•ÏX
-      //   ChangedƒCƒxƒ“ƒg‚È‚Ì‚ÅAƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰“à‚É‚ÄŒ©‚¦‚ésender‚Ì’l‚Í*XVŒã*‚Ì’l‚Æ‚È‚éB (Change)
+      // å±æ€§å€¤ã‚’å¤‰æ›´
+      //   Changedã‚¤ãƒ™ãƒ³ãƒˆãªã®ã§ã€ã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©å†…ã«ã¦è¦‹ãˆã‚‹senderã®å€¤ã¯*æ›´æ–°å¾Œ*ã®å€¤ã¨ãªã‚‹ã€‚ (Change)
       book.Attribute("id").Value = "updated";
       title.Value = "updated";
       title.Remove();
@@ -72,13 +72,13 @@ namespace Gsf.Samples
       Console.WriteLine("=====================================");
     }
 
-    // ChangingƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰
+    // Changingã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©
     void OnNodeChanging(object sender, XObjectChangeEventArgs e)
     {
       Console.WriteLine("Changing: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
     }
 
-    // ChangedƒCƒxƒ“ƒgƒnƒ“ƒhƒ‰
+    // Changedã‚¤ãƒ™ãƒ³ãƒˆãƒãƒ³ãƒ‰ãƒ©
     void OnNodeChanged(object sender, XObjectChangeEventArgs e)
     {
       Console.WriteLine("Changed: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
@@ -87,7 +87,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

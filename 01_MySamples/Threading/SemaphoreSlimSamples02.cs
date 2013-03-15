@@ -8,23 +8,23 @@ namespace Gsf.Samples
 
   #region SemaphoreSlimSamples-02
   /// <summary>
-  /// SemaphoreSlimƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// SemaphoreSlimã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// SemaphoreSlimƒNƒ‰ƒX‚ÍA.NET 4.0‚©‚ç’Ç‰Á‚³‚ê‚½ƒNƒ‰ƒX‚Å‚·B
-  /// ]—ˆ‚©‚ç‘¶İ‚µ‚Ä‚¢‚½SemaphoreƒNƒ‰ƒX‚ÌŒy—Ê”Å‚Æ‚È‚è‚Ü‚·B
+  /// SemaphoreSlimã‚¯ãƒ©ã‚¹ã¯ã€.NET 4.0ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸã‚¯ãƒ©ã‚¹ã§ã™ã€‚
+  /// å¾“æ¥ã‹ã‚‰å­˜åœ¨ã—ã¦ã„ãŸSemaphoreã‚¯ãƒ©ã‚¹ã®è»½é‡ç‰ˆã¨ãªã‚Šã¾ã™ã€‚
   /// </remarks>
   public class SemaphoreSlimSamples02 : IExecutable
   {
     public void Execute()
     {
       //
-      // SemaphoreSlim‚ÌWaitƒƒ\ƒbƒh‚É‚ÍƒLƒƒƒ“ƒZƒ‹ƒg[ƒNƒ“‚ğ
-      // ó‚¯•t‚¯‚éƒI[ƒo[ƒ[ƒh‚ª‘¶İ‚·‚éB
+      // SemaphoreSlimã®Waitãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒˆãƒ¼ã‚¯ãƒ³ã‚’
+      // å—ã‘ä»˜ã‘ã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚
       //
-      // CountdownEvent‚âBarrier‚Ìê‡‚Æ“¯‚¶‚­AWaitƒƒ\ƒbƒh‚É
-      // ƒLƒƒƒ“ƒZƒ‹ƒg[ƒNƒ“‚ğw’è‚µ‚½ê‡A•Ê‚ÌêŠ‚É‚ÄƒLƒƒƒ“ƒZƒ‹‚ª
-      // s‚í‚ê‚é‚ÆAOperationCanceledException‚ª”­¶‚·‚éB
+      // CountdownEventã‚„Barrierã®å ´åˆã¨åŒã˜ãã€Waitãƒ¡ã‚½ãƒƒãƒ‰ã«
+      // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒˆãƒ¼ã‚¯ãƒ³ã‚’æŒ‡å®šã—ãŸå ´åˆã€åˆ¥ã®å ´æ‰€ã«ã¦ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãŒ
+      // è¡Œã‚ã‚Œã‚‹ã¨ã€OperationCanceledExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚
       //
       const int timeout = 2000;
 
@@ -34,17 +34,17 @@ namespace Gsf.Samples
       using (SemaphoreSlim semaphore = new SemaphoreSlim(2))
       {
         //
-        // ‚ ‚ç‚©‚¶‚ßAƒZƒ}ƒtƒH‚ÌãŒÀ‚Ü‚ÅWait‚µ‚Ä‚¨‚«
-        // Œã‚ÌƒXƒŒƒbƒh‚ª“ü‚ê‚È‚¢‚æ‚¤‚É‚µ‚Ä‚¨‚­.
+        // ã‚ã‚‰ã‹ã˜ã‚ã€ã‚»ãƒãƒ•ã‚©ã®ä¸Šé™ã¾ã§Waitã—ã¦ãŠã
+        // å¾Œã®ã‚¹ãƒ¬ãƒƒãƒ‰ãŒå…¥ã‚Œãªã„ã‚ˆã†ã«ã—ã¦ãŠã.
         //
         semaphore.Wait();
         semaphore.Wait();
 
         //
-        // ‚R‚Â‚Ìƒ^ƒXƒN‚ğì¬‚·‚é.
-        //  ‚P‚Â–Ú‚Ìƒ^ƒXƒNFƒLƒƒƒ“ƒZƒ‹ƒg[ƒNƒ“‚ğw’è‚µ‚Ä–³§ŒÀ‘Ò‹@.
-        //  ‚Q‚Â–Ú‚Ìƒ^ƒXƒNFƒLƒƒƒ“ƒZƒ‹ƒg[ƒNƒ“‚Æƒ^ƒCƒ€ƒAƒEƒg’l‚ğw’è‚µ‚Ä‘Ò‹@.
-        //  ‚R‚Â–Ú‚Ìƒ^ƒXƒNF“Á’èŠÔ‘Ò‹@‚µ‚½ŒãAƒLƒƒƒ“ƒZƒ‹ˆ—‚ğs‚¤.
+        // ï¼“ã¤ã®ã‚¿ã‚¹ã‚¯ã‚’ä½œæˆã™ã‚‹.
+        //  ï¼‘ã¤ç›®ã®ã‚¿ã‚¹ã‚¯ï¼šã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒˆãƒ¼ã‚¯ãƒ³ã‚’æŒ‡å®šã—ã¦ç„¡åˆ¶é™å¾…æ©Ÿ.
+        //  ï¼’ã¤ç›®ã®ã‚¿ã‚¹ã‚¯ï¼šã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒˆãƒ¼ã‚¯ãƒ³ã¨ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆå€¤ã‚’æŒ‡å®šã—ã¦å¾…æ©Ÿ.
+        //  ï¼“ã¤ç›®ã®ã‚¿ã‚¹ã‚¯ï¼šç‰¹å®šæ™‚é–“å¾…æ©Ÿã—ãŸå¾Œã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’è¡Œã†.
         //
         Parallel.Invoke
           (
@@ -59,12 +59,12 @@ namespace Gsf.Samples
       }
     }
 
-    // ƒLƒƒƒ“ƒZƒ‹ƒg[ƒNƒ“‚ğw’è‚µ‚Ä–³§ŒÀ‘Ò‹@.
+    // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒˆãƒ¼ã‚¯ãƒ³ã‚’æŒ‡å®šã—ã¦ç„¡åˆ¶é™å¾…æ©Ÿ.
     void WaitProc1(SemaphoreSlim semaphore, CancellationToken token)
     {
       try
       {
-        Console.WriteLine("WaitProc1=‘Ò‹@ŠJn");
+        Console.WriteLine("WaitProc1=å¾…æ©Ÿé–‹å§‹");
         semaphore.Wait(token);
       }
       catch (OperationCanceledException cancelEx)
@@ -77,7 +77,7 @@ namespace Gsf.Samples
       }
     }
 
-    // ƒLƒƒƒ“ƒZƒ‹ƒg[ƒNƒ“‚Æƒ^ƒCƒ€ƒAƒEƒg’l‚ğw’è‚µ‚Ä‘Ò‹@.
+    // ã‚­ãƒ£ãƒ³ã‚»ãƒ«ãƒˆãƒ¼ã‚¯ãƒ³ã¨ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆå€¤ã‚’æŒ‡å®šã—ã¦å¾…æ©Ÿ.
     void WaitProc2(SemaphoreSlim semaphore, int timeout, CancellationToken token)
     {
       try
@@ -85,7 +85,7 @@ namespace Gsf.Samples
         bool isSuccess = semaphore.Wait(timeout, token);
         if (!isSuccess)
         {
-          Console.WriteLine("WaitProc2={0}tššƒ^ƒCƒ€ƒAƒEƒgšš", isSuccess);
+          Console.WriteLine("WaitProc2={0}tâ˜…â˜…ã‚¿ã‚¤ãƒ ã‚¢ã‚¦ãƒˆâ˜…â˜…", isSuccess);
         }
       }
       catch (OperationCanceledException cancelEx)
@@ -98,14 +98,14 @@ namespace Gsf.Samples
       }
     }
 
-    // “Á’èŠÔ‘Ò‹@‚µ‚½ŒãAƒLƒƒƒ“ƒZƒ‹ˆ—‚ğs‚¤.
+    // ç‰¹å®šæ™‚é–“å¾…æ©Ÿã—ãŸå¾Œã€ã‚­ãƒ£ãƒ³ã‚»ãƒ«å‡¦ç†ã‚’è¡Œã†.
     void DoCancel(int timeout, CancellationTokenSource tokenSource)
     {
-      Console.WriteLine("‘Ò‹@ŠJnF{0}msec", timeout + 1000);
+      Console.WriteLine("å¾…æ©Ÿé–‹å§‹ï¼š{0}msec", timeout + 1000);
       Thread.Sleep(timeout + 1000);
 
-      Console.WriteLine("‘Ò‹@I—¹");
-      Console.WriteLine("ššƒLƒƒƒ“ƒZƒ‹”­sšš");
+      Console.WriteLine("å¾…æ©Ÿçµ‚äº†");
+      Console.WriteLine("â˜…â˜…ã‚­ãƒ£ãƒ³ã‚»ãƒ«ç™ºè¡Œâ˜…â˜…");
       tokenSource.Cancel();
     }
   }

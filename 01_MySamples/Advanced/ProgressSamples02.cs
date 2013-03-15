@@ -9,7 +9,7 @@ namespace Gsf.Samples
   using System.Threading.Tasks;
 
   //
-  // Aliasİ’è.
+  // Aliasè¨­å®š.
   //
   using WinFormsApplication = System.Windows.Forms.Application;
   using WinFormsButton = System.Windows.Forms.Button;
@@ -23,10 +23,10 @@ namespace Gsf.Samples
 
   #region ProgressSamples-02
   /// <summary>
-  /// System.Progress<T>‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// System.Progress<T>ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ‚±‚ÌƒNƒ‰ƒX‚ÍA.NET Framework 4.5‚©‚ç’Ç‰Á‚³‚ê‚½Œ^‚Å‚·B
+  /// ã“ã®ã‚¯ãƒ©ã‚¹ã¯ã€.NET Framework 4.5ã‹ã‚‰è¿½åŠ ã•ã‚ŒãŸå‹ã§ã™ã€‚
   /// </remarks>
   public class ProgressSamples02 : IExecutable
   {
@@ -143,12 +143,12 @@ namespace Gsf.Samples
               break;
             }
 
-            progress.Report(new BeginMessage { Message = string.Format("{0}‚ğˆ³k‚µ‚Ä‚¢‚Ü‚·...", filePath), Token = token });
+            progress.Report(new BeginMessage { Message = string.Format("{0}ã‚’åœ§ç¸®ã—ã¦ã„ã¾ã™...", filePath), Token = token });
 
             archive.CreateEntryFromFile(filePath, Path.GetFileName(filePath));
             await Task.Delay(1000);
 
-            progress.Report(new AfterMessage { Message = string.Format("{0}‚ğˆ³kŠ®—¹", filePath), Token = token });
+            progress.Report(new AfterMessage { Message = string.Format("{0}ã‚’åœ§ç¸®å®Œäº†", filePath), Token = token });
           }
         }
 
@@ -174,7 +174,7 @@ namespace Gsf.Samples
       {
         if (message.Token.IsCancellationRequested)
         {
-          _label.Text = "ˆ—‚ÍƒLƒƒƒ“ƒZƒ‹‚³‚ê‚Ü‚µ‚½B";
+          _label.Text = "å‡¦ç†ã¯ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã•ã‚Œã¾ã—ãŸã€‚";
           return;
         }
 

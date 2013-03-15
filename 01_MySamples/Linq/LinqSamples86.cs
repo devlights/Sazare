@@ -7,17 +7,17 @@ namespace Gsf.Samples
 
   #region LinqSamples-86
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// LINQ to XML‚ÌƒAƒmƒe[ƒVƒ‡ƒ“‹@”\‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// LINQ to XMLã®ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³æ©Ÿèƒ½ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </remarks>
   public class LinqSamples86 : IExecutable
   {
     public void Execute()
     {
-      // LINQ to XML‚Å‚ÍA‚»‚ê‚¼‚ê‚Ìƒf[ƒ^‚É‘Î‚µ‚Ä
-      // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ•t—^‚·‚é‚±‚Æ‚ªo—ˆ‚éB
+      // LINQ to XMLã§ã¯ã€ãã‚Œãã‚Œã®ãƒ‡ãƒ¼ã‚¿ã«å¯¾ã—ã¦
+      // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä»˜ä¸ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
       //
       //  XObject.AddAnnotation
       //  XObject.Annotation(Type)
@@ -27,22 +27,22 @@ namespace Gsf.Samples
       //  XObject.RemoveAnnotations(Type)
       //         .RemoveAnnotations<T>()
       //
-      // ƒAƒmƒe[ƒVƒ‡ƒ“‚ÍALINQ to XML‚Åˆ—‚µ‚Ä‚¢‚éŠÔ‚Ì‚İ—LŒø‚Èƒf[ƒ^.
-      // ‰i‘±‰»‚³‚ê‚¸AToString‚É‚à•\¦‚³‚ê‚È‚¢
-      // TagƒvƒƒpƒeƒB‚Ì‚æ‚¤‚Èg‚¢•û‚ªo—ˆ‚é.
+      // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã¯ã€LINQ to XMLã§å‡¦ç†ã—ã¦ã„ã‚‹é–“ã®ã¿æœ‰åŠ¹ãªãƒ‡ãƒ¼ã‚¿.
+      // æ°¸ç¶šåŒ–ã•ã‚Œãšã€ToStringã«ã‚‚è¡¨ç¤ºã•ã‚Œãªã„
+      // Tagãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®ã‚ˆã†ãªä½¿ã„æ–¹ãŒå‡ºæ¥ã‚‹.
       //
-      // ƒRƒŒƒNƒVƒ‡ƒ“‚ğˆµ‚¤Annotationsƒƒ\ƒbƒh‚ÌƒR[ƒh‚ÍŠ„ˆ¤
+      // ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚’æ‰±ã†Annotationsãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚³ãƒ¼ãƒ‰ã¯å‰²æ„›
       //
       var root = BuildSampleXml();
       var elem = root.Descendants("Price").Last();
 
       //
-      // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ’Ç‰Á.
+      // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’è¿½åŠ .
       //
       elem.AddAnnotation(new Tag("Tag Value"));
 
       //
-      // ƒAƒmƒe[ƒVƒ‡ƒ“‚ª•t‚¢‚Ä‚¢‚é—v‘f‚ğ—ñ‹“‚µ‚Ä‚İ‚é.
+      // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ãŒä»˜ã„ã¦ã„ã‚‹è¦ç´ ã‚’åˆ—æŒ™ã—ã¦ã¿ã‚‹.
       //
       foreach (var item in QueryHasAnnotation(root))
       {
@@ -51,14 +51,14 @@ namespace Gsf.Samples
       }
 
       //
-      // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğíœ
+      // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’å‰Šé™¤
       //
       elem.RemoveAnnotations<Tag>();
 
       Console.WriteLine(QueryHasAnnotation(root).Count());
 
       //
-      // ƒAƒmƒe[ƒVƒ‡ƒ“‚ğ•t—^‚µ‚½ó‘Ô‚ÅToString‚µ‚Ä‚İ‚é
+      // ã‚¢ãƒãƒ†ãƒ¼ã‚·ãƒ§ãƒ³ã‚’ä»˜ä¸ã—ãŸçŠ¶æ…‹ã§ToStringã—ã¦ã¿ã‚‹
       //
       elem.AddAnnotation(new Tag("Tag Value"));
       Console.WriteLine(root);
@@ -77,7 +77,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

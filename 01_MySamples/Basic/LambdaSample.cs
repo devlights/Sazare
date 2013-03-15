@@ -5,14 +5,14 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Windows.Forms;
 
-  #region ƒ‰ƒ€ƒ_‚ÌƒTƒ“ƒvƒ‹ (.net framework 3.5)
+  #region ãƒ©ãƒ ãƒ€ã®ã‚µãƒ³ãƒ—ãƒ« (.net framework 3.5)
   /// <summary>
-  /// ƒ‰ƒ€ƒ_(lambda)‚ÌƒTƒ“ƒvƒ‹i.NET Framework 3.5j
+  /// ãƒ©ãƒ ãƒ€(lambda)ã®ã‚µãƒ³ãƒ—ãƒ«ï¼ˆ.NET Framework 3.5ï¼‰
   /// </summary>
   class LambdaSample : IExecutable
   {
     /// <summary>
-    /// ˆ—‚ğÀs‚µ‚Ü‚·B
+    /// å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
     /// </summary>
     public void Execute()
     {

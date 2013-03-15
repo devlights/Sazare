@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-80
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ƒiƒrƒQ[ƒVƒ‡ƒ“(NodesAfterSelf, NodesBeforeSelf)‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³(NodesAfterSelf, NodesBeforeSelf)ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples80 : IExecutable
   {
@@ -18,8 +18,8 @@ namespace Gsf.Samples
     {
       //
       // NodesAfterSelf
-      //   Œ»İ‚Ì—v‘f‚ÌŒã‚ë‚É‚ ‚éŒZ’íƒm[ƒh‚ğæ“¾
-      //   ElementsAfterSelf‚Æ‚Ìˆá‚¢‚ÍAXElement‚Å‚ ‚é‚©XNode‚Å‚ ‚é‚©
+      //   ç¾åœ¨ã®è¦ç´ ã®å¾Œã‚ã«ã‚ã‚‹å…„å¼Ÿãƒãƒ¼ãƒ‰ã‚’å–å¾—
+      //   ElementsAfterSelfã¨ã®é•ã„ã¯ã€XElementã§ã‚ã‚‹ã‹XNodeã§ã‚ã‚‹ã‹
       //
       var root = BuildSampleXml();
       var startingPoint = root.Descendants("Book").First();
@@ -41,8 +41,8 @@ namespace Gsf.Samples
 
       //
       // NodesBeforeSelf
-      //   Œ»İ‚Ì—v‘f‚Ì‘O‚É‚ ‚éŒZ’íƒm[ƒh‚ğæ“¾
-      //   ElementsBeforeSelf‚Æ‚Ìˆá‚¢‚ÍAXElement‚Å‚ ‚é‚©XNode‚Å‚ ‚é‚©
+      //   ç¾åœ¨ã®è¦ç´ ã®å‰ã«ã‚ã‚‹å…„å¼Ÿãƒãƒ¼ãƒ‰ã‚’å–å¾—
+      //   ElementsBeforeSelfã¨ã®é•ã„ã¯ã€XElementã§ã‚ã‚‹ã‹XNodeã§ã‚ã‚‹ã‹
       //
       root = BuildSampleXml();
       startingPoint = root.Descendants("PublishDate").Last();
@@ -56,7 +56,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-48
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples48 : IExecutable
   {
@@ -36,9 +36,9 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // SequenceEqualŠg’£ƒƒ\ƒbƒh‚ÍA2‚Â‚ÌƒV[ƒPƒ“ƒX‚ª“™‚µ‚¢‚©”Û‚©‚ğ”»•Ê‚·‚éƒƒ\ƒbƒhB
+      // SequenceEqualæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€2ã¤ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ãŒç­‰ã—ã„ã‹å¦ã‹ã‚’åˆ¤åˆ¥ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
-      // IEqualityComparer‚ğw’è‚Å‚«‚éƒI[ƒo[ƒ[ƒh‚ª‘¶İ‚·‚é.
+      // IEqualityComparerã‚’æŒ‡å®šã§ãã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ãŒå­˜åœ¨ã™ã‚‹.
       //
       var numbers1 = Enumerable.Range(1, 10);
       var numbers2 = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
@@ -46,7 +46,7 @@ namespace Gsf.Samples
       Console.WriteLine("numbers1 eq numbers2 == {0}", numbers1.SequenceEqual(numbers2));
 
       //
-      // IEqualityComparer<T>‚ğw’è‚·‚éƒo[ƒWƒ‡ƒ“.
+      // IEqualityComparer<T>ã‚’æŒ‡å®šã™ã‚‹ãƒãƒ¼ã‚¸ãƒ§ãƒ³.
       //
       var languages1 = new Language[]
                  { 

@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-74
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ƒiƒrƒQ[ƒVƒ‡ƒ“(FirstNode, LastNodeƒvƒƒpƒeƒB)‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³(FirstNode, LastNodeãƒ—ãƒ­ãƒ‘ãƒ†ã‚£)ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples74 : IExecutable
   {
@@ -18,7 +18,7 @@ namespace Gsf.Samples
     {
       //
       // FirstNode
-      //   Œ»İ‚Ì—v‘f‚ÌÅ‰‚Ìq—v‘f‚ğæ“¾‚·‚é
+      //   ç¾åœ¨ã®è¦ç´ ã®æœ€åˆã®å­è¦ç´ ã‚’å–å¾—ã™ã‚‹
       //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
@@ -28,7 +28,7 @@ namespace Gsf.Samples
 
       //
       // LastNode
-      //   Œ»İ‚Ì—v‘f‚ÌÅŒã‚Ìq—v‘f‚ğæ“¾‚·‚é
+      //   ç¾åœ¨ã®è¦ç´ ã®æœ€å¾Œã®å­è¦ç´ ã‚’å–å¾—ã™ã‚‹
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();

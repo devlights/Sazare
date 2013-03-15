@@ -6,17 +6,17 @@ namespace Gsf.Samples
 
   #region LinqSamples-38
   /// <summary>
-  /// Linq�̃T���v���ł��B
+  /// Linqのサンプルです。
   /// </summary>
   public class LinqSamples38 : IExecutable
   {
     public void Execute()
     {
       //
-      // Range�g�����\�b�h.
-      // ���̊g�����\�b�h�́A�����ʂ�w�肳�ꂽ�͈͂̐��l�V�[�P���X�𐶐����Ă����B
+      // Range拡張メソッド.
+      // この拡張メソッドは、文字通り指定された範囲の数値シーケンスを生成してくれる。
       //
-      Console.WriteLine("=============== Range�g�����\�b�h ================");
+      Console.WriteLine("=============== Range拡張メソッド ================");
 
       int start = 0;
       int count = 20;
@@ -27,10 +27,10 @@ namespace Gsf.Samples
       Console.WriteLine("===============================================");
 
       //
-      // Repeat�g�����\�b�h.
-      // ���̊g�����\�b�h�́A�����ʂ�w�肳�ꂽ�񐔕��A�v�f���J��Ԃ��������Ă����B
+      // Repeat拡張メソッド.
+      // この拡張メソッドは、文字通り指定された回数分、要素を繰り返し生成してくれる。
       //
-      Console.WriteLine("=============== Repeat�g�����\�b�h ================");
+      Console.WriteLine("=============== Repeat拡張メソッド ================");
 
       foreach (var i in Enumerable.Repeat(100, 5))
       {

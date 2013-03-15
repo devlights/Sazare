@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-75
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ƒiƒrƒQ[ƒVƒ‡ƒ“(ParentƒvƒƒpƒeƒB)‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³(Parentãƒ—ãƒ­ãƒ‘ãƒ†ã‚£)ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples75 : IExecutable
   {
@@ -18,8 +18,8 @@ namespace Gsf.Samples
     {
       //
       // Parent
-      //   •¶š’Ê‚èAŒ»İ‚Ì—v‘f‚Ìe—v‘f‚ğæ“¾‚·‚é.
-      //   e—v‘f‚ª‘¶İ‚µ‚È‚¢ê‡Anull‚Æ‚È‚é.
+      //   æ–‡å­—é€šã‚Šã€ç¾åœ¨ã®è¦ç´ ã®è¦ªè¦ç´ ã‚’å–å¾—ã™ã‚‹.
+      //   è¦ªè¦ç´ ãŒå­˜åœ¨ã—ãªã„å ´åˆã€nullã¨ãªã‚‹.
       //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();

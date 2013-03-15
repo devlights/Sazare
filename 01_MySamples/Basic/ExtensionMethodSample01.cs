@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region ExtensionMethodSample-01
   /// <summary>
-  /// Šg’£ƒƒ\ƒbƒh‚ÌƒTƒ“ƒvƒ‹1‚Å‚·B
+  /// æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚µãƒ³ãƒ—ãƒ«1ã§ã™ã€‚
   /// </summary>
   public class ExtensionMethodSample01 : IExecutable
   {

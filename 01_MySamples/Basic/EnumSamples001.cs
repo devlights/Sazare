@@ -6,17 +6,17 @@ namespace Gsf.Samples
 
   #region EnumSamples-001
   /// <summary>
-  /// Enum‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Enumã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class EnumSamples001 : IExecutable
   {
     //
-    // Enum‚ğ’è‹`.
+    // Enumã‚’å®šç¾©.
     //
-    // ƒtƒ‰ƒO’l‚Æ‚µ‚Ä‚à—˜—p‚·‚éê‡‚ÍFlagAttribute‚ğ•t‚¯‚é.
+    // ãƒ•ãƒ©ã‚°å€¤ã¨ã—ã¦ã‚‚åˆ©ç”¨ã™ã‚‹å ´åˆã¯FlagAttributeã‚’ä»˜ã‘ã‚‹.
     //
-    // Šî‚É‚È‚éŒ^‚Í–¾¦“I‚Éw’è‚µ‚È‚¢ê‡‚Íint‚Æ‚È‚éB
-    // —ñ‹“’è”‚Í‚Q‚Ì—İæ‚Å’è‹`‚·‚é•û‚ª‚¢‚¢–Í—lBiMSDN‚æ‚èj
+    // åŸºã«ãªã‚‹å‹ã¯æ˜ç¤ºçš„ã«æŒ‡å®šã—ãªã„å ´åˆã¯intã¨ãªã‚‹ã€‚
+    // åˆ—æŒ™å®šæ•°ã¯ï¼’ã®ç´¯ä¹—ã§å®šç¾©ã™ã‚‹æ–¹ãŒã„ã„æ¨¡æ§˜ã€‚ï¼ˆMSDNã‚ˆã‚Šï¼‰
     // 
     [Flags]
     private enum SampleEnum
@@ -30,9 +30,9 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // FlagsAttribute‚ğ•t—^‚µ‚Ä‚¢‚éê‡‚Í
-      // ’P‘Ì‚Ì’l‚Æ‚µ‚Ä‚à—˜—p‚Å‚«‚é‚ªAAND OR XOR‚Ì
-      // ‰‰Z‚às‚¦‚é‚æ‚¤‚É‚È‚éB
+      // FlagsAttributeã‚’ä»˜ä¸ã—ã¦ã„ã‚‹å ´åˆã¯
+      // å˜ä½“ã®å€¤ã¨ã—ã¦ã‚‚åˆ©ç”¨ã§ãã‚‹ãŒã€AND OR XORã®
+      // æ¼”ç®—ã‚‚è¡Œãˆã‚‹ã‚ˆã†ã«ãªã‚‹ã€‚
       // 
       SampleEnum enum1 = SampleEnum.Value2;
       SampleEnum enum2 = (SampleEnum.Value1 | SampleEnum.Value3);
@@ -45,31 +45,31 @@ namespace Gsf.Samples
 
       /////////////////////////////////////////////////////////////
       //
-      // System.EnumƒNƒ‰ƒX‚É‚ÍA—ñ‹“Œ^‚ğˆµ‚¤ã‚Å•Ö—˜‚Èƒƒ\ƒbƒh‚ª
-      // ‚¢‚­‚Â‚©—pˆÓ‚³‚ê‚Ä‚¢‚éB
+      // System.Enumã‚¯ãƒ©ã‚¹ã«ã¯ã€åˆ—æŒ™å‹ã‚’æ‰±ã†ä¸Šã§ä¾¿åˆ©ãªãƒ¡ã‚½ãƒƒãƒ‰ãŒ
+      // ã„ãã¤ã‹ç”¨æ„ã•ã‚Œã¦ã„ã‚‹ã€‚
       //
-      // ¡Formatƒƒ\ƒbƒh
-      // ¡GetNameƒƒ\ƒbƒh
-      // ¡GetNamesƒƒ\ƒbƒh
-      // ¡GetUnderlyingTypeƒƒ\ƒbƒh
-      // ¡GetValuesƒƒ\ƒbƒh
-      // ¡IsDefinedƒƒ\ƒbƒh
-      // ¡Parseƒƒ\ƒbƒh
-      // ¡ToObjectƒƒ\ƒbƒh
-      // ¡ToStringƒƒ\ƒbƒh
+      // â– Formatãƒ¡ã‚½ãƒƒãƒ‰
+      // â– GetNameãƒ¡ã‚½ãƒƒãƒ‰
+      // â– GetNamesãƒ¡ã‚½ãƒƒãƒ‰
+      // â– GetUnderlyingTypeãƒ¡ã‚½ãƒƒãƒ‰
+      // â– GetValuesãƒ¡ã‚½ãƒƒãƒ‰
+      // â– IsDefinedãƒ¡ã‚½ãƒƒãƒ‰
+      // â– Parseãƒ¡ã‚½ãƒƒãƒ‰
+      // â– ToObjectãƒ¡ã‚½ãƒƒãƒ‰
+      // â– ToStringãƒ¡ã‚½ãƒƒãƒ‰
       //
       Console.WriteLine(string.Empty);
 
       //
-      // Formatƒƒ\ƒbƒh.
+      // Formatãƒ¡ã‚½ãƒƒãƒ‰.
       //
-      // ‘ÎÛ‚Æ‚È‚é—ñ‹“’l‚ğ“Á’è‚ÌƒtƒH[ƒ}ƒbƒg‚É‚µ‚Äæ“¾‚·‚éB
-      // w’èo—ˆ‚éƒIƒvƒVƒ‡ƒ“‚ÍˆÈ‰º‚Ì’Ê‚èB
+      // å¯¾è±¡ã¨ãªã‚‹åˆ—æŒ™å€¤ã‚’ç‰¹å®šã®ãƒ•ã‚©ãƒ¼ãƒãƒƒãƒˆã«ã—ã¦å–å¾—ã™ã‚‹ã€‚
+      // æŒ‡å®šå‡ºæ¥ã‚‹ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã¯ä»¥ä¸‹ã®é€šã‚Šã€‚
       //
-      // ¡G or g: –¼‘O‚ğæ“¾i’A‚µA’l‚ª‘¶İ‚µ‚È‚¢ê‡A‚P‚Oi”‚Å‚»‚Ì’l‚ª•Ô‚³‚ê‚éj
-      // ¡X or x: ‚P‚Ui”‚Å’l‚ğæ“¾ (’A‚µA0x‚Íæ“ª‚É•t—^‚³‚ê‚È‚¢j
-      // ¡D or d: ‚P‚Oi”‚Å’l‚ğæ“¾
-      // ¡F or f: G‚Æ‚Ù‚Ú“¯‚¶B
+      // â– G or g: åå‰ã‚’å–å¾—ï¼ˆä½†ã—ã€å€¤ãŒå­˜åœ¨ã—ãªã„å ´åˆã€ï¼‘ï¼é€²æ•°ã§ãã®å€¤ãŒè¿”ã•ã‚Œã‚‹ï¼‰
+      // â– X or x: ï¼‘ï¼–é€²æ•°ã§å€¤ã‚’å–å¾— (ä½†ã—ã€0xã¯å…ˆé ­ã«ä»˜ä¸ã•ã‚Œãªã„ï¼‰
+      // â– D or d: ï¼‘ï¼é€²æ•°ã§å€¤ã‚’å–å¾—
+      // â– F or f: Gã¨ã»ã¼åŒã˜ã€‚
       //
       Console.WriteLine("============ {0} ============", "Format");
       Console.WriteLine(Enum.Format(typeof(SampleEnum), 2, "G"));
@@ -81,10 +81,10 @@ namespace Gsf.Samples
       Console.WriteLine(Enum.Format(typeof(SampleEnum), (SampleEnum.Value1 | SampleEnum.Value4), "F"));
 
       //
-      // GetNameƒƒ\ƒbƒh
+      // GetNameãƒ¡ã‚½ãƒƒãƒ‰
       //
-      // ‘ÎÛ‚Æ‚È‚é’l‚©‚çA‘Î‰‚·‚é—ñ‹“’l‚Ì–¼‘O‚ğæ“¾‚·‚é.
-      // ‘Î‰‚·‚é—ñ‹“’l‚ª‘¶İ‚µ‚È‚¢ê‡‚ÍAnull‚Æ‚È‚éB
+      // å¯¾è±¡ã¨ãªã‚‹å€¤ã‹ã‚‰ã€å¯¾å¿œã™ã‚‹åˆ—æŒ™å€¤ã®åå‰ã‚’å–å¾—ã™ã‚‹.
+      // å¯¾å¿œã™ã‚‹åˆ—æŒ™å€¤ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯ã€nullã¨ãªã‚‹ã€‚
       //
       Console.WriteLine("============ {0} ============", "GetName");
       int targetValue = 4;
@@ -92,18 +92,18 @@ namespace Gsf.Samples
       Console.WriteLine(Enum.GetName(typeof(SampleEnum), -1) == null ? "null" : string.Empty);
 
       //
-      // GetNamesƒƒ\ƒbƒh
+      // GetNamesãƒ¡ã‚½ãƒƒãƒ‰
       //
-      // ‘ÎÛ‚Æ‚È‚é—ñ‹“Œ^‚É’è‹`‚³‚ê‚Ä‚¢‚é’l‚Ì–¼Ì‚ğˆê‹C‚Éæ“¾‚·‚é.
+      // å¯¾è±¡ã¨ãªã‚‹åˆ—æŒ™å‹ã«å®šç¾©ã•ã‚Œã¦ã„ã‚‹å€¤ã®åç§°ã‚’ä¸€æ°—ã«å–å¾—ã™ã‚‹.
       //
       Console.WriteLine("============ {0} ============", "GetNames");
       string[] names = Enum.GetNames(typeof(SampleEnum));
       names.ToList().ForEach(Console.WriteLine);
 
       //
-      // GetUnderlyingTypeƒƒ\ƒbƒh
+      // GetUnderlyingTypeãƒ¡ã‚½ãƒƒãƒ‰
       //
-      // “Á’è‚Ì—ñ‹“’l‚ª‘®‚·‚é—ñ‹“Œ^‚ğæ“¾‚·‚éB
+      // ç‰¹å®šã®åˆ—æŒ™å€¤ãŒå±ã™ã‚‹åˆ—æŒ™å‹ã‚’å–å¾—ã™ã‚‹ã€‚
       //
       Console.WriteLine("============ {0} ============", "GetUnderlyingType");
       Enum enumVal = SampleEnum.Value2;
@@ -113,9 +113,9 @@ namespace Gsf.Samples
       Console.WriteLine(enumType.Name);
 
       //
-      // GetValuesƒƒ\ƒbƒh
+      // GetValuesãƒ¡ã‚½ãƒƒãƒ‰
       //
-      // ‘ÎÛ‚Æ‚È‚é—ñ‹“Œ^‚Éİ’è‚³‚ê‚Ä‚¢‚é’l‚ğˆê‹C‚Éæ“¾.
+      // å¯¾è±¡ã¨ãªã‚‹åˆ—æŒ™å‹ã«è¨­å®šã•ã‚Œã¦ã„ã‚‹å€¤ã‚’ä¸€æ°—ã«å–å¾—.
       //
       Console.WriteLine("============ {0} ============", "GetValues");
       Array valueArray = Enum.GetValues(typeof(SampleEnum));
@@ -125,28 +125,28 @@ namespace Gsf.Samples
       }
 
       //
-      // IsDefinedƒƒ\ƒbƒh
+      // IsDefinedãƒ¡ã‚½ãƒƒãƒ‰
       //
-      // w’è‚µ‚½’l‚ªA‘ÎÛ‚Æ‚È‚é—ñ‹“Œ^‚É‘¶İ‚·‚é‚©”Û‚©‚ğ’²¸‚·‚éB
+      // æŒ‡å®šã—ãŸå€¤ãŒã€å¯¾è±¡ã¨ãªã‚‹åˆ—æŒ™å‹ã«å­˜åœ¨ã™ã‚‹ã‹å¦ã‹ã‚’èª¿æŸ»ã™ã‚‹ã€‚
       //
       Console.WriteLine("============ {0} ============", "IsDefined");
-      Console.WriteLine("’l{0}‚ªSampleEnum‚É‘¶İ‚·‚é‚©H {1}", 2, Enum.IsDefined(typeof(SampleEnum), 2));
-      Console.WriteLine("’l{0}‚ªSampleEnum‚É‘¶İ‚·‚é‚©H {1}", 10, Enum.IsDefined(typeof(SampleEnum), 10));
+      Console.WriteLine("å€¤{0}ãŒSampleEnumã«å­˜åœ¨ã™ã‚‹ã‹ï¼Ÿ {1}", 2, Enum.IsDefined(typeof(SampleEnum), 2));
+      Console.WriteLine("å€¤{0}ãŒSampleEnumã«å­˜åœ¨ã™ã‚‹ã‹ï¼Ÿ {1}", 10, Enum.IsDefined(typeof(SampleEnum), 10));
 
       //
-      // Parseƒƒ\ƒbƒh.
+      // Parseãƒ¡ã‚½ãƒƒãƒ‰.
       //
-      // •¶š—ñ‚©‚ç‘Î‰‚·‚é—ñ‹“’l‚ğæ“¾‚·‚éB
-      // ®AŠY“–•¶š—ñ‚É‘Î‰‚·‚é—ñ‹“’l‚ª‘¶İ‚µ‚È‚¢ê‡‚Ínull‚Å‚È‚­
-      // ArgumentException‚ª”­¶‚·‚éB
+      // æ–‡å­—åˆ—ã‹ã‚‰å¯¾å¿œã™ã‚‹åˆ—æŒ™å€¤ã‚’å–å¾—ã™ã‚‹ã€‚
+      // å°šã€è©²å½“æ–‡å­—åˆ—ã«å¯¾å¿œã™ã‚‹åˆ—æŒ™å€¤ãŒå­˜åœ¨ã—ãªã„å ´åˆã¯nullã§ãªã
+      // ArgumentExceptionãŒç™ºç”Ÿã™ã‚‹ã€‚
       //
-      // Parseƒƒ\ƒbƒh‚É‚ÍAˆÈ‰º‚Ìƒpƒ^[ƒ“‚Ìƒf[ƒ^‚ğw’è‚·‚é‚±‚Æ‚ªo—ˆ‚éB
-      // ¡’Pˆê‚Ì’l
-      // ¡—ñ‹“’l‚Ì–¼‘O
-      // ¡–¼‘O‚ğƒRƒ“ƒ}‚ÅŒq‚¢‚¾ƒŠƒXƒg
+      // Parseãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯ã€ä»¥ä¸‹ã®ãƒ‘ã‚¿ãƒ¼ãƒ³ã®ãƒ‡ãƒ¼ã‚¿ã‚’æŒ‡å®šã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
+      // â– å˜ä¸€ã®å€¤
+      // â– åˆ—æŒ™å€¤ã®åå‰
+      // â– åå‰ã‚’ã‚³ãƒ³ãƒã§ç¹‹ã„ã ãƒªã‚¹ãƒˆ
       //
-      // –¼‘O‚ğƒRƒ“ƒ}‚ÅŒq‚¢‚¾ƒŠƒXƒg‚ğw’è‚µ‚½ê‡‚ÍAŠY“–‚·‚é—ñ‹“’l‚Ì
-      // OR‰‰Z‚³‚ê‚½Œ‹‰Ê‚ªæ“¾‚Å‚«‚éB
+      // åå‰ã‚’ã‚³ãƒ³ãƒã§ç¹‹ã„ã ãƒªã‚¹ãƒˆã‚’æŒ‡å®šã—ãŸå ´åˆã¯ã€è©²å½“ã™ã‚‹åˆ—æŒ™å€¤ã®
+      // ORæ¼”ç®—ã•ã‚ŒãŸçµæœãŒå–å¾—ã§ãã‚‹ã€‚
       //
       Console.WriteLine("============ {0} ============", "Parse");
       string testVal = "Value4";
@@ -154,12 +154,12 @@ namespace Gsf.Samples
 
       try
       {
-        // ‘¶İ‚µ‚È‚¢’l‚ğw’è.
+        // å­˜åœ¨ã—ãªã„å€¤ã‚’æŒ‡å®š.
         Console.WriteLine(Enum.Parse(typeof(SampleEnum), "not_found"));
       }
       catch (ArgumentException)
       {
-        Console.WriteLine("•¶š—ñ not_found ‚É‘Î‰‚·‚é—ñ‹“’l‚ª‘¶İ‚µ‚È‚¢B");
+        Console.WriteLine("æ–‡å­—åˆ— not_found ã«å¯¾å¿œã™ã‚‹åˆ—æŒ™å€¤ãŒå­˜åœ¨ã—ãªã„ã€‚");
       }
 
       testVal = "4";
@@ -169,24 +169,24 @@ namespace Gsf.Samples
       Console.WriteLine(Enum.Parse(typeof(SampleEnum), testVal));
 
       //
-      // ToObjectƒƒ\ƒbƒh.
+      // ToObjectãƒ¡ã‚½ãƒƒãƒ‰.
       //
-      // w’è‚³‚ê‚½’l‚ğ‘Î‰‚·‚é—ñ‹“’l‚É•ÏŠ·‚·‚éB
-      // ŠeŒ^‚É‘Î‰‚·‚é‚½‚ß‚ÌƒI[ƒo[ƒ[ƒhƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB
+      // æŒ‡å®šã•ã‚ŒãŸå€¤ã‚’å¯¾å¿œã™ã‚‹åˆ—æŒ™å€¤ã«å¤‰æ›ã™ã‚‹ã€‚
+      // å„å‹ã«å¯¾å¿œã™ã‚‹ãŸã‚ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚
       //
       Console.WriteLine("============ {0} ============", "ToObject");
       int v = 1;
       Console.WriteLine(Enum.ToObject(typeof(SampleEnum), v));
 
       //
-      // ToStringƒƒ\ƒbƒh.
+      // ToStringãƒ¡ã‚½ãƒƒãƒ‰.
       //
-      // ‘Î‰‚·‚é—ñ‹“’l‚Ì•¶š—ñ•\Œ»‚ğæ“¾‚·‚éB
-      // ‚±‚ê‚Ü‚Å‚Éãq‚µ‚½Šeˆ—‚Í‘S‚ÄEnumƒNƒ‰ƒX‚Ìstaticƒƒ\ƒbƒh‚Å
-      // ‚ ‚Á‚½‚ªA‚±‚Ìƒƒ\ƒbƒh‚ÍƒCƒ“ƒXƒ^ƒ“ƒXƒƒ\ƒbƒh‚Æ‚È‚éB
+      // å¯¾å¿œã™ã‚‹åˆ—æŒ™å€¤ã®æ–‡å­—åˆ—è¡¨ç¾ã‚’å–å¾—ã™ã‚‹ã€‚
+      // ã“ã‚Œã¾ã§ã«ä¸Šè¿°ã—ãŸå„å‡¦ç†ã¯å…¨ã¦Enumã‚¯ãƒ©ã‚¹ã®staticãƒ¡ã‚½ãƒƒãƒ‰ã§
+      // ã‚ã£ãŸãŒã€ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã‚¤ãƒ³ã‚¹ã‚¿ãƒ³ã‚¹ãƒ¡ã‚½ãƒƒãƒ‰ã¨ãªã‚‹ã€‚
       //
-      // Šî–{“I‚ÉAEnum.Formatƒƒ\ƒbƒh‚É"G"‚ğ“K—p‚µ‚½Œ‹‰Ê‚Æ‚È‚éB
-      // iIFormatProvider‚ğw’è‚µ‚½ê‡‚ÍƒJƒXƒ^ƒ€‘®‚Æ‚È‚éBj
+      // åŸºæœ¬çš„ã«ã€Enum.Formatãƒ¡ã‚½ãƒƒãƒ‰ã«"G"ã‚’é©ç”¨ã—ãŸçµæœã¨ãªã‚‹ã€‚
+      // ï¼ˆIFormatProviderã‚’æŒ‡å®šã—ãŸå ´åˆã¯ã‚«ã‚¹ã‚¿ãƒ æ›¸å¼ã¨ãªã‚‹ã€‚ï¼‰
       //
       Console.WriteLine("============ {0} ============", "ToString");
       SampleEnum e1 = SampleEnum.Value4;

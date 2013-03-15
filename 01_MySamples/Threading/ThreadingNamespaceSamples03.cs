@@ -23,29 +23,29 @@ namespace Gsf.Samples
     {
       ///////////////////////////////////////////////////
       //
-      // ƒXƒŒƒbƒhƒNƒ‰ƒX‚ª‚Â‚»‚Ì‘¼‚ÌƒvƒƒpƒeƒB‚É‚Â‚¢‚Ä
+      // ã‚¹ãƒ¬ãƒƒãƒ‰ã‚¯ãƒ©ã‚¹ãŒæŒã¤ãã®ä»–ã®ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã«ã¤ã„ã¦
       //
       Thread currentThread = Thread.CurrentThread;
 
       // 
-      // IsAliveƒvƒƒpƒeƒB
-      //    ËƒXƒŒƒbƒh‚ª‹N“®‚³‚ê‚Ä‚¨‚èA‚Ü‚¾I—¹‚Ü‚½‚Í’†~‚³‚ê‚Ä‚¢‚È‚¢ê‡‚Í
-      //    @true‚Æ‚È‚éB
+      // IsAliveãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+      //    â‡’ã‚¹ãƒ¬ãƒƒãƒ‰ãŒèµ·å‹•ã•ã‚Œã¦ãŠã‚Šã€ã¾ã çµ‚äº†ã¾ãŸã¯ä¸­æ­¢ã•ã‚Œã¦ã„ãªã„å ´åˆã¯
+      //    ã€€trueã¨ãªã‚‹ã€‚
       //
       Console.WriteLine("IsAlive={0}", currentThread.IsAlive);
 
       //
-      // IsThreadPoolThread, ManagedThreadIdƒvƒƒpƒeƒB
-      //    Ë‚»‚ê‚¼‚êAƒXƒŒƒbƒhƒv[ƒ‹ƒXƒŒƒbƒh‚©‚Ç‚¤‚©‚Æƒ}ƒl[ƒWƒXƒŒƒbƒh‚ğ¯•Ê
-      //    @‚·‚é’l‚ªæ“¾‚Å‚«‚éB
+      // IsThreadPoolThread, ManagedThreadIdãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+      //    â‡’ãã‚Œãã‚Œã€ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ—ãƒ¼ãƒ«ã‚¹ãƒ¬ãƒƒãƒ‰ã‹ã©ã†ã‹ã¨ãƒãƒãƒ¼ã‚¸ã‚¹ãƒ¬ãƒƒãƒ‰ã‚’è­˜åˆ¥
+      //    ã€€ã™ã‚‹å€¤ãŒå–å¾—ã§ãã‚‹ã€‚
       //
       Console.WriteLine("IsThreadPoolThread={0}", currentThread.IsThreadPoolThread);
       Console.WriteLine("ManagedThreadId={0}", currentThread.ManagedThreadId);
 
       //
-      // PriorityƒvƒƒpƒeƒB
-      //    Ë‘ÎÛ‚ÌƒXƒŒƒbƒh‚Ì—Dæ“xiƒvƒ‰ƒCƒIƒŠƒeƒBj‚ğæ“¾‹y‚Ñİ’è‚µ‚Ü‚·B
-      //    @Highest‚ªÅ‚à‚‚­ALowest‚ªÅ‚à’á‚¢.
+      // Priorityãƒ—ãƒ­ãƒ‘ãƒ†ã‚£
+      //    â‡’å¯¾è±¡ã®ã‚¹ãƒ¬ãƒƒãƒ‰ã®å„ªå…ˆåº¦ï¼ˆãƒ—ãƒ©ã‚¤ã‚ªãƒªãƒ†ã‚£ï¼‰ã‚’å–å¾—åŠã³è¨­å®šã—ã¾ã™ã€‚
+      //    ã€€HighestãŒæœ€ã‚‚é«˜ãã€LowestãŒæœ€ã‚‚ä½ã„.
       //
       Console.WriteLine("Priority={0}", currentThread.Priority);
     }

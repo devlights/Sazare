@@ -7,22 +7,22 @@ namespace Gsf.Samples
 
   #region AppDomainSamples-03
   /// <summary>
-  /// AppDomain�N���X�̃T���v���ł��B
+  /// AppDomainクラスのサンプルです。
   /// </summary>
   public class AppDomainSamples03 : IExecutable
   {
-    // AppDomain�̃��j�^�����O��S������N���X
+    // AppDomainのモニタリングを担当するクラス
     class AppDomainMonitor : IDisposable
     {
       static AppDomainMonitor()
       {
         //
-        // AppDomain.MonitoringIsEnabled�́A����ȃv���p�e�B��
-        // �ȉ��̓��������B
+        // AppDomain.MonitoringIsEnabledは、特殊なプロパティで
+        // 以下の特徴を持つ。
         //
-        // �E��xTrue�i�Ď�ON�j�ɂ�����Afalse�i�Ď�OFF�j�ɖ߂����Ƃ͂ł��Ȃ��B
-        // �E�l��True,False�֌W�Ȃ��AFalse��ݒ肵�悤�Ƃ���Ɨ�O����������B
-        // �E�ݒ�́AAppDomain���ʐݒ�ƂȂ�A�����AppDomain�݂̂̊Ď��͍s���Ȃ�.
+        // ・一度True（監視ON）にしたら、false（監視OFF）に戻すことはできない。
+        // ・値がTrue,False関係なく、Falseを設定しようとすると例外が発生する。
+        // ・設定は、AppDomain共通設定となり、特定のAppDomainのみの監視は行えない.
         //
         if (!AppDomain.MonitoringIsEnabled)
         {
@@ -32,7 +32,7 @@ namespace Gsf.Samples
 
       public void Dispose()
       {
-        // �t���u���b�L���O�R���N�V���������s.
+        // フルブロッキングコレクションを実行.
         GC.Collect();
         PrintMonitoringValues(AppDomain.CurrentDomain);
       }
@@ -40,19 +40,19 @@ namespace Gsf.Samples
       public void PrintMonitoringValues(AppDomain domain)
       {
         //
-        // ���j�^�����O��ON�ɂ���ƁA�ȉ��̃v���p�e�B�ɃA�N�Z�X���ē��v�����擾���邱�Ƃ��ł���悤�ɂȂ�B
+        // モニタリングをONにすると、以下のプロパティにアクセスして統計情報を取得することができるようになる。
         //
-        // �EMonitoringSurvivedMemorySize
-        //    �Ō�̊��S�ȃu���b�L���O �R���N�V�����̎��s��Ɏc���ꂽ�A���݂̃A�v���P�[�V���� �h���C���ɂ���ĎQ�Ƃ���Ă��邱�Ƃ��������Ă���o�C�g��
-        // �EMonitoringSurvivedProcessMemorySize
-        //    �Ō�̊��S�ȃu���b�L���O �R���N�V�����̎��s��Ɏc���ꂽ�A�v���Z�X���̂��ׂẴA�v���P�[�V���� �h���C���ɂ����鍇�v�o�C�g��
-        // �EMonitoringTotalAllocatedMemorySize
-        //    �A�v���P�[�V���� �h���C�����쐬����Ă���A���̃A�v���P�[�V���� �h���C���Ŏ��s���ꂽ���ׂẴ��������蓖�Ă̍��v�T�C�Y�i�o�C�g�P�ʁj
-        //    ���W���ꂽ�������͍���������Ȃ��B
-        // �EMonitoringTotalProcessorTime
-        //    �v���Z�X���J�n����Ă���A���݂̃A�v���P�[�V���� �h���C���ł̎��s���ɂ��ׂẴX���b�h�Ŏg�p���ꂽ���v�v���Z�b�T����
+        // ・MonitoringSurvivedMemorySize
+        //    最後の完全なブロッキング コレクションの実行後に残された、現在のアプリケーション ドメインによって参照されていることが判明しているバイト数
+        // ・MonitoringSurvivedProcessMemorySize
+        //    最後の完全なブロッキング コレクションの実行後に残された、プロセス内のすべてのアプリケーション ドメインにおける合計バイト数
+        // ・MonitoringTotalAllocatedMemorySize
+        //    アプリケーション ドメインが作成されてから、そのアプリケーション ドメインで実行されたすべてのメモリ割り当ての合計サイズ（バイト単位）
+        //    収集されたメモリは差し引かれない。
+        // ・MonitoringTotalProcessorTime
+        //    プロセスが開始されてから、現在のアプリケーション ドメインでの実行中にすべてのスレッドで使用された合計プロセッサ時間
         //
-        // ���S�ȃu���b�L���O�R���N�V�����i�t���u���b�L���O�R���N�V�����j�́AGC.Collect���\�b�h�Ŏ��s�ł���B
+        // 完全なブロッキングコレクション（フルブロッキングコレクション）は、GC.Collectメソッドで実行できる。
         //
         Console.WriteLine("============================================");
         Console.WriteLine("MonitoringSurvivedMemorySize        = {0:N0}", domain.MonitoringSurvivedMemorySize);
@@ -77,7 +77,7 @@ namespace Gsf.Samples
 
         monitor.PrintMonitoringValues(AppDomain.CurrentDomain);
 
-        // CPU�^�C����\���������̂ŁA�����X�s��.
+        // CPUタイムを表示したいので、少しスピン.
         Thread.SpinWait(700000000);
       }
     }

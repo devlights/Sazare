@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-17
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples17 : IExecutable
   {
@@ -49,17 +49,17 @@ namespace Gsf.Samples
         };
 
       //
-      // Castƒƒ\ƒbƒh‚ğ—˜—p‚·‚é‚±‚Æ‚É‚æ‚èA“Á’è‚ÌŒ^‚Ì‚İ‚ÌƒV[ƒPƒ“ƒX‚É•ÏŠ·‚·‚é‚±‚Æ‚ª‚Å‚«‚éB
-      // OfTypeƒƒ\ƒbƒh‚Æˆá‚¢ACastƒƒ\ƒbƒh‚Í’Pƒ‚ÉƒLƒƒƒXƒgˆ—‚ğs‚¤ˆ×AƒLƒƒƒXƒgo—ˆ‚È‚¢Œ^‚ª
-      // ŠÜ‚Ü‚ê‚Ä‚¢‚éê‡‚Í—áŠO‚ª”­¶‚·‚éB
-      // (OfTypeƒƒ\ƒbƒh‚Ìê‡AœŠO‚³‚ê‚éBj
+      // Castãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã“ã¨ã«ã‚ˆã‚Šã€ç‰¹å®šã®å‹ã®ã¿ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«å¤‰æ›ã™ã‚‹ã“ã¨ãŒã§ãã‚‹ã€‚
+      // OfTypeãƒ¡ã‚½ãƒƒãƒ‰ã¨é•ã„ã€Castãƒ¡ã‚½ãƒƒãƒ‰ã¯å˜ç´”ã«ã‚­ãƒ£ã‚¹ãƒˆå‡¦ç†ã‚’è¡Œã†ç‚ºã€ã‚­ãƒ£ã‚¹ãƒˆå‡ºæ¥ãªã„å‹ãŒ
+      // å«ã¾ã‚Œã¦ã„ã‚‹å ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚
+      // (OfTypeãƒ¡ã‚½ãƒƒãƒ‰ã®å ´åˆã€é™¤å¤–ã•ã‚Œã‚‹ã€‚ï¼‰
       //
       //
-      // ®ACastƒƒ\ƒbƒh‚Í‘¼‚Ì•ÏŠ·‰‰Zq‚Æ‚Íˆá‚¢Aƒ\[ƒXƒV[ƒPƒ“ƒX‚ÌƒXƒiƒbƒvƒVƒ‡ƒbƒg‚ğì¬‚µ‚È‚¢B
-      // ‚Â‚Ü‚èA’Êí‚ÌƒNƒGƒŠ‚Æ“¯‚¶‚­ACast‚Åæ“¾‚µ‚½ƒV[ƒPƒ“ƒX‚ª—ñ‹“‚³‚ê‚é“x‚É•]‰¿‚³‚ê‚éB
-      // •ÏŠ·‰‰Zq‚Ì’†‚ÅA‚±‚Ì‚æ‚¤‚È“®ì‚ğs‚¤‚Ì‚ÍAsEnumerable‚ÆOfType‚ÆCast‚Å‚ ‚éB
+      // å°šã€Castãƒ¡ã‚½ãƒƒãƒ‰ã¯ä»–ã®å¤‰æ›æ¼”ç®—å­ã¨ã¯é•ã„ã€ã‚½ãƒ¼ã‚¹ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®ã‚¹ãƒŠãƒƒãƒ—ã‚·ãƒ§ãƒƒãƒˆã‚’ä½œæˆã—ãªã„ã€‚
+      // ã¤ã¾ã‚Šã€é€šå¸¸ã®ã‚¯ã‚¨ãƒªã¨åŒã˜ãã€Castã§å–å¾—ã—ãŸã‚·ãƒ¼ã‚±ãƒ³ã‚¹ãŒåˆ—æŒ™ã•ã‚Œã‚‹åº¦ã«è©•ä¾¡ã•ã‚Œã‚‹ã€‚
+      // å¤‰æ›æ¼”ç®—å­ã®ä¸­ã§ã€ã“ã®ã‚ˆã†ãªå‹•ä½œã‚’è¡Œã†ã®ã¯AsEnumerableã¨OfTypeã¨Castã§ã‚ã‚‹ã€‚
       //
-      Console.WriteLine("========== Cast<Person>‚ÌŒ‹‰Ê ==========");
+      Console.WriteLine("========== Cast<Person>ã®çµæœ ==========");
       foreach (var data in persons.Cast<Person>())
       {
         Console.WriteLine(data);
@@ -67,10 +67,10 @@ namespace Gsf.Samples
 
       //////////////////////////////////////////////////////////
       //
-      // ˆÈ‰º‚Ìpersons.Cast<Customer>()‚ÍPersonƒIƒuƒWƒFƒNƒg‚ğCustomerƒIƒuƒWƒFƒNƒg‚É
-      // ƒLƒƒƒXƒgo—ˆ‚È‚¢ˆ×A—áŠO‚ª”­¶‚·‚éB
+      // ä»¥ä¸‹ã®persons.Cast<Customer>()ã¯Personã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‚’Customerã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã«
+      // ã‚­ãƒ£ã‚¹ãƒˆå‡ºæ¥ãªã„ç‚ºã€ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹ã€‚
       //
-      Console.WriteLine("========== Cast<Customer>‚ÌŒ‹‰Ê ==========");
+      Console.WriteLine("========== Cast<Customer>ã®çµæœ ==========");
       try
       {
         foreach (var data in persons.Cast<Customer>())
@@ -95,9 +95,9 @@ namespace Gsf.Samples
       */
 
       //
-      // Œ³XGeneric‚Å‚Í‚È‚¢ƒŠƒXƒg‚ğIEnumerable<T>‚É•ÏŠ·‚·‚éê‡‚É‚à—˜—po—ˆ‚é.
-      // “–‘RACastƒƒ\ƒbƒh‚ğ—˜—p‚·‚éê‡‚ÍAƒRƒŒƒNƒVƒ‡ƒ““à•”‚Ìƒf[ƒ^‚ª‘S‚ÄƒLƒƒƒXƒg‰Â”\‚Å
-      // ‚È‚¢‚Æ‚¢‚¯‚È‚¢B
+      // å…ƒã€…Genericã§ã¯ãªã„ãƒªã‚¹ãƒˆã‚’IEnumerable<T>ã«å¤‰æ›ã™ã‚‹å ´åˆã«ã‚‚åˆ©ç”¨å‡ºæ¥ã‚‹.
+      // å½“ç„¶ã€Castãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹å ´åˆã¯ã€ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³å†…éƒ¨ã®ãƒ‡ãƒ¼ã‚¿ãŒå…¨ã¦ã‚­ãƒ£ã‚¹ãƒˆå¯èƒ½ã§
+      // ãªã„ã¨ã„ã‘ãªã„ã€‚
       //
       ArrayList arrayList = new ArrayList();
       arrayList.Add(10);
@@ -105,7 +105,7 @@ namespace Gsf.Samples
       arrayList.Add(30);
       arrayList.Add(40);
 
-      Console.WriteLine("========== Generic‚Å‚Í‚È‚¢ƒRƒŒƒNƒVƒ‡ƒ“‚ğ•ÏŠ· ==========");
+      Console.WriteLine("========== Genericã§ã¯ãªã„ã‚³ãƒ¬ã‚¯ã‚·ãƒ§ãƒ³ã‚’å¤‰æ› ==========");
       IEnumerable<int> intList = arrayList.Cast<int>();
       foreach (var data in intList)
       {

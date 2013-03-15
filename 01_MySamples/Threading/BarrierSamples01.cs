@@ -9,49 +9,49 @@ namespace Gsf.Samples
 
   #region BarrierSamples-01
   /// <summary>
-  /// Barrier�N���X�ɂ��ẴT���v���ł��B
+  /// Barrierクラスについてのサンプルです。
   /// </summary>
   /// <remarks>
-  /// Barrier�N���X�́A.NET 4.0����ǉ����ꂽ�N���X�ł��B
+  /// Barrierクラスは、.NET 4.0から追加されたクラスです。
   /// </remarks>
   public class BarrierSamples01 : IExecutable
   {
-    // �v�Z�l��ێ�����ϐ�
+    // 計算値を保持する変数
     long _count;
 
     public void Execute()
     {
       //
-      // Barrier�N���X�́A���s�����𕡐��̃t�F�[�Y���ɋ������삳����ꍇ�ɗ��p����.
-      // �܂�A�������s����𓯊�����ۂɗ��p�o����B
+      // Barrierクラスは、並行処理を複数のフェーズ毎に協調動作させる場合に利用する.
+      // つまり、同時実行操作を同期する際に利用出来る。
       //
-      // �Ⴆ�΁A�_���I��3�t�F�[�Y���݂��鏈�����������Ƃ��āA���s���ē��삷�鏈����2����Ƃ���B
-      // �e���s�����ɑ΂��āA�t�F�[�Y���Ɉ�U���ʂ����W���A�܂����s���ď������s�����Ƃ���B
-      // ���̂悤�ȏꍇ�ɁABarrier�N���X�����ɗ��B
+      // 例えば、論理的に3フェーズ存在する処理があったとして、並行して動作する処理が2つあるとする。
+      // 各並行処理に対して、フェーズ毎に一旦結果を収集し、また平行して処理を行う事とする。
+      // そのような場合に、Barrierクラスが役に立つ。
       //
-      // Barrier�N���X���C���X�^���X������ۂɁA�ΏۂƂȂ���s�����̐����R���X�g���N�^�Ɏw�肷��B
-      // �R���X�g���N�^�ɂ́A�t�F�[�Y���Ɏ��s�����R�[���o�b�N��ݒ肷�邱�Ƃ��o����B
+      // Barrierクラスをインスタンス化する際に、対象となる並行処理の数をコンストラクタに指定する。
+      // コンストラクタには、フェーズ毎に実行されるコールバックを設定することも出来る。
       //
-      // ��́ABarrier.SignalAndWait���A�e���s�������Ăяo���Ηǂ��B
-      // �R���X�g���N�^�Ɏw�肵�������ASignalAndWait���Ăяo���ꂽ���_��1�t�F�[�Y�I���ƂȂ�
-      // �ݒ肵���R�[���o�b�N�����s�����B
+      // 後は、Barrier.SignalAndWaitを、各並行処理が呼び出せば良い。
+      // コンストラクタに指定した数分、SignalAndWaitが呼び出された時点で1フェーズ終了となり
+      // 設定したコールバックが実行される。
       //
-      // �e���s�����́ASignalAndWait���Ăяo������ABarrier�ɂĎw�肵������������SignalAndWait��
-      // �Ăяo�����܂ŁA�u���b�N�����B
+      // 各並行処理は、SignalAndWaitを呼び出した後、Barrierにて指定した処理数分のSignalAndWaitが
+      // 呼び出されるまで、ブロックされる。
       //
-      // �ΏۂƂ�����s�������́A�ȉ��̃��\�b�h�𗘗p���邱�Ƃɂ�葝�������邱�Ƃ��o����B
-      //   �EAddParticipants
-      //   �ERemoveParticipants
+      // 対象とする並行処理数は、以下のメソッドを利用することにより増減させることが出来る。
+      //   ・AddParticipants
+      //   ・RemoveParticipants
       //
-      // CountdownEvent, ManualResetEventSlim�Ɠ������A���̃N���X��SignalAndWait���\�b�h��
-      // CancellationToken���󂯕t����I�[�o�[���[�h�����݂���B
+      // CountdownEvent, ManualResetEventSlimと同じく、このクラスのSignalAndWaitメソッドも
+      // CancellationTokenを受け付けるオーバーロードが存在する。
       //
-      // CountdownEvent�Ɠ������A���̃N���X��IDisposable���������Ă���̂�using�\�B
+      // CountdownEventと同じく、このクラスもIDisposableを実装しているのでusing可能。
       //
 
       //
-      // 5�̏������A����̃t�F�[�Y���ɓ��������Ȃ�����s.
-      // ����ɁA�t�F�[�Y�P�ʂœr�����ʂ��o�͂���悤�ɂ���.
+      // 5つの処理を、特定のフェーズ毎に同期させながら実行.
+      // さらに、フェーズ単位で途中結果を出力するようにする.
       //
       using (Barrier barrier = new Barrier(5, PostPhaseProc))
       {
@@ -64,32 +64,32 @@ namespace Gsf.Samples
         );
       }
 
-      Console.WriteLine("�ŏI�l�F{0}", _count);
+      Console.WriteLine("最終値：{0}", _count);
     }
 
     //
-    // �e���񏈗��p�̃A�N�V����.
+    // 各並列処理用のアクション.
     //
     void ParallelProc(Barrier barrier, int randomMaxValue, int randomSeed, int modValue)
     {
       //
-      // ���t�F�[�Y.
+      // 第一フェーズ.
       //
       Calculate(barrier, randomMaxValue, randomSeed, modValue, 100);
 
       //
-      // ���t�F�[�Y.
+      // 第二フェーズ.
       //
       Calculate(barrier, randomMaxValue, randomSeed, modValue, 5000);
 
       //
-      // ��O�t�F�[�Y.
+      // 第三フェーズ.
       //
       Calculate(barrier, randomMaxValue, randomSeed, modValue, 10000);
     }
 
     //
-    // �v�Z����.
+    // 計算処理.
     //
     void Calculate(Barrier barrier, int randomMaxValue, int randomSeed, int modValue, int loopCountMaxValue)
     {
@@ -97,11 +97,11 @@ namespace Gsf.Samples
       Stopwatch watch = Stopwatch.StartNew();
 
       int loopCount = rnd.Next(loopCountMaxValue);
-      Console.WriteLine("[Phase{0}] ���[�v�J�E���g�F{1}, TASK:{2}", barrier.CurrentPhaseNumber, loopCount, Task.CurrentId);
+      Console.WriteLine("[Phase{0}] ループカウント：{1}, TASK:{2}", barrier.CurrentPhaseNumber, loopCount, Task.CurrentId);
 
       for (int i = 0; i < loopCount; i++)
       {
-        // �K�x�Ɏ��Ԃ�������悤�ɒ���.
+        // 適度に時間がかかるように調整.
         if (rnd.Next(10000) % modValue == 0)
         {
           Thread.Sleep(TimeSpan.FromMilliseconds(10));
@@ -116,15 +116,15 @@ namespace Gsf.Samples
       try
       {
         //
-        // �V�O�i���𔭍s���A���Ԃ̃X���b�h�������̂�҂�.
+        // シグナルを発行し、仲間のスレッドが揃うのを待つ.
         //
         barrier.SignalAndWait();
       }
       catch (BarrierPostPhaseException postPhaseEx)
       {
         //
-        // Post Phase�A�N�V�����ɂăG���[�����������ꍇ�͂����ɗ���.
-        // (�{���ł���΁A�L�����Z������Ȃǂ̃G���[�������K�v)
+        // Post Phaseアクションにてエラーが発生した場合はここに来る.
+        // (本来であれば、キャンセルするなどのエラー処理が必要)
         //
         Console.WriteLine("*** {0} ***", postPhaseEx.Message);
         throw;
@@ -132,26 +132,26 @@ namespace Gsf.Samples
     }
 
     //
-    // Barrier�ɂāA�e�t�F�[�Y�������������ۂɌĂ΂��R�[���o�b�N.
-    // (Barrier�N���X�̃R���X�g���N�^�ɂĐݒ肷��)
+    // Barrierにて、各フェーズ毎が完了した際に呼ばれるコールバック.
+    // (Barrierクラスのコンストラクタにて設定する)
     //
     void PostPhaseProc(Barrier barrier)
     {
       //
-      // Post Phase�A�N�V�����́A�������s���Ă��鏈�����S��SignalAndWait��
-      // �Ă΂Ȃ���Δ������Ȃ��B
+      // Post Phaseアクションは、同時実行している処理が全てSignalAndWaitを
+      // 呼ばなければ発生しない。
       //
-      // �܂�A���̏����������Ă���ԁA���̓������s�����͑S�ău���b�N����Ă����ԂƂȂ�B
+      // つまり、この処理が走っている間、他の同時実行処理は全てブロックされている状態となる。
       //
       long current = Interlocked.Read(ref _count);
 
-      Console.WriteLine("���݂̃t�F�[�Y�F{0}, �Q���v�f���F{1}", barrier.CurrentPhaseNumber, barrier.ParticipantCount);
-      Console.WriteLine("t���ݒl�F{0}", current);
+      Console.WriteLine("現在のフェーズ：{0}, 参加要素数：{1}", barrier.CurrentPhaseNumber, barrier.ParticipantCount);
+      Console.WriteLine("t現在値：{0}", current);
 
       //
-      // �ȉ��̃R�����g���O���ƁA����Post Phase�A�N�V�����ɂ�
-      // �S�Ă�SignalAndWait���Ăяo���Ă���A�����ɂ�BarrierPostPhaseException��
-      // ��������B
+      // 以下のコメントを外すと、次のPost Phaseアクションにて
+      // 全てのSignalAndWaitを呼び出している、処理にてBarrierPostPhaseExceptionが
+      // 発生する。
       //
       //throw new InvalidOperationException("dummy");
     }

@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-68
   /// <summary>
-  /// LINQ to XML�̃T���v���ł�.
+  /// LINQ to XMLのサンプルです.
   /// </summary>
   /// <remarks>
-  /// �����u���n���\�b�h�̃T���v���ł�.
+  /// 属性置換系メソッドのサンプルです.
   /// </remarks>
   public class LinqSamples68 : IExecutable
   {
@@ -18,9 +18,9 @@ namespace Gsf.Samples
     {
       // 
       // ReplaceAttributes
-      //   ���݂̗v�f�ɕt�����Ă��鑮�����ꊇ�Œu������B
-      //   �m�[�h�̒u���ɗ��p����ReplaceNodes���\�b�h�Ɠ����v�̂�
-      //   ���p�ł���B�i�N�G���𗘗p���Ȃ���A�u���p�̃V�[�P���X���쐬����)
+      //   現在の要素に付属している属性を一括で置換する。
+      //   ノードの置換に利用するReplaceNodesメソッドと同じ要領で
+      //   利用できる。（クエリを利用しながら、置換用のシーケンスを作成する)
       //   
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();

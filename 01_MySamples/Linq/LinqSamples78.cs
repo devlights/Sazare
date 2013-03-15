@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-78
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ƒiƒrƒQ[ƒVƒ‡ƒ“(DescendantNodes, DescendantNodesAndSelf)‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// ãƒŠãƒ“ã‚²ãƒ¼ã‚·ãƒ§ãƒ³(DescendantNodes, DescendantNodesAndSelf)ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples78 : IExecutable
   {
@@ -18,15 +18,15 @@ namespace Gsf.Samples
     {
       //
       // DescendantNodes
-      //   q‘·‚ğXNode‚Åæ“¾‚·‚é.
-      //   ‘®«‚Íƒm[ƒh‚Å‚Í‚È‚¢‚½‚ßAŠÜ‚Ü‚ê‚È‚¢.
+      //   å­å­«ã‚’XNodeã§å–å¾—ã™ã‚‹.
+      //   å±æ€§ã¯ãƒãƒ¼ãƒ‰ã§ã¯ãªã„ãŸã‚ã€å«ã¾ã‚Œãªã„.
       //
-      //   æ“¾‚Å‚«‚éƒf[ƒ^‚ªXElement‚Å‚Í‚È‚­AXNode‚Å‚ ‚é‚±‚Æ‚É’ˆÓ.
+      //   å–å¾—ã§ãã‚‹ãƒ‡ãƒ¼ã‚¿ãŒXElementã§ã¯ãªãã€XNodeã§ã‚ã‚‹ã“ã¨ã«æ³¨æ„.
       //
       var root = BuildSampleXml();
       var startingPoint = root.Descendants("Book").First();
 
-      // AndSelf–³‚µ‚È‚Ì‚ÅABook©g‚ÍŠÜ‚Ü‚ê‚È‚¢.
+      // AndSelfç„¡ã—ãªã®ã§ã€Bookè‡ªèº«ã¯å«ã¾ã‚Œãªã„.
       foreach (var node in startingPoint.DescendantNodes())
       {
         Console.WriteLine(node);
@@ -36,15 +36,15 @@ namespace Gsf.Samples
 
       //
       // DescendantNodesAndSelf
-      //   Šî–{“I‚È“®ì‚ÍDescendantNodes‚Æ“¯‚¶B
-      //   AndSelf‚È‚Ì‚ÅA©•ª©g‚à‚Â‚¢‚Ä‚­‚é.
+      //   åŸºæœ¬çš„ãªå‹•ä½œã¯DescendantNodesã¨åŒã˜ã€‚
+      //   AndSelfãªã®ã§ã€è‡ªåˆ†è‡ªèº«ã‚‚ã¤ã„ã¦ãã‚‹.
       //
-      //   æ“¾‚Å‚«‚éƒf[ƒ^‚ªXElement‚Å‚Í‚È‚­AXNode‚Å‚ ‚é‚±‚Æ‚É’ˆÓ.
+      //   å–å¾—ã§ãã‚‹ãƒ‡ãƒ¼ã‚¿ãŒXElementã§ã¯ãªãã€XNodeã§ã‚ã‚‹ã“ã¨ã«æ³¨æ„.
       //
       root = BuildSampleXml();
       startingPoint = root.Descendants("Book").First();
 
-      // AndSelf‚ ‚è‚È‚Ì‚ÅABook©g‚ªŠÜ‚Ü‚ê‚é
+      // AndSelfã‚ã‚Šãªã®ã§ã€Bookè‡ªèº«ãŒå«ã¾ã‚Œã‚‹
       foreach (var node in startingPoint.DescendantNodesAndSelf())
       {
         Console.WriteLine(node);
@@ -56,7 +56,7 @@ namespace Gsf.Samples
     XElement BuildSampleXml()
     {
       //
-      // ƒTƒ“ƒvƒ‹XMLƒtƒ@ƒCƒ‹
+      // ã‚µãƒ³ãƒ—ãƒ«XMLãƒ•ã‚¡ã‚¤ãƒ«
       //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
       //
       return XElement.Load(@"xml/Books.xml");

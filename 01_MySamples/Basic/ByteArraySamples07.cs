@@ -7,14 +7,14 @@ namespace Gsf.Samples
 
   #region ByteArraySamples-07
   /// <summary>
-  /// �o�C�g�z��ɂ��ẴT���v���ł��B
+  /// バイト配列についてのサンプルです。
   /// </summary>
   public class ByteArraySamples07 : IExecutable
   {
     public void Execute()
     {
       //
-      // �o�C�g��𕶎����.
+      // バイト列を文字列へ.
       //
       string s = "gsf_zero1";
       byte[] buf = Encoding.ASCII.GetBytes(s);

@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region BCDSamples-01
   /// <summary>
-  /// BCD�ϊ��ɂ��ẴT���v���ł��B
+  /// BCD変換についてのサンプルです。
   /// </summary>
   public class BCDSamples01 : IExecutable
   {
@@ -31,7 +31,7 @@ namespace Gsf.Samples
     }
 
     /// <summary>
-    /// BCD�ϊ����s�����[�e�B���e�B�N���X�ł��B
+    /// BCD変換を行うユーティリティクラスです。
     /// </summary>
     public static class BCDUtils
     {

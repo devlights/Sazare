@@ -6,24 +6,24 @@ namespace Gsf.Samples
 
   #region LinqSamples-40
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples40 : IExecutable
   {
     public void Execute()
     {
       //
-      // AllŠg’£ƒƒ\ƒbƒh‚ÍAƒV[ƒPƒ“ƒX‚Ì‘S—v‘f‚ªw’è‚³‚ê‚½ğŒ‚É‡’v‚µ‚Ä‚¢‚é‚©”Û‚©‚ğ”»•Ê‚·‚éƒƒ\ƒbƒh‚Å‚ ‚éB
+      // Allæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã®å…¨è¦ç´ ãŒæŒ‡å®šã•ã‚ŒãŸæ¡ä»¶ã«åˆè‡´ã—ã¦ã„ã‚‹ã‹å¦ã‹ã‚’åˆ¤åˆ¥ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ã€‚
       //
-      // ˆø”‚É‚ÍğŒ‚Æ‚µ‚Äpredicate‚ğw’è‚·‚éB
-      // ‚±‚Ìƒƒ\ƒbƒh‚ÍA‘ÎÛƒV[ƒPƒ“ƒX“à‚Ì‘S—v‘f‚ªğŒ‚É‡’v‚µ‚Ä‚¢‚éê‡‚Ì‚İTrue‚ğ•Ô‚·B
-      // (‹t‚ÉAnyŠg’£ƒƒ\ƒbƒh‚ÍAˆê‚Â‚Å‚à‡’v‚·‚é‚à‚Ì‚ª‘¶İ‚µ‚½“_‚ÅTrue‚Æ‚È‚éB)
+      // å¼•æ•°ã«ã¯æ¡ä»¶ã¨ã—ã¦predicateã‚’æŒ‡å®šã™ã‚‹ã€‚
+      // ã“ã®ãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€å¯¾è±¡ã‚·ãƒ¼ã‚±ãƒ³ã‚¹å†…ã®å…¨è¦ç´ ãŒæ¡ä»¶ã«åˆè‡´ã—ã¦ã„ã‚‹å ´åˆã®ã¿Trueã‚’è¿”ã™ã€‚
+      // (é€†ã«Anyæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ä¸€ã¤ã§ã‚‚åˆè‡´ã™ã‚‹ã‚‚ã®ãŒå­˜åœ¨ã—ãŸæ™‚ç‚¹ã§Trueã¨ãªã‚‹ã€‚)
       //
       var names = new string[] { "gsf_zero1", "gsf_zero2", "gsf_zero3", "2222" };
 
-      Console.WriteLine("Allƒƒ\ƒbƒh‚ÌŒ‹‰Ê = {0}", names.All(item => Char.IsDigit(item.Last())));
-      Console.WriteLine("Allƒƒ\ƒbƒh‚ÌŒ‹‰Ê = {0}", names.All(item => item.StartsWith("g")));
-      Console.WriteLine("Allƒƒ\ƒbƒh‚ÌŒ‹‰Ê = {0}", names.All(item => !string.IsNullOrEmpty(item)));
+      Console.WriteLine("Allãƒ¡ã‚½ãƒƒãƒ‰ã®çµæœ = {0}", names.All(item => Char.IsDigit(item.Last())));
+      Console.WriteLine("Allãƒ¡ã‚½ãƒƒãƒ‰ã®çµæœ = {0}", names.All(item => item.StartsWith("g")));
+      Console.WriteLine("Allãƒ¡ã‚½ãƒƒãƒ‰ã®çµæœ = {0}", names.All(item => !string.IsNullOrEmpty(item)));
     }
   }
   #endregion

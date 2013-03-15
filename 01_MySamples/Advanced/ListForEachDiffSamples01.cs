@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region ListForEachDiffSamples-01
   /// <summary>
-  /// List‚ğforeach‚Åƒ‹[ƒv‚·‚éê‡‚ÆAList.ForEach‚·‚éê‡‚Ì‘¬“x·‚ğƒeƒXƒg
+  /// Listã‚’foreachã§ãƒ«ãƒ¼ãƒ—ã™ã‚‹å ´åˆã¨ã€List.ForEachã™ã‚‹å ´åˆã®é€Ÿåº¦å·®ã‚’ãƒ†ã‚¹ãƒˆ
   /// </summary>
   public class ListForEachDiffSamples01 : IExecutable
   {
@@ -16,13 +16,13 @@ namespace Gsf.Samples
       Prepare();
 
       //
-      // List‚ğforeach‚Åˆ—‚·‚é‚©AList.ForEach‚Åˆ—‚·‚é‚©‚Å
-      // ‚Ç‚¿‚ç‚Ì•û‚ª‘¬‚¢‚Ì‚©‚ğŒv‘ªB
+      // Listã‚’foreachã§å‡¦ç†ã™ã‚‹ã‹ã€List.ForEachã§å‡¦ç†ã™ã‚‹ã‹ã§
+      // ã©ã¡ã‚‰ã®æ–¹ãŒé€Ÿã„ã®ã‹ã‚’è¨ˆæ¸¬ã€‚
       //
-      // ILƒŒƒxƒ‹‚ÅŒ©‚é‚Æ
-      //   foreach‚Ìê‡F call‚ª2‚Â
-      //   List.ForEach‚Ìê‡F callvirt‚ª1‚Â
-      // ‚Æ‚È‚éB
+      // ILãƒ¬ãƒ™ãƒ«ã§è¦‹ã‚‹ã¨
+      //   foreachã®å ´åˆï¼š callãŒ2ã¤
+      //   List.ForEachã®å ´åˆï¼š callvirtãŒ1ã¤
+      // ã¨ãªã‚‹ã€‚
       //
       foreach (var elementCount in new[] { 1000, 3000, 5000, 10000, 50000, 100000, 150000, 500000, 700000, 1000000 })
       {

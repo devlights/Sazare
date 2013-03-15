@@ -10,23 +10,23 @@ namespace Gsf.Samples
 
   #region LinqSamples-56
   /// <summary>
-  /// LINQ to XML�̃T���v���ł��B
+  /// LINQ to XMLのサンプルです。
   /// </summary>
   /// <remarks>
-  /// LINQ to XML�ɂ�XML�t�@�C����V�K�쐬����T���v���ł�.
+  /// LINQ to XMLにてXMLファイルを新規作成するサンプルです.
   /// </remarks>
   public class LinqSamples56 : IExecutable
   {
     public void Execute()
     {
       //
-      // LINQ to XML�ɂ�XML��V�K�쐬����ɂ�
-      // �ȉ��̂ǂ��炩�̃C���X�^���X���쐬����K�v������.
-      //   �EXDocument
-      //   �EXElement
-      // �ʏ�A�悭���p�����̂�XElement�̕��ƂȂ�.
-      // �ۑ����s���ɂ́ASave���\�b�h�𗘗p����.
-      // Save���\�b�h�ɂ́A�ȉ��̃I�[�o�[���[�h�����݂���. (XElement)
+      // LINQ to XMLにてXMLを新規作成するには
+      // 以下のどちらかのインスタンスを作成する必要がある.
+      //   ・XDocument
+      //   ・XElement
+      // 通常、よく利用されるのはXElementの方となる.
+      // 保存を行うには、Saveメソッドを利用する.
+      // Saveメソッドには、以下のオーバーロードが存在する. (XElement)
       //   Save(Stream)
       //   Save(String)
       //   Save(TextWriter)
@@ -93,8 +93,8 @@ namespace Gsf.Samples
       Console.WriteLine("===================================");
 
       //
-      // SaveOptions�t���ŏ�������.
-      //   DisableFormatting���w�肷��ƁA�o�͂����XML�ɏ������ݒ肳��Ȃ��Ȃ�.
+      // SaveOptions付きで書き込み.
+      //   DisableFormattingを指定すると、出力されるXMLに書式が設定されなくなる.
       //
       using (var writer = new UTF8StringWriter())
       {

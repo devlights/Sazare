@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-60
   /// <summary>
-  /// LINQ to XML�̃T���v���ł�.
+  /// LINQ to XMLのサンプルです.
   /// </summary>
   /// <remarks>
-  /// �v�f�ǉ��n���\�b�h�̃T���v���ł�.
+  /// 要素追加系メソッドのサンプルです.
   /// </remarks>
   public class LinqSamples60 : IExecutable
   {
@@ -18,8 +18,8 @@ namespace Gsf.Samples
     {
       //
       // Add(object)
-      //   ���O�̒ʂ�A���݂̗v�f�Ɏw�肳�ꂽ�v�f��ǉ�����.
-      //   �ǉ������ʒu�́A���̗v�f�̖����ƂȂ�
+      //   名前の通り、現在の要素に指定された要素を追加する.
+      //   追加される位置は、その要素の末尾となる
       //
       var root = BuildSampleXml();
       var newElem1 = new XElement("NewElement", "hehe");
@@ -30,19 +30,19 @@ namespace Gsf.Samples
 
       //
       // AddAfterSelf(object)
-      //   ���݂̗v�f�̌��ɁA�w�肳�ꂽ�v�f��ǉ�����.
-      //   �ǉ������ʒu�́A�������g�̒��ł͂Ȃ��O�ƂȂ鎖�ɒ���.
-      //   ���A���[�g�v�f�ɑ΂��Ė{���\�b�h���Ăяo���Ɛe�����݂��Ȃ��̂�
-      //   InvalidOperationException����������.
-      //   (���������O��XmlException�ł͖������Ƃɒ���)
+      //   現在の要素の後ろに、指定された要素を追加する.
+      //   追加される位置は、自分自身の中ではなく外となる事に注意.
+      //   尚、ルート要素に対して本メソッドを呼び出すと親が存在しないので
+      //   InvalidOperationExceptionが発生する.
+      //   (発生する例外がXmlExceptionでは無いことに注意)
       //
       root = BuildSampleXml();
       var newElem4 = new XElement("AfterElement", "AfterSelf");
 
       try
       {
-        // ���[�g�v�f�ɑ΂��āA���g�̌��ɗv�f��ǉ����悤�Ƃ���̂�
-        // �G���[�ƂȂ�BXmlException�ł͖������Ƃɒ���.
+        // ルート要素に対して、自身の後ろに要素を追加しようとするので
+        // エラーとなる。XmlExceptionでは無いことに注意.
         root.AddAfterSelf(newElem4);
         Console.WriteLine(root);
       }
@@ -62,19 +62,19 @@ namespace Gsf.Samples
 
       //
       // AddBeforeSelf(object)
-      //   ���݂̗v�f�̑O�ɁA�w�肳�ꂽ�v�f��ǉ�����.
-      //   �ǉ������ʒu�́A�������g�̒��ł͂Ȃ��O�ƂȂ鎖�ɒ���.
-      //   ���A���[�g�v�f�ɑ΂��Ė{���\�b�h���Ăяo���Ɛe�����݂��Ȃ��̂�
-      //   InvalidOperationException����������.
-      //   (���������O��XmlException�ł͖������Ƃɒ���)
+      //   現在の要素の前に、指定された要素を追加する.
+      //   追加される位置は、自分自身の中ではなく外となる事に注意.
+      //   尚、ルート要素に対して本メソッドを呼び出すと親が存在しないので
+      //   InvalidOperationExceptionが発生する.
+      //   (発生する例外がXmlExceptionでは無いことに注意)
       //
       root = BuildSampleXml();
       var newElem5 = new XElement("BeforeElement", "BeforeSelf");
 
       try
       {
-        // ���[�g�v�f�ɑ΂��āA���g�̑O�ɗv�f��ǉ����悤�Ƃ���̂�
-        // �G���[�ƂȂ�BXmlException�ł͖������Ƃɒ���.
+        // ルート要素に対して、自身の前に要素を追加しようとするので
+        // エラーとなる。XmlExceptionでは無いことに注意.
         root.AddBeforeSelf(newElem5);
         Console.WriteLine(root);
       }
@@ -94,8 +94,8 @@ namespace Gsf.Samples
 
       //
       // AddFirst(object)
-      //   ���ݗv�f�̐擪�q�v�f�Ƃ��āA�w�肳�ꂽ�v�f��ǉ�����.
-      //   �ǉ������ʒu�́A�������g�̒��ƂȂ�B�i�擪�v�f�j
+      //   現在要素の先頭子要素として、指定された要素を追加する.
+      //   追加される位置は、自分自身の中となる。（先頭要素）
       //
       root = BuildSampleXml();
       var newElem6 = new XElement("FirstElement", "First");

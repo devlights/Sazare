@@ -7,14 +7,14 @@ namespace Gsf.Samples
 
   #region XDocumentSamples-01
   /// <summary>
-  /// XDocument�N���X�ɂ��ẴT���v���ł��B
+  /// XDocumentクラスについてのサンプルです。
   /// </summary>
   public class XDocumentSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // XElement���\�z����ہAparam�����ɂ́A����XElement��ݒ肵�Ă��AList<XElement>���w�肵�Ă����Ȃ��B
+      // XElementを構築する際、param引数には、直接XElementを設定しても、List<XElement>を指定しても問題ない。
       //
       var doc = new XDocument(new XElement("RootElement",
                         new XElement("Title", "gsf_zero1"),

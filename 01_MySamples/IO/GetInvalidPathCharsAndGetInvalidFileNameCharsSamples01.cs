@@ -7,21 +7,21 @@ namespace Gsf.Samples
 
   #region GetInvalidPathCharsAndGetInvalidFileNameCharsSamples-01
   /// <summary>
-  /// PathƒNƒ‰ƒX‚ÌGetInvalidPathCharsƒƒ\ƒbƒh‚ÆGetInvalidFileNameCharsƒƒ\ƒbƒh‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Pathã‚¯ãƒ©ã‚¹ã®GetInvalidPathCharsãƒ¡ã‚½ãƒƒãƒ‰ã¨GetInvalidFileNameCharsãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // PathƒNƒ‰ƒX‚É‚ÍAƒpƒX–¼‹y‚Ñƒtƒ@ƒCƒ‹–¼‚É—˜—p‚Å‚«‚È‚¢•¶š‚ğæ“¾‚·‚éƒƒ\ƒbƒh‚ª‘¶İ‚·‚éB
-      //   ƒpƒX–¼FGetInvalidPathChars
-      // ƒtƒ@ƒCƒ‹–¼FGetInvalidFileNameChars
+      // Pathã‚¯ãƒ©ã‚¹ã«ã¯ã€ãƒ‘ã‚¹ååŠã³ãƒ•ã‚¡ã‚¤ãƒ«åã«åˆ©ç”¨ã§ããªã„æ–‡å­—ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ãŒå­˜åœ¨ã™ã‚‹ã€‚
+      //   ãƒ‘ã‚¹åï¼šGetInvalidPathChars
+      // ãƒ•ã‚¡ã‚¤ãƒ«åï¼šGetInvalidFileNameChars
       //
-      // ˆø”‚È‚Ç‚Å“n‚³‚ê‚½ƒpƒX‚âƒtƒ@ƒCƒ‹–¼‚É‘Î‚µ‚Ä•s³‚È•¶š‚ª—˜—p‚³‚ê‚Ä‚¢‚È‚¢‚©
-      // ƒ`ƒFƒbƒN‚·‚éÛ‚È‚Ç‚É—˜—p‚Å‚«‚éB
+      // å¼•æ•°ãªã©ã§æ¸¡ã•ã‚ŒãŸãƒ‘ã‚¹ã‚„ãƒ•ã‚¡ã‚¤ãƒ«åã«å¯¾ã—ã¦ä¸æ­£ãªæ–‡å­—ãŒåˆ©ç”¨ã•ã‚Œã¦ã„ãªã„ã‹
+      // ãƒã‚§ãƒƒã‚¯ã™ã‚‹éš›ãªã©ã«åˆ©ç”¨ã§ãã‚‹ã€‚
       //
-      // –ß‚è’l‚ÍA‚Ç‚¿‚ç‚àchar‚Ì”z—ñ‚Æ‚È‚Á‚Ä‚¢‚éB
+      // æˆ»ã‚Šå€¤ã¯ã€ã©ã¡ã‚‰ã‚‚charã®é…åˆ—ã¨ãªã£ã¦ã„ã‚‹ã€‚
       //
       char[] invalidPathChars = Path.GetInvalidPathChars();
       char[] invalidFileNameChars = Path.GetInvalidFileNameChars();
@@ -29,8 +29,8 @@ namespace Gsf.Samples
       string tmpPath = @"c:usrlocaltmp_<path>_tmp";
       string tmpFileName = @"tmp_<filename>_tmp.|||";
 
-      Console.WriteLine("•s³‚ÈƒpƒX•¶š‚ª‘¶İ‚µ‚Ä‚éH     = {0}", invalidPathChars.Any(ch => tmpPath.Contains(ch)));
-      Console.WriteLine("•s³‚Èƒtƒ@ƒCƒ‹–¼•¶š‚ª‘¶İ‚µ‚Ä‚éH = {0}", invalidFileNameChars.Any(ch => tmpFileName.Contains(ch)));
+      Console.WriteLine("ä¸æ­£ãªãƒ‘ã‚¹æ–‡å­—ãŒå­˜åœ¨ã—ã¦ã‚‹ï¼Ÿ     = {0}", invalidPathChars.Any(ch => tmpPath.Contains(ch)));
+      Console.WriteLine("ä¸æ­£ãªãƒ•ã‚¡ã‚¤ãƒ«åæ–‡å­—ãŒå­˜åœ¨ã—ã¦ã‚‹ï¼Ÿ = {0}", invalidFileNameChars.Any(ch => tmpFileName.Contains(ch)));
     }
   }
   #endregion

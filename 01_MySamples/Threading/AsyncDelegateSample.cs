@@ -6,14 +6,14 @@ namespace Gsf.Samples
   using System.Threading;
   using System.Windows.Forms;
   
-  #region ”ñ“¯ŠúƒfƒŠƒQ[ƒg‚ð—˜—p‚µ‚½ƒXƒŒƒbƒhˆ—
+  #region éžåŒæœŸãƒ‡ãƒªã‚²ãƒ¼ãƒˆã‚’åˆ©ç”¨ã—ãŸã‚¹ãƒ¬ãƒƒãƒ‰å‡¦ç†
   /// <summary>
-  /// ”ñ“¯ŠúƒfƒŠƒQ[ƒg‚ð—˜—p‚µ‚½ƒXƒŒƒbƒhˆ—‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// éžåŒæœŸãƒ‡ãƒªã‚²ãƒ¼ãƒˆã‚’åˆ©ç”¨ã—ãŸã‚¹ãƒ¬ãƒƒãƒ‰å‡¦ç†ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class AsyncDelegateSample : IExecutable
   {
     /// <summary>
-    /// ˆ—‚ðŽÀs‚µ‚Ü‚·B
+    /// å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
     /// </summary>
     public void Execute()
     {

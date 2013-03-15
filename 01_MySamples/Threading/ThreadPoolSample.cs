@@ -5,14 +5,14 @@ namespace Gsf.Samples
   using System.Linq;
   using System.Threading;
 
-  #region ƒXƒŒƒbƒhƒv[ƒ‹‚ð—˜—p‚µ‚½ƒXƒŒƒbƒhˆ—
+  #region ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ—ãƒ¼ãƒ«ã‚’åˆ©ç”¨ã—ãŸã‚¹ãƒ¬ãƒƒãƒ‰å‡¦ç†
   /// <summary>
-  /// ƒXƒŒƒbƒhƒv[ƒ‹(ThreadPool)‚ð—˜—p‚µ‚½ƒXƒŒƒbƒhˆ—‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// ã‚¹ãƒ¬ãƒƒãƒ‰ãƒ—ãƒ¼ãƒ«(ThreadPool)ã‚’åˆ©ç”¨ã—ãŸã‚¹ãƒ¬ãƒƒãƒ‰å‡¦ç†ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class ThreadPoolSample : IExecutable
   {
     /// <summary>
-    /// ƒXƒŒƒbƒh‚Ìó‘Ô‚ð•\‚·ƒf[ƒ^ƒNƒ‰ƒX‚Å‚·B
+    /// ã‚¹ãƒ¬ãƒƒãƒ‰ã®çŠ¶æ…‹ã‚’è¡¨ã™ãƒ‡ãƒ¼ã‚¿ã‚¯ãƒ©ã‚¹ã§ã™ã€‚
     /// </summary>
     class StateInfo
     {
@@ -30,7 +30,7 @@ namespace Gsf.Samples
     }
 
     /// <summary>
-    /// ˆ—‚ðŽÀs‚µ‚Ü‚·B
+    /// å‡¦ç†ã‚’å®Ÿè¡Œã—ã¾ã™ã€‚
     /// </summary>
     public void Execute()
     {
