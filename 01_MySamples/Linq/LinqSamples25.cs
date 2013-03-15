@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-25
   /// <summary>
-  /// Linq�̃T���v���ł��B
+  /// Linqのサンプルです。
   /// </summary>
   public class LinqSamples25 : IExecutable
   {
@@ -36,25 +36,25 @@ namespace Gsf.Samples
                 };
 
       //
-      // GroupBy�g�����\�b�h�́A�V�[�P���X�̗v�f���O���[�v������ۂɗ��p�ł���B
-      // �N�G�����ɂāA[group xx by xx.xx]�Ƃ���ꍇ�A���s����GroupBy�g�����\�b�h�ɒu����������B
+      // GroupBy拡張メソッドは、シーケンスの要素をグループ化する際に利用できる。
+      // クエリ式にて、[group xx by xx.xx]とする場合、実行時にGroupBy拡張メソッドに置き換えられる。
       //
-      // �T�O�Ƃ��ẮASQL��GROUP BY�Ɠ����ł���B
+      // 概念としては、SQLのGROUP BYと同じである。
       //
-      // GroupBy�g�����\�b�h�ɂ́A�S����8�̃I�[�o�[���[�h�����݂���B
-      // �悭���p�����̂́A�ȉ��̂��̂ƂȂ�Ǝv����B
+      // GroupBy拡張メソッドには、全部で8つのオーバーロードが存在する。
+      // よく利用されるのは、以下のものとなると思われる。
       //
-      //   �EkeySelector�݂̂��w�肷�����
-      //   �EkeySelector��elementSelector���w�肷����́B
-      //   �E�����L�[�ł̃O���[�v��
+      //   ・keySelectorのみを指定するもの
+      //   ・keySelectorとelementSelectorを指定するもの。
+      //   ・複合キーでのグループ化
       //
-      // GroupBy�g�����\�b�h�̖߂�l�́A
+      // GroupBy拡張メソッドの戻り値は、
       //   IEnumerable<IGrouping<TKey, TElement>>
-      // �ƂȂ�BIGrouping�C���^�[�t�F�[�X�́A�O���[�s���O��\���C���^�[�t�F�[�X�ł���
-      // Key�v���p�e�B����`����Ă���B
+      // となる。IGroupingインターフェースは、グルーピングを表すインターフェースであり
+      // Keyプロパティが定義されている。
       //
-      // ���̃C���^�[�t�F�[�X���g���AIEnumerable�C���^�[�t�F�[�X���p�����Ă���̂�
-      // �O���[�s���O���s�����ꍇ�́A�ȉ��̂悤�ɂ���2�d�̃��[�v�Ńf�[�^���擾����B
+      // このインターフェース自身も、IEnumerableインターフェースを継承しているので
+      // グルーピングを行った場合は、以下のようにして2重のループでデータを取得する。
       //
       // var query = xxx.GroupBy(item => item.Key);
       // foreach (var group in query)
@@ -68,13 +68,13 @@ namespace Gsf.Samples
       //
 
       //
-      // keySelector�݂̂��w��.
+      // keySelectorのみを指定.
       //
-      // �ȉ��̃N�G�����Ɠ����ƂȂ�B
+      // 以下のクエリ式と同じとなる。
       //   from  thePerson in persons
       //   group thePerson by thePerson.Team
       //
-      Console.WriteLine("============ keySelector�݂̂�GroupBy ==============");
+      Console.WriteLine("============ keySelectorのみのGroupBy ==============");
       var query1 = persons.GroupBy(thePerson => thePerson.Team);
       foreach (var group in query1)
       {
@@ -86,13 +86,13 @@ namespace Gsf.Samples
       }
 
       //
-      // keySelector��elementSelector���w��.
+      // keySelectorとelementSelectorを指定.
       //
-      // �ȉ��̃N�G�����Ɠ����ƂȂ�B
+      // 以下のクエリ式と同じとなる。
       //   from   thePerson in persons
       //   group  thePerson.Name by thePerson.Team
       //
-      Console.WriteLine("\n============ elementSelector���w�肵��GroupBy ==============");
+      Console.WriteLine("\n============ elementSelectorを指定したGroupBy ==============");
       var query2 = persons.GroupBy(thePerson => thePerson.Team, thePerson => thePerson.Name);
       foreach (var group in query2)
       {
@@ -104,13 +104,13 @@ namespace Gsf.Samples
       }
 
       //
-      // �����L�[�ɂăO���[�v��.
+      // 複合キーにてグループ化.
       //
-      // �ȉ��̃N�G�����Ɠ����ƂȂ�B
+      // 以下のクエリ式と同じとなる。
       //   from  thePerson in persons
       //   group thePerson by new { thePerson.Project, thePerson.Team }
       //
-      Console.WriteLine("\n============ �����L�[���w�肵��GroupBy ==============");
+      Console.WriteLine("\n============ 複合キーを指定したGroupBy ==============");
       var query3 = persons.GroupBy(thePerson => new { thePerson.Project, thePerson.Team });
       foreach (var group in query3)
       {
@@ -122,13 +122,13 @@ namespace Gsf.Samples
       }
 
       //
-      // �ȉ��̃N�G�����Ɠ����ƂȂ�B
+      // 以下のクエリ式と同じとなる。
       //   from  thePerson in persons
       //   group   thePerson by new { thePerson.Project, thePerson.Team } into p
       //   orderby p.Key.Project descending, p.Key.Team descending
       //   select  p;
       //
-      Console.WriteLine("\n============ �����L�[��orderby���w�肵��GroupBy ==============");
+      Console.WriteLine("\n============ 複合キーとorderbyを指定したGroupBy ==============");
       var query4 = persons
               .GroupBy(thePerson => new { thePerson.Project, thePerson.Team })
               .OrderByDescending(group => group.Key.Project)

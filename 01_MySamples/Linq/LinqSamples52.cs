@@ -7,28 +7,28 @@ namespace Gsf.Samples
 
   #region LinqSamples-52
   /// <summary>
-  /// LINQ to XML�̃T���v���ł��B
+  /// LINQ to XMLのサンプルです。
   /// </summary>
   /// <remarks>
-  /// XDocument�I�u�W�F�N�g���֐��^�\�z����T���v���ł��B
+  /// XDocumentオブジェクトを関数型構築するサンプルです。
   /// </remarks>
   public class LinqSamples52 : IExecutable
   {
     public void Execute()
     {
       //
-      // XDocument�͕����̃R���X�g���N�^�������Ă��邪
-      // �ȉ��𗘗p����ƁA�֐��^�\�z���s����.
-      // �֐��^�\�z�Ƃ́A�P��̃X�e�[�g�����g��XML�c���[���쐬���邽�߂̋@�\�ł���B
+      // XDocumentは複数のコンストラクタを持っているが
+      // 以下を利用すると、関数型構築が行える.
+      // 関数型構築とは、単一のステートメントでXMLツリーを作成するための機能である。
       // 
       // public XDocument(object[])
       // public XDocument(XDeclaration, object[])
       //
-      // XDocument���N�_�Ƃ��Ċ֐��^�\�z���s���ꍇ
-      // ���[�g�v�f�ƂȂ�XElement���쐬���A���̎q�v�f��
-      // �l�X�ȗv�f��ݒ肷��.
+      // XDocumentを起点として関数型構築を行う場合
+      // ルート要素となるXElementを作成し、その子要素に
+      // 様々な要素を設定する.
       //
-      // ��F
+      // 例：
       // var doc = new XDocument
       //           (
       //             new XElement
@@ -40,7 +40,7 @@ namespace Gsf.Samples
       //             )
       //           );
       //
-      // ��L��́A�ȉ���XML�c���[���\�z����.
+      // 上記例は、以下のXMLツリーを構築する.
       // <RootElement>
       //   <ChildElement>ChildValue1</ChildElement>
       //   <ChildElement>ChildValue2</ChildElement>

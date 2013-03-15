@@ -5,17 +5,17 @@ namespace Gsf.Samples
   using System.Linq;
 
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// ‚±‚ÌƒTƒ“ƒvƒ‹‚ÍAˆÈ‰º‚Ì2‚Â‚ÌLINQƒTƒ“ƒvƒ‹‚ª‹Lq‚³‚ê‚Ä‚¢‚Ü‚·B
+  /// ã“ã®ã‚µãƒ³ãƒ—ãƒ«ã¯ã€ä»¥ä¸‹ã®2ã¤ã®LINQã‚µãƒ³ãƒ—ãƒ«ãŒè¨˜è¿°ã•ã‚Œã¦ã„ã¾ã™ã€‚
   ///
-  ///  ELinqSamples-18
-  ///  ELinqSamples-19
+  ///  ãƒ»LinqSamples-18
+  ///  ãƒ»LinqSamples-19
   ///
-  /// ‚³‚ç‚ÉˆÈ‰º‚Ì–•¿‚É‚àG‚ê‚Ä‚¢‚Ü‚·B
+  /// ã•ã‚‰ã«ä»¥ä¸‹ã®äº‹æŸ„ã«ã‚‚è§¦ã‚Œã¦ã„ã¾ã™ã€‚
   ///
-  ///  EŠg’£ƒƒ\ƒbƒh‰ğŒˆ
+  ///  ãƒ»æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰è§£æ±º
   /// </remarks>
   public class LinqSamples18 : IExecutable
   {
@@ -29,11 +29,11 @@ namespace Gsf.Samples
         };
 
       //
-      // PersonExtension‚ª’è‹`‚³‚ê‚Ä‚¢‚é‚Ì‚Å
-      // ‚»‚Ì‚Ü‚ÜÀs‚·‚é‚ÆAWhere‚Ì•”•ª‚É‚ÄPersonExtension.Where‚ª
-      // ŒÄ‚Î‚ê‚é.
+      // PersonExtensionãŒå®šç¾©ã•ã‚Œã¦ã„ã‚‹ã®ã§
+      // ãã®ã¾ã¾å®Ÿè¡Œã™ã‚‹ã¨ã€Whereã®éƒ¨åˆ†ã«ã¦PersonExtension.WhereãŒ
+      // å‘¼ã°ã‚Œã‚‹.
       //
-      Console.WriteLine("===== Šg’£ƒƒ\ƒbƒh‚ğ’è‹`‚µ‚½ó‘Ô‚Å‚»‚Ì‚Ü‚ÜƒNƒGƒŠÀs =====");
+      Console.WriteLine("===== æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’å®šç¾©ã—ãŸçŠ¶æ…‹ã§ãã®ã¾ã¾ã‚¯ã‚¨ãƒªå®Ÿè¡Œ =====");
       var query = from aPerson in persons
                   where aPerson.Id == 2
                   select aPerson;
@@ -44,10 +44,10 @@ namespace Gsf.Samples
       }
 
       //
-      // AsEnumerableƒƒ\ƒbƒh‚ğ—˜—p‚µ‚ÄAPersons‚ğIEnumerable<Person>‚É
-      // •ÏŠ·‚·‚é‚ÆAƒJƒXƒ^ƒ€WhereŠg’£ƒƒ\ƒbƒh‚ÍŒÄ‚Î‚ê‚È‚¢B
+      // AsEnumerableãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦ã€Personsã‚’IEnumerable<Person>ã«
+      // å¤‰æ›ã™ã‚‹ã¨ã€ã‚«ã‚¹ã‚¿ãƒ Whereæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯å‘¼ã°ã‚Œãªã„ã€‚
       //
-      Console.WriteLine("===== AsEnumerableƒƒ\ƒbƒh‚ğ—˜—p‚µ‚Ä‚©‚çAƒNƒGƒŠÀs =====");
+      Console.WriteLine("===== AsEnumerableãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã—ã¦ã‹ã‚‰ã€ã‚¯ã‚¨ãƒªå®Ÿè¡Œ =====");
       var query2 = from aPerson in persons.AsEnumerable()
                    where aPerson.Id == 2
                    select aPerson;

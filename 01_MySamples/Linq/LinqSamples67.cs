@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-67
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </summary>
   /// <remarks>
-  /// ‘®«íœŒnƒƒ\ƒbƒh‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// å±æ€§å‰Šé™¤ç³»ãƒ¡ã‚½ãƒƒãƒ‰ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples67 : IExecutable
   {
@@ -18,7 +18,7 @@ namespace Gsf.Samples
     {
       //
       // XAttribute.Remove
-      //   Œ»İ‚Ì‘®«‚ğíœ‚·‚é.
+      //   ç¾åœ¨ã®å±æ€§ã‚’å‰Šé™¤ã™ã‚‹.
       //
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
@@ -27,7 +27,7 @@ namespace Gsf.Samples
       attr.Remove();
 
       //
-      // íœŒã‚Ì‘®«‚É’l‚ğİ’è‚µ‚Ä‚àA”½‰f‚³‚ê‚È‚¢.
+      // å‰Šé™¤å¾Œã®å±æ€§ã«å€¤ã‚’è¨­å®šã—ã¦ã‚‚ã€åæ˜ ã•ã‚Œãªã„.
       //
       attr.Value = "999";
 
@@ -36,8 +36,8 @@ namespace Gsf.Samples
 
       //
       // SetAttributeValue
-      //   ‘®«‚Ì’l‚ğİ’è‚·‚éƒƒ\ƒbƒh‚Å‚ ‚é‚ª
-      //   ’l‚Énull‚ğw’è‚·‚é‚±‚Æ‚ÅA‘®«‚ğíœ‚·‚é‚±‚Æ‚ª‚Å‚«‚é.
+      //   å±æ€§ã®å€¤ã‚’è¨­å®šã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã§ã‚ã‚‹ãŒ
+      //   å€¤ã«nullã‚’æŒ‡å®šã™ã‚‹ã“ã¨ã§ã€å±æ€§ã‚’å‰Šé™¤ã™ã‚‹ã“ã¨ãŒã§ãã‚‹.
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
@@ -49,7 +49,7 @@ namespace Gsf.Samples
 
       //
       // RemoveAttributes
-      //   Œ»İ‚Ì—v‘f‚É‘¶İ‚·‚é‘®«‚ğ‘S‚Äíœ‚·‚é.
+      //   ç¾åœ¨ã®è¦ç´ ã«å­˜åœ¨ã™ã‚‹å±æ€§ã‚’å…¨ã¦å‰Šé™¤ã™ã‚‹.
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();

@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-14
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples14 : IExecutable
   {
@@ -36,56 +36,56 @@ namespace Gsf.Samples
                   where (aPerson.Id % 2) != 0
                   select aPerson;
 
-      Console.WriteLine("============ ƒNƒGƒŠ‚ğ•\¦ ============");
+      Console.WriteLine("============ ã‚¯ã‚¨ãƒªã‚’è¡¨ç¤º ============");
       foreach (var aPerson in query)
       {
         Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
       //
-      // ToDictionary‚ğ—˜—p‚µ‚ÄA–¾¦“I‚Éƒ}ƒbƒv‚É•ÏŠ·.
-      // (‚±‚Ìƒ^ƒCƒ~ƒ“ƒO‚ÅƒNƒGƒŠ‚ª•]‰¿‚³‚êAŒ‹‰Ê‚ª\’z‚³‚ê‚éB)
+      // ToDictionaryã‚’åˆ©ç”¨ã—ã¦ã€æ˜ç¤ºçš„ã«ãƒãƒƒãƒ—ã«å¤‰æ›.
+      // (ã“ã®ã‚¿ã‚¤ãƒŸãƒ³ã‚°ã§ã‚¯ã‚¨ãƒªãŒè©•ä¾¡ã•ã‚Œã€çµæœãŒæ§‹ç¯‰ã•ã‚Œã‚‹ã€‚)
       //
-      // ToDictionary‚ÍAƒL[—v‘f‚ğ’Šo‚·‚é‚½‚ß‚Ìˆø”‚ğ—v‹‚·‚éB(keySelector)
-      // ˆø”‚ÉkeySelector‚Ì‚İ‚ğw’è‚µ‚Ä‚¢‚éê‡Aƒ}ƒbƒv‚Ì’l‚Í‚»‚ÌƒIƒuƒWƒFƒNƒg©g‚Æ‚È‚éB
-      //   ƒL[Fint32Œ^ (Person.Id)
-      //   ’l@FPersonƒIƒuƒWƒFƒNƒg
+      // ToDictionaryã¯ã€ã‚­ãƒ¼è¦ç´ ã‚’æŠ½å‡ºã™ã‚‹ãŸã‚ã®å¼•æ•°ã‚’è¦æ±‚ã™ã‚‹ã€‚(keySelector)
+      // å¼•æ•°ã«keySelectorã®ã¿ã‚’æŒ‡å®šã—ã¦ã„ã‚‹å ´åˆã€ãƒãƒƒãƒ—ã®å€¤ã¯ãã®ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆè‡ªèº«ã¨ãªã‚‹ã€‚
+      //   ã‚­ãƒ¼ï¼šint32å‹ (Person.Id)
+      //   å€¤ã€€ï¼šPersonã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
       //
-      // ‚±‚Ì‚Ù‚©‚É‚àAelementSelector‚ğw’è‚·‚éƒI[ƒo[ƒ[ƒh‚à‘¶İ‚·‚éB
+      // ã“ã®ã»ã‹ã«ã‚‚ã€elementSelectorã‚’æŒ‡å®šã™ã‚‹ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã‚‚å­˜åœ¨ã™ã‚‹ã€‚
       //
       Dictionary<int, Person> filteredPersons = query.ToDictionary(item => item.Id);
 
-      Console.WriteLine("============ ToDictionary‚Åì¬‚µ‚½ƒŠƒXƒg‚ğ•\¦ ============");
+      Console.WriteLine("============ ToDictionaryã§ä½œæˆã—ãŸãƒªã‚¹ãƒˆã‚’è¡¨ç¤º ============");
       foreach (var pair in filteredPersons)
       {
         Console.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);
       }
 
       //
-      // Œ³‚ÌƒŠƒXƒg‚ğ•ÏX.
+      // å…ƒã®ãƒªã‚¹ãƒˆã‚’å¤‰æ›´.
       //
       persons.Add(new Person { Id = 6, Name = "gsf_zero6" });
       persons.Add(new Person { Id = 7, Name = "gsf_zero7" });
 
       //
-      // ‚à‚¤ˆê“xAŠeŒ‹‰Ê‚ğ•\¦.
+      // ã‚‚ã†ä¸€åº¦ã€å„çµæœã‚’è¡¨ç¤º.
       //
-      Console.WriteLine("============ ƒNƒGƒŠ‚ğ•\¦i2‰ñ–Új ============");
+      Console.WriteLine("============ ã‚¯ã‚¨ãƒªã‚’è¡¨ç¤ºï¼ˆ2å›ç›®ï¼‰ ============");
       foreach (var aPerson in query)
       {
         Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
-      Console.WriteLine("============ ToDictionary‚Åì¬‚µ‚½ƒŠƒXƒg‚ğ•\¦ i2‰ñ–Új============");
+      Console.WriteLine("============ ToDictionaryã§ä½œæˆã—ãŸãƒªã‚¹ãƒˆã‚’è¡¨ç¤º ï¼ˆ2å›ç›®ï¼‰============");
       foreach (var pair in filteredPersons)
       {
         Console.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);
       }
 
       //
-      // ToDictionaryƒƒ\ƒbƒh‚ÉkeySelector‚ÆelementSelector‚ğw’è‚µ‚½ƒo[ƒWƒ‡ƒ“.
+      // ToDictionaryãƒ¡ã‚½ãƒƒãƒ‰ã«keySelectorã¨elementSelectorã‚’æŒ‡å®šã—ãŸãƒãƒ¼ã‚¸ãƒ§ãƒ³.
       //
-      Console.WriteLine("============ keySelector‚ÆelementSelector‚Ì—¼•û‚ğw’è‚µ‚½ƒo[ƒWƒ‡ƒ“ ============");
+      Console.WriteLine("============ keySelectorã¨elementSelectorã®ä¸¡æ–¹ã‚’æŒ‡å®šã—ãŸãƒãƒ¼ã‚¸ãƒ§ãƒ³ ============");
       foreach (var pair in query.ToDictionary(item => item.Id, item => string.Format("{0}_{1}", item.Id, item.Name)))
       {
         Console.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);

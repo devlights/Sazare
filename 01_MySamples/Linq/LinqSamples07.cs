@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-07
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples07 : IExecutable
   {
@@ -96,7 +96,7 @@ namespace Gsf.Samples
       }
     }
 
-    // ƒƒ“ƒo[
+    // ãƒ¡ãƒ³ãƒãƒ¼
     IEnumerable<Person> persons =
                 new[]{
                      new Person
@@ -136,7 +136,7 @@ namespace Gsf.Samples
                     }
                   };
 
-    // ƒ`[ƒ€
+    // ãƒãƒ¼ãƒ 
     IEnumerable<Team> teams =
                 new[]{
                      new Team
@@ -153,7 +153,7 @@ namespace Gsf.Samples
                      }
                   };
 
-    // ƒvƒƒWƒFƒNƒg
+    // ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ
     IEnumerable<Project> projects =
                 new[]{
                      new Project
@@ -197,13 +197,13 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // into‚ÌƒTƒ“ƒvƒ‹
-      // into‚Íselect, group, join‚ÌŒ‹‰Ê‚ğˆê“I‚É•Û‚Å‚«‚éB
+      // intoã®ã‚µãƒ³ãƒ—ãƒ«
+      // intoã¯select, group, joinã®çµæœã‚’ä¸€æ™‚çš„ã«ä¿æŒã§ãã‚‹ã€‚
       //
-      // ‰º‹L‚ÌƒTƒ“ƒvƒ‹‚Ìê‡Agroup‚ÌŒ‹‰Ê‚ğinto‚Å•Û‚µ‚Ä‚©‚ç
-      // ƒ\[ƒgˆ—‚ğs‚¢AŒ‹‰Ê‚ğ\’z‚µ‚Ä‚¢‚éBi’Ç‰Á‚ÌƒNƒGƒŠˆ—j
+      // ä¸‹è¨˜ã®ã‚µãƒ³ãƒ—ãƒ«ã®å ´åˆã€groupã®çµæœã‚’intoã§ä¿æŒã—ã¦ã‹ã‚‰
+      // ã‚½ãƒ¼ãƒˆå‡¦ç†ã‚’è¡Œã„ã€çµæœã‚’æ§‹ç¯‰ã—ã¦ã„ã‚‹ã€‚ï¼ˆè¿½åŠ ã®ã‚¯ã‚¨ãƒªå‡¦ç†ï¼‰
       //
-      // Še”N—î‘w‚ÌƒJƒEƒ“ƒg‚ğZo.
+      // å„å¹´é½¢å±¤ã®ã‚«ã‚¦ãƒ³ãƒˆã‚’ç®—å‡º.
       //
       var query1 = from person in persons
                    group person by (Math.Truncate((person.Age * 0.1)) * 10) into personByAge
@@ -218,16 +218,16 @@ namespace Gsf.Samples
       foreach (var item in query1)
       {
         //
-        // “½–¼Œ^‚ÍA“à•”‚Å©“®“I‚ÉToString‚ªì¬‚³‚ê‚Ä‚¢‚é‚Ì‚Å
-        // ‚»‚Ì‚Ü‚ÜAToString‚ğŒÄ‚×‚ÎƒvƒƒpƒeƒB‚Ì’l‚ª•\¦‚³‚ê‚éB
+        // åŒ¿åå‹ã¯ã€å†…éƒ¨ã§è‡ªå‹•çš„ã«ToStringãŒä½œæˆã•ã‚Œã¦ã„ã‚‹ã®ã§
+        // ãã®ã¾ã¾ã€ToStringã‚’å‘¼ã¹ã°ãƒ—ãƒ­ãƒ‘ãƒ†ã‚£ã®å€¤ãŒè¡¨ç¤ºã•ã‚Œã‚‹ã€‚
         //
         Console.WriteLine(item);
       }
 
       //
-      // ã‹L‚Ìê‡‚ÍAÅŒã‚É“½–¼Œ^‚ğ\’z‚µ‚Ä
-      // ƒNƒGƒŠŒ‹‰Ê‚Æ‚µ‚Ä‚¢‚é‚ªA“–‘R‚»‚Ì‚Ü‚ÜIGrouping‚ÌŒ‹‰Ê‚Å
-      // •Ô‹p‚µ‚Ä‚à“¯‚¶Œ‹‰Ê‚ª“±‚¯‚é.
+      // ä¸Šè¨˜ã®å ´åˆã¯ã€æœ€å¾Œã«åŒ¿åå‹ã‚’æ§‹ç¯‰ã—ã¦
+      // ã‚¯ã‚¨ãƒªçµæœã¨ã—ã¦ã„ã‚‹ãŒã€å½“ç„¶ãã®ã¾ã¾IGroupingã®çµæœã§
+      // è¿”å´ã—ã¦ã‚‚åŒã˜çµæœãŒå°ã‘ã‚‹.
       //
       var query2 = from person in persons
                    group person by (Math.Truncate((person.Age * 0.1)) * 10) into personByAge

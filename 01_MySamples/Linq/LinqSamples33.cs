@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSample-33
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples33 : IExecutable
   {
@@ -18,22 +18,22 @@ namespace Gsf.Samples
                 };
 
       // 
-      // SumŠg’£ƒƒ\ƒbƒh‚ÍA•¶š’Ê‚è‡Œv‚ğ‹‚ß‚éŠg’£ƒƒ\ƒbƒhB
+      // Sumæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æ–‡å­—é€šã‚Šåˆè¨ˆã‚’æ±‚ã‚ã‚‹æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
-      // SumŠg’£ƒƒ\ƒbƒh‚É‚ÍAŠeŠî–{Œ^‚ÌƒI[ƒo[ƒ[ƒh‚ª—pˆÓ‚³‚ê‚Ä‚¨‚è
-      // (decimal, double, int, long, single‹y‚Ñ‚»‚ê‚¼‚ê‚ÌNullableŒ^)
-      // ‚»‚ê‚¼‚ê‚ÉAˆø”–³‚µ‚Æselector‚ğw’è‚·‚éƒo[ƒWƒ‡ƒ“‚Ìƒƒ\ƒbƒh‚ª‚ ‚éB
+      // Sumæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯ã€å„åŸºæœ¬å‹ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ãŒç”¨æ„ã•ã‚Œã¦ãŠã‚Š
+      // (decimal, double, int, long, singleåŠã³ãã‚Œãã‚Œã®Nullableå‹)
+      // ãã‚Œãã‚Œã«ã€å¼•æ•°ç„¡ã—ã¨selectorã‚’æŒ‡å®šã™ã‚‹ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒã‚ã‚‹ã€‚
       //
 
       //
-      // ˆø”–³‚µ‚ÌSumŠg’£ƒƒ\ƒbƒh‚Ìg—p.
+      // å¼•æ•°ç„¡ã—ã®Sumæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã®ä½¿ç”¨.
       //
-      Console.WriteLine("ˆø”–³‚µ = {0}", numbers.Sum());
+      Console.WriteLine("å¼•æ•°ç„¡ã— = {0}", numbers.Sum());
 
       //
-      // selector‚ğw’è‚·‚éSumŠg’£ƒƒ\ƒbƒh‚Ìg—p.
+      // selectorã‚’æŒ‡å®šã™ã‚‹Sumæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã®ä½¿ç”¨.
       //
-      Console.WriteLine("ˆø”—L‚è = {0}", numbers.Sum(item => (item % 2 == 0) ? item : 0));
+      Console.WriteLine("å¼•æ•°æœ‰ã‚Š = {0}", numbers.Sum(item => (item % 2 == 0) ? item : 0));
     }
   }
   #endregion

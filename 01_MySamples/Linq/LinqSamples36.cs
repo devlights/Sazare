@@ -6,31 +6,31 @@ namespace Gsf.Samples
 
   #region LinqSamples-36
   /// <summary>
-  /// Linq�̃T���v���ł��B
+  /// Linqのサンプルです。
   /// </summary>
   public class LinqSamples36 : IExecutable
   {
     public void Execute()
     {
       //
-      // Zip�g�����\�b�h.
+      // Zip拡張メソッド.
       //
-      // Zip�g�����\�b�h�́APython��zip�֐��Ɠ���������������̂ł���B
-      // �܂�A2�̃V�[�P���X�𓯎��Ƀ��[�v�����邱�Ƃ��o����B
+      // Zip拡張メソッドは、Pythonのzip関数と同じ動きをするものである。
+      // つまり、2つのシーケンスを同時にループさせることが出来る。
       //
-      // �������ɂ́AresultSelector���w�肷��K�v������A�D���ȃf�[�^��Ԃ������ł���B
+      // 第二引数には、resultSelectorを指定する必要があり、好きなデータを返す事ができる。
       //
-      // ���̃��\�b�h�́A�ǂ��炩�̃V�[�P���X���I���܂ŏ����𑱂���Ƃ����d�l�ɂȂ��Ă���̂�
-      // �Q�̃V�[�P���X�̗v�f�����قȂ�ꍇ�́A���ӂ��K�v�ł���B
+      // このメソッドは、どちらかのシーケンスが終わるまで処理を続けるという仕様になっているので
+      // ２つのシーケンスの要素数が異なる場合は、注意が必要である。
       //
-      // �܂�A�Е��̃V�[�P���X����̏ꍇ�A���̃��\�b�h�͈�x�����[�v����Ȃ��B
+      // つまり、片方のシーケンスが空の場合、このメソッドは一度もループされない。
       //
       IEnumerable<int> numbers1 = new int[] { 1, 2, 3, 4, 5 };
       IEnumerable<int> numbers2 = new int[] { 6, 7, 8, 9, 0 };
 
       var query = numbers1.Zip(numbers2, (first, second) => Tuple.Create(first, second));
 
-      Console.WriteLine("========= 2�̃V�[�P���X�̗v�f���������ꍇ ===========");
+      Console.WriteLine("========= 2つのシーケンスの要素数が同じ場合 ===========");
       foreach (var item in query)
       {
         Console.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
@@ -41,7 +41,7 @@ namespace Gsf.Samples
 
       query = numbers1.Zip(numbers2, (first, second) => Tuple.Create(first, second));
 
-      Console.WriteLine("========= 1�ڂ̃V�[�P���X�̗v�f��2�ڂ������Ȃ��ꍇ ===========");
+      Console.WriteLine("========= 1つ目のシーケンスの要素が2つ目よりも少ない場合 ===========");
       foreach (var item in query)
       {
         Console.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
@@ -52,7 +52,7 @@ namespace Gsf.Samples
 
       query = numbers1.Zip(numbers2, (first, second) => Tuple.Create(first, second));
 
-      Console.WriteLine("========= 2�ڂ̃V�[�P���X�̗v�f��1�ڂ������Ȃ��ꍇ ===========");
+      Console.WriteLine("========= 2つ目のシーケンスの要素が1つ目よりも少ない場合 ===========");
       foreach (var item in query)
       {
         Console.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
@@ -63,7 +63,7 @@ namespace Gsf.Samples
 
       query = numbers1.Zip(numbers2, (first, second) => Tuple.Create(first, second));
 
-      Console.WriteLine("========= �ǂ��炩�̃V�[�P���X����̏ꍇ ===========");
+      Console.WriteLine("========= どちらかのシーケンスが空の場合 ===========");
       foreach (var item in query)
       {
         Console.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);

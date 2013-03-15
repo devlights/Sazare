@@ -7,42 +7,42 @@ namespace Gsf.Samples
 
   #region LinqSamples-51
   /// <summary>
-  /// LINQ to XML�̃T���v���ł��B
+  /// LINQ to XMLのサンプルです。
   /// </summary>
   /// <remarks>
-  /// �����񂩂�XDocument�I�u�W�F�N�g���\�z����T���v���ł��B
+  /// 文字列からXDocumentオブジェクトを構築するサンプルです。
   /// </remarks>
   public class LinqSamples51 : IExecutable
   {
     public void Execute()
     {
       //
-      // LINQ to XML�́ALINQ�𗘗p����XML���������߂�API�ł���B
-      // �C��������XML�m�[�h�̊Ǘ��y�уN�G�����s���\�B
+      // LINQ to XMLは、LINQを利用してXMLを扱うためのAPIである。
+      // インメモリXMLノードの管理及びクエリ実行が可能。
       //
-      // LINQ to XML�ł́A�܂��ŏ���XDocument�I�u�W�F�N�g�܂���XElement���\�z����.
-      // XDocument�I�u�W�F�N�g�̍\�z�ɂ�
-      //   �E�t�@�C������ǂݍ���
-      //   �E�����񂩂�\�z
-      //   �E�֐��^�\�z
-      //   �E�V�K�쐬
-      // �̕��@������B
+      // LINQ to XMLでは、まず最初にXDocumentオブジェクトまたはXElementを構築する.
+      // XDocumentオブジェクトの構築には
+      //   ・ファイルから読み込み
+      //   ・文字列から構築
+      //   ・関数型構築
+      //   ・新規作成
+      // の方法がある。
       //
-      // �{�T���v���ł́A�����񂩂�XDocument�I�u�W�F�N�g���擾���Ă���.
+      // 本サンプルでは、文字列からXDocumentオブジェクトを取得している.
       //
 
       //
-      // �����񂩂�XDocument���\�z����ɂ́AParse���\�b�h�𗘗p����.
-      // LoadOption�ɂ́A�ȉ��̒l���ݒ�o����.
-      //   None              : �Ӗ��̖����󔒂̍폜�A�y�сA�x�[�XURI�ƍs���̓ǂݍ��ݖ���
-      //   PreserveWhitespace: �Ӗ��̖����󔒕ێ�
-      //   SetBaseUri        : �x�[�XURI�̕ێ�
-      //   SetLineInfo       : �s���̕ێ�
+      // 文字列からXDocumentを構築するには、Parseメソッドを利用する.
+      // LoadOptionには、以下の値が設定出来る.
+      //   None              : 意味の無い空白の削除、及び、ベースURIと行情報の読み込み無し
+      //   PreserveWhitespace: 意味の無い空白保持
+      //   SetBaseUri        : ベースURIの保持
+      //   SetLineInfo       : 行情報の保持
       //
       var doc = XDocument.Parse(MakeSampleXml(), LoadOptions.None);
 
       //
-      // ����̗v�f�̕\��.
+      // 特定の要素の表示.
       //
       var query = from elem in doc.Descendants("Person")
                   let name = elem.Attribute("name").Value

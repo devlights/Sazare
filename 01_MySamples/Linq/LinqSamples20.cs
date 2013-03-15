@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-20
   /// <summary>
-  /// Linq�̃T���v���ł��B
+  /// Linqのサンプルです。
   /// </summary>
   public class LinqSamples20 : IExecutable
   {
@@ -26,20 +26,20 @@ namespace Gsf.Samples
         };
 
       //
-      // Select�g�����\�b�h�𗘗p�B
-      //   �N�G�����ŗ��p���Ă���select��Ɨ��p���@�͓����B
-      //   select�g�����\�b�h�́A�Q�̃I�[�o�[���[�h�������Ă���
+      // Select拡張メソッドを利用。
+      //   クエリ式で利用しているselect句と利用方法は同じ。
+      //   select拡張メソッドは、２つのオーバーロードをもっており
       //
-      //   ��́AFunc<TSource, TResult>�̃^�C�v�B������́AFunc<TSource, int, TResult>�̃^�C�v�ƂȂ�B
-      //   2�ڂ̃^�C�v�̏ꍇ�A���̎��̃C���f�b�N�X�������Ƃ��Đݒ肳���B
+      //   一つは、Func<TSource, TResult>のタイプ。もう一つは、Func<TSource, int, TResult>のタイプとなる。
+      //   2つ目のタイプの場合、その時のインデックスが引数として設定される。
       //
-      Console.WriteLine("===== Func<TSource, TResult>�̃^�C�v =====");
+      Console.WriteLine("===== Func<TSource, TResult>のタイプ =====");
       foreach (var name in persons.Select(item => item.Name))
       {
         Console.WriteLine("NAME={0}", name);
       }
 
-      Console.WriteLine("===== Func<TSource, int, TResult>�̃^�C�v =====");
+      Console.WriteLine("===== Func<TSource, int, TResult>のタイプ =====");
       foreach (var name in persons.Select((item, index) => string.Format("{0}_{1}", item.Name, index)))
       {
         Console.WriteLine("NAME={0}", name);

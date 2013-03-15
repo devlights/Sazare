@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-10
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples10 : IExecutable
   {
@@ -96,7 +96,7 @@ namespace Gsf.Samples
       }
     }
 
-    // ƒƒ“ƒo[
+    // ãƒ¡ãƒ³ãƒãƒ¼
     IEnumerable<Person> persons =
                 new[]{
                      new Person
@@ -136,7 +136,7 @@ namespace Gsf.Samples
                     }
                   };
 
-    // ƒ`[ƒ€
+    // ãƒãƒ¼ãƒ 
     IEnumerable<Team> teams =
                 new[]{
                      new Team
@@ -153,7 +153,7 @@ namespace Gsf.Samples
                      }
                   };
 
-    // ƒvƒƒWƒFƒNƒg
+    // ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ
     IEnumerable<Project> projects =
                 new[]{
                      new Project
@@ -197,18 +197,18 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ƒOƒ‹[ƒv‰»Œ‹‡‚ÌƒTƒ“ƒvƒ‹
+      // ã‚°ãƒ«ãƒ¼ãƒ—åŒ–çµåˆã®ã‚µãƒ³ãƒ—ãƒ«
       //
-      // join‚ÉintoƒL[ƒ[ƒh‚ğ—˜—p‚µ‚ÄŒ‹‰Ê‚ğ•Û‚µ‚½
-      // ‚à‚Ì‚ğƒOƒ‹[ƒv‰»Œ‹‡‚Æ‚¢‚¤B
+      // joinæ™‚ã«intoã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’åˆ©ç”¨ã—ã¦çµæœã‚’ä¿æŒã—ãŸ
+      // ã‚‚ã®ã‚’ã‚°ãƒ«ãƒ¼ãƒ—åŒ–çµåˆã¨ã„ã†ã€‚
       //
 
       //
-      // Š‘®‚·‚éƒvƒƒWƒFƒNƒg‚ğƒƒ“ƒo[’PˆÊ‚Åæ“¾.
-      // (Person‘¤‚©‚çProject‚Ö‚ÌƒAƒvƒ[ƒ`)
+      // æ‰€å±ã™ã‚‹ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã‚’ãƒ¡ãƒ³ãƒãƒ¼å˜ä½ã§å–å¾—.
+      // (Personå´ã‹ã‚‰Projectã¸ã®ã‚¢ãƒ—ãƒ­ãƒ¼ãƒ)
       //
-      // Project.Members‚ÍNŒ‘¶İ‚·‚é‚Ì‚ÅAjoin‚·‚é‚½‚ß‚É
-      // •½’R‰»‚·‚é•K—v‚ª‚ ‚éB(SelectMany)
+      // Project.Membersã¯Nä»¶å­˜åœ¨ã™ã‚‹ã®ã§ã€joinã™ã‚‹ãŸã‚ã«
+      // å¹³å¦åŒ–ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚(SelectMany)
       //
       var query1 = from person in persons
                    join prj in
@@ -242,19 +242,19 @@ namespace Gsf.Samples
       }
 
       //
-      // ƒvƒƒWƒFƒNƒg‚ÉŠ‘®‚·‚éƒƒ“ƒo[‚ğƒvƒƒWƒFƒNƒg’PˆÊ‚Åæ“¾.
-      // (Project‘¤‚©‚çPerson‚Ö‚ÌƒAƒvƒ[ƒ`)
+      // ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã«æ‰€å±ã™ã‚‹ãƒ¡ãƒ³ãƒãƒ¼ã‚’ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆå˜ä½ã§å–å¾—.
+      // (Projectå´ã‹ã‚‰Personã¸ã®ã‚¢ãƒ—ãƒ­ãƒ¼ãƒ)
       //
-      // ˆÈ‰º‚Ìs’ö‚ğŒo‚é•K—v‚ª‚ ‚éB
+      // ä»¥ä¸‹ã®è¡Œç¨‹ã‚’çµŒã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
       //
-      // 1.Project.Members‚ÍNŒ‚Æ‚È‚é‚Ì‚Å•½’R‰».
-      //   (ƒƒ“ƒo[‚ª2l‚¢‚éƒvƒƒWƒFƒNƒg‚¾‚Æ‚Qƒf[ƒ^‚Æ‚È‚éBj
-      // 2.1‚ÌŒ‹‰Ê‚ÆPerson‚ğŒ‹‡.
-      // 3.2‚ÌŒ‹‰Ê‚ğƒOƒ‹[ƒsƒ“ƒO.
+      // 1.Project.Membersã¯Nä»¶ã¨ãªã‚‹ã®ã§å¹³å¦åŒ–.
+      //   (ãƒ¡ãƒ³ãƒãƒ¼ãŒ2äººã„ã‚‹ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆã ã¨ï¼’ãƒ‡ãƒ¼ã‚¿ã¨ãªã‚‹ã€‚ï¼‰
+      // 2.1ã®çµæœã¨Personã‚’çµåˆ.
+      // 3.2ã®çµæœã‚’ã‚°ãƒ«ãƒ¼ãƒ”ãƒ³ã‚°.
       //
       var query2 = from project in
                      (
-                       // 1‚Ìˆ—.
+                       // 1ã®å‡¦ç†.
                        from project in projects
                        from member in project.Members
                        select new
@@ -264,7 +264,7 @@ namespace Gsf.Samples
                          Member = member
                        }
                        )
-                   // 2‚Ìˆ—.
+                   // 2ã®å‡¦ç†.
                    join person in persons on project.Member equals person.Id into personByProject
                    select new
                    {
@@ -272,7 +272,7 @@ namespace Gsf.Samples
                      Name = project.Name,
                      Persons = personByProject
                    } into selectResult
-                   // 3‚Ìˆ—.
+                   // 3ã®å‡¦ç†.
                    group selectResult by new
                    {
                      selectResult.Id,
@@ -295,8 +295,8 @@ namespace Gsf.Samples
       }
 
       //
-      // join‚ğ—˜—p‚¹‚¸‚É‹Lq‚µ‚½”Å.
-      // (Person‚©‚çProject)
+      // joinã‚’åˆ©ç”¨ã›ãšã«è¨˜è¿°ã—ãŸç‰ˆ.
+      // (Personã‹ã‚‰Project)
       //
       var query3 = from person in persons
                    from project in projects

@@ -8,10 +8,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-55
   /// <summary>
-  /// LINQ to XML�̃T���v���ł��B
+  /// LINQ to XMLのサンプルです。
   /// </summary>
   /// <remarks>
-  /// LINQ to XML�ɂăG���[������XmlException���������邱�Ƃ��m�F����T���v���ł��B
+  /// LINQ to XMLにてエラー発生時XmlExceptionが発生することを確認するサンプルです。
   /// </remarks>
   public class LinqSamples55 : IExecutable
   {
@@ -20,9 +20,9 @@ namespace Gsf.Samples
       try
       {
         //
-        // LINQ to XML�͓�����XmlReader�𗘗p���Ă���.
-        // �Ȃ̂ŁA�G���[�����������ꍇ�AXmlReader�̏ꍇ��
-        // ���l��XmlException����������.
+        // LINQ to XMLは内部でXmlReaderを利用している.
+        // なので、エラーが発生した場合、XmlReaderの場合と
+        // 同様にXmlExceptionが発生する.
         //
         XElement.Parse(GetXmlStrings());
       }
@@ -35,7 +35,7 @@ namespace Gsf.Samples
     string GetXmlStrings()
     {
       //
-      // �킴�Ɖ�̓G���[�ɂȂ�XML��������쐬.
+      // わざと解析エラーになるXML文字列を作成.
       //
       return @"<data>
                  <id>1</id>

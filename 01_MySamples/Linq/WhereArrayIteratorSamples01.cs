@@ -6,14 +6,14 @@ namespace Gsf.Samples
 
   #region WhereArrayIteratorSamples-01
   /// <summary>
-  /// WhereArrayIterator�Ɋւ���T���v���ł��B
+  /// WhereArrayIteratorに関するサンプルです。
   /// </summary>
   public class WhereArrayIteratorSamples01 : IExecutable
   {
     public void Execute()
     {
       //
-      // where���܂�linq���쐬�����, WhereArrayIterator�ƂȂ�B
+      // whereを含んだlinqを作成すると, WhereArrayIteratorとなる。
       //
       var subset = from i in new[] { 1, 2, 3, 5, 6, 7 }
                    where i < 7
@@ -23,7 +23,7 @@ namespace Gsf.Samples
       Console.WriteLine("{0}", subset.GetType().Namespace);
 
       //
-      // where���܂܂Ȃ�linq���쐬����ƁAWhereSelectArrayIterator�ƂȂ�B
+      // whereを含まないlinqを作成すると、WhereSelectArrayIteratorとなる。
       //
       var subset2 = from i in new[] { 1, 2, 3, 5, 6, 7 }
                     select i;

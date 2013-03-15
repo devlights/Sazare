@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-08
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples08 : IExecutable
   {
@@ -96,7 +96,7 @@ namespace Gsf.Samples
       }
     }
 
-    // ƒƒ“ƒo[
+    // ãƒ¡ãƒ³ãƒãƒ¼
     IEnumerable<Person> persons =
                 new[]{
                      new Person
@@ -136,7 +136,7 @@ namespace Gsf.Samples
                     }
                   };
 
-    // ƒ`[ƒ€
+    // ãƒãƒ¼ãƒ 
     IEnumerable<Team> teams =
                 new[]{
                      new Team
@@ -153,7 +153,7 @@ namespace Gsf.Samples
                      }
                   };
 
-    // ƒvƒƒWƒFƒNƒg
+    // ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ
     IEnumerable<Project> projects =
                 new[]{
                      new Project
@@ -197,10 +197,10 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // let‚ÌƒTƒ“ƒvƒ‹
-      // let‚Íˆê“I‚È•Ï”‚ğƒNƒGƒŠ“à‚Åì¬‚·‚éÛ‚É—˜—p‚·‚éB
+      // letã®ã‚µãƒ³ãƒ—ãƒ«
+      // letã¯ä¸€æ™‚çš„ãªå¤‰æ•°ã‚’ã‚¯ã‚¨ãƒªå†…ã§ä½œæˆã™ã‚‹éš›ã«åˆ©ç”¨ã™ã‚‹ã€‚
       //
-      // Še”N—î‘w‚ÌƒJƒEƒ“ƒg‚ğZo.
+      // å„å¹´é½¢å±¤ã®ã‚«ã‚¦ãƒ³ãƒˆã‚’ç®—å‡º.
       //
       var query1 = from person in persons
                    let ageLevel = (Math.Truncate((person.Age * 0.1)) * 10)

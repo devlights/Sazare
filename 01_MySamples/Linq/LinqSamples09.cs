@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-09
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples09 : IExecutable
   {
@@ -96,7 +96,7 @@ namespace Gsf.Samples
       }
     }
 
-    // ƒƒ“ƒo[
+    // ãƒ¡ãƒ³ãƒãƒ¼
     IEnumerable<Person> persons =
                 new[]{
                      new Person
@@ -136,7 +136,7 @@ namespace Gsf.Samples
                     }
                   };
 
-    // ƒ`[ƒ€
+    // ãƒãƒ¼ãƒ 
     IEnumerable<Team> teams =
                 new[]{
                      new Team
@@ -153,7 +153,7 @@ namespace Gsf.Samples
                      }
                   };
 
-    // ƒvƒƒWƒFƒNƒg
+    // ãƒ—ãƒ­ã‚¸ã‚§ã‚¯ãƒˆ
     IEnumerable<Project> projects =
                 new[]{
                      new Project
@@ -197,15 +197,15 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // join‚ğ—p‚¢‚½“à•”Œ‹‡(INNER JOIN)‚ÌƒTƒ“ƒvƒ‹.
+      // joinã‚’ç”¨ã„ãŸå†…éƒ¨çµåˆ(INNER JOIN)ã®ã‚µãƒ³ãƒ—ãƒ«.
       //
-      // joinƒL[ƒ[ƒh‚Ì\•¶‚ÍˆÈ‰º‚Ì’Ê‚è.
-      //    join “à•”‘¤‚Ì•Ï” in “à•”‘¤‚ÌƒV[ƒPƒ“ƒX on ŠO•”‘¤‚ÌƒL[ equals “à•”‘¤‚ÌƒL[
+      // joinã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®æ§‹æ–‡ã¯ä»¥ä¸‹ã®é€šã‚Š.
+      //    join å†…éƒ¨å´ã®å¤‰æ•° in å†…éƒ¨å´ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ on å¤–éƒ¨å´ã®ã‚­ãƒ¼ equals å†…éƒ¨å´ã®ã‚­ãƒ¼
       //
-      // Linq‚Ìjoin‚Å‚Í“™Œ‹‡i‚Â‚Ü‚è“™’l‚Ìê‡‚ÌŒ‹‡j‚Ì‚İ‚ªs‚¦‚éB
+      // Linqã®joinã§ã¯ç­‰çµåˆï¼ˆã¤ã¾ã‚Šç­‰å€¤ã®å ´åˆã®çµåˆï¼‰ã®ã¿ãŒè¡Œãˆã‚‹ã€‚
       //
       //====================================================================================
-      // Team‚©‚ç’H‚éƒpƒ^[ƒ“
+      // Teamã‹ã‚‰è¾¿ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³
       var query1 = from team in teams
                    from personId in team.Members
                    join person in persons on personId equals person.Id
@@ -224,19 +224,19 @@ namespace Gsf.Samples
       }
 
       //
-      // Person‚©‚ç’H‚éƒpƒ^[ƒ“.
-      // joinƒL[ƒ[ƒh‚ğ—˜—p‚¹‚¸‚Éè“®‚ÅŒ‹‡ˆ—.
+      // Personã‹ã‚‰è¾¿ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³.
+      // joinã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã‚’åˆ©ç”¨ã›ãšã«æ‰‹å‹•ã§çµåˆå‡¦ç†.
       //
-      // ‚±‚Ìê‡Aã‹L‚Æ“¯‚¶‚æ‚¤‚É
+      // ã“ã®å ´åˆã€ä¸Šè¨˜ã¨åŒã˜ã‚ˆã†ã«
       //
       // from person   in persons
       // from team   in teams
       // join personId in team.Members on person.Id equals personId
       //
-      // ‚Æ‚·‚é‚ÆAƒRƒ“ƒeƒXƒg‚ªˆá‚¤‚Æ‚¢‚¤ƒGƒ‰[‚Æ‚È‚éB
-      // ‚±‚ê‚ÍAjoin“à•”‚ÅV‚½‚ÈƒRƒ“ƒeƒLƒXƒg‚ª”­¶‚·‚é‚©‚ç‚Å‚ ‚éB
-      // query1‚Å‚ÍA“à•”‘¤‚ÌƒV[ƒPƒ“ƒX‚ğjoin“à•”‚¾‚¯‚Å—˜—p‚µ‚Ä‚¢‚½‚Ì‚Å
-      // –â‘è‚È‚¢.
+      // ã¨ã™ã‚‹ã¨ã€ã‚³ãƒ³ãƒ†ã‚¹ãƒˆãŒé•ã†ã¨ã„ã†ã‚¨ãƒ©ãƒ¼ã¨ãªã‚‹ã€‚
+      // ã“ã‚Œã¯ã€joinå†…éƒ¨ã§æ–°ãŸãªã‚³ãƒ³ãƒ†ã‚­ã‚¹ãƒˆãŒç™ºç”Ÿã™ã‚‹ã‹ã‚‰ã§ã‚ã‚‹ã€‚
+      // query1ã§ã¯ã€å†…éƒ¨å´ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’joinå†…éƒ¨ã ã‘ã§åˆ©ç”¨ã—ã¦ã„ãŸã®ã§
+      // å•é¡Œãªã„.
       //
       var query2 = from person in persons
                    from team in teams
@@ -256,11 +256,11 @@ namespace Gsf.Samples
       }
 
       //
-      // query2‚ğjoin‚Åû‚ß‚éƒpƒ^[ƒ“.
+      // query2ã‚’joinã§åã‚ã‚‹ãƒ‘ã‚¿ãƒ¼ãƒ³.
       //
-      // ã‹L‚Ì—á‚ğjoin‚Éû‚ß‚é‚½‚ß‚É‚ÍAjoin“à‚Å–Ú“I‚ÌƒV[ƒPƒ“ƒX‚ğ
-      // \’z‚·‚é•K—v‚ª‚ ‚éB‚»‚Ì‚½‚ßAˆÈ‰º‚Ì—á‚Å‚Í–Ú“I‚ÌƒV[ƒPƒ“ƒX‚ğì¬‚·‚é‚½‚ß‚É
-      // join“à‚É‚ÄA‚³‚ç‚ÉƒTƒuƒNƒGƒŠ‚ğì¬‚µ‚Ä‚¢‚éB
+      // ä¸Šè¨˜ã®ä¾‹ã‚’joinã«åã‚ã‚‹ãŸã‚ã«ã¯ã€joinå†…ã§ç›®çš„ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’
+      // æ§‹ç¯‰ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚ãã®ãŸã‚ã€ä»¥ä¸‹ã®ä¾‹ã§ã¯ç›®çš„ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’ä½œæˆã™ã‚‹ãŸã‚ã«
+      // joinå†…ã«ã¦ã€ã•ã‚‰ã«ã‚µãƒ–ã‚¯ã‚¨ãƒªã‚’ä½œæˆã—ã¦ã„ã‚‹ã€‚
       //
       var query3 = from person in persons
                    join team in
@@ -293,7 +293,7 @@ namespace Gsf.Samples
       //
       // CROSS JOIN.
       //
-      // •’Ê‚Éfrom‚ğ•À‚×‚ê‚ÎCROSS JOINó‘Ô‚Æ‚È‚éB
+      // æ™®é€šã«fromã‚’ä¸¦ã¹ã‚Œã°CROSS JOINçŠ¶æ…‹ã¨ãªã‚‹ã€‚
       //
       var query4 = from person in persons
                    from team in teams

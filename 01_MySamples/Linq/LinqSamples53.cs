@@ -8,10 +8,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-53
   /// <summary>
-  /// LINQ to XML�̃T���v���ł��B
+  /// LINQ to XMLのサンプルです。
   /// </summary>
   /// <remarks>
-  /// XElement.Load�𗘗p�����ǂݍ��݂̃T���v���ł��B
+  /// XElement.Loadを利用した読み込みのサンプルです。
   /// </remarks>
   public class LinqSamples53 : IExecutable
   {
@@ -21,19 +21,19 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // XElement��XDocument��Parse���\�b�h�̑���
-      // ���g���\�z���邽�߂�Load���\�b�h�������Ă���.
+      // XElementもXDocumentもParseメソッドの他に
+      // 自身を構築するためのLoadメソッドを持っている.
       //
-      // Parse���\�b�h�́A���������͂��č\�z���鎞�ɗ��p��
-      // Load���\�b�h�́A���ɑ��݂��Ă�����̂�ǂݍ��ލۂɗ��p����.
+      // Parseメソッドは、文字列を解析して構築する時に利用し
+      // Loadメソッドは、既に存在しているものを読み込む際に利用する.
       //
-      // Load���\�b�h�́A�����̃I�[�o�[���[�h������
-      //   �EURI���w��
-      //   �E�X�g���[�����w��
-      // �ɑ�ʂ����.
+      // Loadメソッドは、複数のオーバーロードを持ち
+      //   ・URIを指定
+      //   ・ストリームを指定
+      // に大別される.
       //
-      // �{�T���v���ł́AURI�ɂ��ǂݍ��݂��L�q����.
-      // URI���w�肷��Load���\�b�h�̃I�[�o�[���[�h�͈ȉ��̒ʂ�B
+      // 本サンプルでは、URIによる読み込みを記述する.
+      // URIを指定するLoadメソッドのオーバーロードは以下の通り。
       //
       //   public XDocument Load(string)
       //   public XDocument Load(string, LoadOptions)
@@ -54,8 +54,8 @@ namespace Gsf.Samples
       }
 
       //
-      // URL����XML��ǂݍ���
-      //   XML�t�@�C���͈ȉ��̃T���v���𗘗p�����Ă�����Ă���B
+      // URLからXMLを読み込み
+      //   XMLファイルは以下のサンプルを利用させてもらっている。
       //     http://msdn.microsoft.com/ja-jp/library/vstudio/bb387066.aspx
       //
       Console.WriteLine(XElement.Load(DOWNLOAD_URI));

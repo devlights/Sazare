@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-72
   /// <summary>
-  /// LINQ to XML�̃T���v���ł�.
+  /// LINQ to XMLのサンプルです.
   /// </summary>
   /// <remarks>
-  /// ��v�f�n�v���p�e�B�ƃ��\�b�h (IsEmpty, EmptySequence) �̃T���v���ł�.
+  /// 空要素系プロパティとメソッド (IsEmpty, EmptySequence) のサンプルです.
   /// </remarks>
   public class LinqSamples72 : IExecutable
   {
@@ -18,7 +18,7 @@ namespace Gsf.Samples
     {
       //
       // EmptySequence
-      //   ���IEnumerable<XElement>��Ԃ��ÓI���\�b�h.
+      //   空のIEnumerable<XElement>を返す静的メソッド.
       //
       var empty = XElement.EmptySequence;
 
@@ -26,9 +26,9 @@ namespace Gsf.Samples
 
       //
       // IsEmpty
-      //   ���݂̗v�f����v�f���ۂ��𔻒肷��.
-      //   ��v�f�̏����́AMSDN�ɋL�ڂ�����ȉ��̒ʂ�ƂȂ�.
-      //     �u�J�n�^�O�݂̂������A�I��������̗v�f�Ƃ��ĕ\�����v�f�������A��̗v�f�ƌ��Ȃ���܂��B�v
+      //   現在の要素が空要素か否かを判定する.
+      //   空要素の条件は、MSDNに記載があり以下の通りとなる.
+      //     「開始タグのみを持ち、終了した空の要素として表される要素だけが、空の要素と見なされます。」
       //     (http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xelement.isempty.aspx)
       //
       var root = BuildSampleXmlNoNode();

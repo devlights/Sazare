@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-34
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples34 : IExecutable
   {
@@ -18,24 +18,24 @@ namespace Gsf.Samples
                 };
 
       // 
-      // Min, MaxŠg’£ƒƒ\ƒbƒh‚ÍA•¶š’Ê‚èÅ¬’lAÅ‘å’l‚ğ‹‚ß‚éŠg’£ƒƒ\ƒbƒhB
+      // Min, Maxæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æ–‡å­—é€šã‚Šæœ€å°å€¤ã€æœ€å¤§å€¤ã‚’æ±‚ã‚ã‚‹æ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
-      // Min, MaxŠg’£ƒƒ\ƒbƒh‚É‚ÍAŠeŠî–{Œ^‚ÌƒI[ƒo[ƒ[ƒh‚ª—pˆÓ‚³‚ê‚Ä‚¨‚è
-      // (decimal, double, int, long, single‹y‚Ñ‚»‚ê‚¼‚ê‚ÌNullableŒ^)
-      // ‚»‚ê‚¼‚ê‚ÉAˆø”–³‚µ‚Æselector‚ğw’è‚·‚éƒo[ƒWƒ‡ƒ“‚Ìƒƒ\ƒbƒh‚ª‚ ‚éB
+      // Min, Maxæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã«ã¯ã€å„åŸºæœ¬å‹ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ãŒç”¨æ„ã•ã‚Œã¦ãŠã‚Š
+      // (decimal, double, int, long, singleåŠã³ãã‚Œãã‚Œã®Nullableå‹)
+      // ãã‚Œãã‚Œã«ã€å¼•æ•°ç„¡ã—ã¨selectorã‚’æŒ‡å®šã™ã‚‹ãƒãƒ¼ã‚¸ãƒ§ãƒ³ã®ãƒ¡ã‚½ãƒƒãƒ‰ãŒã‚ã‚‹ã€‚
       //
 
       //
-      // ˆø”–³‚µ‚ÌMin, MaxŠg’£ƒƒ\ƒbƒh‚Ìg—p.
+      // å¼•æ•°ç„¡ã—ã®Min, Maxæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã®ä½¿ç”¨.
       //
-      Console.WriteLine("ˆø”–³‚µ[Min] = {0}", numbers.Min());
-      Console.WriteLine("ˆø”–³‚µ[Max] = {0}", numbers.Max());
+      Console.WriteLine("å¼•æ•°ç„¡ã—[Min] = {0}", numbers.Min());
+      Console.WriteLine("å¼•æ•°ç„¡ã—[Max] = {0}", numbers.Max());
 
       //
-      // selector‚ğw’è‚·‚éMin, MaxŠg’£ƒƒ\ƒbƒh‚Ìg—p.
+      // selectorã‚’æŒ‡å®šã™ã‚‹Min, Maxæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã®ä½¿ç”¨.
       //
-      Console.WriteLine("ˆø”—L‚è[Min] = {0}", numbers.Min(item => (item % 2 == 0) ? item : 0));
-      Console.WriteLine("ˆø”—L‚è[Max] = {0}", numbers.Max(item => (item % 2 == 0) ? item : 0));
+      Console.WriteLine("å¼•æ•°æœ‰ã‚Š[Min] = {0}", numbers.Min(item => (item % 2 == 0) ? item : 0));
+      Console.WriteLine("å¼•æ•°æœ‰ã‚Š[Max] = {0}", numbers.Max(item => (item % 2 == 0) ? item : 0));
     }
   }
   #endregion

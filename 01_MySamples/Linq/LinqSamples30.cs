@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-30
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples30 : IExecutable
   {
@@ -46,12 +46,12 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ˆø”‚È‚µ‚ÌIntersectŠg’£ƒƒ\ƒbƒh‚ğ—˜—p.
-      // ‚±‚Ìê‡AŠù’è‚ÌIEqualityComparer<T>‚ğ—p‚¢‚Ä”äŠr‚ªs‚í‚ê‚éB
+      // å¼•æ•°ãªã—ã®Intersectæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨.
+      // ã“ã®å ´åˆã€æ—¢å®šã®IEqualityComparer<T>ã‚’ç”¨ã„ã¦æ¯”è¼ƒãŒè¡Œã‚ã‚Œã‚‹ã€‚
       //
-      // IntersectŠg’£ƒƒ\ƒbƒh‚ÍAÏW‡‚ğ‹‚ß‚éB
-      // ‚Â‚Ü‚èA—¼•û‚ÌƒV[ƒPƒ“ƒX‚É‘¶İ‚·‚éƒf[ƒ^‚Ì‚İ‚ª’Šo‚³‚ê‚éB
-      // (Union‚Í˜aW‡AExcept‚Í·W‡‚Æ‚È‚éBj
+      // Intersectæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ç©é›†åˆã‚’æ±‚ã‚ã‚‹ã€‚
+      // ã¤ã¾ã‚Šã€ä¸¡æ–¹ã®ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã«å­˜åœ¨ã™ã‚‹ãƒ‡ãƒ¼ã‚¿ã®ã¿ãŒæŠ½å‡ºã•ã‚Œã‚‹ã€‚
+      // (Unionã¯å’Œé›†åˆã€Exceptã¯å·®é›†åˆã¨ãªã‚‹ã€‚ï¼‰
       // 
       var numbers1 = new int[]
                 {
@@ -66,8 +66,8 @@ namespace Gsf.Samples
       Console.WriteLine("INTERSECT = {0}", JoinElements(numbers1.Intersect(numbers2)));
 
       //
-      // ˆø”‚ÉIEqualityComparer<T>‚ğw’è‚µ‚ÄAUnionŠg’£ƒƒ\ƒbƒh‚ğ—˜—pB
-      // ‚±‚Ìê‡Aˆø”‚Éw’è‚µ‚½Comparer‚ğ—p‚¢‚Ä”äŠr‚ªs‚í‚ê‚éB
+      // å¼•æ•°ã«IEqualityComparer<T>ã‚’æŒ‡å®šã—ã¦ã€Unionæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã€‚
+      // ã“ã®å ´åˆã€å¼•æ•°ã«æŒ‡å®šã—ãŸComparerã‚’ç”¨ã„ã¦æ¯”è¼ƒãŒè¡Œã‚ã‚Œã‚‹ã€‚
       //
       var people1 = new Person[]
                 { 

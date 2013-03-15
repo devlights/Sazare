@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-31
   /// <summary>
-  /// Linq�̃T���v���ł��B
+  /// Linqのサンプルです。
   /// </summary>
   public class LinqSamples31 : IExecutable
   {
@@ -46,18 +46,18 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // �����Ȃ���Except�g�����\�b�h�𗘗p.
-      // ���̏ꍇ�A�����IEqualityComparer<T>��p���Ĕ�r���s����B
+      // 引数なしのExcept拡張メソッドを利用.
+      // この場合、既定のIEqualityComparer<T>を用いて比較が行われる。
       //
-      // Except�g�����\�b�h�́A���W�������߂�B
-      // (Union�͘a�W���AIntersect�͐ϏW���ƂȂ�B�j
+      // Except拡張メソッドは、差集合を求める。
+      // (Unionは和集合、Intersectは積集合となる。）
       // 
-      // ����Except�g�����\�b�h�ɂ́A�ȉ��̎d�l������B
+      // このExcept拡張メソッドには、以下の仕様がある。
       //
-      //   �E���W���̑ΏۂƂȂ�̂́A1�Ԗڂ̏W���݂̂ł���A2�Ԗڂ̏W������͒��o����Ȃ��B
-      //     ���܂�A�����Ŏw�肷����̃V�[�P���X����͒��o����Ȃ��B
-      //   �E�ȉ�MSDN�̋L�q�����p�B
-      //     �u���̃��\�b�h�́Asecond �Ɋ܂܂�Ȃ��Afirst �̗v�f��Ԃ��܂��B�܂��Afirst �Ɋ܂܂�Ȃ��Asecond �̗v�f�͕Ԃ��܂���B�v
+      //   ・差集合の対象となるのは、1番目の集合のみであり、2番目の集合からは抽出されない。
+      //     →つまり、引数で指定する方のシーケンスからは抽出されない。
+      //   ・以下MSDNの記述を引用。
+      //     「このメソッドは、second に含まれない、first の要素を返します。また、first に含まれない、second の要素は返しません。」
       // 
       var numbers1 = new int[]
                 {
@@ -72,8 +72,8 @@ namespace Gsf.Samples
       Console.WriteLine("EXCEPT = {0}", JoinElements(numbers1.Except(numbers2)));
 
       //
-      // ������IEqualityComparer<T>���w�肵�āAExcept�g�����\�b�h�𗘗p�B
-      // ���̏ꍇ�A�����Ɏw�肵��Comparer��p���Ĕ�r���s����B
+      // 引数にIEqualityComparer<T>を指定して、Except拡張メソッドを利用。
+      // この場合、引数に指定したComparerを用いて比較が行われる。
       //
       var people1 = new Person[]
                 { 

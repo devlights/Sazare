@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-06
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples06 : IExecutable
   {
@@ -84,9 +84,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero1"
               ,Address=new AddressInfo{
                        PostCode="999-8888"
-                      ,Prefecture="“Œ‹“s"
-                      ,Municipality="‚Ç‚±‚©‚P"
-                      ,HouseNumber="”Ô’n‚P"
+                      ,Prefecture="æ±äº¬éƒ½"
+                      ,Municipality="ã©ã“ã‹ï¼‘"
+                      ,HouseNumber="ç•ªåœ°ï¼‘"
                       ,Tel=new []{"090-xxxx-xxxx"}
                       ,Frends=new string[]{}
               }
@@ -97,9 +97,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero2"
               ,Address=new AddressInfo{
                        PostCode="888-7777"
-                      ,Prefecture="‹“s•{"
-                      ,Municipality="‚Ç‚±‚©‚Q"
-                      ,HouseNumber="”Ô’n‚Q"
+                      ,Prefecture="äº¬éƒ½åºœ"
+                      ,Municipality="ã©ã“ã‹ï¼’"
+                      ,HouseNumber="ç•ªåœ°ï¼’"
                       ,Tel=new []{"080-xxxx-xxxx"}
                       ,Frends=new []{"00001"}
               }
@@ -110,9 +110,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero3"
               ,Address=new AddressInfo{
                        PostCode="777-6666"
-                      ,Prefecture="–kŠC“¹"
-                      ,Municipality="‚Ç‚±‚©‚R"
-                      ,HouseNumber="”Ô’n‚R"
+                      ,Prefecture="åŒ—æµ·é“"
+                      ,Municipality="ã©ã“ã‹ï¼“"
+                      ,HouseNumber="ç•ªåœ°ï¼“"
                       ,Tel=new []{"070-xxxx-xxxx"}
                       ,Frends=new []{"00001", "00002"}
               }
@@ -123,9 +123,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero4"
               ,Address=new AddressInfo{
                        PostCode="777-6666"
-                      ,Prefecture="–kŠC“¹"
-                      ,Municipality="‚Ç‚±‚©‚S"
-                      ,HouseNumber="”Ô’n‚S"
+                      ,Prefecture="åŒ—æµ·é“"
+                      ,Municipality="ã©ã“ã‹ï¼”"
+                      ,HouseNumber="ç•ªåœ°ï¼”"
                       ,Tel=new []{"060-xxxx-xxxx", "111-111-1111", "222-222-2222"}
                       ,Frends=new []{"00001", "00003"}
               }
@@ -139,8 +139,8 @@ namespace Gsf.Samples
       IEnumerable<Person> persons = CreateSampleData();
 
       // 
-      //  ¸‡.
-      //  (¸‡‚Ìê‡‚Ìascending‚Í•t‚¯‚Ä‚à•t‚¯‚È‚­‚Ä‚à—Ç‚¢)
+      //  æ˜‡é †.
+      //  (æ˜‡é †ã®å ´åˆã®ascendingã¯ä»˜ã‘ã¦ã‚‚ä»˜ã‘ãªãã¦ã‚‚è‰¯ã„)
       //
       var query1 = from person in persons
                    orderby person.Id.ToInt() ascending
@@ -153,7 +153,7 @@ namespace Gsf.Samples
       }
 
       //
-      // ~‡.
+      // é™é †.
       //
       var query2 = from person in persons
                    orderby person.Id.ToInt() descending
@@ -166,7 +166,7 @@ namespace Gsf.Samples
       }
 
       //
-      // •¡”‚ÌğŒ‚Åƒ\[ƒg.
+      // è¤‡æ•°ã®æ¡ä»¶ã§ã‚½ãƒ¼ãƒˆ.
       //
       var query3 = from person in persons
                    orderby person.Address.PostCode, person.Id.ToInt()
@@ -179,15 +179,15 @@ namespace Gsf.Samples
       }
 
       //
-      // •¡”‚Ìorderby.
-      // (query3‚Ìê‡‚ÆŒ‹‰Ê‚ªˆÙ‚È‚é–‚É’ˆÓ)
+      // è¤‡æ•°ã®orderby.
+      // (query3ã®å ´åˆã¨çµæœãŒç•°ãªã‚‹äº‹ã«æ³¨æ„)
       //
-      // query3‚Ìê‡‚Íˆê“x‚Å2‚Â‚ÌğŒ‚É‚Äƒ\[ƒgˆ—‚ªs‚í‚ê‚é‚ª
-      // query4‚ÍA2‰ñ‚É•ª‚¯‚Äƒ\[ƒgˆ—‚ªs‚í‚ê‚éB
+      // query3ã®å ´åˆã¯ä¸€åº¦ã§2ã¤ã®æ¡ä»¶ã«ã¦ã‚½ãƒ¼ãƒˆå‡¦ç†ãŒè¡Œã‚ã‚Œã‚‹ãŒ
+      // query4ã¯ã€2å›ã«åˆ†ã‘ã¦ã‚½ãƒ¼ãƒˆå‡¦ç†ãŒè¡Œã‚ã‚Œã‚‹ã€‚
       //
-      // ‚Â‚Ü‚èAorderby person.Address.PostCode‚Åˆê’Uƒ\[ƒg‚ª
-      // s‚í‚ê‚é‚ªA‚»‚ÌŒãorderby person.Id‚É‚æ‚Á‚ÄID‡‚Éƒ\[ƒg
-      // ‚³‚ê’¼‚³‚ê‚Ä‚µ‚Ü‚¤B
+      // ã¤ã¾ã‚Šã€orderby person.Address.PostCodeã§ä¸€æ—¦ã‚½ãƒ¼ãƒˆãŒ
+      // è¡Œã‚ã‚Œã‚‹ãŒã€ãã®å¾Œorderby person.Idã«ã‚ˆã£ã¦IDé †ã«ã‚½ãƒ¼ãƒˆ
+      // ã•ã‚Œç›´ã•ã‚Œã¦ã—ã¾ã†ã€‚
       //
       var query4 = from person in persons
                    orderby person.Address.PostCode

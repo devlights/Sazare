@@ -9,8 +9,8 @@ namespace Gsf.Samples
   {
     public void Execute()
     {
-      // ����LINQ�ɂāA���̏�����ێ����ď�������ɂ�AsOrdered�𗘗p����B
-      // AsOrdered���w�肵�Ă��Ȃ��ꍇ�A�ǂ̏����ŏ�������Ă����̂��͕ۏ؂���Ȃ��B
+      // 並列LINQにて、元の順序を保持して処理するにはAsOrderedを利用する。
+      // AsOrderedを指定していない場合、どの順序で処理されていくのかは保証されない。
       var query1 = from x in Enumerable.Range(1, 20)
                    select Math.Pow(x, 2);
 
@@ -22,19 +22,19 @@ namespace Gsf.Samples
       Console.WriteLine("===============");
 
       //
-      // �ȉ��̂悤�ɁA���̃f�[�^�V�[�P���X��IEnumerable<T>�Ǝw�肵����ŕ���LINQ���s�����Ƃ��Ă�
-      // ���񉻂���Ȃ��B���̂Ȃ�AIEnumerable<T>�ł́ALINQ�̓V�[�P���X���ɂ����v�f�����݂���̂���
-      // ���ʂ��邱�Ƃ��o���Ȃ����߂ł���B
+      // 以下のように、元のデータシーケンスをIEnumerable<T>と指定した上で並列LINQを行おうとしても
+      // 並列化されない。何故なら、IEnumerable<T>では、LINQはシーケンス内にいくつ要素が存在するのかを
+      // 判別することが出来ないためである。
       //
-      // ����LINQ�́A���̃V�[�P���X��Partioner�𗘗p���āA���̃T�C�Y�̃`�����N�ɕ�����
-      // �������s���邽�߂̋@�\�ł��邽�߁A���̗v�f����������Ȃ��ꍇ�̓`�����N�ɕ����邱�Ƃ��o���Ȃ��B
+      // 並列LINQは、元のシーケンスをPartionerを利用して、一定のサイズのチャンクに分けて
+      // 同時実行するための機能であるため、元の要素数が分からない場合はチャンクに分けることが出来ない。
       //
-      // ���񏈗����s���ׂɂ́AToList��ToArray�Ȃǂ��s���ϊ����Ă��珈����i�߂邩
-      // ParallelEnumerable.Range�𗘗p�����肷��Ƃ��܂������B
+      // 並列処理を行う為には、ToListかToArrayなどを行い変換してから処理を進めるか
+      // ParallelEnumerable.Rangeを利用したりするとうまくいく。
       //
-      // �ȉ��̗�ł͕��񏈗����s���Ȃ��B
+      // 以下の例では並列処理が行われない。
       //var query2 = from x in Enumerable.Range(1, 20).AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism)
-      // �ȉ��̗�ł�LINQ�����X�g�̗v�f���𔻕ʂ��邱�Ƃ��o����̂ŁA���񏈗����s����B
+      // 以下の例ではLINQがリストの要素数を判別することが出来るので、並列処理が行われる。
       var query2 = from x in Enumerable.Range(1, 20).ToList().AsParallel().WithExecutionMode(ParallelExecutionMode.ForceParallelism)
                    select Math.Pow(x, 2);
 

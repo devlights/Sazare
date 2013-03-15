@@ -7,10 +7,10 @@ namespace Gsf.Samples
 
   #region LinqSamples-63
   /// <summary>
-  /// LINQ to XML�̃T���v���ł�.
+  /// LINQ to XMLのサンプルです.
   /// </summary>
   /// <remarks>
-  /// �v�f�u���n���\�b�h�̃T���v���ł�.
+  /// 要素置換系メソッドのサンプルです.
   /// </remarks>
   public class LinqSamples63 : IExecutable
   {
@@ -18,7 +18,7 @@ namespace Gsf.Samples
     {
       //
       // ReplaceWith(object)
-      //   ���݂̗v�f���w�肵���v�f�Œu��������.
+      //   現在の要素を指定した要素で置き換える.
       //   
       var root = BuildSampleXml();
       var elem = root.Descendants("Value").First();
@@ -30,13 +30,13 @@ namespace Gsf.Samples
 
       //
       // ReplaceNodes(object)
-      //   ���݂̗v�f�̎q�m�[�h���w�肳�ꂽ�v�f�Œu��������.
-      //   ���̃��\�b�h�̓X�i�b�v�V���b�g�Z�}���e�B�N�X�Ƃ������@�Œu���������s���B
-      //   �X�i�b�v�V���b�g�Z�}���e�B�N�X��p���Ă���ꍇ�A�u���O�Ɏ��O�ɒu����������e�̃R�s�[��
-      //   �쐬���Ă���A�u���������s�����߁A���݂̗v�f�̏�Ԃ����ɒu���������������邱�Ƃ��ł���B
-      //   (��F LINQ to XML�𗘗p���āA���݂̗v�f���e���N�G�����A���̌��ʂ�u����Ƃ��ė��p����B�j
+      //   現在の要素の子ノードを指定された要素で置き換える.
+      //   このメソッドはスナップショットセマンティクスという方法で置換処理を行う。
+      //   スナップショットセマンティクスを用いている場合、置換前に事前に置き換える内容のコピーを
+      //   作成してから、置換処理を行うため、現在の要素の状態を元に置換処理を実装することができる。
+      //   (例： LINQ to XMLを利用して、現在の要素内容をクエリし、その結果を置換後として利用する。）
       //
-      //   ���A���̃��\�b�h�͑������폜���Ȃ�.
+      //   尚、このメソッドは属性を削除しない.
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
@@ -59,13 +59,13 @@ namespace Gsf.Samples
 
       //
       // ReplaceAll(object)
-      //   ���݂̗v�f�̎q�m�[�h�Ƒ������폜���A�w�肳�ꂽ�v�f�Œu��������.
-      //   ���̃��\�b�h�́A�X�i�b�v�V���b�g�Z�}���e�B�N�X�Ƃ������@�Œu���������s���B
-      //   �X�i�b�v�V���b�g�Z�}���e�B�N�X��p���Ă���ꍇ�A�u���O�Ɏ��O�ɒu����������e�̃R�s�[��
-      //   �쐬���Ă���A�u���������s�����߁A���݂̗v�f�̏�Ԃ����ɒu���������������邱�Ƃ��ł���B
-      //   (��F LINQ to XML�𗘗p���āA���݂̗v�f���e���N�G�����A���̌��ʂ�u����Ƃ��ė��p����B)
+      //   現在の要素の子ノードと属性を削除し、指定された要素で置き換える.
+      //   このメソッドは、スナップショットセマンティクスという方法で置換処理を行う。
+      //   スナップショットセマンティクスを用いている場合、置換前に事前に置き換える内容のコピーを
+      //   作成してから、置換処理を行うため、現在の要素の状態を元に置換処理を実装することができる。
+      //   (例： LINQ to XMLを利用して、現在の要素内容をクエリし、その結果を置換後として利用する。)
       //
-      //   ���A���̃��\�b�h�͑������폜����̂ŗ��p���ɂ͒��ӂ��K�v�B
+      //   尚、このメソッドは属性を削除するので利用時には注意が必要。
       //
       root = BuildSampleXml();
       elem = root.Elements("Child").First();

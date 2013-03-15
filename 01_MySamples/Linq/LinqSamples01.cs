@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-01
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples01 : IExecutable
   {
@@ -66,9 +66,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero1"
               ,Address=new AddressInfo{
                        PostCode="999-8888"
-                      ,Prefecture="“Œ‹“s"
-                      ,Municipality="‚Ç‚±‚©‚P"
-                      ,HouseNumber="”Ô’n‚P"
+                      ,Prefecture="æ±äº¬éƒ½"
+                      ,Municipality="ã©ã“ã‹ï¼‘"
+                      ,HouseNumber="ç•ªåœ°ï¼‘"
                       ,Tel="090-xxxx-xxxx"
               }
            }
@@ -77,9 +77,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero2"
               ,Address=new AddressInfo{
                        PostCode="888-7777"
-                      ,Prefecture="‹“s•{"
-                      ,Municipality="‚Ç‚±‚©‚Q"
-                      ,HouseNumber="”Ô’n‚Q"
+                      ,Prefecture="äº¬éƒ½åºœ"
+                      ,Municipality="ã©ã“ã‹ï¼’"
+                      ,HouseNumber="ç•ªåœ°ï¼’"
                       ,Tel="080-xxxx-xxxx"
               }
           }
@@ -88,9 +88,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero3"
               ,Address=new AddressInfo{
                        PostCode="777-6666"
-                      ,Prefecture="–kŠC“¹"
-                      ,Municipality="‚Ç‚±‚©‚R"
-                      ,HouseNumber="”Ô’n‚R"
+                      ,Prefecture="åŒ—æµ·é“"
+                      ,Municipality="ã©ã“ã‹ï¼“"
+                      ,HouseNumber="ç•ªåœ°ï¼“"
                       ,Tel="070-xxxx-xxxx"
               }
           }
@@ -99,9 +99,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero3"
               ,Address=new AddressInfo{
                        PostCode="777-6666"
-                      ,Prefecture="–kŠC“¹"
-                      ,Municipality="‚Ç‚±‚©‚R"
-                      ,HouseNumber="”Ô’n‚R"
+                      ,Prefecture="åŒ—æµ·é“"
+                      ,Municipality="ã©ã“ã‹ï¼“"
+                      ,HouseNumber="ç•ªåœ°ï¼“"
                       ,Tel="070-xxxx-xxxx"
               }
           }
@@ -127,7 +127,7 @@ namespace Gsf.Samples
       }
       catch (Exception ex)
       {
-        Console.WriteLine("ƒNƒGƒŠÀs‚ÉƒGƒ‰[‚ª”­¶: {0}", ex.Message);
+        Console.WriteLine("ã‚¯ã‚¨ãƒªå®Ÿè¡Œæ™‚ã«ã‚¨ãƒ©ãƒ¼ãŒç™ºç”Ÿ: {0}", ex.Message);
       }
     }
 

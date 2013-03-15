@@ -7,7 +7,7 @@ namespace Gsf.Samples
 
   #region XDocumentSamples-02
   /// <summary>
-  /// XDocumentƒNƒ‰ƒX‚É‚Â‚¢‚Ä‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// XDocumentã‚¯ãƒ©ã‚¹ã«ã¤ã„ã¦ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class XDocumentSamples02 : IExecutable
   {
@@ -22,17 +22,17 @@ namespace Gsf.Samples
             </Persons>";
 
       //
-      // Parseƒƒ\ƒbƒh‚ğ—˜—p‚·‚é–‚ÅA•¶š—ñ‚©‚ç’¼ÚXDocument‚ğ
-      // \’z‚·‚é‚±‚Æ‚ªo—ˆ‚éB
+      // Parseãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹äº‹ã§ã€æ–‡å­—åˆ—ã‹ã‚‰ç›´æ¥XDocumentã‚’
+      // æ§‹ç¯‰ã™ã‚‹ã“ã¨ãŒå‡ºæ¥ã‚‹ã€‚
       //
       var doc = XDocument.Parse(xmlStrings, LoadOptions.None);
 
       //
-      // ƒm[ƒh‚ğ’uŠ·.
+      // ãƒãƒ¼ãƒ‰ã‚’ç½®æ›.
       //
       var name = (from element in doc.Descendants("Name") select element).First();
 
-      name.ReplaceWith(new XElement("–¼‘O", name.Value));
+      name.ReplaceWith(new XElement("åå‰", name.Value));
       Console.WriteLine(doc);
     }
   }

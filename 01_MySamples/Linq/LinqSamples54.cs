@@ -9,33 +9,33 @@ namespace Gsf.Samples
 
   #region LinqSamples-54
   /// <summary>
-  /// LINQ to XML‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// LINQ to XMLã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   /// <remarks>
-  /// XElement.Load‚ğ—˜—p‚µ‚½ƒXƒgƒŠ[ƒ€“Ç‚İ‚İ‚ÌƒTƒ“ƒvƒ‹‚Å‚·.
+  /// XElement.Loadã‚’åˆ©ç”¨ã—ãŸã‚¹ãƒˆãƒªãƒ¼ãƒ èª­ã¿è¾¼ã¿ã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™.
   /// </remarks>
   public class LinqSamples54 : IExecutable
   {
     public void Execute()
     {
       //
-      // XElement.Load‚É‚ÍA•¶š—ñ‚©‚çƒ[ƒh‚·‚é‘¼‚É
-      // ƒXƒgƒŠ[ƒ~ƒ“ƒO‚ğw’è‚µ‚Ä“à—e‚ğƒ[ƒh‚·‚é‚±‚Æ‚à‚Å‚«‚éB
+      // XElement.Loadã«ã¯ã€æ–‡å­—åˆ—ã‹ã‚‰ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ä»–ã«
+      // ã‚¹ãƒˆãƒªãƒ¼ãƒŸãƒ³ã‚°ã‚’æŒ‡å®šã—ã¦å†…å®¹ã‚’ãƒ­ãƒ¼ãƒ‰ã™ã‚‹ã“ã¨ã‚‚ã§ãã‚‹ã€‚
       //
-      // ƒƒ\ƒbƒh‚Í•¡”‚ÌƒI[ƒo[ƒ[ƒh‚ğ‚Á‚Ä‚¨‚èAˆÈ‰º‚Ì‘®‚Æ‚È‚é.
+      // ãƒ¡ã‚½ãƒƒãƒ‰ã¯è¤‡æ•°ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã‚’æŒã£ã¦ãŠã‚Šã€ä»¥ä¸‹ã®æ›¸å¼ã¨ãªã‚‹.
       //   Load(Stream)
       //   Load(TextReader)
       //   Load(XmlReader)
       //   Load(Stream, LoadOptions)
       //   Load(TextReader, LoadOptions)
       //   Load(XmlReader, LoadOptions)
-      // ‘å•Ê‚·‚é‚ÆAƒXƒgƒŠ[ƒ€‚Ì‚İ‚ğw’è‚·‚é‚à‚Ì‚ÆƒIƒvƒVƒ‡ƒ“‚àw’è‚Å‚«‚é‚à‚Ì‚É•ª‚©‚ê‚é.
+      // å¤§åˆ¥ã™ã‚‹ã¨ã€ã‚¹ãƒˆãƒªãƒ¼ãƒ ã®ã¿ã‚’æŒ‡å®šã™ã‚‹ã‚‚ã®ã¨ã‚ªãƒ—ã‚·ãƒ§ãƒ³ã‚‚æŒ‡å®šã§ãã‚‹ã‚‚ã®ã«åˆ†ã‹ã‚Œã‚‹.
       //
 
       //
-      // Load(Stream)‚ÌƒTƒ“ƒvƒ‹.
-      //   -- File.OpenRead‚Å•Ô‚é‚Ì‚ÍFileStream
-      //      FileStream‚ÍStream‚ÌƒTƒuƒNƒ‰ƒX.
+      // Load(Stream)ã®ã‚µãƒ³ãƒ—ãƒ«.
+      //   -- File.OpenReadã§è¿”ã‚‹ã®ã¯FileStream
+      //      FileStreamã¯Streamã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹.
       //
       XElement element = null;
       using (var stream = File.OpenRead("xml/Books.xml"))
@@ -47,8 +47,8 @@ namespace Gsf.Samples
       Console.WriteLine("=============================================");
 
       //
-      // Load(TextReader)‚ÌƒTƒ“ƒvƒ‹
-      //   -- StreamReader‚ÍTextReader‚ÌƒTƒuƒNƒ‰ƒX.
+      // Load(TextReader)ã®ã‚µãƒ³ãƒ—ãƒ«
+      //   -- StreamReaderã¯TextReaderã®ã‚µãƒ–ã‚¯ãƒ©ã‚¹.
       //
       element = null;
       using (var reader = new StreamReader("xml/Data.xml"))
@@ -60,7 +60,7 @@ namespace Gsf.Samples
       Console.WriteLine("=============================================");
 
       //
-      // Load(XmlReader)‚ÌƒTƒ“ƒvƒ‹.
+      // Load(XmlReader)ã®ã‚µãƒ³ãƒ—ãƒ«.
       //
       element = null;
       using (var reader = XmlReader.Create("xml/PurchaseOrder.xml", new XmlReaderSettings { IgnoreWhitespace = true, IgnoreComments = true }))

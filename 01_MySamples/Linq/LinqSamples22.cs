@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-22
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples22 : IExecutable
   {
@@ -34,47 +34,47 @@ namespace Gsf.Samples
                 };
 
       //
-      // ‡˜•t‚¯‰‰Zq‚É‚ÍAˆÈ‰º‚Ì‚à‚Ì‚ª‘¶İ‚·‚éB
+      // é †åºä»˜ã‘æ¼”ç®—å­ã«ã¯ã€ä»¥ä¸‹ã®ã‚‚ã®ãŒå­˜åœ¨ã™ã‚‹ã€‚
       //
-      //   EOrderBy
-      //   EOrderByDescending
-      //   EThenBy
-      //   EThenByDescending
+      //   ãƒ»OrderBy
+      //   ãƒ»OrderByDescending
+      //   ãƒ»ThenBy
+      //   ãƒ»ThenByDescending
       //
-      // OrderBy‚Í¸‡ƒ\[ƒgAOrderByDescending‚Í~‡ƒ\[ƒg‚ğs‚¤B‚Ç‚¿‚ç‚à’PˆêƒL[‚É‚Äƒ\[ƒg‚ğs‚¤B
-      // •¡‡ƒL[‚É‚ÄAƒ\[ƒgˆ—‚ğs‚¤ê‡‚ÍAOrderBy‹y‚ÑOrderByDescending‚É‘±‚¢‚ÄAThenBy‹y‚ÑThenByDescending‚ğ—˜—p‚·‚éB
+      // OrderByã¯æ˜‡é †ã‚½ãƒ¼ãƒˆã€OrderByDescendingã¯é™é †ã‚½ãƒ¼ãƒˆã‚’è¡Œã†ã€‚ã©ã¡ã‚‰ã‚‚å˜ä¸€ã‚­ãƒ¼ã«ã¦ã‚½ãƒ¼ãƒˆã‚’è¡Œã†ã€‚
+      // è¤‡åˆã‚­ãƒ¼ã«ã¦ã€ã‚½ãƒ¼ãƒˆå‡¦ç†ã‚’è¡Œã†å ´åˆã¯ã€OrderByåŠã³OrderByDescendingã«ç¶šã„ã¦ã€ThenByåŠã³ThenByDescendingã‚’åˆ©ç”¨ã™ã‚‹ã€‚
       //
-      // OrderBy‹y‚ÑOrderByDescendingƒƒ\ƒbƒh‚ÍA‘¼‚ÌLINQ•W€‰‰Zq‚Æ–ß‚è’l‚ªˆÙ‚È‚Á‚Ä‚¨‚è
+      // OrderByåŠã³OrderByDescendingãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ä»–ã®LINQæ¨™æº–æ¼”ç®—å­ã¨æˆ»ã‚Šå€¤ãŒç•°ãªã£ã¦ãŠã‚Š
       //   IOrderedEnumerable<T>
-      // ‚ğ•Ô‚·B‚Ü‚½AThenBy‹y‚ÑThenByDescendingƒƒ\ƒbƒh‚ÍAˆø”‚ÉIOrderedEnumerable<T>‚ğ“n‚·•K—v‚ª‚ ‚éB
-      // ‚È‚Ì‚ÅA•K‘R“I‚ÉAThenBy‚ÍOrderBy‚ÌŒã‚ÅŒÄ‚Ño‚³‚È‚¢‚Æ—˜—po—ˆ‚È‚¢B
+      // ã‚’è¿”ã™ã€‚ã¾ãŸã€ThenByåŠã³ThenByDescendingãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€å¼•æ•°ã«IOrderedEnumerable<T>ã‚’æ¸¡ã™å¿…è¦ãŒã‚ã‚‹ã€‚
+      // ãªã®ã§ã€å¿…ç„¶çš„ã«ã€ThenByã¯OrderByã®å¾Œã§å‘¼ã³å‡ºã•ãªã„ã¨åˆ©ç”¨å‡ºæ¥ãªã„ã€‚
       //
-      // LINQ‚Ì•À‚Ñ‘Ö‚¦ˆ—‚ÍAˆÀ’èƒ\[ƒg(Stable Sort)‚Å‚ ‚éB
-      // ‚Â‚Ü‚èA“¯‚¶ƒL[‚Ì—v‘f‚ªƒV[ƒPƒ“ƒX“à‚É•¡”‘¶İ‚µ‚½ê‡A•À‚Ñ‘Ö‚¦‚½Œ‹‰Ê‚ÍŒ³‚Ì‡”Ô‚ğ•Û‚µ‚Ä‚¢‚éB
+      // LINQã®ä¸¦ã³æ›¿ãˆå‡¦ç†ã¯ã€å®‰å®šã‚½ãƒ¼ãƒˆ(Stable Sort)ã§ã‚ã‚‹ã€‚
+      // ã¤ã¾ã‚Šã€åŒã˜ã‚­ãƒ¼ã®è¦ç´ ãŒã‚·ãƒ¼ã‚±ãƒ³ã‚¹å†…ã«è¤‡æ•°å­˜åœ¨ã—ãŸå ´åˆã€ä¸¦ã³æ›¿ãˆãŸçµæœã¯å…ƒã®é †ç•ªã‚’ä¿æŒã—ã¦ã„ã‚‹ã€‚
       //
 
       //
-      // ID‚Å¸‡ƒ\[ƒg.
+      // IDã§æ˜‡é †ã‚½ãƒ¼ãƒˆ.
       //
       var sortByIdAsc = persons.OrderBy(aPerson => aPerson.Id);
 
-      Console.WriteLine("================= ID‚Å¸‡ƒ\[ƒg =================");
+      Console.WriteLine("================= IDã§æ˜‡é †ã‚½ãƒ¼ãƒˆ =================");
       Console.WriteLine(string.Join(Environment.NewLine, sortByIdAsc));
 
       //
-      // ID‚Å~‡ƒ\[ƒg.
+      // IDã§é™é †ã‚½ãƒ¼ãƒˆ.
       //
       var sortByIdDesc = persons.OrderByDescending(aPerson => aPerson.Id);
 
-      Console.WriteLine("================= ID‚Å~‡ƒ\[ƒg =================");
+      Console.WriteLine("================= IDã§é™é †ã‚½ãƒ¼ãƒˆ =================");
       Console.WriteLine(string.Join(Environment.NewLine, sortByIdDesc));
 
       //
-      // ˆÀ’èƒ\[ƒg‚ÌŠm”FB
+      // å®‰å®šã‚½ãƒ¼ãƒˆã®ç¢ºèªã€‚
       //
       var sortByIdAscAndDesc = persons.OrderByDescending(aPerson => aPerson.Id).OrderBy(aPerson => aPerson.Id);
 
-      Console.WriteLine("================= ˆÀ’èƒ\[ƒg‚ÌŠm”F =================");
+      Console.WriteLine("================= å®‰å®šã‚½ãƒ¼ãƒˆã®ç¢ºèª =================");
       Console.WriteLine(string.Join(Environment.NewLine, sortByIdAscAndDesc));
     }
   }

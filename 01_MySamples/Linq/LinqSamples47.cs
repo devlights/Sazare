@@ -6,16 +6,16 @@ namespace Gsf.Samples
 
   #region LinqSample-47
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples47 : IExecutable
   {
     public void Execute()
     {
       //
-      // ElementAtŠg’£ƒƒ\ƒbƒh‚ÍAw’è‚µ‚½ˆÊ’u‚Ì—v‘f‚ğæ“¾‚·‚éƒƒ\ƒbƒhB
+      // ElementAtæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€æŒ‡å®šã—ãŸä½ç½®ã®è¦ç´ ã‚’å–å¾—ã™ã‚‹ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
-      // ”ÍˆÍŠO‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw’è‚µ‚½ê‡‚Í—áŠO‚ª”­¶‚·‚é.
+      // ç¯„å›²å¤–ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡å®šã—ãŸå ´åˆã¯ä¾‹å¤–ãŒç™ºç”Ÿã™ã‚‹.
       //
       var languages = new string[] { "csharp", "visualbasic", "java", "python", "ruby", "php", "c++" };
       Console.WriteLine(languages.ElementAt(1));
@@ -26,12 +26,12 @@ namespace Gsf.Samples
       }
       catch (ArgumentOutOfRangeException)
       {
-        Console.WriteLine("—v‘f‚Ì”ÍˆÍŠO‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw’è‚µ‚Ä‚¢‚éB");
+        Console.WriteLine("è¦ç´ ã®ç¯„å›²å¤–ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡å®šã—ã¦ã„ã‚‹ã€‚");
       }
 
       //
-      // ElementAtOrDefaultŠg’£ƒƒ\ƒbƒh‚ÍAElementAtŠg’£ƒƒ\ƒbƒh‚Æ“¯‚¶“®ì‚ğ
-      // ‚µ‚È‚ª‚çA”ÍˆÍŠO‚ÌƒCƒ“ƒfƒbƒNƒX‚ğw’è‚³‚ê‚½ê‡‚É‹K’è’l‚ğ•Ô‚·ƒƒ\ƒbƒhB
+      // ElementAtOrDefaultæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ElementAtæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¨åŒã˜å‹•ä½œã‚’
+      // ã—ãªãŒã‚‰ã€ç¯„å›²å¤–ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ã‚’æŒ‡å®šã•ã‚ŒãŸå ´åˆã«è¦å®šå€¤ã‚’è¿”ã™ãƒ¡ã‚½ãƒƒãƒ‰ã€‚
       //
       Console.WriteLine(languages.ElementAtOrDefault(-1) ?? "null");
       Console.WriteLine(languages.ElementAtOrDefault(100) ?? "null");

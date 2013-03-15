@@ -9,7 +9,7 @@ namespace Gsf.Samples
   public static class LinqSamples59_Extensions
   {
     /// <summary>
-    /// ƒV[ƒPƒ“ƒX‚ğw’è‚³‚ê‚½ƒTƒCƒY‚Ìƒ`ƒƒƒ“ƒN‚É•ªŠ„‚µ‚Ü‚·.
+    /// ã‚·ãƒ¼ã‚±ãƒ³ã‚¹ã‚’æŒ‡å®šã•ã‚ŒãŸã‚µã‚¤ã‚ºã®ãƒãƒ£ãƒ³ã‚¯ã«åˆ†å‰²ã—ã¾ã™.
     /// </summary>
     public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> self, int chunkSize)
     {

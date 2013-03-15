@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-29
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples29 : IExecutable
   {
@@ -46,12 +46,12 @@ namespace Gsf.Samples
     public void Execute()
     {
       //
-      // ˆø”‚È‚µ‚ÌUnionŠg’£ƒƒ\ƒbƒh‚ğ—˜—p.
-      // ‚±‚Ìê‡AŠù’è‚ÌIEqualityComparer<T>‚ğ—p‚¢‚Ä”äŠr‚ªs‚í‚ê‚éB
+      // å¼•æ•°ãªã—ã®Unionæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨.
+      // ã“ã®å ´åˆã€æ—¢å®šã®IEqualityComparer<T>ã‚’ç”¨ã„ã¦æ¯”è¼ƒãŒè¡Œã‚ã‚Œã‚‹ã€‚
       //
-      // UnionŠg’£ƒƒ\ƒbƒh‚ÍASQL‚Å‚¢‚¤UNION‚Æ“¯‚¶B(d•¡‚ğœŠO‚·‚é)
-      // SQL‚Å‚¢‚¤AUNION ALLid•¡‚ğ‚»‚Ì‚Ü‚Üc‚·j‚ğs‚¤‚É‚ÍConcatŠg’£ƒƒ\ƒbƒh‚ğ—˜—p‚·‚éB
-      // Concat‚µ‚ÄDistinct‚·‚é‚ÆUnion‚Æ“¯‚¶–‚É‚È‚éB
+      // Unionæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€SQLã§ã„ã†UNIONã¨åŒã˜ã€‚(é‡è¤‡ã‚’é™¤å¤–ã™ã‚‹)
+      // SQLã§ã„ã†ã€UNION ALLï¼ˆé‡è¤‡ã‚’ãã®ã¾ã¾æ®‹ã™ï¼‰ã‚’è¡Œã†ã«ã¯Concatæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã™ã‚‹ã€‚
+      // Concatã—ã¦Distinctã™ã‚‹ã¨Unionã¨åŒã˜äº‹ã«ãªã‚‹ã€‚
       // 
       var numbers1 = new int[]
                 {
@@ -68,8 +68,8 @@ namespace Gsf.Samples
       Console.WriteLine("CONCAT->DISTINCT = {0}", JoinElements(numbers1.Concat(numbers2).Distinct()));
 
       //
-      // ˆø”‚ÉIEqualityComparer<T>‚ğw’è‚µ‚ÄAUnionŠg’£ƒƒ\ƒbƒh‚ğ—˜—pB
-      // ‚±‚Ìê‡Aˆø”‚Éw’è‚µ‚½Comparer‚ğ—p‚¢‚Ä”äŠr‚ªs‚í‚ê‚éB
+      // å¼•æ•°ã«IEqualityComparer<T>ã‚’æŒ‡å®šã—ã¦ã€Unionæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã€‚
+      // ã“ã®å ´åˆã€å¼•æ•°ã«æŒ‡å®šã—ãŸComparerã‚’ç”¨ã„ã¦æ¯”è¼ƒãŒè¡Œã‚ã‚Œã‚‹ã€‚
       //
       var people1 = new Person[]
                 { 

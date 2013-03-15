@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-05
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples05 : IExecutable
   {
@@ -83,9 +83,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero1"
               ,Address=new AddressInfo{
                        PostCode="999-8888"
-                      ,Prefecture="“Œ‹“s"
-                      ,Municipality="‚Ç‚±‚©‚P"
-                      ,HouseNumber="”Ô’n‚P"
+                      ,Prefecture="æ±äº¬éƒ½"
+                      ,Municipality="ã©ã“ã‹ï¼‘"
+                      ,HouseNumber="ç•ªåœ°ï¼‘"
                       ,Tel=new []{"090-xxxx-xxxx"}
                       ,Frends=new string[]{}
               }
@@ -96,9 +96,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero2"
               ,Address=new AddressInfo{
                        PostCode="888-7777"
-                      ,Prefecture="‹“s•{"
-                      ,Municipality="‚Ç‚±‚©‚Q"
-                      ,HouseNumber="”Ô’n‚Q"
+                      ,Prefecture="äº¬éƒ½åºœ"
+                      ,Municipality="ã©ã“ã‹ï¼’"
+                      ,HouseNumber="ç•ªåœ°ï¼’"
                       ,Tel=new []{"080-xxxx-xxxx"}
                       ,Frends=new []{"00001"}
               }
@@ -109,9 +109,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero3"
               ,Address=new AddressInfo{
                        PostCode="777-6666"
-                      ,Prefecture="–kŠC“¹"
-                      ,Municipality="‚Ç‚±‚©‚R"
-                      ,HouseNumber="”Ô’n‚R"
+                      ,Prefecture="åŒ—æµ·é“"
+                      ,Municipality="ã©ã“ã‹ï¼“"
+                      ,HouseNumber="ç•ªåœ°ï¼“"
                       ,Tel=new []{"070-xxxx-xxxx"}
                       ,Frends=new []{"00001", "00002"}
               }
@@ -122,9 +122,9 @@ namespace Gsf.Samples
               ,Name="gsf_zero4"
               ,Address=new AddressInfo{
                        PostCode="777-6666"
-                      ,Prefecture="–kŠC“¹"
-                      ,Municipality="‚Ç‚±‚©‚S"
-                      ,HouseNumber="”Ô’n‚S"
+                      ,Prefecture="åŒ—æµ·é“"
+                      ,Municipality="ã©ã“ã‹ï¼”"
+                      ,HouseNumber="ç•ªåœ°ï¼”"
                       ,Tel=new []{"060-xxxx-xxxx", "111-111-1111", "222-222-2222"}
                       ,Frends=new []{"00001", "00003"}
               }
@@ -139,22 +139,22 @@ namespace Gsf.Samples
       IEnumerable<Person> persons = CreateSampleData();
 
       //
-      // into‹å‚ğg—p‚µ‚È‚¢•W€“I‚Ègroup‚Ì—˜—p
-      // (Person.Country‚ÅƒOƒ‹[ƒsƒ“ƒO)
+      // intoå¥ã‚’ä½¿ç”¨ã—ãªã„æ¨™æº–çš„ãªgroupã®åˆ©ç”¨
+      // (Person.Countryã§ã‚°ãƒ«ãƒ¼ãƒ”ãƒ³ã‚°)
       //
       var query1 = from person in persons
                    group person by person.Country;
 
       //
-      // Œ‹‰Ê‚ÍAƒL[‚ÆŠY“–‚·‚éƒOƒ‹[ƒv‚Ìó‘Ô‚Åæ“¾‚Å‚«‚é.
+      // çµæœã¯ã€ã‚­ãƒ¼ã¨è©²å½“ã™ã‚‹ã‚°ãƒ«ãƒ¼ãƒ—ã®çŠ¶æ…‹ã§å–å¾—ã§ãã‚‹.
       //
       foreach (var groupedPerson in query1)
       {
-        // ƒL[
+        // ã‚­ãƒ¼
         Console.WriteLine("Country={0}", groupedPerson.Key);
 
-        // ƒOƒ‹[ƒv
-        // ƒOƒ‹[ƒv‚ğæ“¾‚·‚é‚É‚ÍA‚à‚¤ˆê“xƒ‹[ƒv‚·‚é•K—v‚ª‚ ‚éB
+        // ã‚°ãƒ«ãƒ¼ãƒ—
+        // ã‚°ãƒ«ãƒ¼ãƒ—ã‚’å–å¾—ã™ã‚‹ã«ã¯ã€ã‚‚ã†ä¸€åº¦ãƒ«ãƒ¼ãƒ—ã™ã‚‹å¿…è¦ãŒã‚ã‚‹ã€‚
         foreach (var person in groupedPerson)
         {
           Console.WriteLine("\tId={0}, Name={1}", person.Id, person.Name);
@@ -162,12 +162,12 @@ namespace Gsf.Samples
       }
 
       //
-      // “¯‚¶Œ‹‰Ê‚ğAvar–³‚µ‚Å•\Œ».
+      // åŒã˜çµæœã‚’ã€varç„¡ã—ã§è¡¨ç¾.
       //
-      // groupƒL[ƒ[ƒh‚ÌŒ‹‰Ê‚ÍˆÈ‰º‚ÌŒ^‚Æ‚È‚éB
+      // groupã‚­ãƒ¼ãƒ¯ãƒ¼ãƒ‰ã®çµæœã¯ä»¥ä¸‹ã®å‹ã¨ãªã‚‹ã€‚
       //    IGrouping<TKey, TElement>
-      // IGroupingƒCƒ“ƒ^[ƒtƒF[ƒX‚ÍAIEnumerable<TElement>‚ğ
-      // Œp³‚µ‚Ä‚¢‚é‚Ì‚ÅAƒ‹[ƒv‚³‚¹‚é‚ÆTElement‚ª‡Ÿæ“¾‚Å‚«‚é‚æ‚¤‚É‚È‚Á‚Ä‚¢‚éB
+      // IGroupingã‚¤ãƒ³ã‚¿ãƒ¼ãƒ•ã‚§ãƒ¼ã‚¹ã¯ã€IEnumerable<TElement>ã‚’
+      // ç¶™æ‰¿ã—ã¦ã„ã‚‹ã®ã§ã€ãƒ«ãƒ¼ãƒ—ã•ã›ã‚‹ã¨TElementãŒé †æ¬¡å–å¾—ã§ãã‚‹ã‚ˆã†ã«ãªã£ã¦ã„ã‚‹ã€‚
       //
       foreach (IGrouping<Country, Person> groupedPerson in query1)
       {

@@ -6,7 +6,7 @@ namespace Gsf.Samples
 
   #region LinqSamples-19
   /// <summary>
-  /// Linq‚ÌƒTƒ“ƒvƒ‹‚Å‚·B
+  /// Linqã®ã‚µãƒ³ãƒ—ãƒ«ã§ã™ã€‚
   /// </summary>
   public class LinqSamples19 : IExecutable
   {
@@ -26,20 +26,20 @@ namespace Gsf.Samples
         };
 
       //
-      // WhereŠg’£ƒƒ\ƒbƒh‚ğ—˜—pB
-      //   ƒNƒGƒŠ®‚Å—˜—p‚µ‚Ä‚¢‚éwhere‹å‚Æ—˜—p•û–@‚Í“¯‚¶B
-      //   WhereŠg’£ƒƒ\ƒbƒh‚ÍA‚Q‚Â‚ÌƒI[ƒo[ƒ[ƒh‚ğ‚à‚Á‚Ä‚¨‚è
+      // Whereæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã‚’åˆ©ç”¨ã€‚
+      //   ã‚¯ã‚¨ãƒªå¼ã§åˆ©ç”¨ã—ã¦ã„ã‚‹whereå¥ã¨åˆ©ç”¨æ–¹æ³•ã¯åŒã˜ã€‚
+      //   Whereæ‹¡å¼µãƒ¡ã‚½ãƒƒãƒ‰ã¯ã€ï¼’ã¤ã®ã‚ªãƒ¼ãƒãƒ¼ãƒ­ãƒ¼ãƒ‰ã‚’ã‚‚ã£ã¦ãŠã‚Š
       //
-      //   ˆê‚Â‚ÍAFunc<T, bool>‚Ìƒ^ƒCƒvB‚à‚¤ˆê‚Â‚ÍAFunc<T, int, bool>‚Ìƒ^ƒCƒv‚Æ‚È‚éB
-      //   2‚Â–Ú‚Ìƒ^ƒCƒv‚Ìê‡A‚»‚Ì‚ÌƒCƒ“ƒfƒbƒNƒX‚ªˆø”‚Æ‚µ‚Äİ’è‚³‚ê‚éB
+      //   ä¸€ã¤ã¯ã€Func<T, bool>ã®ã‚¿ã‚¤ãƒ—ã€‚ã‚‚ã†ä¸€ã¤ã¯ã€Func<T, int, bool>ã®ã‚¿ã‚¤ãƒ—ã¨ãªã‚‹ã€‚
+      //   2ã¤ç›®ã®ã‚¿ã‚¤ãƒ—ã®å ´åˆã€ãã®æ™‚ã®ã‚¤ãƒ³ãƒ‡ãƒƒã‚¯ã‚¹ãŒå¼•æ•°ã¨ã—ã¦è¨­å®šã•ã‚Œã‚‹ã€‚
       //
-      Console.WriteLine("===== Func<T, bool>‚Ìƒ^ƒCƒv =====");
+      Console.WriteLine("===== Func<T, bool>ã®ã‚¿ã‚¤ãƒ— =====");
       foreach (var aPerson in persons.Where(item => item.Id == 2))
       {
         Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
-      Console.WriteLine("===== Func<T, int, bool>‚Ìƒ^ƒCƒv =====");
+      Console.WriteLine("===== Func<T, int, bool>ã®ã‚¿ã‚¤ãƒ— =====");
       foreach (var aPerson in persons.Where((item, index) => index == 2))
       {
         Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
