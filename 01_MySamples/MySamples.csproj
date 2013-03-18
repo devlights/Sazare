@@ -8,7 +8,7 @@
         ${.net frameworkインストールフォルダ}の下
 
     vimから利用する場合は、以下のようにして実行する。
-        :!msbuild /t:Build,Run /p:TargetClass=クラス名
+        :!msbuild /t:Build,Run /p:StartArguments=クラス名
 
     作成されたEXEファイルは以下のようにして実行する事が出来る。
         $ MySamples.exe Gsf.Samples.対象クラス名
@@ -65,21 +65,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <!-- 
-        実行するエントリポイントクラスの指定 
-
-        TargetClassプロパティは、コマンドラインより渡される。
-        指定されていない場合は、既定のダミークラスを使用する。
-    -->
-  <PropertyGroup>
-    <TargetClass>Dummy</TargetClass>
-  </PropertyGroup>
   <!--
         Runターゲット内にて使用されているプロパティの設定.
     -->
   <PropertyGroup>
-    <!-- 実行時の引数 -->
-    <StartArguments>$(TargetClass)</StartArguments>
+    <!-- 実行時の引数 (実行時ここにクラス名を指定する) -->
+    <StartArguments>Dummy</StartArguments>
     <!-- アプリケーション内での作業ディレクトリ -->
     <StartWorkingDirectory>
     </StartWorkingDirectory>
