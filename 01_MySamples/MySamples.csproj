@@ -134,6 +134,7 @@
     <Compile Include="Advanced\DisposableSamples01.cs" />
     <Compile Include="Advanced\MulticoreJITSamples01.cs" />
     <Compile Include="Dummy.cs" />
+    <Compile Include="Linq\LinqSamples87.cs" />
     <Compile Include="Threading\CallContextSamples01.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="IO\ImageConverterSamples01.cs" />
@@ -405,7 +406,6 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
   </ItemGroup>
-  
   <!--=====================================================================-->
   <!-- 共通ターゲットファイルの読み込み.                                   -->
   <!--=====================================================================-->
