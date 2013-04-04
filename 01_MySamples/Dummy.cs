@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// ダミークラス
   /// </summary>
+  [Sample]
   class Dummy : IExecutable
   {
     /// <summary>
