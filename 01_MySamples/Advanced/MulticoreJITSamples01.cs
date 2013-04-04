@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// マルチコアJITのサンプルです.
   /// </summary>
+  [Sample]
   public class MulticoreJITSamples01 : IExecutable
   {
     public void Execute()

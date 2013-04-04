@@ -17,6 +17,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// このクラスは、.NET Framework 4.5から追加された型です。
   /// </remarks>
+  [Sample]
   public class ProgressSamples03 : IExecutable
   {
     class SampleWindow : Window

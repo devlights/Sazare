@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// AppDomainクラスのサンプルです。
   /// </summary>
+  [Sample]
   public class AppDomainSamples03 : IExecutable
   {
     // AppDomainのモニタリングを担当するクラス

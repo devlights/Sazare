@@ -14,6 +14,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// シリアル化サロゲートについて。 (ISerializationSurrogate)
   /// </remarks>
+  [Sample]
   public class SerializationSurrogateSamples01 : IExecutable
   {
     public void Execute()

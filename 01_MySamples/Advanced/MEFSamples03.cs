@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// MEFについてのサンプルです。
   /// </summary>
+  [Sample]
   public class MEFSamples03 : IExecutable
   {
     // Export用のインターフェース
