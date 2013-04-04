@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// IComparableについてのサンプルです。
   /// </summary>
+  [Sample]
   public class IComparableSamples01 : IExecutable
   {
     enum CompareResult : int

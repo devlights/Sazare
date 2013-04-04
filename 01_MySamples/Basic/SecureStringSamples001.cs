@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// SecureStringについてのサンプルです。
   /// </summary>
+  [Sample]
   public class SecureStringSamples001 : IExecutable
   {
     public void Execute()

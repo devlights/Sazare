@@ -11,6 +11,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// Tupleクラスは4.0から追加されたクラスです。
   /// </remarks>
+  [Sample]
   public class TupleSamples01 : IExecutable
   {
     public void Execute()

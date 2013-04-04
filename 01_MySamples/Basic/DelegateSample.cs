@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// デリゲートのサンプル（.NET Framework 1.1）
   /// </summary>
+  [Sample]
   class DelegateSample : IExecutable
   {
     /// <summary>

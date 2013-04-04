@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// コンパイルディレクティブのサンプル1です。
   /// </summary>
+  [Sample]
   public class CompileDirectiveSamples01 : IExecutable
   {
 

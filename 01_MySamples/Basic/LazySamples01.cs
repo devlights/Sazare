@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Lazy<T>, LazyInitializerクラスのサンプルです。
   /// </summary>
+  [Sample]
   public class LazySamples01 : IExecutable
   {
     public void Execute()

@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// 匿名デリゲート(anonymous delegete)のサンプル（.NET Framework 2.0）
   /// </summary>
+  [Sample]
   class AnonymousDelegateSample : IExecutable
   {
     /// <summary>

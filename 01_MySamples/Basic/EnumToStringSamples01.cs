@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Enumに関するサンプルです。
   /// </summary>
+  [Sample]
   public class EnumToStringSamples01 : IExecutable
   {
     private enum MyColor

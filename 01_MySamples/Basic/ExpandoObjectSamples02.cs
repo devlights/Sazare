@@ -11,6 +11,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// .NET 4.0から追加されたクラスです。
   /// </remarks>
+  [Sample]
   public class ExpandoObjectSamples02 : IExecutable
   {
     public void Execute()

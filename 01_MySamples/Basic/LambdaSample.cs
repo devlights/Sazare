@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// ラムダ(lambda)のサンプル（.NET Framework 3.5）
   /// </summary>
+  [Sample]
   class LambdaSample : IExecutable
   {
     /// <summary>

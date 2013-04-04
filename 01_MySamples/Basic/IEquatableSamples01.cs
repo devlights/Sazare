@@ -7,7 +7,8 @@ namespace Gsf.Samples
   #region IEquatableSamples-01
   /// <summary>
   /// IEquatable<T>のサンプルです。
-  /// </summary> -->
+  /// </summary>
+  [Sample]
   public class IEquatableSamples01 : IExecutable
   {
     public void Execute()

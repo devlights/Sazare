@@ -15,6 +15,7 @@ namespace Gsf.Samples
   /// このクラスのソースコードを別ファイルに保存してコマンドラインにて
   /// 実行してください。
   ///</remarks>
+  [Sample]
   public class ConsoleCursorSamples01 : IExecutable
   {
     volatile bool _stop;

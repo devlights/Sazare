@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// yieldキーワードに関するサンプルです。
   /// </summary>
+  [Sample]
   public class YieldSamples01 : IExecutable
   {
     //

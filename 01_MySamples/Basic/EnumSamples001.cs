@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Enumについてのサンプルです。
   /// </summary>
+  [Sample]
   public class EnumSamples001 : IExecutable
   {
     //

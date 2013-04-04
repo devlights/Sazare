@@ -11,6 +11,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 共変性は4.0から追加された機能です。
   /// </remarks>
+  [Sample]
   public class CovarianceSamples01 : IExecutable
   {
     public void Execute()

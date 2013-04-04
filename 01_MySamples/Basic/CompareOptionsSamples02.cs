@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// CompareOptions列挙型のサンプルです。
   /// </summary>
+  [Sample]
   public class CompareOptionsSamples02 : IExecutable
   {
     public void Execute()

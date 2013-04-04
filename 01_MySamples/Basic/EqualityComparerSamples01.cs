@@ -5,6 +5,10 @@ namespace Gsf.Samples
   using System.Linq;
 
   #region EqualityComparerSamples-01
+  /// <summary>
+  /// EqualityComparerのサンプルです。
+  /// </summary>
+  [Sample]
   public class EqualityComparerSamples01 : IExecutable
   {
     public void Execute()

@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// BCD変換についてのサンプルです。
   /// </summary>
+  [Sample]
   public class BCDSamples01 : IExecutable
   {
     public void Execute()
