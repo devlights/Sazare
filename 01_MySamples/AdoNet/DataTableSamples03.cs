@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// DataTableクラスに関するサンプルです。
   /// </summary>
+  [Sample]
   public class DataTableSamples03 : IExecutable
   {
     public void Execute()

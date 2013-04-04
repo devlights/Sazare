@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// DbCommandのタイムアウト機能についてのサンプルです。
   /// </summary>
+  [Sample]
   public class DbCommandTimeoutSample01 : IExecutable
   {
     public void Execute()
