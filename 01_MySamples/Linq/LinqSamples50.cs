@@ -11,6 +11,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
+  [Sample]
   public class LinqSamples50 : IExecutable
   {
     public void Execute()
