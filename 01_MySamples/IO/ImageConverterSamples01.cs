@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <summary>
   /// ImageConverterクラスのサンプルです。
   /// </summary>
+  [Sample]
   public class ImageConverterSamples01 : IExecutable
   {
     public void Execute()

@@ -21,6 +21,7 @@ namespace Gsf.Samples
   ///   System.IO.Compression.dll
   /// を参照設定に追加する必要があります。
   /// </remarks>
+  [Sample]
   public class ZipFileSamples03 : IExecutable
   {
     string _zipFilePath;

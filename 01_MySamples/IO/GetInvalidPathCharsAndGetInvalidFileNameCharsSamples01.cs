@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// PathクラスのGetInvalidPathCharsメソッドとGetInvalidFileNameCharsメソッドのサンプルです。
   /// </summary>
+  [Sample]
   public class GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01 : IExecutable
   {
     public void Execute()

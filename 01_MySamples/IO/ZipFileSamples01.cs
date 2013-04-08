@@ -17,6 +17,7 @@ namespace Gsf.Samples
   /// このクラスは、Metroアプリでは利用できません。
   /// Metroアプリでは、代わりにZipArchiveクラスを利用します。
   /// </remarks>
+  [Sample]
   public class ZipFileSamples01 : IExecutable
   {
     public void Execute()
