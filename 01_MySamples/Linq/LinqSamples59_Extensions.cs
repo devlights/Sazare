@@ -4,7 +4,7 @@ namespace Gsf.Samples
   using System.Collections.Generic;
   using System.Linq;
 
-  #region LinqSamples-59
+  #region LinqSamples-59 Extensions
 
   public static class LinqSamples59_Extensions
   {

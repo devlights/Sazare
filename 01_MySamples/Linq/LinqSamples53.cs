@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// XElement.Loadを利用した読み込みのサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples53 : IExecutable
   {
     const string FILE_URI = @"LinqSamples53_Sample.xml";

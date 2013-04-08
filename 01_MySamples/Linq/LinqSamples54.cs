@@ -14,6 +14,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// XElement.Loadを利用したストリーム読み込みのサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples54 : IExecutable
   {
     public void Execute()

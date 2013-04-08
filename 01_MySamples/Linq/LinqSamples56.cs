@@ -15,6 +15,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// LINQ to XMLにてXMLファイルを新規作成するサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples56 : IExecutable
   {
     public void Execute()

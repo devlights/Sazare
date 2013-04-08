@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 要素追加系メソッドのサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples60 : IExecutable
   {
     public void Execute()

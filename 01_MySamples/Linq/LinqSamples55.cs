@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// LINQ to XMLにてエラー発生時XmlExceptionが発生することを確認するサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples55 : IExecutable
   {
     public void Execute()
