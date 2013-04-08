@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
   /// </summary>
+  [Sample]
   public class QueueSynchronizedSamples01 : IExecutable
   {
     Queue queue;
