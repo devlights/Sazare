@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
+  [Sample]
   public class LinqSamples05 : IExecutable
   {
     enum Country

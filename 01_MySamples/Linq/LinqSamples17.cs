@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
+  [Sample]
   public class LinqSamples17 : IExecutable
   {
     class Person
