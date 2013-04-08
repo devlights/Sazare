@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// ナビゲーション(Descendants, Ancestorsメソッド)のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples76 : IExecutable
   {
     public void Execute()

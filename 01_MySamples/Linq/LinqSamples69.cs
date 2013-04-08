@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 名前空間 (XNamespace) のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples69 : IExecutable
   {
     public void Execute()

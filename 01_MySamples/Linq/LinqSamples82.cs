@@ -17,6 +17,7 @@ namespace Gsf.Samples
   ///   http://msdn.microsoft.com/ja-jp/library/vstudio/bb675178.aspx
   /// に詳細に記載されている.
   /// </remarks>
+  [Sample]
   public class LinqSamples82 : IExecutable
   {
     public void Execute()

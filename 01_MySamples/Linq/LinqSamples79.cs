@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// ナビゲーション(ElementsAfterSelf, ElementsBeforeSelf)のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples79 : IExecutable
   {
     public void Execute()

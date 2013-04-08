@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 要素置換系メソッドのサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples63 : IExecutable
   {
     public void Execute()

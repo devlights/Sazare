@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// ナビゲーション(FirstNode, LastNodeプロパティ)のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples74 : IExecutable
   {
     public void Execute()

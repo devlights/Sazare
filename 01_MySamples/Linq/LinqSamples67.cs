@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 属性削除系メソッドのサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples67 : IExecutable
   {
     public void Execute()

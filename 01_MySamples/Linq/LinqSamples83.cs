@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// XElementとXAttributeの値取得についてのTipです。
   /// </remarks>
+  [Sample]
   public class LinqSamples83 : IExecutable
   {
     public void Execute()

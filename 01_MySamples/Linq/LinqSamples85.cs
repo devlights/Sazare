@@ -14,6 +14,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// XStreamingElementのサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples85 : IExecutable
   {
     public void Execute()

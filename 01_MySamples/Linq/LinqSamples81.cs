@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// ドキュメント順に並び替え(InDocumentOrder)のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples81 : IExecutable
   {
     public void Execute()
