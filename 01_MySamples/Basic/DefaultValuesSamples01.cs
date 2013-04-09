@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// 各型のデフォルト値についてのサンプルです。
   /// </summary>
+  [Sample]
   public class DefaultValuesSamples01 : IExecutable
   {
     class SampleClass { }

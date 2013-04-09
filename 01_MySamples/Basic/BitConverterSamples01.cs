@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// System.BitConverterクラスのサンプルです。
   /// </summary>
+  [Sample]
   public class BitConverterSamples01 : IExecutable
   {
     public void Execute()

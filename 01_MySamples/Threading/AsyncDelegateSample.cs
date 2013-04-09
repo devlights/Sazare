@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// 非同期デリゲートを利用したスレッド処理のサンプルです。
   /// </summary>
+  [Sample]
   public class AsyncDelegateSample : IExecutable
   {
     /// <summary>

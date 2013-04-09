@@ -11,6 +11,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// .NET 4.0から追加されたメソッドです。
   /// </remarks>
+  [Sample]
   public class StringIsNullOrWhiteSpaceSamples01 : IExecutable
   {
     public void Execute()

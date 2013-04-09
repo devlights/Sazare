@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// AppDomainクラスのサンプルです。
   /// </summary>
+  [Sample]
   public class AppDomainSamples02 : MarshalByRefObject, IExecutable
   {
     public void Execute()

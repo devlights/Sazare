@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// XDocumentオブジェクトを関数型構築するサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples52 : IExecutable
   {
     public void Execute()

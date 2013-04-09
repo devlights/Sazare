@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// XDocumentクラスについてのサンプルです。
   /// </summary>
+  [Sample]
   public class XDocumentSamples02 : IExecutable
   {
     public void Execute()

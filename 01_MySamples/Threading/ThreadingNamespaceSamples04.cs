@@ -6,6 +6,7 @@ namespace Gsf.Samples
   using System.Threading;
 
   #region ThreadingNamespaceSamples-04
+  [Sample]
   public class ThreadingNamespaceSamples04 : IExecutable
   {
     public void Execute()

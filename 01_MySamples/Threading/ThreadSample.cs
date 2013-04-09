@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// スレッドを直接作成するサンプル.
   /// </summary>
+  [Sample]
   public class ThreadSample : IExecutable
   {
     /// <summary>

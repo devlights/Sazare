@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// System.Threading名前空間に存在するクラスのサンプルです。
   /// </summary>
+  [Sample]
   public class ThreadingNamespaceSamples02 : IExecutable
   {
 

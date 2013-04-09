@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// LINQ to XMLのアノテーション機能についてのサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples86 : IExecutable
   {
     public void Execute()

@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// 拡張メソッドのサンプル1です。
   /// </summary>
+  [Sample]
   public class ExtensionMethodSample01 : IExecutable
   {
     public void Execute()

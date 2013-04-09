@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// CSVファイルに接続し、各クエリ文を発行します。
   /// </remarks>
+  [Sample]
   public class TextConnectSamples01 : IExecutable
   {
     public void Execute()

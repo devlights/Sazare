@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 存在確認プロパティ (HasElements, HasAttributes) のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples70 : IExecutable
   {
     public void Execute()

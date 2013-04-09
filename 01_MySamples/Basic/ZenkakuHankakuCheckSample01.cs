@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 単純な全角チェックと半角チェックを定義しています。
   /// </remarks>
+  [Sample]
   public class ZenkakuHankakuCheckSample01 : IExecutable
   {
     public void Execute()

@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Comparerについてのサンプルです。
   /// </summary>
+  [Sample]
   public class ComparerSamples01 : IExecutable
   {
     enum CompareResult : int

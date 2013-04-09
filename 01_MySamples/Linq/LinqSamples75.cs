@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// ナビゲーション(Parentプロパティ)のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples75 : IExecutable
   {
     public void Execute()

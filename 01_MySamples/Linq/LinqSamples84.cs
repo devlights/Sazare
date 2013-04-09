@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// Changing, Changedイベントについてのサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples84 : IExecutable
   {
     public void Execute()

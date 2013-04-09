@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Listをforeachでループする場合と、List.ForEachする場合の速度差をテスト
   /// </summary>
+  [Sample]
   public class ListForEachDiffSamples01 : IExecutable
   {
     public void Execute()

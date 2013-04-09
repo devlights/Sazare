@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// System.Data.Extensionsのサンプル1です。
   /// </summary>
+  [Sample]
   public class DataTableExtensionsSample01 : IExecutable
   {
     public void Execute()

@@ -28,6 +28,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// サロゲートペアについて記述しています。
   /// </remarks>
+  [Sample]
   public class StringInfoSamples001 : IExecutable
   {
     public class StringInfoSampleForm : WinFormsForm

@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 前後存在確認プロパティ (IsBefore, IsAfter) のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples71 : IExecutable
   {
     public void Execute()

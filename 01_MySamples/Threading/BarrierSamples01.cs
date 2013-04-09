@@ -14,6 +14,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// Barrierクラスは、.NET 4.0から追加されたクラスです。
   /// </remarks>
+  [Sample]
   public class BarrierSamples01 : IExecutable
   {
     // 計算値を保持する変数

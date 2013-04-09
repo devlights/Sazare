@@ -7,6 +7,10 @@ namespace Gsf.Samples
   using System.Threading.Tasks;
 
   #region LazyInitializerSamples-01
+  /// <summary>
+  /// LazyInitializerのサンプルです。
+  /// </summary>
+  [Sample]
   public class LazyInitializerSamples01 : IExecutable
   {
     public void Execute()

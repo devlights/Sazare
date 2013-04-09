@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 属性更新系メソッドのサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples66 : IExecutable
   {
     public void Execute()

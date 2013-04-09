@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// LINQ to XMLにてクエリを使用して対象の要素を取得するサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples57 : IExecutable
   {
     public void Execute()

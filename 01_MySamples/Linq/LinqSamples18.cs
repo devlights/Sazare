@@ -17,6 +17,7 @@ namespace Gsf.Samples
   ///
   ///  ・拡張メソッド解決
   /// </remarks>
+  [Sample]
   public class LinqSamples18 : IExecutable
   {
     public void Execute()

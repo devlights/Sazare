@@ -11,6 +11,7 @@ namespace Gsf.Samples
   /// <summary>
   /// CancellationTokenとCancellationTokenSourceについてのサンプルです。
   /// </summary>
+  [Sample]
   public class CancellationTokenSamples01 : IExecutable
   {
     public void Execute()

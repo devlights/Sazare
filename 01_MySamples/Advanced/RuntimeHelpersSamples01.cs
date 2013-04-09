@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// RuntimeHelpersクラスのサンプルです。
   /// </summary>
+  [Sample]
   public class RuntimeHelpersSamples01 : IExecutable
   {
     class SampleClass

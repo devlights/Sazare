@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// ADO.NETを用いてExcelに接続するサンプルです。
   /// </summary>
+  [Sample]
   public class ExcelConnectSamples01 : IExecutable
   {
     public void Execute()

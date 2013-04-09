@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// プロパティを持つクラスを動的生成します。
   /// </remarks>
+  [Sample]
   public class EmitSample2 : IExecutable
   {
     public void Execute()

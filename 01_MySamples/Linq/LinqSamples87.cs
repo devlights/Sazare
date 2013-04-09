@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// IXmlLineInfoインターフェースから行番号を取得するサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples87 : IExecutable
   {
     public void Execute()

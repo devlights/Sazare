@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <sumamry>
   /// 文字列の書式設定に関してのサンプルです。
   /// </summary>
+  [Sample]
   class StringFormatSamples01 : IExecutable
   {
     public void Execute()

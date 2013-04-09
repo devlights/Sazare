@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 要素のクローンとアタッチについてのサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples58 : IExecutable
   {
     public void Execute()

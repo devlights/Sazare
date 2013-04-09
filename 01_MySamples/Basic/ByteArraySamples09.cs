@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// バイト配列についてのサンプルです。
   /// </summary>
+  [Sample]
   public class ByteArraySamples09 : IExecutable
   {
     public void Execute()

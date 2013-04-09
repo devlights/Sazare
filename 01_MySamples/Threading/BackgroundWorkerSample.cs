@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// BackgroundWorkerを利用したスレッド処理のサンプルです。
   /// </summary>
+  [Sample]
   public class BackgroundWorkerSample : IExecutable
   {
     /// <summary>

@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// MarshalByRefObjectクラスに関するサンプルです。
   /// </summary>
+  [Sample]
   public class MarshalByRefObjectSamples01 : IExecutable
   {
     class CanNotMarshalByRef

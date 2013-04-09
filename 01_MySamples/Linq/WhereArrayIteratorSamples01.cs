@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// WhereArrayIteratorに関するサンプルです。
   /// </summary>
+  [Sample]
   public class WhereArrayIteratorSamples01 : IExecutable
   {
     public void Execute()

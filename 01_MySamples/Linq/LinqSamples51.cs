@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 文字列からXDocumentオブジェクトを構築するサンプルです。
   /// </remarks>
+  [Sample]
   public class LinqSamples51 : IExecutable
   {
     public void Execute()

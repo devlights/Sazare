@@ -5,6 +5,10 @@ namespace Gsf.Samples
   using System.Linq;
 
   #region TypeSamples-01
+  /// <summary>
+  /// System.Typeのサンプルです。
+  /// </summary>
+  [Sample]
   public class TypeSamples01 : IExecutable
   {
     public void Execute()

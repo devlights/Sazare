@@ -5,6 +5,10 @@ namespace Gsf.Samples
   using System.Linq;
 
   #region AppDomainSamples-04
+  /// <summary>
+  /// AppDomainクラスのサンプルです。
+  /// </summary>
+  [Sample]
   public class AppDomainSamples04 : MarshalByRefObject, IExecutable
   {
     public void Execute()

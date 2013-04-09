@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// カスタム属性を持つクラスを動的生成します。
   /// </remarks>
+  [Sample]
   public class EmitSample3 : IExecutable
   {
     [AttributeUsage(AttributeTargets.Class)]

@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// 時刻に関する処理(10進数形式からXX時間XX分形式に変換)についてのサンプルです。
   /// </summary>
+  [Sample]
   public class TimeConvertSample02 : IExecutable
   {
     public void Execute()

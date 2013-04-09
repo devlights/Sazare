@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// 以下の記事を見て作成したサンプル。
   ///   http://www.codeproject.com/Tips/458846/Using-using-Statements-DisposalAccumulator
   /// </remarks>
+  [Sample]
   public class DisposableSamples01 : IExecutable
   {
     public void Execute()

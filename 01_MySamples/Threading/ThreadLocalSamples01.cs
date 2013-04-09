@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// ThreadLocal<T>クラスのサンプルです。
   /// </summary>
+  [Sample]
   public class ThreadLocalSamples01 : IExecutable
   {
     #region Static Fields

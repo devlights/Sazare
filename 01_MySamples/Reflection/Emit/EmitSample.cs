@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// HelloWorldを出力するクラスを動的生成します。
   /// </remarks>
+  [Sample]
   public class EmitSample : IExecutable
   {
     public interface ISayHello

@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// ナビゲーション(PreviousNode, NextNodeプロパティ)のサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples73 : IExecutable
   {
     public void Execute()

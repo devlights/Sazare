@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// AppDomainクラスのサンプルです。
   /// </summary>
+  [Sample]
   public class AppDomainSamples01 : IExecutable
   {
     public void Execute()

@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// RuntimeEnvironmentクラスについてのサンプルです。
   /// </summary>
+  [Sample]
   public class RuntimeEnvironmentSamples01 : IExecutable
   {
     public void Execute()

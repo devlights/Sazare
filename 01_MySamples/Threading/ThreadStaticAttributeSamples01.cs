@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// ThreadStatic属性に関するサンプルです。
   /// </summary>
+  [Sample]
   public class ThreadStaticAttributeSamples01 : IExecutable
   {
     private class ThreadState

@@ -48,7 +48,7 @@
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -135,6 +135,7 @@
     <Compile Include="Advanced\MulticoreJITSamples01.cs" />
     <Compile Include="Dummy.cs" />
     <Compile Include="Linq\LinqSamples87.cs" />
+    <Compile Include="SampleAttribute.cs" />
     <Compile Include="Threading\CallContextSamples01.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="IO\ImageConverterSamples01.cs" />

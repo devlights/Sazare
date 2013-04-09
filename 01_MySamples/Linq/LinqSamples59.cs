@@ -7,6 +7,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Linqにて、シーケンスをチャンクに分割して処理するサンプルです.
   /// </summary>
+  [Sample]
   public class LinqSamples59 : IExecutable
   {
     public void Execute()

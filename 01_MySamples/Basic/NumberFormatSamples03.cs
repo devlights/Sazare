@@ -8,6 +8,7 @@ namespace Gsf.Samples
   /// <summary>
   /// 数値フォーマットのサンプルです。
   /// </summary>
+  [Sample]
   public class NumberFormatSamples03 : IExecutable
   {
     public void Execute()

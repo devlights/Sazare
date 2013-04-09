@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// OrderedDictionaryのサンプル1です。
   /// </summary>
+  [Sample]
   public class OrderedDictionarySample01 : IExecutable
   {
 

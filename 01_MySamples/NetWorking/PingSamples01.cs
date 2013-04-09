@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Pingクラスに関するサンプルです。
   /// </summary>
+  [Sample]
   public class PingSamples01 : IExecutable
   {
     public void Execute()

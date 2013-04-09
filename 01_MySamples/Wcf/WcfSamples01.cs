@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 最も基本的なサービスとクライアントの応答を行うサンプルです。
   /// </remarks>
+  [Sample]
   public class WcfSamples01 : IExecutable
   {
     #region Constants

@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// 手動でイベントを制御する方法に関してのサンプルです。(EventHandlerList)
   /// </summary>
+  [Sample]
   public class EventSettingSamples01 : IExecutable
   {
     class Sample

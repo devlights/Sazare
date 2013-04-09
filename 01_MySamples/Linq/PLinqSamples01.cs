@@ -6,6 +6,7 @@ namespace Gsf.Samples
   using System.Linq;
 
   #region PLinqSamples-01
+  [Sample]
   public class PLinqSamples01 : IExecutable
   {
     public void Execute()

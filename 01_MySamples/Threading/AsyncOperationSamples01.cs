@@ -17,6 +17,7 @@ namespace Gsf.Samples
   /// <summary>
   /// AsyncOperationのサンプル1です。
   /// </summary>
+  [Sample]
   public class AsyncOperationSamples01 : IExecutable
   {
 

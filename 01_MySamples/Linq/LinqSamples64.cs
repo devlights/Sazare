@@ -12,6 +12,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 属性取得系メソッドのサンプルです.
   /// </remarks>
+  [Sample]
   public class LinqSamples64 : IExecutable
   {
     public void Execute()

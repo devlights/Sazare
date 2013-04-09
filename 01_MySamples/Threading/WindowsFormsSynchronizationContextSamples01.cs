@@ -18,6 +18,7 @@ namespace Gsf.Samples
   /// デフォルトでは、Windows Formsにて、最初のフォームが作成された際に自動的に設定されます。
   /// (AutoInstall静的プロパティにて、動作を変更可能。）
   /// </remakrs>
+  [Sample]
   public class WindowsFormsSynchronizationContextSamples01 : IExecutable
   {
     class SampleForm : WinFormsForm
