@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// リフレクションのサンプル2です。
   /// </summary>
+  [Sample]
   public class ReflectionSample02 : IExecutable
   {
     public void Execute()

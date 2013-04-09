@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// ByRefの引数を持つメソッドをリフレクションで取得するサンプルです。
   /// </summary>
+  [Sample]
   public class HasByRefParameterMethodReflectionSample : IExecutable
   {
     public void Execute()

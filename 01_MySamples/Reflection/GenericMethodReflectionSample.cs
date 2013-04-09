@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// ジェネリックメソッドをリフレクションで取得するサンプルです。
   /// </summary>
+  [Sample]
   public class GenericMethodReflectionSample : IExecutable
   {
     public void Execute()
