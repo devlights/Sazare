@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// タスク並列ライブラリは、4.0から追加されているライブラリです。
   /// </remarks>
+  [Sample]
   public class TaskSamples01 : IExecutable
   {
     public void Execute()
