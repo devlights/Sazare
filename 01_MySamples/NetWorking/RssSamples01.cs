@@ -8,6 +8,7 @@ namespace Gsf.Samples
   using System.Xml;
 
   #region RssSamples-01
+  [Sample]
   public class RssSamples01 : IExecutable
   {
     public void Execute()
