@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// 引数にカスタムオブジェクトを指定するサービスメソッドを定義しています。
   /// </remarks>
+  [Sample]
   public class WcfSamples02 : IExecutable
   {
     #region Constants
