@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// Monitorクラスについてのサンプルです。
   /// </summary>
+  [Sample]
   public class MonitorSamples01 : IExecutable
   {
     object _lock = new object();

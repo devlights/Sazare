@@ -10,6 +10,7 @@ namespace Gsf.Samples
   /// <summary>
   /// 実行コンテキスト(ExecutionContext)と論理呼び出しコンテキスト(CallContext)のサンプルです。
   /// </summary>
+  [Sample]
   public class CallContextSamples01 : IExecutable
   {
     public void Execute()

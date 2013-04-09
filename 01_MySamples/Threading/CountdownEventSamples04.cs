@@ -13,6 +13,7 @@ namespace Gsf.Samples
   /// <remarks>
   /// CountdownEventクラスは、.NET 4.0から追加されたクラスです。
   /// </remarks>
+  [Sample]
   public class CountdownEventSamples04 : IExecutable
   {
     public void Execute()

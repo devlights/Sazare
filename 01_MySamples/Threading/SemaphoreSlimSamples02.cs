@@ -14,6 +14,7 @@ namespace Gsf.Samples
   /// SemaphoreSlimクラスは、.NET 4.0から追加されたクラスです。
   /// 従来から存在していたSemaphoreクラスの軽量版となります。
   /// </remarks>
+  [Sample]
   public class SemaphoreSlimSamples02 : IExecutable
   {
     public void Execute()

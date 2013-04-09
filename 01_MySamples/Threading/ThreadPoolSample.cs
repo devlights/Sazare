@@ -9,6 +9,7 @@ namespace Gsf.Samples
   /// <summary>
   /// スレッドプール(ThreadPool)を利用したスレッド処理のサンプルです。
   /// </summary>
+  [Sample]
   public class ThreadPoolSample : IExecutable
   {
     /// <summary>

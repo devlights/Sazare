@@ -18,6 +18,7 @@ namespace Gsf.Samples
   /// <summary>
   /// System.Timers.Timerクラスについてのサンプルです。
   /// </summary>
+  [Sample]
   public class ServerTimerSamples01 : WinFormsForm, IExecutable
   {
     System.Timers.Timer _timer;
