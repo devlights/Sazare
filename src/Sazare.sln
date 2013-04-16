@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sazare.Samples", "Sazare.Samples\Sazare.Samples.csproj", "{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sazare.Tools.Cui", "Sazare.Tools.Cui\Sazare.Tools.Cui\Sazare.Tools.Cui.csproj", "{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sazare.Tools.Gui", "Sazare.Tools.Gui\Sazare.Tools.Gui\Sazare.Tools.Gui.csproj", "{893E40A4-30CB-4C43-976A-16D9A0489644}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,26 +23,6 @@ Global
 		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|Mixed Platforms.Build.0 = Release|x86
 		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|x86.ActiveCfg = Release|x86
 		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|x86.Build.0 = Release|x86
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{FD1AF7A2-BBC6-4A3C-8B4A-D310FE8BFE38}.Release|x86.ActiveCfg = Release|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Debug|x86.ActiveCfg = Debug|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Release|Any CPU.Build.0 = Release|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Release|Mixed Platforms.Build.0 = Release|Any CPU
-		{893E40A4-30CB-4C43-976A-16D9A0489644}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
