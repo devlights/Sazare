@@ -26,11 +26,11 @@
     -->
   <PropertyGroup>
     <!-- アセンブリ名 -->
-    <AssemblyName>MySamples</AssemblyName>
+    <AssemblyName>Sazare</AssemblyName>
     <!-- 出力形式 -->
     <OutputType>exe</OutputType>
     <!-- ルート名前空間 -->
-    <RootNamespace>Gsf.Samples</RootNamespace>
+    <RootNamespace>Sazare.Samples</RootNamespace>
     <!-- 最低限要求される.NET Frameworkのバージョン -->
     <MinFrameworkVersionRequired>4.0</MinFrameworkVersionRequired>
     <!-- ターゲットとする.NET Frameworkのバージョン -->
