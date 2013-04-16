@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{893E40A4-30CB-4C43-976A-16D9A0489644}</ProjectGuid>
+    <ProjectGuid>{0F6190DF-DBB5-43AA-9087-4FD83F4A3606}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sazare.Tools.Gui</RootNamespace>

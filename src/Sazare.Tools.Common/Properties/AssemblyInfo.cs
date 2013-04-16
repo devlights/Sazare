@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // アセンブリに関する一般情報は以下の属性セットをとおして制御されます。
 // アセンブリに関連付けられている情報を変更するには、
 // これらの属性値を変更してください。
-[assembly: AssemblyTitle("Sazare.Tools.Cui")]
+[assembly: AssemblyTitle("Sazare.Tools.Common")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Sazare.Tools.Cui")]
+[assembly: AssemblyProduct("Sazare.Tools.Common")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -20,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // 次の GUID は、このプロジェクトが COM に公開される場合の、typelib の ID です
-[assembly: Guid("655513dc-75c6-4182-b79b-a463d68dae99")]
+[assembly: Guid("8f2339b4-4023-401d-a95e-cfa07f8a1c28")]
 
 // アセンブリのバージョン情報は、以下の 4 つの値で構成されています:
 //
