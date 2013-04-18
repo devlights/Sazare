@@ -1,4 +1,4 @@
-namespace Gsf.Samples
+namespace Sazare.Samples
 {
   using System;
   using System.Collections.Generic;
@@ -44,7 +44,7 @@ namespace Gsf.Samples
 
       AppDomain newDomain = AppDomain.CreateDomain("new domain");
 
-      /* ** ERROR **  "Gsf.Samples.MarshalByRefObjectSamples01+CanNotMarshalByRef"はシリアル化可能として設定されていません。
+      /* ** ERROR **  "Sazare.Samples.MarshalByRefObjectSamples01+CanNotMarshalByRef"はシリアル化可能として設定されていません。
       CanNotMarshalByRef obj2 = 
           (CanNotMarshalByRef) newDomain.CreateInstanceAndUnwrap(
               Assembly.GetExecutingAssembly().FullName, 
