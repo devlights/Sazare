@@ -6,7 +6,7 @@
     <ProjectGuid>{E819B4E8-8C7F-4FD4-9285-CF0BE40EED19}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sazare.Tools.Gui.Tests</RootNamespace>
+    <RootNamespace>Sazare.Tools.Gui</RootNamespace>
     <AssemblyName>Sazare.Tools.Gui.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
@@ -52,6 +52,20 @@
   <ItemGroup>
     <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Sazare.Samples\Sazare.Samples.csproj">
+      <Project>{cd0ad184-8d11-41d8-99e5-483d2a8e5a28}</Project>
+      <Name>Sazare.Samples</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sazare.Tools.Common\Sazare.Tools.Common.csproj">
+      <Project>{0e21411a-99e8-4670-a08b-dabf834c1838}</Project>
+      <Name>Sazare.Tools.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Sazare.Tools.Gui\Sazare.Tools.Gui.csproj">
+      <Project>{0f6190df-dbb5-43aa-9087-4fd83f4a3606}</Project>
+      <Name>Sazare.Tools.Gui</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

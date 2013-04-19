@@ -93,6 +93,16 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sazare.Samples\Sazare.Samples.csproj">
+      <Project>{cd0ad184-8d11-41d8-99e5-483d2a8e5a28}</Project>
+      <Name>Sazare.Samples</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Sazare.Tools.Common\Sazare.Tools.Common.csproj">
+      <Project>{0e21411a-99e8-4670-a08b-dabf834c1838}</Project>
+      <Name>Sazare.Tools.Common</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
