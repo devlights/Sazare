@@ -9,7 +9,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Sazare.Samples.Properties")]
+[assembly: AssemblyProduct("Sazare.Samples")]
 [assembly: AssemblyCopyright("© 2013 devlights.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

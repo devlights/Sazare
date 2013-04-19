@@ -285,7 +285,6 @@
     <Compile Include="Commons\Interfaces\IExecutable.cs" />
     <Compile Include="Basic\DelegateSample.cs" />
     <Compile Include="Basic\LambdaSample.cs" />
-    <Compile Include="SampleLauncher.cs" />
     <Compile Include="Commons\Extensions\StringExtensions.cs" />
     <Compile Include="Threading\ThreadSample.cs" />
     <Compile Include="Threading\ThreadPoolSample.cs" />

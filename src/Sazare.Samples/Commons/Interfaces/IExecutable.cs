@@ -8,7 +8,7 @@ namespace Sazare.Samples
   /// <summary>
   /// 各サンプルクラスが共通して実装しているインターフェースです。
   /// </summary>
-  interface IExecutable
+  public interface IExecutable
   {
     /// <summary>
     /// 処理を実行します。

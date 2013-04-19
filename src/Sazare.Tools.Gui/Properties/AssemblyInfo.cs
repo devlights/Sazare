@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Sazare.Tools.Gui")]
-[assembly: AssemblyCopyright("Copyright ©  2013")]
+[assembly: AssemblyCopyright("© 2013 devlights.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
