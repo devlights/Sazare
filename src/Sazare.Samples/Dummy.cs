@@ -1,4 +1,4 @@
-namespace Gsf.Samples
+namespace Sazare.Samples
 {
   using System;
   using System.Collections.Generic;
@@ -9,7 +9,7 @@ namespace Gsf.Samples
   /// ダミークラス
   /// </summary>
   [Sample]
-  class Dummy : IExecutable
+  public class Dummy : IExecutable
   {
     /// <summary>
     /// 処理を実行します。
