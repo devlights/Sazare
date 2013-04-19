@@ -1,87 +1,47 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<!-- vim:set ts=4 sw=4 et ws is nowrap ft=xml: -->
-<!--
-
-    サンプルプロジェクト用ビルドファイル
-
-    共通ターゲットファイルは、以下の場所にある。
-        ${.net frameworkインストールフォルダ}の下
-
-    vimから利用する場合は、以下のようにして実行する。
-        :!msbuild /t:Build,Run /p:StartArguments=クラス名
-
-    作成されたEXEファイルは以下のようにして実行する事が出来る。
-        $ MySamples.exe Gsf.Samples.対象クラス名
-
- -->
-<!-- 利用するツールバージョンは4.0のものを利用するよう設定. -->
-<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="BuildAndRun">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <!--
-        デフォルトターゲット.
-    -->
-  <Target Name="BuildAndRun" DependsOnTargets="Build;Run">
-  </Target>
+    共通プロパティ定義のインポート1
+  -->
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <!--
-        共通プロパティの設定.
-    -->
-  <PropertyGroup>
-    <!-- アセンブリ名 -->
-    <AssemblyName>Sazare</AssemblyName>
-    <!-- 出力形式 -->
-    <OutputType>exe</OutputType>
-    <!-- ルート名前空間 -->
-    <RootNamespace>Sazare.Samples</RootNamespace>
-    <!-- 最低限要求される.NET Frameworkのバージョン -->
-    <MinFrameworkVersionRequired>4.0</MinFrameworkVersionRequired>
-    <!-- ターゲットとする.NET Frameworkのバージョン -->
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
-    <!-- デバッグタイプ -->
-    <DebugType>full</DebugType>
-    <!-- デバッグシンボル -->
-    <DebugSymbols>true</DebugSymbols>
-    <!-- シンボルの定義 -->
-    <DefineConstants>DEBUG;TRACE;GSF</DefineConstants>
-    <ProjectGuid>{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}</ProjectGuid>
-  </PropertyGroup>
+    共通プロパティの設定.
+  -->
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Sazare.Samples</RootNamespace>
+    <AssemblyName>Sazare.Samples</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
     <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <PlatformTarget>x86</PlatformTarget>
-    <DebugSymbols>false</DebugSymbols>
-    <DebugType>none</DebugType>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <!--
-        Runターゲット内にて使用されているプロパティの設定.
-    -->
-  <PropertyGroup>
-    <!-- 実行時の引数 (実行時ここにクラス名を指定する) -->
-    <StartArguments>Dummy</StartArguments>
-    <!-- アプリケーション内での作業ディレクトリ -->
-    <StartWorkingDirectory>
-    </StartWorkingDirectory>
-  </PropertyGroup>
-  <!--
-        コンパイル系のターゲットにて利用されている項目の設定.
-    -->
+    コンパイル系のターゲットにて利用されている項目の設定.
+  -->
   <ItemGroup>
     <!--
-            参照設定.
-        -->
+      参照設定.
+    -->
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.ComponentModel.Composition" />
@@ -136,6 +96,7 @@
     <Compile Include="Advanced\MulticoreJITSamples01.cs" />
     <Compile Include="Dummy.cs" />
     <Compile Include="Linq\LinqSamples87.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SampleAttribute.cs" />
     <Compile Include="Threading\CallContextSamples01.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
@@ -350,7 +311,7 @@
   <ItemGroup />
   <ItemGroup>
     <!--
-            コンテンツ
+      コンテンツ
     -->
     <Content Include="resources\Persons.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -409,11 +370,11 @@
     </Content>
   </ItemGroup>
   <!--=====================================================================-->
-  <!-- 共通ターゲットファイルの読み込み.                                   -->
+  <!-- 共通ターゲットファイルの読み込み.                                           -->
   <!--=====================================================================-->
   <!--
-        以下v4.0以上用の設定.
-    -->
+    以下v4.0以上用の設定.
+  -->
   <!-- C#用の共通ターゲット定義ファイル.(内部でCommon定義ファイルが読み込まれている.) -->
   <!-- 同時にTargetFrameworkVersionの値が3.0以上の場合はWinFX用の共通ターゲット定義ファイルも読み込まれる. -->
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
@@ -424,4 +385,11 @@
   <!--<Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />-->
   <!-- WinFX用の共通ターゲット定義ファイル. -->
   <!--<Import Project="$(MSBuildBinPath)\Microsoft.WinFX.targets" /> -->
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
 </Project>
