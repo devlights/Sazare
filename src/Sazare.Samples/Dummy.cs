@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// ダミークラス
   /// </summary>
   [Sample]
-  class Dummy : IExecutable
+  public class Dummy : IExecutable
   {
     /// <summary>
     /// 処理を実行します。

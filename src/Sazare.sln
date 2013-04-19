@@ -27,16 +27,16 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|x86.ActiveCfg = Debug|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|x86.Build.0 = Debug|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|Any CPU.ActiveCfg = Release|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|Mixed Platforms.Build.0 = Release|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|x86.ActiveCfg = Release|x86
-		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|x86.Build.0 = Release|x86
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}.Release|x86.ActiveCfg = Release|Any CPU
 		{0E21411A-99E8-4670-A08B-DABF834C1838}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0E21411A-99E8-4670-A08B-DABF834C1838}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0E21411A-99E8-4670-A08B-DABF834C1838}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
