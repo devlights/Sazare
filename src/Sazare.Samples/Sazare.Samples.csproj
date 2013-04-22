@@ -283,7 +283,6 @@
     <Compile Include="Threading\AsyncDelegateSample.cs" />
     <Compile Include="Basic\AnonymousDelegateSample.cs" />
     <Compile Include="Commons\Constants.cs" />
-    <Compile Include="Commons\Interfaces\IExecutable.cs" />
     <Compile Include="Basic\DelegateSample.cs" />
     <Compile Include="Basic\LambdaSample.cs" />
     <Compile Include="Commons\Extensions\StringExtensions.cs" />
