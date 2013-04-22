@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// コンパイルディレクティブのサンプル1です。
   /// </summary>
   [Sample]
-  public class CompileDirectiveSamples01 : IExecutable
+  public class CompileDirectiveSamples01 : Sazare.Common.IExecutable
   {
 
     public void Execute()

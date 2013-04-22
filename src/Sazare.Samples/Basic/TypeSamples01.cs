@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// System.Typeのサンプルです。
   /// </summary>
   [Sample]
-  public class TypeSamples01 : IExecutable
+  public class TypeSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

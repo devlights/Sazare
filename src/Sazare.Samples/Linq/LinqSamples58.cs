@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 要素のクローンとアタッチについてのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples58 : IExecutable
+  public class LinqSamples58 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

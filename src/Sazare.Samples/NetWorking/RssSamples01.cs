@@ -9,7 +9,7 @@ namespace Sazare.Samples
 
   #region RssSamples-01
   [Sample]
-  public class RssSamples01 : IExecutable
+  public class RssSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

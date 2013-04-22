@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 前後存在確認プロパティ (IsBefore, IsAfter) のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples71 : IExecutable
+  public class LinqSamples71 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 要素置換系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples63 : IExecutable
+  public class LinqSamples63 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

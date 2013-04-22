@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// BackgroundWorkerを利用したスレッド処理のサンプルです。
   /// </summary>
   [Sample]
-  public class BackgroundWorkerSample : IExecutable
+  public class BackgroundWorkerSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// 処理を実行します。

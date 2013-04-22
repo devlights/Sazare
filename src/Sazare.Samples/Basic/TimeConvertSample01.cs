@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// 時刻に関する処理(XX時間XX分形式から10進数形式に変換)についてのサンプルです。
   /// </summary>
   [Sample]
-  public class TimeConvertSample01 : IExecutable
+  public class TimeConvertSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// Listをforeachでループする場合と、List.ForEachする場合の速度差をテスト
   /// </summary>
   [Sample]
-  public class ListForEachDiffSamples01 : IExecutable
+  public class ListForEachDiffSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

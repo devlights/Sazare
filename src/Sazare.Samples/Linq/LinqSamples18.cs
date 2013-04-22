@@ -18,7 +18,7 @@ namespace Sazare.Samples
   ///  ・拡張メソッド解決
   /// </remarks>
   [Sample]
-  public class LinqSamples18 : IExecutable
+  public class LinqSamples18 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

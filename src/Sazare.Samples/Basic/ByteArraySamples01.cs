@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// バイト配列についてのサンプルです。
   /// </summary>
   [Sample]
-  public class ByteArraySamples01 : IExecutable
+  public class ByteArraySamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

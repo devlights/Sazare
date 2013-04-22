@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// 各型のデフォルト値についてのサンプルです。
   /// </summary>
   [Sample]
-  public class DefaultValuesSamples01 : IExecutable
+  public class DefaultValuesSamples01 : Sazare.Common.IExecutable
   {
     class SampleClass { }
     struct SampleStruct { }

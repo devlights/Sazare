@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// Pingクラスに関するサンプルです。
   /// </summary>
   [Sample]
-  public class PingSamples01 : IExecutable
+  public class PingSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// ドキュメント順に並び替え(InDocumentOrder)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples81 : IExecutable
+  public class LinqSamples81 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

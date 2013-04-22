@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// RuntimeEnvironmentクラスについてのサンプルです。
   /// </summary>
   [Sample]
-  public class RuntimeEnvironmentSamples01 : IExecutable
+  public class RuntimeEnvironmentSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

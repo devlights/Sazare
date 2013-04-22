@@ -12,7 +12,7 @@ namespace Sazare.Samples
   /// .NET 4.0から追加されたメソッドです。
   /// </remarks>
   [Sample]
-  public class StringIsNullOrWhiteSpaceSamples01 : IExecutable
+  public class StringIsNullOrWhiteSpaceSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

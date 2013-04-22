@@ -15,7 +15,7 @@ namespace Sazare.Samples
   /// 従来から存在していたSemaphoreクラスの軽量版となります。
   /// </remarks>
   [Sample]
-  public class SemaphoreSlimSamples02 : IExecutable
+  public class SemaphoreSlimSamples02 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

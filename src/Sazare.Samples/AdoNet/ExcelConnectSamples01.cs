@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// ADO.NETを用いてExcelに接続するサンプルです。
   /// </summary>
   [Sample]
-  public class ExcelConnectSamples01 : IExecutable
+  public class ExcelConnectSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

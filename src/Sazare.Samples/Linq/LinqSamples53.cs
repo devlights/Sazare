@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// XElement.Loadを利用した読み込みのサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples53 : IExecutable
+  public class LinqSamples53 : Sazare.Common.IExecutable
   {
     const string FILE_URI = @"LinqSamples53_Sample.xml";
     const string DOWNLOAD_URI = @"https://sites.google.com/site/gsfzero1/Home/Books.xml?attredirects=0&d=1";

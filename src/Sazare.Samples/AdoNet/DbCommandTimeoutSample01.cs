@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// DbCommandのタイムアウト機能についてのサンプルです。
   /// </summary>
   [Sample]
-  public class DbCommandTimeoutSample01 : IExecutable
+  public class DbCommandTimeoutSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

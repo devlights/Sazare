@@ -13,7 +13,7 @@ namespace Sazare.Samples
   ///   http://www.codeproject.com/Tips/458846/Using-using-Statements-DisposalAccumulator
   /// </remarks>
   [Sample]
-  public class DisposableSamples01 : IExecutable
+  public class DisposableSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

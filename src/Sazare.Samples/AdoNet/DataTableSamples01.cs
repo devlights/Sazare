@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// DataTableクラスに関するサンプルです。
   /// </summary>
   [Sample]
-  public class DataTableSamples01 : IExecutable
+  public class DataTableSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

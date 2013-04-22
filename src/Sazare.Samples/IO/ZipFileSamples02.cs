@@ -19,7 +19,7 @@ namespace Sazare.Samples
   /// Metroアプリでは、代わりにZipArchiveクラスを利用します。
   /// </remarks>
   [Sample]
-  public class ZipFileSamples02 : IExecutable
+  public class ZipFileSamples02 : Sazare.Common.IExecutable
   {
     string _zipFilePath;
 

@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// 引数と戻り値にカスタムオブジェクトを指定するサービスメソッドを定義しています。
   /// </remarks>
   [Sample]
-  public class WcfSamples03 : IExecutable
+  public class WcfSamples03 : Sazare.Common.IExecutable
   {
     #region Constants
     /// <summary>

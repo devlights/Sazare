@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// IXmlLineInfoインターフェースから行番号を取得するサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples87 : IExecutable
+  public class LinqSamples87 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// SecureStringについてのサンプルです。
   /// </summary>
   [Sample]
-  public class SecureStringSamples001 : IExecutable
+  public class SecureStringSamples001 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

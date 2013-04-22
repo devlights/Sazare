@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// ナビゲーション(FirstNode, LastNodeプロパティ)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples74 : IExecutable
+  public class LinqSamples74 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

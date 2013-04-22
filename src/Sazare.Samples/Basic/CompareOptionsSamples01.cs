@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// CompareOptions列挙型のサンプルです。
   /// </summary>
   [Sample]
-  public class CompareOptionsSamples01 : IExecutable
+  public class CompareOptionsSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

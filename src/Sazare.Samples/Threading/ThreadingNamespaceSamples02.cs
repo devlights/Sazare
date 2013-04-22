@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// System.Threading名前空間に存在するクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class ThreadingNamespaceSamples02 : IExecutable
+  public class ThreadingNamespaceSamples02 : Sazare.Common.IExecutable
   {
 
     public void Execute()

@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 属性削除系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples67 : IExecutable
+  public class LinqSamples67 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

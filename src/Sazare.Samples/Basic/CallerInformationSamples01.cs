@@ -17,7 +17,7 @@ namespace Sazare.Samples
   /// -CallerLineNumber
   /// -CallerMemberName
   /// </remarks>
-  public class CallerInformationSamples01 : IExecutable
+  public class CallerInformationSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

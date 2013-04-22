@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// MarshalByRefObjectクラスに関するサンプルです。
   /// </summary>
   [Sample]
-  public class MarshalByRefObjectSamples01 : IExecutable
+  public class MarshalByRefObjectSamples01 : Sazare.Common.IExecutable
   {
     class CanNotMarshalByRef
     {

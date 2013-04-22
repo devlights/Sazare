@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// EqualityComparerのサンプルです。
   /// </summary>
   [Sample]
-  public class EqualityComparerSamples01 : IExecutable
+  public class EqualityComparerSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

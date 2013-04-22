@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// 非同期処理 (IAsyncResult) のサンプル１です。
   /// </summary>
   [Sample]
-  public class AsyncResultSamples01 : IExecutable
+  public class AsyncResultSamples01 : Sazare.Common.IExecutable
   {
 
     AutoResetEvent _are = new AutoResetEvent(false);

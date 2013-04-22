@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// Enumに関するサンプルです。
   /// </summary>
   [Sample]
-  public class EnumToStringSamples01 : IExecutable
+  public class EnumToStringSamples01 : Sazare.Common.IExecutable
   {
     private enum MyColor
     {

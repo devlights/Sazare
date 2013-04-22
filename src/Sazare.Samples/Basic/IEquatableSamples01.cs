@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// IEquatable<T>のサンプルです。
   /// </summary>
   [Sample]
-  public class IEquatableSamples01 : IExecutable
+  public class IEquatableSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -18,7 +18,7 @@ namespace Sazare.Samples
   /// AsyncOperationのサンプル1です。
   /// </summary>
   [Sample]
-  public class AsyncOperationSamples01 : IExecutable
+  public class AsyncOperationSamples01 : Sazare.Common.IExecutable
   {
 
     class SampleForm : WinFormsForm

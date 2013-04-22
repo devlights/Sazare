@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// ThreadStatic属性に関するサンプルです。
   /// </summary>
   [Sample]
-  public class ThreadStaticAttributeSamples01 : IExecutable
+  public class ThreadStaticAttributeSamples01 : Sazare.Common.IExecutable
   {
     private class ThreadState
     {

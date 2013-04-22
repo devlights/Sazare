@@ -29,7 +29,7 @@ namespace Sazare.Samples
   /// このクラスは、.NET Framework 4.5から追加された型です。
   /// </remarks>
   [Sample]
-  public class ProgressSamples02 : IExecutable
+  public class ProgressSamples02 : Sazare.Common.IExecutable
   {
     class SampleForm : WinFormsForm
     {

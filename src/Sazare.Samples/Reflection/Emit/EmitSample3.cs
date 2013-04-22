@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// カスタム属性を持つクラスを動的生成します。
   /// </remarks>
   [Sample]
-  public class EmitSample3 : IExecutable
+  public class EmitSample3 : Sazare.Common.IExecutable
   {
     [AttributeUsage(AttributeTargets.Class)]
     public class IsDynamicTypeAttribute : Attribute

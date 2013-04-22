@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// AppDomainクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class AppDomainSamples01 : IExecutable
+  public class AppDomainSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

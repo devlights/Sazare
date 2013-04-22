@@ -15,7 +15,7 @@ namespace Sazare.Samples
   /// Barrierクラスは、.NET 4.0から追加されたクラスです。
   /// </remarks>
   [Sample]
-  public class BarrierSamples02 : IExecutable
+  public class BarrierSamples02 : Sazare.Common.IExecutable
   {
     // 計算値を保持する変数
     long _count;

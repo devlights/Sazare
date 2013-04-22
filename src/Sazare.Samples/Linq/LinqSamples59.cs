@@ -8,7 +8,7 @@ namespace Sazare.Samples
   /// Linqにて、シーケンスをチャンクに分割して処理するサンプルです.
   /// </summary>
   [Sample]
-  public class LinqSamples59 : IExecutable
+  public class LinqSamples59 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

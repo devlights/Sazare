@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// LINQ to XMLのアノテーション機能についてのサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples86 : IExecutable
+  public class LinqSamples86 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -15,7 +15,7 @@ namespace Sazare.Samples
   /// XStreamingElementのサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples85 : IExecutable
+  public class LinqSamples85 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

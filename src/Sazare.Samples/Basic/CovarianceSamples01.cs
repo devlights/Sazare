@@ -12,7 +12,7 @@ namespace Sazare.Samples
   /// 共変性は4.0から追加された機能です。
   /// </remarks>
   [Sample]
-  public class CovarianceSamples01 : IExecutable
+  public class CovarianceSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

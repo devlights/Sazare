@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 文字列からXDocumentオブジェクトを構築するサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples51 : IExecutable
+  public class LinqSamples51 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// 手動でイベントを制御する方法に関してのサンプルです。(EventHandlerList)
   /// </summary>
   [Sample]
-  public class EventSettingSamples02 : IExecutable
+  public class EventSettingSamples02 : Sazare.Common.IExecutable
   {
     class Sample
     {

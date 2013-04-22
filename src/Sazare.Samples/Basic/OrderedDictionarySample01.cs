@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// OrderedDictionaryのサンプル1です。
   /// </summary>
   [Sample]
-  public class OrderedDictionarySample01 : IExecutable
+  public class OrderedDictionarySample01 : Sazare.Common.IExecutable
   {
 
     public void Execute()

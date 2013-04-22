@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 存在確認プロパティ (HasElements, HasAttributes) のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples70 : IExecutable
+  public class LinqSamples70 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

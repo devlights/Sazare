@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// タスク並列ライブラリは、4.0から追加されているライブラリです。
   /// </remarks>
   [Sample]
-  public class TaskSamples01 : IExecutable
+  public class TaskSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

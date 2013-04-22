@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// ラムダ(lambda)のサンプル（.NET Framework 3.5）
   /// </summary>
   [Sample]
-  class LambdaSample : IExecutable
+  class LambdaSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// 処理を実行します。

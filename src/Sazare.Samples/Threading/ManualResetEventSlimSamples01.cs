@@ -18,7 +18,7 @@ namespace Sazare.Samples
   ///   ・非常に短い時間の待機の場合、このクラスは待機ハンドルではなくビジースピンを利用して待機する。
   /// </remarks>
   [Sample]
-  public class ManualResetEventSlimSamples01 : IExecutable
+  public class ManualResetEventSlimSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

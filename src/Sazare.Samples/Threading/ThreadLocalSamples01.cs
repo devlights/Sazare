@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// ThreadLocal<T>クラスのサンプルです。
   /// </summary>
   [Sample]
-  public class ThreadLocalSamples01 : IExecutable
+  public class ThreadLocalSamples01 : Sazare.Common.IExecutable
   {
     #region Static Fields
     // ThreadStatic

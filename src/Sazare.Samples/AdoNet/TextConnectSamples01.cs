@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// CSVファイルに接続し、各クエリ文を発行します。
   /// </remarks>
   [Sample]
-  public class TextConnectSamples01 : IExecutable
+  public class TextConnectSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

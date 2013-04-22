@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// ナビゲーション(DescendantsAndSelf, AncestorsAndSelfメソッド)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples77 : IExecutable
+  public class LinqSamples77 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

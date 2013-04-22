@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// スレッドを直接作成するサンプル.
   /// </summary>
   [Sample]
-  public class ThreadSample : IExecutable
+  public class ThreadSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// ロックオブジェクト

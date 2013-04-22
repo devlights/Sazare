@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// Monitorクラスについてのサンプルです。
   /// </summary>
   [Sample]
-  public class MonitorSamples01 : IExecutable
+  public class MonitorSamples01 : Sazare.Common.IExecutable
   {
     object _lock = new object();
     bool _go;

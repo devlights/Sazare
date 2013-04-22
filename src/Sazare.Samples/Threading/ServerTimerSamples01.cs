@@ -19,7 +19,7 @@ namespace Sazare.Samples
   /// System.Timers.Timerクラスについてのサンプルです。
   /// </summary>
   [Sample]
-  public class ServerTimerSamples01 : WinFormsForm, IExecutable
+  public class ServerTimerSamples01 : WinFormsForm, Sazare.Common.IExecutable
   {
     System.Timers.Timer _timer;
     WinFormsListBox _listBox;

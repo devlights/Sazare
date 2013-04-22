@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// AppDomainクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class AppDomainSamples03 : IExecutable
+  public class AppDomainSamples03 : Sazare.Common.IExecutable
   {
     // AppDomainのモニタリングを担当するクラス
     class AppDomainMonitor : IDisposable

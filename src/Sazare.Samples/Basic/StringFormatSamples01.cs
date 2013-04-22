@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// 文字列の書式設定に関してのサンプルです。
   /// </summary>
   [Sample]
-  class StringFormatSamples01 : IExecutable
+  class StringFormatSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

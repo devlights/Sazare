@@ -15,7 +15,7 @@ namespace Sazare.Samples
   /// JavaのCountDownLatchクラスと同じ機能を持っています。
   /// </remarks>
   [Sample]
-  public class CountdownEventSamples01 : IExecutable
+  public class CountdownEventSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

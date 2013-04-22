@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// スレッドプール(ThreadPool)を利用したスレッド処理のサンプルです。
   /// </summary>
   [Sample]
-  public class ThreadPoolSample : IExecutable
+  public class ThreadPoolSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// スレッドの状態を表すデータクラスです。

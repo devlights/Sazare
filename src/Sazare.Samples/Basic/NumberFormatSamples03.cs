@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// 数値フォーマットのサンプルです。
   /// </summary>
   [Sample]
-  public class NumberFormatSamples03 : IExecutable
+  public class NumberFormatSamples03 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

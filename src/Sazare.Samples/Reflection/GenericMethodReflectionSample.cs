@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// ジェネリックメソッドをリフレクションで取得するサンプルです。
   /// </summary>
   [Sample]
-  public class GenericMethodReflectionSample : IExecutable
+  public class GenericMethodReflectionSample : Sazare.Common.IExecutable
   {
     public void Execute()
     {

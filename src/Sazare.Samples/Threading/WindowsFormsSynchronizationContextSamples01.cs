@@ -19,7 +19,7 @@ namespace Sazare.Samples
   /// (AutoInstall静的プロパティにて、動作を変更可能。）
   /// </remakrs>
   [Sample]
-  public class WindowsFormsSynchronizationContextSamples01 : IExecutable
+  public class WindowsFormsSynchronizationContextSamples01 : Sazare.Common.IExecutable
   {
     class SampleForm : WinFormsForm
     {

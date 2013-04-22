@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples06 : IExecutable
+  public class LinqSamples06 : Sazare.Common.IExecutable
   {
     enum Country
     {

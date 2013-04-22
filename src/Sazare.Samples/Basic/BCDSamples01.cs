@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// BCD変換についてのサンプルです。
   /// </summary>
   [Sample]
-  public class BCDSamples01 : IExecutable
+  public class BCDSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

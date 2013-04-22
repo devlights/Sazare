@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// リフレクションのサンプル1です。
   /// </summary>
   [Sample]
-  public class ReflectionSample01 : IExecutable
+  public class ReflectionSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -5,6 +5,7 @@
   using System.Linq;
   using System.Reflection;
 
+  using Sazare.Common;
   using Sazare.Samples;
   
   class Program

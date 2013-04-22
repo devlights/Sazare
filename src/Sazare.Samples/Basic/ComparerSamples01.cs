@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// Comparerについてのサンプルです。
   /// </summary>
   [Sample]
-  public class ComparerSamples01 : IExecutable
+  public class ComparerSamples01 : Sazare.Common.IExecutable
   {
     enum CompareResult : int
     {

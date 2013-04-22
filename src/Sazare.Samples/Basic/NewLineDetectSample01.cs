@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// 文字列中の改行コードの数を算出するサンプルです。
   /// </summary>
   [Sample]
-  public class NewLineDetectSample01 : IExecutable
+  public class NewLineDetectSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

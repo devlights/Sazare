@@ -12,7 +12,7 @@ namespace Sazare.Samples
   /// 反変性は4.0から追加された機能です。
   /// </remarks>
   [Sample]
-  public class ContravarianceSamples01 : IExecutable
+  public class ContravarianceSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

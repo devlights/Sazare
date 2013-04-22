@@ -6,7 +6,7 @@ namespace Sazare.Samples
 
   #region PLinqSamples-02
   [Sample]
-  public class PLinqSamples02 : IExecutable
+  public class PLinqSamples02 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

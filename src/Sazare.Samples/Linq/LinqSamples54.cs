@@ -15,7 +15,7 @@ namespace Sazare.Samples
   /// XElement.Loadを利用したストリーム読み込みのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples54 : IExecutable
+  public class LinqSamples54 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

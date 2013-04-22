@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// リフレクション実行時のパフォーマンスをアップさせる方法について記述しています。
   /// </remarks>
   [Sample]
-  public class ReflectionSample03 : IExecutable
+  public class ReflectionSample03 : Sazare.Common.IExecutable
   {
     delegate string StringToString(string s);
 

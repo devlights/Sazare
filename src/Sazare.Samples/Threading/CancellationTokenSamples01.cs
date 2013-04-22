@@ -12,7 +12,7 @@ namespace Sazare.Samples
   /// CancellationTokenとCancellationTokenSourceについてのサンプルです。
   /// </summary>
   [Sample]
-  public class CancellationTokenSamples01 : IExecutable
+  public class CancellationTokenSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

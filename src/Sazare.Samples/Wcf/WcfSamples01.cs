@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 最も基本的なサービスとクライアントの応答を行うサンプルです。
   /// </remarks>
   [Sample]
-  public class WcfSamples01 : IExecutable
+  public class WcfSamples01 : Sazare.Common.IExecutable
   {
     #region Constants
     /// <summary>

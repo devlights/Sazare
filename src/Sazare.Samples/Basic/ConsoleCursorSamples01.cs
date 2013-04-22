@@ -16,7 +16,7 @@ namespace Sazare.Samples
   /// 実行してください。
   ///</remarks>
   [Sample]
-  public class ConsoleCursorSamples01 : IExecutable
+  public class ConsoleCursorSamples01 : Sazare.Common.IExecutable
   {
     volatile bool _stop;
 

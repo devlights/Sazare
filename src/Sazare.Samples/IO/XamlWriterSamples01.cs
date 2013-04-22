@@ -12,7 +12,7 @@ namespace Sazare.Samples
   /// <remarks>
   /// 最もシンプルなSaveメソッドの利用方法についてです。
   /// </remarks>
-  public class XamlWriterSamples01 : IExecutable
+  public class XamlWriterSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

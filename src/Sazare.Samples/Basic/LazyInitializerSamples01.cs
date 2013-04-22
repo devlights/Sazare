@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// LazyInitializerのサンプルです。
   /// </summary>
   [Sample]
-  public class LazyInitializerSamples01 : IExecutable
+  public class LazyInitializerSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

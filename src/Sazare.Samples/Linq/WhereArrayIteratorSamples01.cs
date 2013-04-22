@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// WhereArrayIteratorに関するサンプルです。
   /// </summary>
   [Sample]
-  public class WhereArrayIteratorSamples01 : IExecutable
+  public class WhereArrayIteratorSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

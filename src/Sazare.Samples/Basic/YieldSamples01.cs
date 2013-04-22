@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// yieldキーワードに関するサンプルです。
   /// </summary>
   [Sample]
-  public class YieldSamples01 : IExecutable
+  public class YieldSamples01 : Sazare.Common.IExecutable
   {
     //
     // 最もベーシックな列挙可能クラス.

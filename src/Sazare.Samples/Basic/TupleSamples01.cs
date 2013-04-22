@@ -12,7 +12,7 @@ namespace Sazare.Samples
   /// Tupleクラスは4.0から追加されたクラスです。
   /// </remarks>
   [Sample]
-  public class TupleSamples01 : IExecutable
+  public class TupleSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// 引数にカスタムオブジェクトを指定するサービスメソッドを定義しています。
   /// </remarks>
   [Sample]
-  public class WcfSamples02 : IExecutable
+  public class WcfSamples02 : Sazare.Common.IExecutable
   {
     #region Constants
     /// <summary>

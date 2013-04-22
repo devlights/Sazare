@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// マルチコアJITのサンプルです.
   /// </summary>
   [Sample]
-  public class MulticoreJITSamples01 : IExecutable
+  public class MulticoreJITSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

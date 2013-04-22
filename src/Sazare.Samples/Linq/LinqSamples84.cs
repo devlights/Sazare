@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// Changing, Changedイベントについてのサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples84 : IExecutable
+  public class LinqSamples84 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

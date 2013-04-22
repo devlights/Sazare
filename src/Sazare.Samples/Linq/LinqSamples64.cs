@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 属性取得系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples64 : IExecutable
+  public class LinqSamples64 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

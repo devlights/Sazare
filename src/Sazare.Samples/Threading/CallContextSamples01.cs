@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// 実行コンテキスト(ExecutionContext)と論理呼び出しコンテキスト(CallContext)のサンプルです。
   /// </summary>
   [Sample]
-  public class CallContextSamples01 : IExecutable
+  public class CallContextSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// XDocumentクラスについてのサンプルです。
   /// </summary>
   [Sample]
-  public class XDocumentSamples02 : IExecutable
+  public class XDocumentSamples02 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

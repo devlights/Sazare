@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples01 : IExecutable
+  public class LinqSamples01 : Sazare.Common.IExecutable
   {
     class Person
     {

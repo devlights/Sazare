@@ -9,7 +9,7 @@ namespace Sazare.Samples
   /// System.BitConverterクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class BitConverterSamples01 : IExecutable
+  public class BitConverterSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

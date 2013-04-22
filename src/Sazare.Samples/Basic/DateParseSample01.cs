@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// 日付の解析に関するサンプルです。(DateTime)
   /// </summary>
   [Sample]
-  public class DateParseSample01 : IExecutable
+  public class DateParseSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

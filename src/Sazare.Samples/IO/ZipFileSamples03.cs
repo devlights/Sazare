@@ -22,7 +22,7 @@ namespace Sazare.Samples
   /// を参照設定に追加する必要があります。
   /// </remarks>
   [Sample]
-  public class ZipFileSamples03 : IExecutable
+  public class ZipFileSamples03 : Sazare.Common.IExecutable
   {
     string _zipFilePath;
 

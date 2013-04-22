@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// Queueの同期処理についてのサンプルです。
   /// </summary>
   [Sample]
-  public class QueueSynchronizedSamples01 : IExecutable
+  public class QueueSynchronizedSamples01 : Sazare.Common.IExecutable
   {
     Queue queue;
     public void Execute()

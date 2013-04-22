@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// ナビゲーション(Parentプロパティ)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples75 : IExecutable
+  public class LinqSamples75 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

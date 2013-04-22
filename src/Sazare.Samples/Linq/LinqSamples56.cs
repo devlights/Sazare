@@ -16,7 +16,7 @@ namespace Sazare.Samples
   /// LINQ to XMLにてXMLファイルを新規作成するサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples56 : IExecutable
+  public class LinqSamples56 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

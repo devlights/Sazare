@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// MEFについてのサンプルです。
   /// </summary>
   [Sample]
-  public class MEFSamples02 : IExecutable
+  public class MEFSamples02 : Sazare.Common.IExecutable
   {
     // Export用のインターフェース
     public interface IExporter

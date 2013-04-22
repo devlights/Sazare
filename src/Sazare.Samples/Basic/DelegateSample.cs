@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// デリゲートのサンプル（.NET Framework 1.1）
   /// </summary>
   [Sample]
-  class DelegateSample : IExecutable
+  class DelegateSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// 処理を実行します。

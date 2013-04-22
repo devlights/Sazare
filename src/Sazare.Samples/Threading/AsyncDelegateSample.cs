@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// 非同期デリゲートを利用したスレッド処理のサンプルです。
   /// </summary>
   [Sample]
-  public class AsyncDelegateSample : IExecutable
+  public class AsyncDelegateSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// 処理を実行します。

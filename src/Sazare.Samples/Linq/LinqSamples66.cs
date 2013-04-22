@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 属性更新系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples66 : IExecutable
+  public class LinqSamples66 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

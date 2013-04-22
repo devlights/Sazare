@@ -29,7 +29,7 @@ namespace Sazare.Samples
   /// サロゲートペアについて記述しています。
   /// </remarks>
   [Sample]
-  public class StringInfoSamples001 : IExecutable
+  public class StringInfoSamples001 : Sazare.Common.IExecutable
   {
     public class StringInfoSampleForm : WinFormsForm
     {

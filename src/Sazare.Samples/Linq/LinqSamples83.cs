@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// XElementとXAttributeの値取得についてのTipです。
   /// </remarks>
   [Sample]
-  public class LinqSamples83 : IExecutable
+  public class LinqSamples83 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

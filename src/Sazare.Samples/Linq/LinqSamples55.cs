@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// LINQ to XMLにてエラー発生時XmlExceptionが発生することを確認するサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples55 : IExecutable
+  public class LinqSamples55 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// System.Threading名前空間に存在するクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class ThreadingNamespaceSamples01 : IExecutable
+  public class ThreadingNamespaceSamples01 : Sazare.Common.IExecutable
   {
 
     private class ThreadStartDelegateState

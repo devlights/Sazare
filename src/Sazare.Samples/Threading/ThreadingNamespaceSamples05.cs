@@ -7,7 +7,7 @@ namespace Sazare.Samples
 
   #region ThreadingNamespaceSamples-05
   [Sample]
-  public class ThreadingNamespaceSamples05 : IExecutable
+  public class ThreadingNamespaceSamples05 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

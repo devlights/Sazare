@@ -15,7 +15,7 @@ namespace Sazare.Samples
   /// シリアル化サロゲートについて。 (ISerializationSurrogate)
   /// </remarks>
   [Sample]
-  public class SerializationSurrogateSamples01 : IExecutable
+  public class SerializationSurrogateSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

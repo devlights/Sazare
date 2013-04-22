@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// ByRefの引数を持つメソッドをリフレクションで取得するサンプルです。
   /// </summary>
   [Sample]
-  public class HasByRefParameterMethodReflectionSample : IExecutable
+  public class HasByRefParameterMethodReflectionSample : Sazare.Common.IExecutable
   {
     public void Execute()
     {

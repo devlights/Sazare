@@ -16,7 +16,7 @@ namespace Sazare.Samples
   /// このクラスは、.NET Framework 4.5から追加された型です。
   /// </remarks>
   [Sample]
-  public class ProgressSamples01 : IExecutable
+  public class ProgressSamples01 : Sazare.Common.IExecutable
   {
     /// <summary>
     /// サンプル用ウィンドウ

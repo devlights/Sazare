@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 空要素系プロパティとメソッド (IsEmpty, EmptySequence) のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples72 : IExecutable
+  public class LinqSamples72 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

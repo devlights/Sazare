@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 要素追加系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples60 : IExecutable
+  public class LinqSamples60 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

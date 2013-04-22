@@ -18,7 +18,7 @@ namespace Sazare.Samples
   /// に詳細に記載されている.
   /// </remarks>
   [Sample]
-  public class LinqSamples82 : IExecutable
+  public class LinqSamples82 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

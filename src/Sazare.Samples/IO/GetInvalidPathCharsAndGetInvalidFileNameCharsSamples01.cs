@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// PathクラスのGetInvalidPathCharsメソッドとGetInvalidFileNameCharsメソッドのサンプルです。
   /// </summary>
   [Sample]
-  public class GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01 : IExecutable
+  public class GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

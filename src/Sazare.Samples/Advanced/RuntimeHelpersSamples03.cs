@@ -11,7 +11,7 @@ namespace Sazare.Samples
   /// RuntimeHelpersクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class RuntimeHelpersSamples03 : IExecutable
+  public class RuntimeHelpersSamples03 : Sazare.Common.IExecutable
   {
     // サンプルクラス
     static class SampleClass

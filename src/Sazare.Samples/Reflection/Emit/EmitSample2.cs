@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// プロパティを持つクラスを動的生成します。
   /// </remarks>
   [Sample]
-  public class EmitSample2 : IExecutable
+  public class EmitSample2 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

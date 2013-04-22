@@ -14,7 +14,7 @@ namespace Sazare.Samples
   /// CountdownEventクラスは、.NET 4.0から追加されたクラスです。
   /// </remarks>
   [Sample]
-  public class CountdownEventSamples04 : IExecutable
+  public class CountdownEventSamples04 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

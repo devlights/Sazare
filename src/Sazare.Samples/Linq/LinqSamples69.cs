@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// 名前空間 (XNamespace) のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples69 : IExecutable
+  public class LinqSamples69 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

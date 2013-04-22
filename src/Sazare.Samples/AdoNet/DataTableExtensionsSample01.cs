@@ -10,7 +10,7 @@ namespace Sazare.Samples
   /// System.Data.Extensionsのサンプル1です。
   /// </summary>
   [Sample]
-  public class DataTableExtensionsSample01 : IExecutable
+  public class DataTableExtensionsSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

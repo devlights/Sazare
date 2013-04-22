@@ -13,7 +13,7 @@ namespace Sazare.Samples
   /// .NET 4.0から追加されたクラスです。
   /// </remarks>
   [Sample]
-  public class ExpandoObjectSamples04 : IExecutable
+  public class ExpandoObjectSamples04 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
