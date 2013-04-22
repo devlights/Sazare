@@ -7,9 +7,11 @@ namespace Sazare.Samples
   using System.Text;
   using System.Xml;
 
+  using Sazare.Common;
+  
   #region RssSamples-01
   [Sample]
-  public class RssSamples01 : IExecutable
+  public class RssSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -46,7 +48,7 @@ namespace Sazare.Samples
         writer.Close();
       }
 
-      Console.WriteLine(sb.ToString());
+      Output.WriteLine(sb.ToString());
     }
   }
   #endregion

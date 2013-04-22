@@ -5,6 +5,7 @@
   using System.Linq;
   using System.Reflection;
 
+  using Sazare.Common;
   using Sazare.Samples;
   
   class Program
@@ -22,6 +23,8 @@
     {
       try
       {
+        Output.SetOutputManager(new CuiOutputManager());
+
         var handle = Activator.CreateInstance(GetAssembly().FullName, GetFqdnName());
         if (handle != null)
         {

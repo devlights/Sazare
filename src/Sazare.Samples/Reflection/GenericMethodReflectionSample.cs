@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Reflection;
 
+  using Sazare.Common;
+  
   #region Genericなメソッドをリフレクションで取得
   /// <summary>
   /// ジェネリックメソッドをリフレクションで取得するサンプルです。
   /// </summary>
   [Sample]
-  public class GenericMethodReflectionSample : IExecutable
+  public class GenericMethodReflectionSample : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -40,7 +42,7 @@ namespace Sazare.Samples
           if (mi.Name == methodName && mi.GetParameters().Length == paramTypes.Length)
           {
             MethodInfo genericMi = mi.MakeGenericMethod(new Type[] { typeof(DateTime) });
-            Console.WriteLine(genericMi);
+            Output.WriteLine(genericMi);
           }
         }
       }

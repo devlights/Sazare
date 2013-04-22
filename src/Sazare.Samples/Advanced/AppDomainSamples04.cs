@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region AppDomainSamples-04
   /// <summary>
   /// AppDomainクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class AppDomainSamples04 : MarshalByRefObject, IExecutable
+  public class AppDomainSamples04 : MarshalByRefObject, Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -41,33 +43,33 @@ namespace Sazare.Samples
       // 当然、値渡し(Serializable)と参照渡し(MarshalByRefObject)によって実行結果が異なる場合がある.
       //
       // Staticメソッド
-      Console.WriteLine("----------[Static Method]--------");
+      Output.WriteLine("----------[Static Method]--------");
       currentDomain.DoCallBack(CallbackMethod_S);
       anotherDomain.DoCallBack(CallbackMethod_S);
-      Console.WriteLine("---------------------------------");
+      Output.WriteLine("---------------------------------");
 
       // インスタンスメソッド.
-      Console.WriteLine("---------[Instance Method]-------");
+      Output.WriteLine("---------[Instance Method]-------");
       currentDomain.DoCallBack(CallbackMethod);
       anotherDomain.DoCallBack(CallbackMethod);
-      Console.WriteLine("---------------------------------");
+      Output.WriteLine("---------------------------------");
 
       // 値渡し (Serializable)
       var byvalObj = new MarshalByVal();
 
-      Console.WriteLine("---------[Serializable]----------");
+      Output.WriteLine("---------[Serializable]----------");
       currentDomain.DoCallBack(byvalObj.CallbackMethod);
       anotherDomain.DoCallBack(byvalObj.CallbackMethod);
-      Console.WriteLine("---------------------------------");
+      Output.WriteLine("---------------------------------");
 
       // 参照渡し (MarshalByRefObject)
       // MarshalByRefObjectを継承しているため、以下の例では必ずデフォルトドメインで実行されることになる。
       var byrefObj = new MarshalByRef();
 
-      Console.WriteLine("-------[MarshalByRefObject]------");
+      Output.WriteLine("-------[MarshalByRefObject]------");
       currentDomain.DoCallBack(byrefObj.CallbackMethod);
       anotherDomain.DoCallBack(byrefObj.CallbackMethod);
-      Console.WriteLine("---------------------------------");
+      Output.WriteLine("---------------------------------");
 
       //
       // AppDomain.CreateInstanceAndUnwrapを利用する。
@@ -78,9 +80,9 @@ namespace Sazare.Samples
 
       var obj = (MarshalByRef)anotherDomain.CreateInstanceAndUnwrap(asmName, typeName);
 
-      Console.WriteLine("-------[CreateInstanceAndUnwrap]------");
+      Output.WriteLine("-------[CreateInstanceAndUnwrap]------");
       obj.CallbackMethod();
-      Console.WriteLine("--------------------------------------");
+      Output.WriteLine("--------------------------------------");
 
       AppDomain.Unload(anotherDomain);
     }
@@ -117,7 +119,7 @@ namespace Sazare.Samples
       public static void PrintAsmName()
       {
         var domain = AppDomain.CurrentDomain.FriendlyName;
-        Console.WriteLine("Run on AppDomain:{0}", domain);
+        Output.WriteLine("Run on AppDomain:{0}", domain);
       }
     }
   }

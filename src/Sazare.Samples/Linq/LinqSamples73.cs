@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-73
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// ナビゲーション(PreviousNode, NextNodeプロパティ)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples73 : IExecutable
+  public class LinqSamples73 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -25,10 +27,10 @@ namespace Sazare.Samples
       var root = BuildSampleXml();
       var elem = root.Elements("Child").Where(x => x.Value == "value2").First();
 
-      Console.WriteLine("Prev node = {0}", elem.PreviousNode);
+      Output.WriteLine("Prev node = {0}", elem.PreviousNode);
 
       elem = root.Elements("Child").First();
-      Console.WriteLine("Prev node = {0}", elem.PreviousNode == null);
+      Output.WriteLine("Prev node = {0}", elem.PreviousNode == null);
 
       //
       // NextNode
@@ -38,10 +40,10 @@ namespace Sazare.Samples
       root = BuildSampleXml();
       elem = root.Elements("Child").Where(x => x.Value == "value3").First();
 
-      Console.WriteLine("Next node = {0}", elem.NextNode);
+      Output.WriteLine("Next node = {0}", elem.NextNode);
 
       elem = root.Elements("Child").Last();
-      Console.WriteLine("Next node = {0}", elem.NextNode == null);
+      Output.WriteLine("Next node = {0}", elem.NextNode == null);
     }
 
     XElement BuildSampleXml()

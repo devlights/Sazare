@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-51
   /// <summary>
   /// LINQ to XMLのサンプルです。
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 文字列からXDocumentオブジェクトを構築するサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples51 : IExecutable
+  public class LinqSamples51 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -52,7 +54,7 @@ namespace Sazare.Samples
 
       foreach (var item in query)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
     }
 

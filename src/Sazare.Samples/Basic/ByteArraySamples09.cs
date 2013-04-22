@@ -4,19 +4,21 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ByteArraySamples-09
   /// <summary>
   /// バイト配列についてのサンプルです。
   /// </summary>
   [Sample]
-  public class ByteArraySamples09 : IExecutable
+  public class ByteArraySamples09 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
       //
       // 利用しているアーキテクチャのエンディアンを判定.
       //
-      Console.WriteLine(BitConverter.IsLittleEndian);
+      Output.WriteLine(BitConverter.IsLittleEndian);
     }
   }
   #endregion

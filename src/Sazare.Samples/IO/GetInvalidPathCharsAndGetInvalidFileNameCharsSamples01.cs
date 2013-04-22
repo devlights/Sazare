@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.IO;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region GetInvalidPathCharsAndGetInvalidFileNameCharsSamples-01
   /// <summary>
   /// PathクラスのGetInvalidPathCharsメソッドとGetInvalidFileNameCharsメソッドのサンプルです。
   /// </summary>
   [Sample]
-  public class GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01 : IExecutable
+  public class GetInvalidPathCharsAndGetInvalidFileNameCharsSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -30,8 +32,8 @@ namespace Sazare.Samples
       string tmpPath = @"c:usrlocaltmp_<path>_tmp";
       string tmpFileName = @"tmp_<filename>_tmp.|||";
 
-      Console.WriteLine("不正なパス文字が存在してる？     = {0}", invalidPathChars.Any(ch => tmpPath.Contains(ch)));
-      Console.WriteLine("不正なファイル名文字が存在してる？ = {0}", invalidFileNameChars.Any(ch => tmpFileName.Contains(ch)));
+      Output.WriteLine("不正なパス文字が存在してる？     = {0}", invalidPathChars.Any(ch => tmpPath.Contains(ch)));
+      Output.WriteLine("不正なファイル名文字が存在してる？ = {0}", invalidFileNameChars.Any(ch => tmpFileName.Contains(ch)));
     }
   }
   #endregion

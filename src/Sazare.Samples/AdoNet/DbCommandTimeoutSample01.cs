@@ -6,12 +6,14 @@ namespace Sazare.Samples
   using System.Diagnostics;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region DbCommandTimeoutSample-01
   /// <summary>
   /// DbCommandのタイムアウト機能についてのサンプルです。
   /// </summary>
   [Sample]
-  public class DbCommandTimeoutSample01 : IExecutable
+  public class DbCommandTimeoutSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -40,12 +42,12 @@ namespace Sazare.Samples
               }
               */
 
-              Console.WriteLine("COUNT={0}, Elapsed={1}", count, watch.Elapsed);
+              Output.WriteLine("COUNT={0}, Elapsed={1}", count, watch.Elapsed);
             }
           }
           catch (DbException ex)
           {
-            Console.WriteLine(ex);
+            Output.WriteLine(ex);
           }
         }
       }

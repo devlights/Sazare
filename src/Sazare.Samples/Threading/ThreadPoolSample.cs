@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region スレッドプールを利用したスレッド処理
   /// <summary>
   /// スレッドプール(ThreadPool)を利用したスレッド処理のサンプルです。
   /// </summary>
   [Sample]
-  public class ThreadPoolSample : IExecutable
+  public class ThreadPoolSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// スレッドの状態を表すデータクラスです。
@@ -41,7 +43,7 @@ namespace Sazare.Samples
         {
           StateInfo p = stateInfo as StateInfo;
           Thread.Sleep(150);
-          Console.WriteLine("Thread Count:{0}, Time:{1}", p.Count, p.Time.ToString("hh:mm:ss.fff"));
+          Output.WriteLine("Thread Count:{0}, Time:{1}", p.Count, p.Time.ToString("hh:mm:ss.fff"));
         },
         new StateInfo
         {

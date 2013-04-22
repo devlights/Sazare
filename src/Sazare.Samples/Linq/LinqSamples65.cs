@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-65
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 属性追加系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples65 : IExecutable
+  public class LinqSamples65 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -27,7 +29,7 @@ namespace Sazare.Samples
       var elem = root.Elements("Child").First();
 
       elem.Add(new XAttribute("Id3", 400));
-      Console.WriteLine(root);
+      Output.WriteLine(root);
 
       try
       {
@@ -36,14 +38,14 @@ namespace Sazare.Samples
         // InvalidOperationExceptionが発生する.
         //
         elem.Add(new XAttribute("Id2", 500));
-        Console.WriteLine(root);
+        Output.WriteLine(root);
       }
       catch (InvalidOperationException invalidOpEx)
       {
-        Console.WriteLine("[ERROR] {0}", invalidOpEx.Message);
+        Output.WriteLine("[ERROR] {0}", invalidOpEx.Message);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // SetAttributeValue(XName, object)
@@ -57,16 +59,16 @@ namespace Sazare.Samples
       elem = root.Elements("Child").First();
 
       elem.SetAttributeValue("Id3", 400);
-      Console.WriteLine(elem);
+      Output.WriteLine(elem);
 
       elem.SetAttributeValue("Id3", 500);
-      Console.WriteLine(elem);
+      Output.WriteLine(elem);
 
       elem.SetAttributeValue("Id3", null);
-      Console.WriteLine(elem);
+      Output.WriteLine(elem);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

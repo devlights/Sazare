@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region CountdownEventSamples-02
   /// <summary>
   /// CountdownEventクラスについてのサンプルです。(2)
@@ -15,7 +17,7 @@ namespace Sazare.Samples
   /// JavaのCountDownLatchクラスと同じ機能を持っています。
   /// </remarks>
   [Sample]
-  public class CountdownEventSamples02 : IExecutable
+  public class CountdownEventSamples02 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -36,9 +38,9 @@ namespace Sazare.Samples
       using (CountdownEvent cde = new CountdownEvent(LEAST_TASK_FINISH_COUNT))
       {
         // 初期の状態を表示.
-        Console.WriteLine("InitialCount={0}", cde.InitialCount);
-        Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
-        Console.WriteLine("IsSet={0}", cde.IsSet);
+        Output.WriteLine("InitialCount={0}", cde.InitialCount);
+        Output.WriteLine("CurrentCount={0}", cde.CurrentCount);
+        Output.WriteLine("IsSet={0}", cde.IsSet);
 
         Task[] tasks = new Task[]
           {
@@ -53,27 +55,27 @@ namespace Sazare.Samples
         // 3つ終わるまで待機.
         //
         cde.Wait();
-        Console.WriteLine("5つのタスクの内、3つ終了");
+        Output.WriteLine("5つのタスクの内、3つ終了");
 
-        Console.WriteLine("メインスレッド 続行開始・・・");
+        Output.WriteLine("メインスレッド 続行開始・・・");
         Thread.Sleep(TimeSpan.FromSeconds(1));
 
         //
         // 残りのタスクを待機.
         //
         Task.WaitAll(tasks);
-        Console.WriteLine("全てのタスク終了");
+        Output.WriteLine("全てのタスク終了");
 
         // 現在の状態を表示.
-        Console.WriteLine("InitialCount={0}", cde.InitialCount);
-        Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
-        Console.WriteLine("IsSet={0}", cde.IsSet);
+        Output.WriteLine("InitialCount={0}", cde.InitialCount);
+        Output.WriteLine("CurrentCount={0}", cde.CurrentCount);
+        Output.WriteLine("IsSet={0}", cde.IsSet);
       }
     }
 
     void TaskProc(object data)
     {
-      Console.WriteLine("Task ID={0} 開始", Task.CurrentId);
+      Output.WriteLine("Task ID={0} 開始", Task.CurrentId);
       Thread.Sleep(TimeSpan.FromSeconds(new Random().Next(10)));
 
       //
@@ -83,10 +85,10 @@ namespace Sazare.Samples
       if (!cde.IsSet)
       {
         cde.Signal();
-        Console.WriteLine("＊＊＊カウントをデクリメント＊＊＊ Task ID={0} CountdownEvent.CurrentCount={1}", Task.CurrentId, cde.CurrentCount);
+        Output.WriteLine("＊＊＊カウントをデクリメント＊＊＊ Task ID={0} CountdownEvent.CurrentCount={1}", Task.CurrentId, cde.CurrentCount);
       }
 
-      Console.WriteLine("Task ID={0} 終了", Task.CurrentId);
+      Output.WriteLine("Task ID={0} 終了", Task.CurrentId);
     }
   }
   #endregion

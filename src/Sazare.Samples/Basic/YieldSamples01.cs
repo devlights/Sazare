@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region YieldSamples-01
   /// <summary>
   /// yieldキーワードに関するサンプルです。
   /// </summary>
   [Sample]
-  public class YieldSamples01 : IExecutable
+  public class YieldSamples01 : Sazare.Common.IExecutable
   {
     //
     // 最もベーシックな列挙可能クラス.
@@ -174,7 +176,7 @@ namespace Sazare.Samples
       SampleCollection1 col1 = new SampleCollection1();
       foreach (string val in col1)
       {
-        Console.WriteLine(val);
+        Output.WriteLine(val);
       }
 
       AddNewLine();
@@ -182,7 +184,7 @@ namespace Sazare.Samples
       SampleCollection2 col2 = new SampleCollection2();
       foreach (string val in col2)
       {
-        Console.WriteLine(val);
+        Output.WriteLine(val);
       }
 
       AddNewLine();
@@ -190,7 +192,7 @@ namespace Sazare.Samples
       SampleCollection3 col3 = new SampleCollection3();
       foreach (string val in col3.InOrder)
       {
-        Console.WriteLine(val);
+        Output.WriteLine(val);
       }
 
       AddNewLine();
@@ -198,12 +200,12 @@ namespace Sazare.Samples
       SampleCollection4 col4 = new SampleCollection4();
       foreach (string val in col4.InOrder)
       {
-        Console.WriteLine(val);
+        Output.WriteLine(val);
       }
 
       foreach (string val in col4.ReverseOrder)
       {
-        Console.WriteLine(val);
+        Output.WriteLine(val);
       }
 
       AddNewLine();
@@ -211,20 +213,20 @@ namespace Sazare.Samples
       SampleCollection5 col5 = new SampleCollection5();
       foreach (string val in col5.InOrderWithBreak)
       {
-        Console.WriteLine(val);
+        Output.WriteLine(val);
       }
 
       AddNewLine();
 
       foreach (string val in Filter(Judge, AddCount(Upper(Range(10, "value")))))
       {
-        Console.WriteLine(val);
+        Output.WriteLine(val);
       }
     }
 
     void AddNewLine()
     {
-      Console.WriteLine(string.Empty);
+      Output.WriteLine(string.Empty);
     }
 
     bool Judge(string val)

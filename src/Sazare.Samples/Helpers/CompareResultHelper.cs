@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region CompareOptionsSamples-01
   /// <summary>
   /// 比較メソッドの結果値を変換するためのヘルパークラス.

@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Data;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region DataTableSortSamples-01
   /// <summary>
   /// DataTableについてのサンプルです。
   /// </summary>
   [Sample]
-  public class DataTableSortSamples01 : IExecutable
+  public class DataTableSortSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -29,38 +31,38 @@ namespace Sazare.Samples
       table.LoadDataRow(new object[] { "2", "4" }, true);
       table.LoadDataRow(new object[] { "2", "2" }, true);
 
-      Console.WriteLine("===================================================");
+      Output.WriteLine("===================================================");
       foreach (DataRow row in table.Rows)
       {
         DumpRow(row);
       }
-      Console.WriteLine("===================================================");
+      Output.WriteLine("===================================================");
 
-      Console.WriteLine("===================================================");
+      Output.WriteLine("===================================================");
       table.DefaultView.Sort = "Col1 DESC";
       foreach (DataRowView row in table.DefaultView)
       {
         DumpRow(row);
       }
-      Console.WriteLine("===================================================");
+      Output.WriteLine("===================================================");
 
-      Console.WriteLine("===================================================");
+      Output.WriteLine("===================================================");
       table.DefaultView.Sort = "Col1 ASC";
       foreach (DataRowView row in table.DefaultView)
       {
         DumpRow(row);
       }
-      Console.WriteLine("===================================================");
+      Output.WriteLine("===================================================");
     }
 
     void DumpRow(DataRow row)
     {
-      Console.WriteLine("{0}, {1}", row[0], row[1]);
+      Output.WriteLine("{0}, {1}", row[0], row[1]);
     }
 
     void DumpRow(DataRowView row)
     {
-      Console.WriteLine("{0}, {1}", row[0], row[1]);
+      Output.WriteLine("{0}, {1}", row[0], row[1]);
     }
   }
   #endregion

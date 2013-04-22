@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ExpandoObjectクラスのサンプル-03
   /// <summary>
   /// ExpandoObjectについてのサンプルです。
@@ -12,7 +14,7 @@ namespace Sazare.Samples
   /// .NET 4.0から追加されたクラスです。
   /// </remarks>
   [Sample]
-  public class ExpandoObjectSamples03 : IExecutable
+  public class ExpandoObjectSamples03 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -32,7 +34,7 @@ namespace Sazare.Samples
       IDictionary<string, object> map = obj as IDictionary<string, object>;
       foreach (var pair in map)
       {
-        Console.WriteLine("{0}={1}", pair.Key, pair.Value);
+        Output.WriteLine("{0}={1}", pair.Key, pair.Value);
       }
 
       //
@@ -45,11 +47,11 @@ namespace Sazare.Samples
       //
       foreach (var pair in map)
       {
-        Console.WriteLine("{0}={1}", pair.Key, pair.Value);
+        Output.WriteLine("{0}={1}", pair.Key, pair.Value);
       }
 
       // エラーとなる.
-      //Console.WriteLine(obj.Age);
+      //Output.WriteLine(obj.Age);
     }
   }
   #endregion

@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.IO.Compression;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ZipFileSamples-03
   /// <summary>
   /// System.IO.Compression.ZipFileクラスのサンプルです。
@@ -22,7 +24,7 @@ namespace Sazare.Samples
   /// を参照設定に追加する必要があります。
   /// </remarks>
   [Sample]
-  public class ZipFileSamples03 : IExecutable
+  public class ZipFileSamples03 : Sazare.Common.IExecutable
   {
     string _zipFilePath;
 

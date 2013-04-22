@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-12
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples12 : IExecutable
+  public class LinqSamples12 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -32,10 +34,10 @@ namespace Sazare.Samples
                   where (aPerson.Id % 2) == 0
                   select aPerson;
 
-      Console.WriteLine("============ クエリを表示 ============");
+      Output.WriteLine("============ クエリを表示 ============");
       foreach (var aPerson in query)
       {
-        Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+        Output.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
       //
@@ -44,10 +46,10 @@ namespace Sazare.Samples
       //
       Person[] filteredPersons = query.ToArray();
 
-      Console.WriteLine("============ ToArrayで作成したリストを表示 ============");
+      Output.WriteLine("============ ToArrayで作成したリストを表示 ============");
       foreach (var aPerson in filteredPersons)
       {
-        Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+        Output.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
       //
@@ -58,16 +60,16 @@ namespace Sazare.Samples
       //
       // もう一度、各結果を表示.
       //
-      Console.WriteLine("============ クエリを表示（2回目） ============");
+      Output.WriteLine("============ クエリを表示（2回目） ============");
       foreach (var aPerson in query)
       {
-        Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+        Output.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
-      Console.WriteLine("============ ToArrayで作成したリストを表示 （2回目）============");
+      Output.WriteLine("============ ToArrayで作成したリストを表示 （2回目）============");
       foreach (var aPerson in filteredPersons)
       {
-        Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+        Output.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
     }
   }

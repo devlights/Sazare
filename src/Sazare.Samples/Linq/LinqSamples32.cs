@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-32
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples32 : IExecutable
+  public class LinqSamples32 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -45,22 +47,22 @@ namespace Sazare.Samples
       //
       // predicate無しで実行. 
       //
-      Console.WriteLine("COUNT = {0}", people.Count());
+      Output.WriteLine("COUNT = {0}", people.Count());
 
       //
       // predicate有りで実行.
       //
-      Console.WriteLine("COUNT = {0}", people.Count(person => int.Parse(person.Name.Last().ToString()) % 2 == 0));
+      Output.WriteLine("COUNT = {0}", people.Count(person => int.Parse(person.Name.Last().ToString()) % 2 == 0));
 
       //
       // predicate無しで実行.（LongCount)
       //
-      Console.WriteLine("COUNT = {0}", people.LongCount());
+      Output.WriteLine("COUNT = {0}", people.LongCount());
 
       //
       // predicate有りで実行.（LongCount)
       //
-      Console.WriteLine("COUNT = {0}", people.LongCount(person => int.Parse(person.Name.Last().ToString()) % 2 == 0));
+      Output.WriteLine("COUNT = {0}", people.LongCount(person => int.Parse(person.Name.Last().ToString()) % 2 == 0));
     }
   }
   #endregion

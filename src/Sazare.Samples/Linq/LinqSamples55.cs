@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Xml;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-55
   /// <summary>
   /// LINQ to XMLのサンプルです。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// LINQ to XMLにてエラー発生時XmlExceptionが発生することを確認するサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples55 : IExecutable
+  public class LinqSamples55 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -29,7 +31,7 @@ namespace Sazare.Samples
       }
       catch (XmlException xmlEx)
       {
-        Console.WriteLine(xmlEx.ToString());
+        Output.WriteLine(xmlEx.ToString());
       }
     }
 

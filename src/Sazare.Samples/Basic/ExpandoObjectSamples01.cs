@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ExpandoObjectクラスのサンプル-01
   /// <summary>
   /// ExpandoObjectクラスについてのサンプルです。
@@ -12,7 +14,7 @@ namespace Sazare.Samples
   /// .NET 4.0から追加されたクラスです。
   /// </remarks>
   [Sample]
-  public class ExpandoObjectSamples01 : IExecutable
+  public class ExpandoObjectSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -37,7 +39,7 @@ namespace Sazare.Samples
       // メソッド.
       var action = new Action<string>((line) =>
       {
-        Console.WriteLine(line);
+        Output.WriteLine(line);
       });
 
       obj.WriteLine = action;

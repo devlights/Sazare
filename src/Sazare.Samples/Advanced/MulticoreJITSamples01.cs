@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Runtime;
 
+  using Sazare.Common;
+  
   #region MulticoreJITSamples-01
   /// <summary>
   /// マルチコアJITのサンプルです.
   /// </summary>
   [Sample]
-  public class MulticoreJITSamples01 : IExecutable
+  public class MulticoreJITSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

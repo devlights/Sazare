@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-06
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples06 : IExecutable
+  public class LinqSamples06 : Sazare.Common.IExecutable
   {
     enum Country
     {
@@ -147,10 +149,10 @@ namespace Sazare.Samples
                    orderby person.Id.ToInt() ascending
                    select person;
 
-      Console.WriteLine("============================================");
+      Output.WriteLine("============================================");
       foreach (Person person in query1)
       {
-        Console.WriteLine("Id={0}, Name={1}", person.Id, person.Name);
+        Output.WriteLine("Id={0}, Name={1}", person.Id, person.Name);
       }
 
       //
@@ -160,10 +162,10 @@ namespace Sazare.Samples
                    orderby person.Id.ToInt() descending
                    select person;
 
-      Console.WriteLine("============================================");
+      Output.WriteLine("============================================");
       foreach (Person person in query2)
       {
-        Console.WriteLine("Id={0}, Name={1}", person.Id, person.Name);
+        Output.WriteLine("Id={0}, Name={1}", person.Id, person.Name);
       }
 
       //
@@ -173,10 +175,10 @@ namespace Sazare.Samples
                    orderby person.Address.PostCode, person.Id.ToInt()
                    select person;
 
-      Console.WriteLine("============================================");
+      Output.WriteLine("============================================");
       foreach (Person person in query3)
       {
-        Console.WriteLine("Id={0}, Name={1}", person.Id, person.Name);
+        Output.WriteLine("Id={0}, Name={1}", person.Id, person.Name);
       }
 
       //
@@ -195,10 +197,10 @@ namespace Sazare.Samples
                    orderby person.Id.ToInt()
                    select person;
 
-      Console.WriteLine("============================================");
+      Output.WriteLine("============================================");
       foreach (Person person in query4)
       {
-        Console.WriteLine("Id={0}, Name={1}", person.Id, person.Name);
+        Output.WriteLine("Id={0}, Name={1}", person.Id, person.Name);
       }
     }
   }

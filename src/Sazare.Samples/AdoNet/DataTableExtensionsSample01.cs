@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Data;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region DataTableExtensionsSample-01
   /// <summary>
   /// System.Data.Extensionsのサンプル1です。
   /// </summary>
   [Sample]
-  public class DataTableExtensionsSample01 : IExecutable
+  public class DataTableExtensionsSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -46,14 +48,14 @@ namespace Sazare.Samples
 
     void PrintTable(string title, DataTable table)
     {
-      Console.WriteLine(title);
+      Output.WriteLine(title);
 
       foreach (DataRow row in table.Rows)
       {
-        Console.WriteLine("\t{0}, {1}", row[0], row[1]);
+        Output.WriteLine("\t{0}, {1}", row[0], row[1]);
       }
 
-      Console.WriteLine();
+      Output.WriteLine(string.Empty);
     }
   }
   #endregion

@@ -6,12 +6,14 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region LazySamples-01
   /// <summary>
   /// Lazy<T>, LazyInitializerクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class LazySamples01 : IExecutable
+  public class LazySamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -48,7 +50,7 @@ namespace Sazare.Samples
       // var lazy1 = new Lazy(() => new HeavyObject(TimeSpan.FromSeconds(1)), true);
 
       // 値が初期化済みであるかどうかは、IsValueCreatedで確認出来る。
-      Console.WriteLine("値構築済み？ == {0}", lazy1.IsValueCreated);
+      Output.WriteLine("値構築済み？ == {0}", lazy1.IsValueCreated);
 
       //
       // 複数のスレッドから同時に初期化を試みてみる。 (ExecutionAndPublication)
@@ -57,39 +59,39 @@ namespace Sazare.Samples
       (
         () =>
         {
-          Console.WriteLine("[lambda1] 初期化処理実行 start.");
+          Output.WriteLine("[lambda1] 初期化処理実行 start.");
 
           if (lazy1.IsValueCreated)
           {
-            Console.WriteLine("[lambda1] 既に値が作成されている。(IsValueCreated=true)");
+            Output.WriteLine("[lambda1] 既に値が作成されている。(IsValueCreated=true)");
           }
           else
           {
-            Console.WriteLine("[lambda1] ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
+            Output.WriteLine("[lambda1] ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
             var obj = lazy1.Value;
           }
 
-          Console.WriteLine("[lambda1] 初期化処理実行 end.");
+          Output.WriteLine("[lambda1] 初期化処理実行 end.");
         },
         () =>
         {
-          Console.WriteLine("[lambda2] 初期化処理実行 start.");
+          Output.WriteLine("[lambda2] 初期化処理実行 start.");
 
           if (lazy1.IsValueCreated)
           {
-            Console.WriteLine("[lambda2] 既に値が作成されている。(IsValueCreated=true)");
+            Output.WriteLine("[lambda2] 既に値が作成されている。(IsValueCreated=true)");
           }
           else
           {
-            Console.WriteLine("[lambda2] ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
+            Output.WriteLine("[lambda2] ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
             var obj = lazy1.Value;
           }
 
-          Console.WriteLine("[lambda2] 初期化処理実行 end.");
+          Output.WriteLine("[lambda2] 初期化処理実行 end.");
         }
       );
 
-      Console.WriteLine("==========================================");
+      Output.WriteLine("==========================================");
 
       //
       // 複数のスレッドにて同時に初期化処理の実行を許可するが、最初に初期化した値が設定されるモード。
@@ -101,43 +103,43 @@ namespace Sazare.Samples
       (
         () =>
         {
-          Console.WriteLine("[lambda1] 初期化処理実行 start.");
+          Output.WriteLine("[lambda1] 初期化処理実行 start.");
 
           if (lazy2.IsValueCreated)
           {
-            Console.WriteLine("[lambda1] 既に値が作成されている。(IsValueCreated=true)");
+            Output.WriteLine("[lambda1] 既に値が作成されている。(IsValueCreated=true)");
           }
           else
           {
-            Console.WriteLine("[lambda1] ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
+            Output.WriteLine("[lambda1] ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
             var obj = lazy2.Value;
           }
 
-          Console.WriteLine("[lambda1] 初期化処理実行 end.");
+          Output.WriteLine("[lambda1] 初期化処理実行 end.");
         },
         () =>
         {
-          Console.WriteLine("[lambda2] 初期化処理実行 start.");
+          Output.WriteLine("[lambda2] 初期化処理実行 start.");
 
           if (lazy2.IsValueCreated)
           {
-            Console.WriteLine("[lambda2] 既に値が作成されている。(IsValueCreated=true)");
+            Output.WriteLine("[lambda2] 既に値が作成されている。(IsValueCreated=true)");
           }
           else
           {
-            Console.WriteLine("[lambda2] ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
+            Output.WriteLine("[lambda2] ThreadId={0}", Thread.CurrentThread.ManagedThreadId);
             var obj = lazy2.Value;
           }
 
-          Console.WriteLine("[lambda2] 初期化処理実行 end.");
+          Output.WriteLine("[lambda2] 初期化処理実行 end.");
         }
       );
 
-      Console.WriteLine("値構築済み？ == {0}", lazy1.IsValueCreated);
-      Console.WriteLine("値構築済み？ == {0}", lazy2.IsValueCreated);
+      Output.WriteLine("値構築済み？ == {0}", lazy1.IsValueCreated);
+      Output.WriteLine("値構築済み？ == {0}", lazy2.IsValueCreated);
 
-      Console.WriteLine("lazy1のスレッドID: {0}", lazy1.Value.CreatedThreadId);
-      Console.WriteLine("lazy2のスレッドID: {0}", lazy2.Value.CreatedThreadId);
+      Output.WriteLine("lazy1のスレッドID: {0}", lazy1.Value.CreatedThreadId);
+      Output.WriteLine("lazy2のスレッドID: {0}", lazy2.Value.CreatedThreadId);
     }
 
     class HeavyObject
@@ -146,9 +148,9 @@ namespace Sazare.Samples
 
       public HeavyObject(TimeSpan waitSpan)
       {
-        Console.WriteLine(">>>>>> HeavyObjectのコンストラクタ start. [{0}]", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine(">>>>>> HeavyObjectのコンストラクタ start. [{0}]", Thread.CurrentThread.ManagedThreadId);
         Initialize(waitSpan);
-        Console.WriteLine(">>>>>> HeavyObjectのコンストラクタ end.   [{0}]", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine(">>>>>> HeavyObjectのコンストラクタ end.   [{0}]", Thread.CurrentThread.ManagedThreadId);
       }
 
       void Initialize(TimeSpan waitSpan)

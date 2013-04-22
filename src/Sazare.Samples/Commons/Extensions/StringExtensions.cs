@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region 共通拡張クラス
   /// <summary>
   /// 共通で利用しているString拡張クラスです。

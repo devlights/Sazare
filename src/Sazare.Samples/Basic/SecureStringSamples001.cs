@@ -6,12 +6,14 @@ namespace Sazare.Samples
   using System.Runtime.InteropServices;
   using System.Security;
 
+  using Sazare.Common;
+  
   #region SecureStringSamples-001
   /// <summary>
   /// SecureStringについてのサンプルです。
   /// </summary>
   [Sample]
-  public class SecureStringSamples001 : IExecutable
+  public class SecureStringSamples001 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -46,7 +48,7 @@ namespace Sazare.Samples
       // ToString()メソッドを呼び出してもSecureStringの中身を
       // 見ることはできない。
       //
-      Console.WriteLine(secureStr);
+      Output.WriteLine(secureStr);
 
       //
       // IsReadOnlyメソッドで現在読み取り専用としてマークされているか否かが
@@ -54,9 +56,9 @@ namespace Sazare.Samples
       //
       // 読み取り専用にするにはMakeReadOnlyメソッドを使用する。
       //
-      Console.WriteLine("IsReadOnly:{0}", secureStr.IsReadOnly());
+      Output.WriteLine("IsReadOnly:{0}", secureStr.IsReadOnly());
       secureStr.MakeReadOnly();
-      Console.WriteLine("IsReadOnly:{0}", secureStr.IsReadOnly());
+      Output.WriteLine("IsReadOnly:{0}", secureStr.IsReadOnly());
 
       //
       // SecureStringの中身を復元するには、以下のメソッドを利用する。
@@ -97,7 +99,7 @@ namespace Sazare.Samples
         pointer = Marshal.SecureStringToCoTaskMemUnicode(secureStr);
         Marshal.Copy(pointer, buffer, 0, buffer.Length);
 
-        Console.WriteLine(new string(buffer));
+        Output.WriteLine(new string(buffer));
       }
       finally
       {

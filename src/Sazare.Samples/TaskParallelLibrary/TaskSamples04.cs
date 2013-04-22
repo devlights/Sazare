@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region TaskSamples-04
   /// <summary>
   /// タスク並列ライブラリについてのサンプルです。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// タスク並列ライブラリは、.NET 4.0から追加されたライブラリです。
   /// </remarks>
   [Sample]
-  public class TaskSamples04 : IExecutable
+  public class TaskSamples04 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -43,11 +45,11 @@ namespace Sazare.Samples
       //
       // 親子関係を持つ子タスクを作成.
       //
-      Console.WriteLine("親のタスク開始");
+      Output.WriteLine("親のタスク開始");
       Task t = new Task(ParentTaskProc);
       t.Start();
       t.Wait();
-      Console.WriteLine("親のタスク終了");
+      Output.WriteLine("親のタスク終了");
     }
 
     void ParentTaskProc()
@@ -69,10 +71,10 @@ namespace Sazare.Samples
 
     void ChildTaskProc()
     {
-      Console.WriteLine("子のタスク開始");
+      Output.WriteLine("子のタスク開始");
       PrintTaskId();
       Thread.Sleep(TimeSpan.FromSeconds(2.0));
-      Console.WriteLine("子のタスク終了");
+      Output.WriteLine("子のタスク終了");
     }
 
     void PrintTaskId()
@@ -80,7 +82,7 @@ namespace Sazare.Samples
       //
       // 現在実行中のタスクのIDを表示.
       //
-      Console.WriteLine("\tTask Id: {0}", Task.CurrentId);
+      Output.WriteLine("\tTask Id: {0}", Task.CurrentId);
     }
   }
   #endregion

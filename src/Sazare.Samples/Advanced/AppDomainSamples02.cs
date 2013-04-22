@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region AppDomainSamples-02
   /// <summary>
   /// AppDomainクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class AppDomainSamples02 : MarshalByRefObject, IExecutable
+  public class AppDomainSamples02 : MarshalByRefObject, Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -48,7 +50,7 @@ namespace Sazare.Samples
     void AppDomain_Unload(object sender, EventArgs e)
     {
       AppDomain domain = sender as AppDomain;
-      Console.WriteLine("AppDomain.Unload: {0}", domain.FriendlyName);
+      Output.WriteLine("AppDomain.Unload: {0}", domain.FriendlyName);
     }
 
     void AppDomain_ProcessExit(object sender, EventArgs e)
@@ -65,11 +67,11 @@ namespace Sazare.Samples
       // イベントをハンドルしていても、後続の処理は実行されない。
       //
       // わざとタイムアウト時間が過ぎるように待機.
-      //Console.WriteLine("AppDomain.ProcessExit Thread.Sleep()");
+      //Output.WriteLine("AppDomain.ProcessExit Thread.Sleep()");
       //Thread.Sleep(TimeSpan.FromSeconds(3));
 
       AppDomain domain = sender as AppDomain;
-      Console.WriteLine("AppDomain.ProcessExit: {0}", domain.FriendlyName);
+      Output.WriteLine("AppDomain.ProcessExit: {0}", domain.FriendlyName);
     }
   }
   #endregion

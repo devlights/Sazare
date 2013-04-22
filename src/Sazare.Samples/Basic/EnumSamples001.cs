@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region EnumSamples-001
   /// <summary>
   /// Enumについてのサンプルです。
   /// </summary>
   [Sample]
-  public class EnumSamples001 : IExecutable
+  public class EnumSamples001 : Sazare.Common.IExecutable
   {
     //
     // Enumを定義.
@@ -38,11 +40,11 @@ namespace Sazare.Samples
       SampleEnum enum1 = SampleEnum.Value2;
       SampleEnum enum2 = (SampleEnum.Value1 | SampleEnum.Value3);
 
-      Console.WriteLine(enum1);
-      Console.WriteLine(enum2);
+      Output.WriteLine(enum1);
+      Output.WriteLine(enum2);
 
-      Console.WriteLine("enum2 has Value3? == {0}", ((enum2 & SampleEnum.Value3) == SampleEnum.Value3));
-      Console.WriteLine("enum2 has Value2? == {0}", ((enum2 & SampleEnum.Value2) == SampleEnum.Value2));
+      Output.WriteLine("enum2 has Value3? == {0}", ((enum2 & SampleEnum.Value3) == SampleEnum.Value3));
+      Output.WriteLine("enum2 has Value2? == {0}", ((enum2 & SampleEnum.Value2) == SampleEnum.Value2));
 
       /////////////////////////////////////////////////////////////
       //
@@ -59,7 +61,7 @@ namespace Sazare.Samples
       // ■ToObjectメソッド
       // ■ToStringメソッド
       //
-      Console.WriteLine(string.Empty);
+      Output.WriteLine(string.Empty);
 
       //
       // Formatメソッド.
@@ -72,14 +74,14 @@ namespace Sazare.Samples
       // ■D or d: １０進数で値を取得
       // ■F or f: Gとほぼ同じ。
       //
-      Console.WriteLine("============ {0} ============", "Format");
-      Console.WriteLine(Enum.Format(typeof(SampleEnum), 2, "G"));
-      Console.WriteLine(Enum.Format(typeof(SampleEnum), (2 | 3), "G"));
-      Console.WriteLine(Enum.Format(typeof(SampleEnum), (SampleEnum.Value1 | SampleEnum.Value3), "G"));
-      Console.WriteLine(Enum.Format(typeof(SampleEnum), SampleEnum.Value4, "X"));
-      Console.WriteLine(Enum.Format(typeof(SampleEnum), SampleEnum.Value4, "D"));
-      Console.WriteLine(Enum.Format(typeof(SampleEnum), SampleEnum.Value4, "F"));
-      Console.WriteLine(Enum.Format(typeof(SampleEnum), (SampleEnum.Value1 | SampleEnum.Value4), "F"));
+      Output.WriteLine("============ {0} ============", "Format");
+      Output.WriteLine(Enum.Format(typeof(SampleEnum), 2, "G"));
+      Output.WriteLine(Enum.Format(typeof(SampleEnum), (2 | 3), "G"));
+      Output.WriteLine(Enum.Format(typeof(SampleEnum), (SampleEnum.Value1 | SampleEnum.Value3), "G"));
+      Output.WriteLine(Enum.Format(typeof(SampleEnum), SampleEnum.Value4, "X"));
+      Output.WriteLine(Enum.Format(typeof(SampleEnum), SampleEnum.Value4, "D"));
+      Output.WriteLine(Enum.Format(typeof(SampleEnum), SampleEnum.Value4, "F"));
+      Output.WriteLine(Enum.Format(typeof(SampleEnum), (SampleEnum.Value1 | SampleEnum.Value4), "F"));
 
       //
       // GetNameメソッド
@@ -87,42 +89,42 @@ namespace Sazare.Samples
       // 対象となる値から、対応する列挙値の名前を取得する.
       // 対応する列挙値が存在しない場合は、nullとなる。
       //
-      Console.WriteLine("============ {0} ============", "GetName");
+      Output.WriteLine("============ {0} ============", "GetName");
       int targetValue = 4;
-      Console.WriteLine(Enum.GetName(typeof(SampleEnum), targetValue));
-      Console.WriteLine(Enum.GetName(typeof(SampleEnum), -1) == null ? "null" : string.Empty);
+      Output.WriteLine(Enum.GetName(typeof(SampleEnum), targetValue));
+      Output.WriteLine(Enum.GetName(typeof(SampleEnum), -1) == null ? "null" : string.Empty);
 
       //
       // GetNamesメソッド
       //
       // 対象となる列挙型に定義されている値の名称を一気に取得する.
       //
-      Console.WriteLine("============ {0} ============", "GetNames");
+      Output.WriteLine("============ {0} ============", "GetNames");
       string[] names = Enum.GetNames(typeof(SampleEnum));
-      names.ToList().ForEach(Console.WriteLine);
+      names.ToList().ForEach(Output.WriteLine);
 
       //
       // GetUnderlyingTypeメソッド
       //
       // 特定の列挙値が属する列挙型を取得する。
       //
-      Console.WriteLine("============ {0} ============", "GetUnderlyingType");
+      Output.WriteLine("============ {0} ============", "GetUnderlyingType");
       Enum enumVal = SampleEnum.Value2;
       Type enumType = enumVal.GetType();
       Type underlyingType = Enum.GetUnderlyingType(enumType);
 
-      Console.WriteLine(enumType.Name);
+      Output.WriteLine(enumType.Name);
 
       //
       // GetValuesメソッド
       //
       // 対象となる列挙型に設定されている値を一気に取得.
       //
-      Console.WriteLine("============ {0} ============", "GetValues");
+      Output.WriteLine("============ {0} ============", "GetValues");
       Array valueArray = Enum.GetValues(typeof(SampleEnum));
       foreach (var element in valueArray)
       {
-        Console.WriteLine(element);
+        Output.WriteLine(element);
       }
 
       //
@@ -130,9 +132,9 @@ namespace Sazare.Samples
       //
       // 指定した値が、対象となる列挙型に存在するか否かを調査する。
       //
-      Console.WriteLine("============ {0} ============", "IsDefined");
-      Console.WriteLine("値{0}がSampleEnumに存在するか？ {1}", 2, Enum.IsDefined(typeof(SampleEnum), 2));
-      Console.WriteLine("値{0}がSampleEnumに存在するか？ {1}", 10, Enum.IsDefined(typeof(SampleEnum), 10));
+      Output.WriteLine("============ {0} ============", "IsDefined");
+      Output.WriteLine("値{0}がSampleEnumに存在するか？ {1}", 2, Enum.IsDefined(typeof(SampleEnum), 2));
+      Output.WriteLine("値{0}がSampleEnumに存在するか？ {1}", 10, Enum.IsDefined(typeof(SampleEnum), 10));
 
       //
       // Parseメソッド.
@@ -149,25 +151,25 @@ namespace Sazare.Samples
       // 名前をコンマで繋いだリストを指定した場合は、該当する列挙値の
       // OR演算された結果が取得できる。
       //
-      Console.WriteLine("============ {0} ============", "Parse");
+      Output.WriteLine("============ {0} ============", "Parse");
       string testVal = "Value4";
-      Console.WriteLine(Enum.Parse(typeof(SampleEnum), testVal));
+      Output.WriteLine(Enum.Parse(typeof(SampleEnum), testVal));
 
       try
       {
         // 存在しない値を指定.
-        Console.WriteLine(Enum.Parse(typeof(SampleEnum), "not_found"));
+        Output.WriteLine(Enum.Parse(typeof(SampleEnum), "not_found"));
       }
       catch (ArgumentException)
       {
-        Console.WriteLine("文字列 not_found に対応する列挙値が存在しない。");
+        Output.WriteLine("文字列 not_found に対応する列挙値が存在しない。");
       }
 
       testVal = "4";
-      Console.WriteLine(Enum.Parse(typeof(SampleEnum), testVal));
+      Output.WriteLine(Enum.Parse(typeof(SampleEnum), testVal));
 
       testVal = "Value1,Value2,Value4";
-      Console.WriteLine(Enum.Parse(typeof(SampleEnum), testVal));
+      Output.WriteLine(Enum.Parse(typeof(SampleEnum), testVal));
 
       //
       // ToObjectメソッド.
@@ -175,9 +177,9 @@ namespace Sazare.Samples
       // 指定された値を対応する列挙値に変換する。
       // 各型に対応するためのオーバーロードメソッドが存在する。
       //
-      Console.WriteLine("============ {0} ============", "ToObject");
+      Output.WriteLine("============ {0} ============", "ToObject");
       int v = 1;
-      Console.WriteLine(Enum.ToObject(typeof(SampleEnum), v));
+      Output.WriteLine(Enum.ToObject(typeof(SampleEnum), v));
 
       //
       // ToStringメソッド.
@@ -189,9 +191,9 @@ namespace Sazare.Samples
       // 基本的に、Enum.Formatメソッドに"G"を適用した結果となる。
       // （IFormatProviderを指定した場合はカスタム書式となる。）
       //
-      Console.WriteLine("============ {0} ============", "ToString");
+      Output.WriteLine("============ {0} ============", "ToString");
       SampleEnum e1 = SampleEnum.Value4;
-      Console.WriteLine(e1.ToString());
+      Output.WriteLine(e1.ToString());
 
     }
   }

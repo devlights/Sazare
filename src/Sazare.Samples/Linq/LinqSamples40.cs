@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-40
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples40 : IExecutable
+  public class LinqSamples40 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -22,9 +24,9 @@ namespace Sazare.Samples
       //
       var names = new string[] { "gsf_zero1", "gsf_zero2", "gsf_zero3", "2222" };
 
-      Console.WriteLine("Allメソッドの結果 = {0}", names.All(item => Char.IsDigit(item.Last())));
-      Console.WriteLine("Allメソッドの結果 = {0}", names.All(item => item.StartsWith("g")));
-      Console.WriteLine("Allメソッドの結果 = {0}", names.All(item => !string.IsNullOrEmpty(item)));
+      Output.WriteLine("Allメソッドの結果 = {0}", names.All(item => Char.IsDigit(item.Last())));
+      Output.WriteLine("Allメソッドの結果 = {0}", names.All(item => item.StartsWith("g")));
+      Output.WriteLine("Allメソッドの結果 = {0}", names.All(item => !string.IsNullOrEmpty(item)));
     }
   }
   #endregion

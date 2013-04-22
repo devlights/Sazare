@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region AppDomainSamples-03
   /// <summary>
   /// AppDomainクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class AppDomainSamples03 : IExecutable
+  public class AppDomainSamples03 : Sazare.Common.IExecutable
   {
     // AppDomainのモニタリングを担当するクラス
     class AppDomainMonitor : IDisposable
@@ -55,12 +57,12 @@ namespace Sazare.Samples
         //
         // 完全なブロッキングコレクション（フルブロッキングコレクション）は、GC.Collectメソッドで実行できる。
         //
-        Console.WriteLine("============================================");
-        Console.WriteLine("MonitoringSurvivedMemorySize        = {0:N0}", domain.MonitoringSurvivedMemorySize);
-        Console.WriteLine("MonitoringSurvivedProcessMemorySize = {0:N0}", AppDomain.MonitoringSurvivedProcessMemorySize);
-        Console.WriteLine("MonitoringTotalAllocatedMemorySize  = {0:N0}", domain.MonitoringTotalAllocatedMemorySize);
-        Console.WriteLine("MonitoringTotalProcessorTime        = {0}", domain.MonitoringTotalProcessorTime);
-        Console.WriteLine("============================================");
+        Output.WriteLine("============================================");
+        Output.WriteLine("MonitoringSurvivedMemorySize        = {0:N0}", domain.MonitoringSurvivedMemorySize);
+        Output.WriteLine("MonitoringSurvivedProcessMemorySize = {0:N0}", AppDomain.MonitoringSurvivedProcessMemorySize);
+        Output.WriteLine("MonitoringTotalAllocatedMemorySize  = {0:N0}", domain.MonitoringTotalAllocatedMemorySize);
+        Output.WriteLine("MonitoringTotalProcessorTime        = {0}", domain.MonitoringTotalProcessorTime);
+        Output.WriteLine("============================================");
       }
     }
 

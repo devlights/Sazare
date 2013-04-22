@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region BarrierSamples-02
   /// <summary>
   /// Barrierクラスについてのサンプルです。
@@ -15,7 +17,7 @@ namespace Sazare.Samples
   /// Barrierクラスは、.NET 4.0から追加されたクラスです。
   /// </remarks>
   [Sample]
-  public class BarrierSamples02 : IExecutable
+  public class BarrierSamples02 : Sazare.Common.IExecutable
   {
     // 計算値を保持する変数
     long _count;
@@ -51,7 +53,7 @@ namespace Sazare.Samples
               // 5秒間待機した後にキャンセルを行う.
               //
               Thread.Sleep(TimeSpan.FromSeconds(5));
-              Console.WriteLine("■■■■　キャンセル　■■■■");
+              Output.WriteLine("■■■■　キャンセル　■■■■");
               _tokenSource.Cancel();
             }
           );
@@ -64,7 +66,7 @@ namespace Sazare.Samples
 
       _tokenSource.Dispose();
 
-      Console.WriteLine("最終値：{0}", _count);
+      Output.WriteLine("最終値：{0}", _count);
     }
 
     //
@@ -97,7 +99,7 @@ namespace Sazare.Samples
       Stopwatch watch = Stopwatch.StartNew();
 
       int loopCount = rnd.Next(loopCountMaxValue);
-      Console.WriteLine("[Phase{0}] ループカウント：{1}, TASK:{2}", barrier.CurrentPhaseNumber, loopCount, Task.CurrentId);
+      Output.WriteLine("[Phase{0}] ループカウント：{1}, TASK:{2}", barrier.CurrentPhaseNumber, loopCount, Task.CurrentId);
 
       for (int i = 0; i < loopCount; i++)
       {
@@ -118,7 +120,7 @@ namespace Sazare.Samples
       }
 
       watch.Stop();
-      Console.WriteLine("[Phase{0}] SignalAndWait -- TASK:{1}, ELAPSED:{2}", barrier.CurrentPhaseNumber, Task.CurrentId, watch.Elapsed);
+      Output.WriteLine("[Phase{0}] SignalAndWait -- TASK:{1}, ELAPSED:{2}", barrier.CurrentPhaseNumber, Task.CurrentId, watch.Elapsed);
 
       try
       {
@@ -133,7 +135,7 @@ namespace Sazare.Samples
         // Post Phaseアクションにてエラーが発生した場合はここに来る.
         // (本来であれば、キャンセルするなどのエラー処理が必要)
         //
-        Console.WriteLine("*** {0} ***", postPhaseEx.Message);
+        Output.WriteLine("*** {0} ***", postPhaseEx.Message);
         throw;
       }
       catch (OperationCanceledException cancelEx)
@@ -149,7 +151,7 @@ namespace Sazare.Samples
         // SignalAndWaitを呼ぶと
         //    「操作がキャンセルされました。」となる。
         //
-        Console.WriteLine("キャンセルされました -- MESSAGE:{0}, TASK:{1}", cancelEx.Message, Task.CurrentId);
+        Output.WriteLine("キャンセルされました -- MESSAGE:{0}, TASK:{1}", cancelEx.Message, Task.CurrentId);
         throw;
       }
     }
@@ -168,8 +170,8 @@ namespace Sazare.Samples
       //
       long current = Interlocked.Read(ref _count);
 
-      Console.WriteLine("現在のフェーズ：{0}, 参加要素数：{1}", barrier.CurrentPhaseNumber, barrier.ParticipantCount);
-      Console.WriteLine("t現在値：{0}", current);
+      Output.WriteLine("現在のフェーズ：{0}, 参加要素数：{1}", barrier.CurrentPhaseNumber, barrier.ParticipantCount);
+      Output.WriteLine("t現在値：{0}", current);
 
       //
       // 以下のコメントを外すと、次のPost Phaseアクションにて
@@ -189,7 +191,7 @@ namespace Sazare.Samples
         OperationCanceledException cancelEx = ex as OperationCanceledException;
         if (_token == cancelEx.CancellationToken)
         {
-          Console.WriteLine("＊＊＊Barrier内の処理がキャンセルされた MESSAGE={0} ＊＊＊", cancelEx.Message);
+          Output.WriteLine("＊＊＊Barrier内の処理がキャンセルされた MESSAGE={0} ＊＊＊", cancelEx.Message);
           return true;
         }
       }

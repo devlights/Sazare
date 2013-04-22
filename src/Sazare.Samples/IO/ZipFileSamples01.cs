@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.IO.Compression;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ZipFileSamples-01
   /// <summary>
   /// System.IO.Compression.ZipFileクラスのサンプルです。
@@ -18,7 +20,7 @@ namespace Sazare.Samples
   /// Metroアプリでは、代わりにZipArchiveクラスを利用します。
   /// </remarks>
   [Sample]
-  public class ZipFileSamples01 : IExecutable
+  public class ZipFileSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

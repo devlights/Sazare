@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Runtime.Serialization;
   using System.ServiceModel;
 
+  using Sazare.Common;
+  
   #region WcfSamples-02
   /// <summary>
   /// WCFのサンプルです。
@@ -14,9 +16,9 @@ namespace Sazare.Samples
   /// 引数にカスタムオブジェクトを指定するサービスメソッドを定義しています。
   /// </remarks>
   [Sample]
-  public class WcfSamples02 : IExecutable
+  public class WcfSamples02 : Sazare.Common.IExecutable
   {
-    #region Constants
+  #region Constants
     /// <summary>
     /// サービスのURL
     /// </summary>
@@ -98,7 +100,7 @@ namespace Sazare.Samples
           //
           // サービスメソッドを呼び出し、結果を取得.
           //
-          Console.WriteLine("サービスの呼び出し結果= {0}", proxy.Sum(new Data { X = 300, Y = 200 }));
+          Output.WriteLine("サービスの呼び出し結果= {0}", proxy.Sum(new Data { X = 300, Y = 200 }));
         }
       }
     }

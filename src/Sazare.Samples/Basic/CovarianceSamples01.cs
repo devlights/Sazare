@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region CovarianceSamples-01
   /// <summary>
   /// 共変性についてのサンプルです。
@@ -12,7 +14,7 @@ namespace Sazare.Samples
   /// 共変性は4.0から追加された機能です。
   /// </remarks>
   [Sample]
-  public class CovarianceSamples01 : IExecutable
+  public class CovarianceSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -45,7 +47,7 @@ namespace Sazare.Samples
 
       foreach (var obj in objects)
       {
-        Console.WriteLine("VALUE={0}, TYPE={1}", obj, obj.GetType().Name);
+        Output.WriteLine("VALUE={0}, TYPE={1}", obj, obj.GetType().Name);
       }
     }
   }

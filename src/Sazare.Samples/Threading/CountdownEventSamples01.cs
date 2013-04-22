@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region CountDownEventSamples-01
   /// <summary>
   /// CountdownEventクラスについてのサンプルです。(1)
@@ -15,7 +17,7 @@ namespace Sazare.Samples
   /// JavaのCountDownLatchクラスと同じ機能を持っています。
   /// </remarks>
   [Sample]
-  public class CountdownEventSamples01 : IExecutable
+  public class CountdownEventSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -29,9 +31,9 @@ namespace Sazare.Samples
       using (CountdownEvent cde = new CountdownEvent(1))
       {
         // 初期の状態を表示.
-        Console.WriteLine("InitialCount={0}", cde.InitialCount);
-        Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
-        Console.WriteLine("IsSet={0}", cde.IsSet);
+        Output.WriteLine("InitialCount={0}", cde.InitialCount);
+        Output.WriteLine("CurrentCount={0}", cde.CurrentCount);
+        Output.WriteLine("IsSet={0}", cde.IsSet);
 
         Task t = Task.Factory.StartNew(() =>
         {
@@ -59,7 +61,7 @@ namespace Sazare.Samples
         {
           foreach (Exception innerEx in aggEx.Flatten().InnerExceptions)
           {
-            Console.WriteLine("ERROR={0}", innerEx.Message);
+            Output.WriteLine("ERROR={0}", innerEx.Message);
           }
         }
 
@@ -69,9 +71,9 @@ namespace Sazare.Samples
         cde.Wait();
 
         // 現在の状態を表示.
-        Console.WriteLine("InitialCount={0}", cde.InitialCount);
-        Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
-        Console.WriteLine("IsSet={0}", cde.IsSet);
+        Output.WriteLine("InitialCount={0}", cde.InitialCount);
+        Output.WriteLine("CurrentCount={0}", cde.CurrentCount);
+        Output.WriteLine("IsSet={0}", cde.IsSet);
       }
     }
   }

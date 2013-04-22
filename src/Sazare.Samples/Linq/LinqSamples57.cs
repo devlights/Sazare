@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-57
   /// <summary>
   /// LINQ to XMLのサンプルです。
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// LINQ to XMLにてクエリを使用して対象の要素を取得するサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples57 : IExecutable
+  public class LinqSamples57 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -34,7 +36,7 @@ namespace Sazare.Samples
 
       foreach (var author in query)
       {
-        Console.WriteLine(author);
+        Output.WriteLine(author);
       }
     }
   }

@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.ComponentModel;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ExpandoObjectクラスのサンプル-04
   /// <summary>
   /// ExpandoObjectクラスについてのサンプルです。
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// .NET 4.0から追加されたクラスです。
   /// </remarks>
   [Sample]
-  public class ExpandoObjectSamples04 : IExecutable
+  public class ExpandoObjectSamples04 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -28,7 +30,7 @@ namespace Sazare.Samples
       //
       (obj as INotifyPropertyChanged).PropertyChanged += (sender, e) =>
       {
-        Console.WriteLine("Property Changed:{0}", e.PropertyName);
+        Output.WriteLine("Property Changed:{0}", e.PropertyName);
       };
 
       //

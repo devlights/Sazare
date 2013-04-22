@@ -8,6 +8,8 @@ namespace Sazare.Samples
   using System.Windows;
   using System.Windows.Controls;
 
+  using Sazare.Common;
+  
   #region ProgressSamples-01
   /// <summary>
   /// System.Progress<T>のサンプルです。
@@ -16,7 +18,7 @@ namespace Sazare.Samples
   /// このクラスは、.NET Framework 4.5から追加された型です。
   /// </remarks>
   [Sample]
-  public class ProgressSamples01 : IExecutable
+  public class ProgressSamples01 : Sazare.Common.IExecutable
   {
     /// <summary>
     /// サンプル用ウィンドウ

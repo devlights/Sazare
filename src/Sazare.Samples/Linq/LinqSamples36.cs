@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-36
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples36 : IExecutable
+  public class LinqSamples36 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -31,10 +33,10 @@ namespace Sazare.Samples
 
       var query = numbers1.Zip(numbers2, (first, second) => Tuple.Create(first, second));
 
-      Console.WriteLine("========= 2つのシーケンスの要素数が同じ場合 ===========");
+      Output.WriteLine("========= 2つのシーケンスの要素数が同じ場合 ===========");
       foreach (var item in query)
       {
-        Console.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
+        Output.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
       }
 
       numbers1 = new int[] { 1, 2, 3 };
@@ -42,10 +44,10 @@ namespace Sazare.Samples
 
       query = numbers1.Zip(numbers2, (first, second) => Tuple.Create(first, second));
 
-      Console.WriteLine("========= 1つ目のシーケンスの要素が2つ目よりも少ない場合 ===========");
+      Output.WriteLine("========= 1つ目のシーケンスの要素が2つ目よりも少ない場合 ===========");
       foreach (var item in query)
       {
-        Console.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
+        Output.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
       }
 
       numbers1 = new int[] { 1, 2, 3, 4, 5 };
@@ -53,10 +55,10 @@ namespace Sazare.Samples
 
       query = numbers1.Zip(numbers2, (first, second) => Tuple.Create(first, second));
 
-      Console.WriteLine("========= 2つ目のシーケンスの要素が1つ目よりも少ない場合 ===========");
+      Output.WriteLine("========= 2つ目のシーケンスの要素が1つ目よりも少ない場合 ===========");
       foreach (var item in query)
       {
-        Console.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
+        Output.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
       }
 
       numbers1 = Enumerable.Empty<int>();
@@ -64,10 +66,10 @@ namespace Sazare.Samples
 
       query = numbers1.Zip(numbers2, (first, second) => Tuple.Create(first, second));
 
-      Console.WriteLine("========= どちらかのシーケンスが空の場合 ===========");
+      Output.WriteLine("========= どちらかのシーケンスが空の場合 ===========");
       foreach (var item in query)
       {
-        Console.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
+        Output.WriteLine("FIRST={0}, SECOND={1}", item.Item1, item.Item2);
       }
     }
   }

@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region TaskSamples-02
   /// <summary>
   /// タスク並列ライブラリについてのサンプルです。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// タスク並列ライブラリは4.0から追加されたライブラリです。
   /// </remarks>
   [Sample]
-  public class TaskSamples02 : IExecutable
+  public class TaskSamples02 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -27,7 +29,7 @@ namespace Sazare.Samples
       //
 
       // 別スレッドでタスクが実行されている事を確認する為に、メインスレッドのスレッドIDを表示
-      Console.WriteLine("Main Thread : {0}", Thread.CurrentThread.ManagedThreadId);
+      Output.WriteLine("Main Thread : {0}", Thread.CurrentThread.ManagedThreadId);
 
       //
       // Actionデリゲートを明示的に指定.
@@ -57,7 +59,7 @@ namespace Sazare.Samples
 
     private void DoAction()
     {
-      Console.WriteLine("DoAction: {0}", Thread.CurrentThread.ManagedThreadId);
+      Output.WriteLine("DoAction: {0}", Thread.CurrentThread.ManagedThreadId);
     }
 
     private void DoActionWithSleep()

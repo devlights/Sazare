@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-05
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples05 : IExecutable
+  public class LinqSamples05 : Sazare.Common.IExecutable
   {
     enum Country
     {
@@ -152,13 +154,13 @@ namespace Sazare.Samples
       foreach (var groupedPerson in query1)
       {
         // キー
-        Console.WriteLine("Country={0}", groupedPerson.Key);
+        Output.WriteLine("Country={0}", groupedPerson.Key);
 
         // グループ
         // グループを取得するには、もう一度ループする必要がある。
         foreach (var person in groupedPerson)
         {
-          Console.WriteLine("\tId={0}, Name={1}", person.Id, person.Name);
+          Output.WriteLine("\tId={0}, Name={1}", person.Id, person.Name);
         }
       }
 
@@ -172,11 +174,11 @@ namespace Sazare.Samples
       //
       foreach (IGrouping<Country, Person> groupedPerson in query1)
       {
-        Console.WriteLine("Country={0}", groupedPerson.Key);
+        Output.WriteLine("Country={0}", groupedPerson.Key);
 
         foreach (Person person in groupedPerson)
         {
-          Console.WriteLine("\tId={0}, Name={1}", person.Id, person.Name);
+          Output.WriteLine("\tId={0}, Name={1}", person.Id, person.Name);
         }
       }
     }

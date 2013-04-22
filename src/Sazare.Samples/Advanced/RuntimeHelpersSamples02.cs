@@ -6,19 +6,21 @@ namespace Sazare.Samples
   using System.Runtime.CompilerServices;
   using System.Runtime.ConstrainedExecution;
 
+  using Sazare.Common;
+  
   #region RuntimeHelpersSamples-02
   /// <summary>
   /// RuntimeHelpersクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class RuntimeHelpersSamples02 : IExecutable
+  public class RuntimeHelpersSamples02 : Sazare.Common.IExecutable
   {
     // サンプルクラス
     static class SampleClass
     {
       static SampleClass()
       {
-        Console.WriteLine("SampleClass static ctor()");
+        Output.WriteLine("SampleClass static ctor()");
       }
 
       //
@@ -35,7 +37,7 @@ namespace Sazare.Samples
       [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
       internal static void Print()
       {
-        Console.WriteLine("SampleClass.Print()");
+        Output.WriteLine("SampleClass.Print()");
       }
     }
 
@@ -74,10 +76,10 @@ namespace Sazare.Samples
     {
       for (int i = 0; i < 10; i++)
       {
-        Console.Write("{0} ", (i + 1));
+        Output.Write("{0} ", (i + 1));
       }
 
-      Console.WriteLine("");
+      Output.WriteLine("");
     }
   }
   #endregion

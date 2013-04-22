@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
+  using Sazare.Common;
+  
   #region Emitのサンプル２
   /// <summary>
   /// Emitのサンプル２です。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// プロパティを持つクラスを動的生成します。
   /// </remarks>
   [Sample]
-  public class EmitSample2 : IExecutable
+  public class EmitSample2 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -97,7 +99,7 @@ namespace Sazare.Samples
       //
       PropertyInfo propInfo = type.GetProperty("Message");
       propInfo.SetValue(withPropObj, "HelloWorld", null);
-      Console.WriteLine(propInfo.GetValue(withPropObj, null));
+      Output.WriteLine(propInfo.GetValue(withPropObj, null));
       //
       // 15.(option) 作成したアセンブリを保存.
       //

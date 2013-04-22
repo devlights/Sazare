@@ -5,9 +5,11 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region ThreadingNamespaceSamples-05
   [Sample]
-  public class ThreadingNamespaceSamples05 : IExecutable
+  public class ThreadingNamespaceSamples05 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -23,13 +25,13 @@ namespace Sazare.Samples
 
     void TimerCallback(object state)
     {
-      Console.WriteLine("Timer Callback!!");
+      Output.WriteLine("Timer Callback!!");
 
       var rnd = new Random();
 
       // 時間のかかる処理をシミュレート
       Thread.Sleep(rnd.Next(1000));
-      Console.WriteLine("\tsleep done.");
+      Output.WriteLine("\tsleep done.");
 
       //
       // 再度Changeメソッドを呼び出して、次のコールバックを設定.

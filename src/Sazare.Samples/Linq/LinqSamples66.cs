@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-66
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 属性更新系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples66 : IExecutable
+  public class LinqSamples66 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -33,8 +35,8 @@ namespace Sazare.Samples
       var attr = elem.Attribute("Id");
       attr.Value = 500.ToString();
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // XAttribute.SetValue
@@ -47,8 +49,8 @@ namespace Sazare.Samples
       attr = elem.Attribute("Id");
       attr.SetValue(500);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // SetAttributeValue
@@ -60,8 +62,8 @@ namespace Sazare.Samples
 
       elem.SetAttributeValue("Id", 500);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

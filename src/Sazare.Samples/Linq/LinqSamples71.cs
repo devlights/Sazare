@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-71
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 前後存在確認プロパティ (IsBefore, IsAfter) のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples71 : IExecutable
+  public class LinqSamples71 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -26,13 +28,13 @@ namespace Sazare.Samples
       var elem2 = root.Elements("Child").Where(x => x.Value == "value2").First();
       var elem4 = root.Elements("Child").Where(x => x.Value == "value4").First();
 
-      Console.WriteLine("Child2 before Child1 = {0}", elem2.IsBefore(elem1));
-      Console.WriteLine("Child4 before Child2 = {0}", elem4.IsBefore(elem2));
-      Console.WriteLine("Child1 before Child2 = {0}", elem1.IsBefore(elem2));
-      Console.WriteLine("Child1 before Child4 = {0}", elem1.IsBefore(elem4));
-      Console.WriteLine("Child2 before Child4 = {0}", elem2.IsBefore(elem4));
+      Output.WriteLine("Child2 before Child1 = {0}", elem2.IsBefore(elem1));
+      Output.WriteLine("Child4 before Child2 = {0}", elem4.IsBefore(elem2));
+      Output.WriteLine("Child1 before Child2 = {0}", elem1.IsBefore(elem2));
+      Output.WriteLine("Child1 before Child4 = {0}", elem1.IsBefore(elem4));
+      Output.WriteLine("Child2 before Child4 = {0}", elem2.IsBefore(elem4));
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // XNode.IsAfter(XNode)
@@ -43,11 +45,11 @@ namespace Sazare.Samples
       elem2 = root.Elements("Child").Where(x => x.Value == "value2").First();
       elem4 = root.Elements("Child").Where(x => x.Value == "value4").First();
 
-      Console.WriteLine("Child2 after Child1 = {0}", elem2.IsAfter(elem1));
-      Console.WriteLine("Child4 after Child2 = {0}", elem4.IsAfter(elem2));
-      Console.WriteLine("Child1 after Child2 = {0}", elem1.IsAfter(elem2));
-      Console.WriteLine("Child1 after Child4 = {0}", elem1.IsAfter(elem4));
-      Console.WriteLine("Child2 after Child4 = {0}", elem2.IsAfter(elem4));
+      Output.WriteLine("Child2 after Child1 = {0}", elem2.IsAfter(elem1));
+      Output.WriteLine("Child4 after Child2 = {0}", elem4.IsAfter(elem2));
+      Output.WriteLine("Child1 after Child2 = {0}", elem1.IsAfter(elem2));
+      Output.WriteLine("Child1 after Child4 = {0}", elem1.IsAfter(elem4));
+      Output.WriteLine("Child2 after Child4 = {0}", elem2.IsAfter(elem4));
     }
 
     XElement BuildSampleXml()

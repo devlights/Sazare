@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Reflection;
 
+  using Sazare.Common;
+  
   #region ReflectionSample-03
   /// <summary>
   /// リフレクションのサンプルです。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// リフレクション実行時のパフォーマンスをアップさせる方法について記述しています。
   /// </remarks>
   [Sample]
-  public class ReflectionSample03 : IExecutable
+  public class ReflectionSample03 : Sazare.Common.IExecutable
   {
     delegate string StringToString(string s);
 
@@ -45,7 +47,7 @@ namespace Sazare.Samples
       }
       watch.Stop();
 
-      Console.WriteLine("MethodInfo.Invokeを直接呼ぶ: {0}", watch.Elapsed);
+      Output.WriteLine("MethodInfo.Invokeを直接呼ぶ: {0}", watch.Elapsed);
 
       //
       // Delegateを構築して呼ぶパターン.
@@ -59,7 +61,7 @@ namespace Sazare.Samples
       }
       watch.Stop();
 
-      Console.WriteLine("Delegateを構築して処理: {0}", watch.Elapsed);
+      Output.WriteLine("Delegateを構築して処理: {0}", watch.Elapsed);
 
       //
       // 本来のメソッドを直接呼ぶパターン.
@@ -72,7 +74,7 @@ namespace Sazare.Samples
       }
       watch.Stop();
 
-      Console.WriteLine("string.Trimを直接呼ぶ: {0}", watch.Elapsed);
+      Output.WriteLine("string.Trimを直接呼ぶ: {0}", watch.Elapsed);
     }
   }
   #endregion

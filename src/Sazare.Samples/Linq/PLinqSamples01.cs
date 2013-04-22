@@ -5,9 +5,11 @@ namespace Sazare.Samples
   using System.Diagnostics;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region PLinqSamples-01
   [Sample]
-  public class PLinqSamples01 : IExecutable
+  public class PLinqSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -25,11 +27,11 @@ namespace Sazare.Samples
 
       foreach (var item in query1)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       watch.Stop();
-      Console.WriteLine(watch.Elapsed);
+      Output.WriteLine(watch.Elapsed);
     }
 
     byte[] GetRandomNumbers()
