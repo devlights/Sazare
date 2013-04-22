@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
-namespace Sazare.Tools.Cui
+namespace Sazare.Common
 {
   [TestClass]
   public class UnitTest1
