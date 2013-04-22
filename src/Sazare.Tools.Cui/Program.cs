@@ -23,6 +23,8 @@
     {
       try
       {
+        Output.SetOutputManager(new CuiOutputManager());
+
         var handle = Activator.CreateInstance(GetAssembly().FullName, GetFqdnName());
         if (handle != null)
         {
