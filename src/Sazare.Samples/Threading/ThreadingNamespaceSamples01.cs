@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region ThreadingNamespaceSamples-01
   /// <summary>
   /// System.Threading名前空間に存在するクラスのサンプルです。
@@ -101,7 +103,7 @@ namespace Sazare.Samples
       });
 
       // 結果確認.
-      states.ForEach(Console.WriteLine);
+      states.ForEach(Output.WriteLine);
 
       //////////////////////////////////////////////////////////////////////////////
       //
@@ -129,7 +131,7 @@ namespace Sazare.Samples
       {
         state.TargetThread.Join();
       });
-      states.ForEach(Console.WriteLine);
+      states.ForEach(Output.WriteLine);
     }
   }
   #endregion

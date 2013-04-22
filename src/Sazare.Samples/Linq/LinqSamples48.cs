@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-48
   /// <summary>
   /// Linqのサンプルです。
@@ -44,7 +46,7 @@ namespace Sazare.Samples
       var numbers1 = Enumerable.Range(1, 10);
       var numbers2 = new int[] { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
 
-      Console.WriteLine("numbers1 eq numbers2 == {0}", numbers1.SequenceEqual(numbers2));
+      Output.WriteLine("numbers1 eq numbers2 == {0}", numbers1.SequenceEqual(numbers2));
 
       //
       // IEqualityComparer<T>を指定するバージョン.
@@ -78,12 +80,12 @@ namespace Sazare.Samples
 
       var comparer = new LanguageNameComparer();
 
-      Console.WriteLine(
+      Output.WriteLine(
           "languages1 eq languages2 == {0}",
           languages1.SequenceEqual(languages2, comparer)
       );
 
-      Console.WriteLine(
+      Output.WriteLine(
           "languages1 eq languages3 == {0}",
           languages1.SequenceEqual(languages3, comparer)
       );

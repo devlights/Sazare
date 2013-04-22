@@ -74,7 +74,7 @@
     }
 
     [TestMethod]
-    public void WriteLine_Success_指定したデータが書き込まれている確認()
+    public void WriteLine_Success_指定したデータが書き込まれているか確認()
     {
       // Arrange
       var writer = new StringWriter();
@@ -88,18 +88,81 @@
       // Assert
       Assert.AreEqual<string>(String.Format("{0}{1}", message, Environment.NewLine), writer.ToString());
     }
+
+    [TestMethod]
+    public void Write_WithFormat_Success_指定したデータが書き込まれているか確認()
+    {
+      // Arrange
+      var writer = new StringWriter();
+      var outputManager = new StringWriterOutputManager(writer);
+      Output.SetOutputManager(outputManager);
+
+      // Act
+      var format = "unit_{0}_test";
+      var message = "this is dummy message";
+      Output.Write(format, message);
+
+      // Assert
+      Assert.AreEqual<string>(string.Format(format, message), writer.ToString());
+    }
+
+    [TestMethod]
+    public void WriteLine_WithFormat_Success_指定したデータが書き込まれているか確認()
+    {
+      // Arrange
+      var writer = new StringWriter();
+      var outputManager = new StringWriterOutputManager(writer);
+      Output.SetOutputManager(outputManager);
+
+      // Act
+      var format = "unit_{0}_test";
+      var message = "this is dummy message";
+      Output.WriteLine(format, message);
+
+      // Assert
+      Assert.AreEqual<string>(string.Format("{0}{1}", string.Format(format, message), Environment.NewLine), writer.ToString());
+    }
+
+    [TestMethod]
+    public void Write_and_WriteLine_文字列以外の場合の確認()
+    {
+      // Arrange
+      var writer = new StringWriter();
+      var outputManager = new StringWriterOutputManager(writer);
+      Output.SetOutputManager(outputManager);
+
+      // Act
+      var value = 100;
+      Output.Write(value);
+
+      // Assert
+      Assert.AreEqual<string>(value.ToString(), writer.ToString());
+
+      //
+      // ----------------------------------------------------------------
+      //
+
+      // Arrange2
+      writer = new StringWriter();
+      outputManager = new StringWriterOutputManager(writer);
+      Output.SetOutputManager(outputManager);
+
+      // Act2
+      Output.WriteLine(value);
+
+      // Assert2
+      Assert.AreEqual<string>(string.Format("{0}{1}", value.ToString(), Environment.NewLine), writer.ToString());
+    }
   }
 
   class DummyOutputManager : IOutputManager
   {
     public void Write(object data)
     {
-      throw new NotImplementedException();
     }
 
     public void WriteLine(object data)
     {
-      throw new NotImplementedException();
     }
   }
 

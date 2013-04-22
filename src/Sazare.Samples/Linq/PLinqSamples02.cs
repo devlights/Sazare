@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region PLinqSamples-02
   [Sample]
   public class PLinqSamples02 : Sazare.Common.IExecutable
@@ -17,10 +19,10 @@ namespace Sazare.Samples
 
       foreach (var item in query1)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
-      Console.WriteLine("===============");
+      Output.WriteLine("===============");
 
       //
       // 以下のように、元のデータシーケンスをIEnumerable<T>と指定した上で並列LINQを行おうとしても
@@ -41,20 +43,20 @@ namespace Sazare.Samples
 
       foreach (var item in query2)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
-      Console.WriteLine("===============");
+      Output.WriteLine("===============");
 
       var query3 = from x in ParallelEnumerable.Range(1, 20).AsParallel().AsOrdered().WithExecutionMode(ParallelExecutionMode.ForceParallelism)
                    select Math.Pow(x, 2);
 
       foreach (var item in query3)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
-      Console.WriteLine("===============");
+      Output.WriteLine("===============");
     }
   }
   #endregion

@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ExpandoObjectクラスのサンプル-01
   /// <summary>
   /// ExpandoObjectクラスについてのサンプルです。
@@ -37,7 +39,7 @@ namespace Sazare.Samples
       // メソッド.
       var action = new Action<string>((line) =>
       {
-        Console.WriteLine(line);
+        Output.WriteLine(line);
       });
 
       obj.WriteLine = action;

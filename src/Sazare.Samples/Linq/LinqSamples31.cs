@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-31
   /// <summary>
   /// Linqのサンプルです。
@@ -70,7 +72,7 @@ namespace Sazare.Samples
                  1, 2, 3, 6, 7
                  };
 
-      Console.WriteLine("EXCEPT = {0}", JoinElements(numbers1.Except(numbers2)));
+      Output.WriteLine("EXCEPT = {0}", JoinElements(numbers1.Except(numbers2)));
 
       //
       // 引数にIEqualityComparer<T>を指定して、Except拡張メソッドを利用。
@@ -92,7 +94,7 @@ namespace Sazare.Samples
                   new Person { Name = "gsf_zero1" }
                 };
 
-      Console.WriteLine("EXCEPT = {0}", JoinElements(people1.Except(people2, new PersonComparer())));
+      Output.WriteLine("EXCEPT = {0}", JoinElements(people1.Except(people2, new PersonComparer())));
     }
 
     string JoinElements<T>(IEnumerable<T> elements)

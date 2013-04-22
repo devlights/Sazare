@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Data;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region DataTableSamples-01
   /// <summary>
   /// DataTableクラスに関するサンプルです。
@@ -27,7 +29,7 @@ namespace Sazare.Samples
       // 列は[]付きでも無しでも構わないが、付けておいた方が無難.
       // 
       object result = table.Compute("SUM([Val])", "[Val] >= 0.5");
-      Console.WriteLine("{0}:{1}", result, result.GetType().FullName);
+      Output.WriteLine("{0}:{1}", result, result.GetType().FullName);
     }
   }
   #endregion

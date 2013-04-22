@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region NumberFormatSamples-03
   /// <summary>
   /// 数値フォーマットのサンプルです。
@@ -22,11 +24,11 @@ namespace Sazare.Samples
       }
       catch (FormatException ex)
       {
-        Console.WriteLine(ex.Message);
+        Output.WriteLine(ex.Message);
       }
 
       int i3 = int.Parse(s, System.Globalization.NumberStyles.AllowThousands);
-      Console.WriteLine(i3);
+      Output.WriteLine(i3);
 
     }
   }

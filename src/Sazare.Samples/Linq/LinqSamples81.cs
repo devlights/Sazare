@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-81
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -27,18 +29,18 @@ namespace Sazare.Samples
       // Reverseしているので逆順で表示される
       foreach (var elem in reversed)
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       // InDocumentOrderを行うことにより、要素が正しい順序に並び替えられる
       foreach (var elem in reversed.InDocumentOrder())
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       // 特定の要素をピックアップして、シーケンス作成。わざと順序を変えている.
       XElement[] elemList = { root.Descendants("Title").Last(), root.Descendants("Title").First() };
@@ -46,15 +48,15 @@ namespace Sazare.Samples
       // そのまま表示すると当然順序は変わったまま
       foreach (var elem in elemList)
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       // InDocumentOrderを付けることにより、ドキュメント内の正しい順序に並び替えられる
       foreach (var elem in elemList.InDocumentOrder())
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
     }
 

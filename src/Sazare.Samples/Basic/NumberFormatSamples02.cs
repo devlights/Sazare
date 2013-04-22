@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region NumberFormatSamples-02
   /// <summary>
   /// 数値フォーマットのサンプルです。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
     public void Execute()
     {
       int i = 123456;
-      Console.WriteLine("{0:N0}", i);
+      Output.WriteLine("{0:N0}", i);
 
     }
   }

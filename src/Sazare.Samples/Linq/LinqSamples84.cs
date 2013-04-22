@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-84
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -47,7 +49,7 @@ namespace Sazare.Samples
       //   要素が追加される (Add)
       book.Add(new XElement("newelem", "hogehoge"));
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // Changed
@@ -70,19 +72,19 @@ namespace Sazare.Samples
       title.Remove();
       book.Add(new XElement("newelem", "hogehoge"));
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
     }
 
     // Changingイベントハンドラ
     void OnNodeChanging(object sender, XObjectChangeEventArgs e)
     {
-      Console.WriteLine("Changing: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
+      Output.WriteLine("Changing: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
     }
 
     // Changedイベントハンドラ
     void OnNodeChanged(object sender, XObjectChangeEventArgs e)
     {
-      Console.WriteLine("Changed: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
+      Output.WriteLine("Changed: sender--{0}:{1}, ObjectChange--{2}", sender.GetType().Name, sender, e.ObjectChange);
     }
 
     XElement BuildSampleXml()

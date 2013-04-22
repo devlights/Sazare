@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Reflection;
   using System.Runtime.Remoting;
 
+  using Sazare.Common;
+  
   #region Reflection-02
   /// <summary>
   /// リフレクションのサンプル2です。
@@ -21,7 +23,7 @@ namespace Sazare.Samples
       // Activatorを利用してインスタンス化.（Typeのみの指定）
       //
       object obj = Activator.CreateInstance(type);
-      Console.WriteLine(obj.GetType());
+      Output.WriteLine(obj.GetType());
 
       //
       // Activatorを利用してインスタンス化.(Assembly名と型名)
@@ -29,8 +31,8 @@ namespace Sazare.Samples
       //
       ObjectHandle objHandle = Activator.CreateInstance(Assembly.GetAssembly(type).FullName, type.FullName);
       obj = objHandle.Unwrap();
-      Console.WriteLine(objHandle.GetType());
-      Console.WriteLine(obj.GetType());
+      Output.WriteLine(objHandle.GetType());
+      Output.WriteLine(obj.GetType());
 
       //
       // Assemblyを利用してインスタンス化.
@@ -38,7 +40,7 @@ namespace Sazare.Samples
       // まだ読み込まれていないアセンブリに含まれるクラスの場合は先にLoadしてから使います。
       //
       obj = Assembly.GetAssembly(type).CreateInstance(type.FullName);
-      Console.WriteLine(obj.GetType());
+      Output.WriteLine(obj.GetType());
     }
   }
   #endregion

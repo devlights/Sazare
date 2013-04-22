@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-01
   /// <summary>
   /// Linqのサンプルです。
@@ -122,13 +124,13 @@ namespace Sazare.Samples
 
         foreach (Person person in query)
         {
-          Console.WriteLine("{0},{1}", person.Id, person.Name);
+          Output.WriteLine("{0},{1}", person.Id, person.Name);
         }
 
       }
       catch (Exception ex)
       {
-        Console.WriteLine("クエリ実行時にエラーが発生: {0}", ex.Message);
+        Output.WriteLine("クエリ実行時にエラーが発生: {0}", ex.Message);
       }
     }
 

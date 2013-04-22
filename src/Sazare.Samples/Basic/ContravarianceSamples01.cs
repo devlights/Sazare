@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ContravarianceSamples-01
   /// <summary>
   /// 反変性についてのサンプルです。
@@ -47,7 +49,7 @@ namespace Sazare.Samples
       //  「外部の型はstringであるが、実際にデータが渡される際、内部の引数の型はobjectなので問題ない」
       //
       // 例：
-      //   Action<object> objAction = x => Console.WriteLine(x);
+      //   Action<object> objAction = x => Output.WriteLine(x);
       //   Action<string> strAction = objAction;
       //
       //   strAction("gsf_zero1");
@@ -60,7 +62,7 @@ namespace Sazare.Samples
       //
       // Covariance(共変性)は、この逆を行うものとなる。
       //
-      Action<object> objAction = x => Console.WriteLine(x);
+      Action<object> objAction = x => Output.WriteLine(x);
       Action<string> strAction = objAction;
 
       strAction("gsf_zero1");

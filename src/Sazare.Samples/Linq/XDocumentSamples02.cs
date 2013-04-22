@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region XDocumentSamples-02
   /// <summary>
   /// XDocumentクラスについてのサンプルです。
@@ -34,7 +36,7 @@ namespace Sazare.Samples
       var name = (from element in doc.Descendants("Name") select element).First();
 
       name.ReplaceWith(new XElement("名前", name.Value));
-      Console.WriteLine(doc);
+      Output.WriteLine(doc);
     }
   }
   #endregion

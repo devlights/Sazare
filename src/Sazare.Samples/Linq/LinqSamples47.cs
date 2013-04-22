@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSample-47
   /// <summary>
   /// Linqのサンプルです。
@@ -19,7 +21,7 @@ namespace Sazare.Samples
       // 範囲外のインデックスを指定した場合は例外が発生する.
       //
       var languages = new string[] { "csharp", "visualbasic", "java", "python", "ruby", "php", "c++" };
-      Console.WriteLine(languages.ElementAt(1));
+      Output.WriteLine(languages.ElementAt(1));
 
       try
       {
@@ -27,15 +29,15 @@ namespace Sazare.Samples
       }
       catch (ArgumentOutOfRangeException)
       {
-        Console.WriteLine("要素の範囲外のインデックスを指定している。");
+        Output.WriteLine("要素の範囲外のインデックスを指定している。");
       }
 
       //
       // ElementAtOrDefault拡張メソッドは、ElementAt拡張メソッドと同じ動作を
       // しながら、範囲外のインデックスを指定された場合に規定値を返すメソッド。
       //
-      Console.WriteLine(languages.ElementAtOrDefault(-1) ?? "null");
-      Console.WriteLine(languages.ElementAtOrDefault(100) ?? "null");
+      Output.WriteLine(languages.ElementAtOrDefault(-1) ?? "null");
+      Output.WriteLine(languages.ElementAtOrDefault(100) ?? "null");
     }
   }
   #endregion

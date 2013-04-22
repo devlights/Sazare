@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region TupleSamples-01
   /// <summary>
   /// Tupleクラスについてのサンプルです。
@@ -50,15 +52,15 @@ namespace Sazare.Samples
       Tuple<int, string> t1 = Tuple.Create(100, "gsf_zero1");
       var t2 = Tuple.Create(200, "gsf_zero2", 30);  // Tuple<int, string, int>となる。
 
-      Console.WriteLine(t1.Item1);
-      Console.WriteLine(t1.Item2);
+      Output.WriteLine(t1.Item1);
+      Output.WriteLine(t1.Item2);
 
-      Console.WriteLine(t2.Item1);
-      Console.WriteLine(t2.Item2);
-      Console.WriteLine(t2.Item3);
+      Output.WriteLine(t2.Item1);
+      Output.WriteLine(t2.Item2);
+      Output.WriteLine(t2.Item3);
 
       var t3 = TestMethod(10, 20);
-      Console.WriteLine(t3);     // (100, 400)
+      Output.WriteLine(t3);     // (100, 400)
 
       // 以下はエラーとなる.
       // t3.Item1 = 1000;

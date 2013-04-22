@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Text;
 
+  using Sazare.Common;
+  
   #region ByteArraySamples-06
   /// <summary>
   /// バイト配列についてのサンプルです。
@@ -20,7 +22,7 @@ namespace Sazare.Samples
       string s = "gsf_zero1";
       byte[] buf = Encoding.ASCII.GetBytes(s);
 
-      Console.WriteLine(BitConverter.ToString(buf));
+      Output.WriteLine(BitConverter.ToString(buf));
     }
   }
   #endregion

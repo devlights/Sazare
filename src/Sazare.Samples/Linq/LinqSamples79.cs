@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-79
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -33,10 +35,10 @@ namespace Sazare.Samples
       // 最初のBook要素の後ろにある兄弟要素が表示される.
       foreach (var elem in startingPoint.ElementsAfterSelf())
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       root = BuildSampleXml();
       startingPoint = root.Descendants("Title").Last();
@@ -44,11 +46,11 @@ namespace Sazare.Samples
       // Titleの後ろにある兄弟要素が表示される
       foreach (var elem in startingPoint.ElementsAfterSelf())
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       root = BuildSampleXml();
       startingPoint = root.Descendants("Title").Last();
@@ -57,10 +59,10 @@ namespace Sazare.Samples
       // AncestorsAndSelf(XName)とかと同じ挙動.
       foreach (var elem in startingPoint.ElementsAfterSelf("Genre"))
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // ElementsBeforeSelf(), ElementsBeforeSelf(XName)
@@ -77,10 +79,10 @@ namespace Sazare.Samples
 
       foreach (var elem in startingPoint.ElementsBeforeSelf())
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       root = BuildSampleXml();
       startingPoint = root.Descendants("Description").Last();
@@ -89,10 +91,10 @@ namespace Sazare.Samples
       // AncestorsAndSelf(XName)とかと同じ挙動.
       foreach (var elem in startingPoint.ElementsBeforeSelf("PublishDate"))
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

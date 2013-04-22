@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Runtime;
 
+  using Sazare.Common;
+  
   #region MulticoreJITSamples-01
   /// <summary>
   /// マルチコアJITのサンプルです.

@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.Xml;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-85
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -35,49 +37,49 @@ namespace Sazare.Samples
       //
       // 以下の処理では、どの程度メモリを消費しているのかを確認するために
       // GC.GetTotalMemoryで消費量を表示している.
-      Console.WriteLine("1:{0}", GC.GetTotalMemory(true));
+      Output.WriteLine("1:{0}", GC.GetTotalMemory(true));
 
       //
       // 巨大XMLファイルを作成.
       //
       var root = BuildSampleXml(CreateSampleXmlFile());
 
-      Console.WriteLine("2:{0}", GC.GetTotalMemory(true));
+      Output.WriteLine("2:{0}", GC.GetTotalMemory(true));
 
       //
       // 普通にXElementを利用して変換処理.
       //
       var result = ConvertXml(root);
 
-      Console.WriteLine("3:{0}", GC.GetTotalMemory(true));
+      Output.WriteLine("3:{0}", GC.GetTotalMemory(true));
 
       //
       // XStreamingElementを利用して変換処理.
       //
       var result2 = ConvertXml2(root);
 
-      Console.WriteLine("4:{0}", GC.GetTotalMemory(true));
+      Output.WriteLine("4:{0}", GC.GetTotalMemory(true));
 
       //
       // XStreamingElementで変換したデータを出力.
       //
       result2.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted2.xml"));
 
-      Console.WriteLine("5:{0}", GC.GetTotalMemory(true));
+      Output.WriteLine("5:{0}", GC.GetTotalMemory(true));
 
       //
       // ファイルの読み込みに、XmlReader+yieldを利用してXStreamingElementで変換処理.
       //
       var result3 = ConvertXml3();
 
-      Console.WriteLine("6:{0}", GC.GetTotalMemory(true));
+      Output.WriteLine("6:{0}", GC.GetTotalMemory(true));
 
       //
       // XStreamingElementで変換したデータを出力.
       //
       result3.Save(Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "converted3.xml"));
 
-      Console.WriteLine("7:{0}", GC.GetTotalMemory(true));
+      Output.WriteLine("7:{0}", GC.GetTotalMemory(true));
     }
 
     string CreateSampleXmlFile()

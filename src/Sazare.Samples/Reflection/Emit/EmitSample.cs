@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
+  using Sazare.Common;
+  
   #region Emitのサンプル
   /// <summary>
   /// Emitのサンプルです。

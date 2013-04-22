@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region DefaultValuesSamples-01
   /// <summary>
   /// 各型のデフォルト値についてのサンプルです。
@@ -16,22 +18,22 @@ namespace Sazare.Samples
 
     public void Execute()
     {
-      Console.WriteLine("byte   のデフォルト:    {0}", default(byte));
-      Console.WriteLine("char   のデフォルト:    {0}", default(char) == 0x00);
-      Console.WriteLine("short  のデフォルト:    {0}", default(short));
-      Console.WriteLine("ushort のデフォルト:    {0}", default(ushort));
-      Console.WriteLine("int  のデフォルト:    {0}", default(int));
-      Console.WriteLine("uint   のデフォルト:    {0}", default(uint));
-      Console.WriteLine("long   のデフォルト:    {0}", default(long));
-      Console.WriteLine("ulong  のデフォルト:    {0}", default(ulong));
-      Console.WriteLine("float  のデフォルト:    {0}", default(float));
-      Console.WriteLine("double のデフォルト:    {0}", default(double));
-      Console.WriteLine("decimalのデフォルト:    {0}", default(decimal));
-      Console.WriteLine("string のデフォルト:    NULL = {0}", default(string) == null);
-      Console.WriteLine("byte[] のデフォルト:    NULL = {0}", default(byte[]) == null);
-      Console.WriteLine("List<string>のデフォルト: NULL = {0}", default(List<string>) == null);
-      Console.WriteLine("自前クラスのデフォルト:   NULL = {0}", default(SampleClass) == null);
-      Console.WriteLine("自前構造体のデフォルト:   {0}", default(SampleStruct));
+      Output.WriteLine("byte   のデフォルト:    {0}", default(byte));
+      Output.WriteLine("char   のデフォルト:    {0}", default(char) == 0x00);
+      Output.WriteLine("short  のデフォルト:    {0}", default(short));
+      Output.WriteLine("ushort のデフォルト:    {0}", default(ushort));
+      Output.WriteLine("int  のデフォルト:    {0}", default(int));
+      Output.WriteLine("uint   のデフォルト:    {0}", default(uint));
+      Output.WriteLine("long   のデフォルト:    {0}", default(long));
+      Output.WriteLine("ulong  のデフォルト:    {0}", default(ulong));
+      Output.WriteLine("float  のデフォルト:    {0}", default(float));
+      Output.WriteLine("double のデフォルト:    {0}", default(double));
+      Output.WriteLine("decimalのデフォルト:    {0}", default(decimal));
+      Output.WriteLine("string のデフォルト:    NULL = {0}", default(string) == null);
+      Output.WriteLine("byte[] のデフォルト:    NULL = {0}", default(byte[]) == null);
+      Output.WriteLine("List<string>のデフォルト: NULL = {0}", default(List<string>) == null);
+      Output.WriteLine("自前クラスのデフォルト:   NULL = {0}", default(SampleClass) == null);
+      Output.WriteLine("自前構造体のデフォルト:   {0}", default(SampleStruct));
     }
   }
   #endregion

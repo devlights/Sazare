@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region TaskSamples-03
   /// <summary>
   /// タスク並列ライブラリについてのサンプルです。
@@ -43,11 +45,11 @@ namespace Sazare.Samples
       //
       // 単純な入れ子のタスクを作成.
       //
-      Console.WriteLine("外側のタスク開始");
+      Output.WriteLine("外側のタスク開始");
       Task t = new Task(ParentTaskProc);
       t.Start();
       t.Wait();
-      Console.WriteLine("外側のタスク終了");
+      Output.WriteLine("外側のタスク終了");
 
     }
 
@@ -83,10 +85,10 @@ namespace Sazare.Samples
 
     void ChildTaskProc()
     {
-      Console.WriteLine("内側のタスク開始");
+      Output.WriteLine("内側のタスク開始");
       PrintTaskId();
       Thread.Sleep(TimeSpan.FromSeconds(2.0));
-      Console.WriteLine("内側のタスク終了");
+      Output.WriteLine("内側のタスク終了");
     }
 
     void PrintTaskId()
@@ -94,7 +96,7 @@ namespace Sazare.Samples
       //
       // 現在実行中のタスクのIDを表示.
       //
-      Console.WriteLine("\tTask Id: {0}", Task.CurrentId);
+      Output.WriteLine("\tTask Id: {0}", Task.CurrentId);
     }
   }
   #endregion

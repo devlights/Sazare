@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region NewLineDetectSample-01
   /// <summary>
   /// 文字列中の改行コードの数を算出するサンプルです。
@@ -15,9 +17,9 @@ namespace Sazare.Samples
     {
       string testStrings = string.Format("あt{0}いt{0}う{0}えt{0}お{0}", Environment.NewLine);
 
-      Console.WriteLine("=== 元文字列 start ===");
-      Console.WriteLine(testStrings);
-      Console.WriteLine("=== 元文字列 end  ===");
+      Output.WriteLine("=== 元文字列 start ===");
+      Output.WriteLine(testStrings);
+      Output.WriteLine("=== 元文字列 end  ===");
 
       //
       // 改行コードを判定するための、比較元文字配列を構築.
@@ -43,7 +45,7 @@ namespace Sazare.Samples
         prevChar = ch;
       }
 
-      Console.WriteLine("改行コードの数: {0}", count);
+      Output.WriteLine("改行コードの数: {0}", count);
     }
   }
   #endregion

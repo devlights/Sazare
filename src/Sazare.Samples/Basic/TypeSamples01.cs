@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region TypeSamples-01
   /// <summary>
   /// System.Typeのサンプルです。
@@ -24,12 +26,12 @@ namespace Sazare.Samples
       // GetGenericArgumentsメソッドは、System.Typeの配列を返すので、これを利用して型引数の型を判別する。
       //
       var genericArgTypes = theList.GetType().GetGenericArguments();
-      Console.WriteLine("=============== List<int>の場合 =================");
-      Console.WriteLine("型引数の数={0}, 型引数の型=({1})", genericArgTypes.Count(), string.Join(",", genericArgTypes.Select(item => item.Name)));
+      Output.WriteLine("=============== List<int>の場合 =================");
+      Output.WriteLine("型引数の数={0}, 型引数の型=({1})", genericArgTypes.Count(), string.Join(",", genericArgTypes.Select(item => item.Name)));
 
       genericArgTypes = theDictionary.GetType().GetGenericArguments();
-      Console.WriteLine("=============== Dictionary<int, string>の場合 =================");
-      Console.WriteLine("型引数の数={0}, 型引数の型=({1})", genericArgTypes.Count(), string.Join(",", genericArgTypes.Select(item => item.Name)));
+      Output.WriteLine("=============== Dictionary<int, string>の場合 =================");
+      Output.WriteLine("型引数の数={0}, 型引数の型=({1})", genericArgTypes.Count(), string.Join(",", genericArgTypes.Select(item => item.Name)));
     }
   }
   #endregion

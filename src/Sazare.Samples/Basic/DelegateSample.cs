@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Windows.Forms;
 
+  using Sazare.Common;
+  
   #region デリゲートのサンプル (.net framework 1.1)
   /// <summary>
   /// デリゲートのサンプル（.NET Framework 1.1）
@@ -26,7 +28,7 @@ namespace Sazare.Samples
     /// </summary>
     private void DelegateMethod()
     {
-      Console.WriteLine("SAMPLE_DELEGATE_METHOD.");
+      Output.WriteLine("SAMPLE_DELEGATE_METHOD.");
     }
   }
   #endregion

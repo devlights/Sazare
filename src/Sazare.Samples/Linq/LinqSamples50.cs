@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.IO;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-50
   /// <summary>
   /// Linqのサンプルです。
@@ -28,15 +30,15 @@ namespace Sazare.Samples
       // 待機する必要があるが、ReadLinesメソッドの場合は
       // コレクション全体が返される前に、列挙可能である。
       //
-      Console.WriteLine("ファイル作成中・・・・");
+      Output.WriteLine("ファイル作成中・・・・");
 
       var tmpFilePath = CreateSampleFile(1000000);
       if (string.IsNullOrEmpty(tmpFilePath))
       {
-        Console.WriteLine("ファイル作成中にエラー発生");
+        Output.WriteLine("ファイル作成中にエラー発生");
       }
 
-      Console.WriteLine("ファイル作成完了");
+      Output.WriteLine("ファイル作成完了");
 
       try
       {
@@ -61,10 +63,10 @@ namespace Sazare.Samples
             watch = null;
           }
 
-          //Console.WriteLine(element);
+          //Output.WriteLine(element);
         }
 
-        Console.WriteLine("================== ReadAllLines      : {0} ==================", elapsed);
+        Output.WriteLine("================== ReadAllLines      : {0} ==================", elapsed);
 
         //
         // File.ReadLines
@@ -85,10 +87,10 @@ namespace Sazare.Samples
             watch = null;
           }
 
-          //Console.WriteLine(element);
+          //Output.WriteLine(element);
         }
 
-        Console.WriteLine("================== ReadLines       : {0} ==================", elapsed);
+        Output.WriteLine("================== ReadLines       : {0} ==================", elapsed);
       }
       finally
       {

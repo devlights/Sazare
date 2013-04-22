@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region ManualResetEventSlimSamples-01
   /// <summary>
   /// ManualResetEventSlimクラスについてのサンプルです。
@@ -29,9 +31,9 @@ namespace Sazare.Samples
 
       ThreadPool.QueueUserWorkItem(DoProc, mres);
 
-      Console.Write("メインスレッド待機中・・・");
+      Output.Write("メインスレッド待機中・・・");
       mres.Wait();
-      Console.WriteLine("終了");
+      Output.WriteLine("終了");
 
       //
       // WaitメソッドにCancellationTokenを受け付けるオーバーロードを使用。
@@ -48,7 +50,7 @@ namespace Sazare.Samples
       //
       tokenSource.Cancel();
 
-      Console.Write("メインスレッド待機中・・・");
+      Output.Write("メインスレッド待機中・・・");
 
       try
       {
@@ -69,16 +71,16 @@ namespace Sazare.Samples
       }
       catch (OperationCanceledException cancelEx)
       {
-        Console.Write("*** {0} *** ", cancelEx.Message);
+        Output.Write("*** {0} *** ", cancelEx.Message);
       }
 
-      Console.WriteLine("終了");
+      Output.WriteLine("終了");
     }
 
     void DoProc(object stateObj)
     {
       Thread.Sleep(TimeSpan.FromSeconds(1));
-      Console.Write("*** シグナル状態に設定 *** ");
+      Output.Write("*** シグナル状態に設定 *** ");
       (stateObj as ManualResetEventSlim).Set();
     }
   }

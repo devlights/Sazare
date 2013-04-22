@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Net.NetworkInformation;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region PingSamples-01
   /// <summary>
   /// Pingクラスに関するサンプルです。
@@ -26,11 +28,11 @@ namespace Sazare.Samples
 
       if (r.Status == IPStatus.Success)
       {
-        Console.WriteLine("Ping.Send() Success.");
+        Output.WriteLine("Ping.Send() Success.");
       }
       else
       {
-        Console.WriteLine("Ping.Send() Failed.");
+        Output.WriteLine("Ping.Send() Failed.");
       }
 
       //
@@ -44,23 +46,23 @@ namespace Sazare.Samples
 
         if (e.Cancelled)
         {
-          Console.WriteLine("Cancelled..");
+          Output.WriteLine("Cancelled..");
           return;
         }
 
         if (e.Error != null)
         {
-          Console.WriteLine(e.Error.ToString());
+          Output.WriteLine(e.Error.ToString());
           return;
         }
 
         if (e.Reply.Status != IPStatus.Success)
         {
-          Console.WriteLine("Ping.SendAsync() Failed");
+          Output.WriteLine("Ping.SendAsync() Failed");
           return;
         }
 
-        Console.WriteLine("Ping.SendAsync() Success.");
+        Output.WriteLine("Ping.SendAsync() Success.");
       };
 
       p.SendAsync(hostName, timeOut, userToken);

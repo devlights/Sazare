@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-29
   /// <summary>
   /// Linqのサンプルです。
@@ -64,9 +66,9 @@ namespace Sazare.Samples
                  1, 2, 3, 6, 7
                  };
 
-      Console.WriteLine("UNION      = {0}", JoinElements(numbers1.Union(numbers2)));
-      Console.WriteLine("CONCAT       = {0}", JoinElements(numbers1.Concat(numbers2)));
-      Console.WriteLine("CONCAT->DISTINCT = {0}", JoinElements(numbers1.Concat(numbers2).Distinct()));
+      Output.WriteLine("UNION      = {0}", JoinElements(numbers1.Union(numbers2)));
+      Output.WriteLine("CONCAT       = {0}", JoinElements(numbers1.Concat(numbers2)));
+      Output.WriteLine("CONCAT->DISTINCT = {0}", JoinElements(numbers1.Concat(numbers2).Distinct()));
 
       //
       // 引数にIEqualityComparer<T>を指定して、Union拡張メソッドを利用。
@@ -88,9 +90,9 @@ namespace Sazare.Samples
                   new Person { Name = "gsf_zero1" }
                 };
 
-      Console.WriteLine("UNION      = {0}", JoinElements(people1.Union(people2, new PersonComparer())));
-      Console.WriteLine("CONCAT       = {0}", JoinElements(people1.Concat(people2)));
-      Console.WriteLine("CONCAT->DISTINCT = {0}", JoinElements(people1.Concat(people2).Distinct(new PersonComparer())));
+      Output.WriteLine("UNION      = {0}", JoinElements(people1.Union(people2, new PersonComparer())));
+      Output.WriteLine("CONCAT       = {0}", JoinElements(people1.Concat(people2)));
+      Output.WriteLine("CONCAT->DISTINCT = {0}", JoinElements(people1.Concat(people2).Distinct(new PersonComparer())));
     }
 
     string JoinElements<T>(IEnumerable<T> elements)

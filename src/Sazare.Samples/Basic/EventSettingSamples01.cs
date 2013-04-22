@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.ComponentModel;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region EventSettingSamples-01
   /// <summary>
   /// 手動でイベントを制御する方法に関してのサンプルです。(EventHandlerList)
@@ -44,7 +46,7 @@ namespace Sazare.Samples
 
       EventHandler handler = (s, e) =>
       {
-        Console.WriteLine("event raised.");
+        Output.WriteLine("event raised.");
       };
 
       obj.TestEvent += handler;

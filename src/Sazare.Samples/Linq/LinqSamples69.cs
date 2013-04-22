@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-69
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -27,8 +29,8 @@ namespace Sazare.Samples
       var root = BuildSampleXml();
       var name = root.Name;
 
-      Console.WriteLine("is XNamespace.None?? == {0}", root.Name.Namespace == XNamespace.None);
-      Console.WriteLine("=====================================");
+      Output.WriteLine("is XNamespace.None?? == {0}", root.Name.Namespace == XNamespace.None);
+      Output.WriteLine("=====================================");
 
       //
       // デフォルト名前空間あり
@@ -41,10 +43,10 @@ namespace Sazare.Samples
       root = BuildSampleXmlWithDefaultNamespace();
       name = root.Name;
 
-      Console.WriteLine("XName.LocalName={0}", name.LocalName);
-      Console.WriteLine("XName.Namespace={0}", name.Namespace);
-      Console.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
-      Console.WriteLine("=====================================");
+      Output.WriteLine("XName.LocalName={0}", name.LocalName);
+      Output.WriteLine("XName.Namespace={0}", name.Namespace);
+      Output.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
+      Output.WriteLine("=====================================");
 
       //
       // デフォルト名前空間とカスタム名前空間あり
@@ -58,25 +60,25 @@ namespace Sazare.Samples
       root = BuildSampleXmlWithNamespace();
       name = root.Name;
 
-      Console.WriteLine("XName.LocalName={0}", name.LocalName);
-      Console.WriteLine("XName.Namespace={0}", name.Namespace);
-      Console.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
+      Output.WriteLine("XName.LocalName={0}", name.LocalName);
+      Output.WriteLine("XName.Namespace={0}", name.Namespace);
+      Output.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
 
       if (root.Descendants("Value").Count() == 0)
       {
-        Console.WriteLine("[Count=0] Namespaceが違うので、要素が取得できない.");
+        Output.WriteLine("[Count=0] Namespaceが違うので、要素が取得できない.");
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       var ns = (XNamespace)"http://www.tmpurl.org/MyXml2";
       var elem = root.Descendants(ns + "Value").First();
       name = elem.Name;
 
-      Console.WriteLine("XName.LocalName={0}", name.LocalName);
-      Console.WriteLine("XName.Namespace={0}", name.Namespace);
-      Console.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
-      Console.WriteLine("=====================================");
+      Output.WriteLine("XName.LocalName={0}", name.LocalName);
+      Output.WriteLine("XName.Namespace={0}", name.Namespace);
+      Output.WriteLine("XName.NamespaceName={0}", name.NamespaceName);
+      Output.WriteLine("=====================================");
 
       //
       // 名前空間付きで要素作成 (プレフィックスなし)
@@ -94,8 +96,8 @@ namespace Sazare.Samples
                          Enumerable.Range(1, 3).Select(x => new XElement(customNamespace + "ChildNode", x))
                        );
 
-      Console.WriteLine(newElement);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(newElement);
+      Output.WriteLine("=====================================");
 
       //
       // 名前空間付きで要素作成 (プレフィックスあり)
@@ -118,35 +120,35 @@ namespace Sazare.Samples
                      new XElement(defaultNamespace + "ChildNode", 4)
                    );
 
-      Console.WriteLine(newElement);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(newElement);
+      Output.WriteLine("=====================================");
 
       //
       // カスタム名前空間に属する要素を表示.
       //
       foreach (var e in newElement.Descendants(customNamespace + "ChildNode"))
       {
-        Console.WriteLine(e);
+        Output.WriteLine(e);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // デフォルト名前空間に属する要素を表示.
       //
       foreach (var e in newElement.Descendants(defaultNamespace + "ChildNode"))
       {
-        Console.WriteLine(e);
+        Output.WriteLine(e);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // 名前空間無しの要素を表示.
       //
       foreach (var e in newElement.Descendants("ChildNode"))
       {
-        Console.WriteLine(e);
+        Output.WriteLine(e);
       }
     }
 

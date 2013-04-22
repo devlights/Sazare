@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region XDocumentSamples-01
   /// <summary>
   /// XDocumentクラスについてのサンプルです。
@@ -21,7 +23,7 @@ namespace Sazare.Samples
                         new XElement("Title", "gsf_zero1"),
                         new List<XElement> { new XElement("Age", 30), new XElement("Address", "kyoto, Kyoto, Japan") }));
 
-      Console.WriteLine(doc);
+      Output.WriteLine(doc);
     }
   }
   #endregion

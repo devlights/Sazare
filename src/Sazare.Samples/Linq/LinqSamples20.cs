@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-20
   /// <summary>
   /// Linqのサンプルです。
@@ -34,16 +36,16 @@ namespace Sazare.Samples
       //   一つは、Func<TSource, TResult>のタイプ。もう一つは、Func<TSource, int, TResult>のタイプとなる。
       //   2つ目のタイプの場合、その時のインデックスが引数として設定される。
       //
-      Console.WriteLine("===== Func<TSource, TResult>のタイプ =====");
+      Output.WriteLine("===== Func<TSource, TResult>のタイプ =====");
       foreach (var name in persons.Select(item => item.Name))
       {
-        Console.WriteLine("NAME={0}", name);
+        Output.WriteLine("NAME={0}", name);
       }
 
-      Console.WriteLine("===== Func<TSource, int, TResult>のタイプ =====");
+      Output.WriteLine("===== Func<TSource, int, TResult>のタイプ =====");
       foreach (var name in persons.Select((item, index) => string.Format("{0}_{1}", item.Name, index)))
       {
-        Console.WriteLine("NAME={0}", name);
+        Output.WriteLine("NAME={0}", name);
       }
     }
   }

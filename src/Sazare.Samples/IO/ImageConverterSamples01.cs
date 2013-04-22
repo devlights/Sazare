@@ -8,6 +8,8 @@ namespace Sazare.Samples
 
   using GDIImage = System.Drawing.Image;
 
+  using Sazare.Common;
+  
   #region ImageConverterSamples-01
   /// <summary>
   /// ImageConverterクラスのサンプルです。

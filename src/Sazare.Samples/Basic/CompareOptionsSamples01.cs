@@ -5,6 +5,9 @@ namespace Sazare.Samples
   using System.Globalization;
   using System.Linq;
 
+  using Sazare.Common;
+
+  #region CompareOptionsSamples-01
   /// <summary>
   /// CompareOptions列挙型のサンプルです。
   /// </summary>
@@ -26,12 +29,12 @@ namespace Sazare.Samples
       CultureInfo ci = new CultureInfo("ja-JP");
 
       // 標準の比較方法で比較
-      Console.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.None).ToStringResult());
+      Output.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.None).ToStringResult());
       // 大文字小文字を無視して比較.
-      Console.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreCase).ToStringResult());
+      Output.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreCase).ToStringResult());
       // ひらがなとカタカナの違いを無視して比較
       // つまり、「はろーわーるど」と「ハローワールド」を同じ文字列として比較
-      Console.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreKanaType).ToStringResult());
+      Output.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreKanaType).ToStringResult());
 
       //
       // string.Compareメソッドは、内部でCutureInfoから、そのカルチャーに紐づく
@@ -39,7 +42,8 @@ namespace Sazare.Samples
       // 用意して、Compareメソッドを呼び出しても同じ結果となる。
       //
       CompareInfo compInfo = CompareInfo.GetCompareInfo("ja-JP");
-      Console.WriteLine("{0}", compInfo.Compare(ja1, ja2, CompareOptions.IgnoreKanaType).ToStringResult());
+      Output.WriteLine("{0}", compInfo.Compare(ja1, ja2, CompareOptions.IgnoreKanaType).ToStringResult());
     }
   }
+  #endregion
 }

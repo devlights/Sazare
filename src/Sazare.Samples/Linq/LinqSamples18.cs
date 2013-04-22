@@ -4,6 +4,9 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+
+  #region LinqSamples-18
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
@@ -34,29 +37,30 @@ namespace Sazare.Samples
       // そのまま実行すると、Whereの部分にてPersonExtension.Whereが
       // 呼ばれる.
       //
-      Console.WriteLine("===== 拡張メソッドを定義した状態でそのままクエリ実行 =====");
+      Output.WriteLine("===== 拡張メソッドを定義した状態でそのままクエリ実行 =====");
       var query = from aPerson in persons
                   where aPerson.Id == 2
                   select aPerson;
 
       foreach (var aPerson in query)
       {
-        Console.WriteLine(aPerson);
+        Output.WriteLine(aPerson);
       }
 
       //
       // AsEnumerableメソッドを利用して、PersonsをIEnumerable<Person>に
       // 変換すると、カスタムWhere拡張メソッドは呼ばれない。
       //
-      Console.WriteLine("===== AsEnumerableメソッドを利用してから、クエリ実行 =====");
+      Output.WriteLine("===== AsEnumerableメソッドを利用してから、クエリ実行 =====");
       var query2 = from aPerson in persons.AsEnumerable()
                    where aPerson.Id == 2
                    select aPerson;
 
       foreach (var aPerson in query2)
       {
-        Console.WriteLine(aPerson);
+        Output.WriteLine(aPerson);
       }
     }
   }
+  #endregion
 }

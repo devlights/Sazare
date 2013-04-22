@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-74
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -24,8 +26,8 @@ namespace Sazare.Samples
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
 
-      Console.WriteLine(root.FirstNode);
-      Console.WriteLine(elem.FirstNode);
+      Output.WriteLine(root.FirstNode);
+      Output.WriteLine(elem.FirstNode);
 
       //
       // LastNode
@@ -34,8 +36,8 @@ namespace Sazare.Samples
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
 
-      Console.WriteLine(root.LastNode);
-      Console.WriteLine(elem.LastNode);
+      Output.WriteLine(root.LastNode);
+      Output.WriteLine(elem.LastNode);
     }
 
     XElement BuildSampleXml()

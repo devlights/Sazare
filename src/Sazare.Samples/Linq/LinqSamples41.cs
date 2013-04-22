@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-41
   /// <summary>
   /// Linqのサンプルです。
@@ -17,7 +19,7 @@ namespace Sazare.Samples
       // Emptyメソッドは、文字通り空のシーケンスを作成するメソッドである。
       // Unionする際や、Aggregateする際の中間値として利用されることが多い。
       //
-      Console.WriteLine("COUNT = {0}", Enumerable.Empty<string>().Count());
+      Output.WriteLine("COUNT = {0}", Enumerable.Empty<string>().Count());
 
       //
       // 指定されたシーケンスから合計値が100を超えているシーケンスのみを抽出.
@@ -40,7 +42,7 @@ namespace Sazare.Samples
 
       foreach (var item in query)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
     }
   }

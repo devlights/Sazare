@@ -8,6 +8,8 @@ namespace Sazare.Samples
   using System.Xml;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-56
   /// <summary>
   /// LINQ to XMLのサンプルです。
@@ -51,21 +53,21 @@ namespace Sazare.Samples
         stream.Position = 0;
         using (var reader = new StreamReader(stream))
         {
-          Console.WriteLine(reader.ReadToEnd());
+          Output.WriteLine(reader.ReadToEnd());
         }
       }
 
-      Console.WriteLine("===================================");
+      Output.WriteLine("===================================");
 
       //
       // Save(String)
       //
       var tmpFile = Path.GetRandomFileName();
       element.Save(tmpFile);
-      Console.WriteLine(File.ReadAllText(tmpFile));
+      Output.WriteLine(File.ReadAllText(tmpFile));
       File.Delete(tmpFile);
 
-      Console.WriteLine("===================================");
+      Output.WriteLine("===================================");
 
       //
       // Save(TextWriter)
@@ -73,10 +75,10 @@ namespace Sazare.Samples
       using (var writer = new UTF8StringWriter())
       {
         element.Save(writer);
-        Console.WriteLine(writer);
+        Output.WriteLine(writer);
       }
 
-      Console.WriteLine("===================================");
+      Output.WriteLine("===================================");
 
       //
       // Save(XmlWriter)
@@ -88,10 +90,10 @@ namespace Sazare.Samples
           element.Save(xmlWriter);
         }
 
-        Console.WriteLine(backingStore);
+        Output.WriteLine(backingStore);
       }
 
-      Console.WriteLine("===================================");
+      Output.WriteLine("===================================");
 
       //
       // SaveOptions付きで書き込み.
@@ -100,7 +102,7 @@ namespace Sazare.Samples
       using (var writer = new UTF8StringWriter())
       {
         element.Save(writer, SaveOptions.DisableFormatting);
-        Console.WriteLine(writer);
+        Output.WriteLine(writer);
       }
     }
 

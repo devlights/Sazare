@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-70
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -25,11 +27,11 @@ namespace Sazare.Samples
       var child = root.Elements("Child").First();
       var grandChild = child.Elements("Value").First();
 
-      Console.WriteLine("root.HasElements: {0}", root.HasElements);
-      Console.WriteLine("child.HasElements: {0}", child.HasElements);
-      Console.WriteLine("grand-child.HasElements: {0}", grandChild.HasElements);
+      Output.WriteLine("root.HasElements: {0}", root.HasElements);
+      Output.WriteLine("child.HasElements: {0}", child.HasElements);
+      Output.WriteLine("grand-child.HasElements: {0}", grandChild.HasElements);
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // HasAttributes
@@ -39,11 +41,11 @@ namespace Sazare.Samples
       child = root.Elements("Child").First();
       grandChild = child.Elements("Value").First();
 
-      Console.WriteLine("root.HasAttributes:{0}", root.HasAttributes);
-      Console.WriteLine("child.HasAttributes:{0}", child.HasAttributes);
-      Console.WriteLine("grand-child.HasAttributes:{0}", grandChild.HasAttributes);
+      Output.WriteLine("root.HasAttributes:{0}", root.HasAttributes);
+      Output.WriteLine("child.HasAttributes:{0}", child.HasAttributes);
+      Output.WriteLine("grand-child.HasAttributes:{0}", grandChild.HasAttributes);
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

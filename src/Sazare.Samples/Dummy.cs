@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ダミークラス
   /// <summary>
   /// ダミークラス
@@ -16,7 +18,7 @@ namespace Sazare.Samples
     /// </summary>
     public void Execute()
     {
-      Console.WriteLine("THIS IS DUMMY CLASS.");
+      Output.WriteLine("THIS IS DUMMY CLASS.");
     }
   }
   #endregion

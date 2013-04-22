@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Diagnostics;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ListForEachDiffSamples-01
   /// <summary>
   /// Listをforeachでループする場合と、List.ForEachする場合の速度差をテスト
@@ -27,19 +29,19 @@ namespace Sazare.Samples
       //
       foreach (var elementCount in new[] { 1000, 3000, 5000, 10000, 50000, 100000, 150000, 500000, 700000, 1000000 })
       {
-        Console.WriteLine("===== [Count:{0}] =====", elementCount);
+        Output.WriteLine("===== [Count:{0}] =====", elementCount);
 
         var theList = new List<int>(Enumerable.Range(1, elementCount));
 
         var watch = Stopwatch.StartNew();
         Sum_foreach(theList);
         watch.Stop();
-        Console.WriteLine("foreach:      {0}", watch.Elapsed);
+        Output.WriteLine("foreach:      {0}", watch.Elapsed);
 
         watch = Stopwatch.StartNew();
         Sum_List_ForEach(theList);
         watch.Stop();
-        Console.WriteLine("List.ForEach: {0}", watch.Elapsed);
+        Output.WriteLine("List.ForEach: {0}", watch.Elapsed);
       }
     }
 

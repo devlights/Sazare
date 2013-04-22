@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-43
   /// <summary>
   /// Linqのサンプルです。
@@ -21,29 +23,29 @@ namespace Sazare.Samples
       //
       var names = new string[] { "gsf_zero1", "gsf_zero2", "gsf_zero3", "gsf_zero4", "gsf_zero5" };
 
-      Console.WriteLine("================ Take ======================");
+      Output.WriteLine("================ Take ======================");
       var top3 = names.Take(3);
       foreach (var item in top3)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       foreach (var item in names.Take(20))
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
-      Console.WriteLine("0以下の数値を指定: COUNT={0}", names.Take(-1).Count());
+      Output.WriteLine("0以下の数値を指定: COUNT={0}", names.Take(-1).Count());
 
       //
       // TakeWhile拡張メソッドは、指定された条件が満たされる間シーケンスから要素を抽出し
       // 返すメソッド。
       //
-      Console.WriteLine("================ TakeWhile ======================");
+      Output.WriteLine("================ TakeWhile ======================");
       var lessThan4 = names.TakeWhile(name => int.Parse(name.Last().ToString()) <= 4);
       foreach (var item in lessThan4)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
     }
   }

@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region WhereArrayIteratorSamples-01
   /// <summary>
   /// WhereArrayIteratorに関するサンプルです。
@@ -20,8 +22,8 @@ namespace Sazare.Samples
                    where i < 7
                    select i;
 
-      Console.WriteLine("{0}", subset.GetType().Name);
-      Console.WriteLine("{0}", subset.GetType().Namespace);
+      Output.WriteLine("{0}", subset.GetType().Name);
+      Output.WriteLine("{0}", subset.GetType().Namespace);
 
       //
       // whereを含まないlinqを作成すると、WhereSelectArrayIteratorとなる。
@@ -29,8 +31,8 @@ namespace Sazare.Samples
       var subset2 = from i in new[] { 1, 2, 3, 5, 6, 7 }
                     select i;
 
-      Console.WriteLine("{0}", subset2.GetType().Name);
-      Console.WriteLine("{0}", subset2.GetType().Namespace);
+      Output.WriteLine("{0}", subset2.GetType().Name);
+      Output.WriteLine("{0}", subset2.GetType().Namespace);
     }
   }
   #endregion

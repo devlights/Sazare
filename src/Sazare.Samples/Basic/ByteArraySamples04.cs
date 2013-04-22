@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ByteArraySamples-04
   /// <summary>
   /// バイト配列についてのサンプルです。
@@ -19,7 +21,7 @@ namespace Sazare.Samples
       int i = 123456;
       byte[] buf = BitConverter.GetBytes(i);
 
-      Console.WriteLine(BitConverter.ToString(buf));
+      Output.WriteLine(BitConverter.ToString(buf));
     }
   }
   #endregion

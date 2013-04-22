@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region 時刻に関する処理(10進数形式からXX時間XX分形式に変換)
   /// <summary>
   /// 時刻に関する処理(10進数形式からXX時間XX分形式に変換)についてのサンプルです。
@@ -47,7 +49,7 @@ namespace Sazare.Samples
       //
       decimal result = decimal.Parse(string.Format("{0}.{1}", hour, minutes));
 
-      Console.WriteLine("結果={0}, {1}時間{2}分", result, hour, minutes);
+      Output.WriteLine("結果={0}, {1}時間{2}分", result, hour, minutes);
     }
   }
   #endregion

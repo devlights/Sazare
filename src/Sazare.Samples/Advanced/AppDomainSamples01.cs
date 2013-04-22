@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region AppDomainSamples-01
   /// <summary>
   /// AppDomainクラスのサンプルです。
@@ -40,7 +42,7 @@ namespace Sazare.Samples
       catch (InvalidOperationException ex)
       {
         // 本来のcatch処理.
-        Console.WriteLine("Catch clause: {0}", ex.Message);
+        Output.WriteLine("Catch clause: {0}", ex.Message);
       }
 
       // イベントをアンバインド.
@@ -50,7 +52,7 @@ namespace Sazare.Samples
     // イベントハンドラ.
     void FirstChanceExHandler(object sender, System.Runtime.ExceptionServices.FirstChanceExceptionEventArgs e)
     {
-      Console.WriteLine("FirstChanceException: {0}", e.Exception.Message);
+      Output.WriteLine("FirstChanceException: {0}", e.Exception.Message);
     }
   }
   #endregion

@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region BarrierSamples-01
   /// <summary>
   /// Barrierクラスについてのサンプルです。
@@ -65,7 +67,7 @@ namespace Sazare.Samples
         );
       }
 
-      Console.WriteLine("最終値：{0}", _count);
+      Output.WriteLine("最終値：{0}", _count);
     }
 
     //
@@ -98,7 +100,7 @@ namespace Sazare.Samples
       Stopwatch watch = Stopwatch.StartNew();
 
       int loopCount = rnd.Next(loopCountMaxValue);
-      Console.WriteLine("[Phase{0}] ループカウント：{1}, TASK:{2}", barrier.CurrentPhaseNumber, loopCount, Task.CurrentId);
+      Output.WriteLine("[Phase{0}] ループカウント：{1}, TASK:{2}", barrier.CurrentPhaseNumber, loopCount, Task.CurrentId);
 
       for (int i = 0; i < loopCount; i++)
       {
@@ -112,7 +114,7 @@ namespace Sazare.Samples
       }
 
       watch.Stop();
-      Console.WriteLine("[Phase{0}] SignalAndWait -- TASK:{1}, ELAPSED:{2}", barrier.CurrentPhaseNumber, Task.CurrentId, watch.Elapsed);
+      Output.WriteLine("[Phase{0}] SignalAndWait -- TASK:{1}, ELAPSED:{2}", barrier.CurrentPhaseNumber, Task.CurrentId, watch.Elapsed);
 
       try
       {
@@ -127,7 +129,7 @@ namespace Sazare.Samples
         // Post Phaseアクションにてエラーが発生した場合はここに来る.
         // (本来であれば、キャンセルするなどのエラー処理が必要)
         //
-        Console.WriteLine("*** {0} ***", postPhaseEx.Message);
+        Output.WriteLine("*** {0} ***", postPhaseEx.Message);
         throw;
       }
     }
@@ -146,8 +148,8 @@ namespace Sazare.Samples
       //
       long current = Interlocked.Read(ref _count);
 
-      Console.WriteLine("現在のフェーズ：{0}, 参加要素数：{1}", barrier.CurrentPhaseNumber, barrier.ParticipantCount);
-      Console.WriteLine("t現在値：{0}", current);
+      Output.WriteLine("現在のフェーズ：{0}, 参加要素数：{1}", barrier.CurrentPhaseNumber, barrier.ParticipantCount);
+      Output.WriteLine("t現在値：{0}", current);
 
       //
       // 以下のコメントを外すと、次のPost Phaseアクションにて

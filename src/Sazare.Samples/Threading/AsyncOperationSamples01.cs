@@ -13,6 +13,8 @@ namespace Sazare.Samples
   using WinFormsForm = System.Windows.Forms.Form;
   using WinFormsMessageBox = System.Windows.Forms.MessageBox;
 
+  using Sazare.Common;
+  
   #region AsyncOperationSamples-01
   /// <summary>
   /// AsyncOperationのサンプル1です。

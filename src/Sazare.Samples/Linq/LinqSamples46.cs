@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-46
   /// <summary>
   /// Linqのサンプルです。
@@ -27,11 +29,11 @@ namespace Sazare.Samples
       }
       catch
       {
-        Console.WriteLine("First拡張メソッドで例外発生");
+        Output.WriteLine("First拡張メソッドで例外発生");
       }
 
-      Console.WriteLine("FirstOrDefaultの場合: {0}", emptySequence.FirstOrDefault() ?? "null");
-      Console.WriteLine("FirstOrDefaultの場合(predicate): {0}", languages.FirstOrDefault(item => item.EndsWith("z")) ?? "null");
+      Output.WriteLine("FirstOrDefaultの場合: {0}", emptySequence.FirstOrDefault() ?? "null");
+      Output.WriteLine("FirstOrDefaultの場合(predicate): {0}", languages.FirstOrDefault(item => item.EndsWith("z")) ?? "null");
 
       //
       // LastOrDefault拡張メソッドは、Last拡張メソッドと同じ動作をする。
@@ -44,11 +46,11 @@ namespace Sazare.Samples
       }
       catch
       {
-        Console.WriteLine("Last拡張メソッドで例外発生");
+        Output.WriteLine("Last拡張メソッドで例外発生");
       }
 
-      Console.WriteLine("LastOrDefaultの場合: {0}", emptySequence.LastOrDefault() ?? "null");
-      Console.WriteLine("LastOrDefaultの場合(predicate): {0}", languages.LastOrDefault(item => item.EndsWith("z")) ?? "null");
+      Output.WriteLine("LastOrDefaultの場合: {0}", emptySequence.LastOrDefault() ?? "null");
+      Output.WriteLine("LastOrDefaultの場合(predicate): {0}", languages.LastOrDefault(item => item.EndsWith("z")) ?? "null");
 
       //
       // SingleOrDefault拡張メソッドは、Single拡張メソッドと同じ動作をする。
@@ -61,11 +63,11 @@ namespace Sazare.Samples
       }
       catch
       {
-        Console.WriteLine("Single拡張メソッドで例外発生");
+        Output.WriteLine("Single拡張メソッドで例外発生");
       }
 
-      Console.WriteLine("SingleOrDefaultの場合: {0}", emptySequence.SingleOrDefault() ?? "null");
-      Console.WriteLine("SingleOrDefaultの場合(predicate): {0}", languages.SingleOrDefault(item => item.EndsWith("z")) ?? "null");
+      Output.WriteLine("SingleOrDefaultの場合: {0}", emptySequence.SingleOrDefault() ?? "null");
+      Output.WriteLine("SingleOrDefaultの場合(predicate): {0}", languages.SingleOrDefault(item => item.EndsWith("z")) ?? "null");
 
       //
       // DefaultIfEmpty拡張メソッドは、シーケンスが空の場合に規定値を返すメソッド。
@@ -73,27 +75,27 @@ namespace Sazare.Samples
       // シーケンスに要素が存在する場合は、そのままの状態で返す。
       // LINQにて外部結合を行う際に必須となるメソッド。
       //
-      Console.WriteLine("================ DefaultIfEmpty ====================");
+      Output.WriteLine("================ DefaultIfEmpty ====================");
 
       var emptyIntegers = Enumerable.Empty<int>();
       foreach (var item in emptyIntegers.DefaultIfEmpty())
       {
-        Console.WriteLine("基本型の場合: {0}", item);
+        Output.WriteLine("基本型の場合: {0}", item);
       }
 
       foreach (var item in emptySequence.DefaultIfEmpty())
       {
-        Console.WriteLine("参照型の場合: {0}", item ?? "null");
+        Output.WriteLine("参照型の場合: {0}", item ?? "null");
       }
 
       foreach (var item in languages.DefaultIfEmpty())
       {
-        Console.WriteLine(item ?? "null");
+        Output.WriteLine(item ?? "null");
       }
 
       foreach (var item in emptySequence.DefaultIfEmpty("デフォルト値"))
       {
-        Console.WriteLine(item ?? "null");
+        Output.WriteLine(item ?? "null");
       }
     }
   }

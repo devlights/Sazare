@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-86
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -47,8 +49,8 @@ namespace Sazare.Samples
       //
       foreach (var item in QueryHasAnnotation(root))
       {
-        Console.WriteLine(item);
-        Console.WriteLine(item.Annotation<Tag>().Value);
+        Output.WriteLine(item);
+        Output.WriteLine(item.Annotation<Tag>().Value);
       }
 
       //
@@ -56,13 +58,13 @@ namespace Sazare.Samples
       //
       elem.RemoveAnnotations<Tag>();
 
-      Console.WriteLine(QueryHasAnnotation(root).Count());
+      Output.WriteLine(QueryHasAnnotation(root).Count());
 
       //
       // アノテーションを付与した状態でToStringしてみる
       //
       elem.AddAnnotation(new Tag("Tag Value"));
-      Console.WriteLine(root);
+      Output.WriteLine(root);
     }
 
     IEnumerable<XElement> QueryHasAnnotation(XElement root)

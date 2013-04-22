@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-60
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -26,8 +28,8 @@ namespace Sazare.Samples
       var newElem1 = new XElement("NewElement", "hehe");
       root.Add(newElem1);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // AddAfterSelf(object)
@@ -45,21 +47,21 @@ namespace Sazare.Samples
         // ルート要素に対して、自身の後ろに要素を追加しようとするので
         // エラーとなる。XmlExceptionでは無いことに注意.
         root.AddAfterSelf(newElem4);
-        Console.WriteLine(root);
+        Output.WriteLine(root);
       }
       catch (InvalidOperationException invalidEx)
       {
-        Console.WriteLine("[ERROR] {0}", invalidEx.Message);
+        Output.WriteLine("[ERROR] {0}", invalidEx.Message);
       }
       finally
       {
-        Console.WriteLine("=====================================");
+        Output.WriteLine("=====================================");
       }
 
       root.Elements().First().AddAfterSelf(newElem4);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // AddBeforeSelf(object)
@@ -77,21 +79,21 @@ namespace Sazare.Samples
         // ルート要素に対して、自身の前に要素を追加しようとするので
         // エラーとなる。XmlExceptionでは無いことに注意.
         root.AddBeforeSelf(newElem5);
-        Console.WriteLine(root);
+        Output.WriteLine(root);
       }
       catch (InvalidOperationException invalidEx)
       {
-        Console.WriteLine("[ERROR] {0}", invalidEx.Message);
+        Output.WriteLine("[ERROR] {0}", invalidEx.Message);
       }
       finally
       {
-        Console.WriteLine("=====================================");
+        Output.WriteLine("=====================================");
       }
 
       root.Elements().First().AddBeforeSelf(newElem5);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // AddFirst(object)
@@ -103,14 +105,14 @@ namespace Sazare.Samples
 
       root.AddFirst(newElem6);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       root = BuildSampleXml();
       root.Elements().First().AddFirst(newElem6);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

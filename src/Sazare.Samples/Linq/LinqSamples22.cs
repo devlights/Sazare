@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-22
   /// <summary>
   /// Linqのサンプルです。
@@ -59,24 +61,24 @@ namespace Sazare.Samples
       //
       var sortByIdAsc = persons.OrderBy(aPerson => aPerson.Id);
 
-      Console.WriteLine("================= IDで昇順ソート =================");
-      Console.WriteLine(string.Join(Environment.NewLine, sortByIdAsc));
+      Output.WriteLine("================= IDで昇順ソート =================");
+      Output.WriteLine(string.Join(Environment.NewLine, sortByIdAsc));
 
       //
       // IDで降順ソート.
       //
       var sortByIdDesc = persons.OrderByDescending(aPerson => aPerson.Id);
 
-      Console.WriteLine("================= IDで降順ソート =================");
-      Console.WriteLine(string.Join(Environment.NewLine, sortByIdDesc));
+      Output.WriteLine("================= IDで降順ソート =================");
+      Output.WriteLine(string.Join(Environment.NewLine, sortByIdDesc));
 
       //
       // 安定ソートの確認。
       //
       var sortByIdAscAndDesc = persons.OrderByDescending(aPerson => aPerson.Id).OrderBy(aPerson => aPerson.Id);
 
-      Console.WriteLine("================= 安定ソートの確認 =================");
-      Console.WriteLine(string.Join(Environment.NewLine, sortByIdAscAndDesc));
+      Output.WriteLine("================= 安定ソートの確認 =================");
+      Output.WriteLine(string.Join(Environment.NewLine, sortByIdAscAndDesc));
     }
   }
   #endregion

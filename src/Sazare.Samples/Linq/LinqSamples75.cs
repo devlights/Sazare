@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-75
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -25,14 +27,14 @@ namespace Sazare.Samples
       var root = BuildSampleXml();
       var elem = root.Elements("Child").First();
 
-      Console.WriteLine("root.Parent = {0}", root.Parent == null ? "null" : root.Parent.ToString());
-      Console.WriteLine("elem.Parent = {0}", elem.Parent);
+      Output.WriteLine("root.Parent = {0}", root.Parent == null ? "null" : root.Parent.ToString());
+      Output.WriteLine("elem.Parent = {0}", elem.Parent);
 
       var newElem = new XElement("GrandChild", "value5");
-      Console.WriteLine("newElem.Parent = {0}", newElem.Parent == null ? "null" : newElem.Parent.ToString());
+      Output.WriteLine("newElem.Parent = {0}", newElem.Parent == null ? "null" : newElem.Parent.ToString());
 
       root.Elements("Child").Last().Add(newElem);
-      Console.WriteLine("newElem.Parent = {0}", newElem.Parent);
+      Output.WriteLine("newElem.Parent = {0}", newElem.Parent);
     }
 
     XElement BuildSampleXml()

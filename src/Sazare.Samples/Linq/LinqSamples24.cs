@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-24
   /// <summary>
   /// Linqのサンプルです。
@@ -44,8 +46,8 @@ namespace Sazare.Samples
       var reverseNumbers = numbers.Reverse();
       var reversePersons = persons.Reverse();
 
-      Console.WriteLine(string.Join(",", reverseNumbers.Select(element => element.ToString())));
-      Console.WriteLine(string.Join(",", reversePersons.Select(element => element.ToString())));
+      Output.WriteLine(string.Join(",", reverseNumbers.Select(element => element.ToString())));
+      Output.WriteLine(string.Join(",", reversePersons.Select(element => element.ToString())));
     }
   }
   #endregion

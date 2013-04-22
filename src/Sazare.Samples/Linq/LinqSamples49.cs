@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.IO;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-49
   /// <summary>
   /// Linqのサンプルです。
@@ -49,10 +51,10 @@ namespace Sazare.Samples
           watch = null;
         }
 
-        //Console.WriteLine(item);
+        //Output.WriteLine(item);
       }
 
-      Console.WriteLine("================== EnumereteFiles       : {0} ==================", elapsed);
+      Output.WriteLine("================== EnumereteFiles       : {0} ==================", elapsed);
 
       //
       // EnumerateDirectories.
@@ -72,10 +74,10 @@ namespace Sazare.Samples
           watch = null;
         }
 
-        //Console.WriteLine(item);
+        //Output.WriteLine(item);
       }
 
-      Console.WriteLine("================== EnumerateDirectories     : {0} ==================", elapsed);
+      Output.WriteLine("================== EnumerateDirectories     : {0} ==================", elapsed);
 
       //
       // EnumerateFileSystemEntries.
@@ -95,10 +97,10 @@ namespace Sazare.Samples
           watch = null;
         }
 
-        //Console.WriteLine(item);
+        //Output.WriteLine(item);
       }
 
-      Console.WriteLine("================== EnumerateFileSystemEntries : {0} ==================", elapsed);
+      Output.WriteLine("================== EnumerateFileSystemEntries : {0} ==================", elapsed);
 
       //
       // GetFiles.
@@ -117,10 +119,10 @@ namespace Sazare.Samples
           watch = null;
         }
 
-        //Console.WriteLine(item);
+        //Output.WriteLine(item);
       }
 
-      Console.WriteLine("================== GetFiles           : {0} ==================", elapsed);
+      Output.WriteLine("================== GetFiles           : {0} ==================", elapsed);
 
       //
       // GetDirectories.
@@ -139,10 +141,10 @@ namespace Sazare.Samples
           watch = null;
         }
 
-        //Console.WriteLine(item);
+        //Output.WriteLine(item);
       }
 
-      Console.WriteLine("================== GetDirectories       : {0} ==================", elapsed);
+      Output.WriteLine("================== GetDirectories       : {0} ==================", elapsed);
 
       //
       // GetFileSystemEntries.
@@ -161,10 +163,10 @@ namespace Sazare.Samples
           watch = null;
         }
 
-        //Console.WriteLine(item);
+        //Output.WriteLine(item);
       }
 
-      Console.WriteLine("================== GetFileSystemEntries     : {0} ==================", elapsed);
+      Output.WriteLine("================== GetFileSystemEntries     : {0} ==================", elapsed);
     }
   }
   #endregion

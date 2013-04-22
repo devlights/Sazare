@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Reflection;
 
+  using Sazare.Common;
+  
   #region MarshalByRefObjectSamples-01
   /// <summary>
   /// MarshalByRefObjectクラスに関するサンプルです。
@@ -16,7 +18,7 @@ namespace Sazare.Samples
     {
       public void PrintDomain()
       {
-        Console.WriteLine("Object is executing in AppDomain \"{0}\"", AppDomain.CurrentDomain.FriendlyName);
+        Output.WriteLine("Object is executing in AppDomain \"{0}\"", AppDomain.CurrentDomain.FriendlyName);
       }
     }
 
@@ -24,7 +26,7 @@ namespace Sazare.Samples
     {
       public void PrintDomain()
       {
-        Console.WriteLine("Object is executing in AppDomain \"{0}\"", AppDomain.CurrentDomain.FriendlyName);
+        Output.WriteLine("Object is executing in AppDomain \"{0}\"", AppDomain.CurrentDomain.FriendlyName);
       }
     }
 
@@ -33,7 +35,7 @@ namespace Sazare.Samples
     {
       public void PrintDomain()
       {
-        Console.WriteLine("Object is executing in AppDomain \"{0}\"", AppDomain.CurrentDomain.FriendlyName);
+        Output.WriteLine("Object is executing in AppDomain \"{0}\"", AppDomain.CurrentDomain.FriendlyName);
       }
     }
 

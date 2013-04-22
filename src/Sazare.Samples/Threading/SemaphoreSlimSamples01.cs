@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region SemaphoreSlimSamples-01
   /// <summary>
   /// SemaphoreSlimクラスについてのサンプルです。
@@ -52,39 +54,39 @@ namespace Sazare.Samples
       using (SemaphoreSlim semaphore = new SemaphoreSlim(2))
       {
         // 現在Semaphoreに入ることが可能なスレッド数を表示
-        Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
+        Output.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
 
         // 1つ目
-        Console.WriteLine("1つ目のWait={0}", semaphore.Wait(0));
+        Output.WriteLine("1つ目のWait={0}", semaphore.Wait(0));
         // 2つ目
-        Console.WriteLine("2つ目のWait={0}", semaphore.Wait(0));
+        Output.WriteLine("2つ目のWait={0}", semaphore.Wait(0));
 
         // 現在Semaphoreに入ることが可能なスレッド数を表示
-        Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
+        Output.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
 
         // 3つ目
         // 現在Releaseしている数は0なので、入ることが出来ない。
         // (Falseが返却される)
-        Console.WriteLine("3つ目のWait={0}", semaphore.Wait(0));
+        Output.WriteLine("3つ目のWait={0}", semaphore.Wait(0));
 
         // １つリリースして、枠を空ける.
         semaphore.Release();
 
         // 現在Semaphoreに入ることが可能なスレッド数を表示
-        Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
+        Output.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
 
         // 再度、3つ目
         // 今度は、枠が空いているので入ることが出来る。
-        Console.WriteLine("3つ目のWait={0}", semaphore.Wait(0));
+        Output.WriteLine("3つ目のWait={0}", semaphore.Wait(0));
 
         // 現在Semaphoreに入ることが可能なスレッド数を表示
-        Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
+        Output.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
 
         semaphore.Release();
         semaphore.Release();
 
         // 現在Semaphoreに入ることが可能なスレッド数を表示
-        Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
+        Output.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
       }
     }
   }

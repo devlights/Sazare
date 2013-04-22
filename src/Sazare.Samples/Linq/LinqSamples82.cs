@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.Xml.Linq;
   using System.Xml.XPath;
 
+  using Sazare.Common;
+  
   #region LinqSamples-82
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -36,30 +38,30 @@ namespace Sazare.Samples
       // XPath指定
       foreach (var elem in root.XPathSelectElements("Book/Title"))
       {
-        Console.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
+        Output.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
       }
 
       // XPath指定
       foreach (var elem in root.XPathSelectElements("//Title"))
       {
-        Console.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
+        Output.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       // LINQ to XML
       foreach (var elem in root.Elements("Book").Elements("Title"))
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
       // LINQ to XML
       foreach (var elem in root.Descendants("Title"))
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // XPathEvaluate
@@ -77,10 +79,10 @@ namespace Sazare.Samples
       // XPath指定
       foreach (var elem in (IEnumerable)root.XPathEvaluate("Book[@id=\"bk102\"]/PublishDate"))
       {
-        Console.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
+        Output.WriteLine("Value:{0}, Type:{1}", elem, elem.GetType().Name);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       // LINQ to XML
       var query = from book in root.Elements("Book")
@@ -89,7 +91,7 @@ namespace Sazare.Samples
 
       foreach (var elem in query)
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
     }
 

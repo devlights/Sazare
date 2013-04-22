@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSample-33
   /// <summary>
   /// Linqのサンプルです。
@@ -29,12 +31,12 @@ namespace Sazare.Samples
       //
       // 引数無しのSum拡張メソッドの使用.
       //
-      Console.WriteLine("引数無し = {0}", numbers.Sum());
+      Output.WriteLine("引数無し = {0}", numbers.Sum());
 
       //
       // selectorを指定するSum拡張メソッドの使用.
       //
-      Console.WriteLine("引数有り = {0}", numbers.Sum(item => (item % 2 == 0) ? item : 0));
+      Output.WriteLine("引数有り = {0}", numbers.Sum(item => (item % 2 == 0) ? item : 0));
     }
   }
   #endregion

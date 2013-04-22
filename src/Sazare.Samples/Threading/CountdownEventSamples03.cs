@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region CountdownEventSamples-03
   /// <summary>
   /// CountdownEventクラスについてのサンプルです。(3)
@@ -33,9 +35,9 @@ namespace Sazare.Samples
       using (CountdownEvent cde = new CountdownEvent(1))
       {
         // 初期の状態を表示.
-        Console.WriteLine("InitialCount={0}", cde.InitialCount);
-        Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
-        Console.WriteLine("IsSet={0}", cde.IsSet);
+        Output.WriteLine("InitialCount={0}", cde.InitialCount);
+        Output.WriteLine("CurrentCount={0}", cde.CurrentCount);
+        Output.WriteLine("IsSet={0}", cde.IsSet);
 
         Task t = Task.Factory.StartNew(() =>
         {
@@ -58,7 +60,7 @@ namespace Sazare.Samples
         {
           if (token == cancelEx.CancellationToken)
           {
-            Console.WriteLine("＊＊＊CountdownEvent.Wait()がキャンセルされました＊＊＊");
+            Output.WriteLine("＊＊＊CountdownEvent.Wait()がキャンセルされました＊＊＊");
           }
         }
 
@@ -76,7 +78,7 @@ namespace Sazare.Samples
 
               if (token == cancelEx.CancellationToken)
               {
-                Console.WriteLine("＊＊＊タスクがキャンセルされました＊＊＊");
+                Output.WriteLine("＊＊＊タスクがキャンセルされました＊＊＊");
                 return true;
               }
             }
@@ -86,9 +88,9 @@ namespace Sazare.Samples
         }
 
         // 現在の状態を表示.
-        Console.WriteLine("InitialCount={0}", cde.InitialCount);
-        Console.WriteLine("CurrentCount={0}", cde.CurrentCount);
-        Console.WriteLine("IsSet={0}", cde.IsSet);
+        Output.WriteLine("InitialCount={0}", cde.InitialCount);
+        Output.WriteLine("CurrentCount={0}", cde.CurrentCount);
+        Output.WriteLine("IsSet={0}", cde.IsSet);
       }
     }
   }

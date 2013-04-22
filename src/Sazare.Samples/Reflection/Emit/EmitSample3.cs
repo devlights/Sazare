@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
+  using Sazare.Common;
+  
   #region Emitのサンプル3
   /// <summary>
   /// Emitのサンプル３です。
@@ -67,11 +69,11 @@ namespace Sazare.Samples
       {
         foreach (object attr in attrs)
         {
-          Console.WriteLine(attr);
+          Output.WriteLine(attr);
 
           if (attr is CreatorAttribute)
           {
-            Console.WriteLine("\tName={0}", (attr as CreatorAttribute).CreatorName);
+            Output.WriteLine("\tName={0}", (attr as CreatorAttribute).CreatorName);
           }
         }
       }

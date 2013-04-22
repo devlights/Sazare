@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-51
   /// <summary>
   /// LINQ to XMLのサンプルです。
@@ -52,7 +54,7 @@ namespace Sazare.Samples
 
       foreach (var item in query)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
     }
 

@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region LazyInitializerSamples-01
   /// <summary>
   /// LazyInitializerのサンプルです。
@@ -30,18 +32,18 @@ namespace Sazare.Samples
       (
         () =>
         {
-          Console.WriteLine("Created. [{0}]", hasHeavy.Heavy.CreatedThreadId);
+          Output.WriteLine("Created. [{0}]", hasHeavy.Heavy.CreatedThreadId);
         },
         () =>
         {
-          Console.WriteLine("Created. [{0}]", hasHeavy.Heavy.CreatedThreadId);
+          Output.WriteLine("Created. [{0}]", hasHeavy.Heavy.CreatedThreadId);
         },
         // 少し待機してから、作成済みの値にアクセス.
         () =>
         {
           Thread.Sleep(TimeSpan.FromMilliseconds(2000));
-          Console.WriteLine(">>少し待機してから、作成済みの値にアクセス.");
-          Console.WriteLine(">>Created. [{0}]", hasHeavy.Heavy.CreatedThreadId);
+          Output.WriteLine(">>少し待機してから、作成済みの値にアクセス.");
+          Output.WriteLine(">>Created. [{0}]", hasHeavy.Heavy.CreatedThreadId);
         }
       );
     }
@@ -57,9 +59,9 @@ namespace Sazare.Samples
           //
           // LazyInitializerを利用して、遅延初期化.
           //
-          Console.WriteLine("[ThreadId {0}] 値初期化処理開始. start", Thread.CurrentThread.ManagedThreadId);
+          Output.WriteLine("[ThreadId {0}] 値初期化処理開始. start", Thread.CurrentThread.ManagedThreadId);
           LazyInitializer.EnsureInitialized(ref _heavy, () => new HeavyObject(TimeSpan.FromMilliseconds(100)));
-          Console.WriteLine("[ThreadId {0}] 値初期化処理開始. end", Thread.CurrentThread.ManagedThreadId);
+          Output.WriteLine("[ThreadId {0}] 値初期化処理開始. end", Thread.CurrentThread.ManagedThreadId);
 
           return _heavy;
         }
@@ -72,9 +74,9 @@ namespace Sazare.Samples
 
       public HeavyObject(TimeSpan waitSpan)
       {
-        Console.WriteLine(">>>>>> HeavyObjectのコンストラクタ start. [{0}]", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine(">>>>>> HeavyObjectのコンストラクタ start. [{0}]", Thread.CurrentThread.ManagedThreadId);
         Initialize(waitSpan);
-        Console.WriteLine(">>>>>> HeavyObjectのコンストラクタ end.   [{0}]", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine(">>>>>> HeavyObjectのコンストラクタ end.   [{0}]", Thread.CurrentThread.ManagedThreadId);
       }
 
       void Initialize(TimeSpan waitSpan)

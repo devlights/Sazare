@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.Xml;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-54
   /// <summary>
   /// LINQ to XMLのサンプルです。
@@ -44,8 +46,8 @@ namespace Sazare.Samples
         element = XElement.Load(stream);
       }
 
-      Console.WriteLine(element);
-      Console.WriteLine("=============================================");
+      Output.WriteLine(element);
+      Output.WriteLine("=============================================");
 
       //
       // Load(TextReader)のサンプル
@@ -57,8 +59,8 @@ namespace Sazare.Samples
         element = XElement.Load(reader);
       }
 
-      Console.WriteLine(element);
-      Console.WriteLine("=============================================");
+      Output.WriteLine(element);
+      Output.WriteLine("=============================================");
 
       //
       // Load(XmlReader)のサンプル.
@@ -69,7 +71,7 @@ namespace Sazare.Samples
         element = XElement.Load(reader);
       }
 
-      Console.WriteLine(element);
+      Output.WriteLine(element);
     }
   }
   #endregion

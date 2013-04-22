@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.Runtime.Serialization;
   using System.Runtime.Serialization.Formatters.Binary;
 
+  using Sazare.Common;
+  
   #region SerializationSurrogateSamples-01
   /// <summary>
   /// シリアライズに関するサンプルです。
@@ -31,7 +33,7 @@ namespace Sazare.Samples
         formatter.Serialize(stream, obj);
 
         stream.Position = 0;
-        Console.WriteLine(formatter.Deserialize(stream));
+        Output.WriteLine(formatter.Deserialize(stream));
       }
 
       //
@@ -49,11 +51,11 @@ namespace Sazare.Samples
           formatter.Serialize(stream, obj2);
 
           stream.Position = 0;
-          Console.WriteLine(formatter.Deserialize(stream));
+          Output.WriteLine(formatter.Deserialize(stream));
         }
         catch (SerializationException ex)
         {
-          Console.WriteLine("[ERROR]: {0}", ex.Message);
+          Output.WriteLine("[ERROR]: {0}", ex.Message);
         }
       }
 
@@ -91,11 +93,11 @@ namespace Sazare.Samples
           formatter.Serialize(stream, obj3);
 
           stream.Position = 0;
-          Console.WriteLine(formatter.Deserialize(stream));
+          Output.WriteLine(formatter.Deserialize(stream));
         }
         catch (SerializationException ex)
         {
-          Console.WriteLine("[ERROR]: {0}", ex.Message);
+          Output.WriteLine("[ERROR]: {0}", ex.Message);
         }
       }
     }
@@ -120,7 +122,7 @@ namespace Sazare.Samples
                  };
     }
 
-    #region SampleInterfaceAndClasses
+  #region SampleInterfaceAndClasses
     interface IHasNameAndAge
     {
       string Name { get; set; }

@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region CompileDirectiveSamples-01
   /// <summary>
   /// コンパイルディレクティブのサンプル1です。
@@ -14,12 +16,12 @@ namespace Sazare.Samples
 
     public void Execute()
     {
-      Console.WriteLine("001:HELLO C#");
+      Output.WriteLine("001:HELLO C#");
 
 #if(DEBUG)
-      Console.WriteLine("002:HELLO C# (DEBUG)");
+      Output.WriteLine("002:HELLO C# (DEBUG)");
 #else
-        Console.WriteLine("003:HELLO C# (ELSE)");
+        Output.WriteLine("003:HELLO C# (ELSE)");
 #endif
     }
   }

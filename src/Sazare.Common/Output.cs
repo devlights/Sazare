@@ -34,6 +34,17 @@
     }
 
     /// <summary>
+    /// 指定されたデータを出力します。（改行付与無し）
+    /// </summary>
+    /// <param name="format">フォーマット</param>
+    /// <param name="args">フォーマット引数</param>
+    public static void Write(string format, params object[] args)
+    {
+      Defence();
+      _Manager.Write(string.Format(format, args));
+    }
+
+    /// <summary>
     /// 指定されたデータを出力します。（改行付与有り）
     /// </summary>
     /// <param name="data">データ</param>
@@ -41,6 +52,17 @@
     {
       Defence();
       _Manager.WriteLine(data);
+    }
+
+    /// <summary>
+    /// 指定されたデータを出力いｓます。（改行付与有り）
+    /// </summary>
+    /// <param name="format">フォーマット</param>
+    /// <param name="arg">フォーマット引数</param>
+    public static void WriteLine(string format, params object[] arg)
+    {
+      Defence();
+      _Manager.WriteLine(string.Format(format, arg));
     }
 
     /// <summary>

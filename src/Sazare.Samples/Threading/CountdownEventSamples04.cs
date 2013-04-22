@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region CountdownEventSamples-04
   /// <summary>
   /// CountdownEventクラスについてのサンプルです。
@@ -50,14 +52,14 @@ namespace Sazare.Samples
         }
         catch (InvalidOperationException invalidEx)
         {
-          Console.WriteLine("＊＊＊ {0} ＊＊＊", invalidEx.Message);
+          Output.WriteLine("＊＊＊ {0} ＊＊＊", invalidEx.Message);
         }
 
         // 現在の状態を表示.
         PrintCurrentCountdownEvent(cde);
       }
 
-      Console.WriteLine("");
+      Output.WriteLine("");
 
       using (CountdownEvent cde = new CountdownEvent(1))
       {
@@ -68,7 +70,7 @@ namespace Sazare.Samples
         // 10個の別処理を実行する.
         // それぞれの内部処理にてランダムでSLEEPして、終了タイミングをバラバラに設定.
         //
-        Console.WriteLine("別処理開始・・・");
+        Output.WriteLine("別処理開始・・・");
 
         for (int i = 0; i < 10; i++)
         {
@@ -84,24 +86,24 @@ namespace Sazare.Samples
         }
         while (cde.CurrentCount != 1);
 
-        Console.WriteLine("・・・別処理終了");
+        Output.WriteLine("・・・別処理終了");
 
         //
         // 待機.
         //
-        Console.WriteLine("メインスレッドにて最後のカウントをデクリメント");
+        Output.WriteLine("メインスレッドにて最後のカウントをデクリメント");
         cde.Signal();
         cde.Wait();
 
         // 現在の状態を表示.
         PrintCurrentCountdownEvent(cde);
 
-        Console.WriteLine("");
+        Output.WriteLine("");
 
         //
         // 内部カウントをリセット.
         //
-        Console.WriteLine("内部カウントをリセット");
+        Output.WriteLine("内部カウントをリセット");
         cde.Reset();
 
         // 現在の状態を表示.
@@ -110,7 +112,7 @@ namespace Sazare.Samples
         //
         // 待機.
         //
-        Console.WriteLine("メインスレッドにて最後のカウントをデクリメント");
+        Output.WriteLine("メインスレッドにて最後のカウントをデクリメント");
         cde.Signal();
         cde.Wait();
 
@@ -121,9 +123,9 @@ namespace Sazare.Samples
 
     void PrintCurrentCountdownEvent(CountdownEvent cde, string prefix = "")
     {
-      Console.WriteLine("{0}InitialCount={1}", prefix, cde.InitialCount);
-      Console.WriteLine("{0}CurrentCount={1}", prefix, cde.CurrentCount);
-      Console.WriteLine("{0}IsSet={1}", prefix, cde.IsSet);
+      Output.WriteLine("{0}InitialCount={1}", prefix, cde.InitialCount);
+      Output.WriteLine("{0}CurrentCount={1}", prefix, cde.CurrentCount);
+      Output.WriteLine("{0}IsSet={1}", prefix, cde.IsSet);
     }
 
     void TaskProc(object data)

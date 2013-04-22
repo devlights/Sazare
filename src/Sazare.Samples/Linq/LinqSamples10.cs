@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-10
   /// <summary>
   /// Linqのサンプルです。
@@ -234,11 +236,11 @@ namespace Sazare.Samples
 
       foreach (var item in query1)
       {
-        Console.WriteLine("Name={0}", item.Name);
+        Output.WriteLine("Name={0}", item.Name);
 
         foreach (var project in item.Projects)
         {
-          Console.WriteLine("\tProject={0}", project.Name);
+          Output.WriteLine("\tProject={0}", project.Name);
         }
       }
 
@@ -280,17 +282,17 @@ namespace Sazare.Samples
                      selectResult.Name
                    };
 
-      Console.WriteLine("======================================================");
+      Output.WriteLine("======================================================");
       foreach (var item in query2)
       {
-        Console.WriteLine("Name={0}", item.Key.Name);
+        Output.WriteLine("Name={0}", item.Key.Name);
 
         foreach (var groupedItem in item)
         {
 
           foreach (var belongPerson in groupedItem.Persons)
           {
-            Console.WriteLine("\tPerson={0}", belongPerson.Name);
+            Output.WriteLine("\tPerson={0}", belongPerson.Name);
           }
         }
       }
@@ -311,14 +313,14 @@ namespace Sazare.Samples
                    orderby groupByResult.Key ascending
                    select groupByResult;
 
-      Console.WriteLine("======================================================");
+      Output.WriteLine("======================================================");
       foreach (var item in query3)
       {
-        Console.WriteLine("Project={0}", item.Key);
+        Output.WriteLine("Project={0}", item.Key);
 
         foreach (var groupedItem in item)
         {
-          Console.WriteLine("\tPerson={0}", groupedItem.Person.Name);
+          Output.WriteLine("\tPerson={0}", groupedItem.Person.Name);
         }
       }
     }

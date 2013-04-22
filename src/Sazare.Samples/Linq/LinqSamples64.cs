@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-64
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -26,9 +28,9 @@ namespace Sazare.Samples
 
       var attr = elem.FirstAttribute;
 
-      Console.WriteLine(attr);
-      Console.WriteLine("{0}=\"{1}\"", attr.Name, attr.Value);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(attr);
+      Output.WriteLine("{0}=\"{1}\"", attr.Name, attr.Value);
+      Output.WriteLine("=====================================");
 
       //
       // LastAttribute
@@ -39,8 +41,8 @@ namespace Sazare.Samples
 
       attr = elem.LastAttribute;
 
-      Console.WriteLine(attr);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(attr);
+      Output.WriteLine("=====================================");
 
       //
       // Attribute(XName)
@@ -51,9 +53,9 @@ namespace Sazare.Samples
 
       attr = elem.Attribute("Id2");
 
-      Console.WriteLine(attr);
-      Console.WriteLine(elem.Attribute("Id3") == null);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(attr);
+      Output.WriteLine(elem.Attribute("Id3") == null);
+      Output.WriteLine("=====================================");
 
       //
       // Attributes()
@@ -64,13 +66,13 @@ namespace Sazare.Samples
 
       var attrs = elem.Attributes();
 
-      Console.WriteLine("Count={0}", attrs.Count());
+      Output.WriteLine("Count={0}", attrs.Count());
       foreach (var a in attrs)
       {
-        Console.WriteLine("\t{0}", a);
+        Output.WriteLine("\t{0}", a);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // Attributes(XName)
@@ -82,13 +84,13 @@ namespace Sazare.Samples
 
       attrs = elems.Attributes("Id");
 
-      Console.WriteLine("Count={0}", attrs.Count());
+      Output.WriteLine("Count={0}", attrs.Count());
       foreach (var a in attrs)
       {
-        Console.WriteLine("\t{0}", a);
+        Output.WriteLine("\t{0}", a);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

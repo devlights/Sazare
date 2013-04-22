@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region 匿名デリゲートのサンプル (.net framework 2.0)
   /// <summary>
   /// 匿名デリゲート(anonymous delegete)のサンプル（.NET Framework 2.0）
@@ -26,7 +28,7 @@ namespace Sazare.Samples
       //
       SampleDelegate d = delegate()
       {
-        Console.WriteLine("SAMPLE_ANONYMOUS_DELEGATE.");
+        Output.WriteLine("SAMPLE_ANONYMOUS_DELEGATE.");
       };
 
       d.Invoke();

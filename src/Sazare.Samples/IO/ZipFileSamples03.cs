@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.IO.Compression;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ZipFileSamples-03
   /// <summary>
   /// System.IO.Compression.ZipFileクラスのサンプルです。

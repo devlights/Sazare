@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region DisposableSamples-01
   /// <summary>
   /// IDisposableのサンプルです。
@@ -26,7 +28,7 @@ namespace Sazare.Samples
         {
           using (var disposable3 = new Disposable3())
           {
-            Console.WriteLine("Dispose Start..");
+            Output.WriteLine("Dispose Start..");
           }
         }
       }
@@ -40,7 +42,7 @@ namespace Sazare.Samples
         var d2 = manager.Add(new Disposable2());
         var d3 = manager.Add(new Disposable3());
 
-        Console.WriteLine("Dispose Start..");
+        Output.WriteLine("Dispose Start..");
       }
 
       //
@@ -64,7 +66,7 @@ namespace Sazare.Samples
       }
       finally
       {
-        Console.WriteLine("Dispose Start..");
+        Output.WriteLine("Dispose Start..");
         DisposeIfNotNull(dispose1);
         DisposeIfNotNull(dispose2);
         DisposeIfNotNull(dispose3);
@@ -89,7 +91,7 @@ namespace Sazare.Samples
 
         dispose3 = manager.Add(new Disposable3());
 
-        Console.WriteLine("Dispose Start..");
+        Output.WriteLine("Dispose Start..");
       }
     }
 
@@ -147,7 +149,7 @@ namespace Sazare.Samples
     {
       public void Dispose()
       {
-        Console.WriteLine("[{0}] Disposed...", GetType().Name);
+        Output.WriteLine("[{0}] Disposed...", GetType().Name);
       }
     }
 

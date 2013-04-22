@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region NumberFormatSamples-04
   /// <summary>
   /// 数値フォーマットのサンプルです。
@@ -16,8 +18,8 @@ namespace Sazare.Samples
       int iTestValue1 = 1;
       int iTestValue2 = 10;
 
-      Console.WriteLine("iTestValue1: {0:D2}", iTestValue1);
-      Console.WriteLine("iTestValue2: {0:D2}", iTestValue2);
+      Output.WriteLine("iTestValue1: {0:D2}", iTestValue1);
+      Output.WriteLine("iTestValue2: {0:D2}", iTestValue2);
 
       string sTestValue1 = iTestValue1.ToString();
       string sTestValue2 = iTestValue2.ToString();
@@ -26,8 +28,8 @@ namespace Sazare.Samples
       // 元となるデータの型が数値ではない場合、2桁で表示と指定しても
       // フォーマットされない。(文字列の場合はそのまま"1"と表示される。)
       //
-      Console.WriteLine("sTestValue1: {0:D2}", sTestValue1);
-      Console.WriteLine("sTestValue2: {0:D2}", sTestValue2);
+      Output.WriteLine("sTestValue1: {0:D2}", sTestValue1);
+      Output.WriteLine("sTestValue2: {0:D2}", sTestValue2);
     }
   }
   #endregion

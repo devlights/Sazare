@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-16
   /// <summary>
   /// Linqのサンプルです。
@@ -59,16 +61,16 @@ namespace Sazare.Samples
       // つまり、通常のクエリと同じく、OfTypeで取得したシーケンスが列挙される度に評価される。
       // 変換演算子の中で、このような動作を行うのはAsEnumerableとOfTypeとCastである。
       //
-      Console.WriteLine("========== OfType<Person>の結果 ==========");
+      Output.WriteLine("========== OfType<Person>の結果 ==========");
       foreach (var data in persons.OfType<Person>())
       {
-        Console.WriteLine(data);
+        Output.WriteLine(data);
       }
 
-      Console.WriteLine("========== OfType<Customer>の結果 ==========");
+      Output.WriteLine("========== OfType<Customer>の結果 ==========");
       foreach (var data in persons.OfType<Customer>())
       {
-        Console.WriteLine(data);
+        Output.WriteLine(data);
       }
 
       /*
@@ -77,7 +79,7 @@ namespace Sazare.Samples
         
         foreach (var data in c)
         {
-          Console.WriteLine(data);
+          Output.WriteLine(data);
         }
       */
 
@@ -90,11 +92,11 @@ namespace Sazare.Samples
       arrayList.Add(30);
       arrayList.Add(40);
 
-      Console.WriteLine("========== Genericではないコレクションを変換 ==========");
+      Output.WriteLine("========== Genericではないコレクションを変換 ==========");
       IEnumerable<int> intList = arrayList.OfType<int>();
       foreach (var data in intList)
       {
-        Console.WriteLine(data);
+        Output.WriteLine(data);
       }
     }
   }

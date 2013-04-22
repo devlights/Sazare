@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ExpandoObjectクラスのサンプル-02
   /// <summary>
   /// ExpandoObjectクラスについてのサンプルです。
@@ -35,7 +37,7 @@ namespace Sazare.Samples
       //
       obj.MyEvent += new EventHandler((sender, e) =>
       {
-        Console.WriteLine("sender={0}", sender);
+        Output.WriteLine("sender={0}", sender);
       });
 
       // イベント着火.

@@ -14,6 +14,8 @@ namespace Sazare.Samples
   using WinFormsFormClosingEventArgs = System.Windows.Forms.FormClosingEventArgs;
   using WinFormsListBox = System.Windows.Forms.ListBox;
 
+  using Sazare.Common;
+  
   #region System.Timers.Timerのサンプル
   /// <summary>
   /// System.Timers.Timerクラスについてのサンプルです。

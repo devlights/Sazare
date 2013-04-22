@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ExtensionMethodSample-01
   /// <summary>
   /// 拡張メソッドのサンプル1です。
@@ -22,8 +24,8 @@ namespace Sazare.Samples
   {
     public static void PrintMyName(this string self)
     {
-      Console.WriteLine(self == null);
-      Console.WriteLine("GSF-ZERO1.");
+      Output.WriteLine(self == null);
+      Output.WriteLine("GSF-ZERO1.");
     }
   }
 #endregion

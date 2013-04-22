@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region CancellationTokenSamples-01
   /// <summary>
   /// CancellationTokenとCancellationTokenSourceについてのサンプルです。
@@ -114,9 +116,9 @@ namespace Sazare.Samples
           // トークンのWaitHandleを利用してキャンセル待ち.
           () =>
           {
-            Console.WriteLine(">>> キャンセル待ち・・・");
+            Output.WriteLine(">>> キャンセル待ち・・・");
             token.WaitHandle.WaitOne();
-            Console.WriteLine(">>> 操作がキャンセルされたので、WaitHandleから通知されました。");
+            Output.WriteLine(">>> 操作がキャンセルされたので、WaitHandleから通知されました。");
             countdown.Signal();
           },
           // キャンセルされるまで実行される処理.
@@ -127,13 +129,13 @@ namespace Sazare.Samples
               while (true)
               {
                 token.ThrowIfCancellationRequested();
-                Console.WriteLine(">>> wait...");
+                Output.WriteLine(">>> wait...");
                 Thread.Sleep(TimeSpan.FromMilliseconds(700));
               }
             }
             catch (OperationCanceledException ex)
             {
-              Console.WriteLine(">>> {0}", ex.Message);
+              Output.WriteLine(">>> {0}", ex.Message);
             }
 
             countdown.Signal();
@@ -160,17 +162,17 @@ namespace Sazare.Samples
 
       client.DownloadStringCompleted += (s, e) =>
       {
-        Console.WriteLine(">>> キャンセルされた？ == {0}", e.Cancelled);
+        Output.WriteLine(">>> キャンセルされた？ == {0}", e.Cancelled);
       };
 
       token2.Register(() =>
         {
-          Console.WriteLine(">>> 操作がキャンセルされたので、WebClient側もキャンセルします。");
+          Output.WriteLine(">>> 操作がキャンセルされたので、WebClient側もキャンセルします。");
           client.CancelAsync();
         }
       );
 
-      Console.WriteLine(">>> WebClient.DownloadStringAsync...");
+      Output.WriteLine(">>> WebClient.DownloadStringAsync...");
       client.DownloadStringAsync(new Uri(@"http://d.hatena.ne.jp/gsf_zero1/"));
 
       Thread.Sleep(TimeSpan.FromMilliseconds(200));
@@ -203,7 +205,7 @@ namespace Sazare.Samples
             () =>
             {
               Thread.Sleep(TimeSpan.FromSeconds(1));
-              Console.WriteLine(">>> cts2.Canel()");
+              Output.WriteLine(">>> cts2.Canel()");
               cts2.Cancel();
 
               countdown.Signal();
@@ -212,7 +214,7 @@ namespace Sazare.Samples
             () =>
             {
               Thread.Sleep(TimeSpan.FromSeconds(2));
-              Console.WriteLine(">>> cts3.Canel()");
+              Output.WriteLine(">>> cts3.Canel()");
               cts3.Cancel();
 
               countdown.Signal();
@@ -223,10 +225,10 @@ namespace Sazare.Samples
         }
 
         // 各トークンの状態をチェック.
-        Console.WriteLine(">>>> cts2Token.IsCancellationRequested == {0}", cts2Token.IsCancellationRequested);
-        Console.WriteLine(">>>> cts3Token.IsCancellationRequested == {0}", cts3Token.IsCancellationRequested);
+        Output.WriteLine(">>>> cts2Token.IsCancellationRequested == {0}", cts2Token.IsCancellationRequested);
+        Output.WriteLine(">>>> cts3Token.IsCancellationRequested == {0}", cts3Token.IsCancellationRequested);
         // リンクトークンなので、紐づくトークン全てがキャンセルになると自動的にキャンセル状態となる。
-        Console.WriteLine(">>>> linkedCtsToken.IsCancellationRequested == {0}", linkedCtsToken.IsCancellationRequested);
+        Output.WriteLine(">>>> linkedCtsToken.IsCancellationRequested == {0}", linkedCtsToken.IsCancellationRequested);
       }
 
       Thread.Sleep(TimeSpan.FromSeconds(1));
@@ -248,7 +250,7 @@ namespace Sazare.Samples
           //
           cancelToken.ThrowIfCancellationRequested();
 
-          Console.WriteLine(">> wait...");
+          Output.WriteLine(">> wait...");
           Thread.Sleep(TimeSpan.FromSeconds(1));
         }
       }
@@ -257,7 +259,7 @@ namespace Sazare.Samples
         //
         // キャンセルされた.
         //
-        Console.WriteLine(">>> {0}", ex.Message);
+        Output.WriteLine(">>> {0}", ex.Message);
       }
     }
 
@@ -272,11 +274,11 @@ namespace Sazare.Samples
         if (cancelToken.IsCancellationRequested)
         {
           // キャンセルされた.
-          Console.WriteLine(">>> 操作はキャンセルされました。");
+          Output.WriteLine(">>> 操作はキャンセルされました。");
           break;
         }
 
-        Console.WriteLine(">> wait...");
+        Output.WriteLine(">> wait...");
         Thread.Sleep(TimeSpan.FromSeconds(1));
       }
     }
@@ -285,14 +287,14 @@ namespace Sazare.Samples
     {
       try
       {
-        Console.WriteLine(">> waitHandle.Wait...");
+        Output.WriteLine(">> waitHandle.Wait...");
         waitHandle.Wait(cancelToken);
-        Console.WriteLine(">> awake!");
+        Output.WriteLine(">> awake!");
       }
       catch (OperationCanceledException ex)
       {
         // キャンセルされた.
-        Console.WriteLine(">>> {0}", ex.Message);
+        Output.WriteLine(">>> {0}", ex.Message);
       }
     }
   }

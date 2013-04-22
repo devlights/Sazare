@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-67
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -32,8 +34,8 @@ namespace Sazare.Samples
       //
       attr.Value = "999";
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // SetAttributeValue
@@ -45,8 +47,8 @@ namespace Sazare.Samples
 
       elem.SetAttributeValue("Id", null);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // RemoveAttributes
@@ -57,8 +59,8 @@ namespace Sazare.Samples
 
       elem.RemoveAttributes();
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

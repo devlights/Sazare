@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-26
   /// <summary>
   /// Linqのサンプルです。
@@ -55,7 +57,7 @@ namespace Sazare.Samples
 
       foreach (var item in query)
       {
-        Console.WriteLine("Team = {0}, Person = {1}", item.TeamName, item.PersonName);
+        Output.WriteLine("Team = {0}, Person = {1}", item.TeamName, item.PersonName);
       }
     }
   }

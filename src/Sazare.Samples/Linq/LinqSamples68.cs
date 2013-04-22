@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-68
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -33,8 +35,8 @@ namespace Sazare.Samples
           select new XAttribute(string.Format("{0}-Update", attr.Name), attr.Value)
         );
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

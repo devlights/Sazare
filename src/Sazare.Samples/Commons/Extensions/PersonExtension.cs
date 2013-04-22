@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-18 AND LinqSamples-19 AND 拡張メソッド解決
 
   public static class PersonExtension
@@ -12,7 +14,7 @@ namespace Sazare.Samples
     {
       var result = new Persons();
 
-      Console.WriteLine("========= WHERE ========");
+      Output.WriteLine("========= WHERE ========");
       foreach (var aPerson in self)
       {
         if (predicate(aPerson))

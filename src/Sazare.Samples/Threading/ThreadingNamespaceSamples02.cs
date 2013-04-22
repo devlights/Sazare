@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region ThreadingNamespaceSamples-02
   /// <summary>
   /// System.Threading名前空間に存在するクラスのサンプルです。
@@ -40,7 +42,7 @@ namespace Sazare.Samples
         thread.Join();
       });
 
-      Console.WriteLine(string.Empty);
+      Output.WriteLine(string.Empty);
 
       ////////////////////////////////////////////////////////////
       //
@@ -87,7 +89,7 @@ namespace Sazare.Samples
       //
       // 設定した内容を確認.
       //
-      Console.WriteLine("[BEFORE] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(slot));
+      Output.WriteLine("[BEFORE] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(slot));
 
       //
       // 別のスレッドに処理を行って貰う為に一旦Sleepする。
@@ -97,7 +99,7 @@ namespace Sazare.Samples
       //
       // 再度確認.
       //
-      Console.WriteLine("[AFTER ] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(slot));
+      Output.WriteLine("[AFTER ] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(slot));
     }
 
     void DoNamedDataSlotProcess(object stateObj)
@@ -110,7 +112,7 @@ namespace Sazare.Samples
       //
       // 設定した内容を確認.
       //
-      Console.WriteLine("[BEFORE] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(Thread.GetNamedDataSlot("SampleSlot")));
+      Output.WriteLine("[BEFORE] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(Thread.GetNamedDataSlot("SampleSlot")));
 
       //
       // 別のスレッドに処理を行って貰う為に一旦Sleepする。
@@ -120,7 +122,7 @@ namespace Sazare.Samples
       //
       // 再度確認.
       //
-      Console.WriteLine("[AFTER ] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(Thread.GetNamedDataSlot("SampleSlot")));
+      Output.WriteLine("[AFTER ] Thread:{0}   DataSlot:{1}", Thread.CurrentThread.Name, Thread.GetData(Thread.GetNamedDataSlot("SampleSlot")));
     }
   }
   #endregion

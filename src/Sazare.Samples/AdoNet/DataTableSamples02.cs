@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Data;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region DataTableSamples-02
   /// <summary>
   /// DataTableクラスに関するサンプルです。
@@ -29,7 +31,7 @@ namespace Sazare.Samples
       DataRow[] selectedRows = table.Select("(Val % 2) = 0", "Val");
       selectedRows.ToList().ForEach((row) =>
       {
-        Console.WriteLine(row["Val"]);
+        Output.WriteLine(row["Val"]);
       });
     }
   }

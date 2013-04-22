@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ComparerSamples-01
   /// <summary>
   /// Comparerについてのサンプルです。
@@ -93,17 +95,17 @@ namespace Sazare.Samples
       var persons = new List<Person> { person3, person2, person4, person1 };
 
       // ソートせずにそのまま出力.
-      persons.ForEach(Console.WriteLine);
+      persons.ForEach(Output.WriteLine);
 
       // Idで比較処理を行うComparerを指定してソート.
-      Console.WriteLine(string.Empty);
+      Output.WriteLine(string.Empty);
       persons.Sort(new PersonIdComparer());
-      persons.ForEach(Console.WriteLine);
+      persons.ForEach(Output.WriteLine);
 
       // NAMEで比較処理を行うComparerを指定してソート.
-      Console.WriteLine(string.Empty);
+      Output.WriteLine(string.Empty);
       persons.Sort(new PersonNameComparer());
-      persons.ForEach(Console.WriteLine);
+      persons.ForEach(Output.WriteLine);
     }
   }
   #endregion

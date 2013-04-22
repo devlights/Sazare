@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-23
   /// <summary>
   /// Linqのサンプルです。
@@ -66,8 +68,8 @@ namespace Sazare.Samples
                     .OrderBy(aPerson => aPerson.Id)
                     .ThenBy(aPerson => aPerson.Name.Last().ToString().ToInt());
 
-      Console.WriteLine("================= IDの昇順で、且つ、Nameの数字部分の昇順でソート. =================");
-      Console.WriteLine(string.Join(Environment.NewLine, sortByIdAndNameAsc));
+      Output.WriteLine("================= IDの昇順で、且つ、Nameの数字部分の昇順でソート. =================");
+      Output.WriteLine(string.Join(Environment.NewLine, sortByIdAndNameAsc));
 
       //
       // IDの昇順で、且つ、Nameの数字部分の降順でソート.
@@ -81,8 +83,8 @@ namespace Sazare.Samples
                     .OrderBy(aPerson => aPerson.Id)
                     .ThenByDescending(aPerson => aPerson.Name.Last().ToString().ToInt());
 
-      Console.WriteLine("================= IDの昇順で、且つ、Nameの数字部分の降順でソート. =================");
-      Console.WriteLine(string.Join(Environment.NewLine, sortByIdAndNameDesc));
+      Output.WriteLine("================= IDの昇順で、且つ、Nameの数字部分の降順でソート. =================");
+      Output.WriteLine(string.Join(Environment.NewLine, sortByIdAndNameDesc));
     }
   }
   #endregion

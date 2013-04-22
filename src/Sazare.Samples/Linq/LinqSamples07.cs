@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-07
   /// <summary>
   /// Linqのサンプルです。
@@ -222,7 +224,7 @@ namespace Sazare.Samples
         // 匿名型は、内部で自動的にToStringが作成されているので
         // そのまま、ToStringを呼べばプロパティの値が表示される。
         //
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       //
@@ -237,7 +239,7 @@ namespace Sazare.Samples
 
       foreach (var item in query2)
       {
-        Console.WriteLine("Age={0}, Count={1}", item.Key, item.Count());
+        Output.WriteLine("Age={0}, Count={1}", item.Key, item.Count());
       }
     }
 

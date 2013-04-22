@@ -21,6 +21,8 @@ namespace Sazare.Samples
   using WinFormsProgressBar = System.Windows.Forms.ProgressBar;
   using WinFormsProgressBarStyle = System.Windows.Forms.ProgressBarStyle;
 
+  using Sazare.Common;
+  
   #region ProgressSamples-02
   /// <summary>
   /// System.Progress<T>のサンプルです。

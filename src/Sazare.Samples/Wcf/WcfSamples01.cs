@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.ServiceModel;
 
+  using Sazare.Common;
+  
   #region WcfSample-01
   /// <summary>
   /// WCFのサンプルです。
@@ -15,7 +17,7 @@ namespace Sazare.Samples
   [Sample]
   public class WcfSamples01 : Sazare.Common.IExecutable
   {
-    #region Constants
+  #region Constants
     /// <summary>
     /// サービスのURL
     /// </summary>
@@ -76,7 +78,7 @@ namespace Sazare.Samples
           //
           // サービスメソッドを呼び出し、結果を取得.
           //
-          Console.WriteLine("サービスの呼び出し結果= {0}", proxy.SayHello());
+          Output.WriteLine("サービスの呼び出し結果= {0}", proxy.SayHello());
         }
       }
     }

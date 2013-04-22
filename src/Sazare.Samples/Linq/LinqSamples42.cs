@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-42
   /// <summary>
   /// Linqのサンプルです。
@@ -42,7 +44,7 @@ namespace Sazare.Samples
       // IEqualityComparer<T>を指定するオーバーロードも存在する。
       //
       var names = new string[] { "csharp", "visualbasic", "java", "python", "ruby", "php" };
-      Console.WriteLine("要素[python]は存在する? = {0}", names.Contains("python"));
+      Output.WriteLine("要素[python]は存在する? = {0}", names.Contains("python"));
 
       //
       // IEqualityComparer<T>を指定するバージョン.
@@ -57,7 +59,7 @@ namespace Sazare.Samples
                   Language.Create("php")
                 };
 
-      Console.WriteLine(
+      Output.WriteLine(
           "要素[python]は存在する? = {0}",
           languages.Contains(Language.Create("python"), new LanguageNameComparer())
       );

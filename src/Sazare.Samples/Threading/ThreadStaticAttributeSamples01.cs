@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region ThreadStaticAttributeSamples-01
   /// <summary>
   /// ThreadStatic属性に関するサンプルです。
@@ -34,14 +36,14 @@ namespace Sazare.Samples
         NameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
         SharedNameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
 
-        Console.WriteLine("[BEFORE] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
+        Output.WriteLine("[BEFORE] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
 
         //
         // 他のスレッドが動作できるようにする.
         //
         Thread.Sleep(TimeSpan.FromMilliseconds(200));
 
-        Console.WriteLine("[AFTER ] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
+        Output.WriteLine("[AFTER ] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
       }
     }
 

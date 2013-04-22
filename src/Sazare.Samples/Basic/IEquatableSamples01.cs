@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region IEquatableSamples-01
   /// <summary>
   /// IEquatable<T>のサンプルです。
@@ -42,20 +44,20 @@ namespace Sazare.Samples
       Data data4 = data3;
       Data data5 = new Data(1, "Hello World4");
 
-      Console.WriteLine("data1 equals data2? ==> {0}", data1.Equals(data2));
-      Console.WriteLine("data1 equals data3? ==> {0}", data1.Equals(data3));
-      Console.WriteLine("data1 equals data4? ==> {0}", data1.Equals(data4));
-      Console.WriteLine("data1 equals data5? ==> {0}", data1.Equals(data5));
+      Output.WriteLine("data1 equals data2? ==> {0}", data1.Equals(data2));
+      Output.WriteLine("data1 equals data3? ==> {0}", data1.Equals(data3));
+      Output.WriteLine("data1 equals data4? ==> {0}", data1.Equals(data4));
+      Output.WriteLine("data1 equals data5? ==> {0}", data1.Equals(data5));
 
       object d1 = data1;
       object d2 = data2;
       object d5 = data5;
 
-      Console.WriteLine("data1 equals data2? ==> {0}", d1.Equals(d2));
-      Console.WriteLine("data1 equals data5? ==> {0}", d1.Equals(d5));
+      Output.WriteLine("data1 equals data2? ==> {0}", d1.Equals(d2));
+      Output.WriteLine("data1 equals data5? ==> {0}", d1.Equals(d5));
 
       Data[] dataArray = { data1, data2, data3, data4, data5 };
-      Console.WriteLine("IndexOf={0}", Array.IndexOf(dataArray, data3));
+      Output.WriteLine("IndexOf={0}", Array.IndexOf(dataArray, data3));
     }
 
     sealed class Data : IEquatable<Data>
@@ -81,7 +83,7 @@ namespace Sazare.Samples
       // IEquatable<T>の実装.
       public bool Equals(Data other)
       {
-        Console.WriteLine("\t→→Call IEquatable.Equals");
+        Output.WriteLine("\t→→Call IEquatable.Equals");
 
         if (other == null)
         {
@@ -94,7 +96,7 @@ namespace Sazare.Samples
       // object.Equals
       public override bool Equals(object other)
       {
-        Console.WriteLine("\t→→Call object.Equals");
+        Output.WriteLine("\t→→Call object.Equals");
 
         Data data = other as Data;
         if (data == null)

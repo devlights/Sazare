@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Windows.Forms;
   
+  using Sazare.Common;
+  
   #region 非同期デリゲートを利用したスレッド処理
   /// <summary>
   /// 非同期デリゲートを利用したスレッド処理のサンプルです。
@@ -18,15 +20,15 @@ namespace Sazare.Samples
     /// </summary>
     public void Execute()
     {
-      Console.WriteLine("[MAIN] START. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+      Output.WriteLine("[MAIN] START. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
 
       MethodInvoker invoker = () =>
       {
-        Console.WriteLine("[DELE] START. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine("[DELE] START. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
 
         for (int i = 0; i < 10; i++)
         {
-          Console.WriteLine("[DELE] PROCESSING. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+          Output.WriteLine("[DELE] PROCESSING. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
           Thread.Sleep(105);
         }
       };
@@ -36,19 +38,19 @@ namespace Sazare.Samples
         {
           MethodInvoker caller = ar.AsyncState as MethodInvoker;
           caller.EndInvoke(ar);
-          Console.WriteLine("[DELE] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+          Output.WriteLine("[DELE] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
         },
         invoker
       );
 
       for (int i = 0; i < 10; i++)
       {
-        Console.WriteLine("[MAIN] PROCESSING. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine("[MAIN] PROCESSING. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
         Thread.Sleep(100);
       }
 
       Thread.Sleep(3500);
-      Console.WriteLine("[MAIN] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+      Output.WriteLine("[MAIN] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
     }
   }
   #endregion

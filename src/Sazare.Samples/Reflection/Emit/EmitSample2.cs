@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
+  using Sazare.Common;
+  
   #region Emitのサンプル２
   /// <summary>
   /// Emitのサンプル２です。
@@ -97,7 +99,7 @@ namespace Sazare.Samples
       //
       PropertyInfo propInfo = type.GetProperty("Message");
       propInfo.SetValue(withPropObj, "HelloWorld", null);
-      Console.WriteLine(propInfo.GetValue(withPropObj, null));
+      Output.WriteLine(propInfo.GetValue(withPropObj, null));
       //
       // 15.(option) 作成したアセンブリを保存.
       //

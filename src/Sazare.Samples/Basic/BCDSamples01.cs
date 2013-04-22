@@ -4,6 +4,8 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region BCDSamples-01
   /// <summary>
   /// BCD変換についてのサンプルです。
@@ -19,16 +21,16 @@ namespace Sazare.Samples
       byte[] bcdVal1 = BCDUtils.ToBCD(val1, 5);
       byte[] bcdVal2 = BCDUtils.ToBCD(val2, 10);
 
-      Console.WriteLine("integer value = {0}", val1);
-      Console.WriteLine("BCD   value = {0}", BitConverter.ToString(bcdVal1));
-      Console.WriteLine("long  value = {0}", val2);
-      Console.WriteLine("BCD   value = {0}", BitConverter.ToString(bcdVal2));
+      Output.WriteLine("integer value = {0}", val1);
+      Output.WriteLine("BCD   value = {0}", BitConverter.ToString(bcdVal1));
+      Output.WriteLine("long  value = {0}", val2);
+      Output.WriteLine("BCD   value = {0}", BitConverter.ToString(bcdVal2));
 
       int val3 = BCDUtils.ToInt(bcdVal1);
       long val4 = BCDUtils.ToLong(bcdVal2);
 
-      Console.WriteLine("val1 == val3 = {0}", val1 == val3);
-      Console.WriteLine("val2 == val4 = {0}", val2 == val4);
+      Output.WriteLine("val1 == val3 = {0}", val1 == val3);
+      Output.WriteLine("val2 == val4 = {0}", val2 == val4);
     }
 
     /// <summary>

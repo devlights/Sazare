@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region ConsoleCursorSamples-01
   /// <summary>
   /// Consoleクラスを利用してプログラムの実行状況を示すサンプルです。
@@ -33,15 +35,15 @@ namespace Sazare.Samples
       // 上記のメソッドを利用する事で、Linuxなどでよく見かける
       // 処理中状態のカーソルを設定することが出来る。
       //
-      Console.WriteLine("処理開始.......");
+      Output.WriteLine("処理開始.......");
 
       ShowProgressMark();
       Thread.Sleep(TimeSpan.FromSeconds(5.0));
 
       _stop = true;
 
-      Console.WriteLine(string.Empty);
-      Console.WriteLine("終了");
+      Output.WriteLine(string.Empty);
+      Output.WriteLine("終了");
     }
 
     void ShowProgressMark()
@@ -67,19 +69,19 @@ namespace Sazare.Samples
             }
 
             Console.SetCursorPosition(left, top);
-            Console.Write("|");
+            Output.Write("|");
             Thread.Sleep(TimeSpan.FromMilliseconds(100.0));
 
             Console.SetCursorPosition(left, top);
-            Console.Write("/");
+            Output.Write("/");
             Thread.Sleep(TimeSpan.FromMilliseconds(100.0));
 
             Console.SetCursorPosition(left, top);
-            Console.Write("-");
+            Output.Write("-");
             Thread.Sleep(TimeSpan.FromMilliseconds(100.0));
 
             Console.SetCursorPosition(left, top);
-            Console.Write("\\");
+            Output.Write("\\");
             Thread.Sleep(TimeSpan.FromMilliseconds(100.0));
           }
         }
