@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Reflection;
 
+  using Sazare.Common;
+  
   #region ByRefの引数をもつメソッドをリフクレクションで取得
   /// <summary>
   /// ByRefの引数を持つメソッドをリフレクションで取得するサンプルです。
   /// </summary>
   [Sample]
-  public class HasByRefParameterMethodReflectionSample : IExecutable
+  public class HasByRefParameterMethodReflectionSample : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -19,7 +21,7 @@ namespace Sazare.Samples
       Type[] paramTypes = new Type[] { typeof(string), Type.GetType("System.Int32&"), typeof(int) };
 
       MethodInfo methodInfo = type.GetMethod("SetPropertyValue", flags, null, paramTypes, null);
-      Console.WriteLine(methodInfo);
+      Output.WriteLine(methodInfo);
     }
 
     // <summary>

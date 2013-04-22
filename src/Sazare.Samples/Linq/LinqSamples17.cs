@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-17
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples17 : IExecutable
+  public class LinqSamples17 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -60,10 +62,10 @@ namespace Sazare.Samples
       // つまり、通常のクエリと同じく、Castで取得したシーケンスが列挙される度に評価される。
       // 変換演算子の中で、このような動作を行うのはAsEnumerableとOfTypeとCastである。
       //
-      Console.WriteLine("========== Cast<Person>の結果 ==========");
+      Output.WriteLine("========== Cast<Person>の結果 ==========");
       foreach (var data in persons.Cast<Person>())
       {
-        Console.WriteLine(data);
+        Output.WriteLine(data);
       }
 
       //////////////////////////////////////////////////////////
@@ -71,27 +73,27 @@ namespace Sazare.Samples
       // 以下のpersons.Cast<Customer>()はPersonオブジェクトをCustomerオブジェクトに
       // キャスト出来ない為、例外が発生する。
       //
-      Console.WriteLine("========== Cast<Customer>の結果 ==========");
+      Output.WriteLine("========== Cast<Customer>の結果 ==========");
       try
       {
         foreach (var data in persons.Cast<Customer>())
         {
-          Console.WriteLine(data);
+          Output.WriteLine(data);
         }
       }
       catch (InvalidCastException ex)
       {
-        Console.WriteLine(ex.Message);
+        Output.WriteLine(ex.Message);
       }
 
       /*
         IEnumerable<Person> p = persons.Cast<Person>();
         persons.Add(new Person());
         
-        Console.WriteLine("aaa");
+        Output.WriteLine("aaa");
         foreach (var a in p)
         {
-          Console.WriteLine(a);
+          Output.WriteLine(a);
         }
       */
 
@@ -106,11 +108,11 @@ namespace Sazare.Samples
       arrayList.Add(30);
       arrayList.Add(40);
 
-      Console.WriteLine("========== Genericではないコレクションを変換 ==========");
+      Output.WriteLine("========== Genericではないコレクションを変換 ==========");
       IEnumerable<int> intList = arrayList.Cast<int>();
       foreach (var data in intList)
       {
-        Console.WriteLine(data);
+        Output.WriteLine(data);
       }
     }
   }

@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Threading;
   using System.Threading.Tasks;
 
+  using Sazare.Common;
+  
   #region SemaphoreSlimSamples-02
   /// <summary>
   /// SemaphoreSlimクラスについてのサンプルです。
@@ -15,7 +17,7 @@ namespace Sazare.Samples
   /// 従来から存在していたSemaphoreクラスの軽量版となります。
   /// </remarks>
   [Sample]
-  public class SemaphoreSlimSamples02 : IExecutable
+  public class SemaphoreSlimSamples02 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -56,7 +58,7 @@ namespace Sazare.Samples
 
         semaphore.Release();
         semaphore.Release();
-        Console.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
+        Output.WriteLine("CurrentCount={0}", semaphore.CurrentCount);
       }
     }
 
@@ -65,16 +67,16 @@ namespace Sazare.Samples
     {
       try
       {
-        Console.WriteLine("WaitProc1=待機開始");
+        Output.WriteLine("WaitProc1=待機開始");
         semaphore.Wait(token);
       }
       catch (OperationCanceledException cancelEx)
       {
-        Console.WriteLine("WaitProc1={0}", cancelEx.Message);
+        Output.WriteLine("WaitProc1={0}", cancelEx.Message);
       }
       finally
       {
-        Console.WriteLine("WaitProc1_CurrentCount={0}", semaphore.CurrentCount);
+        Output.WriteLine("WaitProc1_CurrentCount={0}", semaphore.CurrentCount);
       }
     }
 
@@ -86,27 +88,27 @@ namespace Sazare.Samples
         bool isSuccess = semaphore.Wait(timeout, token);
         if (!isSuccess)
         {
-          Console.WriteLine("WaitProc2={0}t★★タイムアウト★★", isSuccess);
+          Output.WriteLine("WaitProc2={0}t★★タイムアウト★★", isSuccess);
         }
       }
       catch (OperationCanceledException cancelEx)
       {
-        Console.WriteLine("WaitProc2={0}", cancelEx.Message);
+        Output.WriteLine("WaitProc2={0}", cancelEx.Message);
       }
       finally
       {
-        Console.WriteLine("WaitProc2_CurrentCount={0}", semaphore.CurrentCount);
+        Output.WriteLine("WaitProc2_CurrentCount={0}", semaphore.CurrentCount);
       }
     }
 
     // 特定時間待機した後、キャンセル処理を行う.
     void DoCancel(int timeout, CancellationTokenSource tokenSource)
     {
-      Console.WriteLine("待機開始：{0}msec", timeout + 1000);
+      Output.WriteLine("待機開始：{0}msec", timeout + 1000);
       Thread.Sleep(timeout + 1000);
 
-      Console.WriteLine("待機終了");
-      Console.WriteLine("★★キャンセル発行★★");
+      Output.WriteLine("待機終了");
+      Output.WriteLine("★★キャンセル発行★★");
       tokenSource.Cancel();
     }
   }

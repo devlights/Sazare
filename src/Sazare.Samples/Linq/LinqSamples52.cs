@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-52
   /// <summary>
   /// LINQ to XMLのサンプルです。
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// XDocumentオブジェクトを関数型構築するサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples52 : IExecutable
+  public class LinqSamples52 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -49,7 +51,7 @@ namespace Sazare.Samples
       // </RootElement>
       //
       var doc = MakeDocument();
-      Console.WriteLine(doc);
+      Output.WriteLine(doc);
     }
 
     XDocument MakeDocument()

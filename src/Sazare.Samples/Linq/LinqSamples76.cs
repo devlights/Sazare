@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-76
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// ナビゲーション(Descendants, Ancestorsメソッド)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples76 : IExecutable
+  public class LinqSamples76 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -26,22 +28,22 @@ namespace Sazare.Samples
       var root = BuildSampleXml();
       var elem = root.Descendants();
 
-      Console.WriteLine("Count={0}", elem.Count());
-      Console.WriteLine("=====================================");
+      Output.WriteLine("Count={0}", elem.Count());
+      Output.WriteLine("=====================================");
 
       // "Customer"という名前の子孫要素を取得
       elem = root.Descendants("Customer");
-      Console.WriteLine("Count={0}", elem.Count());
-      Console.WriteLine("First item:");
-      Console.WriteLine(elem.First());
-      Console.WriteLine("=====================================");
+      Output.WriteLine("Count={0}", elem.Count());
+      Output.WriteLine("First item:");
+      Output.WriteLine(elem.First());
+      Output.WriteLine("=====================================");
 
       // 属性付きで絞り込み
       elem = root.Descendants("Customer").Where(x => x.Attribute("CustomerID").Value == "HUNGC");
-      Console.WriteLine("Count={0}", elem.Count());
-      Console.WriteLine("First item:");
-      Console.WriteLine(elem.First());
-      Console.WriteLine("=====================================");
+      Output.WriteLine("Count={0}", elem.Count());
+      Output.WriteLine("First item:");
+      Output.WriteLine(elem.First());
+      Output.WriteLine("=====================================");
 
       // クエリ式で利用
       elem = from node in root.Descendants("Customer")
@@ -51,20 +53,20 @@ namespace Sazare.Samples
              where child.Value == "CA"
              select node;
 
-      Console.WriteLine("Count={0}", elem.Count());
-      Console.WriteLine("First item:");
-      Console.WriteLine(elem.First());
-      Console.WriteLine("=====================================");
+      Output.WriteLine("Count={0}", elem.Count());
+      Output.WriteLine("First item:");
+      Output.WriteLine(elem.First());
+      Output.WriteLine("=====================================");
 
       // 直接2階層下の要素名を指定
       elem = from node in root.Descendants("Region")
              where node.Value == "CA"
              select node;
 
-      Console.WriteLine("Count={0}", elem.Count());
-      Console.WriteLine("First item:");
-      Console.WriteLine(elem.First());
-      Console.WriteLine("=====================================");
+      Output.WriteLine("Count={0}", elem.Count());
+      Output.WriteLine("First item:");
+      Output.WriteLine(elem.First());
+      Output.WriteLine("=====================================");
 
       //
       // Ancestors(XName)      
@@ -77,48 +79,48 @@ namespace Sazare.Samples
 
       var ancestors = startingPoint.Ancestors();
 
-      Console.WriteLine("Count={0}", ancestors.Count());
-      Console.WriteLine("First item:");
-      Console.WriteLine(ancestors.First());
-      Console.WriteLine("=====================================");
+      Output.WriteLine("Count={0}", ancestors.Count());
+      Output.WriteLine("First item:");
+      Output.WriteLine(ancestors.First());
+      Output.WriteLine("=====================================");
 
       // ContactNameは、現在の要素(Region)の先祖(FullAddress)ではないため指定しても取得できない
       ancestors = startingPoint.Ancestors("ContactName");
 
-      Console.WriteLine("Count={0}", ancestors.Count());
+      Output.WriteLine("Count={0}", ancestors.Count());
       if (ancestors.Any())
       {
-        Console.WriteLine("First item:");
-        Console.WriteLine(ancestors.First());
+        Output.WriteLine("First item:");
+        Output.WriteLine(ancestors.First());
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       // FullAddress要素の兄弟要素となるContactNameは取得できない
       startingPoint = root.Descendants("FullAddress").First();
       ancestors = startingPoint.Ancestors("ContactName");
 
-      Console.WriteLine("Count={0}", ancestors.Count());
+      Output.WriteLine("Count={0}", ancestors.Count());
       if (ancestors.Any())
       {
-        Console.WriteLine("First item:");
-        Console.WriteLine(ancestors.First());
+        Output.WriteLine("First item:");
+        Output.WriteLine(ancestors.First());
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       // FullAddress要素の先祖であるCustomer要素は取得できる.
       startingPoint = root.Descendants("FullAddress").First();
       ancestors = startingPoint.Ancestors("Customer");
 
-      Console.WriteLine("Count={0}", ancestors.Count());
+      Output.WriteLine("Count={0}", ancestors.Count());
       if (ancestors.Any())
       {
-        Console.WriteLine("First item:");
-        Console.WriteLine(ancestors.First());
+        Output.WriteLine("First item:");
+        Output.WriteLine(ancestors.First());
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

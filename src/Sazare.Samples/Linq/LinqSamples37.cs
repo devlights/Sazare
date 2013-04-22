@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-37
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples37 : IExecutable
+  public class LinqSamples37 : Sazare.Common.IExecutable
   {
     class Order
     {
@@ -46,15 +48,15 @@ namespace Sazare.Samples
               (a, s) => a + s // func
               );
 
-      Console.WriteLine("========= Sum拡張メソッドの動作 ==========");
-      Console.WriteLine("SUM = [{0}]", query);
-      Console.WriteLine("======================================");
+      Output.WriteLine("========= Sum拡張メソッドの動作 ==========");
+      Output.WriteLine("SUM = [{0}]", query);
+      Output.WriteLine("======================================");
 
       //
       // 独自の集計処理を行ってみる.
       //   以下は各オーダーの発注最高額とその月を求める。
       //
-      Console.WriteLine("========= 独自の集計処理実行 ==========");
+      Output.WriteLine("========= 独自の集計処理実行 ==========");
 
       //
       // ソースシーケンス.
@@ -97,9 +99,9 @@ namespace Sazare.Samples
 
       foreach (var item in maxOrderQuery)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
-      Console.WriteLine("======================================");
+      Output.WriteLine("======================================");
     }
   }
   #endregion

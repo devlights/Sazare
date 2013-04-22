@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Data.Common;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region TextConnectSamples-01
   /// <summary>
   /// ADO.NETを利用してテキストファイルに接続するサンプルです。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// CSVファイルに接続し、各クエリ文を発行します。
   /// </remarks>
   [Sample]
-  public class TextConnectSamples01 : IExecutable
+  public class TextConnectSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -61,7 +63,7 @@ namespace Sazare.Samples
 
           foreach (DataRow row in table.Rows)
           {
-            Console.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
+            Output.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
           }
         }
 
@@ -94,7 +96,7 @@ namespace Sazare.Samples
 
             foreach (DataRow row in table.Rows)
             {
-              Console.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
+              Output.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
             }
           }
         }

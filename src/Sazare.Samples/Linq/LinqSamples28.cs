@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-28
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples28 : IExecutable
+  public class LinqSamples28 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -56,7 +58,7 @@ namespace Sazare.Samples
                 1, 2, 3, 6, 7
                 };
 
-      Console.WriteLine(JoinElements(numbers.Distinct()));
+      Output.WriteLine(JoinElements(numbers.Distinct()));
 
       //
       // 引数にIEqualityComparer<T>を指定して、Distinct拡張メソッドを利用。
@@ -70,7 +72,7 @@ namespace Sazare.Samples
                   new Person { Name = "gsf_zero3" }
                 };
 
-      Console.WriteLine(JoinElements(people.Distinct(new PersonComparer())));
+      Output.WriteLine(JoinElements(people.Distinct(new PersonComparer())));
     }
 
     string JoinElements<T>(IEnumerable<T> elements)

@@ -6,12 +6,14 @@ namespace Sazare.Samples
   using System.Data.Common;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ExcelConnectSamples-01
   /// <summary>
   /// ADO.NETを用いてExcelに接続するサンプルです。
   /// </summary>
   [Sample]
-  public class ExcelConnectSamples01 : IExecutable
+  public class ExcelConnectSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -63,7 +65,7 @@ namespace Sazare.Samples
 
           foreach (DataRow row in table.Rows)
           {
-            Console.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
+            Output.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
           }
         }
 
@@ -79,7 +81,7 @@ namespace Sazare.Samples
 
           foreach (DataRow row in table.Rows)
           {
-            Console.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
+            Output.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
           }
         }
 
@@ -119,7 +121,7 @@ namespace Sazare.Samples
 
             foreach (DataRow row in table.Rows)
             {
-              Console.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
+              Output.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
             }
           }
         }
@@ -153,7 +155,7 @@ namespace Sazare.Samples
 
             foreach (DataRow row in table.Rows)
             {
-              Console.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
+              Output.WriteLine("{0},{1},{2}", row["ID"], row["NAME"], row["AGE"]);
             }
           }
         }

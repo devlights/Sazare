@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-44
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples44 : IExecutable
+  public class LinqSamples44 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -21,29 +23,29 @@ namespace Sazare.Samples
       //
       var names = new string[] { "gsf_zero1", "gsf_zero2", "gsf_zero3", "gsf_zero4", "gsf_zero5" };
 
-      Console.WriteLine("================ Skip ===========================");
+      Output.WriteLine("================ Skip ===========================");
       var last2Elements = names.Skip(3);
       foreach (var item in last2Elements)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
-      Console.WriteLine("シーケンスの要素数以上の数を指定: COUNT={0}", names.Skip(20).Count());
+      Output.WriteLine("シーケンスの要素数以上の数を指定: COUNT={0}", names.Skip(20).Count());
 
       foreach (var item in names.Skip(-1))
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       //
       // SkipWhile拡張メソッドは、指定された条件が満たされる間シーケンスから要素を抽出し
       // 返すメソッド。
       //
-      Console.WriteLine("================ SkipWhile ======================");
+      Output.WriteLine("================ SkipWhile ======================");
       var greaterThan4 = names.SkipWhile(name => int.Parse(name.Last().ToString()) <= 3);
       foreach (var item in greaterThan4)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
     }
   }

@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-62
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 要素削除系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples62 : IExecutable
+  public class LinqSamples62 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -26,8 +28,8 @@ namespace Sazare.Samples
 
       elem.Remove();
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // RemoveAll()
@@ -39,8 +41,8 @@ namespace Sazare.Samples
 
       elem.RemoveAll();
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // RemoveNodes()
@@ -52,8 +54,8 @@ namespace Sazare.Samples
 
       elem.RemoveNodes();
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // SetElementValue(XName, object)
@@ -65,8 +67,8 @@ namespace Sazare.Samples
 
       elem.SetElementValue("Value", null);
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

@@ -6,6 +6,9 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Runtime.CompilerServices;
 
+  using Sazare.Common;
+
+  #region CallerInformationSamples-01
   /// <summary>
   /// Caller Information (呼び元情報）についてのサンプルです。
   /// </summary>
@@ -17,7 +20,7 @@ namespace Sazare.Samples
   /// -CallerLineNumber
   /// -CallerMemberName
   /// </remarks>
-  public class CallerInformationSamples01 : IExecutable
+  public class CallerInformationSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -48,9 +51,9 @@ namespace Sazare.Samples
       //
       // 各呼び出し時の呼び元情報を取得して表示.
       //
-      Console.WriteLine(manager.Snap());
-      Console.WriteLine(MethodA(manager));
-      Console.WriteLine(MethodB(manager));
+      Output.WriteLine(manager.Snap());
+      Output.WriteLine(MethodA(manager));
+      Output.WriteLine(MethodB(manager));
     }
 
     CallerInfoManager MethodA(CallerInfoManager manager)
@@ -63,6 +66,7 @@ namespace Sazare.Samples
       return manager.Snap();
     }
   }
+  #endregion
 
   /// <summary>
   /// Caller Informationを管理するクラス.

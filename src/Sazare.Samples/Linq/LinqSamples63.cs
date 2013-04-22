@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-63
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 要素置換系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples63 : IExecutable
+  public class LinqSamples63 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -26,8 +28,8 @@ namespace Sazare.Samples
 
       elem.ReplaceWith(new XElement("Value2", "replaced"));
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // ReplaceNodes(object)
@@ -55,8 +57,8 @@ namespace Sazare.Samples
           select e
         );
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
 
       //
       // ReplaceAll(object)
@@ -84,8 +86,8 @@ namespace Sazare.Samples
           select e
         );
 
-      Console.WriteLine(root);
-      Console.WriteLine("=====================================");
+      Output.WriteLine(root);
+      Output.WriteLine("=====================================");
     }
 
     int ToInt(string value)

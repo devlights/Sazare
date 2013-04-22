@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-21
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples21 : IExecutable
+  public class LinqSamples21 : Sazare.Common.IExecutable
   {
     class Team
     {
@@ -55,19 +57,19 @@ namespace Sazare.Samples
       //
       // 実行時には、最後のselectの部分がSelectManyに置換される。
       //
-      Console.WriteLine("===== Func<TSource, IEnumerable<TResult>>のサンプル =====");
+      Output.WriteLine("===== Func<TSource, IEnumerable<TResult>>のサンプル =====");
       foreach (var member in teams.SelectMany(team => team.Members))
       {
-        Console.WriteLine(member);
+        Output.WriteLine(member);
       }
 
-      Console.WriteLine("===== Func<TSource, int, IEnumerable<TResult>>のサンプル =====");
+      Output.WriteLine("===== Func<TSource, int, IEnumerable<TResult>>のサンプル =====");
       foreach (var member in teams.SelectMany((team, index) => (index % 2 == 0) ? team.Members : new List<string>()))
       {
-        Console.WriteLine(member);
+        Output.WriteLine(member);
       }
 
-      Console.WriteLine("===== collectionSelectorとresultSelectorを利用しているサンプル (1) =====");
+      Output.WriteLine("===== collectionSelectorとresultSelectorを利用しているサンプル (1) =====");
       var query = teams.SelectMany
             (
               team => team.Members,                     // collectionSelector
@@ -76,10 +78,10 @@ namespace Sazare.Samples
 
       foreach (var item in query)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
-      Console.WriteLine("===== collectionSelectorとresultSelectorを利用しているサンプル (2) =====");
+      Output.WriteLine("===== collectionSelectorとresultSelectorを利用しているサンプル (2) =====");
       var query2 = teams.SelectMany
              (
                (team, index) => (index % 2 != 0) ? team.Members : new List<string>(),  // collectionSelector
@@ -88,7 +90,7 @@ namespace Sazare.Samples
 
       foreach (var item in query2)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
     }
   }

@@ -6,12 +6,14 @@ namespace Sazare.Samples
   using System.Runtime.Remoting.Messaging;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region AsyncResultSamples-01
   /// <summary>
   /// 非同期処理 (IAsyncResult) のサンプル１です。
   /// </summary>
   [Sample]
-  public class AsyncResultSamples01 : IExecutable
+  public class AsyncResultSamples01 : Sazare.Common.IExecutable
   {
 
     AutoResetEvent _are = new AutoResetEvent(false);
@@ -37,7 +39,7 @@ namespace Sazare.Samples
 
       if (!result.EndInvokeCalled)
       {
-        Console.WriteLine(caller.EndInvoke(result));
+        Output.WriteLine(caller.EndInvoke(result));
         handle.Set();
       }
     }

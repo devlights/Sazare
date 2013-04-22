@@ -5,9 +5,11 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region ThreadingNamespaceSamples-03
   [Sample]
-  public class ThreadingNamespaceSamples03 : IExecutable
+  public class ThreadingNamespaceSamples03 : Sazare.Common.IExecutable
   {
 
     public void Execute()
@@ -33,22 +35,22 @@ namespace Sazare.Samples
       //    ⇒スレッドが起動されており、まだ終了または中止されていない場合は
       //    　trueとなる。
       //
-      Console.WriteLine("IsAlive={0}", currentThread.IsAlive);
+      Output.WriteLine("IsAlive={0}", currentThread.IsAlive);
 
       //
       // IsThreadPoolThread, ManagedThreadIdプロパティ
       //    ⇒それぞれ、スレッドプールスレッドかどうかとマネージスレッドを識別
       //    　する値が取得できる。
       //
-      Console.WriteLine("IsThreadPoolThread={0}", currentThread.IsThreadPoolThread);
-      Console.WriteLine("ManagedThreadId={0}", currentThread.ManagedThreadId);
+      Output.WriteLine("IsThreadPoolThread={0}", currentThread.IsThreadPoolThread);
+      Output.WriteLine("ManagedThreadId={0}", currentThread.ManagedThreadId);
 
       //
       // Priorityプロパティ
       //    ⇒対象のスレッドの優先度（プライオリティ）を取得及び設定します。
       //    　Highestが最も高く、Lowestが最も低い.
       //
-      Console.WriteLine("Priority={0}", currentThread.Priority);
+      Output.WriteLine("Priority={0}", currentThread.Priority);
     }
   }
   #endregion

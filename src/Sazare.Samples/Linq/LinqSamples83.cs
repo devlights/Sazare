@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-83
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// XElementとXAttributeの値取得についてのTipです。
   /// </remarks>
   [Sample]
-  public class LinqSamples83 : IExecutable
+  public class LinqSamples83 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -41,9 +43,9 @@ namespace Sazare.Samples
       var attr = (string)root.Elements("Book").First().Attribute("id") ?? "Nothing";
       var noElem = (string)root.Descendants("NoElem").FirstOrDefault() ?? "Nothing";
 
-      Console.WriteLine(title);
-      Console.WriteLine(attr);
-      Console.WriteLine(noElem);
+      Output.WriteLine(title);
+      Output.WriteLine(attr);
+      Output.WriteLine(noElem);
     }
 
     XElement BuildSampleXml()

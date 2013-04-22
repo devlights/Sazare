@@ -8,12 +8,14 @@ namespace Sazare.Samples
 
   using GDIImage = System.Drawing.Image;
 
+  using Sazare.Common;
+  
   #region ImageConverterSamples-01
   /// <summary>
   /// ImageConverterクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class ImageConverterSamples01 : IExecutable
+  public class ImageConverterSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {

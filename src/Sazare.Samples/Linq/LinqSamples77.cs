@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-77
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// ナビゲーション(DescendantsAndSelf, AncestorsAndSelfメソッド)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples77 : IExecutable
+  public class LinqSamples77 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -36,20 +38,20 @@ namespace Sazare.Samples
       //
       foreach (var elem in descendantsAndSelf)
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // AndSelfを付けていないので、Customer自身は含まれない.
       //
       foreach (var elem in startingPoint.Descendants())
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // XName付きのオーバーロードを呼び出すと、予想と違う結果となる
@@ -66,10 +68,10 @@ namespace Sazare.Samples
 
       foreach (var elem in descendantsAndSelf)
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // AncestorsAndSelf
@@ -89,20 +91,20 @@ namespace Sazare.Samples
       //
       foreach (var elem in ancestorsAndSelf)
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // Price自身は含まれない
       //
       foreach (var elem in startingPoint.Ancestors())
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // XName付きのオーバーロードを呼び出すと、予想と違う結果となる
@@ -117,7 +119,7 @@ namespace Sazare.Samples
 
       foreach (var elem in ancestorsAndSelf)
       {
-        Console.WriteLine(elem);
+        Output.WriteLine(elem);
       }
     }
 

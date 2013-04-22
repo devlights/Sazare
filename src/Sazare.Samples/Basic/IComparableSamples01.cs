@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region IComparableSamples-01
   /// <summary>
   /// IComparableについてのサンプルです。
   /// </summary>
   [Sample]
-  public class IComparableSamples01 : IExecutable
+  public class IComparableSamples01 : Sazare.Common.IExecutable
   {
     enum CompareResult : int
     {
@@ -79,7 +81,7 @@ namespace Sazare.Samples
         var p1 = persons[index1];
         var p2 = persons[index2];
 
-        Console.WriteLine("person{0} CompareTo person{1} = {2}", index1, index2, (CompareResult)p1.CompareTo(p2));
+        Output.WriteLine("person{0} CompareTo person{1} = {2}", index1, index2, (CompareResult)p1.CompareTo(p2));
       }
 
       //
@@ -88,13 +90,13 @@ namespace Sazare.Samples
       var persons2 = new List<Person> { person3, person2, person4, person1 };
 
       // ソートせず、そのまま出力.
-      Console.WriteLine("\n============== ソートせずそのまま出力. ================");
-      persons2.ForEach(Console.WriteLine);
+      Output.WriteLine("\n============== ソートせずそのまま出力. ================");
+      persons2.ForEach(Output.WriteLine);
 
       // ソートを行ってから、出力.
-      Console.WriteLine("\n============== ソートしてから出力. ================");
+      Output.WriteLine("\n============== ソートしてから出力. ================");
       persons2.Sort();
-      persons2.ForEach(Console.WriteLine);
+      persons2.ForEach(Output.WriteLine);
     }
   }
   #endregion

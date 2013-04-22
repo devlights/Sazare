@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-53
   /// <summary>
   /// LINQ to XMLのサンプルです。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// XElement.Loadを利用した読み込みのサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples53 : IExecutable
+  public class LinqSamples53 : Sazare.Common.IExecutable
   {
     const string FILE_URI = @"LinqSamples53_Sample.xml";
     const string DOWNLOAD_URI = @"https://sites.google.com/site/gsfzero1/Home/Books.xml?attredirects=0&d=1";
@@ -51,7 +53,7 @@ namespace Sazare.Samples
 
       foreach (var item in query)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       //
@@ -59,7 +61,7 @@ namespace Sazare.Samples
       //   XMLファイルは以下のサンプルを利用させてもらっている。
       //     http://msdn.microsoft.com/ja-jp/library/vstudio/bb387066.aspx
       //
-      Console.WriteLine(XElement.Load(DOWNLOAD_URI));
+      Output.WriteLine(XElement.Load(DOWNLOAD_URI));
     }
 
     void CreateSampleXml()

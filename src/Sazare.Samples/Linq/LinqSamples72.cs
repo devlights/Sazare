@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-72
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 空要素系プロパティとメソッド (IsEmpty, EmptySequence) のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples72 : IExecutable
+  public class LinqSamples72 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -23,7 +25,7 @@ namespace Sazare.Samples
       //
       var empty = XElement.EmptySequence;
 
-      Console.WriteLine("Count={0}", empty.Count());
+      Output.WriteLine("Count={0}", empty.Count());
 
       //
       // IsEmpty
@@ -33,10 +35,10 @@ namespace Sazare.Samples
       //     (http://msdn.microsoft.com/ja-jp/library/system.xml.linq.xelement.isempty.aspx)
       //
       var root = BuildSampleXmlNoNode();
-      Console.WriteLine("IsEmpty={0}", root.IsEmpty);
+      Output.WriteLine("IsEmpty={0}", root.IsEmpty);
 
       root = BuildSampleXml();
-      Console.WriteLine("IsEmpty={0}", root.IsEmpty);
+      Output.WriteLine("IsEmpty={0}", root.IsEmpty);
     }
 
     XElement BuildSampleXmlNoNode()

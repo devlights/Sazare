@@ -21,6 +21,8 @@ namespace Sazare.Samples
   using WinFormsProgressBar = System.Windows.Forms.ProgressBar;
   using WinFormsProgressBarStyle = System.Windows.Forms.ProgressBarStyle;
 
+  using Sazare.Common;
+  
   #region ProgressSamples-02
   /// <summary>
   /// System.Progress<T>のサンプルです。
@@ -29,7 +31,7 @@ namespace Sazare.Samples
   /// このクラスは、.NET Framework 4.5から追加された型です。
   /// </remarks>
   [Sample]
-  public class ProgressSamples02 : IExecutable
+  public class ProgressSamples02 : Sazare.Common.IExecutable
   {
     class SampleForm : WinFormsForm
     {

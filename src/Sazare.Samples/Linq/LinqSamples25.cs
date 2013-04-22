@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-25
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples25 : IExecutable
+  public class LinqSamples25 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -60,10 +62,10 @@ namespace Sazare.Samples
       // var query = xxx.GroupBy(item => item.Key);
       // foreach (var group in query)
       // {
-      //   Console.WriteLine(group.Key);
+      //   Output.WriteLine(group.Key);
       //   foreach (var item in group)
       //   {
-      //     Console.WriteLine(item);
+      //     Output.WriteLine(item);
       //   }
       // }
       //
@@ -75,14 +77,14 @@ namespace Sazare.Samples
       //   from  thePerson in persons
       //   group thePerson by thePerson.Team
       //
-      Console.WriteLine("============ keySelectorのみのGroupBy ==============");
+      Output.WriteLine("============ keySelectorのみのGroupBy ==============");
       var query1 = persons.GroupBy(thePerson => thePerson.Team);
       foreach (var group in query1)
       {
-        Console.WriteLine("=== {0}", group.Key);
+        Output.WriteLine("=== {0}", group.Key);
         foreach (var thePerson in group)
         {
-          Console.WriteLine("\t{0}", thePerson);
+          Output.WriteLine("\t{0}", thePerson);
         }
       }
 
@@ -93,14 +95,14 @@ namespace Sazare.Samples
       //   from   thePerson in persons
       //   group  thePerson.Name by thePerson.Team
       //
-      Console.WriteLine("\n============ elementSelectorを指定したGroupBy ==============");
+      Output.WriteLine("\n============ elementSelectorを指定したGroupBy ==============");
       var query2 = persons.GroupBy(thePerson => thePerson.Team, thePerson => thePerson.Name);
       foreach (var group in query2)
       {
-        Console.WriteLine("=== {0}", group.Key);
+        Output.WriteLine("=== {0}", group.Key);
         foreach (var name in group)
         {
-          Console.WriteLine("\t{0}", name);
+          Output.WriteLine("\t{0}", name);
         }
       }
 
@@ -111,14 +113,14 @@ namespace Sazare.Samples
       //   from  thePerson in persons
       //   group thePerson by new { thePerson.Project, thePerson.Team }
       //
-      Console.WriteLine("\n============ 複合キーを指定したGroupBy ==============");
+      Output.WriteLine("\n============ 複合キーを指定したGroupBy ==============");
       var query3 = persons.GroupBy(thePerson => new { thePerson.Project, thePerson.Team });
       foreach (var group in query3)
       {
-        Console.WriteLine("=== {0}", group.Key);
+        Output.WriteLine("=== {0}", group.Key);
         foreach (var thePerson in group)
         {
-          Console.WriteLine("\t{0}", thePerson);
+          Output.WriteLine("\t{0}", thePerson);
         }
       }
 
@@ -129,7 +131,7 @@ namespace Sazare.Samples
       //   orderby p.Key.Project descending, p.Key.Team descending
       //   select  p;
       //
-      Console.WriteLine("\n============ 複合キーとorderbyを指定したGroupBy ==============");
+      Output.WriteLine("\n============ 複合キーとorderbyを指定したGroupBy ==============");
       var query4 = persons
               .GroupBy(thePerson => new { thePerson.Project, thePerson.Team })
               .OrderByDescending(group => group.Key.Project)
@@ -137,10 +139,10 @@ namespace Sazare.Samples
 
       foreach (var group in query4)
       {
-        Console.WriteLine("=== {0}", group.Key);
+        Output.WriteLine("=== {0}", group.Key);
         foreach (var thePerson in group)
         {
-          Console.WriteLine("\t{0}", thePerson);
+          Output.WriteLine("\t{0}", thePerson);
         }
       }
     }

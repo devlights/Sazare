@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-11
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples11 : IExecutable
+  public class LinqSamples11 : Sazare.Common.IExecutable
   {
     public class Person
     {
@@ -226,7 +228,7 @@ namespace Sazare.Samples
                     Project = personProject.Name
                   };
 
-      query.ToList().ForEach(Console.WriteLine);
+      query.ToList().ForEach(Output.WriteLine);
 
       //
       // 外部結合版
@@ -251,8 +253,8 @@ namespace Sazare.Samples
                      Project = (personProject == null) ? "''" : personProject.Name
                    };
 
-      Console.WriteLine("======================================================");
-      query2.ToList().ForEach(Console.WriteLine);
+      Output.WriteLine("======================================================");
+      query2.ToList().ForEach(Output.WriteLine);
     }
   }
   #endregion

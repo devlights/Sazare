@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-19
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples19 : IExecutable
+  public class LinqSamples19 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -34,16 +36,16 @@ namespace Sazare.Samples
       //   一つは、Func<T, bool>のタイプ。もう一つは、Func<T, int, bool>のタイプとなる。
       //   2つ目のタイプの場合、その時のインデックスが引数として設定される。
       //
-      Console.WriteLine("===== Func<T, bool>のタイプ =====");
+      Output.WriteLine("===== Func<T, bool>のタイプ =====");
       foreach (var aPerson in persons.Where(item => item.Id == 2))
       {
-        Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+        Output.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
-      Console.WriteLine("===== Func<T, int, bool>のタイプ =====");
+      Output.WriteLine("===== Func<T, int, bool>のタイプ =====");
       foreach (var aPerson in persons.Where((item, index) => index == 2))
       {
-        Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+        Output.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
     }
   }

@@ -6,12 +6,14 @@ namespace Sazare.Samples
   using System.Runtime.Remoting.Messaging;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region CallContextSamples-01
   /// <summary>
   /// 実行コンテキスト(ExecutionContext)と論理呼び出しコンテキスト(CallContext)のサンプルです。
   /// </summary>
   [Sample]
-  public class CallContextSamples01 : IExecutable
+  public class CallContextSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -88,7 +90,7 @@ namespace Sazare.Samples
     {
       var data = state as ThreadData;
 
-      Console.WriteLine(
+      Output.WriteLine(
          "Thread: {0, -15}, Id: {1}, Message: {2}"
         , data.Name
         , Thread.CurrentThread.ManagedThreadId
@@ -98,7 +100,7 @@ namespace Sazare.Samples
       data.Counter.Signal();
     }
 
-    #region Inner Classes
+  #region Inner Classes
     class ThreadData
     {
       public string Name { get; private set; }

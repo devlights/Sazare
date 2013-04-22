@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Windows.Forms;
 
+  using Sazare.Common;
+  
   #region ラムダのサンプル (.net framework 3.5)
   /// <summary>
   /// ラムダ(lambda)のサンプル（.NET Framework 3.5）
   /// </summary>
   [Sample]
-  class LambdaSample : IExecutable
+  class LambdaSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// 処理を実行します。
@@ -19,14 +21,14 @@ namespace Sazare.Samples
     {
       MethodInvoker methodInvoker = () =>
       {
-        Console.WriteLine("SAMPLE_LAMBDA_METHOD.");
+        Output.WriteLine("SAMPLE_LAMBDA_METHOD.");
       };
 
       methodInvoker();
 
       Action action = () =>
       {
-        Console.WriteLine("SAMPLE_LAMBDA_METHOD_ACTION.");
+        Output.WriteLine("SAMPLE_LAMBDA_METHOD_ACTION.");
       };
 
       action();
@@ -36,14 +38,14 @@ namespace Sazare.Samples
         return (x + y);
       };
 
-      Console.WriteLine(sum(10, 20));
+      Output.WriteLine(sum(10, 20));
 
       Func<int, int, int> sum2 = (int x, int y) =>
       {
         return (x + y);
       };
 
-      Console.WriteLine(sum2(10, 20));
+      Output.WriteLine(sum2(10, 20));
     }
   }
   #endregion

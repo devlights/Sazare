@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
+  using Sazare.Common;
+  
   #region Emitのサンプル
   /// <summary>
   /// Emitのサンプルです。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// HelloWorldを出力するクラスを動的生成します。
   /// </remarks>
   [Sample]
-  public class EmitSample : IExecutable
+  public class EmitSample : Sazare.Common.IExecutable
   {
     public interface ISayHello
     {

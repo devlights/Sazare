@@ -9,6 +9,8 @@ namespace Sazare.Samples
   using WinFormsApplication = System.Windows.Forms.Application;
   using WinFormsForm = System.Windows.Forms.Form;
 
+  using Sazare.Common;
+  
   #region WindowsFormsSynchronizationContextSamples-01
   /// <summary>
   /// WindowsFormsSynchronizationContextクラスについてのサンプルです。
@@ -19,7 +21,7 @@ namespace Sazare.Samples
   /// (AutoInstall静的プロパティにて、動作を変更可能。）
   /// </remakrs>
   [Sample]
-  public class WindowsFormsSynchronizationContextSamples01 : IExecutable
+  public class WindowsFormsSynchronizationContextSamples01 : Sazare.Common.IExecutable
   {
     class SampleForm : WinFormsForm
     {
@@ -96,7 +98,7 @@ namespace Sazare.Samples
 
       private void PrintMessageAndThreadId(string message)
       {
-        Console.WriteLine("{0,-17}, スレッドID: {1}", message, Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine("{0,-17}, スレッドID: {1}", message, Thread.CurrentThread.ManagedThreadId);
       }
     }
 
@@ -121,7 +123,7 @@ namespace Sazare.Samples
       // デフォルトでは、独自に作成したスレッドの場合
       // SynchronizationContext.Currentの戻り値はnullとなる。
       //
-      Console.WriteLine(
+      Output.WriteLine(
         "現在のスレッドでのSynchronizationContextの状態：{0}",
         SynchronizationContext.Current == null
           ? "NULL"
@@ -136,7 +138,7 @@ namespace Sazare.Samples
       SampleForm aForm = new SampleForm();
       WinFormsApplication.Run(aForm);
 
-      Console.WriteLine("WinFormsでのSynchronizationContextの型名：{0}", aForm.ContextTypeName);
+      Output.WriteLine("WinFormsでのSynchronizationContextの型名：{0}", aForm.ContextTypeName);
     }
   }
   #endregion

@@ -6,12 +6,14 @@ namespace Sazare.Samples
   using System.ComponentModel.Composition.Hosting;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region MEFSamples-01
   /// <summary>
   /// MEFについてのサンプルです。
   /// </summary>
   [Sample]
-  public class MEFSamples01 : IExecutable
+  public class MEFSamples01 : Sazare.Common.IExecutable
   {
     // Export用のインターフェース
     public interface IExporter
@@ -60,12 +62,12 @@ namespace Sazare.Samples
         _container.ComposeParts(this);
 
         // 実行.
-        Console.WriteLine(_exporter.Name);
+        Output.WriteLine(_exporter.Name);
       }
       catch (CompositionException ex)
       {
         // 合成に失敗した場合.
-        Console.WriteLine(ex.ToString());
+        Output.WriteLine(ex.ToString());
       }
 
       if (_container != null)

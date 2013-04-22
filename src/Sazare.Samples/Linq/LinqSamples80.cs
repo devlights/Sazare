@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-80
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// ナビゲーション(NodesAfterSelf, NodesBeforeSelf)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples80 : IExecutable
+  public class LinqSamples80 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -27,17 +29,17 @@ namespace Sazare.Samples
 
       foreach (var node in startingPoint.NodesAfterSelf())
       {
-        Console.WriteLine(node);
+        Output.WriteLine(node);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       root = BuildSampleXml();
       startingPoint = root.Descendants("Title").Last();
 
       foreach (var node in startingPoint.NodesAfterSelf())
       {
-        Console.WriteLine(node);
+        Output.WriteLine(node);
       }
 
       //
@@ -50,7 +52,7 @@ namespace Sazare.Samples
 
       foreach (var node in startingPoint.NodesBeforeSelf())
       {
-        Console.WriteLine(node);
+        Output.WriteLine(node);
       }
     }
 

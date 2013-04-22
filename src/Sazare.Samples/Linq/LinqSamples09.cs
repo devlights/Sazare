@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-09
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples09 : IExecutable
+  public class LinqSamples09 : Sazare.Common.IExecutable
   {
     public class Person
     {
@@ -218,10 +220,10 @@ namespace Sazare.Samples
                      Person = person.Name
                    };
 
-      Console.WriteLine("=========================================");
+      Output.WriteLine("=========================================");
       foreach (var item in query1)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       //
@@ -250,10 +252,10 @@ namespace Sazare.Samples
                      Person = person.Name
                    };
 
-      Console.WriteLine("=========================================");
+      Output.WriteLine("=========================================");
       foreach (var item in query2)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       //
@@ -285,10 +287,10 @@ namespace Sazare.Samples
                      Person = person.Name
                    };
 
-      Console.WriteLine("=========================================");
+      Output.WriteLine("=========================================");
       foreach (var item in query3)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       //
@@ -306,10 +308,10 @@ namespace Sazare.Samples
                      Person = person.Name
                    };
 
-      Console.WriteLine("=========================================");
+      Output.WriteLine("=========================================");
       foreach (var item in query4)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
     }
   }

@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ByteArraySamples-08
   /// <summary>
   /// バイト配列についてのサンプルです。
   /// </summary>
   [Sample]
-  public class ByteArraySamples08 : IExecutable
+  public class ByteArraySamples08 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -18,9 +20,9 @@ namespace Sazare.Samples
       //
       int i = 123;
 
-      Console.WriteLine(Convert.ToString(i, 16));
-      Console.WriteLine(Convert.ToString(i, 8));
-      Console.WriteLine(Convert.ToString(i, 2));
+      Output.WriteLine(Convert.ToString(i, 16));
+      Output.WriteLine(Convert.ToString(i, 8));
+      Output.WriteLine(Convert.ToString(i, 2));
     }
   }
   #endregion

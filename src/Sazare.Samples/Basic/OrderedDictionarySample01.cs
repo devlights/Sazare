@@ -6,12 +6,14 @@ namespace Sazare.Samples
   using System.Collections.Specialized;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region OrderedDictionarySample-01
   /// <summary>
   /// OrderedDictionaryのサンプル1です。
   /// </summary>
   [Sample]
-  public class OrderedDictionarySample01 : IExecutable
+  public class OrderedDictionarySample01 : Sazare.Common.IExecutable
   {
 
     public void Execute()
@@ -24,7 +26,7 @@ namespace Sazare.Samples
       }
 
       PrintDictionary(dicA);
-      Console.WriteLine("");
+      Output.WriteLine("");
 
       OrderedDictionary dicB = new OrderedDictionary();
       for (int i = 0; i < 100; i++)
@@ -39,7 +41,7 @@ namespace Sazare.Samples
     {
       foreach (KeyValuePair<string, string> pair in dic)
       {
-        Console.WriteLine("{0}-{1}", pair.Key, pair.Value);
+        Output.WriteLine("{0}-{1}", pair.Key, pair.Value);
       }
     }
 
@@ -47,7 +49,7 @@ namespace Sazare.Samples
     {
       foreach (DictionaryEntry entry in dic)
       {
-        Console.WriteLine("{0}-{1}", entry.Key, entry.Value);
+        Output.WriteLine("{0}-{1}", entry.Key, entry.Value);
       }
     }
   }

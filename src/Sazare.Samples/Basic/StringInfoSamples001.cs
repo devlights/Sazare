@@ -21,6 +21,8 @@ namespace Sazare.Samples
   using WinFormsMessageBox = System.Windows.Forms.MessageBox;
   using WinFormsTextBox = System.Windows.Forms.TextBox;
 
+  using Sazare.Common;
+  
   #region StringInfoSamples-001
   /// <summary>
   /// StringInfoについてのサンプルです。
@@ -29,7 +31,7 @@ namespace Sazare.Samples
   /// サロゲートペアについて記述しています。
   /// </remarks>
   [Sample]
-  public class StringInfoSamples001 : IExecutable
+  public class StringInfoSamples001 : Sazare.Common.IExecutable
   {
     public class StringInfoSampleForm : WinFormsForm
     {

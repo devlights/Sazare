@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Globalization;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region CompareOptionsSamples-02
   /// <summary>
   /// CompareOptions列挙型のサンプルです。
   /// </summary>
   [Sample]
-  public class CompareOptionsSamples02 : IExecutable
+  public class CompareOptionsSamples02 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -31,11 +33,11 @@ namespace Sazare.Samples
       CultureInfo ci = new CultureInfo("ja-JP");
 
       // 全角半角の違いを無視して、「ハローワールド」と「ﾊﾛｰﾜｰﾙﾄﾞ」を比較
-      Console.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreWidth).ToStringResult());
+      Output.WriteLine("{0}", string.Compare(ja1, ja2, ci, CompareOptions.IgnoreWidth).ToStringResult());
       // 全角半角の違いを無視して、「はろーわーるど」と「ﾊﾛｰﾜｰﾙﾄﾞ」を比較
-      Console.WriteLine("{0}", string.Compare(ja3, ja2, ci, CompareOptions.IgnoreWidth).ToStringResult());
+      Output.WriteLine("{0}", string.Compare(ja3, ja2, ci, CompareOptions.IgnoreWidth).ToStringResult());
       // 全角半角の違いを無視し、且つ、ひらがなとカタカナの違いを無視して、「はろーわーるど」と「ﾊﾛｰﾜｰﾙﾄﾞ」を比較
-      Console.WriteLine("{0}", string.Compare(ja3, ja2, ci, (CompareOptions.IgnoreWidth | CompareOptions.IgnoreKanaType)).ToStringResult());
+      Output.WriteLine("{0}", string.Compare(ja3, ja2, ci, (CompareOptions.IgnoreWidth | CompareOptions.IgnoreKanaType)).ToStringResult());
     }
   }
   #endregion

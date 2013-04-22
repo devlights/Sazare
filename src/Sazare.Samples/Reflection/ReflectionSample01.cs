@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region Reflection-01
   /// <summary>
   /// リフレクションのサンプル1です。
   /// </summary>
   [Sample]
-  public class ReflectionSample01 : IExecutable
+  public class ReflectionSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -54,13 +56,13 @@ namespace Sazare.Samples
         type7 = type6.MakeGenericType(new Type[] { typeof(string) });
       }
 
-      Console.WriteLine(type1);
-      Console.WriteLine(type2);
-      Console.WriteLine(type3);
-      Console.WriteLine(type4);
-      Console.WriteLine(type5);
-      Console.WriteLine(type6);
-      Console.WriteLine(type7);
+      Output.WriteLine(type1);
+      Output.WriteLine(type2);
+      Output.WriteLine(type3);
+      Output.WriteLine(type4);
+      Output.WriteLine(type5);
+      Output.WriteLine(type6);
+      Output.WriteLine(type7);
 
     }
   }  

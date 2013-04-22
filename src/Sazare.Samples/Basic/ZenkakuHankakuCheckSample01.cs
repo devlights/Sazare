@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Text;
 
+  using Sazare.Common;
+  
   #region 全角チェックと半角チェック
   /// <summary>
   /// 全角チェックと半角チェックのサンプルです。
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 単純な全角チェックと半角チェックを定義しています。
   /// </remarks>
   [Sample]
-  public class ZenkakuHankakuCheckSample01 : IExecutable
+  public class ZenkakuHankakuCheckSample01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -21,12 +23,12 @@ namespace Sazare.Samples
       string hankakuOnlyStrings = "ｱｲｳｴｵ";
       string zenkakuAndHankakuStrings = "あいうえおｱｲｳｴｵ";
 
-      Console.WriteLine("IsZenkaku:zenkakuOnly:{0}", IsZenkaku(zenkakuOnlyStrings));
-      Console.WriteLine("IsZenkaku:hankakuOnlyStrings:{0}", IsZenkaku(hankakuOnlyStrings));
-      Console.WriteLine("IsZenkaku:zenkakuAndHankakuStrings:{0}", IsZenkaku(zenkakuAndHankakuStrings));
-      Console.WriteLine("IsHankaku:zenkakuOnly:{0}", IsHankaku(zenkakuOnlyStrings));
-      Console.WriteLine("IsHankaku:hankakuOnlyStrings:{0}", IsHankaku(hankakuOnlyStrings));
-      Console.WriteLine("IsHankaku:zenkakuAndHankakuStrings:{0}", IsHankaku(zenkakuAndHankakuStrings));
+      Output.WriteLine("IsZenkaku:zenkakuOnly:{0}", IsZenkaku(zenkakuOnlyStrings));
+      Output.WriteLine("IsZenkaku:hankakuOnlyStrings:{0}", IsZenkaku(hankakuOnlyStrings));
+      Output.WriteLine("IsZenkaku:zenkakuAndHankakuStrings:{0}", IsZenkaku(zenkakuAndHankakuStrings));
+      Output.WriteLine("IsHankaku:zenkakuOnly:{0}", IsHankaku(zenkakuOnlyStrings));
+      Output.WriteLine("IsHankaku:hankakuOnlyStrings:{0}", IsHankaku(hankakuOnlyStrings));
+      Output.WriteLine("IsHankaku:zenkakuAndHankakuStrings:{0}", IsHankaku(zenkakuAndHankakuStrings));
     }
 
     bool IsZenkaku(string value)

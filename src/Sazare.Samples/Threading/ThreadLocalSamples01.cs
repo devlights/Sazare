@@ -5,14 +5,16 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region ThreadLocalSamples-01
   /// <summary>
   /// ThreadLocal<T>クラスのサンプルです。
   /// </summary>
   [Sample]
-  public class ThreadLocalSamples01 : IExecutable
-  {
-    #region Static Fields
+  public class ThreadLocalSamples01 : Sazare.Common.IExecutable
+  { 
+  #region Static Fields
     // ThreadStatic
     [ThreadStatic]
     static int count = 2;
@@ -54,7 +56,7 @@ namespace Sazare.Samples
         for (var i = 0; i < numberOfParallels; i++)
         {
           int tmp = i;
-          new Thread(() => { Console.WriteLine("ThreadStatic [count]>>> {0}", count++); countdown.Signal(); }).Start();
+          new Thread(() => { Output.WriteLine("ThreadStatic [count]>>> {0}", count++); countdown.Signal(); }).Start();
         }
 
         countdown.Wait();
@@ -68,7 +70,7 @@ namespace Sazare.Samples
       {
         for (var i = 0; i < numberOfParallels; i++)
         {
-          new Thread(() => { Console.WriteLine("ThreadLocal<T> [count2]>>> {0}", count2.Value++); countdown.Signal(); }).Start();
+          new Thread(() => { Output.WriteLine("ThreadLocal<T> [count2]>>> {0}", count2.Value++); countdown.Signal(); }).Start();
         }
 
         countdown.Wait();
@@ -84,7 +86,7 @@ namespace Sazare.Samples
         for (var i = 0; i < numberOfParallels; i++)
         {
           int tmp = i;
-          new Thread(() => { Console.WriteLine("ThreadStatic [count3]>>> {0}", count3++); countdown.Signal(); }).Start();
+          new Thread(() => { Output.WriteLine("ThreadStatic [count3]>>> {0}", count3++); countdown.Signal(); }).Start();
         }
 
         countdown.Wait();
@@ -99,7 +101,7 @@ namespace Sazare.Samples
       {
         for (var i = 0; i < numberOfParallels; i++)
         {
-          new Thread(() => { Console.WriteLine("ThreadLocal<T> [count4]>>> {0}", count4.Value++); countdown.Signal(); }).Start();
+          new Thread(() => { Output.WriteLine("ThreadLocal<T> [count4]>>> {0}", count4.Value++); countdown.Signal(); }).Start();
         }
 
         countdown.Wait();

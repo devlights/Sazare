@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region StringFormatSamples-01
   /// <sumamry>
   /// 文字列の書式設定に関してのサンプルです。
   /// </summary>
   [Sample]
-  class StringFormatSamples01 : IExecutable
+  class StringFormatSamples01 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -32,7 +34,7 @@ namespace Sazare.Samples
       // を参照。
       //
       string format = "'{0,20:C}'";
-      Console.WriteLine(format, 25000);
+      Output.WriteLine(format, 25000);
     }
   }
   #endregion

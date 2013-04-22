@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-26
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples26 : IExecutable
+  public class LinqSamples26 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -55,7 +57,7 @@ namespace Sazare.Samples
 
       foreach (var item in query)
       {
-        Console.WriteLine("Team = {0}, Person = {1}", item.TeamName, item.PersonName);
+        Output.WriteLine("Team = {0}, Person = {1}", item.TeamName, item.PersonName);
       }
     }
   }

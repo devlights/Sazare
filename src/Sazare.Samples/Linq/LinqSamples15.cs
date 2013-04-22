@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-15
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples15 : IExecutable
+  public class LinqSamples15 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -50,10 +52,10 @@ namespace Sazare.Samples
       // ILookupに定義されているプロパティにアクセス.
       //   通常、Lookupオブジェクトはループを経由してデータを取得するが、キーを指定して、アクセスすることもできる。
       //
-      Console.WriteLine("カウント={0}", lookup.Count);
+      Output.WriteLine("カウント={0}", lookup.Count);
       foreach (Person teamAPerson in lookup["TeamA"])
       {
-        Console.WriteLine(teamAPerson);
+        Output.WriteLine(teamAPerson);
       }
 
       //
@@ -63,13 +65,13 @@ namespace Sazare.Samples
       // このIGrouping<TKey, TElement>が一対多のマッピングを実現している。
       // 尚、IGrouping<TKey, TElement>は、クエリ式にてgroup byを行った際にも取得できる。
       //
-      Console.WriteLine("=========== ToLookupに対してkeySelectorを指定した版 =============");
+      Output.WriteLine("=========== ToLookupに対してkeySelectorを指定した版 =============");
       foreach (IGrouping<string, Person> grouping in lookup)
       {
-        Console.WriteLine("KEY={0}", grouping.Key);
+        Output.WriteLine("KEY={0}", grouping.Key);
         foreach (var aPerson in grouping)
         {
-          Console.WriteLine("\tID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+          Output.WriteLine("\tID={0}, NAME={1}", aPerson.Id, aPerson.Name);
         }
       }
 
@@ -78,13 +80,13 @@ namespace Sazare.Samples
       //
       var lookup2 = query.ToLookup(aPerson => aPerson.Team, aPerson => string.Format("{0}_{1}", aPerson.Id, aPerson.Name));
 
-      Console.WriteLine("=========== ToLookupに対してkeySelectorとelementSelectorを指定した版 =============");
+      Output.WriteLine("=========== ToLookupに対してkeySelectorとelementSelectorを指定した版 =============");
       foreach (var grouping in lookup2)
       {
-        Console.WriteLine("KEY={0}", grouping.Key);
+        Output.WriteLine("KEY={0}", grouping.Key);
         foreach (var element in grouping)
         {
-          Console.WriteLine("\t{0}", element);
+          Output.WriteLine("\t{0}", element);
         }
       }
     }

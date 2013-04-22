@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-14
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples14 : IExecutable
+  public class LinqSamples14 : Sazare.Common.IExecutable
   {
     class Person
     {
@@ -37,10 +39,10 @@ namespace Sazare.Samples
                   where (aPerson.Id % 2) != 0
                   select aPerson;
 
-      Console.WriteLine("============ クエリを表示 ============");
+      Output.WriteLine("============ クエリを表示 ============");
       foreach (var aPerson in query)
       {
-        Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+        Output.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
       //
@@ -56,10 +58,10 @@ namespace Sazare.Samples
       //
       Dictionary<int, Person> filteredPersons = query.ToDictionary(item => item.Id);
 
-      Console.WriteLine("============ ToDictionaryで作成したリストを表示 ============");
+      Output.WriteLine("============ ToDictionaryで作成したリストを表示 ============");
       foreach (var pair in filteredPersons)
       {
-        Console.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);
+        Output.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);
       }
 
       //
@@ -71,25 +73,25 @@ namespace Sazare.Samples
       //
       // もう一度、各結果を表示.
       //
-      Console.WriteLine("============ クエリを表示（2回目） ============");
+      Output.WriteLine("============ クエリを表示（2回目） ============");
       foreach (var aPerson in query)
       {
-        Console.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
+        Output.WriteLine("ID={0}, NAME={1}", aPerson.Id, aPerson.Name);
       }
 
-      Console.WriteLine("============ ToDictionaryで作成したリストを表示 （2回目）============");
+      Output.WriteLine("============ ToDictionaryで作成したリストを表示 （2回目）============");
       foreach (var pair in filteredPersons)
       {
-        Console.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);
+        Output.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);
       }
 
       //
       // ToDictionaryメソッドにkeySelectorとelementSelectorを指定したバージョン.
       //
-      Console.WriteLine("============ keySelectorとelementSelectorの両方を指定したバージョン ============");
+      Output.WriteLine("============ keySelectorとelementSelectorの両方を指定したバージョン ============");
       foreach (var pair in query.ToDictionary(item => item.Id, item => string.Format("{0}_{1}", item.Id, item.Name)))
       {
-        Console.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);
+        Output.WriteLine("KEY={0}, VALUE={1}", pair.Key, pair.Value);
       }
     }
   }

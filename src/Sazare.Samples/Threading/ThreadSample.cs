@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region スレッドを直接作成
   /// <summary>
   /// スレッドを直接作成するサンプル.
   /// </summary>
   [Sample]
-  public class ThreadSample : IExecutable
+  public class ThreadSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// ロックオブジェクト
@@ -57,7 +59,7 @@ namespace Sazare.Samples
           }
         }
 
-        Console.WriteLine("Count={0}", _count);
+        Output.WriteLine("Count={0}", _count);
       };
 
       for (int i = 0; i < 15; i++)
@@ -81,7 +83,7 @@ namespace Sazare.Samples
       {
         ThreadParameter p = data as ThreadParameter;
         Thread.Sleep(150);
-        Console.WriteLine("Thread Count:{0}, Time:{1}", p.Count, p.Time.ToString("hh:mm:ss.fff"));
+        Output.WriteLine("Thread Count:{0}, Time:{1}", p.Count, p.Time.ToString("hh:mm:ss.fff"));
       };
 
       for (int i = 0; i < 15; i++)

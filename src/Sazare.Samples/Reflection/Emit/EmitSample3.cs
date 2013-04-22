@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Reflection;
   using System.Reflection.Emit;
 
+  using Sazare.Common;
+  
   #region Emitのサンプル3
   /// <summary>
   /// Emitのサンプル３です。
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// カスタム属性を持つクラスを動的生成します。
   /// </remarks>
   [Sample]
-  public class EmitSample3 : IExecutable
+  public class EmitSample3 : Sazare.Common.IExecutable
   {
     [AttributeUsage(AttributeTargets.Class)]
     public class IsDynamicTypeAttribute : Attribute
@@ -67,11 +69,11 @@ namespace Sazare.Samples
       {
         foreach (object attr in attrs)
         {
-          Console.WriteLine(attr);
+          Output.WriteLine(attr);
 
           if (attr is CreatorAttribute)
           {
-            Console.WriteLine("\tName={0}", (attr as CreatorAttribute).CreatorName);
+            Output.WriteLine("\tName={0}", (attr as CreatorAttribute).CreatorName);
           }
         }
       }

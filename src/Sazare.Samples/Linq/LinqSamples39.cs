@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-39
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples39 : IExecutable
+  public class LinqSamples39 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -26,14 +28,14 @@ namespace Sazare.Samples
       // 引数にpredicateを指定するバージョンは、シーケンスの各要素に対してpredicateを適用し
       // 一つでも条件に合致するものが存在した時点で、Trueとなる。
       //
-      Console.WriteLine("=========== 引数無しでAny拡張メソッドを利用 ===========");
-      Console.WriteLine("要素有り? = {0}", numbers.Any());
-      Console.WriteLine("================================================");
+      Output.WriteLine("=========== 引数無しでAny拡張メソッドを利用 ===========");
+      Output.WriteLine("要素有り? = {0}", numbers.Any());
+      Output.WriteLine("================================================");
 
-      Console.WriteLine("=========== predicateを指定してAny拡張メソッドを利用 ===========");
-      Console.WriteLine("要素有り? = {0}", numbers.Any(item => item >= 5));
-      Console.WriteLine("要素有り? = {0}", numbers.Any(item => item <= 5));
-      Console.WriteLine("================================================================");
+      Output.WriteLine("=========== predicateを指定してAny拡張メソッドを利用 ===========");
+      Output.WriteLine("要素有り? = {0}", numbers.Any(item => item >= 5));
+      Output.WriteLine("要素有り? = {0}", numbers.Any(item => item <= 5));
+      Output.WriteLine("================================================================");
     }
   }
   #endregion

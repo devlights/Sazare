@@ -4,19 +4,21 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region ダミークラス
   /// <summary>
   /// ダミークラス
   /// </summary>
   [Sample]
-  public class Dummy : IExecutable
+  public class Dummy : Sazare.Common.IExecutable
   {
     /// <summary>
     /// 処理を実行します。
     /// </summary>
     public void Execute()
     {
-      Console.WriteLine("THIS IS DUMMY CLASS.");
+      Output.WriteLine("THIS IS DUMMY CLASS.");
     }
   }
   #endregion

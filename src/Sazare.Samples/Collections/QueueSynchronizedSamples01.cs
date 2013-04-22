@@ -6,18 +6,20 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region QueueSynchronizedSamples-01
   /// <summary>
   /// Queueの同期処理についてのサンプルです。
   /// </summary>
   [Sample]
-  public class QueueSynchronizedSamples01 : IExecutable
+  public class QueueSynchronizedSamples01 : Sazare.Common.IExecutable
   {
     Queue queue;
     public void Execute()
     {
       queue = Queue.Synchronized(new Queue());
-      Console.WriteLine("Queue.IsSyncronized == {0}", queue.IsSynchronized);
+      Output.WriteLine("Queue.IsSyncronized == {0}", queue.IsSynchronized);
 
       for (int i = 0; i < 1000; i++)
       {
@@ -27,7 +29,7 @@ namespace Sazare.Samples
       new Thread(EnumerateCollection).Start();
       new Thread(ModifyCollection).Start();
 
-      Console.WriteLine("Press any key to exit...");
+      Output.WriteLine("Press any key to exit...");
       Console.ReadLine();
     }
 
@@ -46,7 +48,7 @@ namespace Sazare.Samples
       /*
       foreach(int i in queue)
       {
-        Console.WriteLine(i);
+        Output.WriteLine(i);
         Thread.Sleep(0);
       }
       */
@@ -62,7 +64,7 @@ namespace Sazare.Samples
       {
         foreach(int i in queue)
         {
-          Console.WriteLine(i);
+          Output.WriteLine(i);
           Thread.Sleep(0);
         }
       }
@@ -88,7 +90,7 @@ namespace Sazare.Samples
 
       foreach (int i in cloneQueue)
       {
-        Console.WriteLine(i);
+        Output.WriteLine(i);
 
         // わざとタイムスライスを切り替え
         Thread.Sleep(0);
@@ -105,7 +107,7 @@ namespace Sazare.Samples
           break;
         }
 
-        Console.WriteLine("\t==> Dequeue");
+        Output.WriteLine("\t==> Dequeue");
         queue.Dequeue();
 
         // わざとタイムスライスを切り替え

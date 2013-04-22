@@ -6,19 +6,21 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region BackgroundWorkerを利用したスレッド処理
   /// <summary>
   /// BackgroundWorkerを利用したスレッド処理のサンプルです。
   /// </summary>
   [Sample]
-  public class BackgroundWorkerSample : IExecutable
+  public class BackgroundWorkerSample : Sazare.Common.IExecutable
   {
     /// <summary>
     /// 処理を実行します。
     /// </summary>
     public void Execute()
     {
-      Console.WriteLine("[MAIN] START. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+      Output.WriteLine("[MAIN] START. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
 
       BackgroundWorker worker = new BackgroundWorker();
 
@@ -27,11 +29,11 @@ namespace Sazare.Samples
       //
       worker.DoWork += (s, e) =>
       {
-        Console.WriteLine("[WORK] START. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine("[WORK] START. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
 
         for (int i = 0; i < 10; i++)
         {
-          Console.WriteLine("[WORK] PROCESSING. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+          Output.WriteLine("[WORK] PROCESSING. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
           Thread.Sleep(105);
         }
       };
@@ -43,10 +45,10 @@ namespace Sazare.Samples
       {
         if (e.Error != null)
         {
-          Console.WriteLine("[WORK] ERROR OCCURED. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+          Output.WriteLine("[WORK] ERROR OCCURED. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
         }
 
-        Console.WriteLine("[WORK] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine("[WORK] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
       };
 
       //
@@ -59,12 +61,12 @@ namespace Sazare.Samples
       //
       for (int i = 0; i < 10; i++)
       {
-        Console.WriteLine("[MAIN] PROCESSING. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+        Output.WriteLine("[MAIN] PROCESSING. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
         Thread.Sleep(100);
       }
 
       Thread.Sleep(1000);
-      Console.WriteLine("[MAIN] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
+      Output.WriteLine("[MAIN] END. ThreadId:{0}", Thread.CurrentThread.ManagedThreadId);
     }
   }
   #endregion

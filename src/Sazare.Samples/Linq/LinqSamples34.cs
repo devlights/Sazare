@@ -4,12 +4,14 @@ namespace Sazare.Samples
   using System.Collections.Generic;
   using System.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-34
   /// <summary>
   /// Linqのサンプルです。
   /// </summary>
   [Sample]
-  public class LinqSamples34 : IExecutable
+  public class LinqSamples34 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -29,14 +31,14 @@ namespace Sazare.Samples
       //
       // 引数無しのMin, Max拡張メソッドの使用.
       //
-      Console.WriteLine("引数無し[Min] = {0}", numbers.Min());
-      Console.WriteLine("引数無し[Max] = {0}", numbers.Max());
+      Output.WriteLine("引数無し[Min] = {0}", numbers.Min());
+      Output.WriteLine("引数無し[Max] = {0}", numbers.Max());
 
       //
       // selectorを指定するMin, Max拡張メソッドの使用.
       //
-      Console.WriteLine("引数有り[Min] = {0}", numbers.Min(item => (item % 2 == 0) ? item : 0));
-      Console.WriteLine("引数有り[Max] = {0}", numbers.Max(item => (item % 2 == 0) ? item : 0));
+      Output.WriteLine("引数有り[Min] = {0}", numbers.Min(item => (item % 2 == 0) ? item : 0));
+      Output.WriteLine("引数有り[Max] = {0}", numbers.Max(item => (item % 2 == 0) ? item : 0));
     }
   }
   #endregion

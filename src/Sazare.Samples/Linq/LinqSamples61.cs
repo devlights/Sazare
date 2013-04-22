@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-61
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// 要素更新系メソッドのサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples61 : IExecutable
+  public class LinqSamples61 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -26,10 +28,10 @@ namespace Sazare.Samples
       var root = BuildSampleXml();
       var elem = root.Descendants("Value").First();
 
-      Console.WriteLine("[before] {0}", elem.Value);
+      Output.WriteLine("[before] {0}", elem.Value);
       elem.Value = "updated";
-      Console.WriteLine("[after] {0}", elem.Value);
-      Console.WriteLine(root);
+      Output.WriteLine("[after] {0}", elem.Value);
+      Output.WriteLine(root);
 
       try
       {
@@ -37,15 +39,15 @@ namespace Sazare.Samples
       }
       catch (ArgumentNullException argNullEx)
       {
-        Console.WriteLine(argNullEx.Message);
+        Output.WriteLine(argNullEx.Message);
       }
 
       // Valueプロパティはstringを受け付けるので、boolなどの場合は
       // 明示的に文字列にして設定する必要がある.
       elem.Value = bool.TrueString.ToLower();
-      Console.WriteLine(root);
+      Output.WriteLine(root);
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // SetValue(object)
@@ -57,10 +59,10 @@ namespace Sazare.Samples
       root = BuildSampleXml();
       elem = root.Descendants("Value").First();
 
-      Console.WriteLine("[before] {0}", elem.Value);
+      Output.WriteLine("[before] {0}", elem.Value);
       elem.SetValue("updated");
-      Console.WriteLine("[after] {0}", elem.Value);
-      Console.WriteLine(root);
+      Output.WriteLine("[after] {0}", elem.Value);
+      Output.WriteLine(root);
 
       try
       {
@@ -68,15 +70,15 @@ namespace Sazare.Samples
       }
       catch (ArgumentNullException argNullEx)
       {
-        Console.WriteLine(argNullEx.Message);
+        Output.WriteLine(argNullEx.Message);
       }
 
       // SetValueメソッドは、object型を受け付けるので
       // bool型などの場合でもそのまま設定できる。内部で変換される.
       elem.SetValue(true);
-      Console.WriteLine(root);
+      Output.WriteLine(root);
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // SetElementValue(XName, object)
@@ -91,21 +93,21 @@ namespace Sazare.Samples
 
       // 要素が存在する場合: 更新
       elem.SetElementValue("Value", "updated");
-      Console.WriteLine(root);
+      Output.WriteLine(root);
 
       // nullを指定した場合： 削除
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       elem.SetElementValue("Value", null);
-      Console.WriteLine(root);
+      Output.WriteLine(root);
 
       // 要素が存在しない場合: 新規追加
       root = BuildSampleXml();
       elem = root.Elements("Child").First();
       elem.SetElementValue("Value2", "inserted");
-      Console.WriteLine(root);
+      Output.WriteLine(root);
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

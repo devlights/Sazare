@@ -1,4 +1,4 @@
-namespace Sazare.Samples
+namespace Sazare.Common
 {
   using System;
   using System.Collections.Generic;

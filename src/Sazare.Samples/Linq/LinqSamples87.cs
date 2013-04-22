@@ -6,6 +6,8 @@ namespace Sazare.Samples
   using System.Xml;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-87
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -14,7 +16,7 @@ namespace Sazare.Samples
   /// IXmlLineInfoインターフェースから行番号を取得するサンプルです。
   /// </remarks>
   [Sample]
-  public class LinqSamples87 : IExecutable
+  public class LinqSamples87 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -38,13 +40,13 @@ namespace Sazare.Samples
       {
         var info = elem as IXmlLineInfo;
 
-        Console.WriteLine(elem.Name);
-        Console.WriteLine("\tHasLineInfo  == {0}", info.HasLineInfo());
-        Console.WriteLine("\tLineNumber   == {0}", info.LineNumber);
-        Console.WriteLine("\tLinePosition == {0}", info.LinePosition);
+        Output.WriteLine(elem.Name);
+        Output.WriteLine("\tHasLineInfo  == {0}", info.HasLineInfo());
+        Output.WriteLine("\tLineNumber   == {0}", info.LineNumber);
+        Output.WriteLine("\tLinePosition == {0}", info.LinePosition);
       }
 
-      Console.WriteLine("=========================================================");
+      Output.WriteLine("=========================================================");
 
       //
       // 要素を追加.
@@ -60,13 +62,13 @@ namespace Sazare.Samples
       {
         var info = elem as IXmlLineInfo;
 
-        Console.WriteLine(elem.Name);
-        Console.WriteLine("\tHasLineInfo  == {0}", info.HasLineInfo());
-        Console.WriteLine("\tLineNumber   == {0}", info.LineNumber);
-        Console.WriteLine("\tLinePosition == {0}", info.LinePosition);
+        Output.WriteLine(elem.Name);
+        Output.WriteLine("\tHasLineInfo  == {0}", info.HasLineInfo());
+        Output.WriteLine("\tLineNumber   == {0}", info.LineNumber);
+        Output.WriteLine("\tLinePosition == {0}", info.LinePosition);
       }
 
-      Console.WriteLine("=========================================================");
+      Output.WriteLine("=========================================================");
     }
 
     XElement BuildSampleXml()

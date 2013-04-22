@@ -7,6 +7,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Text;
 
+  using Sazare.Common;
+  
   #region ZipFileSamples-02
   /// <summary>
   /// System.IO.Compression.ZipFileクラスのサンプルです。
@@ -19,7 +21,7 @@ namespace Sazare.Samples
   /// Metroアプリでは、代わりにZipArchiveクラスを利用します。
   /// </remarks>
   [Sample]
-  public class ZipFileSamples02 : IExecutable
+  public class ZipFileSamples02 : Sazare.Common.IExecutable
   {
     string _zipFilePath;
 
@@ -98,7 +100,7 @@ namespace Sazare.Samples
 
     void PrintEntry(ZipArchiveEntry entry)
     {
-      Console.WriteLine("[{0}, {1}]", entry.Name, entry.Length);
+      Output.WriteLine("[{0}, {1}]", entry.Name, entry.Length);
     }
 
     void PrintEntryContents(ZipArchiveEntry entry)
@@ -107,7 +109,7 @@ namespace Sazare.Samples
       {
         for (var line = reader.ReadLine(); line != null; line = reader.ReadLine())
         {
-          Console.WriteLine(line);
+          Output.WriteLine(line);
         }
       }
     }

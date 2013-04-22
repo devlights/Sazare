@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region MonitorSample-01
   /// <summary>
   /// Monitorクラスについてのサンプルです。
   /// </summary>
   [Sample]
-  public class MonitorSamples01 : IExecutable
+  public class MonitorSamples01 : Sazare.Common.IExecutable
   {
     object _lock = new object();
     bool _go;
@@ -30,7 +32,7 @@ namespace Sazare.Samples
         Monitor.Pulse(_lock);
       }
 
-      Console.WriteLine("Main thread end.");
+      Output.WriteLine("Main thread end.");
     }
 
     void Waiter()
@@ -47,7 +49,7 @@ namespace Sazare.Samples
         }
       }
 
-      Console.WriteLine("awake!!");
+      Output.WriteLine("awake!!");
     }
   }
   #endregion

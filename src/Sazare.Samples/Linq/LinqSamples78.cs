@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Xml.Linq;
 
+  using Sazare.Common;
+  
   #region LinqSamples-78
   /// <summary>
   /// LINQ to XMLのサンプルです.
@@ -13,7 +15,7 @@ namespace Sazare.Samples
   /// ナビゲーション(DescendantNodes, DescendantNodesAndSelf)のサンプルです.
   /// </remarks>
   [Sample]
-  public class LinqSamples78 : IExecutable
+  public class LinqSamples78 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -30,10 +32,10 @@ namespace Sazare.Samples
       // AndSelf無しなので、Book自身は含まれない.
       foreach (var node in startingPoint.DescendantNodes())
       {
-        Console.WriteLine(node);
+        Output.WriteLine(node);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
 
       //
       // DescendantNodesAndSelf
@@ -48,10 +50,10 @@ namespace Sazare.Samples
       // AndSelfありなので、Book自身が含まれる
       foreach (var node in startingPoint.DescendantNodesAndSelf())
       {
-        Console.WriteLine(node);
+        Output.WriteLine(node);
       }
 
-      Console.WriteLine("=====================================");
+      Output.WriteLine("=====================================");
     }
 
     XElement BuildSampleXml()

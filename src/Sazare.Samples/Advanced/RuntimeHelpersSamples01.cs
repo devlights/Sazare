@@ -5,12 +5,14 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Runtime.CompilerServices;
 
+  using Sazare.Common;
+  
   #region RuntimeHelpersSamples-01
   /// <summary>
   /// RuntimeHelpersクラスのサンプルです。
   /// </summary>
   [Sample]
-  public class RuntimeHelpersSamples01 : IExecutable
+  public class RuntimeHelpersSamples01 : Sazare.Common.IExecutable
   {
     class SampleClass
     {
@@ -44,8 +46,8 @@ namespace Sazare.Samples
       SampleClass sampleObj1 = new SampleClass { Id = 100 };
       SampleClass sampleObj2 = new SampleClass { Id = 100 };
 
-      Console.WriteLine("[Object.GetHashCode]        sampleObj1 = {0}, sampleObj2 = {1}", sampleObj1.GetHashCode(), sampleObj2.GetHashCode());
-      Console.WriteLine("[RuntimeHelper.GetHashCode] sampleObj1 = {0}, sampleObj2 = {1}", RuntimeHelpers.GetHashCode(sampleObj1), RuntimeHelpers.GetHashCode(sampleObj2));
+      Output.WriteLine("[Object.GetHashCode]        sampleObj1 = {0}, sampleObj2 = {1}", sampleObj1.GetHashCode(), sampleObj2.GetHashCode());
+      Output.WriteLine("[RuntimeHelper.GetHashCode] sampleObj1 = {0}, sampleObj2 = {1}", RuntimeHelpers.GetHashCode(sampleObj1), RuntimeHelpers.GetHashCode(sampleObj2));
 
       //
       // 文字列データで検証.
@@ -61,8 +63,8 @@ namespace Sazare.Samples
       string test1 = s1 + s2;
       string test2 = s1 + s2;
 
-      Console.WriteLine("[Object.GetHashCode]        test1 = {0}, test2 = {1}", test1.GetHashCode(), test2.GetHashCode());
-      Console.WriteLine("[RuntimeHelper.GetHashCode] test1 = {0}, test2 = {1}", RuntimeHelpers.GetHashCode(test1), RuntimeHelpers.GetHashCode(test2));
+      Output.WriteLine("[Object.GetHashCode]        test1 = {0}, test2 = {1}", test1.GetHashCode(), test2.GetHashCode());
+      Output.WriteLine("[RuntimeHelper.GetHashCode] test1 = {0}, test2 = {1}", RuntimeHelpers.GetHashCode(test1), RuntimeHelpers.GetHashCode(test2));
 
       //
       // 文字列データで検証
@@ -76,8 +78,8 @@ namespace Sazare.Samples
       string test3 = "hello world";
       string test4 = "hello world";
 
-      Console.WriteLine("[Object.GetHashCode]        test3 = {0}, test4 = {1}", test3.GetHashCode(), test4.GetHashCode());
-      Console.WriteLine("[RuntimeHelper.GetHashCode] test3 = {0}, test4 = {1}", RuntimeHelpers.GetHashCode(test3), RuntimeHelpers.GetHashCode(test4));
+      Output.WriteLine("[Object.GetHashCode]        test3 = {0}, test4 = {1}", test3.GetHashCode(), test4.GetHashCode());
+      Output.WriteLine("[RuntimeHelper.GetHashCode] test3 = {0}, test4 = {1}", RuntimeHelpers.GetHashCode(test3), RuntimeHelpers.GetHashCode(test4));
     }
   }
   #endregion

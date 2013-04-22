@@ -5,9 +5,11 @@ namespace Sazare.Samples
   using System.Linq;
   using System.Threading;
 
+  using Sazare.Common;
+  
   #region ThreadingNamespaceSamples-04
   [Sample]
-  public class ThreadingNamespaceSamples04 : IExecutable
+  public class ThreadingNamespaceSamples04 : Sazare.Common.IExecutable
   {
     public void Execute()
     {
@@ -38,16 +40,16 @@ namespace Sazare.Samples
     void ThreadProc(object stateObj)
     {
       string threadName = stateObj.ToString();
-      Console.WriteLine("{0} Start", threadName);
+      Output.WriteLine("{0} Start", threadName);
 
       //
       // タイムスライスを切り替え.
       //
-      Console.WriteLine("{0} Yield Call", threadName);
+      Output.WriteLine("{0} Yield Call", threadName);
       bool isSuccess = Thread.Yield();
-      Console.WriteLine("{0} Yield={1}", threadName, isSuccess);
+      Output.WriteLine("{0} Yield={1}", threadName, isSuccess);
 
-      Console.WriteLine("{0} End", threadName);
+      Output.WriteLine("{0} End", threadName);
     }
   }
   #endregion
