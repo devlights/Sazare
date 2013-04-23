@@ -53,6 +53,12 @@
     <Compile Include="CuiOutputManagerTest.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ConsoleKeyManagerTest.cs" />
+    <Compile Include="CuiAssemblyLoaderTest.cs" />
+    <Compile Include="CuiAssemblyLoadStrategyTest.cs" />
+    <Compile Include="CuiTypeFinderTest.cs" />
+    <Compile Include="CuiTypeFindCommandTest.cs" />
+    <Compile Include="CuiAppProcessTest.cs" />
+    <Compile Include="CuiAppProcessExecutorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Sazare.Common\Sazare.Common.csproj">

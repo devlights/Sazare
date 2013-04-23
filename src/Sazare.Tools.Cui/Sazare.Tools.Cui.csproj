@@ -42,7 +42,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleKeyManager.cs" />
+    <Compile Include="CuiAppProcess.cs" />
+    <Compile Include="CuiAppProcessExecutor.cs" />
+    <Compile Include="CuiAssemblyLoader.cs" />
+    <Compile Include="CuiAssemblyLoadStrategy.cs" />
     <Compile Include="CuiOutputManager.cs" />
+    <Compile Include="CuiTypeFindCommand.cs" />
+    <Compile Include="CuiTypeFinder.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
