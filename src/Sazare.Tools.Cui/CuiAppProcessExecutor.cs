@@ -8,9 +8,25 @@
 
   public class CuiAppProcessExecutor : IExecutor
   {
+    public string StartLogMessage { get; set; }
+    public string EndLogMessage   { get; set; }
+
+    public CuiAppProcessExecutor()
+    {
+      StartLogMessage = "================== START ==================";
+      EndLogMessage   = "==================  END  ==================";
+    }
+
     public void Execute(IExecutable target)
     {
-      throw new NotImplementedException();
+      if (target == null)
+      {
+        throw new ArgumentNullException("target");
+      }
+
+      Output.WriteLine(StartLogMessage);
+      target.Execute();
+      Output.WriteLine(EndLogMessage);
     }
   }
 }

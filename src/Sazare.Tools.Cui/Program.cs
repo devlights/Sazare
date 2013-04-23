@@ -31,7 +31,8 @@
           var clazz = handle.Unwrap();
           if (clazz != null)
           {
-            Execute(clazz as IExecutable);
+            var executor = new CuiAppProcessExecutor();
+            executor.Execute(clazz as IExecutable);
           }
         }
       }
@@ -81,14 +82,6 @@
       }
 
       return WithNamespace((ClassName = className));
-    }
-
-    internal static void Execute(IExecutable executable)
-    {
-      Console.WriteLine("\n");
-      Console.WriteLine("================== START ==================");
-      executable.Execute();
-      Console.WriteLine("==================  END  ==================");
     }
   }
 }
