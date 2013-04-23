@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="IExecutable.cs" />
+    <Compile Include="IExecutor.cs" />
     <Compile Include="IOutputManager.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
