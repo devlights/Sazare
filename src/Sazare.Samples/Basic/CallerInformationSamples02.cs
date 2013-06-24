@@ -23,6 +23,7 @@
       notifyObj.Name = "goobye world";
     }
 
+    // INotifyPropertyChangedインターフェースの実装
     class NotityPropertyChangedImpl : INotifyPropertyChanged
     {
       private string _name;
@@ -37,6 +38,10 @@
           if (_name == value)
             return;
           _name = value;
+
+          //
+          // メソッドに[CallerMemberName]を付与しているのでプロパティ名を指定する必要なし.
+          //
           OnPropertyChanged();
         }
       }
