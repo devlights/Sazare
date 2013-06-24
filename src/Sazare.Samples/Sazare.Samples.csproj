@@ -81,6 +81,7 @@
     <Compile Include="Advanced\AppDomainSamples03.cs" />
     <Compile Include="Advanced\AppDomainSamples04.cs" />
     <Compile Include="Basic\CallerInformationSamples01.cs" />
+    <Compile Include="Basic\CallerInformationSamples02.cs" />
     <Compile Include="IO\XamlWriterSamples01.cs" />
     <Compile Include="Basic\DateParseSample01.cs" />
     <Compile Include="Basic\LazyInitializerSamples01.cs" />
