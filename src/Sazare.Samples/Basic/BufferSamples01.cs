@@ -7,6 +7,7 @@ using Sazare.Common;
 
 namespace Sazare.Samples
 {
+  #region BufferSamples-01
   public class BufferSamples01 : IExecutable
   {
     public void Execute()
@@ -18,4 +19,5 @@ namespace Sazare.Samples
 
     }
   }
+  #endregion
 }
