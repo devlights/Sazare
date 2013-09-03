@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sazare.Common;
 
-namespace Sazare.Samples.Basic
+namespace Sazare.Samples
 {
   public class BufferSamples01 : IExecutable
   {
