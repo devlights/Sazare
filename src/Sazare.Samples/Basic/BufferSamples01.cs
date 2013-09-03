@@ -1,12 +1,11 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Sazare.Common;
-
 namespace Sazare.Samples
 {
+  using System;
+  using System.Collections.Generic;
+  using System.Linq;
+
+  using Sazare.Common;
+
   #region BufferSamples-01
   public class BufferSamples01 : IExecutable
   {
