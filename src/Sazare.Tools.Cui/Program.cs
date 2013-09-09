@@ -24,15 +24,16 @@
     {
       try
       {
+        Input.SetInputManager(new CuiInputManager());
         Output.SetOutputManager(new CuiOutputManager());
 
         for (;;)
         {
           try
           {
-            Console.Write("\nENTER CLASS NAME: ");
+            Output.Write("\nENTER CLASS NAME: ");
 
-            var userInput = Console.ReadLine();
+            var userInput = Input.ReadLine().ToString();
             if (userInput.ToLower() == EXIT_PHASE)
             {
               break;
@@ -51,18 +52,18 @@
           }
           catch (TypeLoadException)
           {
-            Console.WriteLine("指定されたサンプルが見つかりません...[{0}]", ClassName);
+            Output.WriteLine("指定されたサンプルが見つかりません...[{0}]", ClassName);
           }
           catch (Exception ex)
           {
-            Console.WriteLine(ex.Message);
+            Output.WriteLine(ex.Message);
           }
         }
       }
       finally
       {
-        Console.WriteLine("\n\nPress any key to exit...");
-        Console.ReadKey();
+        Output.WriteLine("\n\nPress any key to exit...");
+        Input.Read();
       }
     }
 
