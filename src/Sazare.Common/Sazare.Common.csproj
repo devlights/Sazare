@@ -41,6 +41,8 @@
   <ItemGroup>
     <Compile Include="IExecutable.cs" />
     <Compile Include="IExecutor.cs" />
+    <Compile Include="IInputManager.cs" />
+    <Compile Include="Input.cs" />
     <Compile Include="IOutputManager.cs" />
     <Compile Include="Output.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
