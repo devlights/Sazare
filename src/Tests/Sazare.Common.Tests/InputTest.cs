@@ -48,7 +48,7 @@
       object data = Input.Read();
 
       // Assert
-      Assert.AreEqual("t", data);
+      Assert.AreEqual(48, data);
     }
 
     [TestMethod]
@@ -61,14 +61,14 @@
       object data = Input.ReadLine();
 
       // Act
-      Assert.AreEqual(string.Format("test data\n"), data);
+      Assert.AreEqual("test data\n", data);
     }
 
     class MockInputManager : IInputManager
     {
       public object Read()
       {
-        return "t";
+        return 48;
       }
 
       public object ReadLine()
