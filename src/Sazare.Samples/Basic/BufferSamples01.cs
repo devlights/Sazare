@@ -64,6 +64,22 @@ namespace Sazare.Samples
       //
       Output.WriteLine("[Buffer.ByteLength] {0}", Buffer.ByteLength(destArray));
       Output.WriteLine("[Array.Length]      {0}", destArray2.Length);
+
+      try
+      {
+        Buffer.ByteLength(new Object[10]);
+      }
+      catch (ArgumentException argEx)
+      {
+        Output.WriteLine(argEx.Message);
+      }
+
+      //
+      // GetByteメソッド
+      //   指定したバイト位置のバイトデータを取得する.
+      //
+      Output.WriteLine("[Block.GetByte] {0}", Buffer.GetByte(destArray, 2));
+      Output.WriteLine("[Array] {0}", destArray2[2]);
     }
   }
   #endregion
