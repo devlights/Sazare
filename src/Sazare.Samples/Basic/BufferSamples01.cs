@@ -2,7 +2,6 @@ namespace Sazare.Samples
 {
   using System;
   using System.Collections.Generic;
-  using System.Diagnostics;
   using System.Linq;
   using Sazare.Common;
 
@@ -80,6 +79,21 @@ namespace Sazare.Samples
       //
       Output.WriteLine("[Block.GetByte] {0}", Buffer.GetByte(destArray, 2));
       Output.WriteLine("[Array] {0}", destArray2[2]);
+
+      //
+      // SetByteメソッド
+      //   指定したバイト位置にバイトデータを書き込む.
+      //
+      var b1 = Buffer.GetByte(destArray, 2);
+      var i1 = destArray[0];
+
+      Buffer.SetByte(destArray, 2, 12);
+
+      var b2 = Buffer.GetByte(destArray, 2);
+      var i2 = destArray[0];
+
+      Output.WriteLine("[SetByte BEFORE] {0}, {1}", b1, i1);
+      Output.WriteLine("[SetByte AFTER]  {0}, {1}", b2, i2);
     }
   }
   #endregion
