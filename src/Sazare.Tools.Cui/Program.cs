@@ -7,11 +7,12 @@
 
   using Sazare.Common;
   using Sazare.Samples;
-  
+
   class Program
   {
-    private readonly static Type   DummyType;
-    private          static string ClassName;
+    const           string EXIT_PHASE = "exit";
+    static readonly Type   DummyType;
+    static          string ClassName;
 
     static Program()
     {
@@ -25,24 +26,38 @@
       {
         Output.SetOutputManager(new CuiOutputManager());
 
-        var handle = Activator.CreateInstance(GetAssembly().FullName, GetFqdnName());
-        if (handle != null)
+        for (;;)
         {
-          var clazz = handle.Unwrap();
-          if (clazz != null)
+          try
           {
-            var executor = new CuiAppProcessExecutor();
-            executor.Execute(clazz as IExecutable);
+            Console.Write("\nENTER CLASS NAME: ");
+
+            var userInput = Console.ReadLine();
+            if (userInput.ToLower() == EXIT_PHASE)
+            {
+              break;
+            }
+
+            var handle = Activator.CreateInstance(GetAssembly().FullName, GetFqdnName(userInput));
+            if (handle != null)
+            {
+              var clazz = handle.Unwrap();
+              if (clazz != null)
+              {
+                var executor = new CuiAppProcessExecutor();
+                executor.Execute(clazz as IExecutable);
+              }
+            }
+          }
+          catch (TypeLoadException)
+          {
+            Console.WriteLine("指定されたサンプルが見つかりません...[{0}]", ClassName);
+          }
+          catch (Exception ex)
+          {
+            Console.WriteLine(ex.Message);
           }
         }
-      }
-      catch (TypeLoadException)
-      {
-        Console.WriteLine("指定されたサンプルが見つかりません...[{0}]", ClassName);
-      }
-      catch (Exception ex)
-      {
-        Console.WriteLine(ex.Message);
       }
       finally
       {
@@ -56,7 +71,7 @@
       return DummyType.Assembly;
     }
 
-    internal static string GetClassName()
+    internal static string GetInitialClassName()
     {
       return Environment.GetCommandLineArgs().Skip(1).FirstOrDefault();
     }
@@ -72,16 +87,15 @@
       return string.Format("{0}.{1}", DummyType.Namespace, className);
     }
 
-    internal static string GetFqdnName()
+    internal static string GetFqdnName(string value)
     {
-      var className = GetClassName();
-      if (string.IsNullOrWhiteSpace(className))
+      var className = GetInitialClassName();
+      if (!string.IsNullOrWhiteSpace(className))
       {
-        Console.Write("ENTER CLASS NAME: ");
-        return WithNamespace((ClassName = Console.ReadLine()));
+        return WithNamespace((ClassName = className));
       }
 
-      return WithNamespace((ClassName = className));
+      return WithNamespace((ClassName = value));
     }
   }
 }
