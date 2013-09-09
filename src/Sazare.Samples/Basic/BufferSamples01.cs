@@ -57,6 +57,13 @@ namespace Sazare.Samples
       Output.WriteLine("[Array.Copy]       srcArray == destArray2 ==> {0}", srcArray.SequenceEqual(destArray2));
       Output.WriteLine("destArray == destArray2 ==> {0}", destArray.SequenceEqual(destArray2));
 
+      //
+      // ByteLengthメソッド
+      //   指定した配列の「バイト数」を取得する。要素数で無い事に注意。
+      //   指定する配列の型はプリミティブ型である必要がある。
+      //
+      Output.WriteLine("[Buffer.ByteLength] {0}", Buffer.ByteLength(destArray));
+      Output.WriteLine("[Array.Length]      {0}", destArray2.Length);
     }
   }
   #endregion
