@@ -25,7 +25,7 @@
       try
       {
         Input.SetInputManager(new CuiInputManager());
-        Output.SetOutputManager(new CuiOutputManager());
+        Output.OutputManager = new CuiOutputManager();
 
         for (;;)
         {

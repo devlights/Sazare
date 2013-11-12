@@ -13,7 +13,7 @@
     [TestCleanup]
     public void Cleanup()
     {
-      Output.SetOutputManager(null);
+      Output.OutputManager = null;
     }
 
     [TestMethod]
@@ -23,7 +23,7 @@
       var outputManager = new DummyOutputManager();
 
       // Act
-      Output.SetOutputManager(outputManager);
+      Output.OutputManager = outputManager;
 
       // Assert
       //  エラーが出ていなければOK
@@ -34,7 +34,7 @@
     public void Write_Fail_IOutputManagerを設定していない状態で実行()
     {
       // Arrange
-      Output.SetOutputManager(null);
+      Output.OutputManager = null;
 
       // Act
       Output.Write("this is dummy message");
@@ -48,7 +48,7 @@
     public void WriteLine_Fail_IOutputManagerを設定していない状態で実行()
     {
       // Arrange
-      Output.SetOutputManager(null);
+      Output.OutputManager = null;
 
       // Act
       Output.WriteLine("this is dummy message");
@@ -63,7 +63,7 @@
       // Arrange
       var writer = new StringWriter();
       var outputManager = new StringWriterOutputManager(writer);
-      Output.SetOutputManager(outputManager);
+      Output.OutputManager = outputManager;
 
       // Act
       string message = "this is dummy message";
@@ -79,7 +79,7 @@
       // Arrange
       var writer = new StringWriter();
       var outputManager = new StringWriterOutputManager(writer);
-      Output.SetOutputManager(outputManager);
+      Output.OutputManager = outputManager;
 
       // Act
       var message = "this is dummy message";
@@ -95,7 +95,7 @@
       // Arrange
       var writer = new StringWriter();
       var outputManager = new StringWriterOutputManager(writer);
-      Output.SetOutputManager(outputManager);
+      Output.OutputManager = outputManager;
 
       // Act
       var format = "unit_{0}_test";
@@ -112,7 +112,7 @@
       // Arrange
       var writer = new StringWriter();
       var outputManager = new StringWriterOutputManager(writer);
-      Output.SetOutputManager(outputManager);
+      Output.OutputManager = outputManager;
 
       // Act
       var format = "unit_{0}_test";
@@ -129,7 +129,7 @@
       // Arrange
       var writer = new StringWriter();
       var outputManager = new StringWriterOutputManager(writer);
-      Output.SetOutputManager(outputManager);
+      Output.OutputManager = outputManager;
 
       // Act
       var value = 100;
@@ -145,7 +145,7 @@
       // Arrange2
       writer = new StringWriter();
       outputManager = new StringWriterOutputManager(writer);
-      Output.SetOutputManager(outputManager);
+      Output.OutputManager = outputManager;
 
       // Act2
       Output.WriteLine(value);

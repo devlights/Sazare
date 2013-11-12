@@ -10,18 +10,9 @@
   public static class Output
   {
     /// <summary>
-    /// 出力管理オブジェクト
+    /// 出力管理オブジェクトを取得・設定します。
     /// </summary>
-    private static IOutputManager _Manager;
-
-    /// <summary>
-    /// 出力管理オブジェクトを設定します。
-    /// </summary>
-    /// <param name="manager">出力管理オブジェクト</param>
-    public static void SetOutputManager(IOutputManager manager)
-    {
-      _Manager = manager;
-    }
+    public static IOutputManager OutputManager { get; set; }
 
     /// <summary>
     /// 指定されたデータを出力します。（改行付与無し）
@@ -30,7 +21,7 @@
     public static void Write(object data)
     {
       Defence();
-      _Manager.Write(data);
+      OutputManager.Write(data);
     }
 
     /// <summary>
@@ -41,7 +32,7 @@
     public static void Write(string format, params object[] args)
     {
       Defence();
-      _Manager.Write(string.Format(format, args));
+      OutputManager.Write(string.Format(format, args));
     }
 
     /// <summary>
@@ -51,7 +42,7 @@
     public static void WriteLine(object data)
     {
       Defence();
-      _Manager.WriteLine(data);
+      OutputManager.WriteLine(data);
     }
 
     /// <summary>
@@ -62,7 +53,7 @@
     public static void WriteLine(string format, params object[] arg)
     {
       Defence();
-      _Manager.WriteLine(string.Format(format, arg));
+      OutputManager.WriteLine(string.Format(format, arg));
     }
 
     /// <summary>
@@ -70,7 +61,7 @@
     /// </summary>
     private static void Defence()
     {
-      if (_Manager == null)
+      if (OutputManager == null)
       {
         throw new InvalidOperationException("No OutputManager was found. please call SetOutputManager(IOutputManager) before your first access");
       }
