@@ -1,6 +1,8 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2012
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sazare.Samples", "Sazare.Samples\Sazare.Samples.csproj", "{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sazare.Tools.Common", "Sazare.Tools.Common\Sazare.Tools.Common.csproj", "{0E21411A-99E8-4670-A08B-DABF834C1838}"
