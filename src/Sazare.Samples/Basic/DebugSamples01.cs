@@ -33,10 +33,48 @@
       // 注意点として、ListenerはTraceとDebugで共有されており
       // どちらかに追加すると両方で有効となる.
       //
-      bool output = true;
+      // また、ListenerにはTraceOptionsを指定して細かく情報を出力することが
+      // 可能となっているが、DebugクラスのWrite, WriteLineなどのメソッドで出力しても
+      // TraceOptionsの設定が効かない. (Trace.WriteInformation
+      //
+      Debug.IndentLevel = 2;
+      Debug.IndentSize  = 2;
+      Debug.AutoFlush   = true;
 
-      Debug.WriteLine("デバッグメッセージ");
-      Debug.WriteLineIf(output, "条件付きデバッグメッセージ");
+      TraceOptions options = TraceOptions.DateTime              |
+                             TraceOptions.LogicalOperationStack | 
+                             TraceOptions.Callstack             | 
+                             TraceOptions.ThreadId              | 
+                             TraceOptions.Timestamp;
+
+      Debug.Listeners.Clear();
+      Debug.Listeners.Add(new ConsoleTraceListener { TraceOutputOptions = options });
+
+      var prevOutputManager = Output.OutputManager;
+      Output.OutputManager = new DebugOutputManager();
+
+      Output.WriteLine("デバッグメッセージ");
+
+      Output.OutputManager = prevOutputManager;
+    }
+  }
+
+  class DebugOutputManager : IOutputManager
+  {
+    bool output = true;
+
+    public void Write(object data)
+    {
+      Debug.Write(data);
+      Debug.Write(data, "Log-Category");
+      Debug.WriteIf(output, String.Format("[条件付き]{0}", data));
+    }
+
+    public void WriteLine(object data)
+    {
+      Debug.WriteLine(data);
+      Debug.WriteLine(data, "Log-Category");
+      Debug.WriteLineIf(output, String.Format("[条件付き]{0}", data));
     }
   }
 }
