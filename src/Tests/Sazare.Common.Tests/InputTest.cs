@@ -13,7 +13,7 @@
     [TestCleanup]
     public void Cleanup()
     {
-      Input.SetInputManager(null);
+      Input.InputManager = null;
     }
 
     [TestMethod]
@@ -33,7 +33,7 @@
     {
       // Arrange
       // Act
-      Input.SetInputManager(new MockInputManager());
+      Input.InputManager = new MockInputManager();
 
       // Assert
     }
@@ -42,7 +42,7 @@
     public void Readメソッドでデータを取得することができる()
     {
       // Arrange
-      Input.SetInputManager(new MockInputManager());
+      Input.InputManager = new MockInputManager();
 
       // Act
       object data = Input.Read();
@@ -55,7 +55,7 @@
     public void ReadLineメソッドでデータを取得することができる()
     {
       // Arrange
-      Input.SetInputManager(new MockInputManager());
+      Input.InputManager = new MockInputManager();
 
       // Assert
       object data = Input.ReadLine();

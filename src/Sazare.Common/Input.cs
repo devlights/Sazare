@@ -10,18 +10,9 @@
   public static class Input
   {
     /// <summary>
-    /// 入力管理オブジェクト
+    /// 入力管理オブジェクトを取得・設定します。
     /// </summary>
-    static IInputManager _Manager;
-
-    /// <summary>
-    /// 入力管理オブジェクトを設定します。
-    /// </summary>
-    /// <param name="manager">入力管理オブジェクト</param>
-    public static void SetInputManager(IInputManager manager)
-    {
-      _Manager = manager;
-    }
+    public static IInputManager InputManager { get; set; }
 
     /// <summary>
     /// １データを読み込みます。
@@ -30,7 +21,7 @@
     public static object Read()
     {
       Defence();
-      return _Manager.Read();
+      return InputManager.Read();
     }
 
     /// <summary>
@@ -40,7 +31,7 @@
     public static object ReadLine()
     {
       Defence();
-      return _Manager.ReadLine();
+      return InputManager.ReadLine();
     }
 
     /// <summary>
@@ -48,7 +39,7 @@
     /// </summary>
     static void Defence()
     {
-      if (_Manager == null)
+      if (InputManager == null)
       {
         throw new InvalidOperationException("No InputManager was found. please call SetInputManager(IInputManager) before your first access");
       }
