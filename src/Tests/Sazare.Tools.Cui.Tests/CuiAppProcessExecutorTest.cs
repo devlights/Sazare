@@ -10,13 +10,13 @@
     [TestInitialize]
     public void Initialize()
     {
-      Output.SetOutputManager(new CuiOutputManager());
+      Output.OutputManager = new CuiOutputManager();
     }
 
     [TestCleanup]
     public void Cleanup()
     {
-      Output.SetOutputManager(null);
+      Output.OutputManager = null;
     }
 
     /// <summary>
@@ -61,7 +61,7 @@
     {
       // Arrange
       var outputManager = new FirstLastRememberOutputManager();
-      Output.SetOutputManager(outputManager);
+      Output.OutputManager = outputManager;
 
       var executable = new ExecutableForUnitTest();
       var target = new CuiAppProcessExecutor();
