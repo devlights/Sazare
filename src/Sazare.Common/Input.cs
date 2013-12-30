@@ -41,7 +41,7 @@
     {
       if (InputManager == null)
       {
-        throw new InvalidOperationException("No InputManager was found. please call SetInputManager(IInputManager) before your first access");
+        throw new InvalidOperationException("No InputManager was found.");
       }
     }
   }

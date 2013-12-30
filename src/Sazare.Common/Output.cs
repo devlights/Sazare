@@ -63,7 +63,7 @@
     {
       if (OutputManager == null)
       {
-        throw new InvalidOperationException("No OutputManager was found. please call SetOutputManager(IOutputManager) before your first access");
+        throw new InvalidOperationException("No OutputManager was found. ");
       }
     }
   }
