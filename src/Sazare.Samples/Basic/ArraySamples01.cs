@@ -40,9 +40,9 @@
       // IsFixedSize, IsReadOnlyは、IListを実装しているため
       // 存在しているプロパティです。配列の場合、これらの値は
       // 常にtrue, falseを返します。
-      Console.WriteLine("IsFixedSize = {0}", ary.IsFixedSize);
-      Console.WriteLine("IsReadOnly  = {0}", ary.IsReadOnly);
-      Console.WriteLine("Length      = {0}", ary.Length);
+      Output.WriteLine("IsFixedSize = {0}", ary.IsFixedSize);
+      Output.WriteLine("IsReadOnly  = {0}", ary.IsReadOnly);
+      Output.WriteLine("Length      = {0}", ary.Length);
 
       ///////////////////////////////////////////////////////
       //
@@ -70,10 +70,7 @@
       //      void xxxxx(T obj)
       // です。   
       //
-      Array.ForEach(ary, delegate(string element)
-      {
-        Console.WriteLine(element);
-      });
+      Array.ForEach(ary, element => Output.WriteLine(element));
 
       //
       // Find/FindAllメソッド
@@ -96,7 +93,7 @@
           ary, 
           element => (int.Parse(element) % 2) != 0
         ), 
-        element => Console.WriteLine(element));
+        element => Output.WriteLine(element));
 
       //
       // ConvertAllメソッド
@@ -117,7 +114,7 @@
           ary, 
           element => int.Parse(element)
         ), 
-        element => Console.WriteLine("Type={0}, Value={1}", element.GetType().FullName, element)
+        element => Output.WriteLine("Type={0}, Value={1}", element.GetType().FullName, element)
       );
 
       //
@@ -149,7 +146,7 @@
       //
       ary = new string[] { "100", null, "300" };
 
-      Console.WriteLine(
+      Output.WriteLine(
           "配列の要素の内ひとつでもnullが存在するか？：{0}",
           Array.Exists(
             ary, 
@@ -169,14 +166,14 @@
       //
       ary = new string[] { "1000", "2000", "3000" };
 
-      Console.WriteLine("現在の配列のサイズ：{0}", ary.Length);
-      Array.ForEach(ary, v => Console.WriteLine(v));
+      Output.WriteLine("現在の配列のサイズ：{0}", ary.Length);
+      Array.ForEach(ary, v => Output.WriteLine(v));
       Array.Resize(ref ary, ary.Length + 10);
-      Console.WriteLine("リサイズ後の配列のサイズ：{0}", ary.Length);
-      Array.ForEach(ary, v => Console.WriteLine(v));
+      Output.WriteLine("リサイズ後の配列のサイズ：{0}", ary.Length);
+      Array.ForEach(ary, v => Output.WriteLine(v));
       Array.Resize(ref ary, 1);
-      Console.WriteLine("リサイズ後の配列のサイズ：{0}", ary.Length);
-      Array.ForEach(ary, v => Console.WriteLine(v));
+      Output.WriteLine("リサイズ後の配列のサイズ：{0}", ary.Length);
+      Array.ForEach(ary, v => Output.WriteLine(v));
 
       //
       // 配列をリストとして扱う.
@@ -184,7 +181,7 @@
       //
       foreach (string v in (new string[] { "gsf_zero1", "gsf_zero2", "gsf_zero3" } as IList<string>))
       {
-        Console.WriteLine(v);
+        Output.WriteLine(v);
       }
     }
   }
