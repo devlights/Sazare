@@ -34,6 +34,11 @@
             Output.Write("\nENTER CLASS NAME: ");
 
             var userInput = Input.ReadLine().ToString();
+            if (string.IsNullOrWhiteSpace(userInput))
+            {
+              continue;
+            }
+
             if (userInput.ToLower() == EXIT_PHASE)
             {
               break;
