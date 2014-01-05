@@ -86,6 +86,7 @@
     <Compile Include="Basic\CallerInformationSamples01.cs" />
     <Compile Include="Basic\CallerInformationSamples02.cs" />
     <Compile Include="Basic\DebugSamples01.cs" />
+    <Compile Include="Basic\InterfaceSamples01.cs" />
     <Compile Include="IO\XamlWriterSamples01.cs" />
     <Compile Include="Basic\DateParseSample01.cs" />
     <Compile Include="Basic\LazyInitializerSamples01.cs" />
