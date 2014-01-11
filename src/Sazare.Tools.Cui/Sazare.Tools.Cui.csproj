@@ -51,6 +51,8 @@
     <Compile Include="CuiOutputManager.cs" />
     <Compile Include="CuiTypeFindCommand.cs" />
     <Compile Include="CuiTypeFinder.cs" />
+    <Compile Include="EmptyInputValidator.cs" />
+    <Compile Include="ExitPhaseValidator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

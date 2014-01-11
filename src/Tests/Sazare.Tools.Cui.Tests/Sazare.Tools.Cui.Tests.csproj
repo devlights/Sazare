@@ -61,6 +61,8 @@
     <Compile Include="CuiAppProcessTest.cs" />
     <Compile Include="CuiAppProcessExecutorTest.cs" />
     <Compile Include="CuiInputManagerTest.cs" />
+    <Compile Include="EmptyInputValidatorTest.cs" />
+    <Compile Include="ExitPhaseValidatorTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\Sazare.Common\Sazare.Common.csproj">

@@ -10,7 +10,6 @@
 
   class Program
   {
-    const           string EXIT_PHASE = "exit";
     static readonly Type   DummyType;
     static          string ClassName;
 
@@ -24,8 +23,11 @@
     {
       try
       {
-        Input.InputManager = new CuiInputManager();
+        Input.InputManager   = new CuiInputManager();
         Output.OutputManager = new CuiOutputManager();
+
+        var emptyValidator = new EmptyInputValidator();
+        var exitValidator  = new ExitPhaseValidator();
 
         for (;;)
         {
@@ -34,12 +36,12 @@
             Output.Write("\nENTER CLASS NAME: ");
 
             var userInput = Input.ReadLine().ToString();
-            if (string.IsNullOrWhiteSpace(userInput))
+            if (emptyValidator.Validate(userInput))
             {
               continue;
             }
 
-            if (userInput.ToLower() == EXIT_PHASE)
+            if (exitValidator.Validate(userInput))
             {
               break;
             }
