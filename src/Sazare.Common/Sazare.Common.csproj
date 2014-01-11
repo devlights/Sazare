@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="IExecutable.cs" />
     <Compile Include="IExecutor.cs" />
+    <Compile Include="IHasDefence.cs" />
     <Compile Include="IHasValidation.cs" />
     <Compile Include="IInputManager.cs" />
     <Compile Include="Input.cs" />
