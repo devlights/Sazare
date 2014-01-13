@@ -6,6 +6,9 @@
 
   using Sazare.Common;
 
+  /// <summary>
+  /// 実行を担当するクラスです。
+  /// </summary>
   public class CuiAppProcessExecutor : IExecutor
   {
     public string StartLogMessage { get; set; }
