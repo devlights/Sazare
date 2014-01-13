@@ -54,6 +54,8 @@
       //
       tokenSource.CancelAfter(TimeSpan.FromSeconds(3));
       task.Wait();
+
+      tokenSource.Dispose();
     }
   }
 }
