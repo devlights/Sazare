@@ -40,6 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IAsyncExecutable.cs" />
     <Compile Include="IExecutable.cs" />
     <Compile Include="IExecutor.cs" />
     <Compile Include="IHasDefence.cs" />
