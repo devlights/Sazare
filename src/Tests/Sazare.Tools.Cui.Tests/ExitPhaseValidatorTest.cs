@@ -29,6 +29,17 @@ namespace Sazare.Tools.Cui
     }
 
     [TestMethod]
+    public void 終了を示す文字列を判定できる_quit()
+    {
+      // Arrange
+      var sut = new ExitPhaseValidator();
+
+      // Act
+      // Assert
+      Assert.IsTrue(sut.Validate("quit"));
+    }
+
+    [TestMethod]
     public void 終了を示す文字列を判定できる_終了文字以外()
     {
       // Arrange
