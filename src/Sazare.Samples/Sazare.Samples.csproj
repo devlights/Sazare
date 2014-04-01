@@ -108,6 +108,7 @@
     <Compile Include="SampleAttribute.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples05.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples06.cs" />
+    <Compile Include="TaskParallelLibrary\TaskSamples07.cs" />
     <Compile Include="Threading\CallContextSamples01.cs" />
     <Compile Include="Helpers\CompareResultHelper.cs" />
     <Compile Include="IO\ImageConverterSamples01.cs" />
