@@ -17,7 +17,7 @@
       //
       var notifyObj = new NotityPropertyChangedImpl();
 
-      notifyObj.PropertyChanged += (s, e) => { Console.WriteLine("[{0}] changed to [{1}]", e.PropertyName, (s as dynamic).Name); };
+      notifyObj.PropertyChanged += (s, e) => { Output.WriteLine("[{0}] changed to [{1}]", e.PropertyName, (s as dynamic).Name); };
 
       notifyObj.Name = "hello world";
       notifyObj.Name = "goobye world";

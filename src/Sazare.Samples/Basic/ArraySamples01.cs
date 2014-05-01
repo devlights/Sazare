@@ -127,7 +127,7 @@
       //
       // デリゲートの書式は、FindAllの場合と同じです。
       //
-      Console.WriteLine(
+      Output.WriteLine(
           "配列の要素全てがnullではない値であるか？：{0}",
           Array.TrueForAll(
             ary, 

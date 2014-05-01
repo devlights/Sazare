@@ -30,7 +30,7 @@ namespace Sazare.Samples
       new Thread(ModifyCollection).Start();
 
       Output.WriteLine("Press any key to exit...");
-      Console.ReadLine();
+      Input.ReadLine();
     }
 
     void EnumerateCollection()
