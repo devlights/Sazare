@@ -43,12 +43,12 @@
       //
       for (var i = 0; i < segment1.Count; i++)
       {
-        Console.WriteLine(segment1.Array[segment1.Offset + i]);
+        Output.WriteLine(segment1.Array[segment1.Offset + i]);
       }
 
       for (var i = segment2.Offset; i < (segment2.Offset + segment2.Count); i++)
       {
-        Console.WriteLine(segment2.Array[i]);
+        Output.WriteLine(segment2.Array[i]);
       }
 
       //
@@ -57,7 +57,7 @@
       //
       foreach (var item in segment1.Zip(segment2, (x, y) => new { x, y }))
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
 
       //
@@ -74,7 +74,7 @@
 
       foreach (var item in originalArray)
       {
-        Console.WriteLine(item);
+        Output.WriteLine(item);
       }
     }
   }
