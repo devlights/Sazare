@@ -8,11 +8,11 @@
   using Sazare.Common;
 
   /// <summary>
-  /// System.ArraySegmentクラスについてのサンプルです。
+  /// System.ArraySegment構造体についてのサンプルです。
   /// </summary>
   /// <remarks>
-  /// ArraySegmentクラスは、.NET 4.0と.NET 4.5以降で
-  /// 実装が異なります。.NET 4.5より、このクラスはコレクションインターフェースを
+  /// ArraySegment構造体は、.NET 4.0と.NET 4.5以降で
+  /// 実装が異なります。.NET 4.5より、この構造体はコレクションインターフェースを
   /// 実装するように変更されています。
   /// </remarks>
   [Sample]
@@ -21,15 +21,15 @@
     public void Execute()
     {
       //
-      // System.ArraySegmentは、配列の一部分の参照を保持するクラスである。
-      // このクラスを利用すると部分配列を手軽に利用できる。
+      // System.ArraySegmentは、配列の一部分の参照を保持する構造体である。
+      // この構造体を利用すると部分配列を手軽に利用できる。
       // (例えば、とある配列の5番目から5つ分など）
       // 
-      // System.ArraySegmentクラスは、.NET 4.0までと.NET 4.5以降で
-      // 実装がかなり異なる。.NET 4.0まで、このクラスはコレクションインターフェースを
+      // System.ArraySegment構造体は、.NET 4.0までと.NET 4.5以降で
+      // 実装がかなり異なる。.NET 4.0まで、この型はコレクションインターフェースを
       // 一切実装していなかった。そのため、forでループさせる際にOffsetとCountプロパティ
       // を利用して要素を取得する必要があった。
-      // .NET 4.5から、このクラスはIListやICollectionやIEnumerableなどを実装する
+      // .NET 4.5から、この型はIListやICollectionやIEnumerableなどを実装する
       // ようになったので、foreachなどで手軽にループすることが出来るようになっている。
       // 
       var originalArray = Enumerable.Range(1, 10).ToArray();
