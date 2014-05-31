@@ -117,5 +117,13 @@
 
       Last = data;
     }
+
+    public System.IO.Stream OutStream
+    {
+      get
+      {
+        throw new NotImplementedException();
+      }
+    }
   }
 }

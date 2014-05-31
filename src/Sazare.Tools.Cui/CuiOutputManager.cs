@@ -2,6 +2,7 @@
 {
   using System;
   using System.Collections.Generic;
+  using System.IO;
   using System.Linq;
 
   using Sazare.Common;
@@ -27,6 +28,17 @@
     public void WriteLine(object data)
     {
       Console.WriteLine(data);
+    }
+
+    /// <summary>
+    /// 出力ストリーム
+    /// </summary>
+    public Stream OutStream
+    {
+      get
+      {
+        return Console.OpenStandardOutput();
+      }
     }
   }
 }

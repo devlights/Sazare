@@ -76,5 +76,13 @@
       Debug.WriteLine(data, "Log-Category");
       Debug.WriteLineIf(output, String.Format("[条件付き]{0}", data));
     }
+
+    public System.IO.Stream OutStream
+    {
+      get
+      {
+        throw new NotImplementedException();
+      }
+    }
   }
 }

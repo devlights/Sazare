@@ -164,6 +164,14 @@
     public void WriteLine(object data)
     {
     }
+
+    public Stream OutStream
+    {
+      get
+      {
+        throw new NotImplementedException();
+      }
+    }
   }
 
   class StringWriterOutputManager : IOutputManager
@@ -183,6 +191,14 @@
     public void WriteLine(object data)
     {
       _writer.WriteLine(data);
+    }
+
+    public Stream OutStream
+    {
+      get
+      {
+        throw new NotImplementedException();
+      }
     }
   }
 }
