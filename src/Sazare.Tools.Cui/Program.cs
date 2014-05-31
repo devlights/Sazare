@@ -63,7 +63,7 @@
           }
           catch (Exception ex)
           {
-            Output.WriteLine(ex.Message);
+            Output.WriteLine(ex.ToString());
           }
         }
       }
