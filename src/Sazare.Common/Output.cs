@@ -2,6 +2,7 @@
 {
   using System;
   using System.Collections.Generic;
+  using System.IO;
   using System.Linq;
 
   /// <summary>
@@ -13,6 +14,17 @@
     /// 出力管理オブジェクトを取得・設定します。
     /// </summary>
     public static IOutputManager OutputManager { get; set; }
+
+    /// <summary>
+    /// 出力ストリーム
+    /// </summary>
+    public static Stream OutStream
+    {
+      get
+      {
+        return OutputManager.OutStream;
+      }
+    }
 
     /// <summary>
     /// 指定されたデータを出力します。（改行付与無し）
