@@ -89,6 +89,7 @@
     <Compile Include="Basic\DebugSamples01.cs" />
     <Compile Include="Basic\DynamicObjectSamples01.cs" />
     <Compile Include="Basic\InterfaceSamples01.cs" />
+    <Compile Include="Collections\Concurrent\BlockingCollectionSamples01.cs" />
     <Compile Include="IO\XamlWriterSamples01.cs" />
     <Compile Include="Basic\DateParseSample01.cs" />
     <Compile Include="Basic\LazyInitializerSamples01.cs" />
