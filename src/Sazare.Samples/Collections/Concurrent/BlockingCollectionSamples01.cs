@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Sazare.Common;
 
-namespace Sazare.Samples.Collections.Concurrent
+namespace Sazare.Samples
 {
   /// <summary>
   /// System.Collections.Concurrent.BlockingCollectionクラスのサンプルです。
