@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -61,15 +61,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sazare.Common\Sazare.Common.csproj">
-      <Project>{2ac66045-c692-467b-82a5-e4ae929fa91b}</Project>
+      <Project>{2AC66045-C692-467B-82A5-E4AE929FA91B}</Project>
       <Name>Sazare.Common</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sazare.Samples\Sazare.Samples.csproj">
-      <Project>{cd0ad184-8d11-41d8-99e5-483d2a8e5a28}</Project>
+      <Project>{CD0AD184-8D11-41D8-99E5-483D2A8E5A28}</Project>
       <Name>Sazare.Samples</Name>
     </ProjectReference>
     <ProjectReference Include="..\Sazare.Tools.Common\Sazare.Tools.Common.csproj">
-      <Project>{0e21411a-99e8-4670-a08b-dabf834c1838}</Project>
+      <Project>{0E21411A-99E8-4670-A08B-DABF834C1838}</Project>
       <Name>Sazare.Tools.Common</Name>
     </ProjectReference>
   </ItemGroup>
