@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" DefaultTargets="Build">
   <!--
     共通プロパティ定義のインポート1
   -->
@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Sazare.Samples</RootNamespace>
     <AssemblyName>Sazare.Samples</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />
   </PropertyGroup>
@@ -56,12 +56,8 @@
     <Reference Include="System.ServiceModel" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
-    <Reference Include="PresentationCore" />
-    <Reference Include="PresentationFramework" />
-    <Reference Include="WindowsBase" />
     <!-- Microsoft.CSharp.dllは動的オブジェクトを利用する際に必要となる。 -->
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.VisualBasic" />
@@ -77,7 +73,6 @@
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
-    <Compile Include="Advanced\AppDomainSamples01.cs" />
     <Compile Include="Advanced\AppDomainSamples02.cs" />
     <Compile Include="Advanced\AppDomainSamples03.cs" />
     <Compile Include="Advanced\AppDomainSamples04.cs" />
@@ -89,7 +84,6 @@
     <Compile Include="Basic\DebugSamples01.cs" />
     <Compile Include="Basic\DynamicObjectSamples01.cs" />
     <Compile Include="Basic\InterfaceSamples01.cs" />
-    <Compile Include="IO\XamlWriterSamples01.cs" />
     <Compile Include="Basic\DateParseSample01.cs" />
     <Compile Include="Basic\LazyInitializerSamples01.cs" />
     <Compile Include="Basic\LazySamples01.cs" />
@@ -97,16 +91,11 @@
     <Compile Include="Basic\CompareOptionsSamples02.cs" />
     <Compile Include="Basic\IEquatableSamples01.cs" />
     <Compile Include="Basic\EqualityComparerSamples01.cs" />
-    <Compile Include="Advanced\ProgressSamples01.cs" />
-    <Compile Include="Advanced\ProgressSamples02.cs" />
-    <Compile Include="Advanced\ProgressSamples03.cs" />
     <Compile Include="Advanced\ListForEachDiffSamples01.cs" />
     <Compile Include="Advanced\DisposableSamples01.cs" />
-    <Compile Include="Advanced\MulticoreJITSamples01.cs" />
     <Compile Include="Dummy.cs" />
     <Compile Include="Linq\LinqSamples87.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleAttribute.cs" />
     <Compile Include="Serialization\XmlSerializerSamples01.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples05.cs" />
     <Compile Include="TaskParallelLibrary\TaskSamples06.cs" />
@@ -322,7 +311,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Sazare.Common\Sazare.Common.csproj">
-      <Project>{2ac66045-c692-467b-82a5-e4ae929fa91b}</Project>
+      <Project>{2AC66045-C692-467B-82A5-E4AE929FA91B}</Project>
       <Name>Sazare.Common</Name>
     </ProjectReference>
   </ItemGroup>
