@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Advanced\AppDomainSamples01.cs" />
+    <Compile Include="Advanced\MulticoreJITSamples01.cs" />
     <Compile Include="Advanced\ProgressSamples01.cs" />
     <Compile Include="Advanced\ProgressSamples02.cs" />
     <Compile Include="Advanced\ProgressSamples03.cs" />
