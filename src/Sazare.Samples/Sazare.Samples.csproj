@@ -73,7 +73,6 @@
     <Compile Include="AdoNet\DataTableSamples03.cs" />
     <Compile Include="AdoNet\DataTableSortSamples01.cs" />
     <Compile Include="AdoNet\DbCommandTimeoutSample01.cs" />
-    <Compile Include="Advanced\AppDomainSamples01.cs" />
     <Compile Include="Advanced\AppDomainSamples02.cs" />
     <Compile Include="Advanced\AppDomainSamples03.cs" />
     <Compile Include="Advanced\AppDomainSamples04.cs" />
