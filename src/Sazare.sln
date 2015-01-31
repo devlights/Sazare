@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sazare.Common", "Sazare.Com
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sazare.Common.Tests", "Tests\Sazare.Common.Tests\Sazare.Common.Tests.csproj", "{90735692-4696-43BF-B4C1-AC63A5497906}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sazare.Samples.Win", "Sazare.Samples.Win\Sazare.Samples.Win.csproj", "{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -111,6 +113,16 @@ Global
 		{90735692-4696-43BF-B4C1-AC63A5497906}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{90735692-4696-43BF-B4C1-AC63A5497906}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{90735692-4696-43BF-B4C1-AC63A5497906}.Release|x86.ActiveCfg = Release|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

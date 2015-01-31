@@ -1,17 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{2AC66045-C692-467B-82A5-E4AE929FA91B}</ProjectGuid>
+    <ProjectGuid>{43CEF859-8BB7-4BFD-8BA0-13B19CCA7672}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Sazare.Common</RootNamespace>
-    <AssemblyName>Sazare.Common</AssemblyName>
+    <RootNamespace>Sazare.Samples.Win</RootNamespace>
+    <AssemblyName>Sazare.Samples.Win</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -31,26 +30,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="IAsyncExecutable.cs" />
-    <Compile Include="IExecutable.cs" />
-    <Compile Include="IExecutor.cs" />
-    <Compile Include="IHasDefence.cs" />
-    <Compile Include="IHasValidation.cs" />
-    <Compile Include="IInputManager.cs" />
-    <Compile Include="Input.cs" />
-    <Compile Include="IOutputManager.cs" />
-    <Compile Include="Output.cs" />
+    <Compile Include="Advanced\ProgressSamples01.cs" />
+    <Compile Include="Advanced\ProgressSamples02.cs" />
+    <Compile Include="Advanced\ProgressSamples03.cs" />
+    <Compile Include="IO\XamlWriterSamples01.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SampleAttribute.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Sazare.Common\Sazare.Common.csproj">
+      <Project>{2ac66045-c692-467b-82a5-e4ae929fa91b}</Project>
+      <Name>Sazare.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
