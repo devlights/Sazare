@@ -14,6 +14,6 @@
     /// 処理を実行します。
     /// </summary>
     /// <returns>タスク</returns>
-    Task Execute();
+    new Task Execute();
   }
 }
