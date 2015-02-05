@@ -5,6 +5,8 @@ namespace Sazare.Samples
   using System.Linq;
 
   using Sazare.Common;
+
+  #pragma warning disable 414
   
   #region LinqSamples-08
   /// <summary>

@@ -114,6 +114,7 @@ namespace Sazare.Samples
       Type underlyingType = Enum.GetUnderlyingType(enumType);
 
       Output.WriteLine(enumType.Name);
+      Output.WriteLine(underlyingType.Name);
 
       //
       // GetValuesメソッド

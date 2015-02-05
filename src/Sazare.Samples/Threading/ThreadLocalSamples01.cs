@@ -55,7 +55,6 @@ namespace Sazare.Samples
       {
         for (var i = 0; i < numberOfParallels; i++)
         {
-          int tmp = i;
           new Thread(() => { Output.WriteLine("ThreadStatic [count]>>> {0}", count++); countdown.Signal(); }).Start();
         }
 
@@ -85,7 +84,6 @@ namespace Sazare.Samples
       {
         for (var i = 0; i < numberOfParallels; i++)
         {
-          int tmp = i;
           new Thread(() => { Output.WriteLine("ThreadStatic [count3]>>> {0}", count3++); countdown.Signal(); }).Start();
         }
 

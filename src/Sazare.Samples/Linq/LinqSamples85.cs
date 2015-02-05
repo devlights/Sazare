@@ -49,7 +49,7 @@ namespace Sazare.Samples
       //
       // 普通にXElementを利用して変換処理.
       //
-      var result = ConvertXml(root);
+      ConvertXml(root);
 
       Output.WriteLine("3:{0}", GC.GetTotalMemory(true));
 

@@ -21,6 +21,7 @@ namespace Sazare.Samples
       {
         // ERROR.
         int i2 = int.Parse(s);
+        Output.WriteLine(i2);
       }
       catch (FormatException ex)
       {

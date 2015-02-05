@@ -38,9 +38,9 @@ namespace Sazare.Samples
       //
       using (var manager = new DisposableManager())
       {
-        var d1 = manager.Add(new Disposable1());
-        var d2 = manager.Add(new Disposable2());
-        var d3 = manager.Add(new Disposable3());
+        manager.Add(new Disposable1());
+        manager.Add(new Disposable2());
+        manager.Add(new Disposable3());
 
         Output.WriteLine("Dispose Start..");
       }

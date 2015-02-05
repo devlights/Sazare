@@ -33,8 +33,7 @@ namespace Sazare.Samples
         }
       };
 
-      IAsyncResult asyncResult = invoker.BeginInvoke(
-        (ar) =>
+      invoker.BeginInvoke((ar) =>
         {
           MethodInvoker caller = ar.AsyncState as MethodInvoker;
           caller.EndInvoke(ar);

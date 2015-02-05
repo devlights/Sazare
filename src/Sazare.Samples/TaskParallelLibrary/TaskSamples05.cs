@@ -8,6 +8,8 @@
 
   using Sazare.Common;
 
+  #pragma warning disable 4014
+
   /// <summary>
   /// タスク並列ライブラリについてのサンプルです。
   /// </summary>

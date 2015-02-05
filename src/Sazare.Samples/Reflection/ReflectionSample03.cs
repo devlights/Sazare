@@ -43,7 +43,7 @@ namespace Sazare.Samples
       Stopwatch watch = Stopwatch.StartNew();
       for (int i = 0; i < 3000000; i++)
       {
-        string result = mi.Invoke("test", null) as string;
+        mi.Invoke("test", null);
       }
       watch.Stop();
 
@@ -57,7 +57,7 @@ namespace Sazare.Samples
       watch.Start();
       for (int i = 0; i < 3000000; i++)
       {
-        string result = s2s("test");
+        s2s("test");
       }
       watch.Stop();
 
@@ -70,7 +70,7 @@ namespace Sazare.Samples
       watch.Start();
       for (int i = 0; i < 3000000; i++)
       {
-        string result = "test".Trim();
+        "test".Trim();
       }
       watch.Stop();
 
