@@ -23,8 +23,6 @@ namespace Sazare.Samples
       // 1列目の情報をint型で取得.
       // 2列目の情報をstring型で取得.
       //
-      int val1 = table.Rows[0].Field<int>("COL-1");
-      string val2 = table.Rows[0].Field<string>("COL-2");
       PrintTable("Before:", table);
 
       //

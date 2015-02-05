@@ -6,7 +6,9 @@ namespace Sazare.Samples
   using System.Linq;
 
   using Sazare.Common;
-  
+
+  #pragma warning disable 414
+
   #region EventSettingSamples-01
   /// <summary>
   /// 手動でイベントを制御する方法に関してのサンプルです。(EventHandlerList)

@@ -43,7 +43,7 @@ namespace Sazare.Samples
       CancellationTokenSource tokenSource = new CancellationTokenSource();
       CancellationToken token = tokenSource.Token;
 
-      Task task = Task.Factory.StartNew(DoProc, mres);
+      Task.Factory.StartNew(DoProc, mres);
 
       //
       // キャンセル状態に設定.

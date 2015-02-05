@@ -24,6 +24,7 @@ namespace Sazare.Samples
 
       IAsyncResult result = func.BeginInvoke(DateTime.Now, CallbackMethod, _are);
       _are.WaitOne();
+      func.EndInvoke(result);
     }
 
     string CallerMethod(DateTime d)

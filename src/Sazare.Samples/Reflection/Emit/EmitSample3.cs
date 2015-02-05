@@ -62,7 +62,7 @@ namespace Sazare.Samples
       AddAttribute(typeBuilder, typeof(CreatorAttribute), new Type[] { typeof(string) }, new object[] { "gsf.zero1" });
 
       Type type = typeBuilder.CreateType();
-      object obj = Activator.CreateInstance(type);
+      Activator.CreateInstance(type);
 
       object[] attrs = type.GetCustomAttributes(true);
       if (attrs.Length > 0)
