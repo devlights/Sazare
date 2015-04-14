@@ -113,9 +113,14 @@
       if (First == null)
       {
         First = data;
+        return;
       }
 
-      Last = data;
+      if (Last == null)
+      {
+        Last = data;
+        return;
+      }
     }
 
     public System.IO.Stream OutStream
