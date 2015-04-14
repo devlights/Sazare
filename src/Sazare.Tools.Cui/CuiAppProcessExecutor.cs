@@ -2,7 +2,10 @@
 {
   using System;
   using System.Collections.Generic;
+  using System.Diagnostics;
   using System.Linq;
+  using System.Threading;
+  using System.Threading.Tasks;
 
   using Sazare.Common;
 
@@ -27,9 +30,32 @@
         throw new ArgumentNullException("target");
       }
 
-      Output.WriteLine(StartLogMessage);
-      target.Execute();
-      Output.WriteLine(EndLogMessage);
+      using (new TimeTracer())
+      {
+        Output.WriteLine(StartLogMessage);
+        target.Execute();
+        Output.WriteLine(EndLogMessage);        
+      }
     }
+  }
+
+  internal class TimeTracer : IDisposable
+  {
+    private readonly Stopwatch _watch;
+
+    public TimeTracer()
+    {
+      _watch = Stopwatch.StartNew();
+    }
+
+    #region IDisposable メンバー
+
+    public void Dispose()
+    {
+      _watch.Stop();
+      Output.WriteLine("処理時間： {0}", _watch.Elapsed);
+    }
+
+    #endregion
   }
 }
