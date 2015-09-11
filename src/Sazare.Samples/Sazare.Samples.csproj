@@ -79,6 +79,7 @@
     <Compile Include="Advanced\AssemblySamples01.cs" />
     <Compile Include="Basic\ArraySamples01.cs" />
     <Compile Include="Basic\ArraySegmentSamples01.cs" />
+    <Compile Include="Basic\BitConverterSamples02.cs" />
     <Compile Include="Basic\BufferSamples01.cs" />
     <Compile Include="Basic\CallerInformationSamples01.cs" />
     <Compile Include="Basic\CallerInformationSamples02.cs" />
