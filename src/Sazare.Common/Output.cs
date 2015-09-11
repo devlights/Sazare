@@ -48,6 +48,14 @@
     }
 
     /// <summary>
+    /// 空行を出力します。
+    /// </summary>
+    public static void WriteLine()
+    {
+      WriteLine(string.Empty);
+    }
+
+    /// <summary>
     /// 指定されたデータを出力します。（改行付与有り）
     /// </summary>
     /// <param name="data">データ</param>
@@ -58,7 +66,7 @@
     }
 
     /// <summary>
-    /// 指定されたデータを出力います。（改行付与有り）
+    /// 指定されたデータを出力します。（改行付与有り）
     /// </summary>
     /// <param name="format">フォーマット</param>
     /// <param name="arg">フォーマット引数</param>
