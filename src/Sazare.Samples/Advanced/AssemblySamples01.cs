@@ -1,21 +1,17 @@
-﻿namespace Sazare.Samples
+﻿using System;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
+namespace Sazare.Samples
 {
-    using System;
-    using System.Collections.Generic;
-    using System.Linq;
-    using System.Text;
-    using System.Threading.Tasks;
-
-    using Sazare.Common;
-
     #region AssemblySamples-01
 
     /// <summary>
-    /// System.Reflection.Assemblyクラスのサンプルです。
+    ///     System.Reflection.Assemblyクラスのサンプルです。
     /// </summary>
     /// <remarks>
-    /// アセンブリのバージョンが自動採番されている場合に
-    /// ビルドされた日時を求める方法について記述しています。
+    ///     アセンブリのバージョンが自動採番されている場合に
+    ///     ビルドされた日時を求める方法について記述しています。
     /// </remarks>
     [Sample]
     public class AssemblySamples01 : IExecutable
@@ -63,11 +59,11 @@
             //   "既定のビルド番号は、日単位でインクリメントされます。 既定のリビジョン番号はランダムな値になります。"
             // と記載されており (上記ページの 2015/04/14 時点の内容から一部引用）、ちょっと異なる。
             //
-            var build    = ver.Build;
+            var build = ver.Build;
             var revision = ver.Revision;
             var baseDate = new DateTime(2000, 1, 1);
 
-            Output.WriteLine("ビルドされた日時：{0}", baseDate.AddDays(build).AddSeconds(revision * 2));
+            Output.WriteLine("ビルドされた日時：{0}", baseDate.AddDays(build).AddSeconds(revision*2));
 
             //
             // 出力結果は、以下のようになる。
@@ -78,5 +74,6 @@
             //
         }
     }
+
     #endregion
 }
