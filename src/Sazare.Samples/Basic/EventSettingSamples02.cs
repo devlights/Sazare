@@ -1,74 +1,63 @@
+using System;
+using System.ComponentModel;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.ComponentModel;
-  using System.Linq;
 
-  using Sazare.Common;
-  
-  #region EventSettingSamples-02
-  /// <summary>
-  /// 手動でイベントを制御する方法に関してのサンプルです。(EventHandlerList)
-  /// </summary>
-  [Sample]
-  public class EventSettingSamples02 : Sazare.Common.IExecutable
-  {
-    class Sample
+    #region EventSettingSamples-02
+
+    /// <summary>
+    ///     手動でイベントを制御する方法に関してのサンプルです。(EventHandlerList)
+    /// </summary>
+    [Sample]
+    public class EventSettingSamples02 : IExecutable
     {
-      object _eventTarget = new object();
-
-      public Sample()
-      {
-        Events = new EventHandlerList();
-      }
-
-      public EventHandlerList Events
-      {
-        get;
-        set;
-      }
-
-      public event EventHandler TestEvent
-      {
-        add
+        public void Execute()
         {
-          Output.WriteLine("add handler.");
-          Events.AddHandler(_eventTarget, value);
-        }
-        remove
-        {
-          Output.WriteLine("remove handler.");
-          Events.RemoveHandler(_eventTarget, value);
-        }
-      }
+            var obj = new Sample();
 
-      public void FireEvents()
-      {
-        EventHandler handler = Events[_eventTarget] as EventHandler;
+            EventHandler handler = (s, e) => { Output.WriteLine("event raised."); };
 
-        if (handler != null)
-        {
-          handler(this, EventArgs.Empty);
+            obj.TestEvent += handler;
+            obj.FireEvents();
+            obj.TestEvent -= handler;
+            obj.FireEvents();
         }
-      }
+
+        private class Sample
+        {
+            private readonly object _eventTarget = new object();
+
+            public Sample()
+            {
+                Events = new EventHandlerList();
+            }
+
+            public EventHandlerList Events { get; }
+
+            public event EventHandler TestEvent
+            {
+                add
+                {
+                    Output.WriteLine("add handler.");
+                    Events.AddHandler(_eventTarget, value);
+                }
+                remove
+                {
+                    Output.WriteLine("remove handler.");
+                    Events.RemoveHandler(_eventTarget, value);
+                }
+            }
+
+            public void FireEvents()
+            {
+                var handler = Events[_eventTarget] as EventHandler;
+                handler?.Invoke(this, EventArgs.Empty);
+            }
+        }
     }
 
-    public void Execute()
-    {
-      Sample obj = new Sample();
-
-      EventHandler handler = (s, e) =>
-      {
-        Output.WriteLine("event raised.");
-      };
-
-      obj.TestEvent += handler;
-      obj.FireEvents();
-      obj.TestEvent -= handler;
-      obj.FireEvents();
-
-    }
-  }
-  #endregion
+    #endregion
 }
