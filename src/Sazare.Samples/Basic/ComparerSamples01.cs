@@ -1,112 +1,113 @@
+using System;
+using System.Collections.Generic;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
+    #region ComparerSamples-01
 
-  using Sazare.Common;
-  
-  #region ComparerSamples-01
-  /// <summary>
-  /// Comparerについてのサンプルです。
-  /// </summary>
-  [Sample]
-  public class ComparerSamples01 : Sazare.Common.IExecutable
-  {
-    enum CompareResult : int
+    /// <summary>
+    ///     Comparerについてのサンプルです。
+    /// </summary>
+    [Sample]
+    public class ComparerSamples01 : IExecutable
     {
-      SMALL = -1,
-      EQUAL = 0,
-      BIG = 1
-    }
-
-    class Person
-    {
-      public int Id { get; set; }
-      public string Name { get; set; }
-
-      public override string ToString()
-      {
-        return string.Format("[ID={0}, NAME={1}]", Id, Name);
-      }
-    }
-
-    //
-    // Comparer<T>クラスは、抽象クラスとなっており。
-    // IComparerインターフェースとIComparer<T>インターフェースの両方を実装している。
-    //
-    // 実際に、実装する必要があるのは以下のメソッドだけである。
-    //   int Compare(T x, T y)
-    //
-    // IComparer.Compareメソッドについては、抽象クラス側にて明示的実装が行われている。
-    //
-    class PersonIdComparer : Comparer<Person>
-    {
-      public override int Compare(Person x, Person y)
-      {
-        if (object.Equals(x, y))
+        public void Execute()
         {
-          return (int)CompareResult.EQUAL;
+            //
+            // IComparerインターフェース及びIComparer<T>インターフェースは、ともに順序の比較をサポートするための
+            // インターフェースである。
+            //
+            // 同じ目的で利用されるインターフェースに、IComparableインターフェースが存在するが、違いは
+            // IComparableインターフェースが、対象となるクラス自身に実装する必要があるのに対して
+            // IComparerインターフェースは、個別に比較処理のみを実装したクラスを用意することにある。
+            //
+            // これにより、同じオブジェクトに対して、複数の比較方法を実装することが出来る。
+            // (ソート処理を行う際に、比較処理を担当するオブジェクトを選択することができるようになる。）
+            //
+            // List.SortやSortedListやSortedDictionaryがこれをサポートする。
+            //
+            var person1 = new Person {Id = 1, Name = "gsf_zero1"};
+            var person2 = new Person {Id = 2, Name = "gsf_zero2"};
+            var person3 = new Person {Id = 3, Name = "gsf_zero3"};
+            var person4 = new Person {Id = 4, Name = "gsf_zero1"};
+
+            var persons = new List<Person> {person3, person2, person4, person1};
+
+            // ソートせずにそのまま出力.
+            persons.ForEach(Output.WriteLine);
+
+            // Idで比較処理を行うComparerを指定してソート.
+            Output.WriteLine(string.Empty);
+            persons.Sort(new PersonIdComparer());
+            persons.ForEach(Output.WriteLine);
+
+            // NAMEで比較処理を行うComparerを指定してソート.
+            Output.WriteLine(string.Empty);
+            persons.Sort(new PersonNameComparer());
+            persons.ForEach(Output.WriteLine);
         }
 
-        int xId = x.Id;
-        int yId = y.Id;
-
-        return xId.CompareTo(yId);
-      }
-    }
-
-    class PersonNameComparer : Comparer<Person>
-    {
-      public override int Compare(Person x, Person y)
-      {
-        if (object.Equals(x, y))
+        private enum CompareResult
         {
-          return (int)CompareResult.EQUAL;
+            SMALL = -1,
+            EQUAL = 0,
+            BIG = 1
         }
 
-        string xName = x.Name;
-        string yName = y.Name;
+        private class Person
+        {
+            public int Id { get; set; }
+            public string Name { get; set; }
 
-        return xName.CompareTo(yName);
-      }
+            public override string ToString()
+            {
+                return string.Format("[ID={0}, NAME={1}]", Id, Name);
+            }
+        }
+
+        //
+        // Comparer<T>クラスは、抽象クラスとなっており。
+        // IComparerインターフェースとIComparer<T>インターフェースの両方を実装している。
+        //
+        // 実際に、実装する必要があるのは以下のメソッドだけである。
+        //   int Compare(T x, T y)
+        //
+        // IComparer.Compareメソッドについては、抽象クラス側にて明示的実装が行われている。
+        //
+        private class PersonIdComparer : Comparer<Person>
+        {
+            public override int Compare(Person x, Person y)
+            {
+                if (Equals(x, y))
+                {
+                    return (int) CompareResult.EQUAL;
+                }
+
+                var xId = x.Id;
+                var yId = y.Id;
+
+                return xId.CompareTo(yId);
+            }
+        }
+
+        private class PersonNameComparer : Comparer<Person>
+        {
+            public override int Compare(Person x, Person y)
+            {
+                if (Equals(x, y))
+                {
+                    return (int) CompareResult.EQUAL;
+                }
+
+                var xName = x?.Name;
+                var yName = y?.Name;
+
+                return string.Compare(xName, yName, StringComparison.Ordinal);
+            }
+        }
     }
 
-    public void Execute()
-    {
-      //
-      // IComparerインターフェース及びIComparer<T>インターフェースは、ともに順序の比較をサポートするための
-      // インターフェースである。
-      //
-      // 同じ目的で利用されるインターフェースに、IComparableインターフェースが存在するが、違いは
-      // IComparableインターフェースが、対象となるクラス自身に実装する必要があるのに対して
-      // IComparerインターフェースは、個別に比較処理のみを実装したクラスを用意することにある。
-      //
-      // これにより、同じオブジェクトに対して、複数の比較方法を実装することが出来る。
-      // (ソート処理を行う際に、比較処理を担当するオブジェクトを選択することができるようになる。）
-      //
-      // List.SortやSortedListやSortedDictionaryがこれをサポートする。
-      //
-      var person1 = new Person { Id = 1, Name = "gsf_zero1" };
-      var person2 = new Person { Id = 2, Name = "gsf_zero2" };
-      var person3 = new Person { Id = 3, Name = "gsf_zero3" };
-      var person4 = new Person { Id = 4, Name = "gsf_zero1" };
-
-      var persons = new List<Person> { person3, person2, person4, person1 };
-
-      // ソートせずにそのまま出力.
-      persons.ForEach(Output.WriteLine);
-
-      // Idで比較処理を行うComparerを指定してソート.
-      Output.WriteLine(string.Empty);
-      persons.Sort(new PersonIdComparer());
-      persons.ForEach(Output.WriteLine);
-
-      // NAMEで比較処理を行うComparerを指定してソート.
-      Output.WriteLine(string.Empty);
-      persons.Sort(new PersonNameComparer());
-      persons.ForEach(Output.WriteLine);
-    }
-  }
-  #endregion
+    #endregion
 }

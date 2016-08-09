@@ -1,29 +1,27 @@
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
+    #region CompileDirectiveSamples-01
 
-  using Sazare.Common;
-  
-  #region CompileDirectiveSamples-01
-  /// <summary>
-  /// コンパイルディレクティブのサンプル1です。
-  /// </summary>
-  [Sample]
-  public class CompileDirectiveSamples01 : Sazare.Common.IExecutable
-  {
-
-    public void Execute()
+    /// <summary>
+    ///     コンパイルディレクティブのサンプル1です。
+    /// </summary>
+    [Sample]
+    public class CompileDirectiveSamples01 : IExecutable
     {
-      Output.WriteLine("001:HELLO C#");
+        public void Execute()
+        {
+            Output.WriteLine("001:HELLO C#");
 
 #if(DEBUG)
-      Output.WriteLine("002:HELLO C# (DEBUG)");
+            Output.WriteLine("002:HELLO C# (DEBUG)");
 #else
         Output.WriteLine("003:HELLO C# (ELSE)");
 #endif
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }
