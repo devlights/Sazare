@@ -1,60 +1,60 @@
+// ReSharper disable CheckNamespace
+
+using System.Diagnostics;
+using System.Drawing;
+using Sazare.Common;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Diagnostics;
-  using System.Drawing;
-  using System.Linq;
+    using GDIImage = Image;
 
-  using GDIImage = System.Drawing.Image;
+    #region ImageConverterSamples-01
 
-  using Sazare.Common;
-  
-  #region ImageConverterSamples-01
-  /// <summary>
-  /// ImageConverterクラスのサンプルです。
-  /// </summary>
-  [Sample]
-  public class ImageConverterSamples01 : Sazare.Common.IExecutable
-  {
-    public void Execute()
+    /// <summary>
+    ///     ImageConverterクラスのサンプルです。
+    /// </summary>
+    [Sample]
+    public class ImageConverterSamples01 : IExecutable
     {
-      //
-      // Imageオブジェクトを取得.
-      //
-      GDIImage image = GDIImage.FromFile("resources/database.png");
+        public void Execute()
+        {
+            //
+            // Imageオブジェクトを取得.
+            //
+            var image = GDIImage.FromFile("resources/database.png");
 
-      //
-      // Imageをバイト配列に変換.
-      //   Imageから別のオブジェクトに変換する場合はConvertToを利用する.
-      //
-      ImageConverter converter = new ImageConverter();
-      byte[] imageBytes = (byte[])converter.ConvertTo(image, typeof(byte[]));
+            //
+            // Imageをバイト配列に変換.
+            //   Imageから別のオブジェクトに変換する場合はConvertToを利用する.
+            //
+            var converter = new ImageConverter();
+            var imageBytes = (byte[]) converter.ConvertTo(image, typeof(byte[]));
 
-      //
-      // バイト配列をImageに変換.
-      //   バイト配列からImageオブジェクトに変換する場合はConvertFromを利用する.
-      //
-      GDIImage image2 = (GDIImage)converter.ConvertFrom(imageBytes);
+            //
+            // バイト配列をImageに変換.
+            //   バイト配列からImageオブジェクトに変換する場合はConvertFromを利用する.
+            //
+            var image2 = (GDIImage) converter.ConvertFrom(imageBytes);
 
-      // 確認.
-      Debug.Assert(image != null);
-      Debug.Assert(imageBytes != null && imageBytes.Length > 0);
-      Debug.Assert(image2 != null);
+            // 確認.
+            Debug.Assert(image != null);
+            Debug.Assert((imageBytes != null) && (imageBytes.Length > 0));
+            Debug.Assert(image2 != null);
 
-      //
-      // [補足]
-      // Imageオブジェクトをファイルとして保存する場合は以下のようにする.
-      //
-      //string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
-      //string fileName    = @"Sample.png";
-      //string filePath    = Path.Combine(desktopPath, fileName);
-      //
-      //using (Stream stream = File.Create(filePath))
-      //{
-      //  image.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
-      //}
+            //
+            // [補足]
+            // Imageオブジェクトをファイルとして保存する場合は以下のようにする.
+            //
+            //string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.Desktop);
+            //string fileName    = @"Sample.png";
+            //string filePath    = Path.Combine(desktopPath, fileName);
+            //
+            //using (Stream stream = File.Create(filePath))
+            //{
+            //  image.Save(filePath, System.Drawing.Imaging.ImageFormat.Png);
+            //}
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }
