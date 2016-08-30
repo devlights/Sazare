@@ -3,6 +3,7 @@ using System.Collections;
 using System.Threading;
 using Sazare.Common;
 
+// ReSharper disable CheckNamespace
 namespace Sazare.Samples
 {
 

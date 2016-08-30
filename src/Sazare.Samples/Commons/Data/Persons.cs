@@ -1,10 +1,14 @@
+// ReSharper disable CheckNamespace
+
+using System.Collections.Generic;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
 
-  public class Persons : List<Person>
-  {
-  }
+    /// <summary>
+    /// <see cref="Person"/>‚ÌW‡‘Ì‚ğ•\‚µ‚Ü‚·B
+    /// </summary>
+    public class Persons : List<Person>
+    {
+    }
 }
