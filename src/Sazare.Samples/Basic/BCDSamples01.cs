@@ -1,93 +1,94 @@
+using System;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-
-  using Sazare.Common;
-  
-  #region BCDSamples-01
-  /// <summary>
-  /// BCD変換についてのサンプルです。
-  /// </summary>
-  [Sample]
-  public class BCDSamples01 : Sazare.Common.IExecutable
-  {
-    public void Execute()
-    {
-      int val1 = int.MaxValue;
-      long val2 = long.MaxValue;
-
-      byte[] bcdVal1 = BCDUtils.ToBCD(val1, 5);
-      byte[] bcdVal2 = BCDUtils.ToBCD(val2, 10);
-
-      Output.WriteLine("integer value = {0}", val1);
-      Output.WriteLine("BCD   value = {0}", BitConverter.ToString(bcdVal1));
-      Output.WriteLine("long  value = {0}", val2);
-      Output.WriteLine("BCD   value = {0}", BitConverter.ToString(bcdVal2));
-
-      int val3 = BCDUtils.ToInt(bcdVal1);
-      long val4 = BCDUtils.ToLong(bcdVal2);
-
-      Output.WriteLine("val1 == val3 = {0}", val1 == val3);
-      Output.WriteLine("val2 == val4 = {0}", val2 == val4);
-    }
+    #region BCDSamples-01
 
     /// <summary>
-    /// BCD変換を行うユーティリティクラスです。
+    ///     BCD変換についてのサンプルです。
     /// </summary>
-    public static class BCDUtils
+    [Sample]
+    // ReSharper disable once InconsistentNaming
+    public class BCDSamples01 : IExecutable
     {
-      public static int ToInt(byte[] bcd)
-      {
-        return Convert.ToInt32(ToLong(bcd));
-      }
-
-      public static long ToLong(byte[] bcd)
-      {
-        long result = 0;
-
-        foreach (byte b in bcd)
+        public void Execute()
         {
-          int digit1 = b >> 4;
-          int digit2 = b & 0x0f;
+            var val1 = int.MaxValue;
+            var val2 = long.MaxValue;
 
-          result = (result * 100) + (digit1 * 10) + digit2;
+            var bcdVal1 = BCDUtils.ToBCD(val1, 5);
+            var bcdVal2 = BCDUtils.ToBCD(val2, 10);
+
+            Output.WriteLine("integer value = {0}", val1);
+            Output.WriteLine("BCD   value = {0}", BitConverter.ToString(bcdVal1));
+            Output.WriteLine("long  value = {0}", val2);
+            Output.WriteLine("BCD   value = {0}", BitConverter.ToString(bcdVal2));
+
+            var val3 = BCDUtils.ToInt(bcdVal1);
+            var val4 = BCDUtils.ToLong(bcdVal2);
+
+            Output.WriteLine("val1 == val3 = {0}", val1 == val3);
+            Output.WriteLine("val2 == val4 = {0}", val2 == val4);
         }
 
-        return result;
-      }
-
-      public static byte[] ToBCD(int num, int byteCount)
-      {
-        return ToBCD<int>(num, byteCount);
-      }
-
-      public static byte[] ToBCD(long num, int byteCount)
-      {
-        return ToBCD<long>(num, byteCount);
-      }
-
-      private static byte[] ToBCD<T>(T num, int byteCount) where T : struct, IConvertible
-      {
-        long val = Convert.ToInt64(num);
-
-        byte[] bcdNumber = new byte[byteCount];
-        for (int i = 1; i <= byteCount; i++)
+        /// <summary>
+        ///     BCD変換を行うユーティリティクラスです。
+        /// </summary>
+        public static class BCDUtils
         {
-          long mod = val % 100;
+            public static int ToInt(byte[] bcd)
+            {
+                return Convert.ToInt32(ToLong(bcd));
+            }
 
-          long digit2 = mod % 10;
-          long digit1 = (mod - digit2) / 10;
+            public static long ToLong(byte[] bcd)
+            {
+                long result = 0;
 
-          bcdNumber[byteCount - i] = Convert.ToByte((digit1 * 16) + digit2);
+                foreach (var b in bcd)
+                {
+                    var digit1 = b >> 4;
+                    var digit2 = b & 0x0f;
 
-          val = (val - mod) / 100;
+                    result = result*100 + digit1*10 + digit2;
+                }
+
+                return result;
+            }
+
+            public static byte[] ToBCD(int num, int byteCount)
+            {
+                return ToBCD<int>(num, byteCount);
+            }
+
+            public static byte[] ToBCD(long num, int byteCount)
+            {
+                return ToBCD<long>(num, byteCount);
+            }
+
+            private static byte[] ToBCD<T>(T num, int byteCount) where T : struct, IConvertible
+            {
+                var val = Convert.ToInt64(num);
+
+                var bcdNumber = new byte[byteCount];
+                for (var i = 1; i <= byteCount; i++)
+                {
+                    var mod = val%100;
+
+                    var digit2 = mod%10;
+                    var digit1 = (mod - digit2)/10;
+
+                    bcdNumber[byteCount - i] = Convert.ToByte(digit1*16 + digit2);
+
+                    val = (val - mod)/100;
+                }
+
+                return bcdNumber;
+            }
         }
-
-        return bcdNumber;
-      }
     }
-  }
-  #endregion
+
+    #endregion
 }

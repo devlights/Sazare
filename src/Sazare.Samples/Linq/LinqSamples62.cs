@@ -1,80 +1,82 @@
+// ReSharper disable CheckNamespace
+
+using System.Linq;
+using System.Xml.Linq;
+using Sazare.Common;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Xml.Linq;
 
-  using Sazare.Common;
-  
-  #region LinqSamples-62
-  /// <summary>
-  /// LINQ to XMLのサンプルです.
-  /// </summary>
-  /// <remarks>
-  /// 要素削除系メソッドのサンプルです.
-  /// </remarks>
-  [Sample]
-  public class LinqSamples62 : Sazare.Common.IExecutable
-  {
-    public void Execute()
+    #region LinqSamples-62
+
+    /// <summary>
+    ///     LINQ to XMLのサンプルです.
+    /// </summary>
+    /// <remarks>
+    ///     要素削除系メソッドのサンプルです.
+    /// </remarks>
+    [Sample]
+    public class LinqSamples62 : IExecutable
     {
-      //
-      // Remove()
-      //   現在の要素をXMLツリーより削除する.
-      //
-      var root = BuildSampleXml();
-      var elem = root.Descendants("Value").First();
+        public void Execute()
+        {
+            //
+            // Remove()
+            //   現在の要素をXMLツリーより削除する.
+            //
+            var root = BuildSampleXml();
+            var elem = root.Descendants("Value").First();
 
-      elem.Remove();
+            elem.Remove();
 
-      Output.WriteLine(root);
-      Output.WriteLine("=====================================");
+            Output.WriteLine(root);
+            Output.WriteLine("=====================================");
 
-      //
-      // RemoveAll()
-      //   現在の要素から子ノード及び属性を削除する.
-      //   属性まで削除される点に注意。
-      //
-      root = BuildSampleXml();
-      elem = root.Elements("Child").First();
+            //
+            // RemoveAll()
+            //   現在の要素から子ノード及び属性を削除する.
+            //   属性まで削除される点に注意。
+            //
+            root = BuildSampleXml();
+            elem = root.Elements("Child").First();
 
-      elem.RemoveAll();
+            elem.RemoveAll();
 
-      Output.WriteLine(root);
-      Output.WriteLine("=====================================");
+            Output.WriteLine(root);
+            Output.WriteLine("=====================================");
 
-      //
-      // RemoveNodes()
-      //   現在の要素から子ノードを削除する
-      //   RemoveAllメソッドと違い、属性は削除されない
-      //
-      root = BuildSampleXml();
-      elem = root.Elements("Child").First();
+            //
+            // RemoveNodes()
+            //   現在の要素から子ノードを削除する
+            //   RemoveAllメソッドと違い、属性は削除されない
+            //
+            root = BuildSampleXml();
+            elem = root.Elements("Child").First();
 
-      elem.RemoveNodes();
+            elem.RemoveNodes();
 
-      Output.WriteLine(root);
-      Output.WriteLine("=====================================");
+            Output.WriteLine(root);
+            Output.WriteLine("=====================================");
 
-      //
-      // SetElementValue(XName, object)
-      //   本来は、子要素の値を設定するためのメソッドであるが
-      //   要素の値にnullを設定することで削除することが出来る
-      //
-      root = BuildSampleXml();
-      elem = root.Elements("Child").First();
+            //
+            // SetElementValue(XName, object)
+            //   本来は、子要素の値を設定するためのメソッドであるが
+            //   要素の値にnullを設定することで削除することが出来る
+            //
+            root = BuildSampleXml();
+            elem = root.Elements("Child").First();
 
-      elem.SetElementValue("Value", null);
+            elem.SetElementValue("Value", null);
 
-      Output.WriteLine(root);
-      Output.WriteLine("=====================================");
+            Output.WriteLine(root);
+            Output.WriteLine("=====================================");
+        }
+
+        private XElement BuildSampleXml()
+        {
+            return XElement.Parse("<Root><Child Id=\"100\"><Value>hoge</Value></Child></Root>");
+        }
     }
 
-    XElement BuildSampleXml()
-    {
-      return XElement.Parse("<Root><Child Id=\"100\"><Value>hoge</Value></Child></Root>");
-    }
-  }
-  #endregion
+    #endregion
 }

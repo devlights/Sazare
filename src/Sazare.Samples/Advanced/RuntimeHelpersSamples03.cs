@@ -1,74 +1,73 @@
+using System.Runtime.CompilerServices;
+using System.Runtime.ConstrainedExecution;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Runtime.CompilerServices;
-  using System.Runtime.ConstrainedExecution;
+    #region RuntimeHelpersSamples-03
 
-  using Sazare.Common;
-  
-  #region RuntimeHelpersSamples-03
-  /// <summary>
-  /// RuntimeHelpersクラスのサンプルです。
-  /// </summary>
-  [Sample]
-  public class RuntimeHelpersSamples03 : Sazare.Common.IExecutable
-  {
-    // サンプルクラス
-    static class SampleClass
+    /// <summary>
+    ///     RuntimeHelpersクラスのサンプルです。
+    /// </summary>
+    [Sample]
+    public class RuntimeHelpersSamples03 : IExecutable
     {
-      static SampleClass()
-      {
-        Output.WriteLine("SampleClass static ctor()");
-      }
+        public void Execute()
+        {
+            //
+            // ExecuteCodeWithGuaranteedCleanupメソッドは, PrepareConstrainedRegionsメソッドと
+            // 同様に、コードをCER（制約された実行環境）で実行するメソッドである。
+            //
+            // PrepareConstrainedRegionsメソッドが呼び出されたメソッドのcatch, finallyブロックを
+            // CERとしてマークするのに対して、ExecuteCodeWithGuaranteedCleanupメソッドは
+            // 明示的に実行コード部分とクリーンアップ部分 (バックアウトコード)を引数で渡す仕様となっている。
+            //
+            // ExecuteCodeWithGuaranteedCleanupメソッドは
+            // TryCodeデリゲートとCleanupCodeデリゲート、及び、userDataを受け取る.
+            //
+            // public delegate void TryCode(object userData)
+            // public delegate void CleanupCode(object userData, bool exceptionThrown)
+            //
+            // 前回のサンプルと同じ動作を行う.
+            RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(Calc, Cleanup, null);
+        }
 
-      //
-      // このメソッドに対して、CER内で利用できるよう信頼性のコントラクトを付与.
-      // ReliabilityContractAttributeおよびConsistencyやCerは
-      // System.Runtime.ConstrainedExecution名前空間に存在する.
-      //
-      [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
-      internal static void Print()
-      {
-        Output.WriteLine("SampleClass.Print()");
-      }
+        private void Calc(object userData)
+        {
+            for (var i = 0; i < 10; i++)
+            {
+                Output.Write("{0} ", i + 1);
+            }
+
+            Output.WriteLine("");
+        }
+
+        private void Cleanup(object userData, bool exceptionThrown)
+        {
+            SampleClass.Print();
+        }
+
+        // サンプルクラス
+        private static class SampleClass
+        {
+            static SampleClass()
+            {
+                Output.WriteLine("SampleClass static ctor()");
+            }
+
+            //
+            // このメソッドに対して、CER内で利用できるよう信頼性のコントラクトを付与.
+            // ReliabilityContractAttributeおよびConsistencyやCerは
+            // System.Runtime.ConstrainedExecution名前空間に存在する.
+            //
+            [ReliabilityContract(Consistency.WillNotCorruptState, Cer.Success)]
+            internal static void Print()
+            {
+                Output.WriteLine("SampleClass.Print()");
+            }
+        }
     }
 
-    public void Execute()
-    {
-      //
-      // ExecuteCodeWithGuaranteedCleanupメソッドは, PrepareConstrainedRegionsメソッドと
-      // 同様に、コードをCER（制約された実行環境）で実行するメソッドである。
-      //
-      // PrepareConstrainedRegionsメソッドが呼び出されたメソッドのcatch, finallyブロックを
-      // CERとしてマークするのに対して、ExecuteCodeWithGuaranteedCleanupメソッドは
-      // 明示的に実行コード部分とクリーンアップ部分 (バックアウトコード)を引数で渡す仕様となっている。
-      //
-      // ExecuteCodeWithGuaranteedCleanupメソッドは
-      // TryCodeデリゲートとCleanupCodeデリゲート、及び、userDataを受け取る.
-      //
-      // public delegate void TryCode(object userData)
-      // public delegate void CleanupCode(object userData, bool exceptionThrown)
-      //
-      // 前回のサンプルと同じ動作を行う.
-      RuntimeHelpers.ExecuteCodeWithGuaranteedCleanup(Calc, Cleanup, null);
-    }
-
-    void Calc(object userData)
-    {
-      for (int i = 0; i < 10; i++)
-      {
-        Output.Write("{0} ", (i + 1));
-      }
-
-      Output.WriteLine("");
-    }
-
-    void Cleanup(object userData, bool exceptionThrown)
-    {
-      SampleClass.Print();
-    }
-  }
-  #endregion
+    #endregion
 }

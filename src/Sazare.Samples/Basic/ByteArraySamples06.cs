@@ -1,29 +1,29 @@
+using System;
+using System.Text;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Text;
+    #region ByteArraySamples-06
 
-  using Sazare.Common;
-  
-  #region ByteArraySamples-06
-  /// <summary>
-  /// バイト配列についてのサンプルです。
-  /// </summary>
-  [Sample]
-  public class ByteArraySamples06 : Sazare.Common.IExecutable
-  {
-    public void Execute()
+    /// <summary>
+    ///     バイト配列についてのサンプルです。
+    /// </summary>
+    [Sample]
+    public class ByteArraySamples06 : IExecutable
     {
-      //
-      // 文字列をバイト列へ
-      //
-      string s = "gsf_zero1";
-      byte[] buf = Encoding.ASCII.GetBytes(s);
+        public void Execute()
+        {
+            //
+            // 文字列をバイト列へ
+            //
+            var s = "gsf_zero1";
+            var buf = Encoding.ASCII.GetBytes(s);
 
-      Output.WriteLine(BitConverter.ToString(buf));
+            Output.WriteLine(BitConverter.ToString(buf));
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }

@@ -1,39 +1,36 @@
+using System.Data;
+using System.Linq;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Data;
-  using System.Linq;
+    #region DataTableSamples-02
 
-  using Sazare.Common;
-  
-  #region DataTableSamples-02
-  /// <summary>
-  /// DataTableクラスに関するサンプルです。
-  /// </summary>
-  [Sample]
-  public class DataTableSamples02 : Sazare.Common.IExecutable
-  {
-    public void Execute()
+    /// <summary>
+    ///     DataTableクラスに関するサンプルです。
+    /// </summary>
+    [Sample]
+    public class DataTableSamples02 : IExecutable
     {
-      DataTable table = new DataTable();
+        public void Execute()
+        {
+            var table = new DataTable();
 
-      table.Columns.Add("Val", typeof(int));
+            table.Columns.Add("Val", typeof(int));
 
-      for (int i = 0; i < 10; i++)
-      {
-        table.LoadDataRow(new object[] { i }, true);
-      }
+            for (var i = 0; i < 10; i++)
+            {
+                table.LoadDataRow(new object[] {i}, true);
+            }
 
-      //
-      // Selectメソッドで行を抽出.
-      //
-      DataRow[] selectedRows = table.Select("(Val % 2) = 0", "Val");
-      selectedRows.ToList().ForEach((row) =>
-      {
-        Output.WriteLine(row["Val"]);
-      });
+            //
+            // Selectメソッドで行を抽出.
+            //
+            var selectedRows = table.Select("(Val % 2) = 0", "Val");
+            selectedRows.ToList().ForEach(row => { Output.WriteLine(row["Val"]); });
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }

@@ -1,110 +1,112 @@
+// ReSharper disable CheckNamespace
+
+using System.Linq;
+using System.Xml.Linq;
+using Sazare.Common;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Xml.Linq;
 
-  using Sazare.Common;
-  
-  #region LinqSamples-79
-  /// <summary>
-  /// LINQ to XMLのサンプルです.
-  /// </summary>
-  /// <remarks>
-  /// ナビゲーション(ElementsAfterSelf, ElementsBeforeSelf)のサンプルです.
-  /// </remarks>
-  [Sample]
-  public class LinqSamples79 : Sazare.Common.IExecutable
-  {
-    public void Execute()
+    #region LinqSamples-79
+
+    /// <summary>
+    ///     LINQ to XMLのサンプルです.
+    /// </summary>
+    /// <remarks>
+    ///     ナビゲーション(ElementsAfterSelf, ElementsBeforeSelf)のサンプルです.
+    /// </remarks>
+    [Sample]
+    public class LinqSamples79 : IExecutable
     {
-      //
-      // ElementsAfterSelf(), ElementsAfterSelf(XName)
-      //   現在の要素の後ろにある兄弟要素を取得する.
-      //   自分自身は含まない.
-      //
-      //   引数無し版のメソッドの方は、予想通りの動きをするが
-      //   XNameを受け取るオーバーロードの方は、AncestorsAndSelf(XName)と
-      //   同じ変な挙動をする。 (MSDNに乗っているサンプルでも、兄弟要素が表示されていない)
-      //   謎,,,。
-      //
-      var root = BuildSampleXml();
-      var startingPoint = root.Descendants("Book").First();
+        public void Execute()
+        {
+            //
+            // ElementsAfterSelf(), ElementsAfterSelf(XName)
+            //   現在の要素の後ろにある兄弟要素を取得する.
+            //   自分自身は含まない.
+            //
+            //   引数無し版のメソッドの方は、予想通りの動きをするが
+            //   XNameを受け取るオーバーロードの方は、AncestorsAndSelf(XName)と
+            //   同じ変な挙動をする。 (MSDNに乗っているサンプルでも、兄弟要素が表示されていない)
+            //   謎,,,。
+            //
+            var root = BuildSampleXml();
+            var startingPoint = root.Descendants("Book").First();
 
-      // 最初のBook要素の後ろにある兄弟要素が表示される.
-      foreach (var elem in startingPoint.ElementsAfterSelf())
-      {
-        Output.WriteLine(elem);
-      }
+            // 最初のBook要素の後ろにある兄弟要素が表示される.
+            foreach (var elem in startingPoint.ElementsAfterSelf())
+            {
+                Output.WriteLine(elem);
+            }
 
-      Output.WriteLine("=====================================");
+            Output.WriteLine("=====================================");
 
-      root = BuildSampleXml();
-      startingPoint = root.Descendants("Title").Last();
+            root = BuildSampleXml();
+            startingPoint = root.Descendants("Title").Last();
 
-      // Titleの後ろにある兄弟要素が表示される
-      foreach (var elem in startingPoint.ElementsAfterSelf())
-      {
-        Output.WriteLine(elem);
-      }
+            // Titleの後ろにある兄弟要素が表示される
+            foreach (var elem in startingPoint.ElementsAfterSelf())
+            {
+                Output.WriteLine(elem);
+            }
 
 
-      Output.WriteLine("=====================================");
+            Output.WriteLine("=====================================");
 
-      root = BuildSampleXml();
-      startingPoint = root.Descendants("Title").Last();
+            root = BuildSampleXml();
+            startingPoint = root.Descendants("Title").Last();
 
-      // 何故か、引数に指定したGenreしか表示されない？？
-      // AncestorsAndSelf(XName)とかと同じ挙動.
-      foreach (var elem in startingPoint.ElementsAfterSelf("Genre"))
-      {
-        Output.WriteLine(elem);
-      }
+            // 何故か、引数に指定したGenreしか表示されない？？
+            // AncestorsAndSelf(XName)とかと同じ挙動.
+            foreach (var elem in startingPoint.ElementsAfterSelf("Genre"))
+            {
+                Output.WriteLine(elem);
+            }
 
-      Output.WriteLine("=====================================");
+            Output.WriteLine("=====================================");
 
-      //
-      // ElementsBeforeSelf(), ElementsBeforeSelf(XName)
-      //   現在の要素の前にある兄弟要素を取得する.
-      //   自分自身は含まない.
-      //
-      //   引数無し版のメソッドの方は、予想通りの動きをするが
-      //   XNameを受け取るオーバーロードの方は、AncestorsAndSelf(XName)と
-      //   同じ変な挙動をする。 (MSDNに乗っているサンプルでも、兄弟要素が表示されていない)
-      //   謎,,,。
-      //
-      root = BuildSampleXml();
-      startingPoint = root.Descendants("PublishDate").Last();
+            //
+            // ElementsBeforeSelf(), ElementsBeforeSelf(XName)
+            //   現在の要素の前にある兄弟要素を取得する.
+            //   自分自身は含まない.
+            //
+            //   引数無し版のメソッドの方は、予想通りの動きをするが
+            //   XNameを受け取るオーバーロードの方は、AncestorsAndSelf(XName)と
+            //   同じ変な挙動をする。 (MSDNに乗っているサンプルでも、兄弟要素が表示されていない)
+            //   謎,,,。
+            //
+            root = BuildSampleXml();
+            startingPoint = root.Descendants("PublishDate").Last();
 
-      foreach (var elem in startingPoint.ElementsBeforeSelf())
-      {
-        Output.WriteLine(elem);
-      }
+            foreach (var elem in startingPoint.ElementsBeforeSelf())
+            {
+                Output.WriteLine(elem);
+            }
 
-      Output.WriteLine("=====================================");
+            Output.WriteLine("=====================================");
 
-      root = BuildSampleXml();
-      startingPoint = root.Descendants("Description").Last();
+            root = BuildSampleXml();
+            startingPoint = root.Descendants("Description").Last();
 
-      // 何故か、引数に指定したPublishDateしか表示されない？？
-      // AncestorsAndSelf(XName)とかと同じ挙動.
-      foreach (var elem in startingPoint.ElementsBeforeSelf("PublishDate"))
-      {
-        Output.WriteLine(elem);
-      }
+            // 何故か、引数に指定したPublishDateしか表示されない？？
+            // AncestorsAndSelf(XName)とかと同じ挙動.
+            foreach (var elem in startingPoint.ElementsBeforeSelf("PublishDate"))
+            {
+                Output.WriteLine(elem);
+            }
 
-      Output.WriteLine("=====================================");
+            Output.WriteLine("=====================================");
+        }
+
+        private XElement BuildSampleXml()
+        {
+            //
+            // サンプルXMLファイル
+            //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
+            //
+            return XElement.Load(@"xml/Books.xml");
+        }
     }
 
-    XElement BuildSampleXml()
-    {
-      //
-      // サンプルXMLファイル
-      //  see: http://msdn.microsoft.com/ja-jp/library/vstudio/ms256479(v=vs.90).aspx
-      //
-      return XElement.Load(@"xml/Books.xml");
-    }
-  }
-  #endregion
+    #endregion
 }

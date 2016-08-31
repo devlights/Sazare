@@ -1,48 +1,48 @@
+using System;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
+    #region BitConverterSamples-01
 
-  using Sazare.Common;
-  
-  #region BitConverterSamples-01
-  /// <summary>
-  /// System.BitConverterクラスのサンプルです。
-  /// </summary>
-  [Sample]
-  public class BitConverterSamples01 : Sazare.Common.IExecutable
-  {
-    public void Execute()
+    /// <summary>
+    ///     System.BitConverterクラスのサンプルです。
+    /// </summary>
+    [Sample]
+    public class BitConverterSamples01 : IExecutable
     {
-      //
-      // バイト列から16進文字列への変換.
-      //
-      byte[] bytes = new byte[] { 1, 2, 10, 15, (byte)'a', (byte)'b', (byte)'q' };
-      Output.WriteLine(BitConverter.ToString(bytes));
+        public void Execute()
+        {
+            //
+            // バイト列から16進文字列への変換.
+            //
+            byte[] bytes = {1, 2, 10, 15, (byte) 'a', (byte) 'b', (byte) 'q'};
+            Output.WriteLine(BitConverter.ToString(bytes));
 
-      //
-      // 数値からバイト列への変換.
-      // (一旦数値をバイト列に変換してから、16進に変換して表示)
-      //
-      int i = 100;
-      Output.WriteLine(BitConverter.ToString(BitConverter.GetBytes(i)));
+            //
+            // 数値からバイト列への変換.
+            // (一旦数値をバイト列に変換してから、16進に変換して表示)
+            //
+            var i = 100;
+            Output.WriteLine(BitConverter.ToString(BitConverter.GetBytes(i)));
 
-      int i2 = 0x12345678;
-      Output.WriteLine(BitConverter.ToString(BitConverter.GetBytes(i2)));
+            var i2 = 0x12345678;
+            Output.WriteLine(BitConverter.ToString(BitConverter.GetBytes(i2)));
 
-      //
-      // バイト列から数値への変換.
-      //
-      bytes = new byte[] { 1 };
-      Output.WriteLine(BitConverter.ToBoolean(bytes, 0));
+            //
+            // バイト列から数値への変換.
+            //
+            bytes = new byte[] {1};
+            Output.WriteLine(BitConverter.ToBoolean(bytes, 0));
 
-      bytes = new byte[] { 1, 0, 0, 0 };
-      Output.WriteLine(BitConverter.ToInt32(bytes, 0));
+            bytes = new byte[] {1, 0, 0, 0};
+            Output.WriteLine(BitConverter.ToInt32(bytes, 0));
 
-      bytes = BitConverter.GetBytes((byte)'a');
-      Output.WriteLine(BitConverter.ToChar(bytes, 0));
+            bytes = BitConverter.GetBytes((byte) 'a');
+            Output.WriteLine(BitConverter.ToChar(bytes, 0));
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }

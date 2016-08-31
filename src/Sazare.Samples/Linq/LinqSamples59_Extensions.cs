@@ -1,31 +1,35 @@
+// ReSharper disable CheckNamespace
+// ReSharper disable InconsistentNaming
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
 
-  using Sazare.Common;
-  
-  #region LinqSamples-59 Extensions
+    #region LinqSamples-59 Extensions
 
-  public static class LinqSamples59_Extensions
-  {
-    /// <summary>
-    /// シーケンスを指定されたサイズのチャンクに分割します.
-    /// </summary>
-    public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> self, int chunkSize)
+    public static class LinqSamples59_Extensions
     {
-      if (chunkSize <= 0)
-      {
-        throw new ArgumentException("Chunk size must be greater than 0.", "chunkSize");
-      }
+        /// <summary>
+        ///     シーケンスを指定されたサイズのチャンクに分割します.
+        /// </summary>
+        public static IEnumerable<IEnumerable<T>> Chunk<T>(this IEnumerable<T> self, int chunkSize)
+        {
+            if (chunkSize <= 0)
+            {
+                throw new ArgumentException("Chunk size must be greater than 0.", nameof(chunkSize));
+            }
 
-      while (self.Any())
-      {
-        yield return self.Take(chunkSize);
-        self = self.Skip(chunkSize);
-      }
+            var enumerable = self as T[] ?? self.ToArray();
+            while (enumerable.Any())
+            {
+                yield return enumerable.Take(chunkSize);
+                self = enumerable.Skip(chunkSize);
+            }
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }

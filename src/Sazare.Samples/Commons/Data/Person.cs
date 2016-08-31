@@ -1,12 +1,19 @@
+// ReSharper disable CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
+    /// <summary>
+    /// 人物を表すデータクラスです。
+    /// </summary>
+    public class Person
+    {
+        /// <summary>
+        /// ID
+        /// </summary>
+        public int Id { get; set; }
 
-  public class Person
-  {
-    public int Id { get; set; }
-    public string Name { get; set; }
-  }
+        /// <summary>
+        /// 名前
+        /// </summary>
+        public string Name { get; set; }
+    }
 }

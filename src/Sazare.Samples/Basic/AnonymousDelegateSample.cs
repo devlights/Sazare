@@ -1,39 +1,34 @@
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-
-  using Sazare.Common;
-  
-  #region 匿名デリゲートのサンプル (.net framework 2.0)
-  /// <summary>
-  /// 匿名デリゲート(anonymous delegete)のサンプル（.NET Framework 2.0）
-  /// </summary>
-  [Sample]
-  class AnonymousDelegateSample : Sazare.Common.IExecutable
-  {
-    /// <summary>
-    /// 本サンプルで利用するデリゲートの定義
-    /// </summary>
-    delegate void SampleDelegate();
+    #region 匿名デリゲートのサンプル (.net framework 2.0)
 
     /// <summary>
-    /// 処理を実行します。
+    ///     匿名デリゲート(anonymous delegete)のサンプル（.NET Framework 2.0）
     /// </summary>
-    public void Execute()
+    [Sample]
+    internal class AnonymousDelegateSample : IExecutable
     {
-      //
-      // 匿名メソッドを構築して実行.
-      //
-      SampleDelegate d = delegate()
-      {
-        Output.WriteLine("SAMPLE_ANONYMOUS_DELEGATE.");
-      };
+        /// <summary>
+        ///     処理を実行します。
+        /// </summary>
+        public void Execute()
+        {
+            //
+            // 匿名メソッドを構築して実行.
+            //
+            SampleDelegate d = delegate { Output.WriteLine("SAMPLE_ANONYMOUS_DELEGATE."); };
 
-      d.Invoke();
+            d.Invoke();
+        }
+
+        /// <summary>
+        ///     本サンプルで利用するデリゲートの定義
+        /// </summary>
+        private delegate void SampleDelegate();
     }
 
-  }
-  #endregion
+    #endregion
 }

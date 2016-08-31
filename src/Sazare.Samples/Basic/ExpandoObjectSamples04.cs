@@ -1,62 +1,61 @@
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Dynamic;
+using Sazare.Common;
+
+// ReSharper disable once CheckNamespace
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.ComponentModel;
-  using System.Linq;
 
-  using Sazare.Common;
-  
-  #region ExpandoObjectクラスのサンプル-04
-  /// <summary>
-  /// ExpandoObjectクラスについてのサンプルです。
-  /// </summary>
-  /// <remarks>
-  /// .NET 4.0から追加されたクラスです。
-  /// </remarks>
-  [Sample]
-  public class ExpandoObjectSamples04 : Sazare.Common.IExecutable
-  {
-    public void Execute()
+    #region ExpandoObjectクラスのサンプル-04
+
+    /// <summary>
+    ///     ExpandoObjectクラスについてのサンプルです。
+    /// </summary>
+    /// <remarks>
+    ///     .NET 4.0から追加されたクラスです。
+    /// </remarks>
+    [Sample]
+    public class ExpandoObjectSamples04 : IExecutable
     {
-      ///////////////////////////////////////////////////////////////////////
-      //
-      // ExpandoObjectをINotifyPropertyChangedとして扱う. (プロパティの変更をハンドル)
-      //
-      dynamic obj = new System.Dynamic.ExpandoObject();
+        public void Execute()
+        {
+            ///////////////////////////////////////////////////////////////////////
+            //
+            // ExpandoObjectをINotifyPropertyChangedとして扱う. (プロパティの変更をハンドル)
+            //
+            dynamic obj = new ExpandoObject();
 
-      //
-      // イベントハンドラ設定.
-      //
-      (obj as INotifyPropertyChanged).PropertyChanged += (sender, e) =>
-      {
-        Output.WriteLine("Property Changed:{0}", e.PropertyName);
-      };
+            //
+            // イベントハンドラ設定.
+            //
+            (obj as INotifyPropertyChanged).PropertyChanged += (sender, e) => { Output.WriteLine("Property Changed:{0}", e.PropertyName); };
 
-      //
-      // メンバー定義.
-      //
-      obj.Name = "gsf_zero1";
-      obj.Age = 30;
+            //
+            // メンバー定義.
+            //
+            obj.Name = "gsf_zero1";
+            obj.Age = 30;
 
-      //
-      // メンバー削除.
-      //
-      (obj as IDictionary<string, object>).Remove("Age");
+            //
+            // メンバー削除.
+            //
+            (obj as IDictionary<string, object>).Remove("Age");
 
-      //
-      // 値変更.
-      //
-      obj.Name = "gsf_zero2";
+            //
+            // 値変更.
+            //
+            obj.Name = "gsf_zero2";
 
-      //
-      // 実行結果：
-      //     Property Changed:Name
-      //     Property Changed:Age
-      //     Property Changed:Age
-      //     Property Changed:Name
-      //
+            //
+            // 実行結果：
+            //     Property Changed:Name
+            //     Property Changed:Age
+            //     Property Changed:Age
+            //     Property Changed:Name
+            //
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }

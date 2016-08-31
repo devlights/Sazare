@@ -1,57 +1,57 @@
+// ReSharper disable CheckNamespace
+
+using System.Threading;
+using Sazare.Common;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Threading;
 
-  using Sazare.Common;
-  
-  #region ThreadingNamespaceSamples-03
-  [Sample]
-  public class ThreadingNamespaceSamples03 : Sazare.Common.IExecutable
-  {
+    #region ThreadingNamespaceSamples-03
 
-    public void Execute()
+    [Sample]
+    public class ThreadingNamespaceSamples03 : IExecutable
     {
-      Thread thread = new Thread(ThreadProcess);
+        public void Execute()
+        {
+            var thread = new Thread(ThreadProcess);
 
-      thread.IsBackground = true;
-      thread.Start();
+            thread.IsBackground = true;
+            thread.Start();
 
-      thread.Join();
+            thread.Join();
+        }
+
+        private void ThreadProcess()
+        {
+            ///////////////////////////////////////////////////
+            //
+            // スレッドクラスが持つその他のプロパティについて
+            //
+            var currentThread = Thread.CurrentThread;
+
+            // 
+            // IsAliveプロパティ
+            //    ⇒スレッドが起動されており、まだ終了または中止されていない場合は
+            //    　trueとなる。
+            //
+            Output.WriteLine("IsAlive={0}", currentThread.IsAlive);
+
+            //
+            // IsThreadPoolThread, ManagedThreadIdプロパティ
+            //    ⇒それぞれ、スレッドプールスレッドかどうかとマネージスレッドを識別
+            //    　する値が取得できる。
+            //
+            Output.WriteLine("IsThreadPoolThread={0}", currentThread.IsThreadPoolThread);
+            Output.WriteLine("ManagedThreadId={0}", currentThread.ManagedThreadId);
+
+            //
+            // Priorityプロパティ
+            //    ⇒対象のスレッドの優先度（プライオリティ）を取得及び設定します。
+            //    　Highestが最も高く、Lowestが最も低い.
+            //
+            Output.WriteLine("Priority={0}", currentThread.Priority);
+        }
     }
 
-    void ThreadProcess()
-    {
-      ///////////////////////////////////////////////////
-      //
-      // スレッドクラスが持つその他のプロパティについて
-      //
-      Thread currentThread = Thread.CurrentThread;
-
-      // 
-      // IsAliveプロパティ
-      //    ⇒スレッドが起動されており、まだ終了または中止されていない場合は
-      //    　trueとなる。
-      //
-      Output.WriteLine("IsAlive={0}", currentThread.IsAlive);
-
-      //
-      // IsThreadPoolThread, ManagedThreadIdプロパティ
-      //    ⇒それぞれ、スレッドプールスレッドかどうかとマネージスレッドを識別
-      //    　する値が取得できる。
-      //
-      Output.WriteLine("IsThreadPoolThread={0}", currentThread.IsThreadPoolThread);
-      Output.WriteLine("ManagedThreadId={0}", currentThread.ManagedThreadId);
-
-      //
-      // Priorityプロパティ
-      //    ⇒対象のスレッドの優先度（プライオリティ）を取得及び設定します。
-      //    　Highestが最も高く、Lowestが最も低い.
-      //
-      Output.WriteLine("Priority={0}", currentThread.Priority);
-    }
-  }
-  #endregion
+    #endregion
 }

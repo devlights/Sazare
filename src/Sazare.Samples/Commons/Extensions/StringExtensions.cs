@@ -1,32 +1,31 @@
+// ReSharper disable CheckNamespace
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
 
-  using Sazare.Common;
-  
-  #region 共通拡張クラス
-  /// <summary>
-  /// 共通で利用しているString拡張クラスです。
-  /// </summary>
-  public static class StringExtensions
-  {
+    #region 共通拡張クラス
+
     /// <summary>
-    /// 数値に変換します。
+    ///     共通で利用しているString拡張クラスです。
     /// </summary>
-    /// <param name="self">自分自身</param>
-    /// <return>自分自身を数値に変換した値.</return>
-    public static int ToInt(this string self)
+    public static class StringExtensions
     {
-      int i;
-      if (!int.TryParse(self, out i))
-      {
-        return int.MinValue;
-      }
+        /// <summary>
+        ///     数値に変換します。
+        /// </summary>
+        /// <param name="self">自分自身</param>
+        /// <return>自分自身を数値に変換した値.</return>
+        public static int ToInt(this string self)
+        {
+            int i;
+            if (!int.TryParse(self, out i))
+            {
+                return int.MinValue;
+            }
 
-      return i;
+            return i;
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }

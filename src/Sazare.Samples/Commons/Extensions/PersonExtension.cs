@@ -1,30 +1,39 @@
+// ReSharper disable CheckNamespace
+
+using System;
+using Sazare.Common;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
+    #region LinqSamples-18 AND LinqSamples-19 AND 拡張メソッド解決
 
-  using Sazare.Common;
-  
-  #region LinqSamples-18 AND LinqSamples-19 AND 拡張メソッド解決
-
-  public static class PersonExtension
-  {
-    public static Persons Where(this Persons self, Func<Person, bool> predicate)
+    /// <summary>
+    /// <see cref="Person"/>の拡張メソッドが定義されています。
+    /// </summary>
+    public static class PersonExtension
     {
-      var result = new Persons();
-
-      Output.WriteLine("========= WHERE ========");
-      foreach (var aPerson in self)
-      {
-        if (predicate(aPerson))
+        /// <summary>
+        /// 指定された条件に合致する<see cref="Person"/>を取得します。
+        /// </summary>
+        /// <param name="self">自分自身</param>
+        /// <param name="predicate">抽出条件</param>
+        /// <returns>絞込結果</returns>
+        public static Persons Where(this Persons self, Func<Person, bool> predicate)
         {
-          result.Add(aPerson);
-        }
-      }
+            var result = new Persons();
 
-      return result;
+            Output.WriteLine("========= WHERE ========");
+            foreach (var aPerson in self)
+            {
+                if (predicate(aPerson))
+                {
+                    result.Add(aPerson);
+                }
+            }
+
+            return result;
+        }
     }
-  }
-  #endregion
+
+    #endregion
 }

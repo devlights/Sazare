@@ -1,49 +1,50 @@
+// ReSharper disable CheckNamespace
+
+using System;
+using System.Runtime.Remoting.Messaging;
+using System.Threading;
+using Sazare.Common;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Runtime.Remoting.Messaging;
-  using System.Threading;
 
-  using Sazare.Common;
-  
-  #region AsyncResultSamples-01
-  /// <summary>
-  /// 非同期処理 (IAsyncResult) のサンプル１です。
-  /// </summary>
-  [Sample]
-  public class AsyncResultSamples01 : Sazare.Common.IExecutable
-  {
+    #region AsyncResultSamples-01
 
-    AutoResetEvent _are = new AutoResetEvent(false);
-
-    public void Execute()
+    /// <summary>
+    ///     非同期処理 (IAsyncResult) のサンプル１です。
+    /// </summary>
+    [Sample]
+    public class AsyncResultSamples01 : IExecutable
     {
-      Func<DateTime, string> func = CallerMethod;
+        private readonly AutoResetEvent _are = new AutoResetEvent(false);
 
-      IAsyncResult result = func.BeginInvoke(DateTime.Now, CallbackMethod, _are);
-      _are.WaitOne();
-      func.EndInvoke(result);
+        public void Execute()
+        {
+            Func<DateTime, string> func = CallerMethod;
+
+            var result = func.BeginInvoke(DateTime.Now, CallbackMethod, _are);
+            _are.WaitOne();
+            func.EndInvoke(result);
+        }
+
+        private string CallerMethod(DateTime d)
+        {
+            return d.ToString("yyyy/MM/dd HH:mm:ss");
+        }
+
+        private void CallbackMethod(IAsyncResult ar)
+        {
+            var result = ar as AsyncResult;
+            var caller = result.AsyncDelegate as Func<DateTime, string>;
+            var handle = result.AsyncState as EventWaitHandle;
+
+            if (!result.EndInvokeCalled)
+            {
+                Output.WriteLine(caller.EndInvoke(result));
+                handle.Set();
+            }
+        }
     }
 
-    string CallerMethod(DateTime d)
-    {
-      return d.ToString("yyyy/MM/dd HH:mm:ss");
-    }
-
-    void CallbackMethod(IAsyncResult ar)
-    {
-      AsyncResult result = ar as AsyncResult;
-      Func<DateTime, string> caller = result.AsyncDelegate as Func<DateTime, string>;
-      EventWaitHandle handle = result.AsyncState as EventWaitHandle;
-
-      if (!result.EndInvokeCalled)
-      {
-        Output.WriteLine(caller.EndInvoke(result));
-        handle.Set();
-      }
-    }
-  }
-  #endregion
+    #endregion
 }
