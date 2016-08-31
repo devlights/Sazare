@@ -1,4 +1,3 @@
-[![Build status](https://ci.appveyor.com/api/projects/status/2yl2avpk039cr6jg)](https://ci.appveyor.com/project/devlights/sazare)
 
 # VisualStudioで開く場合
 
