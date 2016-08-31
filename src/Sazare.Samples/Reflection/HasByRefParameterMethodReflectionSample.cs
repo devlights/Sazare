@@ -1,38 +1,40 @@
+// ReSharper disable CheckNamespace
+
+using System;
+using System.Reflection;
+using Sazare.Common;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Reflection;
 
-  using Sazare.Common;
-  
-  #region ByRefの引数をもつメソッドをリフクレクションで取得
-  /// <summary>
-  /// ByRefの引数を持つメソッドをリフレクションで取得するサンプルです。
-  /// </summary>
-  [Sample]
-  public class HasByRefParameterMethodReflectionSample : Sazare.Common.IExecutable
-  {
-    public void Execute()
+    #region ByRefの引数をもつメソッドをリフクレクションで取得
+
+    /// <summary>
+    ///     ByRefの引数を持つメソッドをリフレクションで取得するサンプルです。
+    /// </summary>
+    [Sample]
+    public class HasByRefParameterMethodReflectionSample : IExecutable
     {
-      Type type = typeof(HasByRefParameterMethodReflectionSample);
-      BindingFlags flags = (BindingFlags.NonPublic | BindingFlags.Instance);
-      Type[] paramTypes = new Type[] { typeof(string), Type.GetType("System.Int32&"), typeof(int) };
+        public void Execute()
+        {
+            var type = typeof(HasByRefParameterMethodReflectionSample);
+            var flags = BindingFlags.NonPublic | BindingFlags.Instance;
+            Type[] paramTypes = {typeof(string), Type.GetType("System.Int32&"), typeof(int)};
 
-      MethodInfo methodInfo = type.GetMethod("SetPropertyValue", flags, null, paramTypes, null);
-      Output.WriteLine(methodInfo);
+            var methodInfo = type.GetMethod("SetPropertyValue", flags, null, paramTypes, null);
+            Output.WriteLine(methodInfo);
+        }
+
+        // <summary>
+        // Dummy Method.
+        // </summary>
+        protected void SetPropertyValue(string propName, ref int refVal, int val)
+        {
+            //
+            // nop.
+            //
+        }
     }
 
-    // <summary>
-    // Dummy Method.
-    // </summary>
-    protected void SetPropertyValue(string propName, ref int refVal, int val)
-    {
-      //
-      // nop.
-      //
-    }
-  }
-  #endregion
+    #endregion
 }
