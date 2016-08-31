@@ -1,72 +1,72 @@
+// ReSharper disable CheckNamespace
+
+using System;
+using System.Collections.Generic;
+using System.Threading;
+using Sazare.Common;
+
 namespace Sazare.Samples
 {
-  using System;
-  using System.Collections.Generic;
-  using System.Linq;
-  using System.Threading;
 
-  using Sazare.Common;
-  
-  #region ThreadStaticAttributeSamples-01
-  /// <summary>
-  /// ThreadStatic属性に関するサンプルです。
-  /// </summary>
-  [Sample]
-  public class ThreadStaticAttributeSamples01 : Sazare.Common.IExecutable
-  {
-    private class ThreadState
+    #region ThreadStaticAttributeSamples-01
+
+    /// <summary>
+    ///     ThreadStatic属性に関するサンプルです。
+    /// </summary>
+    [Sample]
+    public class ThreadStaticAttributeSamples01 : IExecutable
     {
-      /// <summary>
-      /// 各スレッド毎に固有の値を持つフィールド.
-      /// </summary>
-      [ThreadStatic]
-      static KeyValuePair<string, int> NameAndId;
-      /// <summary>
-      /// 各スレッドで共有されるフィールド.
-      /// </summary>
-      static KeyValuePair<string, int> SharedNameAndId;
+        public void Execute()
+        {
+            var threads = new List<Thread>();
+            for (var i = 0; i < 5; i++)
+            {
+                var thread = new Thread(ThreadState.DoThreadProcess);
 
-      public static void DoThreadProcess()
-      {
-        Thread thread = Thread.CurrentThread;
+                thread.Name = $"Thread-{i}";
+                thread.IsBackground = true;
 
-        //
-        // ThreadStatic属性が付加されたフィールドと共有されたフィールドの両方に値を設定.
-        //
-        NameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
-        SharedNameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
+                threads.Add(thread);
 
-        Output.WriteLine("[BEFORE] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
+                thread.Start();
+            }
 
-        //
-        // 他のスレッドが動作できるようにする.
-        //
-        Thread.Sleep(TimeSpan.FromMilliseconds(200));
+            threads.ForEach(thread => { thread.Join(); });
+        }
 
-        Output.WriteLine("[AFTER ] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
-      }
+        private class ThreadState
+        {
+            /// <summary>
+            ///     各スレッド毎に固有の値を持つフィールド.
+            /// </summary>
+            [ThreadStatic] private static KeyValuePair<string, int> NameAndId;
+
+            /// <summary>
+            ///     各スレッドで共有されるフィールド.
+            /// </summary>
+            private static KeyValuePair<string, int> SharedNameAndId;
+
+            public static void DoThreadProcess()
+            {
+                var thread = Thread.CurrentThread;
+
+                //
+                // ThreadStatic属性が付加されたフィールドと共有されたフィールドの両方に値を設定.
+                //
+                NameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
+                SharedNameAndId = new KeyValuePair<string, int>(thread.Name, thread.ManagedThreadId);
+
+                Output.WriteLine("[BEFORE] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
+
+                //
+                // 他のスレッドが動作できるようにする.
+                //
+                Thread.Sleep(TimeSpan.FromMilliseconds(200));
+
+                Output.WriteLine("[AFTER ] ThreadStatic={0} Shared={1}", NameAndId, SharedNameAndId);
+            }
+        }
     }
 
-    public void Execute()
-    {
-      List<Thread> threads = new List<Thread>();
-      for (int i = 0; i < 5; i++)
-      {
-        Thread thread = new Thread(ThreadState.DoThreadProcess);
-
-        thread.Name = string.Format("Thread-{0}", i);
-        thread.IsBackground = true;
-
-        threads.Add(thread);
-
-        thread.Start();
-      }
-
-      threads.ForEach(thread =>
-      {
-        thread.Join();
-      });
-    }
-  }
-  #endregion
+    #endregion
 }
