@@ -1,3 +1,7 @@
+# このプロジェクトはとても古くメンテナンス出来ていません。。現在、このプロジェクトの別バージョンとして [try-csharp](https://github.com/devlights/try-csharp) というリポジトリを作っていますので、もしご参考していただけるのであれば、 try-csharp リポジトリ側ご覧くださいませ m(_ _)m
+
+
+
 
 # VisualStudioで開く場合
 
